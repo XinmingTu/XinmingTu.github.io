@@ -7,7 +7,7 @@
 - title: Education
   type: time_table
   contents:
-    - title: Doctor of Philosophy 
+    - title: Doctor of Philosophy
       institution: University of Washington, US
       year: 2021 - NOW
       description:
@@ -22,14 +22,14 @@
 - title: Experience
   type: time_table
   contents:
-    - title: Research Intern 
+    - title: Research Intern
       institution: Genentech, Research and Early Development
       year: 2023.6 - 2023.9
-    - title: Research Intern 
+    - title: Research Intern
       institution: Microsoft Research Asia Lab, China
       year: 2019.10 - 2020.4
       description:
-        - Machine Learning & Computational Biology Group 
+        - Machine Learning & Computational Biology Group
     - title: Visiting Summer Intern
       institution: Yale University, US
       year: 2019.6 - 2019.9
@@ -43,8 +43,8 @@
   type: time_table
   contents:
     - year: 2021
-      items: 
+      items:
         - Paul G. Allen First-Year Graduate Student Fellowship
         - Outstanding Graduates of Peking University
-        - Outstanding Graduates of Beijing 
+        - Outstanding Graduates of Beijing
         - ShenTong Graduates (Highest Graduate honor of School of Life Science)

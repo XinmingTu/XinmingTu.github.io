@@ -224,7 +224,7 @@ To compare the difference in algorithm performance with or without the singular 
     </div>
 </div>
 <div class="caption">
-    After getting the low dimensional embeddings(with/without singular value), we use Umap to visualize the cells from different technologies with the same parameters. And Cells are colored by cell types and batches. 
+    After getting the low dimensional embeddings(with/without singular value), we use Umap to visualize the cells from different technologies with the same parameters. And Cells are colored by cell types and batches.
 </div>
 
 As shown in the plot above, when we multiply the embedding by singular values the different cell types are more separated from each other in Umap visualization, meaning that more biological variation is preserved in the embedding.

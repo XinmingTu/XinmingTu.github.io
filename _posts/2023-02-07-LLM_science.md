@@ -50,7 +50,7 @@ The process can be broken down into three main steps:
   - For example, a prompt could be "What are the potential applications of combining X and Y in the field of Z?" or "What are the current limitations of using X in the study of Y and how could they be overcome?", "write a reserach proposal about X and Y in the field of Z", etc.
 - **Generating hypotheses and research ideas based on the prompts**: The final step is to use the LLM to generate hypotheses and research ideas based on the prompts. This can be done by feeding the prompts into the LLM and using its output as a starting point for further exploration and refinement.
 
-{% highlight python %} 
+{% highlight python %}
 input: list of keywords and concepts in field of study
 
 # Step 1: Find keywords and concepts
@@ -74,7 +74,7 @@ The use of Large Language Models (LLMs) for generating scientific hypotheses and
 There are several advantages to using large language models to propose scientific hypotheses and research ideas, such as:
 
 - **Efficiency**: Large language models can analyze large amounts of data quickly and generate hypotheses and ideas at a faster pace than humans, which could speed up the scientific discovery process.
-- **Unbiased and diverse thinking**: One of the main advantages of using LLMs for scientific hypothesis generation is that they can provide unbiased and diverse thinking that may not be limited by human biases or prior 
+- **Unbiased and diverse thinking**: One of the main advantages of using LLMs for scientific hypothesis generation is that they can provide unbiased and diverse thinking that may not be limited by human biases or prior
 - **Interdisciplinary reach**: Language models have been trained on a vast variety of text, therefore they have the capability to reach into many domains and interdisciplinary fields which could generate ideas that humans might not have thought of before.
 - **Continual learning**: Large language models can be retrained with new data, which would mean they can learn and develop with new research over time, which can lead to even more innovative ideas over time.
 

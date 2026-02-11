@@ -239,7 +239,7 @@ jekyll-archives:
     tag: '/blog/tag/:name/'
     category: '/blog/category/:name/'
 
-display_tags: ['single-cell','deep-learning','genetics'] # these tags will be displayed on the front page of your blog
+display_tags: ['single-cell','deep-learning','genetics','agents'] # these tags will be displayed on the front page of your blog
 display_categories: ['blockquotes'] # these categories will be displayed on the front page of your blog
 
 # -----------------------------------------------------------------------------

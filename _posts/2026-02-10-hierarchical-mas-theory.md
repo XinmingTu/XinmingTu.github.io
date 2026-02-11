@@ -1,6 +1,6 @@
 ---
 layout: distill
-title: "A Theoretical Framework for Hierarchical Systems: Error Control and Complexity Reduction"
+title: "A Theoretical Perspective on Hierarchical Systems: Error Control and Complexity Reduction"
 description: Why hierarchical multi-agent systems outperform linear chain-of-thought execution for long-horizon tasks, and how the critical scaling exponent shifts from N to log(N).
 date: 2026-02-10
 tags: ['agents', 'deep-learning']

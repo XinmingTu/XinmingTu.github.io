@@ -1,7 +1,7 @@
 ---
 layout: distill
 title: "Hierarchical Multi-Agent Systems: From Linear Collapse to Polylog-Overhead Fault Tolerance --- A Computation View via Work--Span Separation"
-description: A computation-centric framework explaining why hierarchical multi-agent systems mitigate long-horizon brittleness by separating work from span, reducing sequential control depth to logarithmic, and achieving fault tolerance with polylogarithmic verification overhead.
+description: A computation-centric framework explaining why hierarchical multi-agent systems mitigate long-horizon brittleness through three mechanisms -- topology compression, scope isolation, and verification filtering -- analyzed via the work-span lens from parallel computation.
 date: 2026-02-10
 tags: ['agents', 'deep-learning']
 
@@ -10,187 +10,239 @@ authors:
     url: "https://xinmingtu.cn"
     affiliations:
       name: University of Washington
+
+bibliography: 2026-02-10-hierarchical-mas-theory.bib
+
 toc:
-    - name: "Introduction & Core Thesis"
-    - name: "Baseline: Exponential Brittleness of Linear Execution"
-    - name: "Architectural Dimension Reduction: Separating Work from Span"
-    - name: "Error Decomposition: Global Drift vs. Local Residual Error"
-    - name: "Verification as the Mathematical Lever"
-    - name: "Four Fundamental Constraints for Hierarchical Gains"
-    - name: "Discussion & Conclusion"
+    - name: "Introduction"
+    - name: "The Baseline: Why Linear Reasoning Collapses"
+    - name: "Mechanism I: Architectural Compression of Span"
+    - name: "Mechanism II: Scope Isolation as Active Denoising"
+    - name: "Mechanism III: Verification as a Filter"
+    - name: "A Unified Theory of Reliability"
+    - name: "Practical Constraints"
+    - name: "Conclusion"
+    - name: "Related Work"
 ---
 
 ## Abstract
 
-Long-horizon reasoning often collapses under linear execution because small per-step generation errors compound exponentially along a single dependency chain. This note presents a compact, computation-centric framework explaining why hierarchical multi-agent systems (MAS) mitigate this brittleness. The core architectural move is to separate *work* (total atomic units produced) from *span* (the longest sequential control path), systematically reducing the span from linear to logarithmic. By modeling system failure as a combination of depth-driven global drift and work-driven local residual errors, we demonstrate that end-to-end reliability does not require perfect base models. Instead, if verification is cheaper and more sound than generation, residual errors can be suppressed with only polylogarithmic verification overhead. We conclude by identifying the four practical physical constraints---verification asymmetry, compressible interfaces, atomic tractability, and managerial fan-out limits---that must hold for these hierarchical gains to be realized in practice.
+Long-horizon reasoning often collapses under linear execution because small per-step errors compound along a single dependency chain. This note reframes the reliability of multi-agent systems (MAS) through the *work--span* lens from parallel computation <d-cite key="brent1974,blumofe1999"></d-cite>. The key claim is that hierarchical (and increasingly *dynamic*) MAS improve long-horizon robustness via a *three-layer defense*: (i) **topology** compresses sequential control *span* from $\Theta(W)$ to $\tilde O(\log W)$, slowing global drift; (ii) **scope isolation** actively denoises and reduces per-leaf difficulty, lowering the *effective* atomic error rate compared to monolithic prompting (motivated by long-context brittleness such as "lost in the middle" <d-cite key="liu2023lostmiddle"></d-cite>); and (iii) **verification** acts as a filter that suppresses the residual error tail, with polylogarithmic redundant checking when false accepts are rare. We end with practical "physics" constraints---verification asymmetry, compressible interfaces, scope isolation boundaries, and managerial fan-out limits---and connect the framework to the recent shift from *static* teams to *runtime-discovered* recursive topologies (e.g., AOrchestra, DyTopo, DyLAN) <d-cite key="ruan2026aorchestra,lu2026dytopo,liu2023dylan"></d-cite>.
 
-## Introduction & Core Thesis
+## Introduction
 
-**The paradigm shift.**
-For long-horizon tasks, a common (often implicit) strategy is to demand that the base model's per-step error rate $\epsilon$ become arbitrarily small as task length grows. This is a *scale-up-the-model* narrative.
+**The status quo: scale the model.**
+For long-horizon tasks, a common (often implicit) response to failure is to demand that the base model's per-step error rate $\epsilon$ become arbitrarily small as the horizon grows. This is the *scale-up-the-model* narrative.
 
-This note argues for a complementary *scale-up-the-system* narrative: rather than asking for unbounded improvements in $\epsilon$, reorganize computation so that the dominant error-compounding dimension is no longer the raw horizon, but a much shorter *hierarchical depth*.
+**The alternative: scale the system.**
+This note argues for a complementary *scale-up-the-system* narrative. Instead of asking for unbounded improvements in $\epsilon$, reorganize computation so that the dominant error-compounding dimension is no longer the raw horizon length, but a much shorter *control depth*.
 
-**The core claim.**
-Hierarchical MAS can reduce the *sequential control span* from linear in task size to logarithmic, while using verification and retry to localize errors. The gains are not "magic"; they require concrete asymmetries (verification cheaper and more sound than generation) and compressible coordination interfaces.
+**A computation lens: work vs. span.**
+We borrow the *work--span* viewpoint from parallel algorithms <d-cite key="brent1974,blumofe1999"></d-cite>. Work counts how many atomic units must be produced; span measures how long the longest sequential control chain is. A linear chain-of-thought has span $\Theta(W)$. Hierarchical MAS aim to keep span polylogarithmic while paying extra work for coordination.
 
-**What this note contributes (as a perspective).**
+**Three mechanisms that jointly buy reliability.**
+The flow of the note is intentionally "enemy $\rightarrow$ defenses":
 
-- A work--span formulation that cleanly separates *total work* from *sequential span*.
-- A two-channel error decomposition: global drift along depth vs. local residual errors across leaves.
-- A simple scaling argument showing how redundant verification can control $Wq$ with $O(\log W)$ overhead under suitable conditions.
-- Four "physical" constraints that determine when hierarchical gains survive contact with reality.
+1. **Mechanism I (Topology):** hierarchy compresses span, slowing *global drift*.
+2. **Mechanism II (Scope isolation):** decomposition *actively* reduces leaf difficulty and context noise, lowering the *effective* atomic error rate.
+3. **Mechanism III (Verification):** cheap, sound checks suppress the remaining residual errors.
 
-## Baseline: Exponential Brittleness of Linear Execution
+**Roadmap.**
+We first define work/span and the linear-collapse baseline. Then we develop the three mechanisms. Next we synthesize them into a single reliability scaling law. Finally we list the practical constraints that determine whether the gains survive in real systems. Related work is organized as a structural evolution in the appendix.
 
-Consider a task whose solution requires producing and correctly composing $W$ atomic units (facts, sub-proofs, code edits, test cases, etc.). A single-agent linear execution induces a sequential chain with span $S = W$:
+## The Baseline: Why Linear Reasoning Collapses
 
-$$
-U_1 \to U_2 \to \dots \to U_W.
-$$
+**Work and span.**
+Consider a task whose solution requires producing and correctly composing $W$ atomic units (facts, sub-proofs, code edits, tests, etc.). We distinguish:
 
-Let $\epsilon$ be the probability that generating an atomic unit is incorrect in a way that is not subsequently repaired. In the simplest brittle model (independent per-step failures; any critical failure ruins the run; no recovery),
+- **Work $W$:** total required atomic units.
+- **Span $S$:** the length of the longest sequential dependency/control path (critical path).
 
-$$
-P_{\text{linear}} = (1-\epsilon)^W \;\approx\; e^{-\epsilon W}.
-$$
+**Notation (quick reference).**
 
-**The "physical" limit in the linear topology.**
-To keep $P_{\text{linear}}$ bounded away from $0$ as $W$ grows, one needs $\epsilon = O(1/W)$, i.e., reliability must improve without bound as tasks get longer. This is not a realistic general strategy for long-horizon scaling.
+| Symbol | Meaning |
+|--------|---------|
+| $W$ | total atomic units (work) |
+| $S$ | sequential control span / critical path |
+| $k$ | branching factor / manager fan-out |
+| $D$ | hierarchy depth (idealized $\lceil \log_k W \rceil$) |
+| $\epsilon_{\mathrm{mono}}$ | unit error rate in monolithic (no isolation) setting |
+| $\epsilon_{\mathrm{leaf}}$ | unit error rate after scope isolation at leaves |
+| $\eta$ | per-layer drift probability (global intent/spec distortion) |
+| $q$ | residual leaf error after all local gates |
+| $\delta_+, \delta_-$ | verifier false accept / false reject |
+| $m$ | redundant checks per unit |
+| $c_g, c_v$ | cost of generation / verification |
 
-**Interpretation.**
-The fragility is driven by *span*: maintaining coherent intent and correctness across a long sequential chain is exponentially brittle under even small per-step error.
-
-## Architectural Dimension Reduction: Separating Work from Span
-
-### Work vs. span
-
-We distinguish:
-
-- **Work** $W$: the number of atomic units that must be produced and integrated.
-- **Span** $S$: the length of the longest sequential dependency chain (critical path).
-
-A linear chain forces $S = W$. However, many tasks admit decompositions where $W$ remains $\Theta(W)$ but $S$ is reduced.
-
-### Hierarchical decomposition as topology rewrite
-
-Represent the computation as a roughly balanced $k$-ary tree: managers decompose and integrate, workers produce leaf outputs. The depth is
+**Linear execution forces $S = W$.**
+A single-agent linear execution induces a sequential chain:
 
 $$
-D \;=\; \left\lceil \log_k W \right\rceil,
+U_1 \to U_2 \to \dots \to U_W,
 $$
 
-and the span is approximately $S \approx D$ (up to constants), because the critical root-to-leaf-to-root integration path scales with depth, not with the total number of leaves.
+so the span is $S = W$.
 
-**What is (and is not) reduced.**
-
-- Total work: still $\Theta(W)$ (often larger due to coordination overhead).
-- Sequential control span: reduced from $\Theta(W)$ to $\Theta(\log_k W)$.
-
-This is the sense in which hierarchy performs "architectural dimension reduction": it compresses the dominant sequential bottleneck, not the total amount of labor.
-
-## Error Decomposition: Global Drift vs. Local Residual Error
-
-A hierarchical system fails for (at least) two qualitatively different reasons. To understand the scaling behavior, we model the survival probability multiplicatively.
-
-### Global intent drift (depth-driven)
-
-Let $\eta$ be the per-layer probability that intent or constraints are distorted in a way that is not fully corrected (semantic drift, spec distortion). The depth-driven coherence model is:
+**Exponential collapse under small per-step error.**
+Let $\epsilon_{\mathrm{mono}}$ be the probability that a generated atomic unit is incorrect in a way that is not repaired. In the simplest brittle model (independent failures; any critical failure ruins the run),
 
 $$
-P_{\text{coherence}} \approx (1-\eta)^D \approx e^{-D\eta}.
+P_{\mathrm{linear}} = (1-\epsilon_{\mathrm{mono}})^W \;\approx\; e^{-\epsilon_{\mathrm{mono}} W}.
 $$
 
-Since $D = \Theta(\log_k W)$, hierarchy directly attacks this channel, ensuring the exponential decay driven by depth is extremely slow.
+**The "physical" limit of the linear topology.**
+To keep $P_{\mathrm{linear}}$ bounded away from $0$ as $W$ grows, one needs $\epsilon_{\mathrm{mono}} = O(1/W)$. That is, the base model would have to become arbitrarily reliable as the horizon lengthens. This is the core brittleness critique of long chains.
 
-### Local residual errors (work-driven)
+**What the baseline teaches.**
+The enemy is not "multi-step reasoning" per se; it is the *linear span* that forces errors and drift to accumulate along a length-$W$ control path. The rest of the note asks: can we change the topology so that the dominant compounding path is much shorter, and then keep the remaining errors local?
 
-Hierarchy does not eliminate the need for many leaf outputs to be correct. Let $q$ be the probability that a leaf output remains critically wrong *after* local verification and correction.
+## Mechanism I: Architectural Compression of Span
 
-Assuming leaf failures are effectively weakly correlated after local retry loops, the probability that all $W$ required leaf units are functionally sufficient is:
-
-$$
-P_{\text{leaves}} \approx (1-q)^W \approx e^{-Wq}.
-$$
-
-Notice that if $q$ remains constant as task complexity $W$ scales, the system still suffers exponential collapse, simply driven by the sheer volume of work.
-
-### The scaling constraint: bounding the exponent
-
-The end-to-end success probability can be approximated as:
+**From a chain to a tree/DAG.**
+Replace the linear chain with a roughly balanced $k$-ary hierarchy: a manager decomposes work into $k$ subproblems, sub-managers repeat, and leaves produce outputs. In the idealized balanced case,
 
 $$
-P_{\text{success}} \approx P_{\text{coherence}} \times P_{\text{leaves}} \approx \exp\Big( - (Wq + D\eta) \Big).
+D = \left\lceil \log_k W \right\rceil,
 $$
 
-**How to read this bound.**
-To maintain a high and stable probability of success (e.g., $P_{\text{success}} \ge 1/e \approx 37\%$), the exponent must be bounded:
+and the sequential control span scales like $S \approx \Theta(D)$ rather than $\Theta(W)$.
+
+**A concrete contrast (linear vs. hierarchical).**
+A useful mental model is that hierarchy keeps total work large (still $\Theta(W)$), but shortens the single most dangerous path:
 
 $$
-Wq + D\eta \;\lesssim\; 1.
+\underbrace{\text{Linear: } S=W}_{\text{one long control chain}}
+\qquad\Rightarrow\qquad
+\underbrace{\text{Hierarchy: } S \approx D = \Theta(\log_k W)}_{\text{short control depth}}.
 $$
 
-- The $D\eta$ term is naturally kept small by the architectural reduction $D = \Theta(\log_k W)$.
-- The true scaling bottleneck becomes the work-driven term: we must enforce $Wq \lesssim O(1)$, which explicitly demands that $q = O(1/W)$.
+**Global drift becomes depth-driven.**
+Let $\eta$ be the per-layer probability that intent or constraints are distorted in a way that is not fully corrected (semantic drift, spec distortion). A simple coherence model is
 
-This makes the engineering agenda clear: hierarchy solves the span-driven collapse, but it must be paired with verification mechanisms that dynamically push residual leaf error $q$ down as $1/W$ to prevent the sheer volume of work from destroying the system.
+$$
+P_{\mathrm{coherence}} \approx (1-\eta)^D \approx e^{-\eta D}.
+$$
 
-## Verification as the Mathematical Lever
+Compared to the linear analogue $e^{-\eta W}$, span compression makes drift decay extremely slowly with problem size.
 
-### Why false accept is the system-killer
+**Static vs. dynamic hierarchies (discovered at runtime).**
+The balanced tree is a pedagogical idealization. Modern agentic systems increasingly *construct* their topology on the fly: the orchestrator spawns a sub-agent only when uncertainty is high, when a check fails, or when a subproblem is detected; communication links may be rerouted round by round <d-cite key="ruan2026aorchestra,lu2026dytopo,liu2023dylan"></d-cite>. The work--span lens still applies: span is the critical-path length of the *constructed* computation DAG.
 
+**Transition: span is not the whole story.**
+Reducing span mitigates global drift, but it does not automatically guarantee correctness of the $W$ leaf-level units. Even if the top-level plan stays coherent, the system can still fail if too many leaves are wrong. This leads to our second mechanism: *make the leaves easier and cleaner.*
+
+## Mechanism II: Scope Isolation as Active Denoising
+
+**Decomposition is not only parallelism.**
+A common story says hierarchy helps because it parallelizes work. A second (often implicit) story is that decomposition *improves accuracy* by changing the distribution of subproblems each model instance faces.
+
+**A simple model: error depends on difficulty and noise.**
+Let $L$ denote intrinsic subproblem complexity and $N$ denote context "noise" or distraction. Write the base model's unit error rate as $\epsilon(L, N)$. A monolithic run tends to induce large $(L, N)$, yielding
+
+$$
+\epsilon_{\mathrm{mono}} = \epsilon(L_{\mathrm{root}}, N_{\mathrm{root}}).
+$$
+
+A good decomposition aims to create leaves with smaller scope and cleaner context:
+
+$$
+L_{\mathrm{leaf}} \ll L_{\mathrm{root}}, \qquad N_{\mathrm{leaf}} \ll N_{\mathrm{root}},
+$$
+
+so
+
+$$
+\epsilon_{\mathrm{leaf}} = \epsilon(L_{\mathrm{leaf}}, N_{\mathrm{leaf}}) \ll \epsilon_{\mathrm{mono}}.
+$$
+
+The motivation is empirical: long contexts and distraction can degrade how LMs use evidence (e.g., "lost in the middle" <d-cite key="liu2023lostmiddle"></d-cite>), so physically isolating scope can raise the signal-to-noise ratio each leaf agent sees.
+
+**The trade: communication work for lower atomic error.**
+Scope isolation typically increases coordination and integration work. But it can *pay for itself* by lowering $\epsilon_{\mathrm{leaf}}$ enough that the system succeeds with light explicit verification on moderate $W$. This explains a practical observation: many dynamic MAS appear to "work" even without heavy formal verification because they keep subproblems inside the base model's comfortable regime.
+
+**Transition: isolation lowers error, but does not eliminate tails.**
+Even after scope isolation, probabilistic errors occur. As $W$ grows, the system must prevent these local errors from being sealed into upstream state. This motivates our third mechanism: verification as a filter.
+
+## Mechanism III: Verification as a Filter
+
+**Why false accept is the system killer.**
 Verification error is not monolithic. We separate:
 
 - $\delta_+$: *false accept* (accepting an incorrect candidate).
 - $\delta_-$: *false reject* (rejecting a correct candidate).
 
-False reject primarily increases cost via retries. False accept is more dangerous: it can *seal* wrong work into upstream state, making later correction difficult or impossible.
+False reject primarily increases cost via retries. False accept is more dangerous: it seals wrong work into shared state, making later correction difficult or impossible.
 
-We also track costs:
-
-$$
-c_g = \text{cost(generate)}, \qquad c_v = \text{cost(verify)},
-$$
-
-with the desired regime $c_v \ll c_g$.
-
-### Redundant verification and a logarithmic scaling argument
-
-Suppose a generator produces an incorrect candidate with probability $\epsilon$. We run $m$ independent (or effectively de-correlated) checks and accept only if all checks accept.
-
-Then an incorrect candidate passes with probability at most $\delta_+^m$, so a simple upper bound on residual leaf error is
+**The verification advantage assumption.**
+Let $c_g$ be the cost of generating a candidate and $c_v$ the cost of verifying it. The regime where verification is useful is
 
 $$
-q \;\lesssim\; \epsilon\,\delta_+^m.
+c_v \ll c_g \quad\text{and}\quad \delta_+ \text{ is small (or reducible by redundancy).}
 $$
 
-To keep the work-driven failure term controlled, we want $Wq = O(1)$, i.e.,
+**Redundant checking gives logarithmic suppression.**
+Suppose the leaf generator has unit error probability $\epsilon_{\mathrm{leaf}}$ after scope isolation. Run $m$ independent (or effectively de-correlated) checks and accept only if all checks accept. An incorrect candidate passes with probability at most $\delta_+^m$, so a simple bound on residual leaf error is
 
 $$
-q = O(1/W).
+q \;\lesssim\; \epsilon_{\mathrm{leaf}}\,\delta_+^m.
 $$
 
-A sufficient condition is
+To prevent work-driven collapse we want $Wq = O(1)$, i.e.,
 
 $$
-\epsilon\,\delta_+^m \;\lesssim\; \frac{1}{W}.
+\epsilon_{\mathrm{leaf}}\,\delta_+^m \;\lesssim\; \frac{1}{W}.
 $$
 
-Solving for $m$ gives
+Solving gives
 
 $$
-m \;\gtrsim\; \frac{\ln(W\epsilon)}{-\ln(\delta_+)} \;=\; O(\log W).
+m \;\gtrsim\; \frac{\ln(W\epsilon_{\mathrm{leaf}})}{-\ln(\delta_+)} \;=\; O(\log W),
 $$
 
-**Interpretation.**
-Under cheap verification and sufficiently small (or reducible) false-accept rates, only logarithmically many redundant checks are needed to suppress residual error to the $1/W$ scale. This is the mathematical sense in which hierarchy can buy large-scale reliability with polylogarithmic verification overhead.
+so only logarithmically many redundant checks are sufficient under a verification advantage.
 
-**Important caveat (effective independence).**
-The $\delta_+^m$ behavior assumes checks are not perfectly correlated. In practice, "effective de-correlation" may require diversified prompts, randomized perturbations, tool-based checks, cross-model verification, or heterogeneous critics.
+**Correlation caveat.**
+The $\delta_+^m$ behavior assumes checks are not perfectly correlated. In practice, de-correlation may require diversified prompts, randomized perturbations, tool-based tests, cross-model critics, or heterogeneous verifiers.
 
-## Four Fundamental Constraints for Hierarchical Gains
+## A Unified Theory of Reliability
 
-Hierarchy is not a free lunch. The following constraints determine whether the above scaling story survives in practice.
+**Two failure channels: drift vs. residual leaf errors.**
+Combine the global-drift channel (span/depth-driven) with the local-error channel (work-driven). A compact approximation is
+
+$$
+P_{\mathrm{success}} \;\approx\; \exp\Big( -\big(\underbrace{\eta D}_{\text{span / drift}} + \underbrace{W q}_{\text{work / residual}}\big) \Big).
+$$
+
+Substituting the verification bound $q \lesssim \epsilon_{\mathrm{leaf}} \delta_+^m$ yields the "three-layer" decomposition:
+
+$$
+-\ln P_{\mathrm{success}} \;\approx\;
+\underbrace{\eta D}_{\textbf{Topology (span)}}
+\;+\;
+\underbrace{W \epsilon_{\mathrm{leaf}}}_{\textbf{Scope isolation (node error)}}
+\;\times\;
+\underbrace{\delta_+^m}_{\textbf{Verification (filter)}}.
+$$
+
+**How the mechanisms cooperate.**
+The unified equation makes the collaboration explicit:
+
+- Topology shrinks the dangerous control path from $W$ to $D$, making drift scale with depth rather than horizon.
+- Scope isolation lowers the base unit error rate from $\epsilon_{\mathrm{mono}}$ to $\epsilon_{\mathrm{leaf}}$ by reducing $(L, N)$ at the leaves.
+- Verification suppresses the remaining tail so that $Wq$ stays bounded even when $W$ is large.
+
+**Regimes (why "no heavy verification" can still work).**
+The same equation explains an empirical spectrum:
+
+- **Isolation-dominated regime:** if $W \epsilon_{\mathrm{leaf}}$ is not large on the workload, modest or even zero explicit checking can succeed.
+- **Verification-dominated regime:** if $W \epsilon_{\mathrm{leaf}}$ becomes large, the system must grow $m$ so that $\delta_+^m$ drives $q$ down to $O(1/W)$.
+
+**Dynamic topology as just-in-time optimization.**
+Modern systems can be read as searching for a good operating point of the unified equation *at runtime*. AOrchestra spawns sub-agents on demand with explicit context control <d-cite key="ruan2026aorchestra"></d-cite>; DyTopo reroutes communication edges round by round to match stage-dependent information needs <d-cite key="lu2026dytopo"></d-cite>; DyLAN selects and reforms agent teams dynamically <d-cite key="liu2023dylan"></d-cite>. In this view, "create a sub-agent", "route a message", and "increase checking" are inference-time actions that trade work for lower span, lower $\epsilon_{\mathrm{leaf}}$, or lower residual error.
+
+## Practical Constraints
+
+Hierarchy is not a free lunch. The following constraints determine whether the scaling story behind the unified equation survives contact with reality.
 
 ### Constraint 1: Verification advantage (cost and soundness)
 
@@ -198,31 +250,27 @@ $$
 c_v \ll c_g \quad\text{and}\quad \delta_+ \text{ is small (or reducible by redundancy).}
 $$
 
-The strongest requirement is not simply $\delta \ll \epsilon$, but rather that *false accept* is rare enough that wrong work does not routinely pass gates. If verification is as expensive or as unreliable as generation, hierarchy collapses into overhead.
+The strongest requirement is not simply "verification is accurate," but that *false accepts are rare enough* that wrong work does not routinely pass gates.
 
-### Constraint 2: Entropy compression (bounded interfaces)
+### Constraint 2: Compressible interfaces (bounded bandwidth)
 
-A manager must control sub-agents through a low-bandwidth interface. An information-theoretic intuition is
-
-$$
-H(\text{message}) \ll H(\text{internal state}),
-$$
-
-but an engineering version is simply:
+A manager must control sub-agents through a low-bandwidth interface. An engineering version is:
 
 $$
-\text{Comm}(u \to v) \le B \quad \text{for each edge.}
+\mathrm{Comm}(u \to v) \le B \quad \text{for each edge.}
 $$
 
-If submodules require exchanging full internal state (strong coupling), bandwidth and coordination error explode, negating the depth reduction.
+If modules require exchanging full internal state (strong coupling), coordination cost and coordination error explode, negating span compression.
 
-### Constraint 3: Atomic tractability
+### Constraint 3: Scope isolation boundaries (active atomic tractability)
 
-$$
-\text{Difficulty}(\text{leaf task}) \le \text{Capability}(\text{base model}).
-$$
+The system must actively *manufacture* tractable leaves by isolating scope and cleaning context:
 
-Architecture organizes intelligence; it does not create new capability from nothing. MAS works when decomposition yields leaf units that the base model can solve with non-trivial accuracy and that can be meaningfully verified.
+- **Context hygiene:** keep $N_{\mathrm{leaf}}$ low (avoid long noisy threads).
+- **Complexity reduction:** keep $L_{\mathrm{leaf}}$ within the base model's reliable regime.
+- **Non-leaky boundaries:** prevent irrelevant constraints and unvetted partial solutions from leaking across modules.
+
+If scope isolation fails, $\epsilon_{\mathrm{leaf}}$ rises toward $\epsilon_{\mathrm{mono}}$, pushing the burden back onto heavy verification.
 
 ### Constraint 4: Managerial fan-out limits
 
@@ -232,43 +280,46 @@ $$
 k \le k_{\max}(\text{manager}),
 $$
 
-where $k_{\max}$ is limited by attention, context window, tool latency, and integration complexity. Thus there is an empirical trade-off: shallower depth vs. noisier (or costlier) management at each layer.
+limited by attention, context window, tool latency, and integration complexity. Dynamic systems partially address this by allocating fan-out and depth *just in time* based on uncertainty and progress <d-cite key="ruan2026aorchestra,lu2026dytopo"></d-cite>.
 
-## Discussion & Conclusion
+## Conclusion
 
-### Reframing exponential long-horizon failure critiques
+Linear long-horizon reasoning fails not because errors exist, but because a linear topology forces them to accumulate along a length-$W$ control chain. Hierarchical MAS change the computation:
 
-Pessimistic arguments about exponential collapse often assume an $O(W)$ linear span topology. Hierarchy changes the topology: span-driven drift becomes $O(\log W)$ rather than $O(W)$. However, end-to-end success still requires controlling residual leaf error across $W$ units (the $Wq$ term). Verification (especially controlling false accept) is the lever that makes this feasible.
+- they compress span so that drift scales with depth ($D$) rather than horizon ($W$);
+- they actively reduce the effective unit error rate via scope isolation (cleaner, smaller contexts);
+- and they use verification as a filter to suppress residual errors with only polylogarithmic overhead under a verification advantage.
 
-### CoT as micro-MAS; MAS as system-level thinking
+The resulting picture is that reliability is not only a function of model capability, but also of the system's computation graph: topology, interfaces, context routing, and checking.
 
-Chain-of-thought can be interpreted as an internal micro-hierarchy where a single model time-shares roles (planner, executor, critic) within one context. Multi-agent systems externalize this structure: explicit interfaces, parallelism, and fault-isolating gates.
+## Related Work
 
-### A test-time scaling lens: depth, breadth, and verification
+We organize related work as a *structural evolution* in how inference-time computation is arranged, viewed through the work--span lens. The phases below are not mutually exclusive, but they capture a clear shift from fixed topologies to adaptive, recursive computation graphs.
 
-It is useful to reinterpret hierarchical MAS as a *structured form of test-time scaling*. By "test-time scaling" we mean allocating additional inference-time computation---extra tokens, extra samples, extra tool calls, extra checks---to improve reliability without changing model weights. From this viewpoint, most inference-time methods can be organized along three (non-exclusive) axes: (i) *depth scaling*, which increases sequential reasoning length in a single chain (e.g., longer CoT or reflection); (ii) *breadth scaling*, which generates multiple candidates or branches and selects among them (e.g., best-of-$n$ sampling); and (iii) *verification scaling*, which invests computation into critics, constraints, tests, or external checks.
+### Foundations: work--span and critical-path viewpoints
 
-This decomposition clarifies why long-horizon failures are often stubborn under naive depth scaling: depth increases the sequential span, amplifying drift and compounding uncorrected errors. Breadth alone can reduce variance but is vulnerable to correlated failures unless selection is backed by strong evidence. Hierarchical MAS can be seen as deliberately shifting test-time compute away from unbounded depth and toward *bounded-depth coordination plus verification*: it keeps the critical-path span at $S \approx D = \Theta(\log_k W)$ while spending extra computation on local retries, redundant gates, and integration checks.
+Our work--span decomposition is inspired by classic results in parallel computation and scheduling, where *work* captures total operations and *span* (critical-path length) captures the irreducible sequential bottleneck <d-cite key="brent1974,blumofe1999"></d-cite>.
 
-In the notation of the error decomposition above, additional test-time compute is used to reduce the residual error $q$ and drift rate $\eta$ rather than to extend a single fragile chain. When verification is cheaper than generation ($c_v \ll c_g$) and false accepts are sufficiently rare or reducible (small effective $\delta_+$ via diversified checks), the marginal returns can be favorable: only $m = O(\log W)$ redundant checks may suffice to keep the work-driven term $Wq$ controlled, turning additional compute into fault tolerance rather than merely "more thinking."
+### Phase I: Static pipelines and role-fixed teams (fixed topology)
 
-**Mapping common inference patterns to the three axes.**
+Early LLM multi-agent systems often mimic human organizational charts or encode SOP-style workflows with a *fixed* communication graph. Examples include CAMEL <d-cite key="li2023camel"></d-cite>, MetaGPT <d-cite key="hong2023metagpt"></d-cite>, ChatDev <d-cite key="qian2023chatdev"></d-cite>, and broader orchestration frameworks such as AutoGen <d-cite key="wu2023autogen"></d-cite>. Empirical failure analyses highlight brittleness modes such as mis-specification, weak termination, and leaky coordination <d-cite key="cemri2025whyfail"></d-cite>.
 
-- **Linear CoT / reflection:** primarily depth scaling (increases span).
-- **Best-of-$n$ / sampling ensembles:** primarily breadth scaling (needs reliable selection).
-- **Tool-based checks / tests / constraints:** primarily verification scaling (targets false accept).
-- **Hierarchical MAS:** structured breadth + verification with explicit span control ($S \approx \log_k W$).
+### Phase II: Inference-time search and internal deliberation (single-context scaling)
 
-### Limitations and where the framework can fail
+A second wave of work treats "more thinking at test time" as a way to increase reliability without changing model weights. Chain-of-thought prompting <d-cite key="wei2022cot"></d-cite> primarily increases *depth* (and thus span), while self-consistency <d-cite key="wang2022selfconsistency"></d-cite> improves reliability via *breadth* (sampling and aggregation). Tree-of-Thoughts <d-cite key="yao2023tot"></d-cite> makes exploration explicit. Iterative refinement methods such as Self-Refine <d-cite key="madaan2023selfrefine"></d-cite> and Reflexion <d-cite key="shinn2023reflexion"></d-cite> introduce local retry loops. Tool-augmented paradigms like ReAct <d-cite key="yao2022react"></d-cite> strengthen verification signals. A practical limitation is that much computation is still bound to a single long context, motivating explicit context hygiene and isolation <d-cite key="liu2023lostmiddle"></d-cite>.
 
-- If tasks do not admit low-coupling decomposition, interface compression fails and coordination dominates.
-- If verification is not cheaper or not sufficiently sound (especially high $\delta_+$), errors get sealed in.
-- If verification signals are highly correlated, redundancy may not provide the desired $\delta_+^m$ suppression.
-- If leaf tasks exceed model capability, no amount of organization recovers correctness.
+### Phase III: Dynamic and recursive topology (topology discovered at runtime)
 
-### Takeaway
+Most relevant to our "scale-up-the-system" narrative is the rise of systems that *construct* their computation graph during inference. AOrchestra formalizes sub-agents as dynamically creatable executors via a unified four-tuple interface $\langle \text{Instruction, Context, Tools, Model} \rangle$ and delegates execution via on-the-fly agent creation <d-cite key="ruan2026aorchestra"></d-cite>. DyTopo reconstructs sparse directed communication graphs round by round via semantic matching of lightweight "need/offer" descriptors <d-cite key="lu2026dytopo"></d-cite>. DyLAN selects teams and adapts collaboration structures dynamically via an explicit team-optimization stage <d-cite key="liu2023dylan"></d-cite>. Recursive Language Models (RLMs) offer a complementary single-model instantiation of recursion by allowing the model to programmatically inspect, decompose, and call itself over prompt snippets <d-cite key="zhang2025rlm"></d-cite>.
 
-- **Scaling the model** targets $\epsilon$ directly (often linearly).
-- **Scaling the system** targets topology and error isolation by reducing span and enabling verification-driven fault tolerance.
+### Verification, debate, and process supervision
 
-Ultimately, while scaling base models pushes the boundaries of atomic capability, scaling the system through hierarchical MAS transforms long-horizon reliability from an insurmountable probability problem into an engineering problem of interface design and verification topology.
+Debate <d-cite key="irving2018debate"></d-cite> and multi-agent debate <d-cite key="du2023debate,yang2025revisitingmad"></d-cite> can be interpreted as structured breadth-plus-verification. Process supervision and stepwise verification target the same failure channel by reducing false accepts and residual errors <d-cite key="lightman2023verify"></d-cite>.
+
+### Internalization and mechanistic perspectives
+
+A complementary direction internalizes external deliberation into a single model via RL or distillation <d-cite key="samanta2025maca,liu2026sdrl,luo2026agentark"></d-cite>. Mechanistic work suggests strong reasoning models may instantiate multiple heterogeneous internal perspectives and reconcile them during reasoning <d-cite key="kim2026societies,andreas2022agentmodels"></d-cite>.
+
+### Fault-tolerance analogies and correlation caveats
+
+Our emphasis on false accept and correlation echoes lessons from fault-tolerant computing. N-version programming formalizes redundancy but can fail under correlated design faults <d-cite key="avizienis1985nversion,knight1986independence"></d-cite>. Byzantine fault tolerance studies robust aggregation under faulty participants <d-cite key="lamport1982byzantine,castro1999pbft"></d-cite>.

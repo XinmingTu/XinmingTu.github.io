@@ -1,7 +1,7 @@
 ---
 layout: distill
-title: "Hierarchical Multi-Agent Systems: From Linear Collapse to Polylog-Overhead Fault Tolerance --- A Computation View via Work--Span Separation"
-description: A computation-centric framework explaining why hierarchical multi-agent systems mitigate long-horizon brittleness through three mechanisms -- topology compression, scope isolation, and verification filtering -- analyzed via the work-span lens from parallel computation.
+title: "The Work-Span of Reasoning: A Theory of Structured Test-Time Scaling in Multi-Agent Systems"
+description: A work--span framework for structured test-time scaling in multi-agent systems, explaining how topology compression, scope isolation, and verification filtering yield polylogarithmic reliability overhead.
 date: 2026-02-10
 tags: ['agents', 'deep-learning']
 
@@ -27,7 +27,7 @@ toc:
 
 ## Abstract
 
-Long-horizon reasoning often collapses under linear execution because small per-step errors compound along a single dependency chain. This note reframes the reliability of multi-agent systems (MAS) through the *work--span* lens from parallel computation <d-cite key="brent1974,blumofe1999"></d-cite>. The key claim is that hierarchical (and increasingly *dynamic*) MAS improve long-horizon robustness via a *three-layer defense*: (i) **topology** compresses sequential control *span* from $\Theta(W)$ to $\tilde O(\log W)$, slowing global drift; (ii) **scope isolation** actively denoises and reduces per-leaf difficulty, lowering the *effective* atomic error rate compared to monolithic prompting (motivated by long-context brittleness such as "lost in the middle" <d-cite key="liu2023lostmiddle"></d-cite>); and (iii) **verification** acts as a filter that suppresses the residual error tail, with polylogarithmic redundant checking when false accepts are rare. We end with practical "physics" constraints---verification asymmetry, compressible interfaces, scope isolation boundaries, and managerial fan-out limits---and connect the framework to the recent shift from *static* teams to *runtime-discovered* recursive topologies (e.g., AOrchestra, DyTopo, DyLAN) <d-cite key="ruan2026aorchestra,lu2026dytopo,liu2023dylan"></d-cite>.
+Long-horizon reasoning often collapses under linear execution because small per-step errors compound along a single dependency chain. This note reframes the reliability of multi-agent systems (MAS) through the *work--span* lens from parallel computation <d-cite key="brent1974,blumofe1999"></d-cite>. The key claim is that hierarchical (and increasingly *dynamic*) MAS improve long-horizon robustness via a *three-layer defense*: (i) **topology** compresses sequential control *span* from $\Theta(W)$ to $\tilde O(\log W)$, slowing global drift; (ii) **scope isolation** actively denoises and reduces per-leaf difficulty, lowering the *effective* atomic error rate compared to monolithic prompting (motivated by long-context brittleness such as "lost in the middle" <d-cite key="liu2023lostmiddle"></d-cite>); and (iii) **verification** acts as a filter that suppresses the residual error tail, with polylogarithmic redundant checking when false accepts are rare. We end with practical "physics" constraints---verification asymmetry, compressible interfaces, scope isolation boundaries, and managerial fan-out limits---and connect the framework to the recent shift from *static* workflows to *runtime-discovered* recursive topologies (e.g., Recursive Language Models) <d-cite key="zhang2025rlm"></d-cite>.
 
 ## Introduction
 
@@ -48,7 +48,7 @@ The flow of the note is intentionally "enemy $\rightarrow$ defenses":
 3. **Mechanism III (Verification):** cheap, sound checks suppress the remaining residual errors.
 
 **Roadmap.**
-We first define work/span and the linear-collapse baseline. Then we develop the three mechanisms. Next we synthesize them into a single reliability scaling law. Finally we list the practical constraints that determine whether the gains survive in real systems. Related work is organized as a structural evolution in the appendix.
+We first define work/span and the linear-collapse baseline. Then we develop the three mechanisms. Next we synthesize them into a single reliability scaling law. Finally we list the practical constraints that determine whether the gains survive in real systems. Related work is organized as a structural evolution at the end.
 
 ## The Baseline: Why Linear Reasoning Collapses
 
@@ -323,3 +323,16 @@ A complementary direction internalizes external deliberation into a single model
 ### Fault-tolerance analogies and correlation caveats
 
 Our emphasis on false accept and correlation echoes lessons from fault-tolerant computing. N-version programming formalizes redundancy but can fail under correlated design faults <d-cite key="avizienis1985nversion,knight1986independence"></d-cite>. Byzantine fault tolerance studies robust aggregation under faulty participants <d-cite key="lamport1982byzantine,castro1999pbft"></d-cite>.
+
+### Synthesis: Mapping Inference Patterns to Scaling Axes
+
+The table below summarizes how different inference patterns align with the work--span framework proposed in this note. While prior methods typically scale a single axis (depth, breadth, or verification), Hierarchical MAS uniquely combines topology control with scope isolation to minimize the effective error compounding path.
+
+| Inference Pattern | Primary Scaling Axis | Span ($S$) | Mechanism & Limit |
+| --- | --- | --- | --- |
+| Linear CoT / Reflection | Depth | $\Theta(W)$ | *Increases span.* Prone to global drift; linear failure rate. |
+| Best-of-$N$ / Ensembles | Breadth | $\Theta(W)$ | *Parallel samples.* Reduces variance; limited by selection reliability. |
+| Tool-based Checks | Verification | $\Theta(W)$ | *Filters output.* Targets false accepts ($\delta_+$); needs cheap verifiers. |
+| **Hierarchical MAS** | **Unified (All Axes)** | $\tilde O(\log W)$ | **Joint Optimization.** Structures Depth (Topology), Breadth (Isolation), and Verification (Filter) to minimize total failure cost. |
+
+Unlike baselines that scale a single dimension, Hierarchical MAS provides a **unified framework** to jointly optimize topology, scope, and verification under work--span constraints.

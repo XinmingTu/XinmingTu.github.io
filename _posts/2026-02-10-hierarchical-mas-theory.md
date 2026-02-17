@@ -17,7 +17,7 @@ toc:
     - name: "Introduction"
     - name: "The Baseline: Why Linear Reasoning Collapses"
     - name: "Mechanism I: Architectural Compression of Span"
-    - name: "Mechanism II: Scope Isolation as Active Denoising"
+    - name: "Mechanism II: Scope Isolation via State Virtualization"
     - name: "Mechanism III: Verification as a Filter"
     - name: "A Unified Theory of Reliability"
     - name: "Practical Constraints"
@@ -27,7 +27,7 @@ toc:
 
 ## Abstract
 
-Long-horizon reasoning often collapses under linear execution because small per-step errors compound along a single dependency chain. This note reframes the reliability of multi-agent systems (MAS) through the *work--span* lens from parallel computation <d-cite key="brent1974,blumofe1999"></d-cite>. The key claim is that hierarchical (and increasingly *dynamic*) MAS improve long-horizon robustness via a *three-layer defense*: (i) **topology** compresses sequential control *span* from $\Theta(W)$ to $\tilde O(\log W)$, slowing global drift; (ii) **scope isolation** actively denoises and reduces per-leaf difficulty, lowering the *effective* atomic error rate compared to monolithic prompting (motivated by long-context brittleness such as "lost in the middle" <d-cite key="liu2023lostmiddle"></d-cite>); and (iii) **verification** acts as a filter that suppresses the residual error tail, with polylogarithmic redundant checking when false accepts are rare. We end with practical "physics" constraints---verification asymmetry, compressible interfaces, scope isolation boundaries, and managerial fan-out limits---and connect the framework to the recent shift from *static* workflows to *runtime-discovered* recursive topologies (e.g., Recursive Language Models) <d-cite key="zhang2025rlm"></d-cite>.
+Long-horizon reasoning often collapses under linear execution because small per-step errors compound along a single dependency chain. This note reframes the reliability of multi-agent systems (MAS) through the *work--span* lens from parallel computation <d-cite key="brent1974,blumofe1999"></d-cite>. The key claim is that hierarchical (and increasingly *dynamic*) MAS improve long-horizon robustness via a *three-layer defense*: (i) **topology** compresses sequential control *span* from $\Theta(W)$ to $\tilde O(\log W)$, slowing global drift; (ii) **scope isolation** actively denoises context via *explicit state management*, transforming vague semantic drift into verifiable atomic failures by decoupling local execution from global history; and (iii) **verification** acts as a filter that suppresses the residual error tail. We end with practical "physics" constraints---bandwidth, context hygiene, and fan-out---and connect the framework to the recent shift from *static* workflows to *runtime-discovered* recursive topologies (e.g., Recursive Language Models) <d-cite key="zhang2025rlm"></d-cite>.
 
 ## Introduction
 
@@ -48,7 +48,7 @@ The flow of the note is intentionally "enemy $\rightarrow$ defenses":
 3. **Mechanism III (Verification):** cheap, sound checks suppress the remaining residual errors.
 
 **Roadmap.**
-We first define work/span and the linear-collapse baseline. Then we develop the three mechanisms. Next we synthesize them into a single reliability scaling law. Finally we list the practical constraints that determine whether the gains survive in real systems. Related work is organized as a structural evolution at the end.
+Section 2 defines work/span and the linear-collapse baseline. Sections 3--5 develop the three mechanisms. Section 6 synthesizes them into a single reliability scaling law. Section 7 lists the practical constraints that determine whether the gains survive in real systems. Related work is organized as a structural evolution in the appendix.
 
 ## The Baseline: Why Linear Reasoning Collapses
 
@@ -125,40 +125,42 @@ $$
 
 Compared to the linear analogue $e^{-\eta W}$, span compression makes drift decay extremely slowly with problem size.
 
-**Static vs. dynamic hierarchies (discovered at runtime).**
-The balanced tree is a pedagogical idealization. Modern agentic systems increasingly *construct* their topology on the fly: the orchestrator spawns a sub-agent only when uncertainty is high, when a check fails, or when a subproblem is detected; communication links may be rerouted round by round <d-cite key="ruan2026aorchestra,lu2026dytopo,liu2023dylan"></d-cite>. The work--span lens still applies: span is the critical-path length of the *constructed* computation DAG.
+**Dynamic Topology as Runtime Compilation (The Control Stack).**
+The balanced tree is a pedagogical idealization. Modern agentic systems construct their topology *just-in-time*, operating like a dynamic **call stack**.
+
+- **Explicit Orchestration:** Frameworks like **AOrchestra** <d-cite key="ruan2026aorchestra"></d-cite> formalize the sub-agent not as a fixed role, but as a runtime tuple $\langle \text{Instruction}, \text{Context}, \text{Tools} \rangle$, spawned only when uncertainty peaks.
+- **Implicit Recursion:** **Recursive Language Models (RLMs)** <d-cite key="zhang2025rlm"></d-cite> achieve span compression via functional recursion, where the model invokes itself on sub-problems.
+
+In both cases, the system trades integration work for reduced span by managing a *stack* of ephemeral agents, effectively "compiling" the optimal computation graph on the fly.
 
 **Transition: span is not the whole story.**
 Reducing span mitigates global drift, but it does not automatically guarantee correctness of the $W$ leaf-level units. Even if the top-level plan stays coherent, the system can still fail if too many leaves are wrong. This leads to our second mechanism: *make the leaves easier and cleaner.*
 
-## Mechanism II: Scope Isolation as Active Denoising
+## Mechanism II: Scope Isolation via State Virtualization
 
 **Decomposition is not only parallelism.**
-A common story says hierarchy helps because it parallelizes work. A second (often implicit) story is that decomposition *improves accuracy* by changing the distribution of subproblems each model instance faces.
+A common story says hierarchy helps because it parallelizes work. A second, deeper story is that decomposition *improves accuracy* by changing the distribution of subproblems each model instance faces.
 
 **A simple model: error depends on difficulty and noise.**
-Let $L$ denote intrinsic subproblem complexity and $N$ denote context "noise" or distraction. Write the base model's unit error rate as $\epsilon(L, N)$. A monolithic run tends to induce large $(L, N)$, yielding
+Let $L$ denote intrinsic subproblem complexity and $N$ denote context "noise" or distraction. Write the base model's unit error rate as $\epsilon(L, N)$. A monolithic run tends to induce large $(L, N)$, yielding $\epsilon_{\mathrm{mono}} = \epsilon(L_{\mathrm{root}}, N_{\mathrm{root}})$. A good decomposition aims to create leaves with smaller scope and cleaner context:
 
 $$
-\epsilon_{\mathrm{mono}} = \epsilon(L_{\mathrm{root}}, N_{\mathrm{root}}).
+L_{\mathrm{leaf}} \ll L_{\mathrm{root}}, \qquad N_{\mathrm{leaf}} \ll N_{\mathrm{root}}.
 $$
 
-A good decomposition aims to create leaves with smaller scope and cleaner context:
+The motivation is empirical: long contexts degrade reasoning ("lost in the middle" <d-cite key="liu2023lostmiddle"></d-cite>). The goal of isolation is to physically ensure $N_{\mathrm{leaf}}$ is minimal, keeping the base model in its reliable regime.
 
-$$
-L_{\mathrm{leaf}} \ll L_{\mathrm{root}}, \qquad N_{\mathrm{leaf}} \ll N_{\mathrm{root}},
-$$
+**Implementing Isolation: The Agentic Von Neumann Architecture.**
+How do we physically guarantee $N_{\mathrm{leaf}} \ll N_{\mathrm{root}}$? Reliable MAS achieve this by adopting a *virtualized state architecture*, mirroring the separation of execution and storage in classical computing:
 
-so
-
-$$
-\epsilon_{\mathrm{leaf}} = \epsilon(L_{\mathrm{leaf}}, N_{\mathrm{leaf}}) \ll \epsilon_{\mathrm{mono}}.
-$$
-
-The motivation is empirical: long contexts and distraction can degrade how LMs use evidence (e.g., "lost in the middle" <d-cite key="liu2023lostmiddle"></d-cite>), so physically isolating scope can raise the signal-to-noise ratio each leaf agent sees.
+1. **Transient Isolation (The Call Stack):** Frameworks like AOrchestra <d-cite key="ruan2026aorchestra"></d-cite> and RLMs <d-cite key="zhang2025rlm"></d-cite> manage *control flow* via a call stack. Spawning a sub-agent creates a fresh, ephemeral context window (a "stack frame"). Once the sub-agent returns, its noisy internal reasoning trace is garbage-collected, preventing noise accumulation in the parent process.
+2. **Persistent Isolation (The File System):** To manage long-term state, native agentic frameworks <d-cite key="liu2026pensieve"></d-cite> and OS-Agents <d-cite key="packer2023memgpt,wang2023voyager"></d-cite> employ a *file system* metaphor. Instead of passing a linear chat log, agents read and write to structured artifacts (e.g., `spec.md`, `memory.json`). This forces the agent to explicitly "page in" only relevant data, reducing the effective context from "everything that happened" to "only the files currently open."
 
 **The trade: communication work for lower atomic error.**
-Scope isolation typically increases coordination and integration work. But it can *pay for itself* by lowering $\epsilon_{\mathrm{leaf}}$ enough that the system succeeds with light explicit verification on moderate $W$. This explains a practical observation: many dynamic MAS appear to "work" even without heavy formal verification because they keep subproblems inside the base model's comfortable regime.
+Scope isolation is not free. It converts implicit context attention into explicit coordination work (reading/writing files, managing stack frames). However, it pays for itself by lowering $\epsilon_{\mathrm{leaf}}$ drastically. This explains why dynamic MAS work: they trade cheap token generation (extra work) for a structurally lower error rate (robustness).
+
+**Qualitative Shift: From Drift to Checkability.**
+Beyond reducing the error *rate* $\epsilon$, scope isolation transforms the *nature* of errors. In a monolithic context, failures often manifest as subtle semantic drift or hallucination, which are notoriously difficult to detect automatically. By enforcing strict input/output boundaries (e.g., function signatures or file schemas), isolation forces errors to manifest as discrete, local failures---such as syntax errors, type mismatches, or factual contradictions within a small window. This transformation is crucial: it converts *unverifiable* global drift into *verifiable* atomic failures, setting the stage for the rigorous filtering of Mechanism III.
 
 **Transition: isolation lowers error, but does not eliminate tails.**
 Even after scope isolation, probabilistic errors occur. As $W$ grows, the system must prevent these local errors from being sealed into upstream state. This motivates our third mechanism: verification as a filter.
@@ -231,14 +233,20 @@ The unified equation makes the collaboration explicit:
 - Scope isolation lowers the base unit error rate from $\epsilon_{\mathrm{mono}}$ to $\epsilon_{\mathrm{leaf}}$ by reducing $(L, N)$ at the leaves.
 - Verification suppresses the remaining tail so that $Wq$ stays bounded even when $W$ is large.
 
+**Synthesis: The Agentic Von Neumann Architecture.**
+This framework suggests that reliable MAS converge towards a classic computer architecture:
+
+- **Mechanism I (The Stack):** Dynamic topology acts as the *Control Plane*, using recursion/spawning to compress execution span.
+- **Mechanism II (The File System):** Scope isolation acts as the *Data Plane*, using virtualized state to decouple local reasoning from global history.
+- **Mechanism III (The Filter):** Verification acts as the *Error Correction Code*, suppressing the residual tail.
+
+Just as modern OS designs separate stack memory from file storage, robust agentic systems separate ephemeral reasoning traces from persistent state artifacts.
+
 **Regimes (why "no heavy verification" can still work).**
 The same equation explains an empirical spectrum:
 
 - **Isolation-dominated regime:** if $W \epsilon_{\mathrm{leaf}}$ is not large on the workload, modest or even zero explicit checking can succeed.
 - **Verification-dominated regime:** if $W \epsilon_{\mathrm{leaf}}$ becomes large, the system must grow $m$ so that $\delta_+^m$ drives $q$ down to $O(1/W)$.
-
-**Dynamic topology as just-in-time optimization.**
-Modern systems can be read as searching for a good operating point of the unified equation *at runtime*. AOrchestra spawns sub-agents on demand with explicit context control <d-cite key="ruan2026aorchestra"></d-cite>; DyTopo reroutes communication edges round by round to match stage-dependent information needs <d-cite key="lu2026dytopo"></d-cite>; DyLAN selects and reforms agent teams dynamically <d-cite key="liu2023dylan"></d-cite>. In this view, "create a sub-agent", "route a message", and "increase checking" are inference-time actions that trade work for lower span, lower $\epsilon_{\mathrm{leaf}}$, or lower residual error.
 
 ## Practical Constraints
 

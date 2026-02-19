@@ -23,12 +23,12 @@ toc:
     name_zh: "时间尺度的匹配"
   - name: "The Limit of Redistribution"
     name_zh: "重分配的极限"
-  - name: "Current Limitations"
-    name_zh: "当前的局限"
   - name: "AI Build Better AI"
     name_zh: "AI 构建更好的 AI"
   - name: "Personal Positioning"
     name_zh: "个人的定位"
+  - name: "Current Limitations"
+    name_zh: "当前的局限"
   - name: "References"
     name_zh: "参考文献"
 ---
@@ -39,7 +39,7 @@ toc:
 
 I've been thinking about a question lately: what does AI really mean for humanity?
 
-The mainstream narrative tends to swing between two extremes — either "AI will replace everything" or "AI is just a tool, no big deal." But I believe AI's core impact is not replacing human intelligence, but **redistributing** it. And redistribution itself means scale.
+AI's core impact is not replacing human intelligence, but **redistributing** it. And redistribution itself means the scale of human intelligence — an exponential amplification of individual capability.
 
 </div>
 
@@ -47,7 +47,7 @@ The mainstream narrative tends to swing between two extremes — either "AI will
 
 最近一直在思考一个问题：AI 对人类到底意味着什么？
 
-主流叙事往往在两个极端之间摇摆——要么是"AI 将取代一切"，要么是"AI 只是工具，没什么大不了"。但我觉得 AI 的核心影响不是取代人类智能，而是**重分配**人类智能。而重分配本身，就意味着扩展（scale）。
+AI 的核心影响不是取代人类智能，而是**重分配**人类智能。而重分配本身，就意味着人类智能的 scale——个体能力的指数放大。
 
 </div>
 
@@ -75,11 +75,11 @@ Even so, AI's rate of progress on the depth dimension remains astonishing — an
 
 智能，或者说智慧，某种程度上可以分为两个维度：**知识的广度**和**思考的深度**。
 
-广度上，AI 超越人类已经毫无争议。任何一个 LLM 所掌握的知识面都远超任何一个人类个体，这一点不需要多说了。
+广度上，AI 超越人类已经毫无争议。任何一个 LLM 所掌握的知识面都远超任何一个人类个体。
 
-更有趣的是深度。最近 AI 在 IMO 金牌、Erdős 开放问题、[First Proof](https://www.scientificamerican.com/article/mathematicians-launch-first-proof-a-first-of-its-kind-math-exam-for-ai/) 等前沿数学上的表现让很多人惊叹。自去年十月以来，AI 工具已经帮助解决了大约 [100 个 Erdős 问题](https://www.scientificamerican.com/article/ai-uncovers-solutions-to-erdos-problems-moving-closer-to-transforming-math/)，其中 [Erdős Problem #728](https://arxiv.org/abs/2601.07421) 被认为是第一个由 AI 系统完全自主解决的 Erdős 开放问题。但我们需要准确理解这意味着什么——它说明的是，在**定义明确的场景（well-defined setting）下、有充足数据和反馈信号**的问题域内，AI 已经可以达到极高水平。这并不等同于 AI 已经具备了通用的"深度思考"能力。
+对于深度而言，最近一年 AI 在 IMO 金牌、Erdős 开放问题、[First Proof](https://www.scientificamerican.com/article/mathematicians-launch-first-proof-a-first-of-its-kind-math-exam-for-ai/) 等前沿数学上的表现让很多人惊叹。自去年十月以来，AI 工具已经帮助解决了大约 [100 个 Erdős 问题](https://www.scientificamerican.com/article/ai-uncovers-solutions-to-erdos-problems-moving-closer-to-transforming-math/)，其中 [Erdős Problem #728](https://arxiv.org/abs/2601.07421) 被认为是第一个由 AI 系统完全自主解决的 Erdős 开放问题。但我们需要准确理解这意味着什么——它说明的是，在**定义明确的场景（well-defined setting）下、有充足数据和反馈信号**的问题中，AI 已经可以达到极高水平。这并不等同于 AI 已经具备了通用的"深度思考"能力。
 
-IMO 的题目虽然极其困难，但它有明确的问题定义、有正确答案、有大量历史训练数据。真正的科研前沿往往不是这样的——你甚至不知道问题该怎么提，不知道该往哪个方向想。深度思考（deep thinking）的难点也许不在于单步推理的质量，而在于面对无限可能性时的**方向感**。这恰好是定义明确的问题（well-defined problem）和开放性研究（open-ended research）之间最核心的差距。
+IMO 的题目（甚至是 Erdős 开放问题）虽然极其困难，但它们有明确的问题定义、有正确答案、有大量历史训练数据。真正的科研前沿往往不是这样的——你甚至不知道问题该怎么提，不知道该往哪个方向想。深度思考（deep thinking）的难点也许不在于单步推理的质量，而在于面对无限可能性时的**方向感**。这恰好是定义明确的问题（well-defined problem）和开放性研究（open-ended research）之间最核心的差距。
 
 但即便如此，AI 在深度维度上的进展速度仍然惊人，而且还在加速。
 
@@ -114,16 +114,16 @@ It's all the same thing at its core: **human intelligence withdraws from the exe
 
 ## Agent 任务时间跨度的增长
 
-[METR 的研究](https://metr.org/blog/2025-03-19-measuring-ai-ability-to-complete-long-tasks/)追踪了一个关键指标：AI agent 能够自主完成的任务的时间尺度。尽管对这个增长是否严格符合指数曲线[存在一些争议](https://www.technologyreview.com/2026/02/05/1132254/this-is-the-most-misunderstood-graph-in-ai/)，但趋势是清晰的——从最初的以分钟为单位，到以小时为单位，估计很快就会到达以天为单位。METR 的数据显示，AI agent 能自主完成任务的时间尺度的倍增时间大约是 7 个月。
+[METR 的研究](https://metr.org/blog/2025-03-19-measuring-ai-ability-to-complete-long-tasks/)追踪了一个关键指标：AI agent 能够自主完成的任务的时间尺度。尽管对这个增长是否严格符合指数曲线[存在一些争议](https://www.technologyreview.com/2026/02/05/1132254/this-is-the-most-misunderstood-graph-in-ai/)，但趋势是清晰的——从最初的以分钟为单位，到以小时为单位，估计很快就会到达以天为单位。METR 的数据显示，大约每隔七个月，AI agent 能自主完成的任务的时间尺度翻倍。
 
 <figure markdown="0">
 <img src="/assets/img/2026-02-18-ai-redistribution/time-horizon-1-vs-1-1-hybrid.png" style="width: 100%;">
 <figcaption>Source: METR, "Measuring AI Ability to Complete Long Tasks" (TH1.1 Update, Jan 2026)</figcaption>
 </figure>
 
-很多人关注的是"AI 变强了"，但我觉得更值得关注的是这个趋势背后的含义：**AI 能自主完成的任务"粒度"在变大。**
+**AI 能自主完成的任务"时间尺度"在变大。**
 
-粒度变大意味着什么？意味着人类需要介入的频率在降低。意味着人类智能在整个任务流程（pipeline）中的成本在降低。而当人类智能的成本降低到一定程度，这个任务就不再受限于人类的时间和注意力，而是可以被计算资源来扩展（scale）了。
+时间尺度变大意味着什么？意味着人类需要介入的频率在降低。意味着人类智能在整个任务流程（pipeline）中的成本在降低。而当人类智能的成本降低到一定程度，这个任务就不再受限于人类的时间和注意力，而是可以被计算资源来扩展（scale）了。
 
 这个逻辑其实和自然语言编程是完全一致的。以前写代码，你需要把智能分配到实现（implementation）的每一个细节上——语法、调试、模板代码（boilerplate）、边界情况（edge case）。现在有了 Claude Code、Codex 这样的工具，你只需要在顶层设计（top-level design）上投入思考，实现的部分交给 AI 就好。做 PPT 也一样，数据分析也一样，文档写作也一样。
 
@@ -163,7 +163,7 @@ Think of it with a simple framing: if completing a project requires X units of "
 
 更根本地说，**人类的智力劳动本质上是一种计算**。我们的大脑在做的事情——处理信息、推理、决策——从信息论的角度看就是计算。既然是计算，就自然可以用算力来衡量，也自然可以用算力来扩展（scale）。AI 做的，就是把原本只能用"人脑时间"来执行的计算，转移到硅基算力上。
 
-用一个简单的框架来想：如果完成一个项目需要 X 单位的"智能计算量"，以前几乎 100% 需要人类算力。现在也许只需要 10% 人类算力 + 90% AI 算力。那意味着同样的人力资源可以产出十倍的成果。这对社会生产力的改变已经是巨大的了——而且我们才刚刚开始。
+用一个简单的框架来想：如果完成一个项目需要 X 单位的"智能计算量"，以前几乎 100% 需要人类算力。现在也许只需要 10% 人类算力 + 90% AI 算力。那意味着同样的人力资源可以产出十倍的成果。这对社会生产力的改变已经是巨大的了——而且一切才刚刚开始。
 
 </div>
 
@@ -199,11 +199,11 @@ A scientist's intelligence, scaled — just like that.
 
 AI agent 能力的增长不仅仅是"能做更难的事"，更是"能管理更长时间跨度的工作流（workflow）"。这个任务时间跨度（task horizon）的扩展有一个非常深远的含义：
 
-当 agent 的任务时间跨度只有以分钟为单位的时候，它能编排的只是"跑一段代码"、"调一个 API"这种粒度的操作。但当时间跨度扩展到以天甚至周为单位，一个全新的可能性出现了——**做实验本身可以变成 agent 工作流里的一个"工具调用（tool call）"**。
+当 agent 的任务时间跨度只有以分钟为单位的时候，它能编排的只是"跑一段代码"、"调一个 API"这种粒度的操作。但当时间跨度扩展到以天甚至周为单位，一个全新的可能性出现了——**和物理世界交互（比如做实验）本身可以变成 agent 工作流里的一个步骤**。
 
 想想看：现在的 AI agent 调用代码执行，等几秒拿到结果，然后继续推理。未来的 agent 完全可以发起一个湿实验室（wet lab）的标准化实验，等几天拿到结果，然后继续推进下一步。实验从"agent 管不了的外部流程"变成了"agent 可以编排的一个异步步骤"。
 
-以前两者的时间尺度不匹配：agent 只能"活"几分钟，而实验要跑几天。这个不匹配使得 AI 没法把实验纳入自己的循环。现在时间尺度对齐了，物理世界的操作就自然地被"吸纳"进了 AI 的编排范围。
+以前两者的时间尺度不匹配：agent 只能"思考/活"几分钟，而实验要跑几天。这个不匹配使得 AI 没法把实验纳入自己的循环。现在时间尺度对齐了，物理世界的操作就自然地被"吸纳"进了 AI 的编排范围。
 
 **这是 AI 从纯数字世界走向影响物理世界的一个关键门槛。**
 
@@ -244,40 +244,6 @@ Of course, all the discussion above is still within the framework of "before AI 
 不过有一点值得强调：**即使人类的贡献不归零，只要从 90% 降到 10%，对社会的冲击已经是变革性的。** 我们不需要等到 AGI 完全取代人类才会感受到剧变，重分配本身就已经在深刻改变一切了。
 
 当然，以上所有讨论都还是在 "AI build better AI" 之前的框架内。如果那一天真的到来，就是完全不同量级的变化了。这个留到后面再说。
-
-</div>
-
-<div id="current-limitations" style="height:0;margin:0;padding:0;overflow:hidden;"></div>
-
-<div class="lang-en">
-
-## Current Limitations
-
-Demis Hassabis recently described current AI as a kind of "jagged intelligence" at the [India AI Impact Summit (2026.2.18)](https://www.storyboard18.com/brand-makers/google-deepmind-ceo-says-agi-not-here-yet-calls-current-ai-jagged-intelligence-90028.htm). I think this description is remarkably precise, manifesting in two ways:
-
-First, **AI has inherent uncertainty**. It is highly sensitive to prompts and context — unlike a calculator that always produces the same output for the same input. The same question phrased differently can yield dramatically different answers.
-
-Second, **AI's difficulty distribution has a different shape from the human difficulty distribution**. As Hassabis noted, AI can win an IMO gold medal yet make mistakes on basic math problems when posed in certain ways. It can write elegant mathematical proofs but stumble on simple logical reasoning. AI's intelligence profile has a fundamentally different shape from that of humans.
-
-These limitations are real, but I believe they **can be addressed through system design**.
-
-The key insight is: we don't need to pursue a perfect single LLM. Instead, we need to build an **LLM-based system** — incorporating tools, environments, and multi-agent architectures, using system-level design to compensate for individual model unreliability. (I discuss the specific design of Multi-Agent systems in more detail in another blog post.)
-
-</div>
-
-<div class="lang-zh">
-
-## 当前的局限
-
-Demis Hassabis 在最近的 [India AI Impact Summit（2026.2.18）](https://www.storyboard18.com/brand-makers/google-deepmind-ceo-says-agi-not-here-yet-calls-current-ai-jagged-intelligence-90028.htm)上形容当前的 AI 是一种"参差不齐的智能"（jagged intelligence）。我觉得这个描述非常精准，具体体现在两个方面：
-
-第一，**AI 具有内在的不确定性**。它对提示词（prompt）和上下文（context）是高度敏感的，不像计算器那样给同样的输入一定得到同样的输出。同一个问题换一种问法，可能得到截然不同的回答。
-
-第二，**AI 的难度分布和人类的难度分布形状不同**。正如 Hassabis 所说，AI 能拿到 IMO 金牌，却可能在以特定方式提出的基础数学题上犯错。它可以写出优雅的数学证明，但可能在一个简单的逻辑推理上犯错。AI 的智能分布（intelligence profile）和人类是不同形状的。
-
-这些局限是真实的，但我认为它们**可以被系统设计解决**。
-
-关键思路是：我们不需要追求一个完美的单一 LLM，而是需要构建一个**基于 LLM 的系统（LLM-based system）**——加入工具、环境、多智能体（multi-agent）架构，用系统层面的设计来弥补单个模型的不可靠性。（关于多智能体系统的具体设计，我在另一篇博客中有更详细的讨论。）
 
 </div>
 
@@ -346,6 +312,40 @@ In an era of rapid AI progress, work that is "close to AI's capability frontier"
 这两条路的选择，本身也是"人类智能该分配到哪里"的问题。
 
 在一个 AI 快速进步的时代，越是"离 AI 能力前沿近"的工作，被 AI 追上的速度越快。而越是"定义有意义的新问题"的工作，可能越有持久的价值。至于这种持久能维持多久？这是一个开放的问题——也许这正是我们这一代人最值得投入智能去思考的问题之一。
+
+</div>
+
+<div id="current-limitations" style="height:0;margin:0;padding:0;overflow:hidden;"></div>
+
+<div class="lang-en">
+
+## Current Limitations
+
+Demis Hassabis recently described current AI as a kind of "jagged intelligence" at the [India AI Impact Summit (2026.2.18)](https://www.storyboard18.com/brand-makers/google-deepmind-ceo-says-agi-not-here-yet-calls-current-ai-jagged-intelligence-90028.htm). I think this description is remarkably precise, manifesting in two ways:
+
+First, **AI has inherent uncertainty**. It is highly sensitive to prompts and context — unlike a calculator that always produces the same output for the same input. The same question phrased differently can yield dramatically different answers.
+
+Second, **AI's difficulty distribution has a different shape from the human difficulty distribution**. As Hassabis noted, AI can win an IMO gold medal yet make mistakes on basic math problems when posed in certain ways. It can write elegant mathematical proofs but stumble on simple logical reasoning. AI's intelligence profile has a fundamentally different shape from that of humans.
+
+These limitations are real, but I believe they **can be addressed through system design**.
+
+The key insight is: we don't need to pursue a perfect single LLM. Instead, we need to build an **LLM-based system** — incorporating tools, environments, and multi-agent architectures, using system-level design to compensate for individual model unreliability. (I discuss the specific design of Multi-Agent systems in more detail in another blog post.)
+
+</div>
+
+<div class="lang-zh">
+
+## 当前的局限
+
+Demis Hassabis 在最近的 [India AI Impact Summit（2026.2.18）](https://www.storyboard18.com/brand-makers/google-deepmind-ceo-says-agi-not-here-yet-calls-current-ai-jagged-intelligence-90028.htm)上形容当前的 AI 是一种"参差不齐的智能"（jagged intelligence）。我觉得这个描述非常精准，具体体现在两个方面：
+
+第一，**AI 具有内在的不确定性**。它对提示词（prompt）和上下文（context）是高度敏感的，不像计算器那样给同样的输入一定得到同样的输出。同一个问题换一种问法，可能得到截然不同的回答。
+
+第二，**AI 的难度分布和人类的难度分布形状不同**。正如 Hassabis 所说，AI 能拿到 IMO 金牌，却可能在以特定方式提出的基础数学题上犯错。它可以写出优雅的数学证明，但可能在一个简单的逻辑推理上犯错。AI 的智能分布（intelligence profile）和人类是不同形状的。
+
+这些局限是真实的，但我认为它们**可以被系统设计解决**。
+
+关键思路是：我们不需要追求一个完美的单一 LLM，而是需要构建一个**基于 LLM 的系统（LLM-based system）**——加入工具、环境、多智能体（multi-agent）架构，用系统层面的设计来弥补单个模型的不可靠性。（关于多智能体系统的具体设计，我在另一篇博客中有更详细的讨论。）
 
 </div>
 

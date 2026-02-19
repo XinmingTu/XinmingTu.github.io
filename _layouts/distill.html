@@ -69,6 +69,10 @@
 
       <d-byline></d-byline>
 
+      {% if page.bilingual %}
+        {% include lang_switch.html %}
+      {% endif %}
+
       <d-article>
         {% if page.toc -%}
         <d-contents>
@@ -113,5 +117,8 @@
     {% include scripts/bootstrap.html %}
     {% include scripts/analytics.html %}
     {% include scripts/progressBar.html %}
+    {% if page.bilingual %}
+    <script src="{{ '/assets/js/lang_switch.js' | relative_url }}" defer></script>
+    {% endif %}
   </body>
 </html>

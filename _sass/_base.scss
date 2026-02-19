@@ -1003,6 +1003,40 @@ nav[data-toggle="toc"] {
   }
 }
 
+// Language Switch
+.lang-switch-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 1rem;
+}
+
+.lang-switch {
+  display: inline-flex;
+  align-items: center;
+  background-color: var(--global-bg-color);
+  border: 1px solid var(--global-divider-color);
+  border-radius: 20px;
+  padding: 2px;
+  cursor: pointer;
+  font-size: 0.85rem;
+
+  .lang-option {
+    padding: 4px 12px;
+    border-radius: 18px;
+    transition: all 0.2s ease;
+    color: var(--global-text-color-light);
+
+    &.active {
+      background-color: var(--global-theme-color);
+      color: white;
+    }
+  }
+}
+
+.lang-zh {
+  display: none;
+}
+
 .featured-posts {
   a {
     color: var(--global-text-color-light);

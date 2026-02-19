@@ -39,6 +39,11 @@ layout: default
     </p>
   </header>
 
+  {% if page.bilingual %}
+    {% include lang_switch.html %}
+    <script src="{{ '/assets/js/lang_switch.js' | relative_url }}" defer></script>
+  {% endif %}
+
   <article class="post-content">
     {% if page.toc and page.toc.beginning %}
     <div id="table-of-contents">

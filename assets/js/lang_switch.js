@@ -14,10 +14,18 @@ document.addEventListener('DOMContentLoaded', function () {
     var zhBlocks = document.querySelectorAll('.lang-zh');
 
     for (var i = 0; i < enBlocks.length; i++) {
-      enBlocks[i].style.display = lang === 'en' ? 'block' : 'none';
+      if (lang === 'en') {
+        enBlocks[i].style.display = enBlocks[i].tagName === 'SPAN' ? 'inline' : 'block';
+      } else {
+        enBlocks[i].style.display = 'none';
+      }
     }
     for (var i = 0; i < zhBlocks.length; i++) {
-      zhBlocks[i].style.display = lang === 'zh' ? 'block' : 'none';
+      if (lang === 'zh') {
+        zhBlocks[i].style.display = zhBlocks[i].tagName === 'SPAN' ? 'inline' : 'block';
+      } else {
+        zhBlocks[i].style.display = 'none';
+      }
     }
 
     enBtn.classList.toggle('active', lang === 'en');

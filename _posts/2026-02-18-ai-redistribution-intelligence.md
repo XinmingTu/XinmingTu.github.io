@@ -14,14 +14,23 @@ authors:
 
 toc:
   - name: "Two Dimensions of Intelligence"
+    name_zh: "智能的两个维度"
   - name: "Agent Task Horizon Growth"
+    name_zh: "Agent 任务时间跨度的增长"
   - name: "Redistribution Is Scale"
+    name_zh: "重分配即扩展"
   - name: "Time Scale Matching"
+    name_zh: "时间尺度的匹配"
   - name: "The Limit of Redistribution"
+    name_zh: "重分配的极限"
   - name: "Current Limitations"
+    name_zh: "当前的局限"
   - name: "AI Build Better AI"
+    name_zh: "AI 构建更好的 AI"
   - name: "Personal Positioning"
+    name_zh: "个人的定位"
   - name: "References"
+    name_zh: "参考文献"
 ---
 
 {::options parse_block_html="true" /}
@@ -42,9 +51,11 @@ The mainstream narrative tends to swing between two extremes — either "AI will
 
 </div>
 
-## Two Dimensions of Intelligence
+<div id="two-dimensions-of-intelligence" style="height:0;margin:0;padding:0;overflow:hidden;"></div>
 
 <div class="lang-en">
+
+## Two Dimensions of Intelligence
 
 Intelligence can be broken down into two dimensions: the **breadth** of knowledge and the **depth** of thinking.
 
@@ -60,6 +71,8 @@ Even so, AI's rate of progress on the depth dimension remains astonishing — an
 
 <div class="lang-zh">
 
+## 智能的两个维度
+
 智能，或者说智慧，某种程度上可以分为两个维度：**知识的广度**和**思考的深度**。
 
 广度上，AI 超越人类已经毫无争议。任何一个 LLM 所掌握的知识面都远超任何一个人类个体，这一点不需要多说了。
@@ -72,9 +85,11 @@ IMO 的题目虽然极其困难，但它有明确的问题定义、有正确答�
 
 </div>
 
-## Agent Task Horizon Growth
+<div id="agent-task-horizon-growth" style="height:0;margin:0;padding:0;overflow:hidden;"></div>
 
 <div class="lang-en">
+
+## Agent Task Horizon Growth
 
 [METR's research](https://metr.org/blog/2025-03-19-measuring-ai-ability-to-complete-long-tasks/) tracks a key metric: the time scale of tasks that AI agents can complete autonomously. While there is [some debate](https://www.technologyreview.com/2026/02/05/1132254/this-is-the-most-misunderstood-graph-in-ai/) about whether this growth strictly follows an exponential curve, the trend is clear — from minutes, to hours, and likely soon to days. METR's data shows the doubling time for AI agent task horizons is roughly 7 months.
 
@@ -97,6 +112,8 @@ It's all the same thing at its core: **human intelligence withdraws from the exe
 
 <div class="lang-zh">
 
+## Agent 任务时间跨度的增长
+
 [METR 的研究](https://metr.org/blog/2025-03-19-measuring-ai-ability-to-complete-long-tasks/)追踪了一个关键指标：AI agent 能够自主完成的任务的时间尺度。尽管对这个增长是否严格符合指数曲线[存在一些争议](https://www.technologyreview.com/2026/02/05/1132254/this-is-the-most-misunderstood-graph-in-ai/)，但趋势是清晰的——从最初的以分钟为单位，到以小时为单位，估计很快就会到达以天为单位。METR 的数据显示，AI agent 能自主完成任务的时间尺度的倍增时间大约是 7 个月。
 
 <figure>
@@ -116,9 +133,11 @@ It's all the same thing at its core: **human intelligence withdraws from the exe
 
 </div>
 
-## Redistribution Is Scale
+<div id="redistribution-is-scale" style="height:0;margin:0;padding:0;overflow:hidden;"></div>
 
 <div class="lang-en">
+
+## Redistribution Is Scale
 
 What's the direct result of redistribution? It's the **amplification** of human intelligence.
 
@@ -134,6 +153,8 @@ Think of it with a simple framing: if completing a project requires X units of "
 
 <div class="lang-zh">
 
+## 重分配即扩展
+
 重分配带来的直接结果是什么？是对人类智能的**放大**。
 
 以前一个人的时间有限，精力有限。你的智能被分散在大量的执行细节上——你花 70% 的时间在实现（implementation），20% 在调试（debugging），可能只有 10% 真正在做高层级思考。现在如果执行层的工作不再需要你了，那你 100% 的智能都可以投入到最有价值的思考上。你一个人可以监督五个、十个、甚至几十个并行的项目。
@@ -146,9 +167,11 @@ Think of it with a simple framing: if completing a project requires X units of "
 
 </div>
 
-## Time Scale Matching
+<div id="time-scale-matching" style="height:0;margin:0;padding:0;overflow:hidden;"></div>
 
 <div class="lang-en">
+
+## Time Scale Matching
 
 So far, the redistribution we've discussed has mainly occurred in the digital world — writing code, doing analysis, writing documents. But a much larger tipping point is approaching.
 
@@ -170,6 +193,8 @@ A scientist's intelligence, scaled — just like that.
 
 <div class="lang-zh">
 
+## 时间尺度的匹配
+
 到目前为止，我们讨论的重分配主要发生在数字世界——写代码、做分析、写文档。但有一个更大的临界点正在到来。
 
 AI agent 能力的增长不仅仅是"能做更难的事"，更是"能管理更长时间跨度的工作流（workflow）"。这个任务时间跨度（task horizon）的扩展有一个非常深远的含义：
@@ -188,9 +213,11 @@ AI agent 能力的增长不仅仅是"能做更难的事"，更是"能管理更�
 
 </div>
 
-## The Limit of Redistribution
+<div id="the-limit-of-redistribution" style="height:0;margin:0;padding:0;overflow:hidden;"></div>
 
 <div class="lang-en">
+
+## The Limit of Redistribution
 
 Following the logic of redistribution naturally leads to a fundamental question: **will the portion that still requires human intelligence eventually approach zero?**
 
@@ -206,6 +233,8 @@ Of course, all the discussion above is still within the framework of "before AI 
 
 <div class="lang-zh">
 
+## 重分配的极限
+
 沿着重分配的逻辑自然会追问一个根本性的问题：**人类智能最终需要做的部分，会不会趋近于零？**
 
 我个人的判断是，短期内（比如两三年）应该不太可能达到这个极端。但趋势是确定的：人类智能会越来越集中在更少、更高层级的问题上。
@@ -218,9 +247,11 @@ Of course, all the discussion above is still within the framework of "before AI 
 
 </div>
 
-## Current Limitations
+<div id="current-limitations" style="height:0;margin:0;padding:0;overflow:hidden;"></div>
 
 <div class="lang-en">
+
+## Current Limitations
 
 Demis Hassabis recently described current AI as a kind of "jagged intelligence" at the [India AI Impact Summit (2026.2.18)](https://www.storyboard18.com/brand-makers/google-deepmind-ceo-says-agi-not-here-yet-calls-current-ai-jagged-intelligence-90028.htm). I think this description is remarkably precise, manifesting in two ways:
 
@@ -236,6 +267,8 @@ The key insight is: we don't need to pursue a perfect single LLM. Instead, we ne
 
 <div class="lang-zh">
 
+## 当前的局限
+
 Demis Hassabis 在最近的 [India AI Impact Summit（2026.2.18）](https://www.storyboard18.com/brand-makers/google-deepmind-ceo-says-agi-not-here-yet-calls-current-ai-jagged-intelligence-90028.htm)上形容当前的 AI 是一种"参差不齐的智能"（jagged intelligence）。我觉得这个描述非常精准，具体体现在两个方面：
 
 第一，**AI 具有内在的不确定性**。它对提示词（prompt）和上下文（context）是高度敏感的，不像计算器那样给同样的输入一定得到同样的输出。同一个问题换一种问法，可能得到截然不同的回答。
@@ -248,9 +281,11 @@ Demis Hassabis 在最近的 [India AI Impact Summit（2026.2.18）](https://www.
 
 </div>
 
-## AI Build Better AI
+<div id="ai-build-better-ai" style="height:0;margin:0;padding:0;overflow:hidden;"></div>
 
 <div class="lang-en">
+
+## AI Build Better AI
 
 Dario Amodei recently stated on the [Dwarkesh Podcast (2026.2.13)](https://www.dwarkesh.com/p/dario-amodei-2) that he has 90% confidence in achieving "a country of geniuses in a data center" within ten years, and personally estimates it's more likely within one to three years. He believes we are approaching the end of the exponential growth phase.
 
@@ -266,6 +301,8 @@ For a more detailed outlook on AI's positive potential, I recommend Dario's long
 
 <div class="lang-zh">
 
+## AI 构建更好的 AI
+
 Dario Amodei 在最近的 [Dwarkesh Podcast（2026.2.13）](https://www.dwarkesh.com/p/dario-amodei-2)中表示，他对十年内实现 "a country of geniuses in a data center" 有 90% 的信心，并且个人估计更可能在一到三年内实现。他认为我们正在接近指数增长阶段的尾声。
 
 如果这个预判是对的，那接下来一个自然的问题就是：**如果 AI 能完全自主地构建更好的 AI，会怎样？**
@@ -278,9 +315,11 @@ Dario Amodei 在最近的 [Dwarkesh Podcast（2026.2.13）](https://www.dwarkesh
 
 </div>
 
-## Personal Positioning
+<div id="personal-positioning" style="height:0;margin:0;padding:0;overflow:hidden;"></div>
 
 <div class="lang-en">
+
+## Personal Positioning
 
 Coming back to a more personal level. As AGI accelerates, I think everyone faces a choice between two paths:
 
@@ -296,6 +335,8 @@ In an era of rapid AI progress, work that is "close to AI's capability frontier"
 
 <div class="lang-zh">
 
+## 个人的定位
+
 回到更个人的层面。在 AGI 加速发展的过程中，我觉得每个人都面临两条路的选择：
 
 **第一条路**是用 AI 提高自己的生产力，更好更快地做下一个项目。这很直觉，也是大多数人当下在做的。但这条路有一个隐含的风险：现在花几个月做的工作，也许一两年后只需要几天就能完成。纯粹的应用层提效，可能会被 AI 能力的快速增长迅速贬值。
@@ -308,9 +349,11 @@ In an era of rapid AI progress, work that is "close to AI's capability frontier"
 
 </div>
 
-## References
+<div id="references" style="height:0;margin:0;padding:0;overflow:hidden;"></div>
 
 <div class="lang-en">
+
+## References
 
 - Dario Amodei, [*"We are near the end of the exponential"*](https://www.dwarkesh.com/p/dario-amodei-2) — Dwarkesh Podcast, Feb 2026
 - Dario Amodei, [*Machines of Loving Grace*](https://www.darioamodei.com/essay/machines-of-loving-grace) — Essay, Oct 2024
@@ -325,6 +368,8 @@ In an era of rapid AI progress, work that is "close to AI's capability frontier"
 </div>
 
 <div class="lang-zh">
+
+## 参考文献
 
 - Dario Amodei, [*"We are near the end of the exponential"*](https://www.dwarkesh.com/p/dario-amodei-2) — Dwarkesh Podcast, Feb 2026
 - Dario Amodei, [*Machines of Loving Grace*](https://www.darioamodei.com/essay/machines-of-loving-grace) — Essay, Oct 2024

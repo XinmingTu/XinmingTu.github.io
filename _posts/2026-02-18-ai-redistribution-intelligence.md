@@ -287,15 +287,19 @@ Dario Amodei 在最近的 [Dwarkesh Podcast（2026.2.13）](https://www.dwarkesh
 
 ## Personal Positioning
 
-Coming back to a more personal level. As AGI accelerates, I think everyone faces a choice between two paths:
+Coming back to a more personal level. Where should individual effort be directed?
 
-**The first path** is using AI to boost your own productivity — doing your next project better and faster. This is intuitive and what most people are doing right now. But this path carries an implicit risk: work that takes months now might only take days a year or two from now. Pure application-layer efficiency gains may be rapidly devalued by the fast growth of AI capabilities.
+**The first direction** is using AI to boost your own productivity — doing your next project better and faster. This is intuitive and what most people are doing right now. But this direction carries an implicit risk: work that takes months now might only take days a year or two from now. Pure application-layer efficiency gains may be rapidly devalued by the fast growth of AI capabilities.
 
-**The second path** is accelerating the improvement of AI itself — pushing the frontier of AI capabilities, or using AI to accelerate scientific discovery. This path assumes AI won't hit a wall soon, or at least that the wall isn't very close. If that assumption holds, this path may have more lasting value, because science itself is constantly opening new frontiers.
+**The second direction** is accelerating the improvement of AI itself — pushing the frontier of AI capabilities, or using AI to accelerate scientific discovery. This path assumes AI won't hit a wall soon, or at least that the wall isn't very close. If that assumption holds, this path may have more lasting value, because science itself is constantly opening new frontiers.
 
-The choice between these two paths is itself a question of "where should human intelligence be allocated."
+**The third direction** is thinking beyond AGI itself — toward the post-AGI world. If AI truly achieves recursive self-improvement, many of today's intellectual bottlenecks will dissolve. What remains are problems that are fundamentally *not* about intelligence but about the physical and biological world: aging, disease. These are domains where no amount of AI reasoning can substitute for the constraints of biology and physics. Studying aging, for instance, could become one of the most valuable long-term research directions.
 
-In an era of rapid AI progress, work that is "close to AI's capability frontier" gets caught up to faster. Work that "defines meaningful new problems" may have more lasting value. As for how long that lasting value will last? That's an open question — and perhaps one of the most worthwhile questions our generation can invest our intelligence in thinking about.
+Regardless of which direction you take, the core question is the same: "where should human intelligence be allocated?"
+
+In an era of rapid AI progress, work that is "close to AI's capability frontier" gets caught up to faster. Work that "defines meaningful new problems" may have more lasting value.
+
+One last reminder, also to myself: even when AI can think better than us, it still can't exercise for us. In a world where cognitive labor is increasingly automated, your physical health becomes your most irreplaceable asset. Stay active, sleep well, exercise regularly — so that when the AI revolution fully arrives, you're actually in good shape to embrace it.
 
 </div>
 
@@ -303,15 +307,19 @@ In an era of rapid AI progress, work that is "close to AI's capability frontier"
 
 ## 个人的定位
 
-回到更个人的层面。在 AGI 加速发展的过程中，我觉得每个人都面临两条路的选择：
+回到更个人的层面。个人的努力应该投向哪里？
 
-**第一条路**是用 AI 提高自己的生产力，更好更快地做下一个项目。这很直觉，也是大多数人当下在做的。但这条路有一个隐含的风险：现在花几个月做的工作，也许一两年后只需要几天就能完成。纯粹的应用层提效，可能会被 AI 能力的快速增长迅速贬值。
+**第一个方向**是用 AI 提高自己的生产力，更好更快地做下一个项目。这很直觉，也是大多数人当下在做的。但这个方向有一个隐含的风险：现在花几个月做的工作，也许一两年后只需要几天就能完成。纯粹的应用层提效，可能会被 AI 能力的快速增长迅速贬值。
 
-**第二条路**是加速提高 AI 的能力——去推动 AI 能力的前沿，或者用 AI 来加速科学发现本身。这条路的前提是 AI 不会很快碰壁，或者说这个瓶颈目前还不是很近。如果前提成立，这条路可能有更持久的价值，因为科学本身在不断开拓新前沿。
+**第二个方向**是加速提高 AI 的能力——去推动 AI 能力的前沿，或者用 AI 来加速科学发现本身。这条路的前提是 AI 不会很快碰壁，或者说这个瓶颈目前还不是很近。如果前提成立，这条路可能有更持久的价值，因为科学本身在不断开拓新前沿。
 
-这两条路的选择，本身也是"人类智能该分配到哪里"的问题。
+**第三个方向**是跳出 AGI 本身，去思考 Post-AGI 时代的问题。如果 AI 真的实现了递归式自我改进，今天很多认知层面的瓶颈都会被打破。那时候真正剩下的，是那些本质上*不是*认知问题、而是物理世界和生物学的问题：衰老、疾病。这些领域，再强的 AI 推理也无法替代生物学和物理学的约束。比如研究衰老，可能会成为最有长期价值的研究方向之一。
 
-在一个 AI 快速进步的时代，越是"离 AI 能力前沿近"的工作，被 AI 追上的速度越快。而越是"定义有意义的新问题"的工作，可能越有持久的价值。至于这种持久能维持多久？这是一个开放的问题——也许这正是我们这一代人最值得投入智能去思考的问题之一。
+无论走哪个方向，核心问题都是一样的："人类智能该分配到哪里？"
+
+在一个 AI 快速进步的时代，越是"离 AI 能力前沿近"的工作，被 AI 追上的速度越快。越是"定义有意义的新问题"的工作，可能越有持久的价值。
+
+最后一个提醒，也是给自己的：即使 AI 能比我们想得更好，它也没法替我们跑步。在认知劳动越来越自动化的世界里，身体健康反而成了最不可替代的资产。规律运动、好好睡觉、保持健康——这样当 AI 革命真正到来的时候，你才有足够好的状态去拥抱它。
 
 </div>
 

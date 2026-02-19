@@ -28,7 +28,7 @@ toc:
     - name: "Related Work"
 ---
 
-> **Note:** This post is a work in progress and may be updated frequently.
+> **Note:** This post is a work in progress and may be updated frequently. We are currently working on experiments.
 
 ## Abstract
 

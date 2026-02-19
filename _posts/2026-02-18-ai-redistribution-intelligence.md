@@ -231,7 +231,6 @@ The likely progression looks something like this: first, withdrawing from implem
 
 But one point is worth emphasizing: **even if human contribution doesn't reach zero, just dropping from 90% to 10% would already be transformative for society.** We don't need to wait for AGI to fully replace humans to feel the upheaval — redistribution itself is already profoundly changing everything.
 
-Of course, all the discussion above is still within the framework of "before AI builds better AI." If that day truly arrives, it will be change of an entirely different magnitude. More on that below.
 
 </div>
 
@@ -247,7 +246,6 @@ Of course, all the discussion above is still within the framework of "before AI 
 
 不过有一点值得强调：**即使人类的贡献不归零，只要从 90% 降到 10%，对社会的冲击已经是变革性的。** 我们不需要等到 AGI 完全取代人类才会感受到剧变，重分配本身就已经在深刻改变一切了。
 
-当然，以上所有讨论都还是在 "AI build better AI" 之前的框架内。如果那一天真的到来，就是完全不同量级的变化了。这个留到后面再说。
 
 </div>
 

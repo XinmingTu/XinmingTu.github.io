@@ -94,8 +94,8 @@ IMO 的题目虽然极其困难，但它有明确的问题定义、有正确答�
 [METR's research](https://metr.org/blog/2025-03-19-measuring-ai-ability-to-complete-long-tasks/) tracks a key metric: the time scale of tasks that AI agents can complete autonomously. While there is [some debate](https://www.technologyreview.com/2026/02/05/1132254/this-is-the-most-misunderstood-graph-in-ai/) about whether this growth strictly follows an exponential curve, the trend is clear — from minutes, to hours, and likely soon to days. METR's data shows the doubling time for AI agent task horizons is roughly 7 months.
 
 <figure markdown="0">
-<img src="/assets/img/2026-02-18-ai-redistribution/models-are-succeeding-at-increasingly-long-tasks.png" style="width: 100%;">
-<figcaption>Source: METR, "Measuring AI Ability to Complete Long Tasks", March 2025</figcaption>
+<img src="/assets/img/2026-02-18-ai-redistribution/time-horizon-1-vs-1-1-hybrid.png" style="width: 100%;">
+<figcaption>Source: METR, "Measuring AI Ability to Complete Long Tasks" (TH1.1 Update, Jan 2026)</figcaption>
 </figure>
 
 Most people focus on "AI is getting stronger," but I think what's more worth paying attention to is the implication behind this trend: **the "granularity" of tasks AI can complete autonomously is getting larger.**
@@ -117,8 +117,8 @@ It's all the same thing at its core: **human intelligence withdraws from the exe
 [METR 的研究](https://metr.org/blog/2025-03-19-measuring-ai-ability-to-complete-long-tasks/)追踪了一个关键指标：AI agent 能够自主完成的任务的时间尺度。尽管对这个增长是否严格符合指数曲线[存在一些争议](https://www.technologyreview.com/2026/02/05/1132254/this-is-the-most-misunderstood-graph-in-ai/)，但趋势是清晰的——从最初的以分钟为单位，到以小时为单位，估计很快就会到达以天为单位。METR 的数据显示，AI agent 能自主完成任务的时间尺度的倍增时间大约是 7 个月。
 
 <figure markdown="0">
-<img src="/assets/img/2026-02-18-ai-redistribution/models-are-succeeding-at-increasingly-long-tasks.png" style="width: 100%;">
-<figcaption>Source: METR, "Measuring AI Ability to Complete Long Tasks", March 2025</figcaption>
+<img src="/assets/img/2026-02-18-ai-redistribution/time-horizon-1-vs-1-1-hybrid.png" style="width: 100%;">
+<figcaption>Source: METR, "Measuring AI Ability to Complete Long Tasks" (TH1.1 Update, Jan 2026)</figcaption>
 </figure>
 
 很多人关注的是"AI 变强了"，但我觉得更值得关注的是这个趋势背后的含义：**AI 能自主完成的任务"粒度"在变大。**

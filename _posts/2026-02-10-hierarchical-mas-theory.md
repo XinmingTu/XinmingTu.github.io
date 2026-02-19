@@ -10,6 +10,9 @@ authors:
     url: "https://xinmingtu.cn"
     affiliations:
       name: University of Washington
+  - name: Guanghao Ye
+    affiliations:
+      name: TBD
 
 bibliography: 2026-02-10-hierarchical-mas-theory.bib
 
@@ -24,6 +27,8 @@ toc:
     - name: "Conclusion"
     - name: "Related Work"
 ---
+
+> **Note:** This post is a work in progress and may be updated frequently.
 
 ## Abstract
 

@@ -37,6 +37,8 @@ toc:
 
 <div class="lang-en">
 
+<a href="javascript:void(0)" onclick="document.getElementById('lang-toggle').click()">中文版</a>
+
 I've been thinking about a question lately: what does AI really mean for humanity?
 
 AI's core impact is not replacing human intelligence, but **redistributing** it. And redistribution itself means the scale of human intelligence — an exponential amplification of individual capability.
@@ -44,6 +46,8 @@ AI's core impact is not replacing human intelligence, but **redistributing** it.
 </div>
 
 <div class="lang-zh">
+
+<a href="javascript:void(0)" onclick="document.getElementById('lang-toggle').click()">Read in English</a>
 
 最近一直在思考一个问题：AI 对人类到底意味着什么？
 
@@ -319,7 +323,7 @@ One last reminder, also to myself: even when AI can think better than us, it sti
 
 在一个 AI 快速进步的时代，越是"离 AI 能力前沿近"的工作，被 AI 追上的速度越快。越是"定义有意义的新问题"的工作，可能越有持久的价值。
 
-最后一个提醒，也是给自己的：即使 AI 能比我们想得更好，它也没法替我们跑步。在认知劳动越来越自动化的世界里，身体健康反而成了最不可替代的资产。规律运动、好好睡觉、保持健康——这样当 AI 革命真正到来的时候，你才有足够好的状态去拥抱它。
+最后一个提醒，也是给自己的：AI 再怎么发展，也没法替我们锻炼。在认知劳动越来越自动化的世界里，身体健康反而成了最不可替代的资产。规律运动、好好睡觉、保持健康——这样当 AI 革命真正到来的时候，你才有足够好的状态去拥抱它。
 
 </div>
 
@@ -337,7 +341,7 @@ Second, **AI's difficulty distribution has a different shape from the human diff
 
 These limitations are real, but I believe they **can be addressed through system design**.
 
-The key insight is: we don't need to pursue a perfect single LLM. Instead, we need to build an **LLM-based system** — incorporating tools, environments, and multi-agent architectures, using system-level design to compensate for individual model unreliability. (I discuss the specific design of Multi-Agent systems in more detail in another blog post.)
+The key insight is: we don't need to pursue a perfect single LLM. Instead, we need to build an **LLM-based system** — incorporating tools, environments, and multi-agent architectures, using system-level design to compensate for individual model unreliability. (I discuss the specific design of Multi-Agent systems in more detail in [another blog post](/blog/2026/hierarchical-mas-theory/).)
 
 </div>
 
@@ -353,7 +357,7 @@ Demis Hassabis 在最近的 [India AI Impact Summit（2026.2.18）](https://www.
 
 这些局限是真实的，但我认为它们**可以被系统设计解决**。
 
-关键思路是：我们不需要追求一个完美的单一 LLM，而是需要构建一个**基于 LLM 的系统（LLM-based system）**——加入工具、环境、多智能体（multi-agent）架构，用系统层面的设计来弥补单个模型的不可靠性。（关于多智能体系统的具体设计，我在另一篇博客中有更详细的讨论。）
+关键思路是：我们不需要追求一个完美的单一 LLM，而是需要构建一个**基于 LLM 的系统（LLM-based system）**——加入工具、环境、多智能体（multi-agent）架构，用系统层面的设计来弥补单个模型的不可靠性。（关于多智能体系统的具体设计，我在[另一篇博客](/blog/2026/hierarchical-mas-theory/)中有更详细的讨论。）
 
 </div>
 

@@ -232,7 +232,7 @@ Of course, all the discussion above is still within the framework of "before AI 
 
 <div class="lang-en">
 
-Demis Hassabis recently described current AI as a kind of "jagged intelligence" at the [India AI Impact Summit (2026.2.18)](https://www.business-standard.com/technology/tech-news/google-deepmind-ceo-demis-hassabis-ai-impact-summit-delhi-systems-agi-126021800278_1.html). I think this description is remarkably precise, manifesting in two ways:
+Demis Hassabis recently described current AI as a kind of "jagged intelligence" at the [India AI Impact Summit (2026.2.18)](https://www.storyboard18.com/brand-makers/google-deepmind-ceo-says-agi-not-here-yet-calls-current-ai-jagged-intelligence-90028.htm). I think this description is remarkably precise, manifesting in two ways:
 
 First, **AI has inherent uncertainty**. It is highly sensitive to prompts and context — unlike a calculator that always produces the same output for the same input. The same question phrased differently can yield dramatically different answers.
 
@@ -246,7 +246,7 @@ The key insight is: we don't need to pursue a perfect single LLM. Instead, we ne
 
 <div class="lang-zh">
 
-Demis Hassabis 在最近的 [India AI Impact Summit（2026.2.18）](https://www.business-standard.com/technology/tech-news/google-deepmind-ceo-demis-hassabis-ai-impact-summit-delhi-systems-agi-126021800278_1.html)上形容当前的 AI 是一种"参差不齐的智能"（jagged intelligence）。我觉得这个描述非常精准，具体体现在两个方面：
+Demis Hassabis 在最近的 [India AI Impact Summit（2026.2.18）](https://www.storyboard18.com/brand-makers/google-deepmind-ceo-says-agi-not-here-yet-calls-current-ai-jagged-intelligence-90028.htm)上形容当前的 AI 是一种"参差不齐的智能"（jagged intelligence）。我觉得这个描述非常精准，具体体现在两个方面：
 
 第一，**AI 具有内在的不确定性**。它对提示词（prompt）和上下文（context）是高度敏感的，不像计算器那样给同样的输入一定得到同样的输出。同一个问题换一种问法，可能得到截然不同的回答。
 
@@ -330,7 +330,7 @@ In an era of rapid AI progress, work that is "close to AI's capability frontier"
 
 - Dario Amodei, [*"We are near the end of the exponential"*](https://www.dwarkesh.com/p/dario-amodei-2) — Dwarkesh Podcast, Feb 2026
 - Dario Amodei, [*Machines of Loving Grace*](https://www.darioamodei.com/essay/machines-of-loving-grace) — Essay, Oct 2024
-- Demis Hassabis on "Jagged Intelligence" — [India AI Impact Summit](https://www.business-standard.com/technology/tech-news/google-deepmind-ceo-demis-hassabis-ai-impact-summit-delhi-systems-agi-126021800278_1.html), Feb 2026
+- Demis Hassabis on "Jagged Intelligence" — [India AI Impact Summit](https://www.storyboard18.com/brand-makers/google-deepmind-ceo-says-agi-not-here-yet-calls-current-ai-jagged-intelligence-90028.htm), Feb 2026
 - METR, [*Measuring AI Ability to Complete Long Tasks*](https://metr.org/blog/2025-03-19-measuring-ai-ability-to-complete-long-tasks/), Mar 2025 ([TH1.1 Update](https://metr.org/blog/2026-1-29-time-horizon-1-1/), Jan 2026)
 - MIT Technology Review, [*This is the most misunderstood graph in AI*](https://www.technologyreview.com/2026/02/05/1132254/this-is-the-most-misunderstood-graph-in-ai/), Feb 2026
 - Scientific American, [*AI uncovers solutions to Erdős problems*](https://www.scientificamerican.com/article/ai-uncovers-solutions-to-erdos-problems-moving-closer-to-transforming-math/), Feb 2026
@@ -344,7 +344,7 @@ In an era of rapid AI progress, work that is "close to AI's capability frontier"
 
 - Dario Amodei, [*"We are near the end of the exponential"*](https://www.dwarkesh.com/p/dario-amodei-2) — Dwarkesh Podcast, Feb 2026
 - Dario Amodei, [*Machines of Loving Grace*](https://www.darioamodei.com/essay/machines-of-loving-grace) — Essay, Oct 2024
-- Demis Hassabis on "Jagged Intelligence" — [India AI Impact Summit](https://www.business-standard.com/technology/tech-news/google-deepmind-ceo-demis-hassabis-ai-impact-summit-delhi-systems-agi-126021800278_1.html), Feb 2026
+- Demis Hassabis on "Jagged Intelligence" — [India AI Impact Summit](https://www.storyboard18.com/brand-makers/google-deepmind-ceo-says-agi-not-here-yet-calls-current-ai-jagged-intelligence-90028.htm), Feb 2026
 - METR, [*Measuring AI Ability to Complete Long Tasks*](https://metr.org/blog/2025-03-19-measuring-ai-ability-to-complete-long-tasks/), Mar 2025 ([TH1.1 Update](https://metr.org/blog/2026-1-29-time-horizon-1-1/), Jan 2026)
 - MIT Technology Review, [*This is the most misunderstood graph in AI*](https://www.technologyreview.com/2026/02/05/1132254/this-is-the-most-misunderstood-graph-in-ai/), Feb 2026
 - Scientific American, [*AI uncovers solutions to Erdős problems*](https://www.scientificamerican.com/article/ai-uncovers-solutions-to-erdos-problems-moving-closer-to-transforming-math/), Feb 2026

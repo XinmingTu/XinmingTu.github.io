@@ -373,7 +373,7 @@ Demis Hassabis 在最近的 [India AI Impact Summit（2026.2.18）](https://www.
 - Scientific American, [*AI uncovers solutions to Erdős problems*](https://www.scientificamerican.com/article/ai-uncovers-solutions-to-erdos-problems-moving-closer-to-transforming-math/), Feb 2026
 - Scientific American, [*Mathematicians launch First Proof*](https://www.scientificamerican.com/article/mathematicians-launch-first-proof-a-first-of-its-kind-math-exam-for-ai/), Feb 2026
 - Terence Tao, [*The story of Erdős problem #1026*](https://terrytao.wordpress.com/2025/12/08/the-story-of-erdos-problem-126/), Dec 2025
-- [Amy Tam's thread on AI redistribution](https://x.com/amytam01/status/2023593365401636896)
+- [Amy Tam's thread on the cost of staying](https://x.com/amytam01/status/2023593365401636896)
 
 </div>
 
@@ -389,6 +389,6 @@ Demis Hassabis 在最近的 [India AI Impact Summit（2026.2.18）](https://www.
 - Scientific American, [*AI uncovers solutions to Erdős problems*](https://www.scientificamerican.com/article/ai-uncovers-solutions-to-erdos-problems-moving-closer-to-transforming-math/), Feb 2026
 - Scientific American, [*Mathematicians launch First Proof*](https://www.scientificamerican.com/article/mathematicians-launch-first-proof-a-first-of-its-kind-math-exam-for-ai/), Feb 2026
 - Terence Tao, [*The story of Erdős problem #1026*](https://terrytao.wordpress.com/2025/12/08/the-story-of-erdos-problem-126/), Dec 2025
-- [Amy Tam's thread on AI redistribution](https://x.com/amytam01/status/2023593365401636896)
+- [Amy Tam's thread on the cost of staying](https://x.com/amytam01/status/2023593365401636896)
 
 </div>

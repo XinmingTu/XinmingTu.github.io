@@ -95,11 +95,11 @@ IMO 的题目（甚至是 Erdős 开放问题）虽然极其困难，但它们�
 
 ## Agent Task Horizon Growth
 
-[METR's research](https://metr.org/blog/2025-03-19-measuring-ai-ability-to-complete-long-tasks/) tracks a key metric: the time scale of tasks that AI agents can complete autonomously. While there is [some debate](https://www.technologyreview.com/2026/02/05/1132254/this-is-the-most-misunderstood-graph-in-ai/) about whether this growth strictly follows an exponential curve, the trend is clear — from minutes, to hours, and likely soon to days. METR's data shows the doubling time for AI agent task horizons is roughly 7 months.
+[METR's research](https://metr.org/blog/2025-03-19-measuring-ai-ability-to-complete-long-tasks/) tracks a key metric: the time scale of tasks that AI agents can complete autonomously. While there is [some debate](https://www.technologyreview.com/2026/02/05/1132254/this-is-the-most-misunderstood-graph-in-ai/) about whether this growth strictly follows an exponential curve, the trend is clear — from minutes, to hours, and likely soon to days. METR's latest data shows the doubling time for AI agent task horizons is roughly 4 months.
 
 <figure markdown="0">
-<img src="/assets/img/2026-02-18-ai-redistribution/time-horizon-1-vs-1-1-hybrid.png" style="width: 100%;">
-<figcaption>Source: METR, "Measuring AI Ability to Complete Long Tasks" (TH1.1 Update, Jan 2026)</figcaption>
+<img src="/assets/img/2026-02-18-ai-redistribution/metr-time-horizon-opus4.6.png" style="width: 100%;">
+<figcaption>Source: METR, "Task-Completion Time Horizons of Frontier AI Models" (Feb 2026, includes Claude Opus 4.6)</figcaption>
 </figure>
 
 **The task horizon — how long AI can work autonomously — is growing.**
@@ -118,11 +118,11 @@ It's all the same thing at its core: **human intelligence withdraws from the exe
 
 ## Agent 任务时间跨度的增长
 
-[METR 的研究](https://metr.org/blog/2025-03-19-measuring-ai-ability-to-complete-long-tasks/)追踪了一个关键指标：AI agent 能够自主完成的任务的时间尺度。尽管对这个增长是否严格符合指数曲线[存在一些争议](https://www.technologyreview.com/2026/02/05/1132254/this-is-the-most-misunderstood-graph-in-ai/)，但趋势是清晰的——从最初的以分钟为单位，到以小时为单位，估计很快就会到达以天为单位。METR 的数据显示，大约每隔七个月，AI agent 能自主完成的任务的时间尺度翻倍。
+[METR 的研究](https://metr.org/blog/2025-03-19-measuring-ai-ability-to-complete-long-tasks/)追踪了一个关键指标：AI agent 能够自主完成的任务的时间尺度。尽管对这个增长是否严格符合指数曲线[存在一些争议](https://www.technologyreview.com/2026/02/05/1132254/this-is-the-most-misunderstood-graph-in-ai/)，但趋势是清晰的——从最初的以分钟为单位，到以小时为单位，估计很快就会到达以天为单位。METR 的最新数据显示，大约每隔四个月，AI agent 能自主完成的任务的时间尺度翻倍。
 
 <figure markdown="0">
-<img src="/assets/img/2026-02-18-ai-redistribution/time-horizon-1-vs-1-1-hybrid.png" style="width: 100%;">
-<figcaption>Source: METR, "Measuring AI Ability to Complete Long Tasks" (TH1.1 Update, Jan 2026)</figcaption>
+<img src="/assets/img/2026-02-18-ai-redistribution/metr-time-horizon-opus4.6.png" style="width: 100%;">
+<figcaption>Source: METR, "Task-Completion Time Horizons of Frontier AI Models" (Feb 2026, includes Claude Opus 4.6)</figcaption>
 </figure>
 
 **AI 能自主完成的任务"时间尺度"在变大。**

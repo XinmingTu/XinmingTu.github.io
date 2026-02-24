@@ -61,13 +61,13 @@ AI 的核心影响不是取代人类智能，而是**重分配**人类智能。�
 
 ## Two Dimensions of Intelligence
 
-Intelligence can be broken down into two dimensions: the **breadth** of knowledge and the **depth** of thinking.
+Intelligence — or perhaps wisdom — can, to some extent, be broken down into two dimensions: the **breadth** of knowledge and the **depth** of thinking.
 
-In terms of breadth, AI has indisputably surpassed humans. Any LLM commands a knowledge base far exceeding that of any individual person — this hardly needs elaboration.
+In terms of breadth, AI has indisputably surpassed humans. Any LLM commands a knowledge base far exceeding that of any individual person.
 
-What's more interesting is depth. AI's recent performance on IMO gold medals, Erdős open problems, [First Proof](https://www.scientificamerican.com/article/mathematicians-launch-first-proof-a-first-of-its-kind-math-exam-for-ai/), and other frontier mathematics has astonished many. Since last October, AI tools have helped solve roughly [100 Erdős problems](https://www.scientificamerican.com/article/ai-uncovers-solutions-to-erdos-problems-moving-closer-to-transforming-math/), with [Erdős Problem #728](https://arxiv.org/abs/2601.07421) considered the first Erdős open problem solved entirely autonomously by an AI system. But we need to understand precisely what this means — it demonstrates that **in well-defined settings with sufficient data and feedback signals**, AI can already reach extremely high levels. This is not the same as AI possessing general "deep thinking" ability.
+As for depth, AI's performance over the past year on IMO gold medals, Erdős open problems, [First Proof](https://www.scientificamerican.com/article/mathematicians-launch-first-proof-a-first-of-its-kind-math-exam-for-ai/), and other frontier mathematics has astonished many. Since last October, AI tools have helped solve roughly [100 Erdős problems](https://www.scientificamerican.com/article/ai-uncovers-solutions-to-erdos-problems-moving-closer-to-transforming-math/), with [Erdős Problem #728](https://arxiv.org/abs/2601.07421) considered the first Erdős open problem solved entirely autonomously by an AI system. But we need to understand precisely what this means — it demonstrates that **in well-defined settings with sufficient data and feedback signals**, AI can already reach extremely high levels. This is not the same as AI possessing general "deep thinking" ability.
 
-IMO problems, while extremely difficult, have clear problem definitions, correct answers, and abundant historical training data. The real research frontier is often nothing like this — you don't even know how to formulate the problem, or which direction to think in. The hard part of deep thinking may not be the quality of each reasoning step, but the **sense of direction** when facing infinite possibilities. This is precisely the core gap between well-defined problems and open-ended research.
+IMO problems (and even Erdős open problems), while extremely difficult, have clear problem definitions, correct answers, and abundant historical training data. The real research frontier is often nothing like this — you don't even know how to formulate the problem, or which direction to think in. The hard part of deep thinking may not be the quality of each reasoning step, but the **sense of direction** when facing infinite possibilities. This is precisely the core gap between well-defined problems and open-ended research.
 
 Even so, AI's rate of progress on the depth dimension remains astonishing — and accelerating.
 
@@ -102,9 +102,9 @@ IMO 的题目（甚至是 Erdős 开放问题）虽然极其困难，但它们�
 <figcaption>Source: METR, "Measuring AI Ability to Complete Long Tasks" (TH1.1 Update, Jan 2026)</figcaption>
 </figure>
 
-Most people focus on "AI is getting stronger," but I think what's more worth paying attention to is the implication behind this trend: **the "granularity" of tasks AI can complete autonomously is getting larger.**
+**The task horizon — how long AI can work autonomously — is growing.**
 
-What does larger granularity mean? It means humans need to intervene less frequently. It means the cost of human intelligence in the overall task pipeline is dropping. And when that cost drops below a certain threshold, the task is no longer bottlenecked by human time and attention — it can be scaled with compute resources.
+What does a growing task horizon mean? It means humans need to intervene less frequently. It means the cost of human intelligence in the overall task pipeline is dropping. And when that cost drops below a certain threshold, the task is no longer bottlenecked by human time and attention — it can be scaled with compute resources.
 
 This logic is entirely consistent with natural language programming. Writing code used to require allocating intelligence to every implementation detail — syntax, debugging, boilerplate, edge cases. Now with tools like Claude Code and Codex, you only need to invest thinking at the top-level design; the implementation is handed off to AI. The same applies to making presentations, data analysis, and document writing.
 
@@ -181,11 +181,11 @@ So far, the redistribution we've discussed has mainly occurred in the digital wo
 
 The growth of AI agent capabilities isn't just about "being able to do harder things" — it's about "being able to manage workflows across longer time spans." This expansion of the task horizon has a profoundly important implication:
 
-When an agent's task horizon is only minutes, it can only orchestrate operations at the granularity of "run a piece of code" or "call an API." But when the horizon extends to days or even weeks, an entirely new possibility emerges — **running an experiment itself can become a "tool call" within an agent's workflow.**
+When an agent's task horizon is only minutes, it can only orchestrate operations at the granularity of "run a piece of code" or "call an API." But when the horizon extends to days or even weeks, an entirely new possibility emerges — **interacting with the physical world — say, running an experiment — can itself become a step in an agent's workflow.**
 
 Think about it: today's AI agents invoke code execution, wait a few seconds for results, then continue reasoning. Future agents could just as easily dispatch a standardized wet lab experiment, wait a few days for results, then proceed to the next step. Experiments shift from "external processes the agent can't manage" to "asynchronous steps the agent can orchestrate."
 
-Previously, the time scales were mismatched: agents could only "live" for minutes, while experiments take days to run. This mismatch prevented AI from incorporating experiments into its loop. Now that the time scales are aligned, physical-world operations are naturally being "absorbed" into AI's orchestration scope.
+Previously, the time scales were mismatched: agents could only "think" for minutes, while experiments take days to run. This mismatch prevented AI from incorporating experiments into its loop. Now that the time scales are aligned, physical-world operations are naturally being "absorbed" into AI's orchestration scope.
 
 **This is a key threshold for AI moving from the purely digital world to influencing the physical world.**
 
@@ -301,7 +301,7 @@ Regardless of which direction you take, the core question is the same: "where sh
 
 In an era of rapid AI progress, work that is "close to AI's capability frontier" gets caught up to faster. Work that "defines meaningful new problems" may have more lasting value.
 
-One last reminder, also to myself: even when AI can think better than us, it still can't exercise for us. In a world where cognitive labor is increasingly automated, your physical health becomes your most irreplaceable asset. Stay active, sleep well, exercise regularly — so that when the AI revolution fully arrives, you're actually in good shape to embrace it.
+One last reminder, also to myself: no matter how far AI advances, it still can't exercise for us. In a world where cognitive labor is increasingly automated, your physical health becomes your most irreplaceable asset. Stay active, sleep well, exercise regularly — so that when the AI revolution fully arrives, you're actually in good shape to embrace it.
 
 </div>
 

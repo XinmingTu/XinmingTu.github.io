@@ -19,9 +19,9 @@ bibliography: 2026-02-10-hierarchical-mas-theory.bib
 toc:
     - name: "Introduction"
     - name: "The Baseline: Why Linear Reasoning Collapses"
-    - name: "Mechanism I: Architectural Compression of Span"
-    - name: "Mechanism II: Scope Isolation via State Virtualization"
-    - name: "Mechanism III: Verification as a Filter"
+    - name: "Mechanism I: Topology — Compressing the Control Span"
+    - name: "Mechanism II: Scope Isolation — Virtualizing the Data Plane"
+    - name: "Mechanism III: Verification — Error Correction at the Gates"
     - name: "A Unified Theory of Reliability"
     - name: "Practical Constraints"
     - name: "Conclusion"
@@ -36,8 +36,11 @@ The current paradigm of test-time scaling often relies on unstructured, linear g
 
 ## Introduction
 
-**The shift to test-time scaling and its unstructured bottleneck.**
-As the AI community seeks to solve increasingly complex, long-horizon tasks, focus has shifted toward *test-time scaling*---spending more compute during inference. However, the default approach of simply prompting a model to "think longer" via long, linear Chains-of-Thought (CoT) is fundamentally *unstructured*. Mathematically, a single continuous reasoning path forces per-step errors to compound exponentially. To avoid collapse, the base model would need an impossibly low atomic error rate, posing a strict limit on unstructured scaling.
+**The rise of test-time scaling.**
+The scaling-law frontier is shifting from training to inference. As the AI community tackles increasingly complex, long-horizon tasks, attention has turned to *test-time scaling*---investing more compute during inference to boost reasoning quality. This paradigm promises to unlock harder problems without retraining, but it raises a fundamental question: *how* should that extra compute be organized?
+
+**The baseline failure: linear collapse.**
+The default answer---simply prompting a model to "think longer" via long, linear Chains-of-Thought (CoT)---is fundamentally *unstructured*. A single continuous reasoning path forces the sequential span to equal total work ($S = W$), causing per-step errors to compound exponentially: $P_{\mathrm{success}} \approx e^{-\epsilon W}$. To avoid collapse, the base model would need an impossibly low error rate ($\epsilon = O(1/W)$). This *linear collapse* is not a minor nuisance; it is a hard mathematical ceiling on unstructured scaling.
 
 **The empirical success of Multi-Agent Systems (MAS).**
 In practice, the community has bypassed this bottleneck by scaling the *system* rather than just the context window. Multi-agent frameworks and dynamic reasoning topologies---ranging from static role-playing teams <d-cite key="hong2023metagpt,wu2023autogen"></d-cite> to dynamic orchestrators <d-cite key="ruan2026aorchestra"></d-cite> and Recursive Language Models (RLMs) <d-cite key="zhang2025rlm"></d-cite>---have demonstrated remarkable empirical success on long-horizon tasks. By decomposing tasks, delegating sub-problems, and managing context, these systems successfully harness test-time compute where linear CoT fails.
@@ -57,8 +60,8 @@ Section 2 defines work/span and the linear-collapse baseline. Sections 3--5 deve
 
 ## The Baseline: Why Linear Reasoning Collapses
 
-**Work and span.**
-Consider a task whose solution requires producing and correctly composing $W$ atomic units (facts, sub-proofs, code edits, tests, etc.). We distinguish:
+**Work and span in test-time compute.**
+Consider a task whose solution requires producing and correctly composing $W$ atomic units (facts, sub-proofs, code edits, tests, etc.). When scaling test-time compute, we distinguish:
 
 - **Work $W$:** total required atomic units.
 - **Span $S$:** the length of the longest sequential dependency/control path (critical path).
@@ -99,9 +102,9 @@ $$
 To keep $P_{\mathrm{linear}}$ bounded away from $0$ as $W$ grows, one needs $\epsilon_{\mathrm{mono}} = O(1/W)$. That is, the base model would have to become arbitrarily reliable as the horizon lengthens. This is the core brittleness critique of long chains.
 
 **What the baseline teaches.**
-The enemy is not "multi-step reasoning" per se; it is the *linear span* that forces errors and drift to accumulate along a length-$W$ control path. The rest of the note asks: can we change the topology so that the dominant compounding path is much shorter, and then keep the remaining errors local?
+The enemy is not multi-step reasoning per se; it is the *linear span* that forces errors and drift to accumulate along a length-$W$ control path. If we could reshape the computation graph so that the longest dependency chain is much shorter than $W$, the exponential penalty would shrink dramatically---and any residual errors could be handled locally rather than compounding globally.
 
-## Mechanism I: Architectural Compression of Span
+## Mechanism I: Topology — Compressing the Control Span
 
 **From a chain to a tree/DAG.**
 Replace the linear chain with a roughly balanced $k$-ary hierarchy: a manager decomposes work into $k$ subproblems, sub-managers repeat, and leaves produce outputs. In the idealized balanced case,
@@ -138,13 +141,13 @@ The balanced tree is a pedagogical idealization. Modern agentic systems construc
 
 In both cases, the system trades integration work for reduced span by managing a *stack* of ephemeral agents, effectively "compiling" the optimal computation graph on the fly.
 
-**Transition: span is not the whole story.**
-Reducing span mitigates global drift, but it does not automatically guarantee correctness of the $W$ leaf-level units. Even if the top-level plan stays coherent, the system can still fail if too many leaves are wrong. This leads to our second mechanism: *make the leaves easier and cleaner.*
+**Span is not the whole story.**
+Compressing span tames global drift, but $W$ leaf-level units still must be produced correctly. A coherent top-level plan is worthless if the leaves that execute it are noisy and error-prone. The natural next question: can we also *lower the intrinsic error rate* of each leaf?
 
-## Mechanism II: Scope Isolation via State Virtualization
+## Mechanism II: Scope Isolation — Virtualizing the Data Plane
 
-**Decomposition is not only parallelism.**
-A common story says hierarchy helps because it parallelizes work. A second, deeper story is that decomposition *improves accuracy* by changing the distribution of subproblems each model instance faces.
+**Decomposition reduces difficulty, not just latency.**
+Mechanism I showed that hierarchy compresses span. But decomposition offers a second, deeper benefit: it *lowers the intrinsic error rate* of each subproblem by changing the distribution of difficulty and context noise each model instance faces.
 
 **A simple model: error depends on difficulty and noise.**
 Let $L$ denote intrinsic subproblem complexity and $N$ denote context "noise" or distraction. Write the base model's unit error rate as $\epsilon(L, N)$. A monolithic run tends to induce large $(L, N)$, yielding $\epsilon_{\mathrm{mono}} = \epsilon(L_{\mathrm{root}}, N_{\mathrm{root}})$. A good decomposition aims to create leaves with smaller scope and cleaner context:
@@ -156,21 +159,23 @@ $$
 The motivation is empirical: long contexts degrade reasoning ("lost in the middle" <d-cite key="liu2023lostmiddle"></d-cite>). The goal of isolation is to physically ensure $N_{\mathrm{leaf}}$ is minimal, keeping the base model in its reliable regime.
 
 **Implementing Isolation: The Agentic Von Neumann Architecture.**
-How do we physically guarantee $N_{\mathrm{leaf}} \ll N_{\mathrm{root}}$? Reliable MAS achieve this by adopting a *virtualized state architecture*, mirroring the separation of execution and storage in classical computing:
+How do we physically guarantee $N_{\mathrm{leaf}} \ll N_{\mathrm{root}}$?
+Notably, the same systems that compress span (Mechanism I) also implement isolation---but through a different architectural surface.
+Reliable MAS achieve this by adopting a *virtualized state architecture*, mirroring the separation of execution and storage in classical computing:
 
-1. **Transient Isolation (The Call Stack):** Frameworks like AOrchestra <d-cite key="ruan2026aorchestra"></d-cite> and RLMs <d-cite key="zhang2025rlm"></d-cite> manage *control flow* via a programmatic call stack---sub-agents are spawned through code-level invocations (function calls, API calls), not conversational prompting. Each invocation creates a fresh, ephemeral context window (a "stack frame") with an explicit input/output contract. Once the sub-agent returns, its noisy internal reasoning trace is garbage-collected, preventing noise accumulation in the parent process.
-2. **Persistent Isolation (The File System):** To manage long-term state that exceeds any single context window, systems like RLMs <d-cite key="zhang2025rlm"></d-cite>, native agentic frameworks <d-cite key="liu2026pensieve"></d-cite>, and OS-Agents <d-cite key="packer2023memgpt,wang2023voyager"></d-cite> use the file system directly to manage context. Instead of passing a linear chat log that grows unboundedly, agents read and write to structured artifacts (e.g., `spec.md`, `memory.json`). This forces the agent to explicitly "page in" only relevant data, keeping the working context clean and bounded within the context window---reducing the effective context from "everything that happened" to "only the files currently open."
+1. **Transient Isolation (The Call Stack):** Frameworks like **AOrchestra** <d-cite key="ruan2026aorchestra"></d-cite> and **RLMs** <d-cite key="zhang2025rlm"></d-cite> manage *control flow* via a programmatic call stack: the orchestrator *invokes* sub-agents through code (API calls, function dispatches), not through conversational prompting. Each invocation creates a fresh, ephemeral context window (a "stack frame"). Once the sub-agent returns, its noisy internal reasoning trace is garbage-collected, preventing noise accumulation in the parent process.
+2. **Persistent Isolation (External Storage):** To manage long-term state, systems externalize context into **persistent storage** outside the model's context window: **RLMs** <d-cite key="zhang2025rlm"></d-cite> store the prompt and intermediate results as variables in a REPL environment; **Pensieve** <d-cite key="liu2026pensieve"></d-cite> equips the model with memory tools (pruning, indexing, note-taking); OS-Agents like **MemGPT** <d-cite key="packer2023memgpt"></d-cite> and **Voyager** <d-cite key="wang2023voyager"></d-cite> use hierarchical memory tiers and persistent skill libraries, respectively. In all cases, rather than accumulating an ever-growing chat log, agents selectively "page in" only relevant data---keeping the active context well within the model's window.
 
 **The trade: communication work for lower atomic error.**
 Scope isolation is not free. It converts implicit context attention into explicit coordination work (reading/writing files, managing stack frames). However, it pays for itself by lowering $\epsilon_{\mathrm{leaf}}$ drastically. This explains why dynamic MAS work: they trade cheap token generation (extra work) for a structurally lower error rate (robustness).
 
-**Qualitative Shift: From Drift to Checkability.**
-Beyond reducing the error *rate* $\epsilon$, scope isolation transforms the *nature* of errors. In a monolithic context, failures often manifest as subtle semantic drift or hallucination, which are notoriously difficult to detect automatically. By enforcing strict input/output boundaries (e.g., function signatures or file schemas), isolation forces errors to manifest as discrete, local failures---such as syntax errors, type mismatches, or factual contradictions within a small window. This transformation is crucial: it converts *unverifiable* global drift into *verifiable* atomic failures, setting the stage for the rigorous filtering of Mechanism III.
+**A side benefit: checkability.**
+Beyond reducing the error *rate*, decomposition and isolation also change the *nature* of residual errors. In a monolithic context, failures often manifest as subtle semantic drift that is difficult to detect automatically. With narrow, well-bounded sub-tasks, errors instead surface as discrete, local failures---syntax errors, type mismatches, or factual contradictions within a small window. This makes residual errors more amenable to the automated filtering of Mechanism III, though the primary win remains the reduction of $\epsilon_{\mathrm{leaf}}$ itself.
 
-**Transition: isolation lowers error, but does not eliminate tails.**
-Even after scope isolation, probabilistic errors occur. As $W$ grows, the system must prevent these local errors from being sealed into upstream state. This motivates our third mechanism: verification as a filter.
+**Isolation lowers error, but does not eliminate tails.**
+Even with clean, narrow scope, probabilistic errors persist. As $W$ grows, the law of large numbers guarantees that *some* leaves will fail---and a single undetected bad leaf can poison upstream state. The system therefore needs a final line of defense: a gate that catches errors *before* they propagate.
 
-## Mechanism III: Verification as a Filter
+## Mechanism III: Verification — Error Correction at the Gates
 
 **Why false accept is the system killer.**
 Verification error is not monolithic. We separate:
@@ -217,7 +222,8 @@ The necessity of minimizing $\delta_+$ is central to recent breakthroughs in inf
 ## A Unified Theory of Reliability
 
 **Two failure channels: drift vs. residual leaf errors.**
-Combine the global-drift channel (span/depth-driven) with the local-error channel (work-driven). A compact approximation is
+With all three mechanisms in hand, we can now unify them into a single reliability model.
+The system faces two distinct failure channels: combine the global-drift channel (span/depth-driven) with the local-error channel (work-driven). A compact approximation is
 
 $$
 P_{\mathrm{success}} \;\approx\; \exp\Big( -\big(\underbrace{\eta D}_{\text{span / drift}} + \underbrace{W q}_{\text{work / residual}}\big) \Big).
@@ -245,10 +251,10 @@ The unified equation formalizes the transition from heuristic MAS design to a pr
 This framework suggests that reliable MAS converge towards a classic computer architecture:
 
 - **Mechanism I (The Stack):** Dynamic topology acts as the *Control Plane*, using recursion/spawning to compress execution span.
-- **Mechanism II (The File System):** Scope isolation acts as the *Data Plane*, using virtualized state to decouple local reasoning from global history.
+- **Mechanism II (External Storage):** Scope isolation acts as the *Data Plane*, using externalized persistent state to decouple local reasoning from global history.
 - **Mechanism III (The Filter):** Verification acts as the *Error Correction Code*, suppressing the residual tail.
 
-Just as modern OS designs separate stack memory from file storage, robust agentic systems separate ephemeral reasoning traces from persistent state artifacts.
+Just as modern OS designs separate stack memory from persistent storage, robust agentic systems separate ephemeral reasoning traces from persistent state artifacts.
 
 **Regimes (why "no heavy verification" can still work).**
 The same equation explains an empirical spectrum:

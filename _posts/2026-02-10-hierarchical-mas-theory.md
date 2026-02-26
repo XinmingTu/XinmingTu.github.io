@@ -1,7 +1,7 @@
 ---
 layout: distill
-title: "The Work-Span of Reasoning: A Theory of Structured Test-Time Scaling in Multi-Agent Systems"
-description: A work--span framework for structured test-time scaling in multi-agent systems, explaining how topology compression, scope isolation, and verification filtering yield polylogarithmic reliability overhead.
+title: "Structured Test-Time Scaling: A Theoretical Framework for Multi-Agent Systems"
+description: A theoretical framework for structured test-time scaling through multi-agent systems, showing how topology compression, scope isolation, and decoupled verification bypass the linear collapse of long-horizon reasoning.
 date: 2026-02-10
 tags: ['agents', 'deep-learning']
 
@@ -32,25 +32,25 @@ toc:
 
 ## Abstract
 
-Long-horizon reasoning often collapses under linear execution because small per-step errors compound along a single dependency chain. This note reframes the reliability of multi-agent systems (MAS) through the *work--span* lens from parallel computation <d-cite key="brent1974,blumofe1999"></d-cite>. The key claim is that hierarchical (and increasingly *dynamic*) MAS improve long-horizon robustness via a *three-layer defense*: (i) **topology** compresses sequential control *span* from $\Theta(W)$ to $\tilde O(\log W)$, slowing global drift; (ii) **scope isolation** actively denoises context via *explicit state management*, transforming vague semantic drift into verifiable atomic failures by decoupling local execution from global history; and (iii) **verification** acts as a filter that suppresses the residual error tail. We end with practical "physics" constraints---bandwidth, context hygiene, and fan-out---and connect the framework to the recent shift from *static* workflows to *runtime-discovered* recursive topologies (e.g., Recursive Language Models) <d-cite key="zhang2025rlm"></d-cite>.
+The current paradigm of test-time scaling often relies on unstructured, linear generation (e.g., long chains-of-thought). However, long-horizon reasoning inevitably collapses under this linear execution because small per-step errors compound exponentially along a single dependency chain. This note proposes a theoretical framework for *structured* test-time scaling through the lens of multi-agent systems (MAS). We argue that hierarchical and dynamically orchestrated MAS bypass linear collapse via a *three-layer defense*: (i) **topology** (analyzed via the *work--span* lens of parallel computation) compresses the sequential control span from $\Theta(W)$ to $\tilde O(\log W)$, slowing global drift; (ii) **scope isolation** actively denoises context via explicit state virtualization, transforming uncheckable semantic drift into verifiable atomic failures; and (iii) **verification** (such as strict decoupled filters seen in frontier systems like Google's Aletheia) acts as an error-correction code that suppresses the residual tail. We conclude with practical "physics" constraints---bandwidth, context hygiene, and fan-out---mapping the recent shift from static workflows to runtime-discovered recursive topologies (e.g., Recursive Language Models).
 
 ## Introduction
 
-**The status quo: scale the model.**
-For long-horizon tasks, a common (often implicit) response to failure is to demand that the base model's per-step error rate $\epsilon$ become arbitrarily small as the horizon grows. This is the *scale-up-the-model* narrative.
+**The shift to test-time scaling and its unstructured bottleneck.**
+As the AI community seeks to solve increasingly complex, long-horizon tasks, focus has shifted toward *test-time scaling*---spending more compute during inference. However, the default approach of simply prompting a model to "think longer" via long, linear Chains-of-Thought (CoT) is fundamentally *unstructured*. Mathematically, a single continuous reasoning path forces per-step errors to compound exponentially. To avoid collapse, the base model would need an impossibly low atomic error rate, posing a strict limit on unstructured scaling.
 
-**The alternative: scale the system.**
-This note argues for a complementary *scale-up-the-system* narrative. Instead of asking for unbounded improvements in $\epsilon$, reorganize computation so that the dominant error-compounding dimension is no longer the raw horizon length, but a much shorter *control depth*.
+**The empirical success of Multi-Agent Systems (MAS).**
+In practice, the community has bypassed this bottleneck by scaling the *system* rather than just the context window. Multi-agent frameworks and dynamic reasoning topologies---ranging from static role-playing teams <d-cite key="hong2023metagpt,wu2023autogen"></d-cite> to dynamic orchestrators <d-cite key="ruan2026aorchestra"></d-cite> and Recursive Language Models (RLMs) <d-cite key="zhang2025rlm"></d-cite>---have demonstrated remarkable empirical success on long-horizon tasks. By decomposing tasks, delegating sub-problems, and managing context, these systems successfully harness test-time compute where linear CoT fails.
 
-**A computation lens: work vs. span.**
-We borrow the *work--span* viewpoint from parallel algorithms <d-cite key="brent1974,blumofe1999"></d-cite>. Work counts how many atomic units must be produced; span measures how long the longest sequential control chain is. A linear chain-of-thought has span $\Theta(W)$. Hierarchical MAS aim to keep span polylogarithmic while paying extra work for coordination.
+**The gap: heuristics vs. theory.**
+Despite their effectiveness, the design of modern agentic systems remains largely driven by heuristics and empirical trial-and-error. System prompts, hierarchical structures, and routing mechanisms are often engineered based on intuition rather than first principles. We lack a unified theoretical framework to explain *why* certain multi-agent topologies scale reliably, what limits their performance, and how to systematically design them.
 
-**Three mechanisms that jointly buy reliability.**
-The flow of the note is intentionally "enemy $\rightarrow$ defenses":
+**Our contribution: A theory of structured test-time scaling.**
+This note bridges that gap. We propose a theoretical framework for *structured* test-time scaling by borrowing the *work--span* lens from classical parallel computation <d-cite key="brent1974"></d-cite>. We formalize how MAS bypass linear collapse not merely by throwing more compute at the problem, but by structurally reorganizing the computation graph through a *three-layer defense*:
 
-1. **Mechanism I (Topology):** hierarchy compresses span, slowing *global drift*.
-2. **Mechanism II (Scope isolation):** decomposition *actively* reduces leaf difficulty and context noise, lowering the *effective* atomic error rate.
-3. **Mechanism III (Verification):** cheap, sound checks suppress the remaining residual errors.
+1. **Mechanism I (Topology):** Dynamic hierarchy compresses the sequential control *span*, transforming global drift from a function of total work ($W$) to a function of logarithmic depth ($D$).
+2. **Mechanism II (Scope isolation):** Explicit state management actively reduces leaf difficulty and context noise, lowering the intrinsic atomic error rate ($\epsilon_{\mathrm{leaf}}$).
+3. **Mechanism III (Verification):** Decoupled filtering (as seen in recent models like Gemini Deep Think's Aletheia) suppresses the residual error tail ($\delta_+$), preventing local hallucinations from contaminating global state.
 
 **Roadmap.**
 Section 2 defines work/span and the linear-collapse baseline. Sections 3--5 develop the three mechanisms. Section 6 synthesizes them into a single reliability scaling law. Section 7 lists the practical constraints that determine whether the gains survive in real systems. Related work is organized as a structural evolution in the appendix.
@@ -158,8 +158,8 @@ The motivation is empirical: long contexts degrade reasoning ("lost in the middl
 **Implementing Isolation: The Agentic Von Neumann Architecture.**
 How do we physically guarantee $N_{\mathrm{leaf}} \ll N_{\mathrm{root}}$? Reliable MAS achieve this by adopting a *virtualized state architecture*, mirroring the separation of execution and storage in classical computing:
 
-1. **Transient Isolation (The Call Stack):** Frameworks like AOrchestra <d-cite key="ruan2026aorchestra"></d-cite> and RLMs <d-cite key="zhang2025rlm"></d-cite> manage *control flow* via a call stack. Spawning a sub-agent creates a fresh, ephemeral context window (a "stack frame"). Once the sub-agent returns, its noisy internal reasoning trace is garbage-collected, preventing noise accumulation in the parent process.
-2. **Persistent Isolation (The File System):** To manage long-term state, native agentic frameworks <d-cite key="liu2026pensieve"></d-cite> and OS-Agents <d-cite key="packer2023memgpt,wang2023voyager"></d-cite> employ a *file system* metaphor. Instead of passing a linear chat log, agents read and write to structured artifacts (e.g., `spec.md`, `memory.json`). This forces the agent to explicitly "page in" only relevant data, reducing the effective context from "everything that happened" to "only the files currently open."
+1. **Transient Isolation (The Call Stack):** Frameworks like AOrchestra <d-cite key="ruan2026aorchestra"></d-cite> and RLMs <d-cite key="zhang2025rlm"></d-cite> manage *control flow* via a programmatic call stack---sub-agents are spawned through code-level invocations (function calls, API calls), not conversational prompting. Each invocation creates a fresh, ephemeral context window (a "stack frame") with an explicit input/output contract. Once the sub-agent returns, its noisy internal reasoning trace is garbage-collected, preventing noise accumulation in the parent process.
+2. **Persistent Isolation (The File System):** To manage long-term state that exceeds any single context window, systems like RLMs <d-cite key="zhang2025rlm"></d-cite>, native agentic frameworks <d-cite key="liu2026pensieve"></d-cite>, and OS-Agents <d-cite key="packer2023memgpt,wang2023voyager"></d-cite> use the file system directly to manage context. Instead of passing a linear chat log that grows unboundedly, agents read and write to structured artifacts (e.g., `spec.md`, `memory.json`). This forces the agent to explicitly "page in" only relevant data, keeping the working context clean and bounded within the context window---reducing the effective context from "everything that happened" to "only the files currently open."
 
 **The trade: communication work for lower atomic error.**
 Scope isolation is not free. It converts implicit context attention into explicit coordination work (reading/writing files, managing stack frames). However, it pays for itself by lowering $\epsilon_{\mathrm{leaf}}$ drastically. This explains why dynamic MAS work: they trade cheap token generation (extra work) for a structurally lower error rate (robustness).
@@ -211,6 +211,9 @@ so only logarithmically many redundant checks are sufficient under a verificatio
 **Correlation caveat.**
 The $\delta_+^m$ behavior assumes checks are not perfectly correlated. In practice, de-correlation may require diversified prompts, randomized perturbations, tool-based tests, cross-model critics, or heterogeneous verifiers.
 
+**Case Study: Decoupling for Strict Verification (Gemini's Aletheia).**
+The necessity of minimizing $\delta_+$ is central to recent breakthroughs in inference-time scaling for scientific reasoning, such as Google DeepMind's math-research agent **Aletheia**, built on **Gemini Deep Think** <d-cite key="deepmind2026aletheia"></d-cite>. In domains where false accepts can permanently contaminate long-horizon proofs or scientific hypotheses, Aletheia implements a strict *Reason → Verify → Revise* loop that explicitly decouples the Generator from the Verifier. This architectural separation mitigates "confirmation bias"---where a monolithic model blindly accepts its own flawed logic. By forcing candidate solutions through an independent natural language Verifier that checks for logical gaps and citation hallucinations, the system drastically lowers its false accept rate $\delta_+$. Crucially, this strict filtering enables "intelligent failure": if the Verifier rejects all candidate paths, the system outputs "no solution" rather than sealing a hallucination into the state. This demonstrates the exact trade-off of Mechanism III: dynamically expending compute on retries ($m$) to convert catastrophic generation errors into explicit aborts, thereby bounding the residual error $q$ under a verification advantage.
+
 ## A Unified Theory of Reliability
 
 **Two failure channels: drift vs. residual leaf errors.**
@@ -231,12 +234,12 @@ $$
 \underbrace{\delta_+^m}_{\textbf{Verification (filter)}}.
 $$
 
-**How the mechanisms cooperate.**
-The unified equation makes the collaboration explicit:
+**The governing law of structured test-time scaling.**
+The unified equation formalizes the transition from heuristic MAS design to a predictable scaling law. It shows exactly how structured test-time compute should be allocated:
 
-- Topology shrinks the dangerous control path from $W$ to $D$, making drift scale with depth rather than horizon.
-- Scope isolation lowers the base unit error rate from $\epsilon_{\mathrm{mono}}$ to $\epsilon_{\mathrm{leaf}}$ by reducing $(L, N)$ at the leaves.
-- Verification suppresses the remaining tail so that $Wq$ stays bounded even when $W$ is large.
+- **Topology** allocates compute to build hierarchy, shrinking the dangerous control path from $W$ to $D$, making drift scale with depth rather than horizon.
+- **Scope isolation** allocates compute to explicit state management, lowering the base unit error rate from $\epsilon_{\mathrm{mono}}$ to $\epsilon_{\mathrm{leaf}}$.
+- **Verification** allocates compute to redundant checking, suppressing the remaining tail so that $Wq$ stays bounded.
 
 **Synthesis: The Agentic Von Neumann Architecture.**
 This framework suggests that reliable MAS converge towards a classic computer architecture:
@@ -297,13 +300,15 @@ limited by attention, context window, tool latency, and integration complexity. 
 
 ## Conclusion
 
-Linear long-horizon reasoning fails not because errors exist, but because a linear topology forces them to accumulate along a length-$W$ control chain. Hierarchical MAS change the computation:
+The paradigm of scaling test-time compute is hitting the physical limits of linear, unstructured generation. Long-horizon reasoning fails not merely because base models make errors, but because an unstructured topology ($\Theta(W)$ span) forces those errors to compound exponentially.
 
-- they compress span so that drift scales with depth ($D$) rather than horizon ($W$);
-- they actively reduce the effective unit error rate via scope isolation (cleaner, smaller contexts);
-- and they use verification as a filter to suppress residual errors with only polylogarithmic overhead under a verification advantage.
+This note has proposed that the empirical success of modern Multi-Agent Systems is not magic, but the necessary result of *structured test-time scaling*. By viewing MAS through a theoretical lens, we see that they systematically reorganize computation:
 
-The resulting picture is that reliability is not only a function of model capability, but also of the system's computation graph: topology, interfaces, context routing, and checking.
+- they compress span via dynamic topology so that global drift scales with logarithmic depth ($D$);
+- they actively reduce the effective atomic error rate via strict scope isolation;
+- and they deploy decoupled verification (as seen in frontier systems like Aletheia) to suppress residual errors with polylogarithmic overhead.
+
+Ultimately, the next frontier of reliable reasoning lies not just in training more capable base models, but in the rigorous, theory-guided design of the inference-time computation graph.
 
 ## Related Work
 
@@ -348,4 +353,4 @@ The table below summarizes how different inference patterns align with the work-
 | Tool-based Checks | Verification | $\Theta(W)$ | *Filters output.* Targets false accepts ($\delta_+$); needs cheap verifiers. |
 | **Hierarchical MAS** | **Unified (All Axes)** | $\tilde O(\log W)$ | **Joint Optimization.** Structures Depth (Topology), Breadth (Isolation), and Verification (Filter) to minimize total failure cost. |
 
-Unlike baselines that scale a single dimension, Hierarchical MAS provides a **unified framework** to jointly optimize topology, scope, and verification under work--span constraints.
+*Mapping common inference patterns to the scaling axes. Unlike baselines that scale a single dimension (depth, breadth, or checks), Hierarchical MAS provides a **unified framework** to jointly optimize topology, scope, and verification under work--span constraints.*

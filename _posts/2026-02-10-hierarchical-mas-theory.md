@@ -32,12 +32,12 @@ toc:
 
 ## Abstract
 
-The current paradigm of test-time scaling often relies on unstructured, linear generation (e.g., long chains-of-thought). However, long-horizon reasoning inevitably collapses under this linear execution because small per-step errors compound exponentially along a single dependency chain. This note proposes a theoretical framework for *structured* test-time scaling through the lens of multi-agent systems (MAS). We argue that hierarchical and dynamically orchestrated MAS bypass linear collapse via a *three-layer defense*: (i) **topology** (analyzed via the *work--span* lens of parallel computation) compresses the sequential control span from $\Theta(W)$ to $\tilde O(\log W)$, slowing global drift; (ii) **scope isolation** actively denoises context via explicit state virtualization, transforming uncheckable semantic drift into verifiable atomic failures; and (iii) **verification** (such as strict decoupled filters seen in frontier systems like Google's Aletheia) acts as an error-correction code that suppresses the residual tail. We conclude with practical "physics" constraints---bandwidth, context hygiene, and fan-out---mapping the recent shift from static workflows to runtime-discovered recursive topologies (e.g., Recursive Language Models).
+The current paradigm of test-time scaling often relies on unstructured, linear generation (e.g., long chains-of-thought). However, long-horizon reasoning inevitably collapses under this linear execution because small per-step errors compound exponentially along a single dependency chain. This note proposes a theoretical framework for *structured* test-time scaling through the lens of multi-agent systems (MAS). We argue that hierarchical and dynamically orchestrated MAS bypass linear collapse via a *three-layer defense*: (i) **topology** (analyzed via the *work--span* lens of parallel computation) compresses the sequential control span from $\Theta(W)$ to $\tilde O(\log W)$, slowing global drift; (ii) **scope isolation** actively denoises context via explicit state virtualization, transforming uncheckable semantic drift into verifiable atomic failures; and (iii) **verification** (such as strict decoupled filters seen in frontier systems like Google's Aletheia) acts as an error-correction code that suppresses the residual tail. We conclude with practical "physics" constraints---verification advantage, bounded bandwidth, and context hygiene---mapping the recent shift from static workflows to runtime-discovered recursive topologies (e.g., Recursive Language Models).
 
 ## Introduction
 
 **The rise of test-time scaling.**
-The scaling-law frontier is shifting from training to inference. As the AI community tackles increasingly complex, long-horizon tasks, attention has turned to *test-time scaling*---investing more compute during inference to boost reasoning quality. This paradigm promises to unlock harder problems without retraining, but it raises a fundamental question: *how* should that extra compute be organized?
+The scaling-law frontier is shifting from training to inference. As the AI community tackles increasingly complex, long-horizon tasks, attention has turned to *test-time scaling*---investing more compute during inference to boost reasoning quality. Recent systematic studies confirm this paradigm extends to agentic settings <d-cite key="zhu2025agentscaling"></d-cite>. This paradigm promises to unlock harder problems without retraining, but it raises a fundamental question: *how* should that extra compute be organized?
 
 **The baseline failure: linear collapse.**
 The default answer---simply prompting a model to "think longer" via long, linear Chains-of-Thought (CoT)---is fundamentally *unstructured*. A single continuous reasoning path forces the sequential span to equal total work ($S = W$), causing per-step errors to compound exponentially: $P_{\mathrm{success}} \approx e^{-\epsilon W}$. To avoid collapse, the base model would need an impossibly low error rate ($\epsilon = O(1/W)$). This *linear collapse* is not a minor nuisance; it is a hard mathematical ceiling on unstructured scaling.
@@ -101,6 +101,15 @@ $$
 **The "physical" limit of the linear topology.**
 To keep $P_{\mathrm{linear}}$ bounded away from $0$ as $W$ grows, one needs $\epsilon_{\mathrm{mono}} = O(1/W)$. That is, the base model would have to become arbitrarily reliable as the horizon lengthens. This is the core brittleness critique of long chains.
 
+**The augmented baseline: tools and self-reflection are not enough.**
+A natural objection is that modern single-agent pipelines already go beyond naive linear CoT. ReAct-style agents <d-cite key="yao2022react"></d-cite> interleave reasoning with tool calls, and reflection loops <d-cite key="shinn2023reflexion,madaan2023selfrefine"></d-cite> let the model critique and revise its own output. Do these suffice? We argue they mitigate but do not resolve linear collapse, because three structural deficiencies persist:
+
+1. **Span remains $\Theta(W)$.** Reflection appends revision rounds to the *same* sequential trace; tool calls insert results back into the *same* chain. Neither restructures the dependency graph---the critical path still grows linearly with total work, so global drift compounds at the same rate.
+2. **Context accumulates monotonically.** Every reasoning step, tool output, and reflection trace is appended to a single, ever-growing context window. As $N$ increases, the model enters the "lost-in-the-middle" regime <d-cite key="liu2023lostmiddle"></d-cite>: attention over earlier constraints degrades, and the effective per-step error rate $\epsilon$ *rises* with horizon length rather than staying constant---making the exponential bound even worse than the idealized $e^{-\epsilon W}$.
+3. **Verification is neither independent nor explicit.** In self-reflection, the same model that generated an error is asked to detect it. Generator and verifier share identical weights, training biases, and---critically---the same polluted context, so their failure modes are strongly correlated. This inflates the effective false-accept rate $\delta_+$ far above what independent verification would yield, leaving systematic blind spots (e.g., consistent hallucination patterns) uncorrected across retry rounds.
+
+In short, ReAct and reflection improve constant factors but leave the *architecture* of the computation graph unchanged. Escaping linear collapse requires restructuring the graph itself (Mechanism I), physically isolating context across sub-computations (Mechanism II), and decoupling verification from generation (Mechanism III).
+
 **What the baseline teaches.**
 The enemy is not multi-step reasoning per se; it is the *linear span* that forces errors and drift to accumulate along a length-$W$ control path. If we could reshape the computation graph so that the longest dependency chain is much shorter than $W$, the exponential penalty would shrink dramatically---and any residual errors could be handled locally rather than compounding globally.
 
@@ -137,6 +146,7 @@ Compared to the linear analogue $e^{-\eta W}$, span compression makes drift deca
 The balanced tree is a pedagogical idealization. Modern agentic systems construct their topology *just-in-time*, operating like a dynamic **call stack**.
 
 - **Explicit Orchestration:** Frameworks like **AOrchestra** <d-cite key="ruan2026aorchestra"></d-cite> formalize the sub-agent not as a fixed role, but as a runtime tuple $\langle \text{Instruction}, \text{Context}, \text{Tools} \rangle$, spawned only when uncertainty peaks.
+- **Recursive Spawning:** **THREAD** <d-cite key="schroeder2024thread"></d-cite> models generation as recursive thread spawning, where each thread can create sub-threads to explore or resolve sub-problems before returning results to its parent.
 - **Implicit Recursion:** **Recursive Language Models (RLMs)** <d-cite key="zhang2025rlm"></d-cite> achieve span compression via functional recursion, where the model invokes itself on sub-problems.
 
 In both cases, the system trades integration work for reduced span by managing a *stack* of ephemeral agents, effectively "compiling" the optimal computation graph on the fly.
@@ -284,7 +294,9 @@ $$
 
 If modules require exchanging full internal state (strong coupling), coordination cost and coordination error explode, negating span compression.
 
-### Constraint 3: Scope isolation boundaries (active atomic tractability)
+**Remark (fan-out as a derived trade-off).** Although larger branching factor $k$ reduces depth $D = \lceil \log_k W \rceil$, it increases the number of interfaces each manager must handle. The resulting integration load is bounded by the bandwidth constraint above: a manager integrating $k$ sub-results must compress $k$ summaries through its own finite context, so in practice $k \le B_{\mathrm{eff}} / b$, where $b$ is the per-child interface size. Persistent external storage (Mechanism II) can relax this bound by letting the manager page in sub-results selectively rather than holding all $k$ simultaneously, but cannot eliminate it entirely---semantic integration of $k$ sub-solutions remains an $O(k)$ reasoning task regardless of storage. Dynamic systems partially address this by allocating fan-out and depth *just in time* based on uncertainty and progress <d-cite key="ruan2026aorchestra,lu2026dytopo"></d-cite>.
+
+### Constraint 3: Scope isolation boundaries (active atomic tractability) (active atomic tractability)
 
 The system must actively *manufacture* tractable leaves by isolating scope and cleaning context:
 
@@ -293,16 +305,6 @@ The system must actively *manufacture* tractable leaves by isolating scope and c
 - **Non-leaky boundaries:** prevent irrelevant constraints and unvetted partial solutions from leaking across modules.
 
 If scope isolation fails, $\epsilon_{\mathrm{leaf}}$ rises toward $\epsilon_{\mathrm{mono}}$, pushing the burden back onto heavy verification.
-
-### Constraint 4: Managerial fan-out limits
-
-Although larger $k$ reduces depth $D = \lceil \log_k W \rceil$, it increases each manager's integration and verification load. In practice,
-
-$$
-k \le k_{\max}(\text{manager}),
-$$
-
-limited by attention, context window, tool latency, and integration complexity. Dynamic systems partially address this by allocating fan-out and depth *just in time* based on uncertainty and progress <d-cite key="ruan2026aorchestra,lu2026dytopo"></d-cite>.
 
 ## Conclusion
 
@@ -330,7 +332,7 @@ Early LLM multi-agent systems often mimic human organizational charts or encode 
 
 ### Phase II: Inference-time search and internal deliberation (single-context scaling)
 
-A second wave of work treats "more thinking at test time" as a way to increase reliability without changing model weights. Chain-of-thought prompting <d-cite key="wei2022cot"></d-cite> primarily increases *depth* (and thus span), while self-consistency <d-cite key="wang2022selfconsistency"></d-cite> improves reliability via *breadth* (sampling and aggregation). Tree-of-Thoughts <d-cite key="yao2023tot"></d-cite> makes exploration explicit. Iterative refinement methods such as Self-Refine <d-cite key="madaan2023selfrefine"></d-cite> and Reflexion <d-cite key="shinn2023reflexion"></d-cite> introduce local retry loops. Tool-augmented paradigms like ReAct <d-cite key="yao2022react"></d-cite> strengthen verification signals. A practical limitation is that much computation is still bound to a single long context, motivating explicit context hygiene and isolation <d-cite key="liu2023lostmiddle"></d-cite>.
+A second wave of work treats "more thinking at test time" as a way to increase reliability without changing model weights. Chain-of-thought prompting <d-cite key="wei2022cot"></d-cite> primarily increases *depth* (and thus span), while self-consistency <d-cite key="wang2022selfconsistency"></d-cite> improves reliability via *breadth* (sampling and aggregation). Tree-of-Thoughts <d-cite key="yao2023tot"></d-cite> makes exploration explicit. Graph of Thoughts <d-cite key="besta2023got"></d-cite> generalizes this to arbitrary graph topologies. LATS <d-cite key="zhou2023lats"></d-cite> unifies reasoning, acting, and planning via Monte Carlo tree search over agent trajectories. Iterative refinement methods such as Self-Refine <d-cite key="madaan2023selfrefine"></d-cite> and Reflexion <d-cite key="shinn2023reflexion"></d-cite> introduce local retry loops. Tool-augmented paradigms like ReAct <d-cite key="yao2022react"></d-cite> strengthen verification signals. A practical limitation is that much computation is still bound to a single long context, motivating explicit context hygiene and isolation <d-cite key="liu2023lostmiddle"></d-cite>.
 
 ### Phase III: Dynamic and recursive topology (topology discovered at runtime)
 

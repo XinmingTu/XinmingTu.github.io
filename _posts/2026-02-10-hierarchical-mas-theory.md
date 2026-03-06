@@ -307,11 +307,12 @@ The table below applies the three-mechanism framework to a representative cross-
 | Planning + Search | LATS | — | ○ | ○ |
 | Static Role Teams | CAMEL, MetaGPT, ChatDev, AutoGen | ○ | ○ | ○ |
 | Dynamic Orchestration | AOrchestra, DyTopo, DyLAN | ● | ● | ○ |
-| Recursive Architectures | RLM, THREAD | ● | ● | — |
-| Coding Agents (tool-verified) | SWE-agent, Claude Code, Codex | ○ | ● | ● |
+| Recursive LM | RLM | ● | ● | ○ |
+| Recursive Threading | THREAD | ● | ○ | ○ |
+| Coding Agents (tool-verified) | SWE-agent, Claude Code, Codex | ○ | ● | ○ |
 | Strict Decoupled Verification | Aletheia (Gemini Deep Think) | — | ○ | ● |
 
-*Mechanism coverage of inference patterns. **I** = Topology (span compression), **II** = Scope isolation, **III** = Decoupled verification. ● = structurally present, ○ = implicit or partial, — = absent. The horizontal rule separates single-context approaches (top five) from multi-context structured approaches (bottom four). No existing system fully engages all three mechanisms; the framework predicts that convergence toward the full three-layer architecture is the path to reliable scaling.*
+*Mechanism coverage of inference patterns. **I** = Topology (span compression), **II** = Scope isolation, **III** = Decoupled verification. ● = structurally present, ○ = implicit or partial, — = absent. The horizontal rule separates single-context approaches (top five) from multi-context structured approaches (bottom five). RLM and THREAD are listed separately: RLM achieves true topology compression and scope isolation with implicit verification, while THREAD provides true topology compression but only implicit isolation and verification. Coding agents provide implicit topology compression and verification but explicit scope isolation. No existing system fully engages all three mechanisms; the framework predicts that convergence toward the full three-layer architecture is the path to reliable scaling.*
 
 ## Practical Constraints
 

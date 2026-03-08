@@ -90,4 +90,10 @@ html[data-theme='dark'] {
   .repo-img-dark {
     display: block;
   }
+
+  // Fix MathJax equations color in dark mode
+  mjx-container,
+  mjx-container * {
+    color: var(--global-text-color) !important;
+  }
 }

@@ -4,6 +4,24 @@
     window.MathJax = {
       tex: {
         tags: 'ams'
+      },
+      chtml: {
+        mtextInheritFont: true
+      },
+      startup: {
+        ready: function () {
+          MathJax.startup.defaultReady();
+          // Re-render math when theme changes to pick up new colors
+          var observer = new MutationObserver(function(mutations) {
+            mutations.forEach(function(mutation) {
+              if (mutation.attributeName === 'data-theme') {
+                MathJax.typesetClear();
+                MathJax.typesetPromise();
+              }
+            });
+          });
+          observer.observe(document.documentElement, { attributes: true });
+        }
       }
     };
   </script>

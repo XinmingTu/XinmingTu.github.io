@@ -93,7 +93,27 @@ html[data-theme='dark'] {
 
   // Fix MathJax equations color in dark mode
   mjx-container,
-  mjx-container * {
+  mjx-container mjx-math,
+  mjx-container mjx-mi,
+  mjx-container mjx-mo,
+  mjx-container mjx-mn,
+  mjx-container mjx-ms,
+  mjx-container mjx-mtext,
+  mjx-container mjx-mrow,
+  mjx-container mjx-mfrac,
+  mjx-container mjx-msub,
+  mjx-container mjx-msup,
+  mjx-container mjx-msubsup,
+  mjx-container mjx-mover,
+  mjx-container mjx-munder,
+  mjx-container mjx-c,
+  mjx-container *,
+  mjx-container [style] {
+    color: var(--global-text-color) !important;
+  }
+
+  .MathJax,
+  .MathJax * {
     color: var(--global-text-color) !important;
   }
 }

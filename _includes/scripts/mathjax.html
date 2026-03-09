@@ -1,6 +1,48 @@
   {%- if site.enable_math -%}
   <!-- MathJax -->
   <script type="text/javascript">
+    function updateMathColors() {
+      var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      var color = isDark ? '#e0e0e0' : '#000000';
+      // MathJax CHTML elements
+      document.querySelectorAll('mjx-container').forEach(function(el) {
+        el.style.setProperty('color', color, 'important');
+      });
+      // Distill/KaTeX: d-math uses shadow DOM with contain:style, so we
+      // must reach into the shadow root to style the katex container
+      document.querySelectorAll('d-math').forEach(function(el) {
+        el.style.setProperty('color', color, 'important');
+        if (el.shadowRoot) {
+          var container = el.shadowRoot.querySelector('#katex-container');
+          if (container) container.style.setProperty('color', color, 'important');
+          // Also style all .katex elements inside shadow root
+          el.shadowRoot.querySelectorAll('.katex, .katex-html').forEach(function(k) {
+            k.style.setProperty('color', color, 'important');
+          });
+        }
+      });
+    }
+
+    // Theme-change observer (works for both MathJax and KaTeX)
+    new MutationObserver(function(mutations) {
+      mutations.forEach(function(mutation) {
+        if (mutation.attributeName === 'data-theme') {
+          updateMathColors();
+        }
+      });
+    }).observe(document.documentElement, { attributes: true });
+
+    // Fix colors after page load (KaTeX via Distill, or late-rendering MathJax)
+    // KaTeX loads async from CDN, so we poll briefly until elements appear
+    document.addEventListener('DOMContentLoaded', function() {
+      var attempts = 0;
+      var poll = setInterval(function() {
+        updateMathColors();
+        attempts++;
+        if (attempts >= 10) clearInterval(poll);
+      }, 500);
+    });
+
     window.MathJax = {
       tex: {
         tags: 'ams'
@@ -11,20 +53,10 @@
       startup: {
         ready: function () {
           MathJax.startup.defaultReady();
-          // Re-render math when theme changes to pick up new colors
-          var observer = new MutationObserver(function(mutations) {
-            mutations.forEach(function(mutation) {
-              if (mutation.attributeName === 'data-theme') {
-                MathJax.typesetClear();
-                MathJax.typesetPromise();
-              }
-            });
-          });
-          observer.observe(document.documentElement, { attributes: true });
+          MathJax.startup.promise.then(updateMathColors);
         }
       }
     };
   </script>
   <script defer type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@{{ site.mathjax.version }}/es5/tex-mml-chtml.js"></script>
-  <script defer src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   {%- endif %}

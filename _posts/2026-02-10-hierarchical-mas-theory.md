@@ -92,6 +92,8 @@ Consider a task whose solution requires producing and correctly composing $W$ at
 | $q$ | residual leaf error after all local gates |
 | $\delta_+, \delta_-$ | verifier false accept / false reject |
 | $m$ | redundant checks per unit |
+| $\rho$ | pairwise correlation between retry outcomes |
+| $m_{\mathrm{eff}}$ | effective independent checks: $m/(1+(m-1)\rho)$ |
 | $c_g, c_v$ | cost of generation / verification |
 
 **Linear execution forces $S = W$.**
@@ -250,6 +252,15 @@ so only logarithmically many redundant checks are sufficient under a verificatio
 (This lower bound considers only false-accept suppression; the actual choice of $m$ must also satisfy $(1-\delta_-)^m$ not being prohibitively small, so the optimal $m$ balances both constraints.)
 Note that this bound requires only $\delta_+ < 1$ (so that $-\ln(\delta_+) > 0$); the verification need not be highly accurate---merely *conditionally* better than blind acceptance. When $\delta_+$ is close to $1$, the required $m$ grows (since $-\ln(\delta_+)$ is small), but the exponential suppression mechanism still operates. This is why even imperfect LLM-based critics can provide meaningful verification advantage.
 
+**Relaxing the independence assumption.**
+The $\delta_+^m$ bound assumes independent verification rounds. In practice, two sources of correlation weaken it: (i) shared systematic blind spots between generator and verifier (e.g., common training biases), and (ii) correlated retries---under fixed temperature and prompt, the generator tends to reproduce similar error patterns across attempts. Let $\rho \in [0,1]$ denote the pairwise correlation between retry outcomes. An exchangeable-Bernoulli approximation gives the effective number of independent checks:
+
+$$
+m_{\mathrm{eff}} \;\approx\; \frac{m}{1 + (m-1)\rho},
+$$
+
+so residual error degrades from $\delta_+^m$ to $\delta_+^{m_{\mathrm{eff}}}$. When $\rho \to 1$, $m_{\mathrm{eff}} \to 1$ and redundancy provides no suppression. The logarithmic scaling of $m$ still holds, but its constant factor depends on de-correlation quality. This reframes the de-correlation strategies below---diversified prompts, temperature variation, cross-model critics, tool-based checks---as *necessary conditions* for the exponential suppression to operate at its theoretical rate.
+
 **Error mode orthogonality: the design principle behind verification advantage.**
 The $\delta_+^m$ suppression assumes checks are not perfectly correlated. The deeper design principle is *error mode orthogonality*: verification advantage arises when the verifier's failure modes are orthogonal to the generator's. A compiler cannot write code, but it catches every syntax and type error---its error modes are perfectly orthogonal to the generator's syntactic failures. A test suite cannot reason about intent, but it catches every functional regression. Even an LLM-based critic provides verification advantage if it is prompted, fine-tuned, or architecturally separated so that its blind spots differ from the generator's.
 In practice, de-correlation strategies include: tool-based checks (compilers, linters, test suites), diversified prompts, randomized perturbations, cross-model critics, or heterogeneous verifiers. The key insight is that verification advantage is fundamentally about *complementary competence*, not about verifier accuracy or cost per se.
@@ -263,11 +274,24 @@ Software development provides the cleanest instantiation of the classical verifi
 ## A Unified Theory of Reliability
 
 **Two failure channels: drift vs. residual leaf errors.**
-With all three mechanisms in hand, we can now unify them into a single reliability model.
-The system faces two distinct failure channels: combine the global-drift channel (span/depth-driven) with the local-error channel (work-driven). A compact approximation is
+With all three mechanisms in hand, we can now unify them into a single reliability model. The system faces two independent failure channels: global drift (span/depth-driven) and local residual error (work-driven). Modeling them as independent yields a multiplicative decomposition:
 
 $$
-P_{\mathrm{success}} \;\approx\; \exp\Big( -\big(\underbrace{\eta D}_{\text{span / drift}} + \underbrace{W q}_{\text{work / residual}}\big) \Big).
+P_{\mathrm{success}}
+\;\approx\;
+\underbrace{\exp\!\big(-\eta D\big)}_{\text{survive drift}}
+\;\times\;
+\underbrace{\exp\!\big(-W q\big)}_{\text{survive leaf errors}}.
+$$
+
+The first factor is the probability that global intent survives $D$ layers of hierarchical delegation; the second is the probability that no residual leaf error poisons the final output. Taking logarithms gives the additive form:
+
+$$
+-\ln P_{\mathrm{success}}
+\;\approx\;
+\underbrace{\eta D}_{\text{span / drift}}
+\;+\;
+\underbrace{W q}_{\text{work / residual}}.
 $$
 
 Substituting the verification bound $q \lesssim \epsilon_{\mathrm{leaf}} \delta_+^m$ yields the "three-layer" decomposition:
@@ -368,6 +392,10 @@ Systems now *construct* their computation graph at runtime. These systems differ
 ### Verification, debate, and fault-tolerance
 
 Debate <d-cite key="irving2018debate,du2023debate,yang2025revisitingmad"></d-cite> and process supervision <d-cite key="lightman2023verify"></d-cite> target the false-accept channel. A complementary direction internalizes multi-agent deliberation via RL or distillation <d-cite key="samanta2025maca,liu2026sdrl,luo2026agentark"></d-cite>, with mechanistic evidence that strong reasoners instantiate multiple internal perspectives <d-cite key="kim2026societies,andreas2022agentmodels"></d-cite>. Our emphasis on correlation echoes fault-tolerant computing: N-version programming <d-cite key="avizienis1985nversion,knight1986independence"></d-cite> and Byzantine fault tolerance <d-cite key="lamport1982byzantine,castro1999pbft"></d-cite>.
+
+### Relationship to sparse attention
+
+Sparse attention mechanisms---sliding windows, dilated patterns, block-sparse masks---address the same context-dilution problem as Mechanism II. From this angle, MAS implements *inference-time sparse attention*: each agent's context window acts as an attention mask and the orchestrator determines the sparsity pattern. The key difference is adaptivity. Static sparse patterns are fixed at architecture design time; linear attention and state-space models (e.g., Mamba) add input-dependent gating but remain fixed in mechanism and confined to a single forward pass. MAS constructs its sparsity pattern *dynamically at runtime*, conditioned on problem structure, and can spawn independent sub-contexts mid-computation. Moreover, MAS operates across *separate* context windows ($k$ agents $\times$ $n$ tokens each), whereas all sparse attention variants require information to reside within a single sequence. Finally, MAS couples adaptive sparsity with verification gates at every aggregation point (Mechanism III)---a structural bonus absent from any single-pass attention scheme. The two approaches are complementary: sparse attention optimizes information flow *within* a forward pass; structured test-time scaling optimizes it *across* multiple inference calls.
 
 ### Synthesis
 

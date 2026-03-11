@@ -11,6 +11,7 @@ authors:
     affiliations:
       name: University of Washington
   - name: Guanghao Ye
+    url: "https://yeguanghao.xyz/"
     affiliations:
       name: TBD
 
@@ -371,6 +372,10 @@ The verification mechanism requires three conditions, ordered by necessity:
 ## Conclusion
 
 Long-horizon reasoning fails not because base models make errors, but because unstructured topology ($\Theta(W)$ span) forces those errors to compound exponentially. This note has shown that the empirical success of structured inference systems---from multi-agent teams to recursive architectures to coding agents---follows from *structured test-time scaling*: topology compression, scope isolation, and decoupled verification jointly attack all three failure channels---drift, atomic error, and residual tails---reducing the effective exponent from $\Theta(W)$ to $\tilde O(\log W)$. Crucially, these three mechanisms form a causal chain (Topology → Isolation → Verification), each creating the structural preconditions for the next, rather than operating as independent, additive improvements. The next frontier of reliable reasoning lies in rigorous, theory-guided design of the inference-time computation graph.
+
+## Acknowledgements
+
+We thank [Hao Sun](https://holarissun.github.io/) and [Alex Zhang](https://alexzhang13.github.io/) for feedback and helpful comments. We also thank [Qiang He](https://qhe-ai.github.io/) and [Jinfa Huang](https://infaaa.github.io/) for reading and helpful comments.
 
 ## Related Work
 

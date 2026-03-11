@@ -375,7 +375,7 @@ Long-horizon reasoning fails not because base models make errors, but because un
 
 ## Acknowledgements
 
-We thank [Hao Sun](https://holarissun.github.io/) and [Alex Zhang](https://alexzhang13.github.io/) for feedback and helpful comments. We also thank [Qiang He](https://qhe-ai.github.io/) and [Jinfa Huang](https://infaaa.github.io/) for reading and helpful comments.
+We thank [Hao Sun](https://holarissun.github.io/) and [Alex Zhang](https://alexzhang13.github.io/) for feedback and helpful comments. We also thank [Qiang He](https://qhe-ai.github.io/), [Jinfa Huang](https://infaaa.github.io/), and [Tong Chen](https://chentong0.github.io/) for reading and helpful comments.
 
 ## Related Work
 

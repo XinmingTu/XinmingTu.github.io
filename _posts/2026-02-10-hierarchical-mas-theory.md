@@ -4,7 +4,7 @@ title: "Structured Test-Time Scaling: From Multi-Agent Systems to General Infere
 description: A unified theoretical framework for structured test-time scaling, showing how topology compression, scope isolation, and decoupled verification—a three-layer structural decoupling—bypass the linear collapse of long-horizon reasoning across multi-agent systems, recursive architectures, and coding agents.
 date: 2026-02-10
 tags: ['agents', 'deep-learning']
-og_image:
+og_image: https://xinmingtu.github.io/assets/img/MAS_blog_summary.png
 
 authors:
   - name: Xinming Tu

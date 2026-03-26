@@ -323,7 +323,7 @@ The same equation explains an empirical spectrum:
 - **Verification-dominated regime:** if $W \epsilon_{\mathrm{leaf}}$ becomes large, the system must grow $m$ so that $\delta_+^m$ drives $q$ down to $O(1/W)$.
 
 **Empirical validation: mapping existing systems.**
-The table below applies the three-mechanism framework to a representative cross-section of inference-time scaling approaches. The progression from top to bottom mirrors a gradual engagement of structural mechanisms: linear CoT engages none (the $S=W$ baseline), while dynamic orchestration and recursive architectures activate topology and isolation but leave verification implicit. Notably, no existing system fully engages all three mechanisms---each inhabits a different structural "sweet spot" with characteristic gaps. The framework predicts that convergence toward the full three-layer architecture is the path to reliable scaling.
+The table below applies the three-mechanism framework to a representative cross-section of inference-time scaling approaches. The progression from top to bottom mirrors a gradual engagement of structural mechanisms: linear CoT engages none (the $S=W$ baseline), while dynamic orchestration and recursive architectures activate topology and isolation but leave verification implicit. Most systems inhabit a different structural "sweet spot" with characteristic gaps. The framework predicts that convergence toward the full three-layer architecture is the path to reliable scaling.
 
 | Inference Pattern | Representative Systems | I | II | III |
 | --- | --- | --- | --- | --- |
@@ -337,9 +337,10 @@ The table below applies the three-mechanism framework to a representative cross-
 | Recursive LM | RLM | ● | ● | ○ |
 | Recursive Threading | THREAD | ● | ○ | ○ |
 | Coding Agents (tool-verified) | SWE-agent, Claude Code, Codex | ○ | ● | ○ |
+| Dual-Layer Verification Agent | MiroThinker-H1 <d-cite key="miromind2026mirothinker"></d-cite> | ● | ● | ● |
 | Strict Decoupled Verification | Aletheia (Gemini Deep Think) | — | ○ | ● |
 
-*Mechanism coverage of inference patterns. **I** = Topology (span compression), **II** = Scope isolation, **III** = Decoupled verification. ● = structurally present, ○ = implicit or partial, — = absent. The horizontal rule separates single-context approaches (top five) from multi-context structured approaches (bottom six). Dynamic orchestration systems are split into two rows: AOrchestra implements genuine hierarchical spawning with explicit context curation and file-system isolation (●● for Mechanisms I--II), whereas DyTopo and DyLAN optimize dynamic communication routing among flat peer agents without hierarchical decomposition or external-medium context firewalling (○○). RLM and THREAD are listed separately: RLM achieves true topology compression and scope isolation with implicit verification, while THREAD provides true topology compression but only implicit isolation and verification. Coding agents provide implicit topology compression and verification but explicit scope isolation. No existing system fully engages all three mechanisms; the framework predicts that convergence toward the full three-layer architecture is the path to reliable scaling.*
+*Mechanism coverage of inference patterns. **I** = Topology (span compression), **II** = Scope isolation, **III** = Decoupled verification. ● = structurally present, ○ = implicit or partial, — = absent. The horizontal rule separates single-context approaches (top five) from multi-context structured approaches (bottom six). Dynamic orchestration systems are split into two rows: AOrchestra implements genuine hierarchical spawning with explicit context curation and file-system isolation (●● for Mechanisms I--II), whereas DyTopo and DyLAN optimize dynamic communication routing among flat peer agents without hierarchical decomposition or external-medium context firewalling (○○). RLM and THREAD are listed separately: RLM achieves true topology compression and scope isolation with implicit verification, while THREAD provides true topology compression but only implicit isolation and verification. Coding agents provide implicit topology compression and verification but explicit scope isolation. MiroThinker-H1 combines sub-agent isolation with dual-layer local and global verification. The framework predicts that convergence toward the full three-layer architecture is the path to reliable scaling.*
 
 ## Practical Constraints
 
@@ -375,7 +376,7 @@ Long-horizon reasoning fails not because base models make errors, but because un
 
 ## Acknowledgements
 
-We thank [Hao Sun](https://holarissun.github.io/) and [Alex Zhang](https://alexzhang13.github.io/) for feedback and helpful comments. We also thank [Qiang He](https://qhe-ai.github.io/), [Jinfa Huang](https://infaaa.github.io/), and [Tong Chen](https://chentong0.github.io/) for reading and helpful comments.
+We thank [Hao Sun](https://holarissun.github.io/) and [Alex Zhang](https://alexzhang13.github.io/) for feedback and helpful comments. We also thank [Qiang He](https://qhe-ai.github.io/), [Jinfa Huang](https://infaaa.github.io/), and [Tong Chen](https://chentong0.github.io/) for reading and helpful comments. We thank [Weijie Su](https://statistics.wharton.upenn.edu/profile/suw/) for discussion. We thank [Sara Mostafavi](https://saramostafavi.github.io/) for support.
 
 ## Related Work
 
@@ -403,4 +404,4 @@ Sparse attention mechanisms---sliding windows, dilated patterns, block-sparse ma
 
 ### Synthesis
 
-Table 1 (in the Unified Theory section above) maps each of the above inference patterns onto the three structural mechanisms, showing that every existing approach leaves at least one mechanism unengaged.
+Table 1 (in the Unified Theory section above) maps each of the above inference patterns onto the three structural mechanisms. Most existing approaches leave at least one mechanism unengaged.

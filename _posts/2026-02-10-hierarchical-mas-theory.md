@@ -306,6 +306,11 @@ $$
 \underbrace{\delta_+^m}_{\textbf{Verification (filter)}}.
 $$
 
+<figure markdown="0">
+<img src="/assets/img/theoryofmas/unified_reliability_equation.svg" style="width: 100%;">
+<figcaption>The unified reliability equation decomposes the failure exponent into three independently addressable terms, each controlled by one structural mechanism.</figcaption>
+</figure>
+
 **Synthesis: The Structural Decoupling of Inference.**
 The unified equation reveals that reliable MAS do not simply "add more compute"---they succeed through strict structural decoupling. Unstructured CoT entangles control flow, state memory, and error checking into a single, fragile context window. Structured scaling dismantles this monolith: Topology decouples control flow from work; Isolation decouples ephemeral reasoning from persistent state; Verification decouples the generator from the critic.
 
@@ -316,6 +321,11 @@ The three mechanisms are not independent design choices that happen to combine a
 2. **Isolation enables Verification.** Without scope isolation, errors manifest as diffuse semantic drift entangled with global context---exactly the kind of failure that no verifier can reliably detect. Isolation (Mechanism II) transforms errors into discrete, localized, *verifiable* artifacts: a function that either passes its tests or does not, a sub-proof that either type-checks or does not. Only then can Mechanism III's exponential suppression $\delta_+^m$ operate.
 
 This chain explains why bolting verification onto a monolithic system provides limited benefit (the errors are not verifiable), and why decomposition without verification still suffers work-driven collapse (the errors are verifiable but unchecked). The full reliability gain requires all three layers in sequence.
+
+<figure markdown="0">
+<img src="/assets/img/theoryofmas/three_mechanism_causal_chain.svg" style="width: 100%;">
+<figcaption>The three-mechanism causal chain: Topology creates decomposition boundaries, Isolation manufactures verifiable atomic units, and Verification exploits that structure to suppress residual errors. Each mechanism creates the structural preconditions for the next.</figcaption>
+</figure>
 
 **Regimes (why "no heavy verification" can still work).**
 The same equation explains an empirical spectrum:

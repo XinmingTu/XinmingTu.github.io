@@ -311,11 +311,6 @@ $$
 \underbrace{\delta_+^m}_{\textbf{Verification (filter)}}.
 $$
 
-<figure markdown="0">
-<img src="/assets/img/theoryofmas/unified_reliability_equation.svg" style="width: 100%;">
-<figcaption>The unified reliability equation decomposes the failure exponent into three independently addressable terms, each controlled by one structural mechanism.</figcaption>
-</figure>
-
 **Synthesis: The Structural Decoupling of Inference.**
 The unified equation reveals that reliable MAS do not simply "add more compute"---they succeed through strict structural decoupling. Unstructured CoT entangles control flow, state memory, and error checking into a single, fragile context window. Structured scaling dismantles this monolith: Topology decouples control flow from work; Isolation decouples ephemeral reasoning from persistent state; Verification decouples the generator from the critic.
 

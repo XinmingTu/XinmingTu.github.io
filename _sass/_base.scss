@@ -576,50 +576,45 @@ footer.sticky-bottom {
     text-align: right;
   }
 
+  // On the homepage "selected publications" list the year is already shown in
+  // each entry's venue line, so the faded year group-headers are redundant.
+  &.selected {
+    h2.bibliography {
+      display: none;
+    }
+
+    ol.bibliography li:first-child {
+      margin-top: 0;
+    }
+  }
+
   ol.bibliography {
     list-style: none;
     padding: 0;
     margin-top: 0;
 
     li {
-      margin-bottom: 1rem;
-
-      .preview {
-        width: 100%;
-        min-width: 80px;
-        max-width: 200px;
-      }
-
-      .abbr {
-        height: 2rem;
-        margin-bottom: 0.5rem;
-
-        abbr {
-          display: inline-block;
-          background-color: var(--global-theme-color);
-          padding-left: 1rem;
-          padding-right: 1rem;
-
-          a {
-            color: white;
-
-            &:hover {
-              text-decoration: none;
-            }
-          }
-        }
-
-        .award {
-          color: var(--global-theme-color) !important;
-          border: 1px solid var(--global-theme-color);
-        }
-      }
+      margin-bottom: 1.9rem;
 
       .title {
-        font-weight: bolder;
+        font-weight: 600;
+        font-size: 1.08rem;
+        line-height: 1.42;
+        margin-bottom: 0.12rem;
+
+        a {
+          color: var(--global-text-color);
+
+          &:hover {
+            color: var(--global-theme-color);
+            text-decoration: none;
+          }
+        }
       }
 
       .author {
+        line-height: 1.55;
+
         a {
           border-bottom: 1px dashed var(--global-theme-color);
 
@@ -646,21 +641,37 @@ footer.sticky-bottom {
         }
       }
 
-      .links {
-        a.btn {
-          color: var(--global-text-color);
-          border: 1px solid var(--global-text-color);
-          padding-left: 1rem;
-          padding-right: 1rem;
-          padding-top: 0.25rem;
-          padding-bottom: 0.25rem;
-          margin-left: 0;
+      // Quiet metadata line: purple venue, then year and any extra-resource
+      // links in muted text (each goes purple on hover).
+      .pub-meta {
+        font-size: 0.86rem;
+        margin-top: 0.38rem;
+        color: var(--global-text-color-light);
+
+        .venue {
+          color: var(--global-theme-color);
+          font-weight: 500;
+        }
+
+        .sep {
+          margin: 0 0.45rem;
+          opacity: 0.55;
+        }
+
+        a {
+          color: var(--global-text-color-light);
 
           &:hover {
             color: var(--global-theme-color);
-            border-color: var(--global-theme-color);
+            text-decoration: underline;
           }
         }
+      }
+
+      .pub-note {
+        font-size: 0.85rem;
+        margin-top: 0.15rem;
+        color: var(--global-text-color-light);
       }
 
       .badges {
@@ -717,6 +728,84 @@ footer.sticky-bottom {
       div.abstract.hidden.open {
         border-color: var(--global-text-color);
       }
+    }
+  }
+}
+
+// News & latest-posts list
+.news {
+  margin-bottom: 1rem;
+
+  .news-list {
+    &.scrollable {
+      max-height: 60vh;
+      overflow-y: auto;
+      // subtle scrollbar
+      scrollbar-width: thin;
+    }
+  }
+
+  .news-item {
+    display: flex;
+    align-items: baseline;
+    gap: 1.5rem;
+    padding: 0.45rem 0;
+    line-height: 1.55;
+    border-bottom: 1px solid var(--global-divider-color);
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  .news-date {
+    flex: 0 0 7rem;
+    white-space: nowrap;
+    color: var(--global-text-color-light);
+    font-size: 0.8rem;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
+
+  .news-content {
+    flex: 1 1 auto;
+    min-width: 0;
+
+    .news-title {
+      color: var(--global-theme-color);
+      border-bottom: 1px solid transparent;
+
+      &:hover {
+        text-decoration: none;
+        border-bottom-color: var(--global-theme-color);
+      }
+    }
+
+    a:not(.news-title) {
+      border-bottom: 1px dashed var(--global-theme-color);
+
+      &:hover {
+        text-decoration: none;
+        border-bottom-style: solid;
+      }
+    }
+
+    svg {
+      vertical-align: middle;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .news-item {
+      flex-direction: column;
+      gap: 0.15rem;
+      padding: 0.55rem 0;
+    }
+
+    .news-date {
+      flex: none;
+      font-size: 0.72rem;
     }
   }
 }

@@ -38,13 +38,32 @@
             <!-- Author -->
             <div class="author">
             {% assign author_array_size = entry.author_array | size %}
+            {%- assign last_index = author_array_size | minus: 1 -%}
 
-            {% assign author_array_limit = author_array_size %}
-            {%- if site.max_author_limit and author_array_size > site.max_author_limit %}
-              {% assign author_array_limit = site.max_author_limit %}
-            {% endif %}
+            {%- comment -%} Locate the site owner so they are never collapsed into the "more authors" group {%- endcomment -%}
+            {%- assign self_index = -1 -%}
+            {%- for author in entry.author_array -%}
+              {%- assign aln = author.last | remove: "¶" | remove: "&" | remove: "*" | remove: "†" | remove: "^" -%}
+              {%- if site.scholar.last_name contains aln and site.scholar.first_name contains author.first -%}
+                {%- assign self_index = forloop.index0 -%}
+              {%- endif -%}
+            {%- endfor -%}
 
-            {%- for author in entry.author_array limit: author_array_limit -%}
+            {%- comment -%} Show the leading authors up to max_author_limit; if the owner falls past it, extend through them {%- endcomment -%}
+            {%- if site.max_author_limit -%}
+              {%- assign effective_limit = site.max_author_limit -%}
+              {%- if self_index >= site.max_author_limit and self_index < last_index -%}
+                {%- assign effective_limit = self_index | plus: 1 -%}
+              {%- endif -%}
+            {%- else -%}
+              {%- assign effective_limit = author_array_size -%}
+            {%- endif -%}
+
+            {%- assign more_authors = 0 -%}
+            {%- assign more_authors_show = '' -%}
+            {%- assign printed = 0 -%}
+
+            {%- for author in entry.author_array -%}
               {%- assign author_is_self = false -%}
               {%- assign author_last_name = author.last | remove: "¶" | remove: "&" | remove: "*" | remove: "†" | remove: "^" -%}
               {%- if site.scholar.last_name contains author_last_name -%}
@@ -62,52 +81,55 @@
                 {%- endfor -%}
               {%- endif -%}
 
-              {%- if forloop.length > 1 -%}
-                {%- if forloop.first == false -%},&nbsp;{%- endif -%}
-                {%- if forloop.last and author_array_limit == author_array_size -%}and&nbsp;{%- endif -%}
-              {%- endif -%}
-              {%- if author_is_self -%}
-                <em>{{author.first}} {{author.last}}</em>
+              {%- capture author_name -%}
+                {%- if author_is_self -%}<em>{{author.first}} {{author.last}}</em>
+                {%- elsif coauthor_url -%}<a href="{{coauthor_url}}">{{author.first}} {{author.last}}</a>
+                {%- else -%}{{author.first}} {{author.last}}{%- endif -%}
+              {%- endcapture -%}
+
+              {%- if forloop.index0 < effective_limit -%}
+                {%- comment -%} Visible leading author {%- endcomment -%}
+                {%- if printed > 0 -%}{%- if forloop.last -%},&nbsp;and&nbsp;{%- else -%},&nbsp;{%- endif -%}{%- endif -%}
+                {{- author_name -}}
+                {%- assign printed = printed | plus: 1 -%}
+              {%- elsif forloop.last -%}
+                {%- comment -%} Always show the final (senior) author; emit the collapsed-middle toggle just before it {%- endcomment -%}
+                {%- if more_authors > 0 -%}
+                  {%- if printed > 0 -%},&nbsp;{%- endif -%}
+                  {%- assign more_authors_hide = more_authors | append: " more author" -%}
+                  {%- if more_authors > 1 -%}{%- assign more_authors_hide = more_authors_hide | append: "s" -%}{%- endif -%}
+                  <span
+                      class="more-authors"
+                      title="click to view {{more_authors_hide}}"
+                      onclick="
+                        var element = $(this);
+                        element.attr('title', '');
+                        var more_authors_text = element.text() == '{{more_authors_hide}}' ? '{{more_authors_show}}' : '{{more_authors_hide}}';
+                        var cursorPosition = 0;
+                        var textAdder = setInterval(function(){
+                          element.text(more_authors_text.substring(0, cursorPosition + 1));
+                          if (++cursorPosition == more_authors_text.length){
+                            clearInterval(textAdder);
+                          }
+                      }, '{{site.more_authors_animation_delay}}');
+                      "
+                  >{{more_authors_hide}}</span>
+                  {%- assign printed = printed | plus: 1 -%}
+                {%- endif -%}
+                {%- if printed > 0 -%},&nbsp;and&nbsp;{%- endif -%}
+                {{- author_name -}}
               {%- else -%}
-                {%- if coauthor_url -%}
-                  <a href="{{coauthor_url}}">{{author.first}} {{author.last}}</a>
+                {%- comment -%} Collapsed middle author (the site owner is never collapsed) {%- endcomment -%}
+                {%- if author_is_self -%}
+                  {%- if printed > 0 -%},&nbsp;{%- endif -%}{{- author_name -}}
+                  {%- assign printed = printed | plus: 1 -%}
                 {%- else -%}
-                  {{author.first}} {{author.last}}
+                  {%- assign more_authors = more_authors | plus: 1 -%}
+                  {%- if more_authors_show != '' -%}{%- assign more_authors_show = more_authors_show | append: ", " -%}{%- endif -%}
+                  {%- assign more_authors_show = more_authors_show | append: author.first | append: " " | append: author.last -%}
                 {%- endif -%}
               {%- endif -%}
             {%- endfor -%}
-            {%- assign more_authors = author_array_size | minus: author_array_limit -%}
-
-            {%- assign more_authors_hide = more_authors | append: " more author" -%}
-            {%- if more_authors > 0 -%}
-              {%- if more_authors > 1 -%}
-                {%- assign more_authors_hide = more_authors_hide | append: "s" -%}
-              {%- endif -%}
-              {%- assign more_authors_show = '' -%}
-              {%- for author in entry.author_array offset: author_array_limit -%}
-                {%- assign more_authors_show = more_authors_show | append: author.first | append: " " | append: author.last -%}
-                {%- unless forloop.last -%}
-                  {%- assign more_authors_show = more_authors_show | append: ", " -%}
-                {%- endunless -%}
-              {%- endfor -%}
-              , and
-              <span
-                  class="more-authors"
-                  title="click to view {{more_authors_hide}}"
-                  onclick="
-                    var element = $(this);
-                    element.attr('title', '');
-                    var more_authors_text = element.text() == '{{more_authors_hide}}' ? '{{more_authors_show}}' : '{{more_authors_hide}}';
-                    var cursorPosition = 0;
-                    var textAdder = setInterval(function(){
-                      element.text(more_authors_text.substring(0, cursorPosition + 1));
-                      if (++cursorPosition == more_authors_text.length){
-                        clearInterval(textAdder);
-                      }
-                  }, '{{site.more_authors_animation_delay}}');
-                  "
-              >{{more_authors_hide}}</span>
-            {%- endif -%}
 
             </div>
 

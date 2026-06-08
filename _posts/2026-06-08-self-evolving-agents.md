@@ -34,7 +34,7 @@ toc:
   - name: "Open Questions"
 ---
 
-> **Working in progress.** This is an English draft framework. I am still refining the taxonomy, examples, and references.
+> **Working in progress.**
 
 ## The Dual Promise
 

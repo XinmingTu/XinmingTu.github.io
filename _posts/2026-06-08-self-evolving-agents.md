@@ -1,6 +1,6 @@
 ---
 layout: distill
-title: "The Dual Promise of Evolution: Shrinking Costs and Breaking Ceilings"
+title: "The What & When of Self-Evolving Agents"
 description: "Working in progress: a 3x3 framework for understanding self-evolving agents across files, harnesses, and weights."
 date: 2026-06-08
 tags: ['AI', 'agents', 'deep-learning']
@@ -24,7 +24,7 @@ toc:
   - name: "Learning From Experience"
   - name: "The 3x3 Evolution Matrix"
   - name: "Single Session: Online Adaptation"
-  - name: "Across Sessions"
+  - name: "Across Sessions: Longitudinal Alignment"
   - name: "Across Users"
   - name: "When Experience Moves Inward"
   - name: "Why This Matters"
@@ -159,51 +159,33 @@ In linear attention, this boundary becomes even more explicit: the history can b
 
 At runtime, memory is not merely a database. Once it enters the active inference path, it becomes a transient parameter.
 
-## Across Sessions
+## Across Sessions: Longitudinal Alignment
 
-The second time scale is inter-session adaptation. Here the agent learns the patterns of a specific user, project, codebase, domain, or operating environment.
+The second time scale is inter-session. How does an agent internalize the structural patterns of a specific user, project, or operating environment over days and weeks?
 
-### Level 3: Executable Skills and Persistent Graphs
+### Level 3: Executable Skills and Persistent Memory
 
-The most practical across-session mechanism is persistent external memory.
+The most practical inter-session mechanism is caching executable behaviors.
 
-Voyager is the canonical example: it accumulates an ever-growing library of executable skills in Minecraft, storing complex behaviors as code and retrieving them for future tasks <d-cite key="voyager2023"></d-cite>. The key point is not Minecraft. The key point is procedural memory.
+Voyager pioneered this by accumulating an ever-growing library of executable skills in Minecraft, storing complex routines as code to be retrieved later <d-cite key="voyager2023"></d-cite>. Modern memory-first systems extend this beyond game environments. Memento-Skills, for instance, turns reusable capabilities into structured, evolvable markdown assets <d-cite key="mementoskills2026"></d-cite>.
 
-Recent memory-first systems extend the same principle beyond games. Memento-Skills stores reusable skills as structured markdown files that can be retrieved, repaired, and evolved over time <d-cite key="mementoskills2026"></d-cite>. This makes across-session memory closer to a personal software library than to a static vector database.
+For a personal coding agent, this means saving an arcane project test command, storing a verified API wrapper, or locking in a strict migration recipe. The system transitions from semantic search to asset reuse. The agent simply stops paying the inference tax of rediscovering the exact same solution.
 
-For a personal coding agent, this could mean:
+### Level 2: Meta-Programming and Pipeline Optimization
 
-- remembering the project's test command;
-- storing a known API wrapper;
-- keeping a verified migration recipe;
-- saving a debugging checklist for a recurring failure;
-- preserving user-specific style and review preferences.
+When an agent repeatedly solves the same class of problems, it shouldn't reconstruct its execution plan from scratch. High-performing historical trajectories must be mined to optimize the harness itself.
 
-This turns repeated reasoning into reuse. The agent no longer pays the full cost of rediscovering the same procedure.
+This is the domain of meta-programming. Frameworks like DSPy <d-cite key="dspy2023"></d-cite> and MIPRO <d-cite key="mipro2024"></d-cite> treat LLM programs as optimizable computational graphs, tuning few-shot demonstrations and routing rules against an evaluation metric. AgentOptimizer <d-cite key="agentoptimizer2023"></d-cite> and ACE <d-cite key="ace2025"></d-cite> push this further by structurally revising functions and playbooks based on user satisfaction signals.
 
-### Level 2: Meta-Programming and Prompt Compilation
-
-Across sessions, repeated trajectories can also be compiled into better harness logic.
-
-If a user repeatedly asks for the same kind of analysis, the agent should not keep reconstructing a long prompt from scratch. It should learn the workflow: what context to fetch, what tools to call, what order works, where failures usually occur, and which intermediate steps can be removed.
-
-DSPy is an important example of this philosophy. It treats language-model programs as optimizable computational graphs and uses a compiler to improve pipeline behavior against a metric <d-cite key="dspy2023"></d-cite>. In an agent setting, this suggests that high-performing trajectories can be mined for few-shot examples, prompt parameters, routing rules, and workflow structure.
-
-MIPRO makes this concrete by jointly optimizing instructions and demonstrations for multi-stage language-model programs <d-cite key="mipro2024"></d-cite>. AgentOptimizer pushes the same idea toward agents by revising functions or skills from historical conversations and satisfaction signals <d-cite key="agentoptimizer2023"></d-cite>. ACE generalizes the frame by treating context itself as an evolving playbook maintained through generation, reflection, and curation <d-cite key="ace2025"></d-cite>.
-
-The result is a user- or project-specific optimized DAG. What was once a verbose explicit context becomes a compiled procedure.
+The mechanism here is structural: a bloated, verbose explicit context collapses into a lean, project-specific DAG (Directed Acyclic Graph).
 
 ### Level 1: Personal Adapters and Alignment
 
-At the weight layer, across-session evolution becomes personalized training.
+At the parametric layer, inter-session evolution becomes personalized alignment.
 
-A system can extract a user's preferences from repeated interaction: output format, coding style, domain assumptions, tolerance for verbosity, preferred libraries, safety boundaries, and common correction patterns. Those signals can drive lightweight adapters or other parameter-efficient updates.
+The system extracts implicit preferences - coding style, API choices, verbosity tolerance, and safety boundaries - from repeated interactions and drives them into parameter-efficient adapters. Architectures like OPPU <d-cite key="oppu2024"></d-cite>, Profile-to-PEFT <d-cite key="profiletopeft2025"></d-cite>, and PERSOMA <d-cite key="persoma2024"></d-cite> demonstrate how historical trajectories can be compressed into user-specific parametric priors.
 
-OPPU is the cleanest example of this direction: one parameter-efficient adapter per user stores user-specific behavior patterns and preferences <d-cite key="oppu2024"></d-cite>. Profile-to-PEFT goes further by mapping user profiles directly into adapter parameters through a hypernetwork, avoiding per-user training at deployment <d-cite key="profiletopeft2025"></d-cite>. PERSOMA explores a related route through soft-prompt adapters that compress user histories into personalized prompt embeddings <d-cite key="persoma2024"></d-cite>.
-
-This is much more intrusive than file-level memory. It can also be more powerful. If a preference becomes parametric, the model does not need to retrieve it explicitly every time. It becomes a prior.
-
-The hard part is governance. Personal fine-tuning needs evaluation, rollback, privacy controls, and a way to distinguish stable preference from one-off instruction. Without that, the agent may overfit to yesterday's accidental correction.
+If a preference becomes parametric, the model no longer needs to be explicitly prompted; it becomes instinct. However, the true engineering bottleneck here is governance. Personal fine-tuning demands rigorous evaluation, privacy firewalls, and rollback mechanisms to prevent the agent from fatally overfitting to yesterday's accidental typo.
 
 ## Across Users
 

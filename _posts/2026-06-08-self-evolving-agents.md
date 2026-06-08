@@ -9,11 +9,11 @@ authors:
   - name: Xinming Tu
     url: "https://xinmingtu.cn"
     affiliations:
-      name: University of Washington CSE
+      name: University of Washington
   - name: Tong Chen
     url: "https://scholar.google.com/citations?user=fOcXofAAAAAJ&hl=en"
     affiliations:
-      name: University of Washington CSE
+      name: University of Washington
 
 bibliography: 2026-06-08-self-evolving-agents.bib
 _styles: |
@@ -48,11 +48,11 @@ True intelligence should not peak at deployment only to depreciate. It must appr
 
 - **Motivation 2: Capability Ceiling Expansion (Breaking Ceilings).** Evolution should unlock zero-day or out-of-distribution tasks that the system could not handle on day one. The agent learns to forge ad-hoc tools and strategies at runtime, making autonomy a hard systems claim rather than a behavioral illusion.
 
-The industry is already transitioning to updateable execution substrates. OpenAI's ChatGPT memory stack now uses background "dreaming" processes to synthesize useful memory state <d-cite key="openai2026dreaming"></d-cite>; Anthropic's Agent Skills package instructions, scripts, and resources into discoverable folders that Claude can load on demand <d-cite key="anthropicagentskills2026"></d-cite>; Claude Code's new Dynamic Workflows move orchestration into runtime-executed JavaScript scripts, with `ultracode` letting Claude decide when to launch those workflows <d-cite key="anthropicdynamicworkflows2026"></d-cite>; open-source coding-agent runtimes such as OpenHands expose reusable skills and runtime context modules <d-cite key="openhandskills2026"></d-cite>; and OpenClaw-RL treats user replies, tool outputs, terminal states, and GUI changes as online learning signals <d-cite key="openclawrl2026"></d-cite>.
+Leading systems are already shifting from prompt-only baselines to updatable execution substrates. We see this across the entire stack: from ChatGPT's background state synthesis <d-cite key="openai2026dreaming"></d-cite> and Claude's dynamic runtime skills <d-cite key="anthropicagentskills2026"></d-cite><d-cite key="anthropicdynamicworkflows2026"></d-cite>, to open-source and research architectures like OpenHands <d-cite key="openhandskills2026"></d-cite> and OpenClaw-RL <d-cite key="openclawrl2026"></d-cite>.
 
-But merely bolting a database onto an agent is not evolution. A saved preference, project context, skill folder, patched system prompt, or rewritten tool route only matters if it prevents context bloat, redundant retrieval, extra tool calls, repeated retries, or human correction. If experience lands at the wrong layer, the agent may memorize facts without acquiring better procedures. It may retrieve a past trace without improving routing. It may add a tool without learning when to use it.
+These systems prove that agents must internalize their experience. But "learning" is not magic; it requires a physical substrate. To genuinely reduce costs and break capability ceilings, we must understand the architecture of this adaptation.
 
-Therefore, the frontier question is not **"Does the agent have memory?"** but **"At which physical layer does experience harden into state?"**
+The central question is simple: **Where exactly does this evolution happen?**
 
 Recent surveys on self-evolving agents organize the field around what evolves, when it evolves, and how it evolves <d-cite key="selfevolvingsurvey2025"></d-cite>. The 3x3 matrix below is a systems-oriented version of the same instinct: it asks which physical layer is updated, and over what lifetime the update persists.
 

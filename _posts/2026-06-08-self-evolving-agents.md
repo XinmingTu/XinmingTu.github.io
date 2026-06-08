@@ -40,15 +40,13 @@ toc:
 
 **The era of static AI agents is ending.**
 
-The old baseline, anchored in static prompts and rigid orchestration, treated agents as fixed products that peaked at deployment. That approach has hit a wall: it is too expensive to operate, and too brittle to scale. We are now witnessing a fundamental shift toward dynamic, **self-evolving systems**.
-
-True intelligence should not peak at deployment only to depreciate. It must appreciate. Every interaction should create pressure for the system to adapt. This paradigm shift is driven by a dual promise:
+True intelligence should not peak at deployment only to depreciate. It must appreciate. Every interaction should create pressure for the system to adapt. We are now witnessing a fundamental shift toward dynamic, **self-evolving systems**, driven by a dual promise:
 
 - **Motivation 1: Marginal Cost Reduction (Shrinking Costs).** Operationally, this means fewer prompt tokens, fewer tool calls, fewer retries, and less human intervention per solved task family. By compressing experience into reusable assets, the system stops paying for the same mistake twice.
 
-- **Motivation 2: Capability Ceiling Expansion (Breaking Ceilings).** Evolution should unlock zero-day or out-of-distribution tasks that the system could not handle on day one. The agent learns to forge ad-hoc tools and strategies at runtime, making autonomy a hard systems claim rather than a behavioral illusion.
+- **Motivation 2: Capability Ceiling Expansion (Breaking Ceilings).** Evolution should unlock zero-day tasks and enable robust **long-horizon execution**. Static agents inevitably fail at complex, multi-step goals due to compounding errors and context exhaustion. By learning to forge ad-hoc tools, cache intermediate progress, and adapt strategies at runtime, a self-evolving agent makes long-term autonomy a hard systems claim rather than a behavioral illusion.
 
-Leading systems are already shifting from prompt-only baselines to updatable execution substrates. We see this across the entire stack: from ChatGPT's background state synthesis <d-cite key="openai2026dreaming"></d-cite> and Claude's dynamic runtime skills <d-cite key="anthropicagentskills2026"></d-cite><d-cite key="anthropicdynamicworkflows2026"></d-cite>, to open-source and research architectures like OpenHands <d-cite key="openhandskills2026"></d-cite> and OpenClaw-RL <d-cite key="openclawrl2026"></d-cite>.
+Leading systems are already abandoning **stateless orchestration** in favor of updatable execution substrates. We see this transition across the stack: from the accumulation of **persistent skill libraries** in systems like OpenHands <d-cite key="openhandskills2026"></d-cite>, to Claude's ability to compile **dynamic runtime scripts** on the fly <d-cite key="anthropicdynamicworkflows2026"></d-cite>, and deep reinforcement learning loops in OpenClaw-RL <d-cite key="openclawrl2026"></d-cite>.
 
 These systems prove that agents must internalize their experience. But "learning" is not magic; it requires a physical substrate. To genuinely reduce costs and break capability ceilings, we must understand the architecture of this adaptation.
 
@@ -62,37 +60,33 @@ Before discussing how an agent evolves, we need to define what an agent physical
 
 ### Level 1: Model Weights
 
-The first layer is the parametric core: foundation-model weights and lightweight adapters such as LoRA modules.
+The first layer is the parametric core: the model weights.
 
-This layer stores implicit knowledge. It is updated through gradient-based learning, and its updates are expensive. Weight evolution can generalize broadly across tasks, but it also carries risks such as catastrophic forgetting, regression on existing capabilities, and costly evaluation requirements.
-
-In other words, this layer determines the agent's instincts.
+This layer stores implicit knowledge. It is updated through gradient-based learning, which makes updates computationally expensive. While weight evolution can generalize broadly across tasks, it carries inherent risks such as catastrophic forgetting, regression on existing capabilities, and costly evaluation requirements.
 
 ### Level 2: Agent Harness
 
-The second layer is the agent harness: orchestration logic, workflow graphs, control flow, tool invocation runtime, recovery loops, meta-prompts, and routing policies.
+The second layer is the agent harness, which includes the orchestration logic, control flow, tool runtime, and error recovery loops.
 
-This layer determines how the agent thinks and acts. It can evolve without changing model tensors. A system can rewrite prompts, optimize tool-selection logic, compile repeated workflows into deterministic subroutines, add new execution nodes, or change how it recovers from errors.
+This layer defines how the agent executes tasks and can evolve without changing model weights. A system can optimize tool-selection logic, compile repeated workflows into deterministic subroutines, or rewrite its system prompts.
 
-In modern coding agents, this layer includes the invisible machinery behind repeated plan-act-observe loops, terminal recovery, code editing, test execution, delegation, and runtime workflow execution. Claude Code's Dynamic Workflows are a clean recent example: the plan is no longer only a sequence of turns in the context window; it becomes a script that a separate runtime executes, while intermediate results live in script variables and subagent state <d-cite key="anthropicdynamicworkflows2026"></d-cite>.
+In modern systems, this is the machinery driving the plan-act-observe loop. Claude Code's Dynamic Workflows provide a clean example: the execution plan is no longer just a sequence of text turns in the context window. Instead, it becomes an executable script managed by a separate runtime, handling intermediate variables and subagent states entirely outside the model <d-cite key="anthropicdynamicworkflows2026"></d-cite>.
 
 ### Level 3: External Files
 
-The third layer is the external state: executable skill libraries, memory stores, knowledge graphs, notebooks, scratchpads, user profiles, and persistent artifacts.
+The third layer is external state: persistent memory stores, skill libraries, knowledge graphs, and scratchpads.
 
-This is the agent's dynamic external brain. It is not just early-stage document RAG. The most useful external memory is structured, editable, callable, and inspectable. It can store exact code, exact errors, exact user preferences, exact intermediate discoveries, and exact reusable procedures.
+Unlike traditional read-only RAG, modern external memory is structured, editable, and callable. It stores precise code snippets, error logs, user preferences, and reusable procedures.
 
-Evolution at this layer is cheap. It is mostly CRUD: create, read, update, delete. It also has perfect fidelity relative to model memory: a saved function, file, or note does not blur into a distribution unless the agent later summarizes it badly.
+Evolution at this layer is computationally cheap: primarily CRUD (create, read, update, delete) operations. It also offers high fidelity relative to parametric memory: a saved function or specific configuration remains exact, rather than blurring into a statistical distribution.
 
-### The Blurry Boundary Between Harness and Files
+### The Blurry Boundary: Code as Data
 
-The boundary between Level 2 and Level 3 is increasingly unstable.
+The boundary between Level 2 (Harness) and Level 3 (Files) is increasingly porous.
 
-Suppose an agent writes a Python function into a skill library. At first, that function is just an external file. But if the runtime later loads it and routes future tasks through it, the file has modified the agent's workflow. Data has become control logic.
+When an agent writes a Python function into a skill library, it starts as an external file. But the moment the runtime loads that file to route future tasks, data becomes control logic. External memory no longer merely stores facts; it stores new operators.
 
-This "code as data" property is one of the most important mechanisms in advanced self-evolving agents. External memory does not merely store facts. It can store new operators.
-
-This is already visible in deployed agent systems. Anthropic's Agent Skills framework packages instructions, scripts, templates, and metadata inside discoverable folders <d-cite key="anthropicagentskills2026"></d-cite>. OpenHands exposes a similar skills architecture for loading reusable agent context and capability modules <d-cite key="openhandskills2026"></d-cite>. Memento-Skills turns structured markdown skills into persistent, retrievable, and evolvable agent memory <d-cite key="mementoskills2026"></d-cite>. Claude Code Dynamic Workflows show the mirror image from the harness side: runtime scripts can hold the orchestration that used to live in the model's context window <d-cite key="anthropicdynamicworkflows2026"></d-cite>. In all of these cases, external files and runtime code are no longer passive storage. They are executable capability substrates.
+This "code as data" property is a core mechanism in advanced self-evolving agents. Frameworks like Anthropic's Agent Skills <d-cite key="anthropicagentskills2026"></d-cite>, OpenHands <d-cite key="openhandskills2026"></d-cite>, and Memento-Skills <d-cite key="mementoskills2026"></d-cite> all package capabilities into discoverable folders or structured markdown. In these systems, external files are no longer passive storage; they are executable capability substrates.
 
 ## Learning From Experience
 

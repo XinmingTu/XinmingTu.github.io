@@ -9,14 +9,18 @@ authors:
   - name: Xinming Tu
     url: "https://xinmingtu.cn"
     affiliations:
-      - name: UWCSE
-      - name: PhyloBio
+      name: University of Washington CSE
   - name: Tong Chen
     url: "https://scholar.google.com/citations?user=fOcXofAAAAAJ&hl=en"
     affiliations:
-      - name: UW CSE
+      name: University of Washington CSE
 
 bibliography: 2026-06-08-self-evolving-agents.bib
+_styles: |
+  d-article h3 {
+    margin-top: 1.15em;
+    margin-bottom: 0.55em;
+  }
 
 toc:
   - name: "The Dual Promise"
@@ -25,9 +29,8 @@ toc:
   - name: "The 3x3 Evolution Matrix"
   - name: "Single Session: Online Adaptation"
   - name: "Across Sessions: Longitudinal Alignment"
-  - name: "Across Users"
+  - name: "Across Users: Population-Level Evolution"
   - name: "When Experience Moves Inward"
-  - name: "Why This Matters"
   - name: "Open Questions"
 ---
 
@@ -187,92 +190,60 @@ The system extracts implicit preferences - coding style, API choices, verbosity 
 
 If a preference becomes parametric, the model no longer needs to be explicitly prompted; it becomes instinct. However, the true engineering bottleneck here is governance. Personal fine-tuning demands rigorous evaluation, privacy firewalls, and rollback mechanisms to prevent the agent from fatally overfitting to yesterday's accidental typo.
 
-## Across Users
+## Across Users: Population-Level Evolution
 
-The third time scale is population-level evolution. Here, the system learns from many users' trajectories, failures, and feedback.
+The third time scale is population-level. How does a system aggregate millions of isolated trajectories, failures, and human corrections to conquer the long tail of edge cases?
 
-### Level 3: Global Skill Libraries
+### Level 3: Collective Knowledge Graphs and Shared Skills
 
-At the file layer, population-level evolution looks like a shared tool ecosystem.
+At the file layer, population-level evolution manifests as a shared ecosystem of capabilities and knowledge.
 
-If one agent discovers a reliable way to call a new API, parse a tricky file format, configure a benchmark, or recover from a known error, that artifact can be validated and added to a global skill library. Other agents can retrieve it instead of rediscovering it.
+When an agent successfully navigates an undocumented API, decrypts a complex configuration, or maps an obscure domain, that discovery should not remain isolated. It is validated and merged into a collective knowledge graph or a global skill library. Systems like Agent KB <d-cite key="agentkb2025"></d-cite>, ReasoningBank <d-cite key="reasoningbank2025"></d-cite>, and Alita-G <d-cite key="alitag2025"></d-cite> synthesize these reusable tools and strategies from the successful trajectories of heterogeneous agents.
 
-This is the lowest-cost way to attack long-tail tasks. The system does not need to update the base model every time the world changes. It can add a tool, a recipe, a patch, or a verified snippet.
-
-This cell now has strong research anchors. Agent KB builds a shared cross-framework experience base for heterogeneous agents <d-cite key="agentkb2025"></d-cite>. ReasoningBank distills generalizable reasoning strategies from both successful and failed experiences into a shared memory <d-cite key="reasoningbank2025"></d-cite>. Alita-G synthesizes and curates reusable MCP tools from successful trajectories, then retrieves them for future agent generation <d-cite key="alitag2025"></d-cite>.
-
-The main challenge is trust. A global skill library needs provenance, tests, versioning, permission boundaries, and deprecation. Otherwise, it becomes a new supply-chain risk.
+This is the ultimate strategy for attacking out-of-distribution tasks: **crowdsourcing both executable tools and structured world knowledge.** The primary bottleneck is no longer generation, but trust. A global memory bank requires strict provenance and sandboxing to prevent it from becoming a reservoir for hallucinations or a vector for supply-chain vulnerabilities.
 
 ### Level 2: Collective Pipeline Optimization
 
-At the harness layer, aggregate failure logs expose structural weaknesses.
+At the harness layer, aggregate failure logs expose structural bottlenecks.
 
-If thousands of agents fail in the same loop, the problem may not be the base model. It may be the default system prompt, the retry policy, the tool schema, the planner, or the recovery strategy. Population logs let developers or meta-agents identify these repeated failure modes and update the default orchestration.
+If ten thousand deployed agents fail in the exact same execution loop, the root cause is rarely the base model's capacity. It is usually a defect in the default system prompt, a brittle tool schema, or a malformed retry policy. By mining these population-level deadlocks, developers - or automated meta-agents - can refactor the default orchestration logic.
 
-This is how an agent product can improve without every improvement becoming a model checkpoint. The control layer can evolve faster than the weights.
+We see this frontier in automated harness design. Frameworks like ADAS <d-cite key="adas2024"></d-cite> and Darwin Godel Machine <d-cite key="dgm2025"></d-cite> use meta-agents to iteratively program and validate better agentic control flows. This allows the control layer to evolve aggressively, pushing product improvements without waiting for the next massive model checkpoint.
 
-For coding agents, examples include better terminal recovery, better patch validation, better context selection, safer file-edit policies, and better delegation. These improvements often feel like "the model got smarter," but the actual change may be in the harness.
+### Level 1: Continual Parametric Evolution
 
-The frontier version is automated harness design. ADAS searches for new agentic systems by having a meta-agent program better agents in code <d-cite key="adas2024"></d-cite>. Darwin Godel Machine goes further by iteratively modifying its own code and validating improvements on coding benchmarks <d-cite key="dgm2025"></d-cite>. PromptWizard and related prompt optimizers show the lighter-weight variant: prompts can be optimized through feedback-driven self-evolution without changing weights <d-cite key="promptwizard2024"></d-cite>.
+At the parametric layer, population-level evolution is continuous reinforcement learning.
 
-### Level 1: Continual Learning From Real Interaction
+Deployed systems generate an ocean of implicit supervision. Every user correction, rejected output, and accepted code edit is a high-fidelity reward signal. WildChat <d-cite key="wildchat2024"></d-cite> and WildFeedback <d-cite key="wildfeedback2024"></d-cite> demonstrate how in-situ feedback can be converted directly into alignment data, while RLHI <d-cite key="rlhi2025"></d-cite> learns from real-world conversational trajectories.
 
-At the weight layer, population-level evolution becomes continual learning.
-
-WildChat provides a public million-conversation substrate for studying real user interactions with ChatGPT-like systems <d-cite key="wildchat2024"></d-cite>. WildFeedback shows how in-situ feedback from those kinds of interactions can be converted into preference data for alignment <d-cite key="wildfeedback2024"></d-cite>. RLHI extends this idea by learning from in-the-wild user conversations, including user-guided rewrites and persona-conditioned rewards <d-cite key="rlhi2025"></d-cite>.
-
-The broader implication is straightforward: deployed systems generate supervision. User corrections, rejected outputs, accepted edits, repeated prompts, tool errors, and recovery traces are all training signals. Cursor's online-RL work on Tab is a concrete product example: accepted and rejected suggestions are converted into rewards and used to improve the policy <d-cite key="cursortabrl2025"></d-cite>.
-
-This does not mean every product is already doing safe, high-frequency online RL. In many cases, public evidence is limited, privacy constraints are significant, and production learning loops are deliberately conservative. But as a systems direction, it is clear: the outer loop of human interaction can become the inner loop of model improvement.
+Cursor's online RL for autocomplete is the canonical product example: user-validated suggestions are converted into reward gradients to continuously update the policy <d-cite key="cursortabrl2025"></d-cite>. The endgame is clear: **human interaction is no longer just a source of training data. It is the direct catalyst for the next generation of model intelligence.**
 
 ## When Experience Moves Inward
 
-The practical design question is not simply whether an agent should learn. It is where the learning should land.
+The practical design question is not simply *whether* an agent should learn, but **where the learning should land.**
 
-The cost gradient suggests a conservative promotion rule:
+The physical layers form a strict cost-efficiency gradient. Weight updates are expensive and opaque; harness updates are powerful but risky; file updates are cheap and inspectable. This dictates a conservative lifecycle for promoting agentic experience:
 
-1. **Incident to memory.** If an experience is rare, local, exact, or tied to a specific environment, keep it in Level 3 as a note, trace, skill, or artifact.
-2. **Memory to workflow.** If the same pattern recurs and has a procedural structure, promote it into Level 2 as a compiled prompt, tool route, recovery loop, or optimized DAG.
-3. **Workflow to weights.** If the pattern is stable, broad, privacy-safe, and distributional, internalize it into Level 1 through adapters, continual learning, or checkpoint updates.
+1. **Incident to Asset (Level 3):** If an experience is rare, highly specific, or tied to a local environment, cache it externally as a skill or memory block.
+2. **Asset to Workflow (Level 2):** If a cached pattern proves structural and procedural, promote it. Compile it into the orchestration graph as a new routing rule or recovery loop.
+3. **Workflow to Weights (Level 1):** Only when a pattern is stable, broadly applicable, and privacy-safe should it be distilled into the parametric core.
 
-This is the engineering version of the inward movement described above:
+This inward movement of experience yields the ultimate engineering heuristic for self-evolving systems:
 
-**Do not train what you can compile. Do not compile what you can remember. Do not remember what you can solve once and discard.**
-
-The rule is intentionally conservative. Weight updates are not morally or technically superior to memory updates. The right layer is the cheapest layer that preserves the useful signal without creating unacceptable risk.
-
-## Why This Matters
-
-The 3x3 matrix clarifies the dual promise of self-evolving agents.
-
-First, it explains **marginal cost reduction**. If the agent can store a solved procedure as a file, compile it into a workflow, or distill it into a model prior, then repeated tasks become cheaper. The system stops paying full price for the same mistake.
-
-Second, it explains **capability ceiling expansion**. If the agent can create tools, explore at test time, collect failures across users, and eventually train on those signals, then it can solve tasks that were not anticipated by the original prompt or harness.
-
-This is the difference between an agent as a static interface and an agent as a living system.
-
-A static agent has a fixed ceiling and a growing maintenance burden. A self-evolving agent has a feedback loop. The system can move experience inward:
-
-1. From incident to memory.
-2. From memory to workflow.
-3. From workflow to weights.
-
-That movement is the core mechanism of appreciation.
+> **Do not train what you can compile. Do not compile what you can cache. Do not cache what you can solve once and discard.**
 
 ## Open Questions
 
-This framework is still incomplete. Several problems need sharper treatment.
+This framework is just the beginning. The transition from static interfaces to living, self-evolving systems exposes several unsolved frontiers:
 
-**Credit assignment.** When an agent succeeds or fails, which layer deserves the update? A bad result could come from missing memory, bad orchestration, weak model capability, tool failure, or user ambiguity.
+- **Credit Assignment:** When a trajectory fails, which layer is at fault? Was it missing memory, a brittle tool schema, weak model capacity, or user ambiguity? Blaming the wrong layer creates toxic updates.
 
-**Evaluation.** How do we test whether an evolution improves the agent rather than overfitting to a local artifact? File updates are easy to inspect; weight updates are not. Memory systems also need causal and temporal evaluation, not just semantic retrieval scores.
+- **Evaluation:** How do we prove an evolution is a genuine upgrade rather than local overfitting? We need temporal and causal evaluation metrics, not just static benchmarks.
 
-**Safety and rollback.** Self-modification requires versioning. A skill library, harness, or adapter must be reversible when it introduces regressions.
+- **Safety and Rollback:** Self-modification requires strict version control. If a compiled DAG or personal adapter introduces a performance regression, the system must be able to cleanly roll back.
 
-**Contamination.** Memory poisoning, bad skill propagation, reward hacking, and tool supply-chain attacks are all natural failure modes once the system can learn from deployment traces. Evolution needs provenance and quarantine, not just accumulation.
+- **Contamination:** Memory poisoning, reward hacking, and tool supply-chain attacks are inherent risks when systems learn from deployment traces. Evolution demands rigorous quarantine, not just blind accumulation.
 
-**Privacy.** Across-session and across-user learning require different data boundaries. A personal memory should not leak into a global skill. A global model update should not memorize a private trajectory.
+- **Privacy Boundaries:** Across-session and across-user learning require hard firewalls. A personal memory must never leak into a global skill; a global parametric update must never memorize a private trajectory.
 
-**Economics.** The matrix has a cost gradient. File updates are cheap; harness updates are moderate; weight updates are expensive. A practical agent should usually evolve at the cheapest layer that solves the problem.
-
-Self-evolving agents are not defined by one technique. They are defined by whether experience changes future behavior at the right layer, over the right time scale, with the right cost.
+Self-evolving agents are not defined by any single technique or paper. They are defined by a feedback loop: by a system's ability to mutate its own future behavior at the right layer, over the right time scale, with the right cost.

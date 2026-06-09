@@ -1,7 +1,7 @@
 ---
 layout: distill
 title: "The What & When of Self-Evolving Agents"
-description: "Working in progress: a 3x3 framework for understanding self-evolving agents across files, harnesses, and weights."
+description: "Work in progress: a 3x3 framework for understanding self-evolving agents across external state, harnesses, and weights."
 date: 2026-06-08
 tags: ['AI', 'agents', 'deep-learning']
 
@@ -30,11 +30,10 @@ toc:
   - name: "Single Session: Online Adaptation"
   - name: "Across Sessions: Longitudinal Alignment"
   - name: "Across Users: Population-Level Evolution"
-  - name: "When Experience Moves Inward"
-  - name: "Open Questions"
+  - name: "Conclusion: Escaping the Human Bottleneck"
 ---
 
-> **Working in progress.**
+> **Work in progress.**
 
 ## The Dual Promise
 
@@ -52,7 +51,7 @@ These systems prove that agents must internalize their experience. But "learning
 
 The central question is simple: **Where exactly does this evolution happen?**
 
-Recent surveys on self-evolving agents organize the field around what evolves, when it evolves, and how it evolves <d-cite key="selfevolvingsurvey2025"></d-cite>. The 3x3 matrix below is a systems-oriented version of the same instinct: it asks which physical layer is updated, and over what lifetime the update persists.
+Recent surveys on self-evolving agents organize the field around what evolves, when it evolves, and how it evolves <d-cite key="selfevolvingsurvey2025"></d-cite>. The 3x3 matrix below is a systems-oriented version of the same instinct: it asks which structural layer is updated, and over what lifetime the update persists.
 
 ## What Evolves
 
@@ -72,7 +71,7 @@ This layer defines how the agent executes tasks and can evolve without changing 
 
 In modern systems, this is the machinery driving the plan-act-observe loop. Claude Code's Dynamic Workflows provide a clean example: the execution plan is no longer just a sequence of text turns in the context window. Instead, it becomes an executable script managed by a separate runtime, handling intermediate variables and subagent states entirely outside the model <d-cite key="anthropicdynamicworkflows2026"></d-cite>.
 
-### Level 3: External Files
+### Level 3: External State
 
 The third layer is external state: persistent memory stores, skill libraries, knowledge graphs, and scratchpads.
 
@@ -82,7 +81,7 @@ Evolution at this layer is computationally cheap: primarily CRUD (create, read, 
 
 ### The Blurry Boundary: Code as Data
 
-The boundary between Level 2 (Harness) and Level 3 (Files) is increasingly porous.
+The boundary between Level 2 (Harness) and Level 3 (External State) is increasingly porous.
 
 When an agent writes a Python function into a skill library, it starts as an external file. But the moment the runtime loads that file to route future tasks, data becomes control logic. External memory no longer merely stores facts; it stores new operators.
 
@@ -188,7 +187,7 @@ The third time scale is population-level. How does a system aggregate millions o
 
 ### Level 3: Collective Knowledge Graphs and Shared Skills
 
-At the file layer, population-level evolution manifests as a shared ecosystem of capabilities and knowledge.
+At the external-state layer, population-level evolution manifests as a shared ecosystem of capabilities and knowledge.
 
 Consider how the human scientific community tackles an open problem. No single researcher derives every result from base axioms; one group proves an intermediate lemma, publishes it, and that lemma becomes a trusted tool for the next group to build upon.
 
@@ -230,4 +229,4 @@ Today, human interaction is the primary environment that forces an agent to adap
 
 Imagine a network of autonomous agents deployed to tackle an unsolved physics problem or design a next-generation operating system. They generate synthetic hypotheses, build their own sandbox environments to test them, and distribute successful discoveries - whether as executable tools (Level 3), optimized reasoning pathways (Level 2), or weight updates (Level 1) - across a global collective intelligence.
 
-Their experience compounds at the speed of compute, decoupled from the biological limits of human typing speed or comprehension. By architecting systems capable of modifying their own external files, cognitive harnesses, and parametric cores, we are no longer just engineering smarter Copilots. We are laying the structural foundation for an intelligence that can finally evolve itself.
+Their experience compounds at the speed of compute, decoupled from the biological limits of human typing speed or comprehension. By architecting systems capable of modifying their own external state, cognitive harnesses, and parametric cores, we are no longer just engineering smarter Copilots. We are laying the structural foundation for an intelligence that can finally evolve itself.

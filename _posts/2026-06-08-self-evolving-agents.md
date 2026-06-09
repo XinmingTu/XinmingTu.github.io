@@ -92,11 +92,9 @@ This "code as data" property is a core mechanism in advanced self-evolving agent
 
 At its core, self-evolution reduces to a single imperative: **learning from experience**.
 
-Every deployed agent generates an exhaust of experience: successful trajectories, tool errors, rejected actions, and user corrections. A static agent flushes this signal the moment a task ends. A self-evolving agent captures it, routes it, and hardens it into reusable state.
+Every deployed agent leaves behind experience exhaust: successful trajectories, tool errors, rejected actions, and user corrections. A static agent flushes this signal the moment a task ends. A self-evolving agent captures that signal and hardens it into reusable state.
 
-This forms the **experience feedback loop**. The guiding principle for this loop is a simple cost-efficiency gradient: **internalize experience at the cheapest physical layer that prevents the error from repeating.**
-
-To map this out, we project the three physical layers against three time scales of adaptation:
+To map how this feedback loop operates, we project the three structural layers against three time scales of adaptation:
 
 - **Single Session:** Online adaptation inside one active trajectory.
 - **Across Sessions:** Longitudinal adaptation to a specific user, project, or codebase.
@@ -104,11 +102,11 @@ To map this out, we project the three physical layers against three time scales 
 
 ## The 3x3 Evolution Matrix
 
-| Time scale | Level 3: External files | Level 2: Agent harness | Level 1: Model weights |
+| Time scale | Level 3: External state (Files/Memory) | Level 2: Agent harness (Control/Logic) | Level 1: Model weights (Parametric) |
 | --- | --- | --- | --- |
-| **Single session** | Working memory, scratchpads, context paging, temporary tools | Dynamic orchestration, runtime rewrites, ad-hoc tool mounting | Test-time training, fast weights, problem-specific online updates |
-| **Across sessions** | Persistent skill libraries, user memory, project graphs | Prompt compilation, workflow specialization, optimized DAGs | Personal adapters, continuous fine-tuning, preference alignment |
-| **Across users** | Global skill libraries, shared tool ecosystems | Collective pipeline optimization, default harness upgrades | Continual learning, RL from real interactions, model checkpoint updates |
+| **Single session**<br><br>*Online* | Working memory, active scratchpads, context paging | Dynamic orchestration, runtime rewrites, ad-hoc tool mounting | Test-time training, fast weights, in-place updates |
+| **Across sessions**<br><br>*Longitudinal* | Persistent skill libraries, user memory, executable assets | Meta-programming, workflow optimization, specialized DAGs | Personal adapters, continuous fine-tuning, preference alignment |
+| **Across users**<br><br>*Population* | Collective knowledge graphs, shared global skills | Collective pipeline optimization, automated harness design | Continual RL, learning from interaction, checkpoint updates |
 
 This matrix is not meant to be a rigid classification. In real systems, the cells interact. A temporary tool created in a single session can become a persistent skill across sessions. A project-specific workflow can become a product default. A pattern discovered in millions of users' failures can eventually become a model checkpoint.
 
@@ -124,7 +122,7 @@ Inside a single session, external memory fights context degradation. Long reason
 
 The solution is OS-style context management. MemGPT frames this as virtual memory paging across storage tiers <d-cite key="memgpt2023"></d-cite>. MEMENTO dynamically segments reasoning into blocks, compressing and evicting intermediate steps from active context so the model reasons forward over structured summaries <d-cite key="memento2026"></d-cite>. *Memory-as-Action* pushes this further, turning memory editing from a hardcoded heuristic into a learnable policy <d-cite key="memoryasaction2025"></d-cite>.
 
-**The caveat:** Adding a database is not automatically evolution. Lossy retrieval and compression can quietly inject causal drift into the reasoning chain <d-cite key="amabench2026"></d-cite>. Ephemeral memory only counts as evolution if it strictly improves the efficiency frontier, rather than just shifting the bottleneck from context length to retrieval noise.
+**The caveat: Storage is not evolution.** Simply dumping context into an external database is meaningless if lossy retrieval quietly injects causal drift into the reasoning chain <d-cite key="amabench2026"></d-cite>. Ephemeral memory only qualifies as evolution if it strictly improves the efficiency frontier, rather than just shifting the system's bottleneck from context length to retrieval noise.
 
 ### Level 2: Dynamic Orchestration
 
@@ -164,7 +162,7 @@ The second time scale is inter-session. How does an agent internalize the struct
 
 The most practical inter-session mechanism is caching executable behaviors.
 
-Voyager pioneered this by accumulating an ever-growing library of executable skills in Minecraft, storing complex routines as code to be retrieved later <d-cite key="voyager2023"></d-cite>. Modern memory-first systems extend this beyond game environments. Memento-Skills, for instance, turns reusable capabilities into structured, evolvable markdown assets <d-cite key="mementoskills2026"></d-cite>.
+Voyager pioneered this by accumulating an ever-growing library of executable skills in Minecraft, storing complex routines as code to be retrieved later <d-cite key="voyager2023"></d-cite>. Today, modern open-source ecosystems have brought this directly into real-world software engineering. Frameworks like OpenHands <d-cite key="openhandskills2026"></d-cite>, agent systems like Hermes Agent <d-cite key="hermesagent2026"></d-cite>, and memory-first methods like Memento-Skills <d-cite key="mementoskills2026"></d-cite> all support persistent, evolvable skill libraries across user sessions.
 
 For a personal coding agent, this means saving an arcane project test command, storing a verified API wrapper, or locking in a strict migration recipe. The system transitions from semantic search to asset reuse. The agent simply stops paying the inference tax of rediscovering the exact same solution.
 
@@ -180,9 +178,9 @@ The mechanism here is structural: a bloated, verbose explicit context collapses 
 
 At the parametric layer, inter-session evolution becomes personalized alignment.
 
-The system extracts implicit preferences - coding style, API choices, verbosity tolerance, and safety boundaries - from repeated interactions and drives them into parameter-efficient adapters. Architectures like OPPU <d-cite key="oppu2024"></d-cite>, Profile-to-PEFT <d-cite key="profiletopeft2025"></d-cite>, and PERSOMA <d-cite key="persoma2024"></d-cite> demonstrate how historical trajectories can be compressed into user-specific parametric priors.
+The system extracts implicit preferences - coding style, API choices, verbosity tolerance, and problem-solving habits - from repeated interactions and drives them into parameter-efficient adapters. Architectures like OPPU <d-cite key="oppu2024"></d-cite>, Profile-to-PEFT <d-cite key="profiletopeft2025"></d-cite>, and PERSOMA <d-cite key="persoma2024"></d-cite> demonstrate how historical trajectories can be compressed into user-specific parametric priors.
 
-If a preference becomes parametric, the model no longer needs to be explicitly prompted; it becomes instinct. However, the true engineering bottleneck here is governance. Personal fine-tuning demands rigorous evaluation, privacy firewalls, and rollback mechanisms to prevent the agent from fatally overfitting to yesterday's accidental typo.
+If a preference becomes parametric, the model no longer needs to be explicitly prompted; it becomes instinct. This is one structural prerequisite for true **Personal AGI**. A static foundation model is inherently a generic, one-size-fits-all reasoner. Cross-session adapter updates let the agent specialize toward a user's recurring workflows and problem-solving habits. It ceases to just solve problems; it learns to solve them *your way*.
 
 ## Across Users: Population-Level Evolution
 

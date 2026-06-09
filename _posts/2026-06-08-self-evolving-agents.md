@@ -190,9 +190,13 @@ The third time scale is population-level. How does a system aggregate millions o
 
 At the file layer, population-level evolution manifests as a shared ecosystem of capabilities and knowledge.
 
-When an agent successfully navigates an undocumented API, decrypts a complex configuration, or maps an obscure domain, that discovery should not remain isolated. It is validated and merged into a collective knowledge graph or a global skill library. Systems like Agent KB <d-cite key="agentkb2025"></d-cite>, ReasoningBank <d-cite key="reasoningbank2025"></d-cite>, and Alita-G <d-cite key="alitag2025"></d-cite> synthesize these reusable tools and strategies from the successful trajectories of heterogeneous agents.
+Consider how the human scientific community tackles an open problem. No single researcher derives every result from base axioms; one group proves an intermediate lemma, publishes it, and that lemma becomes a trusted tool for the next group to build upon.
 
-This is the ultimate strategy for attacking out-of-distribution tasks: **crowdsourcing both executable tools and structured world knowledge.** The primary bottleneck is no longer generation, but trust. A global memory bank requires strict provenance and sandboxing to prevent it from becoming a reservoir for hallucinations or a vector for supply-chain vulnerabilities.
+Self-evolving agents must replicate this dynamic, a pattern already visible in hybrid human-AI discovery. FunSearch, for example, used LLM-guided program search to produce new constructions for the cap set problem and interpretable programs that researchers could inspect and build on <d-cite key="funsearch2023"></d-cite>. In the agent setting, whether a system resolves a rare dependency conflict, writes a novel API wrapper, or discovers a reusable subroutine, that breakthrough should not remain isolated. It should be validated and merged into a global capability registry.
+
+We are seeing primitive stages of this in open-source tool ecosystems like LlamaHub <d-cite key="llamahub2024"></d-cite> and Composio <d-cite key="composio2026"></d-cite>, alongside research frameworks like Agent KB <d-cite key="agentkb2025"></d-cite>, ReasoningBank <d-cite key="reasoningbank2025"></d-cite>, and Alita-G <d-cite key="alitag2025"></d-cite>, which synthesize reusable tools and strategies from successful trajectories of heterogeneous agents.
+
+This transforms isolated AI systems into a **collective intelligence** with a real network effect. If one agent discovers a robust workaround, that executable knowledge can be propagated to the broader ecosystem. Evolution is no longer constrained by a single session's context window; it compounds horizontally, mirroring the collaborative accumulation of human knowledge. The primary bottleneck becomes trust: a global memory bank requires strict provenance and sandboxing to avoid becoming a reservoir for hallucinations or a vector for supply-chain vulnerabilities.
 
 ### Level 2: Collective Pipeline Optimization
 
@@ -200,42 +204,30 @@ At the harness layer, aggregate failure logs expose structural bottlenecks.
 
 If ten thousand deployed agents fail in the exact same execution loop, the root cause is rarely the base model's capacity. It is usually a defect in the default system prompt, a brittle tool schema, or a malformed retry policy. By mining these population-level deadlocks, developers - or automated meta-agents - can refactor the default orchestration logic.
 
-We see this frontier in automated harness design. Frameworks like ADAS <d-cite key="adas2024"></d-cite> and Darwin Godel Machine <d-cite key="dgm2025"></d-cite> use meta-agents to iteratively program and validate better agentic control flows. This allows the control layer to evolve aggressively, pushing product improvements without waiting for the next massive model checkpoint.
+We see this frontier in automated harness design. Frameworks like ADAS <d-cite key="adas2024"></d-cite> and Darwin Godel Machine <d-cite key="dgm2025"></d-cite> use meta-agents to iteratively program and validate better agentic control flows. Hyperagents push this further by making the meta-level modification procedure itself editable: the system no longer only searches for better agents, but also rewrites the process that generates future improvements <d-cite key="hyperagents2026"></d-cite>. This allows the control layer to evolve aggressively, pushing product improvements without waiting for the next massive model checkpoint.
 
 ### Level 1: Continual Parametric Evolution
 
 At the parametric layer, population-level evolution is continuous reinforcement learning.
 
-Deployed systems generate an ocean of implicit supervision. Every user correction, rejected output, and accepted code edit is a high-fidelity reward signal. WildChat <d-cite key="wildchat2024"></d-cite> and WildFeedback <d-cite key="wildfeedback2024"></d-cite> demonstrate how in-situ feedback can be converted directly into alignment data, while RLHI <d-cite key="rlhi2025"></d-cite> learns from real-world conversational trajectories.
+Strictly speaking, the agent does not evolve independently of humans; rather, **it treats the human population as its environment**. Deployed systems generate an ocean of implicit supervision. Every user correction, rejected output, and accepted code edit acts as a high-fidelity reward signal.
 
-Cursor's online RL for autocomplete is the canonical product example: user-validated suggestions are converted into reward gradients to continuously update the policy <d-cite key="cursortabrl2025"></d-cite>. The endgame is clear: **human interaction is no longer just a source of training data. It is the direct catalyst for the next generation of model intelligence.**
+This is the open secret of frontier AI labs. Long before academic benchmarks attempted to simulate this loop, products like ChatGPT were already functioning as data flywheels: converting thumbs-ups, regenerations, and follow-up corrections into preference signals for subsequent alignment runs.
 
-## When Experience Moves Inward
+Today, this mechanism is moving from explicit feedback buttons to implicit behavioral RL. Cursor's online RL for autocomplete is the canonical product example: when a user accepts a suggestion or manually edits it away, that natural human action is converted into an automated reward signal to continuously update the model's policy <d-cite key="cursortabrl2025"></d-cite>.
 
-The practical design question is not simply *whether* an agent should learn, but **where the learning should land.**
+The paradigm shift is structural: human interaction is no longer an external evaluation step or a costly offline data-labeling process. It becomes the automated catalyst for continuous model improvement.
 
-The physical layers form a strict cost-efficiency gradient. Weight updates are expensive and opaque; harness updates are powerful but risky; file updates are cheap and inspectable. This dictates a conservative lifecycle for promoting agentic experience:
+**A Note on Autonomy:** Today, population-level evolution is rarely fully autonomous. At this scale, agents act as prolific *proposers* of new tools and workflows, while humans still act as *maintainers* who verify and merge them. However, this is a current engineering bottleneck, not a permanent ceiling. As automated sandboxing and AI-driven evaluation mature, this verification loop will close, paving the way for truly autonomous, population-scale self-evolution.
 
-1. **Incident to Asset (Level 3):** If an experience is rare, highly specific, or tied to a local environment, cache it externally as a skill or memory block.
-2. **Asset to Workflow (Level 2):** If a cached pattern proves structural and procedural, promote it. Compile it into the orchestration graph as a new routing rule or recovery loop.
-3. **Workflow to Weights (Level 1):** Only when a pattern is stable, broadly applicable, and privacy-safe should it be distilled into the parametric core.
+## Conclusion: Escaping the Human Bottleneck
 
-This inward movement of experience yields the ultimate engineering heuristic for self-evolving systems:
+Structuring self-evolution around single sessions, user preferences, and human populations is a practical way to build systems today. But this anthropocentric framing is ultimately transitional. We are currently measuring an AI's evolution by how well it adapts to *us*: our coding habits, our prompts, and our manual corrections.
 
-> **Do not train what you can compile. Do not compile what you can cache. Do not cache what you can solve once and discard.**
+As we look toward Artificial General Intelligence (AGI) and eventually ASI, the fundamental nature of experience will shift.
 
-## Open Questions
+Today, human interaction is the primary environment that forces an agent to adapt. But the true inflection point arrives when the human is removed from the critical loop. The ultimate driver of evolution will not be human feedback, but **algorithmic self-play and open-ended exploration**.
 
-This framework is just the beginning. The transition from static interfaces to living, self-evolving systems exposes several unsolved frontiers:
+Imagine a network of autonomous agents deployed to tackle an unsolved physics problem or design a next-generation operating system. They generate synthetic hypotheses, build their own sandbox environments to test them, and distribute successful discoveries - whether as executable tools (Level 3), optimized reasoning pathways (Level 2), or weight updates (Level 1) - across a global collective intelligence.
 
-- **Credit Assignment:** When a trajectory fails, which layer is at fault? Was it missing memory, a brittle tool schema, weak model capacity, or user ambiguity? Blaming the wrong layer creates toxic updates.
-
-- **Evaluation:** How do we prove an evolution is a genuine upgrade rather than local overfitting? We need temporal and causal evaluation metrics, not just static benchmarks.
-
-- **Safety and Rollback:** Self-modification requires strict version control. If a compiled DAG or personal adapter introduces a performance regression, the system must be able to cleanly roll back.
-
-- **Contamination:** Memory poisoning, reward hacking, and tool supply-chain attacks are inherent risks when systems learn from deployment traces. Evolution demands rigorous quarantine, not just blind accumulation.
-
-- **Privacy Boundaries:** Across-session and across-user learning require hard firewalls. A personal memory must never leak into a global skill; a global parametric update must never memorize a private trajectory.
-
-Self-evolving agents are not defined by any single technique or paper. They are defined by a feedback loop: by a system's ability to mutate its own future behavior at the right layer, over the right time scale, with the right cost.
+Their experience compounds at the speed of compute, decoupled from the biological limits of human typing speed or comprehension. By architecting systems capable of modifying their own external files, cognitive harnesses, and parametric cores, we are no longer just engineering smarter Copilots. We are laying the structural foundation for an intelligence that can finally evolve itself.

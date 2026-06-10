@@ -1,11 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 502" width="880" height="502" font-family="&#39;Schibsted Grotesk&#39;,system-ui,sans-serif" aria-label="Capability rises while cost per task falls">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 18 880 442" width="880" height="442" font-family="&#39;Schibsted Grotesk&#39;,system-ui,sans-serif" aria-label="Capability rises while cost per task falls">
 
 <rect width="100%" height="100%" fill="#ffffff"></rect>
 
 
-<text x="70" y="36" font-size="21" font-weight="800" letter-spacing="-0.4" fill="#1a1d26">Why let an agent evolve itself?</text>
-
-<g transform="translate(0,50)">
+<g transform="translate(0,20)">
   <line x1="70" y1="120" x2="836" y2="120" stroke="#eceef5" stroke-width="1"></line>
   <line x1="70" y1="290" x2="836" y2="290" stroke="#eceef5" stroke-width="1"></line>
 
@@ -31,25 +29,25 @@
   <text x="500" y="126" text-anchor="middle" font-family="&#39;Source Serif 4&#39;,Georgia,serif" font-size="12" font-style="italic" fill="#7c3aed">longer task horizons</text>
   <text x="500" y="296" text-anchor="middle" font-size="15" font-weight="700" fill="#2563d6">Cost per task ↓</text>
   <text x="500" y="314" text-anchor="middle" font-family="&#39;Source Serif 4&#39;,Georgia,serif" font-size="12" font-style="italic" fill="#2563d6">fewer tokens · retries · human fixes</text>
-  <text x="812" y="200" text-anchor="end" font-size="12.5" font-weight="600" fill="#aab0c0">Static agent</text>
+  <text x="782" y="198" text-anchor="end" font-size="15" font-weight="700" fill="#9aa1b5">Static agent</text>
 
   <g transform="translate(40,262) rotate(-90)">
-    <text font-size="13" font-weight="700" fill="#3d4250"><tspan fill="#2563d6">cost</tspan> · <tspan fill="#7c3aed">capability</tspan></text>
+    <text font-size="16" font-weight="800" fill="#3d4250"><tspan fill="#2563d6">Cost</tspan> · <tspan fill="#7c3aed">Capability</tspan></text>
   </g>
-  <text x="849" y="396" text-anchor="end" font-size="15.5" font-weight="800" fill="#1a1d26">time / experience →</text>
+  <text x="453" y="402" text-anchor="middle" font-size="15.5" font-weight="800" fill="#1a1d26">Time / experience</text>
 
   <g stroke="#e7e9f0" stroke-width="1" stroke-dasharray="2 4">
-    <line x1="265" y1="370" x2="265" y2="406"></line>
-    <line x1="480" y1="370" x2="480" y2="406"></line>
-    <line x1="660" y1="370" x2="660" y2="406"></line>
+    <line x1="265" y1="344" x2="265" y2="370"></line>
+    <line x1="480" y1="344" x2="480" y2="370"></line>
+    <line x1="660" y1="344" x2="660" y2="370"></line>
   </g>
   <g fill="#3d4250" font-size="13.5" font-weight="700" text-anchor="middle">
     <circle cx="265" cy="370" r="3" fill="#aab0c0"></circle>
-    <text x="265" y="424">saves a skill</text>
+    <text x="265" y="338">saves a skill</text>
     <circle cx="480" cy="370" r="3" fill="#aab0c0"></circle>
-    <text x="480" y="424">rewires its workflow</text>
+    <text x="480" y="338">rewires its workflow</text>
     <circle cx="660" cy="370" r="3" fill="#aab0c0"></circle>
-    <text x="660" y="424">updates its weights</text>
+    <text x="660" y="338">updates its weights</text>
   </g>
 </g>
 </svg>

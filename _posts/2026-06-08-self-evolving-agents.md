@@ -24,12 +24,23 @@ _styles: |
   d-article figure.self-evolving-figure {
     margin: 1.35rem 0 1.65rem;
   }
+  d-article figure.self-evolving-figure.tight-top {
+    margin-top: 0.55rem;
+  }
+  d-article figure.self-evolving-figure.medium {
+    max-width: 760px;
+    margin-left: auto;
+    margin-right: auto;
+  }
   d-article figure.self-evolving-figure img {
     width: 100%;
     height: auto;
-    border: 1px solid #e7e9f0;
-    border-radius: 14px;
-    background: #ffffff;
+    display: block;
+  }
+  d-article figure.self-evolving-figure.narrow {
+    max-width: 580px;
+    margin-left: auto;
+    margin-right: auto;
   }
   d-article figure.self-evolving-figure figcaption {
     color: #6b7280;
@@ -63,9 +74,9 @@ True intelligence should not peak at deployment only to depreciate. It must appr
 
 - **Motivation 2: Capability Ceiling Expansion (Breaking Ceilings).** Evolution unlocks zero-day tasks and enables robust **long-horizon execution**. Static agents inevitably fail at complex, multi-step goals due to compounding errors and context exhaustion. By learning to forge ad-hoc tools, cache intermediate progress, and adapt strategies at runtime, a self-evolving agent makes long-term autonomy a hard systems claim rather than a behavioral illusion.
 
-<figure class="self-evolving-figure">
+<figure class="self-evolving-figure tight-top medium">
   <img src="/assets/img/2026-06-08-self-evolving-agents/figure1-dual-promise.svg" alt="A chart showing self-evolving agents reducing cost per task while expanding capability over time.">
-  <figcaption>Self-evolution has two linked payoffs: lower marginal cost and higher capability ceilings.</figcaption>
+  <figcaption><strong>Figure 1.</strong> Self-evolution has two linked payoffs: lower marginal cost and higher capability ceilings.</figcaption>
 </figure>
 
 Leading systems are already abandoning **stateless orchestration** in favor of updatable execution substrates. These systems prove that agents must internalize their experience. But "learning" is not magic; it requires a physical substrate. To genuinely reduce costs and break capability ceilings, we must understand the architecture of this adaptation.
@@ -78,9 +89,9 @@ Recent surveys on self-evolving agents organize the field around what evolves, w
 
 Before discussing how an agent evolves, we need to define what an agent physically is. In practice, an agent's cognitive state is distributed across three plastic layers.
 
-<figure class="self-evolving-figure">
+<figure class="self-evolving-figure narrow">
   <img src="/assets/img/2026-06-08-self-evolving-agents/figure2-three-layers.svg" alt="A nested diagram of three self-evolving agent layers: external files, agent harness, and model weights.">
-  <figcaption>The agent is not only the model. Its plastic state spans external files, harness logic, and model weights.</figcaption>
+  <figcaption><strong>Figure 2.</strong> The agent is not only the model. Its plastic state spans external files, harness logic, and model weights.</figcaption>
 </figure>
 
 ### Level 1: Model Weights
@@ -119,15 +130,11 @@ To map how this feedback loop operates, we project the three structural layers a
 
 ## The 3x3 Evolution Matrix
 
-| Time scale | Level 3: External state (Files/Memory) | Level 2: Agent harness (Control/Logic) | Level 1: Model weights (Parametric) |
-| --- | --- | --- | --- |
-| **Single session**<br><br>*Online* | Working memory, active scratchpads, context paging | Dynamic orchestration, runtime rewrites, ad-hoc tool mounting | Test-time training, fast weights, in-place updates |
-| **Across sessions**<br><br>*Longitudinal* | Persistent skill libraries, user memory, executable assets | Meta-programming, workflow optimization, specialized DAGs | Personal adapters, continuous fine-tuning, preference alignment |
-| **Across users**<br><br>*Population* | Collective knowledge graphs, shared global skills | Automated harness design, collective pipeline optimization | Continual RL, learning from interaction, checkpoint updates |
+The result is a 3x3 map: three persistence horizons crossed with three update substrates.
 
 <figure class="self-evolving-figure">
   <img src="/assets/img/2026-06-08-self-evolving-agents/figure3-evolution-matrix.svg" alt="A 3 by 3 matrix mapping self-evolving agents by update lifetime and updated layer.">
-  <figcaption>The same taxonomy as a visual map: update lifetime on one axis, updated substrate on the other.</figcaption>
+  <figcaption><strong>Figure 3.</strong> The taxonomy as a visual map: update lifetime on one axis, updated substrate on the other.</figcaption>
 </figure>
 
 This matrix is not meant to be a rigid classification. In real systems, the cells interact. A temporary tool created in one session can become a persistent skill across sessions. A project-specific workflow can become a product default. A pattern discovered across millions of user failures can eventually become a model checkpoint.

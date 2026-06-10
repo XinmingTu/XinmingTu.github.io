@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 502" width="880" height="502" font-family="&#39;Schibsted Grotesk&#39;,system-ui,sans-serif" aria-label="Capability rises while cost per task falls">
+
+<rect width="100%" height="100%" fill="#ffffff"></rect>
+
+
+<text x="70" y="36" font-size="21" font-weight="800" letter-spacing="-0.4" fill="#1a1d26">Why let an agent evolve itself?</text>
+
+<g transform="translate(0,50)">
+  <line x1="70" y1="120" x2="836" y2="120" stroke="#eceef5" stroke-width="1"></line>
+  <line x1="70" y1="290" x2="836" y2="290" stroke="#eceef5" stroke-width="1"></line>
+
+  <line x1="70" y1="34" x2="70" y2="370" stroke="#e7e9f0" stroke-width="1.5"></line>
+  <line x1="70" y1="370" x2="836" y2="370" stroke="#cfd3de" stroke-width="1.5"></line>
+  <path d="M836 365.5 L849 370 L836 374.5 Z" fill="#3d4250"></path>
+
+  <path d="M78 210 C260 204 560 150 828 64 L828 210 Z" fill="#f4eefd" opacity=".6"></path>
+  <path d="M78 210 C260 216 560 280 828 330 L828 210 Z" fill="#eef3fd" opacity=".6"></path>
+
+  <path d="M84 210 H820" fill="none" stroke="#aab0c0" stroke-width="2.5" stroke-dasharray="2 7" stroke-linecap="round"></path>
+
+  <path d="M78 210 C260 204 560 150 828 64" fill="none" stroke="#7c3aed" stroke-width="3.2" stroke-linecap="round"></path>
+  <circle cx="828" cy="64" r="4.5" fill="#7c3aed"></circle>
+
+  <path d="M78 210 C260 216 560 280 828 330" fill="none" stroke="#2563d6" stroke-width="3.2" stroke-linecap="round"></path>
+  <circle cx="828" cy="330" r="4.5" fill="#2563d6"></circle>
+
+  <circle cx="78" cy="210" r="5" fill="#fff" stroke="#1a1d26" stroke-width="2"></circle>
+  <text x="86" y="190" font-family="&#39;Source Serif 4&#39;,Georgia,serif" font-size="12" font-style="italic" fill="#7a8196">deployment</text>
+
+  <text x="500" y="108" text-anchor="middle" font-size="15" font-weight="700" fill="#7c3aed">Capability ↑</text>
+  <text x="500" y="126" text-anchor="middle" font-family="&#39;Source Serif 4&#39;,Georgia,serif" font-size="12" font-style="italic" fill="#7c3aed">longer task horizons</text>
+  <text x="500" y="296" text-anchor="middle" font-size="15" font-weight="700" fill="#2563d6">Cost per task ↓</text>
+  <text x="500" y="314" text-anchor="middle" font-family="&#39;Source Serif 4&#39;,Georgia,serif" font-size="12" font-style="italic" fill="#2563d6">fewer tokens · retries · human fixes</text>
+  <text x="812" y="200" text-anchor="end" font-size="12.5" font-weight="600" fill="#aab0c0">Static agent</text>
+
+  <g transform="translate(40,262) rotate(-90)">
+    <text font-size="13" font-weight="700" fill="#3d4250"><tspan fill="#2563d6">cost</tspan> · <tspan fill="#7c3aed">capability</tspan></text>
+  </g>
+  <text x="849" y="396" text-anchor="end" font-size="15.5" font-weight="800" fill="#1a1d26">time / experience →</text>
+
+  <g stroke="#e7e9f0" stroke-width="1" stroke-dasharray="2 4">
+    <line x1="265" y1="370" x2="265" y2="406"></line>
+    <line x1="480" y1="370" x2="480" y2="406"></line>
+    <line x1="660" y1="370" x2="660" y2="406"></line>
+  </g>
+  <g fill="#3d4250" font-size="13.5" font-weight="700" text-anchor="middle">
+    <circle cx="265" cy="370" r="3" fill="#aab0c0"></circle>
+    <text x="265" y="424">saves a skill</text>
+    <circle cx="480" cy="370" r="3" fill="#aab0c0"></circle>
+    <text x="480" y="424">rewires its workflow</text>
+    <circle cx="660" cy="370" r="3" fill="#aab0c0"></circle>
+    <text x="660" y="424">updates its weights</text>
+  </g>
+</g>
+</svg>

@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 810 470" width="810" height="470" font-family="&#39;Schibsted Grotesk&#39;,system-ui,sans-serif" aria-label="Three layers of an agent, with key">
+
+<rect width="100%" height="100%" fill="#ffffff"></rect>
+
+
+<rect x="14" y="14" width="442" height="442" rx="34" fill="#eef3fd" stroke="#cdddf7" stroke-width="2"></rect>
+<g transform="translate(40,42)" color="#2563d6">
+  <svg stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" width="22" height="22" x="0" y="-4"><ellipse cx="12" cy="5" rx="8" ry="3"></ellipse><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"></path><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"></path></svg>
+</g>
+<text x="74" y="50" font-size="16" font-weight="700" fill="#1b3f86">External Files</text>
+<text x="74" y="68" font-size="12" font-weight="500" fill="#2563d6">memory · knowledge · skill library</text>
+
+<rect x="74" y="100" width="322" height="322" rx="26" fill="#fdf3e7" stroke="#f4ddbd" stroke-width="2"></rect>
+<g transform="translate(98,124)" color="#df7a18">
+  <svg stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" width="22" height="22" x="0" y="-4"><circle cx="12" cy="12" r="3"></circle><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"></path></svg>
+</g>
+<text x="132" y="132" font-size="15" font-weight="700" fill="#a8550a">Agent Harness</text>
+<text x="132" y="150" font-size="11.5" font-weight="500" fill="#df7a18">prompts · tools · workflow · logic</text>
+
+<rect x="134" y="186" width="202" height="202" rx="20" fill="#f4eefd" stroke="#e2d2fa" stroke-width="2"></rect>
+<g color="#7c3aed" transform="translate(0,2)">
+  <g stroke="#7c3aed" stroke-width="2" fill="none" opacity=".55">
+    <path d="M205 250 L235 232 M205 250 L235 270 M265 232 L235 232 M265 268 L235 270 M205 250 L265 232 M205 250 L265 268"></path>
+  </g>
+  <circle cx="205" cy="250" r="6.5" fill="#7c3aed"></circle>
+  <circle cx="235" cy="232" r="6.5" fill="#fff" stroke="#7c3aed" stroke-width="2"></circle>
+  <circle cx="235" cy="270" r="6.5" fill="#fff" stroke="#7c3aed" stroke-width="2"></circle>
+  <circle cx="265" cy="232" r="6.5" fill="#7c3aed"></circle>
+  <circle cx="265" cy="268" r="6.5" fill="#7c3aed"></circle>
+</g>
+<text x="235" y="312" text-anchor="middle" font-size="15" font-weight="700" fill="#5b21b6">Model Weights</text>
+<text x="235" y="330" text-anchor="middle" font-size="11.5" font-weight="500" fill="#7c3aed">parametric memory · core model</text>
+
+
+
+<rect x="505" y="58" width="34" height="34" rx="9" fill="#eef3fd"></rect>
+<g color="#2563d6"><svg stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" width="19" height="19" x="512.5" y="65.5"><ellipse cx="12" cy="5" rx="8" ry="3"></ellipse><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"></path><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"></path></svg></g>
+<text x="553" y="72" font-size="14.5" font-weight="700" fill="#2563d6">External files</text>
+<text x="553" y="91" font-size="12.5" fill="#7a8196">Editable artifacts the agent reads &amp;</text>
+<text x="553" y="107" font-size="12.5" fill="#7a8196">writes — notes, documents, skills.</text>
+
+
+<rect x="505" y="138" width="34" height="34" rx="9" fill="#fdf3e7"></rect>
+<g color="#df7a18"><svg stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" width="19" height="19" x="512.5" y="145.5"><circle cx="12" cy="12" r="3"></circle><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"></path></svg></g>
+<text x="553" y="152" font-size="14.5" font-weight="700" fill="#df7a18">Agent harness</text>
+<text x="553" y="171" font-size="12.5" fill="#7a8196">The scaffolding that turns a model into</text>
+<text x="553" y="187" font-size="12.5" fill="#7a8196">an agent — prompts, tools, control flow.</text>
+
+
+<rect x="505" y="218" width="34" height="34" rx="9" fill="#f4eefd"></rect>
+<g color="#7c3aed"><svg stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" width="19" height="19" x="512.5" y="225.5"><circle cx="6" cy="12" r="2"></circle><circle cx="13" cy="7" r="2"></circle><circle cx="13" cy="17" r="2"></circle><circle cx="19" cy="12" r="2"></circle><path d="M7.8 11 11.2 8M7.8 13l3.4 3M14.8 8.2 17.2 11M14.8 15.8 17.2 13"></path></svg></g>
+<text x="553" y="232" font-size="14.5" font-weight="700" fill="#7c3aed">Model weights</text>
+<text x="553" y="251" font-size="12.5" fill="#7a8196">What the network has internalized —</text>
+<text x="553" y="267" font-size="12.5" fill="#7a8196">knowledge baked into parameters.</text>
+
+
+<rect x="505" y="300" width="292" height="120" rx="11" fill="#fbfbfd" stroke="#e7e9f0" stroke-dasharray="4 4"></rect>
+<text x="521" y="326" font-size="12" font-weight="700" fill="#1a1d26">Surface → Core.</text>
+<text x="521" y="345" font-size="12" fill="#3d4250">Outward = cheap, instant, reversible.</text>
+<text x="521" y="363" font-size="12" fill="#3d4250">Inward = expensive, slow, durable.</text>
+<text x="521" y="381" font-size="12" fill="#3d4250">The deeper a change goes,</text>
+<text x="521" y="399" font-size="12" fill="#3d4250">the more it sticks.</text>
+</svg>

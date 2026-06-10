@@ -49,6 +49,55 @@ _styles: |
     margin-top: 0.55rem;
     text-align: center;
   }
+  d-article details.appendix-cell {
+    border-top: 1px solid #e7e9f0;
+    padding: 0.8rem 0;
+  }
+  d-article details.appendix-cell:last-of-type {
+    border-bottom: 1px solid #e7e9f0;
+  }
+  d-article details.appendix-cell summary {
+    align-items: baseline;
+    cursor: pointer;
+    display: flex;
+    gap: 0.75rem;
+    list-style: none;
+  }
+  d-article details.appendix-cell summary::-webkit-details-marker {
+    display: none;
+  }
+  d-article details.appendix-cell summary::before {
+    color: #7a8196;
+    content: "+";
+    flex: 0 0 auto;
+    font-weight: 800;
+  }
+  d-article details.appendix-cell[open] summary::before {
+    content: "-";
+  }
+  d-article .appendix-cell-title {
+    color: #1a1d26;
+    flex: 0 0 14rem;
+    font-weight: 800;
+  }
+  d-article .appendix-cell-subtitle {
+    color: #6b7280;
+    font-size: 0.92rem;
+    font-weight: 600;
+  }
+  @media (max-width: 720px) {
+    d-article details.appendix-cell summary {
+      align-items: flex-start;
+      flex-direction: column;
+      gap: 0.15rem;
+    }
+    d-article details.appendix-cell summary::before {
+      display: none;
+    }
+    d-article .appendix-cell-title {
+      flex-basis: auto;
+    }
+  }
 
 toc:
   - name: "The Dual Promise"
@@ -243,7 +292,10 @@ The placement rule is simple: if an example changes the reader's understanding o
 - **External state becoming transient parameters:** retrieved context is not just "read" by the model; it becomes key-value tensors in the active computation. Linear attention and fast-weight interpretations make this boundary especially explicit <d-cite key="lineartransformersrnn2020,linearfastweights2021"></d-cite>.
 - **Local discoveries becoming global defaults:** a temporary script can become a user skill, a user skill can become a shared registry asset, and a repeated population-level failure can become a harness or checkpoint update.
 
-### Single Session / Level 3: Working Memory and Context Paging
+The nine cells below are collapsed by default: open a cell when you want the concrete systems, mechanisms, and caveats behind that part of the matrix.
+
+<details class="appendix-cell" markdown="1">
+<summary><span class="appendix-cell-title">Single Session / Level 3</span><span class="appendix-cell-subtitle">Working Memory and Context Paging</span></summary>
 
 This cell covers state that is created, compressed, retrieved, or discarded inside one active trajectory.
 
@@ -257,7 +309,10 @@ This cell covers state that is created, compressed, retrieved, or discarded insi
 
 **Caveat:** a larger memory store is not automatically an evolved agent. Without reliable write policy, retrieval policy, and evaluation, memory becomes another noisy tool.
 
-### Single Session / Level 2: Dynamic Orchestration and Ad-Hoc Tools
+</details>
+
+<details class="appendix-cell" markdown="1">
+<summary><span class="appendix-cell-title">Single Session / Level 2</span><span class="appendix-cell-subtitle">Dynamic Orchestration and Ad-Hoc Tools</span></summary>
 
 This cell covers runtime changes to the control path: the agent changes how it acts before the current task is over.
 
@@ -271,7 +326,10 @@ This cell covers runtime changes to the control path: the agent changes how it a
 
 **Caveat:** dynamic orchestration creates power and risk at the same time. The more the control layer can rewrite itself, the more the runtime needs isolation, provenance, cost bounds, and rollback.
 
-### Single Session / Level 1: Test-Time Training and Fast Weights
+</details>
+
+<details class="appendix-cell" markdown="1">
+<summary><span class="appendix-cell-title">Single Session / Level 1</span><span class="appendix-cell-subtitle">Test-Time Training and Fast Weights</span></summary>
 
 This cell covers parametric or quasi-parametric adaptation during inference.
 
@@ -285,7 +343,10 @@ This cell covers parametric or quasi-parametric adaptation during inference.
 
 **Caveat:** this is the most powerful and operationally expensive online adaptation cell. It demands tight evaluation because a useful local update can also create regressions.
 
-### Across Sessions / Level 3: Persistent Skills and User Memory
+</details>
+
+<details class="appendix-cell" markdown="1">
+<summary><span class="appendix-cell-title">Across Sessions / Level 3</span><span class="appendix-cell-subtitle">Persistent Skills and User Memory</span></summary>
 
 This cell covers state that survives across sessions for one user, project, codebase, or environment.
 
@@ -299,7 +360,10 @@ This cell covers state that survives across sessions for one user, project, code
 
 **Caveat:** persistent skills need lifecycle management. Stale skills can be worse than no skills, especially when project dependencies, APIs, or security constraints change.
 
-### Across Sessions / Level 2: Meta-Programming and Workflow Optimization
+</details>
+
+<details class="appendix-cell" markdown="1">
+<summary><span class="appendix-cell-title">Across Sessions / Level 2</span><span class="appendix-cell-subtitle">Meta-Programming and Workflow Optimization</span></summary>
 
 This cell covers changes to the user's or project's recurring execution graph.
 
@@ -312,7 +376,10 @@ This cell covers changes to the user's or project's recurring execution graph.
 
 **Caveat:** harness optimization can overfit to yesterday's tasks. Good systems need evaluation sets that represent the future operating distribution, not just the past transcript.
 
-### Across Sessions / Level 1: Personal Adapters and Preference Alignment
+</details>
+
+<details class="appendix-cell" markdown="1">
+<summary><span class="appendix-cell-title">Across Sessions / Level 1</span><span class="appendix-cell-subtitle">Personal Adapters and Preference Alignment</span></summary>
 
 This cell covers parametric personalization over repeated interactions with one user or organization.
 
@@ -324,7 +391,10 @@ This cell covers parametric personalization over repeated interactions with one 
 
 **Caveat:** personalization must separate durable preference from accidental context. A user accepting one terse answer should not permanently train the model to be terse in every domain.
 
-### Across Users / Level 3: Collective Knowledge Graphs and Shared Skills
+</details>
+
+<details class="appendix-cell" markdown="1">
+<summary><span class="appendix-cell-title">Across Users / Level 3</span><span class="appendix-cell-subtitle">Collective Knowledge Graphs and Shared Skills</span></summary>
 
 This cell covers external assets created from many users, agents, tasks, or environments.
 
@@ -338,7 +408,10 @@ This cell covers external assets created from many users, agents, tasks, or envi
 
 **Caveat:** the trust problem dominates this cell. A global skill bank without provenance, sandboxing, and eval gates can become a supply-chain vulnerability or a hallucination amplifier.
 
-### Across Users / Level 2: Automated Harness Design
+</details>
+
+<details class="appendix-cell" markdown="1">
+<summary><span class="appendix-cell-title">Across Users / Level 2</span><span class="appendix-cell-subtitle">Automated Harness Design</span></summary>
 
 This cell covers population-level improvement to the default agent process itself.
 
@@ -350,7 +423,10 @@ This cell covers population-level improvement to the default agent process itsel
 
 **Caveat:** harness updates are product updates. They require regression testing, rollout controls, and auditability because one bad default policy can affect every downstream user.
 
-### Across Users / Level 1: Continual RL and Checkpoint Evolution
+</details>
+
+<details class="appendix-cell" markdown="1">
+<summary><span class="appendix-cell-title">Across Users / Level 1</span><span class="appendix-cell-subtitle">Continual RL and Checkpoint Evolution</span></summary>
 
 This cell covers model updates derived from population-scale interaction data.
 
@@ -361,3 +437,5 @@ This cell covers model updates derived from population-scale interaction data.
 **Mechanism:** aggregate implicit and explicit feedback into preference data, reward models, reinforcement-learning updates, supervised fine-tuning corpora, and future checkpoint releases.
 
 **Caveat:** this is usually not fully autonomous self-evolution today. Humans still shape reward design, filter data, approve deployments, and evaluate regressions. The self-evolving part is the data flywheel; the governance layer remains human-heavy.
+
+</details>

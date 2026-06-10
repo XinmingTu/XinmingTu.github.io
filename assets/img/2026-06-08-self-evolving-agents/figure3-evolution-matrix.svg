@@ -7,20 +7,20 @@
     <stop offset=".52" stop-color="#df7a18"></stop>
     <stop offset="1" stop-color="#7c3aed"></stop>
   </linearGradient>
-  <clipPath id="mxclip"><rect x="192" y="24" width="804" height="454" rx="16"></rect></clipPath>
+  <clipPath id="mxclip"><rect x="176" y="24" width="804" height="454" rx="16"></rect></clipPath>
 </defs>
 
 
 <g clip-path="url(#mxclip)">
-  <rect x="192" y="24" width="268" height="454" fill="#eef3fd"></rect>
-  <rect x="460" y="24" width="268" height="454" fill="#fdf3e7"></rect>
-  <rect x="728" y="24" width="268" height="454" fill="#f4eefd"></rect>
-  <line x1="192" y1="88" x2="996" y2="88" stroke="#e7e9f0"></line>
-  <line x1="192" y1="24" x2="192" y2="478" stroke="#e7e9f0"></line>
-  <line x1="192" y1="218" x2="996" y2="218" stroke="#ffffff" stroke-opacity=".75"></line>
-  <line x1="192" y1="348" x2="996" y2="348" stroke="#ffffff" stroke-opacity=".75"></line>
+  <rect x="176" y="24" width="268" height="454" fill="#eef3fd"></rect>
+  <rect x="444" y="24" width="268" height="454" fill="#fdf3e7"></rect>
+  <rect x="712" y="24" width="268" height="454" fill="#f4eefd"></rect>
+  <line x1="176" y1="88" x2="980" y2="88" stroke="#e7e9f0"></line>
+  <line x1="176" y1="24" x2="176" y2="478" stroke="#e7e9f0"></line>
+  <line x1="176" y1="218" x2="980" y2="218" stroke="#ffffff" stroke-opacity=".75"></line>
+  <line x1="176" y1="348" x2="980" y2="348" stroke="#ffffff" stroke-opacity=".75"></line>
 </g>
-<rect x="192" y="24" width="804" height="454" rx="16" fill="none" stroke="#e7e9f0"></rect>
+<rect x="176" y="24" width="804" height="454" rx="16" fill="none" stroke="#e7e9f0"></rect>
 
 <line x1="64" y1="454" x2="64" y2="113" stroke="#7a8196" stroke-width="1.8" stroke-linecap="round"></line>
 <path d="M64 98 L56.5 115 L71.5 115 Z" fill="#7a8196"></path>
@@ -47,77 +47,77 @@
 </g>
 
 
-<text x="326" y="56" text-anchor="middle" font-size="14.5" font-weight="700" fill="#2563d6">External Files</text>
-<text x="326" y="74" text-anchor="middle" font-size="10.5" font-weight="500" fill="#7a8196">memory / knowledge / skills</text>
-<text x="594" y="56" text-anchor="middle" font-size="14.5" font-weight="700" fill="#df7a18">Agent Harness</text>
-<text x="594" y="74" text-anchor="middle" font-size="10.5" font-weight="500" fill="#7a8196">workflow / prompts / tools</text>
-<text x="862" y="56" text-anchor="middle" font-size="14.5" font-weight="700" fill="#7c3aed">Model Weights</text>
-<text x="862" y="74" text-anchor="middle" font-size="10.5" font-weight="500" fill="#7a8196">parametric memory / core</text>
+<text x="310" y="56" text-anchor="middle" font-size="14.5" font-weight="700" fill="#2563d6">External Files</text>
+<text x="310" y="74" text-anchor="middle" font-size="10.5" font-weight="500" fill="#7a8196">memory / knowledge / skills</text>
+<text x="578" y="56" text-anchor="middle" font-size="14.5" font-weight="700" fill="#df7a18">Agent Harness</text>
+<text x="578" y="74" text-anchor="middle" font-size="10.5" font-weight="500" fill="#7a8196">workflow / prompts / tools</text>
+<text x="846" y="56" text-anchor="middle" font-size="14.5" font-weight="700" fill="#7c3aed">Model Weights</text>
+<text x="846" y="74" text-anchor="middle" font-size="10.5" font-weight="500" fill="#7a8196">parametric memory / core</text>
 
 
-<g transform="translate(165,153) rotate(-90)">
+<g transform="translate(154,153) rotate(-90)">
   <text text-anchor="middle" font-size="13.5" font-weight="700" fill="#1a1d26">Across Users</text>
 </g>
 
-<g color="#2563d6"><svg stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" width="34" height="34" x="309" y="106"><ellipse cx="9" cy="5" rx="6" ry="2.4"></ellipse><path d="M3 5v6c0 1.3 2.7 2.4 6 2.4s6-1.1 6-2.4V5"></path><path d="M3 11c0 1.3 2.7 2.4 6 2.4"></path><circle cx="18" cy="9" r="1.6"></circle><circle cx="21" cy="15" r="1.6"></circle><circle cx="15" cy="16" r="1.6"></circle><path d="M17 10.3 15.8 14.6M19.3 10.1 20.7 13.5M16.5 16h3"></path></svg></g>
-<text x="326" y="164" text-anchor="middle" font-size="13.5" font-weight="700" fill="#1a1d26">Collective knowledge &amp; skills</text>
-<text x="326" y="182" text-anchor="middle" font-family="&#39;Source Serif 4&#39;,Georgia,serif" font-size="11.5" fill="#3d4250">One agent&#39;s discovery becomes</text>
-<text x="326" y="197" text-anchor="middle" font-family="&#39;Source Serif 4&#39;,Georgia,serif" font-size="11.5" fill="#3d4250">every agent&#39;s tool.</text>
+<g color="#2563d6"><svg stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" width="34" height="34" x="293" y="106"><ellipse cx="9" cy="5" rx="6" ry="2.4"></ellipse><path d="M3 5v6c0 1.3 2.7 2.4 6 2.4s6-1.1 6-2.4V5"></path><path d="M3 11c0 1.3 2.7 2.4 6 2.4"></path><circle cx="18" cy="9" r="1.6"></circle><circle cx="21" cy="15" r="1.6"></circle><circle cx="15" cy="16" r="1.6"></circle><path d="M17 10.3 15.8 14.6M19.3 10.1 20.7 13.5M16.5 16h3"></path></svg></g>
+<text x="310" y="164" text-anchor="middle" font-size="14.5" font-weight="700" fill="#1a1d26">Collective knowledge &amp; skills</text>
+<text x="310" y="182" text-anchor="middle" font-family="&#39;Source Serif 4&#39;,Georgia,serif" font-size="12.4" fill="#3d4250">One agent&#39;s discovery becomes</text>
+<text x="310" y="197" text-anchor="middle" font-family="&#39;Source Serif 4&#39;,Georgia,serif" font-size="12.4" fill="#3d4250">every agent&#39;s tool.</text>
 
-<g color="#df7a18"><svg stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" width="34" height="34" x="577" y="106"><circle cx="12" cy="6" r="3"></circle><path d="M12 9v3M12 12H6v3M12 12h6v3"></path><rect x="3" y="15" width="6" height="5" rx="1.2"></rect><rect x="15" y="15" width="6" height="5" rx="1.2"></rect></svg></g>
-<text x="594" y="164" text-anchor="middle" font-size="13.5" font-weight="700" fill="#1a1d26">Collective harness tuning</text>
-<text x="594" y="182" text-anchor="middle" font-family="&#39;Source Serif 4&#39;,Georgia,serif" font-size="11.5" fill="#3d4250">Pipeline gains from shared,</text>
-<text x="594" y="197" text-anchor="middle" font-family="&#39;Source Serif 4&#39;,Georgia,serif" font-size="11.5" fill="#3d4250">aggregated feedback.</text>
+<g color="#df7a18"><svg stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" width="34" height="34" x="561" y="106"><circle cx="12" cy="6" r="3"></circle><path d="M12 9v3M12 12H6v3M12 12h6v3"></path><rect x="3" y="15" width="6" height="5" rx="1.2"></rect><rect x="15" y="15" width="6" height="5" rx="1.2"></rect></svg></g>
+<text x="578" y="164" text-anchor="middle" font-size="14.5" font-weight="700" fill="#1a1d26">Collective harness tuning</text>
+<text x="578" y="182" text-anchor="middle" font-family="&#39;Source Serif 4&#39;,Georgia,serif" font-size="12.4" fill="#3d4250">Pipeline gains from shared,</text>
+<text x="578" y="197" text-anchor="middle" font-family="&#39;Source Serif 4&#39;,Georgia,serif" font-size="12.4" fill="#3d4250">aggregated feedback.</text>
 
-<g color="#7c3aed"><svg stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" width="34" height="34" x="845" y="106"><circle cx="5" cy="12" r="2"></circle><circle cx="12" cy="6" r="2"></circle><circle cx="12" cy="18" r="2"></circle><circle cx="19" cy="12" r="2"></circle><path d="M6.7 11 10.3 7M6.7 13l3.6 4M13.7 7l3.6 4M13.7 17l3.6-4"></path></svg></g>
-<text x="862" y="164" text-anchor="middle" font-size="13.5" font-weight="700" fill="#1a1d26">Continual learning</text>
-<text x="862" y="182" text-anchor="middle" font-family="&#39;Source Serif 4&#39;,Georgia,serif" font-size="11.5" fill="#3d4250">Foundation-model updates from</text>
-<text x="862" y="197" text-anchor="middle" font-family="&#39;Source Serif 4&#39;,Georgia,serif" font-size="11.5" fill="#3d4250">the whole population.</text>
+<g color="#7c3aed"><svg stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" width="34" height="34" x="829" y="106"><circle cx="5" cy="12" r="2"></circle><circle cx="12" cy="6" r="2"></circle><circle cx="12" cy="18" r="2"></circle><circle cx="19" cy="12" r="2"></circle><path d="M6.7 11 10.3 7M6.7 13l3.6 4M13.7 7l3.6 4M13.7 17l3.6-4"></path></svg></g>
+<text x="846" y="164" text-anchor="middle" font-size="14.5" font-weight="700" fill="#1a1d26">Continual learning</text>
+<text x="846" y="182" text-anchor="middle" font-family="&#39;Source Serif 4&#39;,Georgia,serif" font-size="12.4" fill="#3d4250">Foundation-model updates from</text>
+<text x="846" y="197" text-anchor="middle" font-family="&#39;Source Serif 4&#39;,Georgia,serif" font-size="12.4" fill="#3d4250">the whole population.</text>
 
 
-<g transform="translate(165,283) rotate(-90)">
+<g transform="translate(154,283) rotate(-90)">
   <text text-anchor="middle" font-size="13.5" font-weight="700" fill="#1a1d26">Across Sessions</text>
 </g>
 
-<g color="#2563d6"><svg stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" width="34" height="34" x="309" y="236"><path d="M5 18.5A2.5 2.5 0 0 1 7.5 16H19"></path><path d="M7.5 3H19v18H7.5A2.5 2.5 0 0 1 5 18.5v-13A2.5 2.5 0 0 1 7.5 3z"></path><path d="M13 3v7l2.2-1.6L17 10V3"></path></svg></g>
-<text x="326" y="294" text-anchor="middle" font-size="13.5" font-weight="700" fill="#1a1d26">Skill library &amp; memory</text>
-<text x="326" y="312" text-anchor="middle" font-family="&#39;Source Serif 4&#39;,Georgia,serif" font-size="11.5" fill="#3d4250">Skills, notes &amp; assets that</text>
-<text x="326" y="327" text-anchor="middle" font-family="&#39;Source Serif 4&#39;,Georgia,serif" font-size="11.5" fill="#3d4250">carry across sessions.</text>
+<g color="#2563d6"><svg stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" width="34" height="34" x="293" y="236"><path d="M5 18.5A2.5 2.5 0 0 1 7.5 16H19"></path><path d="M7.5 3H19v18H7.5A2.5 2.5 0 0 1 5 18.5v-13A2.5 2.5 0 0 1 7.5 3z"></path><path d="M13 3v7l2.2-1.6L17 10V3"></path></svg></g>
+<text x="310" y="294" text-anchor="middle" font-size="14.5" font-weight="700" fill="#1a1d26">Skill library &amp; memory</text>
+<text x="310" y="312" text-anchor="middle" font-family="&#39;Source Serif 4&#39;,Georgia,serif" font-size="12.4" fill="#3d4250">Skills, notes &amp; assets that</text>
+<text x="310" y="327" text-anchor="middle" font-family="&#39;Source Serif 4&#39;,Georgia,serif" font-size="12.4" fill="#3d4250">carry across sessions.</text>
 
-<g color="#df7a18"><svg stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" width="34" height="34" x="577" y="236"><circle cx="8" cy="8" r="3"></circle><path d="M3 19v-.5a5 5 0 0 1 5-5"></path><path d="M14 9h6v5"></path><path d="M20 9l-6 6-2.5-2.5"></path></svg></g>
-<text x="594" y="294" text-anchor="middle" font-size="13.5" font-weight="700" fill="#1a1d26">Personalized harness</text>
-<text x="594" y="312" text-anchor="middle" font-family="&#39;Source Serif 4&#39;,Georgia,serif" font-size="11.5" fill="#3d4250">Workflows that adapt to</text>
-<text x="594" y="327" text-anchor="middle" font-family="&#39;Source Serif 4&#39;,Georgia,serif" font-size="11.5" fill="#3d4250">one user&#39;s habits.</text>
+<g color="#df7a18"><svg stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" width="34" height="34" x="561" y="236"><circle cx="8" cy="8" r="3"></circle><path d="M3 19v-.5a5 5 0 0 1 5-5"></path><path d="M14 9h6v5"></path><path d="M20 9l-6 6-2.5-2.5"></path></svg></g>
+<text x="578" y="294" text-anchor="middle" font-size="14.5" font-weight="700" fill="#1a1d26">Personalized harness</text>
+<text x="578" y="312" text-anchor="middle" font-family="&#39;Source Serif 4&#39;,Georgia,serif" font-size="12.4" fill="#3d4250">Workflows that adapt to</text>
+<text x="578" y="327" text-anchor="middle" font-family="&#39;Source Serif 4&#39;,Georgia,serif" font-size="12.4" fill="#3d4250">one user&#39;s habits.</text>
 
-<g color="#7c3aed"><svg stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" width="34" height="34" x="845" y="236"><path d="M6 21v-7M6 9V3M12 21v-9M12 7V3M18 21v-4M18 12V3"></path><path d="M3 12h6M9 7h6M15 17h6"></path></svg></g>
-<text x="862" y="294" text-anchor="middle" font-size="13.5" font-weight="700" fill="#1a1d26">Personalized fine-tuning</text>
-<text x="862" y="312" text-anchor="middle" font-family="&#39;Source Serif 4&#39;,Georgia,serif" font-size="11.5" fill="#3d4250">LoRA &amp; preference adaptation</text>
-<text x="862" y="327" text-anchor="middle" font-family="&#39;Source Serif 4&#39;,Georgia,serif" font-size="11.5" fill="#3d4250">for one person.</text>
+<g color="#7c3aed"><svg stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" width="34" height="34" x="829" y="236"><path d="M6 21v-7M6 9V3M12 21v-9M12 7V3M18 21v-4M18 12V3"></path><path d="M3 12h6M9 7h6M15 17h6"></path></svg></g>
+<text x="846" y="294" text-anchor="middle" font-size="14.5" font-weight="700" fill="#1a1d26">Personalized fine-tuning</text>
+<text x="846" y="312" text-anchor="middle" font-family="&#39;Source Serif 4&#39;,Georgia,serif" font-size="12.4" fill="#3d4250">LoRA &amp; preference adaptation</text>
+<text x="846" y="327" text-anchor="middle" font-family="&#39;Source Serif 4&#39;,Georgia,serif" font-size="12.4" fill="#3d4250">for one person.</text>
 
 
-<g transform="translate(165,413) rotate(-90)">
+<g transform="translate(154,413) rotate(-90)">
   <text text-anchor="middle" font-size="13.5" font-weight="700" fill="#1a1d26">Single Session</text>
 </g>
 
-<g color="#2563d6"><svg stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" width="34" height="34" x="309" y="366"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"></path><path d="M14 3v5h5"></path><path d="M8 13h4M8 16.5h3"></path><circle cx="16" cy="16" r="3"></circle><path d="M16 14.6V16l1 .8"></path></svg></g>
-<text x="326" y="424" text-anchor="middle" font-size="13.5" font-weight="700" fill="#1a1d26">Temporary memory</text>
-<text x="326" y="442" text-anchor="middle" font-family="&#39;Source Serif 4&#39;,Georgia,serif" font-size="11.5" fill="#3d4250">Runtime notes &amp; scratchpad,</text>
-<text x="326" y="457" text-anchor="middle" font-family="&#39;Source Serif 4&#39;,Georgia,serif" font-size="11.5" fill="#3d4250">KV-cache-like context.</text>
+<g color="#2563d6"><svg stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" width="34" height="34" x="293" y="366"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"></path><path d="M14 3v5h5"></path><path d="M8 13h4M8 16.5h3"></path><circle cx="16" cy="16" r="3"></circle><path d="M16 14.6V16l1 .8"></path></svg></g>
+<text x="310" y="424" text-anchor="middle" font-size="14.5" font-weight="700" fill="#1a1d26">Temporary memory</text>
+<text x="310" y="442" text-anchor="middle" font-family="&#39;Source Serif 4&#39;,Georgia,serif" font-size="12.4" fill="#3d4250">Runtime notes &amp; scratchpad,</text>
+<text x="310" y="457" text-anchor="middle" font-family="&#39;Source Serif 4&#39;,Georgia,serif" font-size="12.4" fill="#3d4250">KV-cache-like context.</text>
 
-<g color="#df7a18"><svg stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" width="34" height="34" x="577" y="366"><path d="M3 14a2 2 0 0 0 2 2h2l3 3v-3h3a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2z"></path><path d="M14.5 9H19a2 2 0 0 1 2 2v3"></path><path d="M21 14l-1.6-1.6M21 14l-1.6 1.6"></path></svg></g>
-<text x="594" y="424" text-anchor="middle" font-size="13.5" font-weight="700" fill="#1a1d26">Dynamic task adaptation</text>
-<text x="594" y="442" text-anchor="middle" font-family="&#39;Source Serif 4&#39;,Georgia,serif" font-size="11.5" fill="#3d4250">On-the-fly prompt or</text>
-<text x="594" y="457" text-anchor="middle" font-family="&#39;Source Serif 4&#39;,Georgia,serif" font-size="11.5" fill="#3d4250">step-order adjustment.</text>
+<g color="#df7a18"><svg stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" width="34" height="34" x="561" y="366"><path d="M3 14a2 2 0 0 0 2 2h2l3 3v-3h3a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2z"></path><path d="M14.5 9H19a2 2 0 0 1 2 2v3"></path><path d="M21 14l-1.6-1.6M21 14l-1.6 1.6"></path></svg></g>
+<text x="578" y="424" text-anchor="middle" font-size="14.5" font-weight="700" fill="#1a1d26">Dynamic task adaptation</text>
+<text x="578" y="442" text-anchor="middle" font-family="&#39;Source Serif 4&#39;,Georgia,serif" font-size="12.4" fill="#3d4250">On-the-fly prompt or</text>
+<text x="578" y="457" text-anchor="middle" font-family="&#39;Source Serif 4&#39;,Georgia,serif" font-size="12.4" fill="#3d4250">step-order adjustment.</text>
 
-<g color="#7c3aed"><svg stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" width="34" height="34" x="845" y="366"><rect x="5" y="5" width="14" height="14" rx="2.2"></rect><rect x="9" y="9" width="6" height="6" rx="1"></rect><path d="M9 2.5v2.5M15 2.5v2.5M9 19v2.5M15 19v2.5M2.5 9H5M2.5 15H5M19 9h2.5M19 15h2.5"></path></svg></g>
-<text x="862" y="424" text-anchor="middle" font-size="13.5" font-weight="700" fill="#1a1d26">Rare online adaptation</text>
-<text x="862" y="442" text-anchor="middle" font-family="&#39;Source Serif 4&#39;,Georgia,serif" font-size="11.5" fill="#3d4250">Snapshot tuning mid-run —</text>
-<text x="862" y="457" text-anchor="middle" font-family="&#39;Source Serif 4&#39;,Georgia,serif" font-size="11.5" fill="#3d4250">powerful but seldom used.</text>
+<g color="#7c3aed"><svg stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" width="34" height="34" x="829" y="366"><rect x="5" y="5" width="14" height="14" rx="2.2"></rect><rect x="9" y="9" width="6" height="6" rx="1"></rect><path d="M9 2.5v2.5M15 2.5v2.5M9 19v2.5M15 19v2.5M2.5 9H5M2.5 15H5M19 9h2.5M19 15h2.5"></path></svg></g>
+<text x="846" y="424" text-anchor="middle" font-size="14.5" font-weight="700" fill="#1a1d26">Rare online adaptation</text>
+<text x="846" y="442" text-anchor="middle" font-family="&#39;Source Serif 4&#39;,Georgia,serif" font-size="12.4" fill="#3d4250">Snapshot tuning mid-run —</text>
+<text x="846" y="457" text-anchor="middle" font-family="&#39;Source Serif 4&#39;,Georgia,serif" font-size="12.4" fill="#3d4250">powerful but seldom used.</text>
 
 
-<text x="594" y="509" text-anchor="middle" font-size="15" font-weight="800" letter-spacing=".9" fill="#1a1d26">WHAT TO UPDATE?</text>
-<text x="192" y="538" font-size="12" font-weight="600" fill="#3d4250">cheaper &amp; shallower</text>
-<rect x="340" y="526" width="500" height="7" rx="4" fill="url(#mxgrad)" opacity=".85"></rect>
-<path d="M852 529.5 L838 522 L838 537 Z" fill="#7c3aed" opacity=".85"></path>
-<text x="996" y="538" text-anchor="end" font-size="12" font-weight="600" fill="#3d4250">deeper &amp; costlier</text>
+<text x="578" y="509" text-anchor="middle" font-size="15" font-weight="800" letter-spacing=".9" fill="#1a1d26">WHAT TO UPDATE?</text>
+<text x="176" y="538" font-size="12" font-weight="600" fill="#3d4250">cheaper &amp; shallower</text>
+<rect x="324" y="526" width="500" height="7" rx="4" fill="url(#mxgrad)" opacity=".85"></rect>
+<path d="M836 529.5 L822 522 L822 537 Z" fill="#7c3aed" opacity=".85"></path>
+<text x="980" y="538" text-anchor="end" font-size="12" font-weight="600" fill="#3d4250">deeper &amp; costlier</text>
 </svg>

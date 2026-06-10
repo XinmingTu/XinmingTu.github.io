@@ -495,50 +495,61 @@ _styles: |
     }
     d-article .evo-matrix-fig,
     d-article .evo-matrix-app {
-      grid-template-columns: 1fr;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 4px;
     }
     d-article .evo-matrix .evo-corner,
-    d-article .evo-matrix .evo-colhead,
-    d-article .evo-matrix .evo-yaxis {
+    d-article .evo-matrix .evo-yaxis,
+    d-article .evo-colhead-sub,
+    d-article .evo-cell-desc,
+    d-article .evo-cell-systems {
       display: none;
     }
-    d-article .evo-matrix-app > * {
-      order: var(--mo, 0);
+    d-article .evo-colhead {
+      padding: 0.1rem 0 0.25rem;
+    }
+    d-article .evo-colhead-name {
+      font-size: 0.68rem;
     }
     d-article .evo-rowlabel {
+      grid-column: 1 / -1;
       justify-content: flex-start;
-      padding: 0.45rem 0.1rem 0;
+      gap: 0.35rem;
+      padding: 0.5rem 0.1rem 0.1rem;
     }
     d-article .evo-rowlabel-text {
       writing-mode: horizontal-tb;
       transform: none;
-      font-size: 0.85rem;
+      font-size: 0.78rem;
     }
     d-article .evo-cell {
-      align-items: flex-start;
-      text-align: left;
       min-height: 0;
-      padding: 0.65rem 0.7rem;
+      padding: 0.5rem 0.45rem 0.55rem;
+      gap: 0.25rem;
     }
-    d-article .evo-cell-tag {
-      display: inline-block;
-      align-self: flex-start;
-      color: var(--lc);
-      background: #ffffff;
-      border: 1px solid var(--lc-border);
-      border-radius: 4px;
-      padding: 0.05rem 0.3rem;
-      font-size: 0.6rem;
-      font-weight: 700;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
+    d-article .evo-cell-title {
+      font-size: 0.68rem;
+      line-height: 1.25;
+    }
+    d-article .evo-cell-btn {
+      padding: 0.5rem 0.5rem 0.55rem;
+    }
+    d-article .evo-cellicon {
+      width: 18px;
+      height: 18px;
     }
     d-article .evo-xaxis {
-      grid-column: 1;
+      grid-column: 1 / -1;
     }
-    d-article .evo-panel::before {
-      display: none;
+    d-article .evo-xaxis-scale {
+      font-size: 0.62rem;
     }
+    d-article .evo-panel {
+      padding: 0.85rem 0.85rem 0.8rem;
+    }
+    d-article .evo-from-1 { --cx: 16.67%; }
+    d-article .evo-from-2 { --cx: 50%; }
+    d-article .evo-from-3 { --cx: 83.33%; }
   }
 
 toc:

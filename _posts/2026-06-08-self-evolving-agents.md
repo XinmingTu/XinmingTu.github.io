@@ -37,11 +37,6 @@ _styles: |
     height: auto;
     display: block;
   }
-  d-article figure.self-evolving-figure.narrow {
-    max-width: 580px;
-    margin-left: auto;
-    margin-right: auto;
-  }
   d-article figure.self-evolving-figure figcaption {
     color: #6b7280;
     font-size: 0.88rem;
@@ -98,6 +93,453 @@ _styles: |
       flex-basis: auto;
     }
   }
+  d-article .evo-files { --lc: #2563d6; --lc-bg: #eef3fd; --lc-dark: #1b3f86; --lc-border: #cdddf7; }
+  d-article .evo-harness { --lc: #df7a18; --lc-bg: #fdf3e7; --lc-dark: #a8550a; --lc-border: #f4ddbd; }
+  d-article .evo-weights { --lc: #7c3aed; --lc-bg: #f4eefd; --lc-dark: #5b21b6; --lc-border: #e2d2fa; }
+  d-article svg.evo-ic {
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    flex: none;
+  }
+  d-article .evo-matrix,
+  d-article .evo-layers,
+  d-article .evo-panel-head {
+    font-family: Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, sans-serif;
+  }
+  d-article .evo-layers {
+    display: flex;
+    gap: 1.35rem;
+    align-items: stretch;
+  }
+  d-article .evo-layers-diagram {
+    flex: 1.12;
+    min-width: 0;
+    display: flex;
+  }
+  d-article .evo-layers-diagram > .evo-layer {
+    flex: 1;
+  }
+  d-article .evo-layer {
+    border: 2px solid var(--lc-border);
+    background: var(--lc-bg);
+    border-radius: 22px;
+    padding: 0.85rem 0.9rem 0.95rem;
+  }
+  d-article .evo-layer .evo-layer {
+    margin-top: 0.75rem;
+    border-radius: 17px;
+  }
+  d-article .evo-layer-head {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: 0.55rem;
+    align-items: center;
+  }
+  d-article .evo-layer-head .evo-ic {
+    grid-row: 1 / span 2;
+    width: 20px;
+    height: 20px;
+    color: var(--lc);
+  }
+  d-article .evo-layer-name {
+    color: var(--lc-dark);
+    font-weight: 700;
+    font-size: 0.95rem;
+    line-height: 1.25;
+  }
+  d-article .evo-layer-sub {
+    color: var(--lc);
+    font-size: 0.72rem;
+    font-weight: 500;
+    line-height: 1.3;
+  }
+  d-article .evo-layer-core {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 0.1rem;
+    min-height: 168px;
+    border-radius: 13px;
+    padding: 1rem 0.8rem 1.05rem;
+  }
+  d-article .evo-core-art {
+    width: 86px;
+    height: auto;
+    margin-bottom: 0.35rem;
+  }
+  d-article .evo-legend {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+    justify-content: center;
+  }
+  d-article .evo-legend-item {
+    display: flex;
+    gap: 0.65rem;
+    align-items: flex-start;
+  }
+  d-article .evo-legend-ic {
+    flex: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 8px;
+    background: var(--lc-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--lc);
+  }
+  d-article .evo-legend-ic .evo-ic {
+    width: 17px;
+    height: 17px;
+  }
+  d-article .evo-legend-body {
+    min-width: 0;
+  }
+  d-article .evo-legend-item strong {
+    display: block;
+    color: var(--lc);
+    font-size: 0.86rem;
+    font-weight: 700;
+    margin-bottom: 0.05rem;
+  }
+  d-article .evo-legend-text {
+    color: #7a8196;
+    font-size: 0.8rem;
+    line-height: 1.45;
+  }
+  d-article .evo-legend-note {
+    border: 1px dashed #d7dae3;
+    border-radius: 10px;
+    background: #fbfbfd;
+    padding: 0.7rem 0.85rem;
+    color: #3d4250;
+    font-size: 0.8rem;
+    line-height: 1.5;
+  }
+  d-article .evo-legend-note strong {
+    color: #1a1d26;
+  }
+  d-article .evo-matrix {
+    display: grid;
+    gap: 6px;
+  }
+  d-article .evo-matrix-fig {
+    grid-template-columns: 24px 42px 1fr 1fr 1fr;
+  }
+  d-article .evo-matrix-app {
+    grid-template-columns: 42px 1fr 1fr 1fr;
+    margin: 1.4rem 0 0.4rem;
+  }
+  d-article .evo-matrix-fig .evo-corner {
+    grid-column: span 2;
+  }
+  d-article .evo-colhead {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.1rem;
+    text-align: center;
+    padding: 0.1rem 0.2rem 0.4rem;
+  }
+  d-article .evo-colhead-name {
+    color: var(--lc);
+    font-weight: 700;
+    font-size: 0.9rem;
+    line-height: 1.2;
+  }
+  d-article .evo-colhead-sub {
+    color: #7a8196;
+    font-size: 0.68rem;
+    font-weight: 500;
+    line-height: 1.25;
+  }
+  d-article .evo-rowlabel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.3rem;
+  }
+  d-article .evo-rowlabel-text {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    color: #1a1d26;
+    font-weight: 700;
+    font-size: 0.78rem;
+    letter-spacing: 0.02em;
+  }
+  d-article .evo-rowicon {
+    width: 16px;
+    height: 16px;
+    color: #7a8196;
+  }
+  d-article .evo-cell {
+    background: var(--lc-bg);
+    border: 1px solid transparent;
+    border-radius: 10px;
+    padding: 0.7rem 0.65rem 0.75rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.3rem;
+    min-height: 116px;
+  }
+  d-article .evo-cellicon {
+    width: 25px;
+    height: 25px;
+    color: var(--lc);
+  }
+  d-article .evo-cell-title {
+    color: #1a1d26;
+    font-weight: 700;
+    font-size: 0.83rem;
+    line-height: 1.3;
+  }
+  d-article .evo-cell-desc {
+    color: #3d4250;
+    font-size: 0.77rem;
+    font-weight: 400;
+    line-height: 1.4;
+  }
+  d-article .evo-cell-tag {
+    display: none;
+  }
+  d-article .evo-yaxis {
+    grid-column: 1;
+    grid-row: 2 / span 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.4rem 0;
+  }
+  d-article .evo-yaxis-arrow {
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 9px solid #7a8196;
+  }
+  d-article .evo-yaxis-text {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    color: #1a1d26;
+    font-weight: 800;
+    font-size: 0.7rem;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+  }
+  d-article .evo-yaxis-line {
+    flex: 1;
+    width: 1.5px;
+    background: #c3c8d4;
+    border-radius: 1px;
+  }
+  d-article .evo-xaxis {
+    grid-column: 3 / -1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    padding-top: 0.4rem;
+  }
+  d-article .evo-xaxis-title {
+    text-align: center;
+    color: #1a1d26;
+    font-weight: 800;
+    font-size: 0.7rem;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+  }
+  d-article .evo-xaxis-scale {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    color: #3d4250;
+    font-size: 0.72rem;
+    font-weight: 600;
+  }
+  d-article .evo-xaxis-bar {
+    flex: 1;
+    height: 6px;
+    border-radius: 4px;
+    background: linear-gradient(90deg, #2563d6, #df7a18 52%, #7c3aed);
+    opacity: 0.85;
+    position: relative;
+  }
+  d-article .evo-xaxis-bar::after {
+    content: "";
+    position: absolute;
+    right: -8px;
+    top: 50%;
+    transform: translateY(-50%);
+    border-top: 6px solid transparent;
+    border-bottom: 6px solid transparent;
+    border-left: 9px solid #7c3aed;
+  }
+  d-article .evo-cell-btn {
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    width: 100%;
+    font-family: inherit;
+    color: inherit;
+    border: 1px solid var(--lc-border);
+    background: var(--lc-bg);
+    border-radius: 10px;
+    padding: 0.6rem 0.65rem 0.65rem;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    text-align: left;
+    gap: 0.28rem;
+    min-height: 0;
+  }
+  d-article .evo-cell-btn:hover {
+    border-color: var(--lc);
+  }
+  d-article .evo-cell-btn:focus-visible {
+    outline: 2px solid var(--lc);
+    outline-offset: 2px;
+  }
+  d-article .evo-cell-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+  d-article .evo-cell-btn .evo-cellicon {
+    width: 20px;
+    height: 20px;
+  }
+  d-article .evo-cell-plus {
+    color: #7a8196;
+    font-weight: 800;
+    font-size: 0.95rem;
+    line-height: 1;
+  }
+  d-article .evo-cell-plus::before {
+    content: "+";
+  }
+  d-article .evo-cell-btn[aria-expanded="true"] {
+    border-color: var(--lc);
+    box-shadow: inset 0 0 0 1px var(--lc);
+  }
+  d-article .evo-cell-btn[aria-expanded="true"] .evo-cell-plus::before {
+    content: "−";
+  }
+  d-article .evo-cell-btn .evo-cell-title {
+    font-size: 0.8rem;
+    text-align: left;
+  }
+  d-article .evo-cell-systems {
+    color: #6b7280;
+    font-size: 0.72rem;
+    font-weight: 400;
+    line-height: 1.4;
+  }
+  d-article .evo-panel {
+    grid-column: 1 / -1;
+    position: relative;
+    border: 1px solid var(--lc-border);
+    border-radius: 10px;
+    background: #ffffff;
+    padding: 0.95rem 1.1rem 0.9rem;
+    margin: 2px 0 5px;
+  }
+  d-article .evo-panel[hidden] {
+    display: none;
+  }
+  d-article .evo-panel::before {
+    content: "";
+    position: absolute;
+    top: -6px;
+    left: var(--cx, 50%);
+    width: 10px;
+    height: 10px;
+    transform: translateX(-50%) rotate(45deg);
+    background: #ffffff;
+    border-left: 1px solid var(--lc-border);
+    border-top: 1px solid var(--lc-border);
+  }
+  d-article .evo-from-1 { --cx: calc(48px + (100% - 48px) * 0.1667); }
+  d-article .evo-from-2 { --cx: calc(48px + (100% - 48px) * 0.5); }
+  d-article .evo-from-3 { --cx: calc(48px + (100% - 48px) * 0.8333); }
+  d-article .evo-panel-head {
+    color: #6b7280;
+    font-size: 0.8rem;
+    margin: 0 0 0.6rem;
+  }
+  d-article .evo-panel-head strong {
+    color: var(--lc-dark);
+  }
+  d-article .evo-panel p,
+  d-article .evo-panel ul {
+    font-size: 0.95em;
+  }
+  d-article .evo-panel > *:last-child {
+    margin-bottom: 0;
+  }
+  @media (max-width: 760px) {
+    d-article .evo-layers {
+      flex-direction: column;
+      gap: 1rem;
+    }
+    d-article .evo-matrix-fig,
+    d-article .evo-matrix-app {
+      grid-template-columns: 1fr;
+    }
+    d-article .evo-matrix .evo-corner,
+    d-article .evo-matrix .evo-colhead,
+    d-article .evo-matrix .evo-yaxis {
+      display: none;
+    }
+    d-article .evo-matrix-app > * {
+      order: var(--mo, 0);
+    }
+    d-article .evo-rowlabel {
+      justify-content: flex-start;
+      padding: 0.45rem 0.1rem 0;
+    }
+    d-article .evo-rowlabel-text {
+      writing-mode: horizontal-tb;
+      transform: none;
+      font-size: 0.85rem;
+    }
+    d-article .evo-cell {
+      align-items: flex-start;
+      text-align: left;
+      min-height: 0;
+      padding: 0.65rem 0.7rem;
+    }
+    d-article .evo-cell-tag {
+      display: inline-block;
+      align-self: flex-start;
+      color: var(--lc);
+      background: #ffffff;
+      border: 1px solid var(--lc-border);
+      border-radius: 4px;
+      padding: 0.05rem 0.3rem;
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    d-article .evo-xaxis {
+      grid-column: 1;
+    }
+    d-article .evo-panel::before {
+      display: none;
+    }
+  }
 
 toc:
   - name: "The Dual Promise"
@@ -112,6 +554,25 @@ toc:
 ---
 
 > **Work in progress.**
+
+<div style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">
+<svg xmlns="http://www.w3.org/2000/svg">
+<symbol id="ei-db" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="8" ry="3"></ellipse><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"></path><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"></path></symbol>
+<symbol id="ei-gear" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"></circle><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"></path></symbol>
+<symbol id="ei-row-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"></circle><path d="M3 20v-1a5 5 0 0 1 5-5h2a5 5 0 0 1 5 5v1"></path><circle cx="17" cy="7" r="2.4"></circle><path d="M16 13.2a4.5 4.5 0 0 1 5 4.3V19"></path></symbol>
+<symbol id="ei-row-sessions" viewBox="0 0 24 24"><rect x="3" y="4.5" width="18" height="16" rx="2.2"></rect><path d="M3 9h18M8 2.5v4M16 2.5v4"></path><path d="M8 13h2M14 13h2M8 16.5h2M14 16.5h2"></path></symbol>
+<symbol id="ei-row-session" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 7.5V12l3 2"></path></symbol>
+<symbol id="ei-collective" viewBox="0 0 24 24"><ellipse cx="9" cy="5" rx="6" ry="2.4"></ellipse><path d="M3 5v6c0 1.3 2.7 2.4 6 2.4s6-1.1 6-2.4V5"></path><path d="M3 11c0 1.3 2.7 2.4 6 2.4"></path><circle cx="18" cy="9" r="1.6"></circle><circle cx="21" cy="15" r="1.6"></circle><circle cx="15" cy="16" r="1.6"></circle><path d="M17 10.3 15.8 14.6M19.3 10.1 20.7 13.5M16.5 16h3"></path></symbol>
+<symbol id="ei-tuning" viewBox="0 0 24 24"><circle cx="12" cy="6" r="3"></circle><path d="M12 9v3M12 12H6v3M12 12h6v3"></path><rect x="3" y="15" width="6" height="5" rx="1.2"></rect><rect x="15" y="15" width="6" height="5" rx="1.2"></rect></symbol>
+<symbol id="ei-continual" viewBox="0 0 24 24"><circle cx="5" cy="12" r="2"></circle><circle cx="12" cy="6" r="2"></circle><circle cx="12" cy="18" r="2"></circle><circle cx="19" cy="12" r="2"></circle><path d="M6.7 11 10.3 7M6.7 13l3.6 4M13.7 7l3.6 4M13.7 17l3.6-4"></path></symbol>
+<symbol id="ei-skills" viewBox="0 0 24 24"><path d="M5 18.5A2.5 2.5 0 0 1 7.5 16H19"></path><path d="M7.5 3H19v18H7.5A2.5 2.5 0 0 1 5 18.5v-13A2.5 2.5 0 0 1 7.5 3z"></path><path d="M13 3v7l2.2-1.6L17 10V3"></path></symbol>
+<symbol id="ei-pharness" viewBox="0 0 24 24"><circle cx="8" cy="8" r="3"></circle><path d="M3 19v-.5a5 5 0 0 1 5-5"></path><path d="M14 9h6v5"></path><path d="M20 9l-6 6-2.5-2.5"></path></symbol>
+<symbol id="ei-sliders" viewBox="0 0 24 24"><path d="M6 21v-7M6 9V3M12 21v-9M12 7V3M18 21v-4M18 12V3"></path><path d="M3 12h6M9 7h6M15 17h6"></path></symbol>
+<symbol id="ei-scratch" viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"></path><path d="M14 3v5h5"></path><path d="M8 13h4M8 16.5h3"></path><circle cx="16" cy="16" r="3"></circle><path d="M16 14.6V16l1 .8"></path></symbol>
+<symbol id="ei-dynamic" viewBox="0 0 24 24"><path d="M3 14a2 2 0 0 0 2 2h2l3 3v-3h3a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2z"></path><path d="M14.5 9H19a2 2 0 0 1 2 2v3"></path><path d="M21 14l-1.6-1.6M21 14l-1.6 1.6"></path></symbol>
+<symbol id="ei-chip" viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="14" rx="2.2"></rect><rect x="9" y="9" width="6" height="6" rx="1"></rect><path d="M9 2.5v2.5M15 2.5v2.5M9 19v2.5M15 19v2.5M2.5 9H5M2.5 15H5M19 9h2.5M19 15h2.5"></path></symbol>
+</svg>
+</div>
 
 ## The Dual Promise
 
@@ -138,9 +599,29 @@ Recent surveys on self-evolving agents organize the field around what evolves, w
 
 Before discussing how an agent evolves, we need to define what an agent physically is. In practice, an agent's cognitive state is distributed across three plastic layers.
 
-<figure class="self-evolving-figure narrow">
-  <img src="/assets/img/2026-06-08-self-evolving-agents/figure2-three-layers.svg" alt="A nested diagram of three self-evolving agent layers: external files, agent harness, and model weights.">
-  <figcaption><strong>Figure 2.</strong> The agent is not only the model. Its plastic state spans external files, harness logic, and model weights.</figcaption>
+<figure class="self-evolving-figure layers-figure">
+<div class="evo-layers">
+<div class="evo-layers-diagram">
+<div class="evo-layer evo-files">
+<div class="evo-layer-head"><svg class="evo-ic" aria-hidden="true"><use href="#ei-db"></use></svg><span class="evo-layer-name">External Files</span><span class="evo-layer-sub">memory · knowledge · skill library</span></div>
+<div class="evo-layer evo-harness">
+<div class="evo-layer-head"><svg class="evo-ic" aria-hidden="true"><use href="#ei-gear"></use></svg><span class="evo-layer-name">Agent Harness</span><span class="evo-layer-sub">prompts · tools · workflow · logic</span></div>
+<div class="evo-layer evo-layer-core evo-weights">
+<svg class="evo-core-art" viewBox="195 220 80 58" aria-hidden="true"><g stroke="#7c3aed" stroke-width="2" fill="none" opacity=".55"><path d="M205 250 L235 232 M205 250 L235 270 M265 232 L235 232 M265 268 L235 270 M205 250 L265 232 M205 250 L265 268"></path></g><circle cx="205" cy="250" r="6.5" fill="#7c3aed"></circle><circle cx="235" cy="232" r="6.5" fill="#fff" stroke="#7c3aed" stroke-width="2"></circle><circle cx="235" cy="270" r="6.5" fill="#fff" stroke="#7c3aed" stroke-width="2"></circle><circle cx="265" cy="232" r="6.5" fill="#7c3aed"></circle><circle cx="265" cy="268" r="6.5" fill="#7c3aed"></circle></svg>
+<span class="evo-layer-name">Model Weights</span>
+<span class="evo-layer-sub">parametric memory · core model</span>
+</div>
+</div>
+</div>
+</div>
+<div class="evo-legend">
+<div class="evo-legend-item evo-files"><span class="evo-legend-ic"><svg class="evo-ic" aria-hidden="true"><use href="#ei-db"></use></svg></span><span class="evo-legend-body"><strong>External files</strong><span class="evo-legend-text">Editable artifacts the agent reads &amp; writes — notes, documents, skills.</span></span></div>
+<div class="evo-legend-item evo-harness"><span class="evo-legend-ic"><svg class="evo-ic" aria-hidden="true"><use href="#ei-gear"></use></svg></span><span class="evo-legend-body"><strong>Agent harness</strong><span class="evo-legend-text">The scaffolding that turns a model into an agent — prompts, tools, control flow.</span></span></div>
+<div class="evo-legend-item evo-weights"><span class="evo-legend-ic"><svg class="evo-ic" aria-hidden="true"><use href="#ei-continual"></use></svg></span><span class="evo-legend-body"><strong>Model weights</strong><span class="evo-legend-text">What the network has internalized — knowledge baked into parameters.</span></span></div>
+<div class="evo-legend-note"><strong>Surface → Core.</strong> Outward = cheap, instant, reversible. Inward = expensive, slow, durable. The deeper a change goes, the more it sticks.</div>
+</div>
+</div>
+<figcaption><strong>Figure 2.</strong> The agent is not only the model. Its plastic state spans external files, harness logic, and model weights.</figcaption>
 </figure>
 
 ### Level 1: Model Weights
@@ -181,9 +662,28 @@ To map how this feedback loop operates, we project the three structural layers a
 
 The result is a 3x3 map: three persistence horizons crossed with three update substrates.
 
-<figure class="self-evolving-figure">
-  <img src="/assets/img/2026-06-08-self-evolving-agents/figure3-evolution-matrix.svg" alt="A 3 by 3 matrix mapping self-evolving agents by update lifetime and updated layer.">
-  <figcaption><strong>Figure 3.</strong> The taxonomy as a visual map: update lifetime on one axis, updated substrate on the other.</figcaption>
+<figure class="self-evolving-figure matrix-figure">
+<div class="evo-matrix evo-matrix-fig">
+<div class="evo-corner"></div>
+<div class="evo-colhead evo-files"><span class="evo-colhead-name">External Files</span><span class="evo-colhead-sub">memory / knowledge / skills</span></div>
+<div class="evo-colhead evo-harness"><span class="evo-colhead-name">Agent Harness</span><span class="evo-colhead-sub">workflow / prompts / tools</span></div>
+<div class="evo-colhead evo-weights"><span class="evo-colhead-name">Model Weights</span><span class="evo-colhead-sub">parametric memory / core</span></div>
+<div class="evo-yaxis"><span class="evo-yaxis-arrow"></span><span class="evo-yaxis-line"></span><span class="evo-yaxis-text">When to update?</span><span class="evo-yaxis-line"></span></div>
+<div class="evo-rowlabel"><svg class="evo-ic evo-rowicon" aria-hidden="true"><use href="#ei-row-users"></use></svg><span class="evo-rowlabel-text">Across Users</span></div>
+<div class="evo-cell evo-files"><span class="evo-cell-tag">External Files</span><svg class="evo-ic evo-cellicon" aria-hidden="true"><use href="#ei-collective"></use></svg><span class="evo-cell-title">Collective knowledge &amp; skills</span><span class="evo-cell-desc">One agent's discovery becomes every agent's tool.</span></div>
+<div class="evo-cell evo-harness"><span class="evo-cell-tag">Agent Harness</span><svg class="evo-ic evo-cellicon" aria-hidden="true"><use href="#ei-tuning"></use></svg><span class="evo-cell-title">Collective harness tuning</span><span class="evo-cell-desc">Pipeline gains from shared, aggregated feedback.</span></div>
+<div class="evo-cell evo-weights"><span class="evo-cell-tag">Model Weights</span><svg class="evo-ic evo-cellicon" aria-hidden="true"><use href="#ei-continual"></use></svg><span class="evo-cell-title">Continual learning</span><span class="evo-cell-desc">Foundation-model updates from the whole population.</span></div>
+<div class="evo-rowlabel"><svg class="evo-ic evo-rowicon" aria-hidden="true"><use href="#ei-row-sessions"></use></svg><span class="evo-rowlabel-text">Across Sessions</span></div>
+<div class="evo-cell evo-files"><span class="evo-cell-tag">External Files</span><svg class="evo-ic evo-cellicon" aria-hidden="true"><use href="#ei-skills"></use></svg><span class="evo-cell-title">Skill library &amp; memory</span><span class="evo-cell-desc">Skills, notes &amp; assets that carry across sessions.</span></div>
+<div class="evo-cell evo-harness"><span class="evo-cell-tag">Agent Harness</span><svg class="evo-ic evo-cellicon" aria-hidden="true"><use href="#ei-pharness"></use></svg><span class="evo-cell-title">Personalized harness</span><span class="evo-cell-desc">Workflows that adapt to one user's habits.</span></div>
+<div class="evo-cell evo-weights"><span class="evo-cell-tag">Model Weights</span><svg class="evo-ic evo-cellicon" aria-hidden="true"><use href="#ei-sliders"></use></svg><span class="evo-cell-title">Personalized fine-tuning</span><span class="evo-cell-desc">LoRA &amp; preference adaptation for one person.</span></div>
+<div class="evo-rowlabel"><svg class="evo-ic evo-rowicon" aria-hidden="true"><use href="#ei-row-session"></use></svg><span class="evo-rowlabel-text">Single Session</span></div>
+<div class="evo-cell evo-files"><span class="evo-cell-tag">External Files</span><svg class="evo-ic evo-cellicon" aria-hidden="true"><use href="#ei-scratch"></use></svg><span class="evo-cell-title">Temporary memory</span><span class="evo-cell-desc">Runtime notes &amp; scratchpad, KV-cache-like context.</span></div>
+<div class="evo-cell evo-harness"><span class="evo-cell-tag">Agent Harness</span><svg class="evo-ic evo-cellicon" aria-hidden="true"><use href="#ei-dynamic"></use></svg><span class="evo-cell-title">Dynamic task adaptation</span><span class="evo-cell-desc">On-the-fly prompt or step-order adjustment.</span></div>
+<div class="evo-cell evo-weights"><span class="evo-cell-tag">Model Weights</span><svg class="evo-ic evo-cellicon" aria-hidden="true"><use href="#ei-chip"></use></svg><span class="evo-cell-title">Rare online adaptation</span><span class="evo-cell-desc">Snapshot tuning mid-run — powerful but seldom used.</span></div>
+<div class="evo-xaxis"><span class="evo-xaxis-title">What to update?</span><span class="evo-xaxis-scale"><span>cheaper &amp; shallower</span><span class="evo-xaxis-bar"></span><span>deeper &amp; costlier</span></span></div>
+</div>
+<figcaption><strong>Figure 3.</strong> The taxonomy as a visual map: update lifetime on one axis, updated substrate on the other. An expandable version with the concrete systems behind every cell lives in the <a href="#appendix-the-complete-landscape">appendix</a>.</figcaption>
 </figure>
 
 This matrix is not meant to be a rigid classification. In real systems, the cells interact. A temporary tool created in one session can become a persistent skill across sessions. A project-specific workflow can become a product default. A pattern discovered across millions of user failures can eventually become a model checkpoint.
@@ -292,9 +792,9 @@ The placement rule is simple: if an example changes the reader's understanding o
 - **External state becoming transient parameters:** retrieved context is not just "read" by the model; it becomes key-value tensors in the active computation. Linear attention and fast-weight interpretations make this boundary especially explicit <d-cite key="lineartransformersrnn2020,linearfastweights2021"></d-cite>.
 - **Local discoveries becoming global defaults:** a temporary script can become a user skill, a user skill can become a shared registry asset, and a repeated population-level failure can become a harness or checkpoint update.
 
-The nine cells below are collapsed by default: open a cell when you want the concrete systems, mechanisms, and caveats behind that part of the matrix.
+The grid below is the same map as Figure 3, now expandable: open any cell for the concrete systems, mechanisms, and caveats behind that part of the matrix.
 
-<details class="appendix-cell" markdown="1">
+<details class="appendix-cell" markdown="1" data-when="single-session" data-layer="files">
 <summary><span class="appendix-cell-title">Single Session / Level 3</span><span class="appendix-cell-subtitle">Working Memory and Context Paging</span></summary>
 
 This cell covers state that is created, compressed, retrieved, or discarded inside one active trajectory.
@@ -311,7 +811,7 @@ This cell covers state that is created, compressed, retrieved, or discarded insi
 
 </details>
 
-<details class="appendix-cell" markdown="1">
+<details class="appendix-cell" markdown="1" data-when="single-session" data-layer="harness">
 <summary><span class="appendix-cell-title">Single Session / Level 2</span><span class="appendix-cell-subtitle">Dynamic Orchestration and Ad-Hoc Tools</span></summary>
 
 This cell covers runtime changes to the control path: the agent changes how it acts before the current task is over.
@@ -328,7 +828,7 @@ This cell covers runtime changes to the control path: the agent changes how it a
 
 </details>
 
-<details class="appendix-cell" markdown="1">
+<details class="appendix-cell" markdown="1" data-when="single-session" data-layer="weights">
 <summary><span class="appendix-cell-title">Single Session / Level 1</span><span class="appendix-cell-subtitle">Test-Time Training and Fast Weights</span></summary>
 
 This cell covers parametric or quasi-parametric adaptation during inference.
@@ -345,7 +845,7 @@ This cell covers parametric or quasi-parametric adaptation during inference.
 
 </details>
 
-<details class="appendix-cell" markdown="1">
+<details class="appendix-cell" markdown="1" data-when="across-sessions" data-layer="files">
 <summary><span class="appendix-cell-title">Across Sessions / Level 3</span><span class="appendix-cell-subtitle">Persistent Skills and User Memory</span></summary>
 
 This cell covers state that survives across sessions for one user, project, codebase, or environment.
@@ -362,7 +862,7 @@ This cell covers state that survives across sessions for one user, project, code
 
 </details>
 
-<details class="appendix-cell" markdown="1">
+<details class="appendix-cell" markdown="1" data-when="across-sessions" data-layer="harness">
 <summary><span class="appendix-cell-title">Across Sessions / Level 2</span><span class="appendix-cell-subtitle">Meta-Programming and Workflow Optimization</span></summary>
 
 This cell covers changes to the user's or project's recurring execution graph.
@@ -378,7 +878,7 @@ This cell covers changes to the user's or project's recurring execution graph.
 
 </details>
 
-<details class="appendix-cell" markdown="1">
+<details class="appendix-cell" markdown="1" data-when="across-sessions" data-layer="weights">
 <summary><span class="appendix-cell-title">Across Sessions / Level 1</span><span class="appendix-cell-subtitle">Personal Adapters and Preference Alignment</span></summary>
 
 This cell covers parametric personalization over repeated interactions with one user or organization.
@@ -393,7 +893,7 @@ This cell covers parametric personalization over repeated interactions with one 
 
 </details>
 
-<details class="appendix-cell" markdown="1">
+<details class="appendix-cell" markdown="1" data-when="across-users" data-layer="files">
 <summary><span class="appendix-cell-title">Across Users / Level 3</span><span class="appendix-cell-subtitle">Collective Knowledge Graphs and Shared Skills</span></summary>
 
 This cell covers external assets created from many users, agents, tasks, or environments.
@@ -410,7 +910,7 @@ This cell covers external assets created from many users, agents, tasks, or envi
 
 </details>
 
-<details class="appendix-cell" markdown="1">
+<details class="appendix-cell" markdown="1" data-when="across-users" data-layer="harness">
 <summary><span class="appendix-cell-title">Across Users / Level 2</span><span class="appendix-cell-subtitle">Automated Harness Design</span></summary>
 
 This cell covers population-level improvement to the default agent process itself.
@@ -425,7 +925,7 @@ This cell covers population-level improvement to the default agent process itsel
 
 </details>
 
-<details class="appendix-cell" markdown="1">
+<details class="appendix-cell" markdown="1" data-when="across-users" data-layer="weights">
 <summary><span class="appendix-cell-title">Across Users / Level 1</span><span class="appendix-cell-subtitle">Continual RL and Checkpoint Evolution</span></summary>
 
 This cell covers model updates derived from population-scale interaction data.
@@ -439,3 +939,129 @@ This cell covers model updates derived from population-scale interaction data.
 **Caveat:** this is usually not fully autonomous self-evolution today. Humans still shape reward design, filter data, approve deployments, and evaluate regressions. The self-evolving part is the data flywheel; the governance layer remains human-heavy.
 
 </details>
+
+<script>
+(function () {
+  function init() {
+    var details = Array.prototype.slice.call(document.querySelectorAll("details.appendix-cell"));
+    if (!details.length || !document.getElementById("ei-collective")) return;
+    var ROWS = [
+      { key: "across-users", label: "Across Users", icon: "ei-row-users" },
+      { key: "across-sessions", label: "Across Sessions", icon: "ei-row-sessions" },
+      { key: "single-session", label: "Single Session", icon: "ei-row-session" }
+    ];
+    var COLS = [
+      { key: "files", name: "External Files", sub: "memory / knowledge / skills", cls: "evo-files" },
+      { key: "harness", name: "Agent Harness", sub: "workflow / prompts / tools", cls: "evo-harness" },
+      { key: "weights", name: "Model Weights", sub: "parametric memory / core", cls: "evo-weights" }
+    ];
+    var ICONS = {
+      "across-users": { files: "ei-collective", harness: "ei-tuning", weights: "ei-continual" },
+      "across-sessions": { files: "ei-skills", harness: "ei-pharness", weights: "ei-sliders" },
+      "single-session": { files: "ei-scratch", harness: "ei-dynamic", weights: "ei-chip" }
+    };
+    function svgIcon(id, cls) {
+      return '<svg class="' + cls + '" aria-hidden="true"><use href="#' + id + '"></use></svg>';
+    }
+    var grid = document.createElement("div");
+    grid.className = "evo-matrix evo-matrix-app";
+    function add(el, mo) {
+      el.style.setProperty("--mo", String(mo));
+      grid.appendChild(el);
+    }
+    var corner = document.createElement("div");
+    corner.className = "evo-corner";
+    add(corner, 0);
+    COLS.forEach(function (c, i) {
+      var h = document.createElement("div");
+      h.className = "evo-colhead " + c.cls;
+      h.innerHTML = '<span class="evo-colhead-name">' + c.name + '</span><span class="evo-colhead-sub">' + c.sub + "</span>";
+      add(h, i + 1);
+    });
+    var openCell = null;
+    var byId = {};
+    function setOpen(entry, on) {
+      entry.btn.setAttribute("aria-expanded", on ? "true" : "false");
+      entry.panel.hidden = !on;
+    }
+    function toggle(entry) {
+      if (openCell === entry) {
+        setOpen(entry, false);
+        openCell = null;
+        return;
+      }
+      if (openCell) setOpen(openCell, false);
+      openCell = entry;
+      setOpen(entry, true);
+      if (history.replaceState) history.replaceState(null, "", "#" + entry.panel.id);
+    }
+    var mo = 4;
+    ROWS.forEach(function (row) {
+      var rl = document.createElement("div");
+      rl.className = "evo-rowlabel";
+      rl.innerHTML = svgIcon(row.icon, "evo-ic evo-rowicon") + '<span class="evo-rowlabel-text">' + row.label + "</span>";
+      add(rl, mo);
+      var panels = [];
+      COLS.forEach(function (col, ci) {
+        var det = null;
+        details.forEach(function (d) {
+          if (d.getAttribute("data-when") === row.key && d.getAttribute("data-layer") === col.key) det = d;
+        });
+        if (!det) return;
+        var titleEl = det.querySelector(".appendix-cell-title");
+        var subEl = det.querySelector(".appendix-cell-subtitle");
+        var subtitle = subEl ? subEl.textContent.trim() : "";
+        var level = "";
+        if (titleEl && titleEl.textContent.indexOf("/") > -1) level = titleEl.textContent.split("/")[1].trim();
+        var names = [];
+        var items = det.querySelectorAll("li");
+        for (var j = 0; j < items.length && names.length < 3; j++) {
+          var s = items[j].querySelector("strong");
+          if (s) names.push(s.textContent.replace(/\s+/g, " ").trim());
+        }
+        var sys = names.length ? names.join(" · ") + (items.length > names.length ? " · …" : "") : "";
+        var id = "matrix-" + row.key + "-" + col.key;
+        var btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "evo-cell evo-cell-btn " + col.cls;
+        btn.setAttribute("aria-expanded", "false");
+        btn.setAttribute("aria-controls", id);
+        btn.innerHTML =
+          '<span class="evo-cell-tag">' + col.name + '</span>' +
+          '<span class="evo-cell-top">' + svgIcon(ICONS[row.key][col.key], "evo-ic evo-cellicon") + '<span class="evo-cell-plus" aria-hidden="true"></span></span>' +
+          '<span class="evo-cell-title">' + subtitle + "</span>" +
+          (sys ? '<span class="evo-cell-systems">' + sys + "</span>" : "");
+        var panel = document.createElement("div");
+        panel.className = "evo-panel " + col.cls + " evo-from-" + (ci + 1);
+        panel.id = id;
+        panel.hidden = true;
+        var head = document.createElement("p");
+        head.className = "evo-panel-head";
+        head.innerHTML = "<strong>" + row.label + (level ? " · " + level : "") + "</strong> — " + subtitle;
+        panel.appendChild(head);
+        var summary = det.querySelector("summary");
+        if (summary) summary.parentNode.removeChild(summary);
+        while (det.firstChild) panel.appendChild(det.firstChild);
+        var entry = { btn: btn, panel: panel };
+        byId[id] = entry;
+        btn.addEventListener("click", function () { toggle(entry); });
+        add(btn, mo + 1 + ci * 2);
+        panels.push({ panel: panel, mo: mo + 2 + ci * 2 });
+      });
+      panels.forEach(function (p) { add(p.panel, p.mo); });
+      mo += 7;
+    });
+    details[0].parentNode.insertBefore(grid, details[0]);
+    details.forEach(function (d) {
+      if (d.parentNode) d.parentNode.removeChild(d);
+    });
+    var hash = location.hash ? location.hash.slice(1) : "";
+    if (hash && byId[hash]) {
+      toggle(byId[hash]);
+      byId[hash].panel.scrollIntoView();
+    }
+  }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
+  else init();
+})();
+</script>

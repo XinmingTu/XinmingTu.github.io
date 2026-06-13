@@ -44,6 +44,46 @@ _styles: |
     margin-top: 0.55rem;
     text-align: center;
   }
+  d-article details.evo-aside {
+    background: #fbfbfd;
+    border: 1px solid #d7dae3;
+    border-radius: 8px;
+    margin: 0.9rem 0 1.25rem;
+  }
+  d-article details.evo-aside summary {
+    align-items: center;
+    color: #1a1d26;
+    cursor: pointer;
+    display: flex;
+    font-weight: 700;
+    gap: 0.5rem;
+    list-style: none;
+    padding: 0.75rem 0.9rem;
+  }
+  d-article details.evo-aside summary::-webkit-details-marker {
+    display: none;
+  }
+  d-article details.evo-aside summary::before {
+    color: #7a8196;
+    content: "+";
+    flex: 0 0 auto;
+    font-weight: 800;
+  }
+  d-article details.evo-aside[open] summary::before {
+    content: "-";
+  }
+  d-article details.evo-aside .evo-aside-body {
+    color: #3d4250;
+    font-size: 0.92rem;
+    line-height: 1.55;
+    padding: 0 0.9rem 0.85rem;
+  }
+  d-article details.evo-aside .evo-aside-body > :first-child {
+    margin-top: 0;
+  }
+  d-article details.evo-aside .evo-aside-body > :last-child {
+    margin-bottom: 0;
+  }
   d-article details.appendix-cell {
     border-top: 1px solid #e7e9f0;
     padding: 0.8rem 0;
@@ -488,6 +528,116 @@ _styles: |
   d-article .evo-panel > *:last-child {
     margin-bottom: 0;
   }
+  d-article .evo-shift {
+    font-family: Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, sans-serif;
+  }
+  d-article .evo-shift-heads,
+  d-article .evo-shift-row {
+    display: grid;
+    grid-template-columns: 1fr 2.1rem 1.35fr;
+    gap: 0.7rem;
+    align-items: center;
+  }
+  d-article .evo-shift-heads {
+    margin-bottom: 0.5rem;
+  }
+  d-article .evo-shift-row + .evo-shift-row {
+    margin-top: 0.5rem;
+  }
+  d-article .evo-shift-head {
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  d-article .evo-shift-head span {
+    display: block;
+    margin-top: 0.12rem;
+    font-weight: 500;
+    letter-spacing: 0;
+    text-transform: none;
+    color: #aab0c0;
+  }
+  d-article .evo-shift-head-from { color: #9aa1b5; }
+  d-article .evo-shift-head-to { color: #1a1d26; grid-column: 3; }
+  d-article .evo-shift-from {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.5rem;
+    align-items: center;
+    border: 1px solid var(--lc-border);
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 0.55rem 0.65rem;
+  }
+  d-article .evo-shift-from .evo-ic {
+    width: 18px;
+    height: 18px;
+    color: var(--lc);
+  }
+  d-article .evo-shift-from-name {
+    color: var(--lc-dark);
+    font-weight: 700;
+    font-size: 0.84rem;
+    line-height: 1.2;
+  }
+  d-article .evo-shift-from-sub {
+    color: #9aa1b5;
+    font-size: 0.72rem;
+    line-height: 1.3;
+  }
+  d-article .evo-shift-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--lc);
+    opacity: 0.8;
+  }
+  d-article .evo-shift-arrow svg {
+    width: 22px;
+    height: 22px;
+  }
+  d-article .evo-shift-to {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.6rem;
+    align-items: center;
+    border: 1px solid var(--lc-border);
+    background: var(--lc-bg);
+    border-radius: 10px;
+    padding: 0.6rem 0.75rem;
+  }
+  d-article .evo-shift-to-ic {
+    flex: none;
+    width: 32px;
+    height: 32px;
+    border-radius: 9px;
+    background: var(--lc);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  d-article .evo-shift-to-ic .evo-ic {
+    width: 19px;
+    height: 19px;
+  }
+  d-article .evo-shift-to-name {
+    color: #1a1d26;
+    font-weight: 700;
+    font-size: 0.92rem;
+    line-height: 1.2;
+  }
+  d-article .evo-shift-to-name span {
+    color: var(--lc);
+    font-weight: 600;
+  }
+  d-article .evo-shift-to-trigger {
+    color: #6b7280;
+    font-size: 0.74rem;
+    line-height: 1.35;
+    margin-top: 0.15rem;
+  }
   @media (max-width: 760px) {
     d-article .evo-layers {
       flex-direction: column;
@@ -550,6 +700,20 @@ _styles: |
     d-article .evo-from-1 { --cx: 16.67%; }
     d-article .evo-from-2 { --cx: 50%; }
     d-article .evo-from-3 { --cx: 83.33%; }
+    d-article .evo-shift-heads {
+      display: none;
+    }
+    d-article .evo-shift-row {
+      grid-template-columns: 1fr;
+      gap: 0.35rem;
+      justify-items: stretch;
+    }
+    d-article .evo-shift-row + .evo-shift-row {
+      margin-top: 0.9rem;
+    }
+    d-article .evo-shift-arrow svg {
+      transform: rotate(90deg);
+    }
   }
 
 toc:
@@ -560,7 +724,7 @@ toc:
   - name: "Single Session: Online Adaptation"
   - name: "Across Sessions: Longitudinal Alignment"
   - name: "Across Users: Population-Level Evolution"
-  - name: "Conclusion: Escaping the Human Bottleneck"
+  - name: "What Is the 'Self' Here?"
   - name: "Appendix: The Complete Landscape"
 ---
 
@@ -582,6 +746,9 @@ toc:
 <symbol id="ei-scratch" viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"></path><path d="M14 3v5h5"></path><path d="M8 13h4M8 16.5h3"></path><circle cx="16" cy="16" r="3"></circle><path d="M16 14.6V16l1 .8"></path></symbol>
 <symbol id="ei-dynamic" viewBox="0 0 24 24"><path d="M3 14a2 2 0 0 0 2 2h2l3 3v-3h3a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2z"></path><path d="M14.5 9H19a2 2 0 0 1 2 2v3"></path><path d="M21 14l-1.6-1.6M21 14l-1.6 1.6"></path></symbol>
 <symbol id="ei-chip" viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="14" rx="2.2"></rect><rect x="9" y="9" width="6" height="6" rx="1"></rect><path d="M9 2.5v2.5M15 2.5v2.5M9 19v2.5M15 19v2.5M2.5 9H5M2.5 15H5M19 9h2.5M19 15h2.5"></path></symbol>
+<symbol id="ei-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="12" r="4.8"></circle><circle cx="12" cy="12" r="1" fill="currentColor" stroke="none"></circle></symbol>
+<symbol id="ei-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18"></path><path d="M12 3c2.7 2.5 4.2 5.7 4.2 9s-1.5 6.5-4.2 9c-2.7-2.5-4.2-5.7-4.2-9s1.5-6.5 4.2-9z"></path></symbol>
+<symbol id="ei-swarm" viewBox="0 0 24 24"><path d="M12 7 6 11M12 7l6 4M7 12h10M6.5 13.5 9.5 18M17.5 13.5 14.5 18M10 19h4"></path><circle cx="12" cy="5" r="2"></circle><circle cx="5" cy="12" r="2"></circle><circle cx="19" cy="12" r="2"></circle><circle cx="9" cy="19" r="2"></circle><circle cx="15" cy="19" r="2"></circle></symbol>
 </svg>
 </div>
 
@@ -600,7 +767,7 @@ True intelligence should not peak at deployment only to depreciate. It must appr
   <figcaption><strong>Figure 1.</strong> Self-evolution has two linked payoffs: lower marginal cost and higher capability ceilings.</figcaption>
 </figure>
 
-Leading systems are already abandoning **stateless orchestration** in favor of updatable execution substrates. These systems prove that agents must internalize their experience. But "learning" is not magic; it requires a physical substrate. To genuinely reduce costs and break capability ceilings, we must understand the architecture of this adaptation.
+Early systems are beginning to move beyond **stateless orchestration** toward updatable execution substrates. This does not mean every agent is self-evolving yet; it means experience is starting to be captured in places the system can reuse. But "learning" is not magic; it requires a physical substrate. To genuinely reduce costs and break capability ceilings, we must understand the architecture of this adaptation.
 
 The central question is simple: **Where exactly does this evolution happen?**
 
@@ -643,7 +810,7 @@ The first layer is the parametric core: the model weights. This layer stores imp
 
 The second layer is the agent harness, which includes orchestration logic, control flow, tool runtime, and error recovery loops. This layer defines *how* the agent executes tasks and can evolve without changing model weights. A system can optimize tool-selection logic, compile repeated workflows into deterministic subroutines, or rewrite its system prompts.
 
-In modern systems, this is the machinery behind the plan-act-observe loop: tool routing, retry policy, subagent spawning, workflow compilation, and runtime recovery.
+This is emerging as a real systems pattern rather than a purely conceptual one. Claude Code's Dynamic Workflows externalize task-specific control flow into background scripts, while systems such as OpenClaw and Hermes Agent point toward agents whose harnesses, tool surfaces, and reusable capabilities can be updated from experience rather than treated as fixed wrappers around a model <d-cite key="anthropicdynamicworkflows2026,openclawrl2026,hermesagent2026"></d-cite>. The common thread is that the plan-act-observe loop is becoming an updatable substrate: tool routing, retry policy, subagent spawning, workflow compilation, and runtime recovery can be revised rather than merely invoked.
 
 ### Level 3: External State
 
@@ -729,7 +896,20 @@ The most aggressive online adaptation modifies weights during inference. Test-ti
 
 Whether adapting fast weights in-place <d-cite key="inplacettt2026"></d-cite> or applying a learned update rule to hidden states <d-cite key="tttlayers2024"></d-cite>, TTT is the upper edge of self-evolution. It is computationally brutal and operationally complex. But the payoff is profound: the agent does not just remember a discovery. It alters the underlying machinery that generates discoveries.
 
-This exposes a deeper mathematical reality: the boundary between external context (Level 3) and parametric weights (Level 1) is porous. When external memory enters the inference path, it is physically materialized as dynamic tensors in the KV cache. In standard attention, $\text{Attention}(Q, K, V) = \text{softmax}(QK^T / \sqrt{d_k})V$; appending experience directly alters the computational matrix <d-cite key="vaswani2017attention"></d-cite>. At runtime, memory is not merely a database. It is a transient parameter.
+This exposes a deeper mathematical reality: the boundary between external context (Level 3) and parametric weights (Level 1) is porous. When external memory enters the prompt, the model does not merely read text; each token is projected into key/value vectors and stored in the KV cache for later tokens to attend to. In standard attention, $\text{Attention}(Q, K, V) = \text{softmax}(QK^T / \sqrt{d_k})V$; appending experience changes the active $K$ and $V$ set even if the trained weights stay fixed <d-cite key="vaswani2017attention"></d-cite>. At runtime, memory is not merely a database. It is a transient substrate for computation.
+
+<details class="evo-aside" markdown="1">
+<summary>Technical aside: context, KV cache, and weights</summary>
+<div class="evo-aside-body" markdown="1">
+
+- **Context** is the symbolic input surface: prompt text, retrieved documents, scratchpad notes, code snippets, and prior turns.
+- **KV cache** is the runtime activation state created from that context. The model's fixed weights project each context token into key and value vectors; future query vectors attend over those cached vectors. This is why adding a memory paragraph is not just adding text. It changes the tensor state that subsequent computation reads from.
+- **Model weights** are durable parameters learned across training. Test-time training changes these parameters directly or changes weight-like internal state. By contrast, ordinary context only creates temporary activations. The boundary becomes blurry because fast-weight and linear-attention interpretations show that accumulated sequence state can behave like a short-lived memory matrix <d-cite key="lineartransformersrnn2020,linearfastweights2021"></d-cite>.
+
+So the claim is not that a prompt literally edits the trained checkpoint. The narrower claim is that context becomes operational state inside the forward pass, and that state can function as a transient, computation-shaping memory.
+
+</div>
+</details>
 
 ## Across Sessions: Longitudinal Alignment
 
@@ -783,15 +963,45 @@ Strictly speaking, the agent does not evolve independently of humans; rather, **
 
 **A note on autonomy:** Today, population-level evolution is rarely fully autonomous. Agents act as prolific proposers of new tools and workflows, while humans still act as maintainers who verify and merge them. As automated sandboxing and AI-driven evaluation mature, this verification loop can close.
 
-## Conclusion: Escaping the Human Bottleneck
+## What Is the 'Self' Here?
 
-Structuring self-evolution around single sessions, user preferences, and human populations is a practical way to build systems today. But this anthropocentric framing is ultimately transitional. We are currently measuring an AI's evolution by how well it adapts to *us*: our coding habits, our prompts, and our manual corrections.
+The 3x3 matrix is built for today's engineering reality, but it hides a bias: every trigger in it is **human**. Sessions, user habits, population telemetry - the agent adapts because *we* prompt it, correct it, or accept its output. In that paradigm the system is not truly *self*-evolving; it is undergoing **human-driven adaptation**, a sponge wrung out by a steady stream of supervision. The "self" is borrowed.
 
-As we look toward AGI and eventually ASI, the fundamental nature of experience will shift. Today, human interaction is the primary environment that forces an AI to adapt. The true inflection point arrives when the human is removed from the critical loop. The ultimate driver of evolution will not be human feedback, but **algorithmic self-play and open-ended exploration**.
+To see the first-principles shape of *true* self-evolution, hold the substrate columns fixed and re-derive the time axis from the agent's own world. A fully autonomous intelligence has no "sessions" or "users" - it has objectives, environments, and peers. The three horizons of adaptation fall out directly.
 
-Imagine a network of autonomous agents deployed to tackle an unsolved physics problem or design a next-generation operating system. They generate synthetic hypotheses, build their own sandbox environments to test them, and distribute successful discoveries - whether as executable tools (Level 3), optimized reasoning pathways (Level 2), or weight updates (Level 1) - across a global collective intelligence.
+<figure class="self-evolving-figure frame-shift-figure">
+<div class="evo-shift">
+<div class="evo-shift-heads"><div class="evo-shift-head evo-shift-head-from">Human frame<span>the triggers we supply</span></div><div></div><div class="evo-shift-head evo-shift-head-to">Agent frame<span>the triggers it derives</span></div></div>
+<div class="evo-shift-row evo-files">
+<div class="evo-shift-from"><svg class="evo-ic" aria-hidden="true"><use href="#ei-row-session"></use></svg><div><div class="evo-shift-from-name">Single Session</div><div class="evo-shift-from-sub">your prompts</div></div></div>
+<div class="evo-shift-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15"></path><path d="M13 6l6 6-6 6"></path></svg></div>
+<div class="evo-shift-to"><div class="evo-shift-to-ic"><svg class="evo-ic" aria-hidden="true"><use href="#ei-target"></use></svg></div><div><div class="evo-shift-to-name">Intra-Task <span>&middot; Execution Horizon</span></div><div class="evo-shift-to-trigger">trigger: environmental feedback</div></div></div>
+</div>
+<div class="evo-shift-row evo-harness">
+<div class="evo-shift-from"><svg class="evo-ic" aria-hidden="true"><use href="#ei-row-sessions"></use></svg><div><div class="evo-shift-from-name">Across Sessions</div><div class="evo-shift-from-sub">user habits</div></div></div>
+<div class="evo-shift-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15"></path><path d="M13 6l6 6-6 6"></path></svg></div>
+<div class="evo-shift-to"><div class="evo-shift-to-ic"><svg class="evo-ic" aria-hidden="true"><use href="#ei-globe"></use></svg></div><div><div class="evo-shift-to-name">Inter-Task <span>&middot; Environmental Horizon</span></div><div class="evo-shift-to-trigger">trigger: domain structure &amp; dependencies</div></div></div>
+</div>
+<div class="evo-shift-row evo-weights">
+<div class="evo-shift-from"><svg class="evo-ic" aria-hidden="true"><use href="#ei-row-users"></use></svg><div><div class="evo-shift-from-name">Across Users</div><div class="evo-shift-from-sub">population telemetry</div></div></div>
+<div class="evo-shift-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15"></path><path d="M13 6l6 6-6 6"></path></svg></div>
+<div class="evo-shift-to"><div class="evo-shift-to-ic"><svg class="evo-ic" aria-hidden="true"><use href="#ei-swarm"></use></svg></div><div><div class="evo-shift-to-name">Inter-Agent <span>&middot; Swarm Horizon</span></div><div class="evo-shift-to-trigger">trigger: peer discovery &amp; self-play</div></div></div>
+</div>
+</div>
+<figcaption><strong>Figure 4.</strong> The same three horizons, re-derived from the agent's own frame of reference. The trigger for adaptation shifts from a human in the loop to the agent's environment, domain, and peers.</figcaption>
+</figure>
 
-Their experience compounds at the speed of compute, decoupled from the biological limits of human typing speed or comprehension. By architecting systems capable of modifying their own external state, cognitive harnesses, and parametric cores, we are no longer just engineering smarter Copilots. We are laying the structural foundation for an intelligence that can finally evolve itself.
+- **Single Session $\rightarrow$ Intra-Task (the execution horizon).** Adaptation bounded by one objective. The agent hits a blocker and pages its own context (Level 3), forges an ad-hoc tool (Level 2), or nudges weights mid-inference (Level 1) - driven by *environmental feedback*, not a user prompt. When the objective closes, the horizon closes.
+- **Across Sessions $\rightarrow$ Inter-Task (the environmental horizon).** Adaptation bounded by a domain. The agent does not learn "a user's preference"; it internalizes the physics, constraints, and dependencies of an environment - a sprawling legacy codebase, a live API ecosystem - and compiles its own trial-and-error into durable abstractions.
+- **Across Users $\rightarrow$ Inter-Agent (the swarm horizon).** Adaptation distributed across a population of agents. The network effect is no longer millions of human log-ins but millions of parallel runtimes: when one node discovers a tool or a leaner routing DAG, the update is validated and propagated to the collective.
+
+These horizons are no cleaner than the matrix's cells. An intra-task discovery can be promoted to the swarm, exactly as a throwaway script became a shared skill in the sections above; the boundaries stay porous all the way up.
+
+Structuring evolution around human users is how we must build today. But it is strictly transitional. As long as human interaction remains the primary environment that forces an AI to adapt, our typing speed, comprehension limits, and sleep schedules stay the hard ceiling on its capability. The true inflection point arrives when the human leaves the critical loop, and the driver of evolution becomes **open-ended exploration** - self-play where the problem admits an opponent, generate-and-test where it does not.
+
+Imagine a network of autonomous agents set loose on an unsolved physics problem or the design of a next-generation operating system. They generate synthetic hypotheses, build their own sandboxes to test them, and distribute what survives - executable tools, optimized reasoning pathways, or weight updates - across a global collective intelligence. Their experience compounds at the speed of compute, not the speed of human typing.
+
+By architecting systems that can rewrite their own external state, cognitive harness, and parametric core, we stop engineering smarter Copilots. We begin laying the structural foundation for an intelligence that can finally evolve *itself*.
 
 ## Appendix: The Complete Landscape
 

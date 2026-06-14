@@ -775,7 +775,7 @@ Recent surveys on self-evolving agents organize the field around what evolves, w
 
 ## What Evolves
 
-Before discussing how an agent evolves, we need to define what an agent physically is. In practice, an agent's cognitive state is distributed across three plastic layers.
+Before discussing how an agent evolves, we need to define the architecture of an agent. In practice, an agent's cognitive state is distributed across three plastic layers.
 
 <figure class="self-evolving-figure layers-figure">
 <div class="evo-layers">
@@ -804,25 +804,25 @@ Before discussing how an agent evolves, we need to define what an agent physical
 
 ### Level 1: Model Weights
 
-The first layer is the parametric core: the model weights. This layer stores implicit knowledge and is updated through gradient-based learning. Weight evolution can generalize broadly across tasks, but it is computationally expensive and carries inherent risks such as catastrophic forgetting, capability regression, and costly evaluation requirements.
+The first layer is the parametric core: the model weights. This layer stores implicit knowledge and is updated through gradient-based learning. Parametric updates can generalize broadly across tasks, but they are computationally expensive and carry inherent risks such as catastrophic forgetting, capability regression, and costly evaluation requirements.
 
 ### Level 2: Agent Harness
 
-The second layer is the agent harness, which includes orchestration logic, control flow, tool runtime, and error recovery loops. This layer defines *how* the agent executes tasks and can evolve without changing model weights. A system can optimize tool-selection logic, compile repeated workflows into deterministic subroutines, or rewrite its system prompts.
+The second layer is the agent harness: the scaffolding around the model that decides how it acts. It includes orchestration logic, control flow, tool runtime, and error recovery loops. This layer defines *how* the agent executes tasks and can evolve without changing model weights. A system can optimize tool-selection logic, compile repeated workflows into deterministic subroutines, or rewrite its system prompts.
 
 This is emerging as a real systems pattern rather than a purely conceptual one. Claude Code's Dynamic Workflows externalize task-specific control flow into background scripts, while systems such as OpenClaw and Hermes Agent point toward agents whose harnesses, tool surfaces, and reusable capabilities can be updated from experience rather than treated as fixed wrappers around a model <d-cite key="anthropicdynamicworkflows2026,openclawrl2026,hermesagent2026"></d-cite>. The common thread is that the plan-act-observe loop is becoming an updatable substrate: tool routing, retry policy, subagent spawning, workflow compilation, and runtime recovery can be revised rather than merely invoked.
 
-### Level 3: External State
+### Level 3: External Files & State
 
-The third layer is external state: persistent memory stores, skill libraries, knowledge graphs, and scratchpads. Unlike traditional read-only RAG, modern external memory is structured, editable, and callable. It stores precise code snippets, error logs, user preferences, and reusable procedures.
+The third layer is external files and state: persistent memory stores, skill libraries, knowledge graphs, and scratchpads. Unlike traditional read-only RAG, modern external memory is structured, editable, and callable. It stores precise code snippets, error logs, user preferences, and reusable procedures.
 
 Evolution here is computationally cheap, often just CRUD operations, and offers high fidelity relative to parametric memory: a saved function, test command, or API wrapper remains precise instead of blurring into statistical memory.
 
-### The Blurry Boundary: Code as Data
+### The Blurry Boundary: When Files Become Code
 
-The boundary between Level 2 and Level 3 is porous. When an agent writes a Python function into a skill library, it starts as an external file (Level 3). But the moment the runtime loads that file to route future tasks, data becomes control logic (Level 2). External memory no longer merely stores facts; it stores new operators.
+The boundary between Level 2 and Level 3 is porous. When an agent writes a Python function into a skill library, it starts as an external file (Level 3). But the moment the runtime loads that file to route future tasks, the file becomes control logic (Level 2). External memory no longer merely stores facts; it stores executable operators.
 
-This "code as data" property is a core mechanism in advanced self-evolving agents. External files are no longer passive storage; they are executable capability substrates.
+This file-to-code transition is a core mechanism in advanced self-evolving agents. External files are no longer passive storage; they are executable capability substrates.
 
 ## Learning From Experience
 
@@ -872,9 +872,9 @@ The first time scale is intra-trajectory. How does an agent use a live execution
 
 ### Level 3: Working Memory and Context Paging
 
-Inside a single session, external memory fights context degradation. Long reasoning traces pile up. Tool outputs introduce noise. This is the agentic version of the "lost in the middle" problem: even if the context window is technically large enough, the signal-to-noise ratio inevitably deteriorates <d-cite key="liu2023lostmiddle"></d-cite>.
+Inside a single session, the hard case is the long-horizon task: the agent must preserve the evidence, constraints, and partial discoveries that matter while continuing to act. External files and state turn the live trace into editable working memory rather than a passive transcript.
 
-The solution is OS-style context management. **MemGPT** is the canonical example here, reframing the context window as constrained RAM and external memory as virtual storage <d-cite key="memgpt2023"></d-cite>. It pages older context out, retrieves it when needed, and preserves logical clarity under long-horizon interaction.
+The solution is active state management. **MemGPT** is the canonical example here, reframing the context window as constrained RAM and external memory as virtual storage <d-cite key="memgpt2023"></d-cite>. **Recursive Language Models** make a complementary move: they treat prompt context less like a flat input string and more like a temporary working artifact, something that can be split, routed, summarized, and recombined during a task <d-cite key="rlm2025"></d-cite>.
 
 **The caveat: Storage is not evolution.** Simply dumping context into an external database is meaningless if lossy retrieval quietly injects causal drift into the reasoning chain. A memory system only qualifies as adaptive if it improves the efficiency frontier rather than shifting the bottleneck from context length to retrieval noise.
 
@@ -892,9 +892,9 @@ The generated script may be temporary, but for that session, the agent has funda
 
 ### Level 1: Test-Time Training
 
-The most aggressive online adaptation modifies weights during inference. Test-time training destroys the clean boundary between training and deployment. Instead of merely using a frozen model to search longer, the system updates a subset of parameters using the exact problem at hand <d-cite key="tttdiscover2026"></d-cite>.
+The most aggressive online adaptation modifies the model itself during inference. In-Place Test-Time Training shows the core idea for LLMs: instead of relying only on frozen inference, the system updates a small set of fast weights using the current context stream <d-cite key="inplacettt2026"></d-cite>.
 
-Whether adapting fast weights in-place <d-cite key="inplacettt2026"></d-cite> or applying a learned update rule to hidden states <d-cite key="tttlayers2024"></d-cite>, TTT is the upper edge of self-evolution. It is computationally brutal and operationally complex. But the payoff is profound: the agent does not just remember a discovery. It alters the underlying machinery that generates discoveries.
+This is still a training/deployment pipeline, not the disappearance of training. The boundary becomes update-bearing: deployment can contain local learning loops. TTT is the upper edge of self-evolution because the agent does not just remember a discovery. It alters the machinery that generates discoveries.
 
 This exposes a deeper mathematical reality: the boundary between external context (Level 3) and parametric weights (Level 1) is porous. When external memory enters the prompt, the model does not merely read text; each token is projected into key/value vectors and stored in the KV cache for later tokens to attend to. In standard attention, $\text{Attention}(Q, K, V) = \text{softmax}(QK^T / \sqrt{d_k})V$; appending experience changes the active $K$ and $V$ set even if the trained weights stay fixed <d-cite key="vaswani2017attention"></d-cite>. At runtime, memory is not merely a database. It is a transient substrate for computation.
 
@@ -1054,8 +1054,8 @@ This cell covers runtime changes to the control path: the agent changes how it a
 
 This cell covers parametric or quasi-parametric adaptation during inference.
 
-- **Learning to Discover at Test Time** explores updating model behavior on the exact problem instance rather than only searching longer with frozen weights <d-cite key="tttdiscover2026"></d-cite>.
 - **In-Place Test-Time Training** studies direct updates to model parameters during inference, making deployment itself part of the learning loop <d-cite key="inplacettt2026"></d-cite>.
+- **Learning to Discover at Test Time** explores updating model behavior on the exact problem instance rather than only searching longer with frozen weights <d-cite key="tttdiscover2026"></d-cite>.
 - **TTT Layers** reinterpret sequence modeling as a learned test-time update process, where hidden states behave like expressive memory substrates <d-cite key="tttlayers2024"></d-cite>.
 - **Linear Transformers Are Secretly Fast Weight Programmers** makes the fast-weight interpretation explicit: sequence history can write temporary associations into a memory matrix <d-cite key="linearfastweights2021"></d-cite>.
 - **Transformers are RNNs** and **Mamba** show adjacent forms of recurrent state accumulation, making the boundary between context, state, and weights less clean than the standard frozen-transformer picture suggests <d-cite key="lineartransformersrnn2020,mamba2023"></d-cite>.

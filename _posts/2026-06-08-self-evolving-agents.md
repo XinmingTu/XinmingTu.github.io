@@ -808,15 +808,13 @@ The first layer is the parametric core: the model weights. This layer stores imp
 
 ### Level 2: Agent Harness
 
-The second layer is the agent harness: the scaffolding around the model that decides how it acts. It includes orchestration logic, control flow, tool runtime, and error recovery loops. This layer defines *how* the agent executes tasks and can evolve without changing model weights. A system can optimize tool-selection logic, compile repeated workflows into deterministic subroutines, or rewrite its system prompts.
-
-This is emerging as a real systems pattern rather than a purely conceptual one. Claude Code's Dynamic Workflows externalize task-specific control flow into background scripts, while systems such as OpenClaw and Hermes Agent point toward agents whose harnesses, tool surfaces, and reusable capabilities can be updated from experience rather than treated as fixed wrappers around a model <d-cite key="anthropicdynamicworkflows2026,openclawrl2026,hermesagent2026"></d-cite>. The common thread is that the plan-act-observe loop is becoming an updatable substrate: tool routing, retry policy, subagent spawning, workflow compilation, and runtime recovery can be revised rather than merely invoked.
+The second layer is the agent harness: the control flow, tool runtime, prompt policy, and orchestration logic around the model. This layer defines *how* the agent executes tasks. Instead of being a fixed software wrapper around a frozen model, the harness itself is becoming an updatable substrate. A self-evolving system can optimize its own tool-selection logic, compile repeated workflows into deterministic subroutines, or rewrite its recovery loops from experience, all without changing a single model weight.
 
 ### Level 3: External Files & State
 
-The third layer is external files and state: persistent memory stores, skill libraries, knowledge graphs, and scratchpads. Unlike traditional read-only RAG, modern external memory is structured, editable, and callable. It stores precise code snippets, error logs, user preferences, and reusable procedures.
+The third layer is external files and state: persistent memories, skill libraries, knowledge graphs, and dynamic scratchpads. Unlike traditional read-only RAG, modern external memory is structured and natively editable by the agent. It stores precise code snippets, error logs, user preferences, reusable procedures, and project-specific context.
 
-Evolution here is computationally cheap, often just CRUD operations, and offers high fidelity relative to parametric memory: a saved function, test command, or API wrapper remains precise instead of blurring into statistical memory.
+Evolution here is computationally cheap yet offers literal fidelity relative to parametric memory: a saved script, exact error log, or project convention remains precise instead of blurring into statistical memory.
 
 ### The Blurry Boundary: When Files Become Code
 
@@ -915,11 +913,11 @@ So the claim is not that a prompt literally edits the trained checkpoint. The na
 
 The second time scale is inter-session. How does an agent internalize the structural patterns of a specific user, project, or codebase over days and weeks?
 
-### Level 3: Executable Skills
+### Level 3: Persistent Memory & Skills
 
-The most practical inter-session mechanism is caching executable behaviors. **Voyager** pioneered this in simulated environments by accumulating an ever-growing library of executable skills in Minecraft, storing complex routines as code to be retrieved later <d-cite key="voyager2023"></d-cite>. Today, frameworks like **OpenHands** bring the same pattern into software engineering through persistent skill directories and installable skill lifecycles <d-cite key="openhandskills2026"></d-cite>.
+The most practical inter-session mechanism is caching both executable behaviors and structured context. **Voyager** pioneered the executable side in simulated environments by accumulating an ever-growing library of Minecraft skills, storing complex routines as code to be retrieved later <d-cite key="voyager2023"></d-cite>. Today, frameworks like **OpenHands** bring the same pattern into software engineering through persistent skill directories and installable skill lifecycles <d-cite key="openhandskills2026"></d-cite>.
 
-For a personal coding agent, this means saving an arcane project test command, storing a verified API wrapper, or locking in a strict migration recipe. The system transitions from semantic search to asset reuse. The agent simply stops paying the inference tax of rediscovering the exact same solution.
+For a personal coding agent, this means saving an arcane project test command or verified API wrapper, but it also means maintaining a project memory file such as `.cursorrules`, `CLAUDE.md`, or `AGENTS.md` that records architecture, conventions, and constraints. The system transitions from generic semantic search to precise asset reuse. The agent simply stops paying the inference tax of rediscovering the exact same context or solution twice.
 
 ### Level 2: Meta-Programming
 
@@ -932,6 +930,8 @@ This is the domain of meta-programming. **DSPy** treats language-model programs 
 At the parametric layer, inter-session evolution compresses implicit preferences - coding style, API choices, verbosity tolerance, and problem-solving habits - into parameter-efficient adapters. If a preference becomes parametric, the model no longer needs explicit instructions; it becomes instinct.
 
 This is the shift from a generic foundation model to a personalized intelligence. A static foundation model is inherently a generic, one-size-fits-all reasoner. Cross-session adapter updates let the agent specialize toward a user's recurring workflows and problem-solving habits. It ceases to just solve problems; it learns to solve them *your way*.
+
+However, while file and harness updates are already widespread in production, scalable per-user parametric adaptation remains an active systems research frontier. It complicates serving, batching, evaluation, privacy, and update governance at user scale.
 
 ## Across Users: Population-Level Evolution
 

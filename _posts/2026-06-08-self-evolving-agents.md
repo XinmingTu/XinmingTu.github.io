@@ -983,7 +983,7 @@ At the harness layer, population-scale evolution is not about optimizing one use
 
 When millions of agents fail, aggregate telemetry exposes structural bottlenecks rather than individual knowledge gaps. If ten thousand agents drift off-track on step seven of the same refactor, the root cause is rarely the base model's intelligence; it is a defect in the underlying orchestration - the default prompt, tool schema, retry policy, or control flow. So platform teams read the telemetry and wire universal fixes into the default harness: an explicit **plan mode** that anchors long-horizon tasks against context drift, an **autonomous execution loop** that lets the agent self-drive through routine continuation points, or a mandatory **test-and-verify loop** that silently runs generated code in a sandbox and repairs it until it passes before replying. Each patch ships to production and instantly raises the capability floor for every user.
 
-The automated frontier pushes this one step further: **ADAS (Automated Design of Agentic Systems)** deploys meta-agents to program, validate, and search for better control flows directly, rather than waiting for humans to spot the pattern <d-cite key="adas2024"></d-cite>. Either way, the harness stops being a static wrapper around a frozen model and becomes a continuously updating operating system.
+The next step is automation: the harness itself becomes the optimization target. Platforms search over prompts, routing graphs, tool schemas, and recovery loops, promoting variants that improve reliability, cost, or latency. The harness stops being a static wrapper around a frozen model and becomes a continuously updating operating system.
 
 ### Level 1: Checkpoint Bootstrapping Toward Self-Improvement
 
@@ -1172,7 +1172,6 @@ This cell covers shared external state - registries, knowledge banks, and artifa
 This cell covers population-level improvement to the default agent process itself.
 
 - **Platform-shipped harness defaults** turn population telemetry into upgrades baked into every agent's default harness - an explicit plan mode for long-horizon tasks, autonomous execution loops, and a mandatory test-and-verify step that sandboxes generated code before replying.
-- **ADAS** uses search over agentic system designs to discover stronger control flows <d-cite key="adas2024"></d-cite>.
 - **Darwin Gödel Machine** explores open-ended evolution of self-improving coding agents <d-cite key="dgm2025"></d-cite>.
 - **Hyperagents** make the meta-level improvement procedure itself editable, so the system searches not only for better agents but for better ways to generate better agents <d-cite key="hyperagents2026"></d-cite>.
 

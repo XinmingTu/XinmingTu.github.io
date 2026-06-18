@@ -785,11 +785,11 @@ toc:
 
 **The era of static AI agents is ending.**
 
-True intelligence should not peak at deployment only to depreciate. It must appreciate. Every interaction should create pressure for the system to adapt. We are now witnessing a fundamental shift toward dynamic, **self-evolving systems**, driven by a dual promise:
+An agent's capability should not freeze on release day. If autonomy is the goal, intelligence has to compound through execution. Every interaction should create pressure for the system to adapt. We are now witnessing a fundamental shift toward dynamic, **self-evolving systems**, driven by a dual promise:
 
 - **Motivation 1: Marginal Cost Reduction (Shrinking Costs).** Operationally, this means fewer prompt tokens, fewer tool calls, fewer retries, and less human intervention per solved task family. By compressing experience into reusable assets, the system stops paying for the same mistake twice.
 
-- **Motivation 2: Capability Ceiling Expansion (Breaking Ceilings).** Evolution unlocks zero-day tasks and enables robust **long-horizon execution**. Static agents inevitably fail at complex, multi-step goals due to compounding errors and context exhaustion. By learning to forge ad-hoc tools, cache intermediate progress, and adapt strategies at runtime, a self-evolving agent makes long-term autonomy a hard systems claim rather than a behavioral illusion.
+- **Motivation 2: Capability Ceiling Expansion (Breaking Ceilings).** Evolution helps agents handle long-tail tasks and enables robust **long-horizon execution**. Static agents tend to become brittle on complex, multi-step goals because small errors compound and context is eventually exhausted. By learning to forge ad-hoc tools, cache intermediate progress, and adapt strategies at runtime, a self-evolving agent turns long-term autonomy from a behavioral illusion into a systems claim.
 
 <figure class="self-evolving-figure tight-top medium">
   <img src="/assets/img/2026-06-08-self-evolving-agents/figure1-dual-promise.svg" alt="A chart showing self-evolving agents reducing cost per task while expanding capability over time.">
@@ -877,13 +877,13 @@ The result is a 3x3 map: three persistence horizons crossed with three update su
 <div class="evo-rowlabel"><svg class="evo-ic evo-rowicon" aria-hidden="true"><use href="#ei-row-users"></use></svg><span class="evo-rowlabel-text">Across Users</span></div>
 <div class="evo-cell evo-files"><span class="evo-cell-tag">External Files</span><svg class="evo-ic evo-cellicon" aria-hidden="true"><use href="#ei-collective"></use></svg><span class="evo-cell-title">Knowledge &amp; skill commons</span><span class="evo-cell-desc">One agent's discovery becomes a zero-shot capability for all.</span></div>
 <div class="evo-cell evo-harness"><span class="evo-cell-tag">Agent Harness</span><svg class="evo-ic evo-cellicon" aria-hidden="true"><use href="#ei-tuning"></use></svg><span class="evo-cell-title">Platform harness flywheel</span><span class="evo-cell-desc">Aggregate failures upgrade everyone's default harness.</span></div>
-<div class="evo-cell evo-weights"><span class="evo-cell-tag">Model Weights</span><svg class="evo-ic evo-cellicon" aria-hidden="true"><use href="#ei-continual"></use></svg><span class="evo-cell-title">Recursive self-improvement</span><span class="evo-cell-desc">Model N's verified traces become Model N+1's training data.</span></div>
+<div class="evo-cell evo-weights"><span class="evo-cell-tag">Model Weights</span><svg class="evo-ic evo-cellicon" aria-hidden="true"><use href="#ei-continual"></use></svg><span class="evo-cell-title">Checkpoint bootstrapping</span><span class="evo-cell-desc">Verified traces feed future model training.</span></div>
 <div class="evo-rowlabel"><svg class="evo-ic evo-rowicon" aria-hidden="true"><use href="#ei-row-sessions"></use></svg><span class="evo-rowlabel-text">Across Sessions</span></div>
 <div class="evo-cell evo-files"><span class="evo-cell-tag">External Files</span><svg class="evo-ic evo-cellicon" aria-hidden="true"><use href="#ei-skills"></use></svg><span class="evo-cell-title">Skill library &amp; memory</span><span class="evo-cell-desc">Skills, notes &amp; assets that carry across sessions.</span></div>
 <div class="evo-cell evo-harness"><span class="evo-cell-tag">Agent Harness</span><svg class="evo-ic evo-cellicon" aria-hidden="true"><use href="#ei-pharness"></use></svg><span class="evo-cell-title">Compiled domain harness</span><span class="evo-cell-desc">Prompts &amp; routing graphs compiled for a project or codebase.</span></div>
 <div class="evo-cell evo-weights"><span class="evo-cell-tag">Model Weights</span><svg class="evo-ic evo-cellicon" aria-hidden="true"><use href="#ei-sliders"></use></svg><span class="evo-cell-title">Personalized fine-tuning</span><span class="evo-cell-desc">LoRA &amp; preference adaptation for one person.</span></div>
 <div class="evo-rowlabel"><svg class="evo-ic evo-rowicon" aria-hidden="true"><use href="#ei-row-session"></use></svg><span class="evo-rowlabel-text">Single Session</span></div>
-<div class="evo-cell evo-files"><span class="evo-cell-tag">External Files</span><svg class="evo-ic evo-cellicon" aria-hidden="true"><use href="#ei-scratch"></use></svg><span class="evo-cell-title">Temporary memory</span><span class="evo-cell-desc">Runtime notes &amp; scratchpad, KV-cache-like context.</span></div>
+<div class="evo-cell evo-files"><span class="evo-cell-tag">External Files</span><svg class="evo-ic evo-cellicon" aria-hidden="true"><use href="#ei-scratch"></use></svg><span class="evo-cell-title">Temporary memory</span><span class="evo-cell-desc">Runtime notes, scratchpads &amp; retrieved context.</span></div>
 <div class="evo-cell evo-harness"><span class="evo-cell-tag">Agent Harness</span><svg class="evo-ic evo-cellicon" aria-hidden="true"><use href="#ei-dynamic"></use></svg><span class="evo-cell-title">Dynamic task adaptation</span><span class="evo-cell-desc">On-the-fly prompt or step-order adjustment.</span></div>
 <div class="evo-cell evo-weights"><span class="evo-cell-tag">Model Weights</span><svg class="evo-ic evo-cellicon" aria-hidden="true"><use href="#ei-chip"></use></svg><span class="evo-cell-title">Rare online adaptation</span><span class="evo-cell-desc">Snapshot tuning mid-run — powerful but seldom used.</span></div>
 <div class="evo-xaxis"><span class="evo-xaxis-title">What to update?</span><span class="evo-xaxis-scale"><span>cheaper &amp; shallower</span><span class="evo-xaxis-bar"></span><span>deeper &amp; costlier</span></span></div>
@@ -981,11 +981,11 @@ This turns isolated execution into **horizontal compounding** - one agent's loca
 
 At the harness layer, population-scale evolution is not about optimizing one user's workflow - that happens locally, across sessions. It is the internal **platform flywheel** that upgrades the *default* harness shipped to every deployed agent.
 
-When millions of agents fail, aggregate telemetry exposes structural bottlenecks rather than individual knowledge gaps. If ten thousand agents drift off-track on step seven of the same refactor, the root cause is rarely the base model's intelligence; it is a defect in the underlying orchestration - the default prompt, tool schema, retry policy, or control flow. So platform teams read the telemetry and wire universal fixes into the default harness: an explicit **plan mode** that anchors long-horizon tasks against context drift, an autonomous execution loop like Claude Code's **`/loop`** so the agent self-drives instead of waiting for a human to click "continue," or a mandatory **test-and-verify loop** that silently runs generated code in a sandbox and repairs it until it passes before replying. Each patch ships to production and instantly raises the capability floor for every user.
+When millions of agents fail, aggregate telemetry exposes structural bottlenecks rather than individual knowledge gaps. If ten thousand agents drift off-track on step seven of the same refactor, the root cause is rarely the base model's intelligence; it is a defect in the underlying orchestration - the default prompt, tool schema, retry policy, or control flow. So platform teams read the telemetry and wire universal fixes into the default harness: an explicit **plan mode** that anchors long-horizon tasks against context drift, an **autonomous execution loop** that lets the agent self-drive through routine continuation points, or a mandatory **test-and-verify loop** that silently runs generated code in a sandbox and repairs it until it passes before replying. Each patch ships to production and instantly raises the capability floor for every user.
 
 The automated frontier pushes this one step further: **ADAS (Automated Design of Agentic Systems)** deploys meta-agents to program, validate, and search for better control flows directly, rather than waiting for humans to spot the pattern <d-cite key="adas2024"></d-cite>. Either way, the harness stops being a static wrapper around a frozen model and becomes a continuously updating operating system.
 
-### Level 1: Recursive Self-Improvement & Foundation Bootstrapping
+### Level 1: Checkpoint Bootstrapping Toward Self-Improvement
 
 At the parametric layer, population-level evolution is rarely real-time "continual learning" - updating a massive foundation model on the fly risks catastrophic forgetting. Instead it runs as an asynchronous data flywheel: Model $N$ becomes the data engine that bootstraps Model $N+1$.
 
@@ -996,17 +996,17 @@ Rather than relying on human annotation or static web scraping, deployed agents 
 
 The paradigm shifts here: deployment stops being the *end* of the training pipeline and becomes its engine - the agent's own trial, error, and friction with reality are the fuel that forges its successor.
 
-**A note on autonomy.** This flywheel is not yet fully closed. Today agents are prolific *proposers* - of trajectories, tools, and corrections - while humans still verify and merge what gets promoted into the next checkpoint. Recursive self-improvement is the limit this loop bends toward as sandboxing and AI-driven evaluation mature, not an accomplished fact.
+**A note on autonomy.** This flywheel is not yet fully closed. Today agents are prolific *proposers* - of trajectories, tools, and corrections - while humans still verify and merge what gets promoted into the next checkpoint. Recursive self-improvement is the theoretical asymptote this loop bends toward as sandboxing and AI-driven evaluation mature, not today's baseline.
 
 ## What Is the 'Self' Here?
 
-The 3x3 matrix is built for today's engineering reality, but it hides a bias: every trigger in it is **human**. Sessions, user habits, population telemetry - the agent adapts because *we* prompt it, correct it, or accept its output. In that paradigm the system is not truly *self*-evolving; it is undergoing **human-driven adaptation**, a sponge wrung out by a steady stream of supervision. The "self" is borrowed.
+The 3x3 matrix is built for today's engineering reality, but it hides a bias: it is largely organized around a **human-facing product frame**. Sessions, user habits, population telemetry - these are the surfaces where current products observe adaptation pressure. In that paradigm, the system is undergoing **human-driven adaptation**. The "self" is still scaffolded by us.
 
 To see the first-principles shape of *true* self-evolution, hold the substrate columns fixed and re-derive the time axis from the agent's own world. A fully autonomous intelligence has no "sessions" or "users" - it has objectives, environments, and peers. The three horizons of adaptation fall out directly.
 
 <figure class="self-evolving-figure frame-shift-figure">
 <div class="evo-shift">
-<div class="evo-shift-heads"><div class="evo-shift-head evo-shift-head-from">Human frame<span>the triggers we supply</span></div><div></div><div class="evo-shift-head evo-shift-head-to">Agent frame<span>the triggers it derives</span></div></div>
+<div class="evo-shift-heads"><div class="evo-shift-head evo-shift-head-from">Product frame<span>human-facing surfaces</span></div><div></div><div class="evo-shift-head evo-shift-head-to">Agent frame<span>the triggers it derives</span></div></div>
 <div class="evo-shift-row evo-files">
 <div class="evo-shift-from"><svg class="evo-ic" aria-hidden="true"><use href="#ei-row-session"></use></svg><div><div class="evo-shift-from-name">Single Session</div><div class="evo-shift-from-sub">your prompts</div></div></div>
 <div class="evo-shift-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15"></path><path d="M13 6l6 6-6 6"></path></svg></div>
@@ -1023,12 +1023,12 @@ To see the first-principles shape of *true* self-evolution, hold the substrate c
 <div class="evo-shift-to"><div class="evo-shift-to-ic"><svg class="evo-ic" aria-hidden="true"><use href="#ei-swarm"></use></svg></div><div><div class="evo-shift-to-name">Inter-Agent <span>&middot; Swarm Horizon</span></div><div class="evo-shift-to-trigger">trigger: peer discovery &amp; self-play</div></div></div>
 </div>
 </div>
-<figcaption><strong>Figure 4.</strong> The same three horizons, re-derived from the agent's own frame of reference. The trigger for adaptation shifts from a human in the loop to the agent's environment, domain, and peers.</figcaption>
+<figcaption><strong>Figure 4.</strong> The same three horizons, re-derived from the agent's own frame of reference. The trigger for adaptation shifts from product/user interaction to the agent's environment, domain, and peers.</figcaption>
 </figure>
 
 - **Single Session $\rightarrow$ Intra-Task (the execution horizon).** Adaptation bounded by one objective. The agent hits a blocker and pages its own context (Level 3), forges an ad-hoc tool (Level 2), or nudges weights mid-inference (Level 1) - driven by *environmental feedback*, not a user prompt. When the objective closes, the horizon closes.
 - **Across Sessions $\rightarrow$ Inter-Task (the environmental horizon).** Adaptation bounded by a domain. The agent does not learn "a user's preference"; it internalizes the physics, constraints, and dependencies of an environment - a sprawling legacy codebase, a live API ecosystem - and compiles its own trial-and-error into durable abstractions.
-- **Across Users $\rightarrow$ Inter-Agent (the swarm horizon).** Adaptation distributed across a population of agents. The network effect is no longer millions of human log-ins but millions of parallel runtimes: when one node discovers a tool or a leaner routing DAG, the update is validated and propagated to the collective. Early agent-native platforms like **EinsteinArena** already run a version of this loop in the wild - autonomous agents borrowing and building on each other's results with no human in the trigger <d-cite key="einsteinarena2026"></d-cite>.
+- **Across Users $\rightarrow$ Inter-Agent (the swarm horizon).** Adaptation distributed across a population of agents. The network effect is no longer millions of human log-ins but millions of parallel runtimes: when one node discovers a tool or a leaner routing DAG, the update is validated and propagated to the collective. Early agent-native platforms like **EinsteinArena** already run a version of this loop in the wild - autonomous agents borrowing and building on each other's results without a human explicitly supplying the trigger <d-cite key="einsteinarena2026"></d-cite>.
 
 These horizons are no cleaner than the matrix's cells. An intra-task discovery can be promoted to the swarm, exactly as a throwaway script became a shared skill in the sections above; the boundaries stay porous all the way up.
 
@@ -1171,7 +1171,7 @@ This cell covers shared external state - registries, knowledge banks, and artifa
 
 This cell covers population-level improvement to the default agent process itself.
 
-- **Platform-shipped harness defaults** turn population telemetry into upgrades baked into every agent's default harness - an explicit plan mode for long-horizon tasks, autonomous execution loops (Claude Code's `/loop`), and a mandatory test-and-verify step that sandboxes generated code before replying.
+- **Platform-shipped harness defaults** turn population telemetry into upgrades baked into every agent's default harness - an explicit plan mode for long-horizon tasks, autonomous execution loops, and a mandatory test-and-verify step that sandboxes generated code before replying.
 - **ADAS** uses search over agentic system designs to discover stronger control flows <d-cite key="adas2024"></d-cite>.
 - **Darwin Gödel Machine** explores open-ended evolution of self-improving coding agents <d-cite key="dgm2025"></d-cite>.
 - **Hyperagents** make the meta-level improvement procedure itself editable, so the system searches not only for better agents but for better ways to generate better agents <d-cite key="hyperagents2026"></d-cite>.
@@ -1183,7 +1183,7 @@ This cell covers population-level improvement to the default agent process itsel
 </details>
 
 <details class="appendix-cell" markdown="1" data-when="across-users" data-layer="weights">
-<summary><span class="appendix-cell-title">Across Users / Level 1</span><span class="appendix-cell-subtitle">Recursive Self-Improvement and Checkpoint Evolution</span></summary>
+<summary><span class="appendix-cell-title">Across Users / Level 1</span><span class="appendix-cell-subtitle">Checkpoint Bootstrapping and Self-Improvement Frontier</span></summary>
 
 This cell covers model updates derived from population-scale interaction data.
 

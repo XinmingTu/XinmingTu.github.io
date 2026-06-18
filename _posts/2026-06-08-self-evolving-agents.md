@@ -704,16 +704,45 @@ _styles: |
       display: none;
     }
     d-article .evo-shift-row {
-      grid-template-columns: 1fr;
-      gap: 0.35rem;
-      justify-items: stretch;
+      grid-template-columns: 1fr auto 1.15fr;
+      gap: 0.4rem;
     }
     d-article .evo-shift-row + .evo-shift-row {
-      margin-top: 0.9rem;
+      margin-top: 0.6rem;
     }
+    d-article .evo-shift-from,
+    d-article .evo-shift-to {
+      min-width: 0;
+    }
+    d-article .evo-shift-from {
+      gap: 0.35rem;
+      padding: 0.4rem 0.45rem;
+    }
+    d-article .evo-shift-from .evo-ic {
+      width: 15px;
+      height: 15px;
+    }
+    d-article .evo-shift-from-name { font-size: 0.74rem; }
+    d-article .evo-shift-from-sub { font-size: 0.63rem; }
     d-article .evo-shift-arrow svg {
-      transform: rotate(90deg);
+      width: 15px;
+      height: 15px;
     }
+    d-article .evo-shift-to {
+      gap: 0.4rem;
+      padding: 0.42rem 0.5rem;
+    }
+    d-article .evo-shift-to-ic {
+      width: 24px;
+      height: 24px;
+      border-radius: 7px;
+    }
+    d-article .evo-shift-to-ic .evo-ic {
+      width: 15px;
+      height: 15px;
+    }
+    d-article .evo-shift-to-name { font-size: 0.76rem; }
+    d-article .evo-shift-to-trigger { font-size: 0.63rem; }
   }
 
 toc:

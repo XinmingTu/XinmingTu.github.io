@@ -846,12 +846,12 @@ The result is a 3x3 map: three persistence horizons crossed with three update su
 <div class="evo-colhead evo-weights"><span class="evo-colhead-name">Model Weights</span><span class="evo-colhead-sub">parametric memory / core</span></div>
 <div class="evo-yaxis"><span class="evo-yaxis-arrow"></span><span class="evo-yaxis-line"></span><span class="evo-yaxis-text">When to update?</span><span class="evo-yaxis-line"></span></div>
 <div class="evo-rowlabel"><svg class="evo-ic evo-rowicon" aria-hidden="true"><use href="#ei-row-users"></use></svg><span class="evo-rowlabel-text">Across Users</span></div>
-<div class="evo-cell evo-files"><span class="evo-cell-tag">External Files</span><svg class="evo-ic evo-cellicon" aria-hidden="true"><use href="#ei-collective"></use></svg><span class="evo-cell-title">Collective knowledge &amp; skills</span><span class="evo-cell-desc">One agent's discovery becomes every agent's tool.</span></div>
-<div class="evo-cell evo-harness"><span class="evo-cell-tag">Agent Harness</span><svg class="evo-ic evo-cellicon" aria-hidden="true"><use href="#ei-tuning"></use></svg><span class="evo-cell-title">Collective harness tuning</span><span class="evo-cell-desc">Pipeline gains from shared, aggregated feedback.</span></div>
-<div class="evo-cell evo-weights"><span class="evo-cell-tag">Model Weights</span><svg class="evo-ic evo-cellicon" aria-hidden="true"><use href="#ei-continual"></use></svg><span class="evo-cell-title">Continual learning</span><span class="evo-cell-desc">Foundation-model updates from the whole population.</span></div>
+<div class="evo-cell evo-files"><span class="evo-cell-tag">External Files</span><svg class="evo-ic evo-cellicon" aria-hidden="true"><use href="#ei-collective"></use></svg><span class="evo-cell-title">Knowledge &amp; skill commons</span><span class="evo-cell-desc">One agent's discovery becomes a zero-shot capability for all.</span></div>
+<div class="evo-cell evo-harness"><span class="evo-cell-tag">Agent Harness</span><svg class="evo-ic evo-cellicon" aria-hidden="true"><use href="#ei-tuning"></use></svg><span class="evo-cell-title">Platform harness flywheel</span><span class="evo-cell-desc">Aggregate failures upgrade everyone's default harness.</span></div>
+<div class="evo-cell evo-weights"><span class="evo-cell-tag">Model Weights</span><svg class="evo-ic evo-cellicon" aria-hidden="true"><use href="#ei-continual"></use></svg><span class="evo-cell-title">Recursive self-improvement</span><span class="evo-cell-desc">Model N's verified traces become Model N+1's training data.</span></div>
 <div class="evo-rowlabel"><svg class="evo-ic evo-rowicon" aria-hidden="true"><use href="#ei-row-sessions"></use></svg><span class="evo-rowlabel-text">Across Sessions</span></div>
 <div class="evo-cell evo-files"><span class="evo-cell-tag">External Files</span><svg class="evo-ic evo-cellicon" aria-hidden="true"><use href="#ei-skills"></use></svg><span class="evo-cell-title">Skill library &amp; memory</span><span class="evo-cell-desc">Skills, notes &amp; assets that carry across sessions.</span></div>
-<div class="evo-cell evo-harness"><span class="evo-cell-tag">Agent Harness</span><svg class="evo-ic evo-cellicon" aria-hidden="true"><use href="#ei-pharness"></use></svg><span class="evo-cell-title">Personalized harness</span><span class="evo-cell-desc">Workflows that adapt to one user's habits.</span></div>
+<div class="evo-cell evo-harness"><span class="evo-cell-tag">Agent Harness</span><svg class="evo-ic evo-cellicon" aria-hidden="true"><use href="#ei-pharness"></use></svg><span class="evo-cell-title">Compiled domain harness</span><span class="evo-cell-desc">Prompts &amp; routing graphs compiled for a project or codebase.</span></div>
 <div class="evo-cell evo-weights"><span class="evo-cell-tag">Model Weights</span><svg class="evo-ic evo-cellicon" aria-hidden="true"><use href="#ei-sliders"></use></svg><span class="evo-cell-title">Personalized fine-tuning</span><span class="evo-cell-desc">LoRA &amp; preference adaptation for one person.</span></div>
 <div class="evo-rowlabel"><svg class="evo-ic evo-rowicon" aria-hidden="true"><use href="#ei-row-session"></use></svg><span class="evo-rowlabel-text">Single Session</span></div>
 <div class="evo-cell evo-files"><span class="evo-cell-tag">External Files</span><svg class="evo-ic evo-cellicon" aria-hidden="true"><use href="#ei-scratch"></use></svg><span class="evo-cell-title">Temporary memory</span><span class="evo-cell-desc">Runtime notes &amp; scratchpad, KV-cache-like context.</span></div>
@@ -1121,15 +1121,15 @@ This cell covers parametric personalization over repeated interactions with one 
 </details>
 
 <details class="appendix-cell" markdown="1" data-when="across-users" data-layer="files">
-<summary><span class="appendix-cell-title">Across Users / Level 3</span><span class="appendix-cell-subtitle">Collective Knowledge Graphs and Shared Skills</span></summary>
+<summary><span class="appendix-cell-title">Across Users / Level 3</span><span class="appendix-cell-subtitle">Collective Knowledge and Skill Commons</span></summary>
 
-This cell covers external assets created from many users, agents, tasks, or environments.
+This cell covers shared external state - registries, knowledge banks, and artifact graphs - accumulated from the whole population's interactions.
 
-- **FunSearch** shows a collective program-search loop in which generated programs are evaluated, selected, and reused for further discovery <d-cite key="funsearch2023"></d-cite>.
+- **Composio** and **LlamaHub** are practical infrastructure for shared, executable tools: a wrapper or integration written once becomes an installable asset for other agents <d-cite key="composio2026,llamahub2024"></d-cite>.
 - **Agent KB** studies how cross-domain experience can be reused for agentic problem solving <d-cite key="agentkb2025"></d-cite>.
 - **ReasoningBank** collects reasoning memories to scale agent self-evolution <d-cite key="reasoningbank2025"></d-cite>.
+- **FunSearch** shows a collective program-search loop in which generated programs are evaluated, selected, and reused for further discovery <d-cite key="funsearch2023"></d-cite>.
 - **Alita-G** explores self-evolving generative agents for agent generation, making agent-building artifacts themselves part of the evolving substrate <d-cite key="alitag2025"></d-cite>.
-- **LlamaHub** and **Composio** represent practical infrastructure for shared tools and integrations <d-cite key="llamahub2024,composio2026"></d-cite>.
 
 **Mechanism:** validate and promote local discoveries into shared assets: tools, integrations, reasoning traces, API wrappers, benchmark solutions, and capability graphs.
 
@@ -1138,22 +1138,23 @@ This cell covers external assets created from many users, agents, tasks, or envi
 </details>
 
 <details class="appendix-cell" markdown="1" data-when="across-users" data-layer="harness">
-<summary><span class="appendix-cell-title">Across Users / Level 2</span><span class="appendix-cell-subtitle">Automated Harness Design</span></summary>
+<summary><span class="appendix-cell-title">Across Users / Level 2</span><span class="appendix-cell-subtitle">Platform Harness Flywheels and Automated Design</span></summary>
 
 This cell covers population-level improvement to the default agent process itself.
 
+- **Platform-shipped harness defaults** turn population telemetry into upgrades baked into every agent's default harness - an explicit plan mode for long-horizon tasks, autonomous execution loops (Claude Code's `/loop`), and a mandatory test-and-verify step that sandboxes generated code before replying.
 - **ADAS** uses search over agentic system designs to discover stronger control flows <d-cite key="adas2024"></d-cite>.
-- **Darwin Godel Machine** explores open-ended evolution of self-improving coding agents <d-cite key="dgm2025"></d-cite>.
+- **Darwin Gödel Machine** explores open-ended evolution of self-improving coding agents <d-cite key="dgm2025"></d-cite>.
 - **Hyperagents** make the meta-level improvement procedure itself editable, so the system searches not only for better agents but for better ways to generate better agents <d-cite key="hyperagents2026"></d-cite>.
 
-**Mechanism:** mine aggregate failure logs, identify structural bottlenecks in prompts/tools/workflows, and use meta-agents to propose, test, and deploy better harnesses.
+**Mechanism:** mine aggregate failure logs, identify structural bottlenecks in prompts/tools/workflows, and wire the fixes into the default harness - shipped directly by platform teams, or discovered automatically by meta-agents that propose, test, and deploy better control flows.
 
 **Caveat:** harness updates are product updates. They require regression testing, rollout controls, and auditability because one bad default policy can affect every downstream user.
 
 </details>
 
 <details class="appendix-cell" markdown="1" data-when="across-users" data-layer="weights">
-<summary><span class="appendix-cell-title">Across Users / Level 1</span><span class="appendix-cell-subtitle">Continual RL and Checkpoint Evolution</span></summary>
+<summary><span class="appendix-cell-title">Across Users / Level 1</span><span class="appendix-cell-subtitle">Recursive Self-Improvement and Checkpoint Evolution</span></summary>
 
 This cell covers model updates derived from population-scale interaction data.
 

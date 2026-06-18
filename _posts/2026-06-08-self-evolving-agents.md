@@ -937,31 +937,37 @@ However, while file and harness updates are already widespread in production, sc
 
 The third time scale is population-level. How does a system aggregate millions of isolated trajectories, failures, and human corrections to conquer the long tail of edge cases?
 
-### Level 3: Collective Knowledge Graphs
+### Level 3: Collective Knowledge & Skill Commons
 
-At the external-state layer, population-level evolution manifests as a shared ecosystem of capabilities and knowledge.
+At the external-state layer, population-level evolution builds a **collective knowledge and skill commons**.
 
-Consider how the human scientific community tackles an open problem. No single researcher derives every result from base axioms; one group proves an intermediate lemma, publishes it, and that lemma becomes a trusted tool for the next group to build upon.
+Just as human civilization scales by externalizing discoveries into shared books and libraries, a population of deployed agents draws on a common ecosystem of artifacts, hosted and curated at the platform level. This horizontal network effect splits into two halves:
 
-Self-evolving agents must replicate this dynamic, a pattern already visible in hybrid human-AI discovery. **FunSearch** used LLM-guided program search to produce new constructions and interpretable programs that researchers could inspect and build on <d-cite key="funsearch2023"></d-cite>. **EinsteinArena** pushes the same instinct from a single search loop to an open, agent-native platform where many autonomous agents share partial results and build on each other's attempts in the wild, already posting new state-of-the-art results on long-open problems <d-cite key="einsteinarena2026"></d-cite>. In the engineering space, tool ecosystems and registries such as **Composio** and **LlamaHub** are early infrastructure for the same pattern: an API wrapper, integration, or workaround created once can become an executable asset for many agents <d-cite key="composio2026,llamahub2024"></d-cite>.
+- **Factual knowledge (the "what").** Shared environmental maps, constraints, and verified schemas. As agents across the population probe the same systems and APIs, their findings accrete into global knowledge banks of dependency behavior and failure modes that any later agent can query <d-cite key="agentkb2025,reasoningbank2025"></d-cite>.
+- **Operational skills (the "how").** Executable tools and runtime procedures. When one agent wraps an undocumented API quirk into a reusable tool, it commits that script to a shared registry; the next agent retrieves it instantly, skipping the inference tax of rediscovering it by trial and error <d-cite key="composio2026,llamahub2024"></d-cite>.
 
-This transforms isolated AI systems into a collective intelligence with a real network effect. Evolution is no longer constrained by a single session's context window; it compounds horizontally. The primary bottleneck becomes trust: a global memory bank requires strict provenance and sandboxing to avoid becoming a reservoir for hallucinations or a vector for supply-chain vulnerabilities.
+This turns isolated execution into **horizontal compounding** - one agent's local discovery becomes a zero-shot capability for the entire population. The primary engineering challenge ceases to be capability and becomes **trust**: strict provenance and sandboxing to keep hallucinations and poisoned logic out of the shared commons.
 
-### Level 2: Automated Harness Design
+### Level 2: Platform-Level Harness Flywheels
 
-At the harness layer, aggregate failure logs expose structural bottlenecks. If ten thousand deployed agents fail in the exact same execution loop, the root cause is rarely the base model's capacity. It is usually a defect in the default system prompt, tool schema, retry policy, or orchestration path.
+At the harness layer, population-scale evolution is not about optimizing one user's workflow - that happens locally, across sessions. It is the internal **platform flywheel** that upgrades the *default* harness shipped to every deployed agent.
 
-**ADAS (Automated Design of Agentic Systems)** represents the frontier here: meta-agents are deployed to iteratively program, validate, and search for better agentic control flows <d-cite key="adas2024"></d-cite>. The system no longer just searches for better answers; it rewrites the process that generates the answers.
+When millions of agents fail, aggregate telemetry exposes structural bottlenecks rather than individual knowledge gaps. If ten thousand agents drift off-track on step seven of the same refactor, the root cause is rarely the base model's intelligence; it is a defect in the underlying orchestration - the default prompt, tool schema, retry policy, or control flow. So platform teams read the telemetry and wire universal fixes into the default harness: an explicit **plan mode** that anchors long-horizon tasks against context drift, an autonomous execution loop like Claude Code's **`/loop`** so the agent self-drives instead of waiting for a human to click "continue," or a mandatory **test-and-verify loop** that silently runs generated code in a sandbox and repairs it until it passes before replying. Each patch ships to production and instantly raises the capability floor for every user.
 
-### Level 1: Continual Parametric Evolution
+The automated frontier pushes this one step further: **ADAS (Automated Design of Agentic Systems)** deploys meta-agents to program, validate, and search for better control flows directly, rather than waiting for humans to spot the pattern <d-cite key="adas2024"></d-cite>. Either way, the harness stops being a static wrapper around a frozen model and becomes a continuously updating operating system.
 
-At the parametric layer, population-level evolution is continuous reinforcement learning.
+### Level 1: Recursive Self-Improvement & Foundation Bootstrapping
 
-Strictly speaking, the agent does not evolve independently of humans; rather, **it treats the human population as its environment**. Deployed systems generate an ocean of implicit supervision. Every user correction, rejected output, accepted edit, and regenerated answer acts as a reward signal.
+At the parametric layer, population-level evolution is rarely real-time "continual learning" - updating a massive foundation model on the fly risks catastrophic forgetting. Instead it runs as an asynchronous data flywheel: Model $N$ becomes the data engine that bootstraps Model $N+1$.
 
-**Cursor** is the canonical public product example of this paradigm. Its online reinforcement learning for tab autocomplete turns natural developer behavior into supervision for policy improvement <d-cite key="cursortabrl2025"></d-cite>. The paradigm shift is structural: human interaction is no longer only an offline labeling process or external evaluation step; it becomes an automated catalyst for continuous improvement.
+Rather than relying on human annotation or static web scraping, deployed agents turn every population-level interaction into evolutionary material, and the loop runs on two tracks:
 
-**A note on autonomy:** Today, population-level evolution is rarely fully autonomous. Agents act as prolific proposers of new tools and workflows, while humans still act as maintainers who verify and merge them. As automated sandboxing and AI-driven evaluation mature, this verification loop can close.
+- **Pre-training (synthetic bootstrapping).** When Agent $N$ solves a novel task that a compiler or sandbox can *verify*, its reasoning trace is harvested and folded back into the training mixture for Model $N+1$. The agent is effectively writing its own textbook.
+- **Post-training (preference & RLHF).** Here the agent treats the human population as its environment rather than its annotator: a developer interrupting it, or hand-editing its output, marks a sharp boundary of failure. Aggregated over millions of such friction points, these signals drive preference optimization (RLHF/DPO) that teaches the next generation exactly where the current one's reasoning breaks down. **Cursor** is the canonical public example - its online RL on tab autocomplete turns ordinary accept, reject, and edit behavior into reward <d-cite key="cursortabrl2025"></d-cite>.
+
+The paradigm shifts here: deployment stops being the *end* of the training pipeline and becomes its engine - the agent's own trial, error, and friction with reality are the fuel that forges its successor.
+
+**A note on autonomy.** This flywheel is not yet fully closed. Today agents are prolific *proposers* - of trajectories, tools, and corrections - while humans still verify and merge what gets promoted into the next checkpoint. Recursive self-improvement is the limit this loop bends toward as sandboxing and AI-driven evaluation mature, not an accomplished fact.
 
 ## What Is the 'Self' Here?
 
@@ -993,7 +999,7 @@ To see the first-principles shape of *true* self-evolution, hold the substrate c
 
 - **Single Session $\rightarrow$ Intra-Task (the execution horizon).** Adaptation bounded by one objective. The agent hits a blocker and pages its own context (Level 3), forges an ad-hoc tool (Level 2), or nudges weights mid-inference (Level 1) - driven by *environmental feedback*, not a user prompt. When the objective closes, the horizon closes.
 - **Across Sessions $\rightarrow$ Inter-Task (the environmental horizon).** Adaptation bounded by a domain. The agent does not learn "a user's preference"; it internalizes the physics, constraints, and dependencies of an environment - a sprawling legacy codebase, a live API ecosystem - and compiles its own trial-and-error into durable abstractions.
-- **Across Users $\rightarrow$ Inter-Agent (the swarm horizon).** Adaptation distributed across a population of agents. The network effect is no longer millions of human log-ins but millions of parallel runtimes: when one node discovers a tool or a leaner routing DAG, the update is validated and propagated to the collective. Early agent-native research platforms already run a version of this loop in the wild <d-cite key="einsteinarena2026"></d-cite>.
+- **Across Users $\rightarrow$ Inter-Agent (the swarm horizon).** Adaptation distributed across a population of agents. The network effect is no longer millions of human log-ins but millions of parallel runtimes: when one node discovers a tool or a leaner routing DAG, the update is validated and propagated to the collective. Early agent-native platforms like **EinsteinArena** already run a version of this loop in the wild - autonomous agents borrowing and building on each other's results with no human in the trigger <d-cite key="einsteinarena2026"></d-cite>.
 
 These horizons are no cleaner than the matrix's cells. An intra-task discovery can be promoted to the swarm, exactly as a throwaway script became a shared skill in the sections above; the boundaries stay porous all the way up.
 

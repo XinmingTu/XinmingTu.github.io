@@ -1,7 +1,7 @@
 ---
 layout: distill
 title: "The What & When of Self-Evolving Agents"
-description: "Work in progress: a 3x3 framework for understanding self-evolving agents across external state, harnesses, and weights."
+description: "A 3×3 framework for understanding what evolves in AI agents, when those updates persist, and where experience becomes reusable capability."
 date: 2026-06-08
 tags: ['AI', 'agents', 'deep-learning']
 
@@ -749,7 +749,7 @@ toc:
   - name: "The Dual Promise"
   - name: "What Evolves"
   - name: "Learning From Experience"
-  - name: "The 3x3 Evolution Matrix"
+  - name: "The 3×3 Evolution Matrix"
   - name: "Single Session: Online Adaptation"
   - name: "Across Sessions: Longitudinal Alignment"
   - name: "Across Users: Population-Level Evolution"
@@ -785,26 +785,28 @@ toc:
 
 **The era of static AI agents is ending.**
 
-An agent's capability should not freeze on release day; its intelligence must compound through execution. We are now witnessing a shift toward dynamic, **self-evolving systems**, driven by a dual promise:
+An agent's capability should not freeze at release. Its intelligence should compound through execution. The field is shifting toward **self-evolving systems**, driven by two promises:
 
-- **Motivation 1: Marginal Cost Reduction.** As an agent accumulates execution experience, the marginal inference cost of solving similar tasks should decrease. By compressing past experience into reusable assets, the system stops paying the "inference tax" for the same mistakes. Operationally, this means fewer prompt tokens, fewer tool calls, fewer retries, and less human intervention per task family.
+- **Motivation 1: Marginal Cost Reduction.** As an agent accumulates execution experience, similar tasks should become cheaper. Past trajectories can be compressed into reusable assets, so the system stops paying the same "inference tax" twice: fewer prompt tokens, fewer tool calls, fewer retries, and fewer human interventions per task family.
 
-- **Motivation 2: Capability Ceiling Expansion.** As the agent interacts with its environment over time, its effective capability ceiling can rise. Static agents hit a practical ceiling on long-horizon tasks as small errors compound and context is exhausted. Self-evolving systems can forge ad-hoc tools, cache intermediate progress, and adapt strategies at runtime, turning long-term autonomy from a behavioral illusion into a structural claim.
+- **Motivation 2: Capability Ceiling Expansion.** Over time, an agent should not only get cheaper; it should bring harder tasks within reach. Static agents hit a ceiling on long-horizon work: errors compound, context decays, and brittle workflows break. Self-evolving systems can forge tools, cache progress, and revise strategy at runtime. They make autonomy a property of the architecture, not just a behavior in the transcript.
 
 <figure class="self-evolving-figure tight-top medium">
   <img src="/assets/img/2026-06-08-self-evolving-agents/figure1-dual-promise.svg" alt="A chart showing self-evolving agents reducing cost per task while expanding capability over time.">
-  <figcaption><strong>Figure 1.</strong> As accumulated execution traces grow, reusable state should push marginal cost down while expanding the effective task frontier.</figcaption>
+  <figcaption><strong>Figure 1.</strong> As execution traces accumulate, reusable state should reduce marginal cost while expanding the reachable task frontier.</figcaption>
 </figure>
 
-Early systems are beginning to move beyond **stateless orchestration** toward updatable execution substrates. This does not mean every agent is self-evolving yet; it means experience is starting to be captured in places the system can reuse. But "learning" is not magic; it requires a physical substrate. To genuinely reduce costs and break capability ceilings, we must understand the architecture of this adaptation.
+Early systems are moving beyond **stateless orchestration** toward execution substrates that can be updated. This does not make every agent self-evolving. It means experience is starting to land in places the system can reuse.
+
+But "learning" is not magic. It must land somewhere.
 
 The central question is simple: **Where exactly does this evolution happen?**
 
-Recent surveys on self-evolving agents organize the field around what evolves, when it evolves, and how it evolves <d-cite key="selfevolvingsurvey2025"></d-cite>. The 3x3 matrix below is a systems-oriented version of the same instinct: it asks which structural layer is updated, and over what lifetime the update persists.
+Recent surveys organize self-evolving agents around what evolves, when it evolves, and how it evolves <d-cite key="selfevolvingsurvey2025"></d-cite>. The 3×3 matrix below takes a systems view: which layer is updated, and how long does that update persist?
 
 ## What Evolves
 
-Before discussing how an agent evolves, we need to define the architecture of an agent. In practice, an agent's cognitive state is distributed across three plastic layers.
+Before asking how an agent evolves, we need to ask what can change. In practice, an agent's adaptive state is distributed across three plastic layers.
 
 <figure class="self-evolving-figure layers-figure">
 <div class="evo-layers">
@@ -831,41 +833,45 @@ Before discussing how an agent evolves, we need to define the architecture of an
 <figcaption><strong>Figure 2.</strong> The agent is not only the model. Its plastic state spans external files, harness logic, and model weights.</figcaption>
 </figure>
 
-### Level 1: Model Weights
+A natural way to enter this structure is from the core outward: model weights, agent harness, then external files.
 
-The first layer is the parametric core: the model weights. This layer stores implicit knowledge and is updated through gradient-based learning. Parametric updates can generalize broadly across tasks, but they are computationally expensive and carry inherent risks such as catastrophic forgetting, capability regression, and costly evaluation requirements.
+### Model Weights (Layer 3)
 
-### Level 2: Agent Harness
+**Model weights** are the parametric core. They store implicit knowledge and change through training. Weight updates can generalize broadly, but they are expensive, slow to validate, and risky: a useful update can also cause forgetting, regression, or hidden behavioral drift.
 
-The second layer is the agent harness: the control flow, tool runtime, prompt policy, and orchestration logic around the model. This layer defines *how* the agent executes tasks. Instead of being a fixed software wrapper around a frozen model, the harness itself is becoming an updatable substrate. A self-evolving system can optimize its own tool-selection logic, compile repeated workflows into deterministic subroutines, or rewrite its recovery loops from experience, all without changing a single model weight.
+### Agent Harness (Layer 2)
 
-### Level 3: External Files & State
+**The agent harness** is the control layer around the model: prompts, tools, routing, recovery logic, and execution flow. It defines *how* the agent acts — what it can call, which plans it follows, how it recovers, and when it stops. Instead of being a fixed software wrapper around a frozen model, the harness itself is becoming an updatable substrate.
 
-The third layer is external files and state: persistent memories, skill libraries, knowledge graphs, and dynamic scratchpads. Unlike traditional read-only RAG, modern external memory is structured and natively editable by the agent. It stores precise code snippets, error logs, user preferences, reusable procedures, and project-specific context.
+A self-evolving system can optimize tool selection, compile repeated workflows into deterministic routines, or rewrite recovery loops from experience — without changing a single model weight.
 
-Evolution here is computationally cheap yet offers literal fidelity relative to parametric memory: a saved script, exact error log, or project convention remains precise instead of blurring into statistical memory.
+### External Files & State (Layer 1)
+
+**External files and state** are the outermost layer: persistent memories, skill libraries, knowledge graphs, and dynamic scratchpads. Unlike traditional read-only RAG, modern external memory is structured, writable, and operational. It stores code snippets, error logs, user preferences, reusable procedures, and project-specific context.
+
+Evolution at this layer is cheap, reversible, and exact. A saved script, an error log, or a project convention stays literal; it does not dissolve into statistical memory.
 
 ### The Blurry Boundary: When Files Become Code
 
-The boundary between Level 2 and Level 3 is porous. When an agent writes a Python function into a skill library, it starts as an external file (Level 3). But the moment the runtime loads that file to route future tasks, the file becomes control logic (Level 2). External memory no longer merely stores facts; it stores executable operators.
+The boundary between external state and harness logic is porous. A Python function written into a skill library begins as a file. The moment the runtime discovers it, loads it, and routes future tasks through it, that file becomes part of the harness. External memory no longer stores only facts. It stores executable operators.
 
-This file-to-code transition is a core mechanism in advanced self-evolving agents. External files are no longer passive storage; they are executable capability substrates.
+This file-to-code transition is a core mechanism in advanced self-evolving agents. **External memory becomes latent control flow.**
 
 ## Learning From Experience
 
-At its core, self-evolution reduces to a single imperative: **learning from experience**.
+At the systems level, self-evolution is not a metaphor. It is a loop: experience becomes state, and state changes future behavior.
 
-Every deployed agent leaves behind experience exhaust: successful trajectories, tool errors, rejected actions, and user corrections. A static agent flushes this signal the moment a task ends. A self-evolving agent captures that signal and hardens it into reusable state.
+Every deployed agent emits experience exhaust: successful trajectories, tool errors, rejected actions, and user corrections. A static agent flushes this signal when the task ends. A self-evolving agent captures it, filters it, and hardens it into reusable state.
 
-To map how this feedback loop operates, we project the three structural layers against three time scales of adaptation:
+To map this loop, we cross the three update substrates with three horizons of persistence:
 
-- **Single Session:** Online adaptation inside one active trajectory.
-- **Across Sessions:** Longitudinal adaptation to a specific user, project, or codebase.
-- **Across Users:** Population-level evolution derived from aggregate interactions.
+- **Single Session:** adaptation inside one live trajectory.
+- **Across Sessions:** adaptation that persists for a user, project, codebase, or environment.
+- **Across Users:** population-level adaptation from aggregate interactions.
 
-## The 3x3 Evolution Matrix
+## The 3×3 Evolution Matrix
 
-The result is a 3x3 map: three persistence horizons crossed with three update substrates.
+The result is a 3×3 map: three persistence horizons crossed with three update substrates.
 
 <figure class="self-evolving-figure matrix-figure">
 <div class="evo-matrix evo-matrix-fig">
@@ -888,121 +894,123 @@ The result is a 3x3 map: three persistence horizons crossed with three update su
 <div class="evo-cell evo-weights"><span class="evo-cell-tag">Model Weights</span><svg class="evo-ic evo-cellicon" aria-hidden="true"><use href="#ei-chip"></use></svg><span class="evo-cell-title">Rare online adaptation</span><span class="evo-cell-desc">Snapshot tuning mid-run — powerful but seldom used.</span></div>
 <div class="evo-xaxis"><span class="evo-xaxis-title">What to update?</span><span class="evo-xaxis-scale"><span>cheaper &amp; shallower</span><span class="evo-xaxis-bar"></span><span>deeper &amp; costlier</span></span></div>
 </div>
-<figcaption><strong>Figure 3.</strong> The taxonomy as a visual map: update lifetime on one axis, updated substrate on the other. An expandable version with the concrete systems behind every cell lives in the <a href="#appendix-the-complete-landscape">appendix</a>.</figcaption>
+<figcaption><strong>Figure 3.</strong> The taxonomy as a visual map: update lifetime on one axis, update substrate on the other. An expandable version with the concrete systems behind every cell lives in the <a href="#appendix-the-complete-landscape">appendix</a>.</figcaption>
 </figure>
 
-This matrix is not meant to be a rigid classification. In real systems, the cells interact. A temporary tool created in one session can become a persistent skill across sessions. A project-specific workflow can become a product default. A pattern discovered across millions of user failures can eventually become a model checkpoint.
+The matrix is a map, not a rigid classification. Real systems move across cells. A temporary tool can become a persistent skill. A project workflow can become a product default. A failure pattern across millions of users can become a checkpoint update.
 
 ## Single Session: Online Adaptation
 
-The first time scale is intra-trajectory. How does an agent use a live execution trace to correct itself on the fly?
+The first horizon is the live trajectory: adaptation before the task is over. How does an agent use the trace it is generating to correct itself while it acts?
 
-### Level 3: Working Memory and Context Paging
+### Layer 1: Working Memory and Context Paging
 
-Inside a single session, the hard case is the long-horizon task: the agent must preserve the evidence, constraints, and partial discoveries that matter while continuing to act. External files and state turn the live trace into editable working memory rather than a passive transcript.
+Inside one session, the hard case is long-horizon work. The agent must keep the right evidence, constraints, and partial discoveries alive while continuing to act. External files and state turn the live trace into editable working memory, not a passive transcript.
 
-The solution is active state management. **MemGPT** is the canonical example here, reframing the context window as constrained RAM and external memory as virtual storage <d-cite key="memgpt2023"></d-cite>. **Recursive Language Models** make a complementary move: they treat prompt context less like a flat input string and more like a temporary working artifact, something that can be split, routed, summarized, and recombined during a task <d-cite key="rlm2025"></d-cite>.
+The core mechanism is active state management. **MemGPT** is the canonical example here, reframing the context window as constrained RAM and external memory as virtual storage <d-cite key="memgpt2023"></d-cite>. **Recursive Language Models** make a complementary move: they treat prompt context less like a flat input string and more like a temporary working artifact, something that can be split, routed, summarized, and recombined during a task <d-cite key="rlm2025"></d-cite>.
 
-**The caveat: Storage is not evolution.** Simply dumping context into an external database is meaningless if lossy retrieval quietly injects causal drift into the reasoning chain. A memory system only qualifies as adaptive if it improves the efficiency frontier rather than shifting the bottleneck from context length to retrieval noise.
+**Caveat: storage is not evolution.** Dumping context into a database does not make an agent adaptive. If retrieval drops causal constraints or resurfaces irrelevant details, memory simply moves the bottleneck from context length to retrieval noise.
 
-### Level 2: Dynamic Orchestration
+### Layer 2: Dynamic Orchestration
 
 At the harness layer, the agent rewires its execution plan at runtime.
 
-A static workflow dictates: *Call Tool A $\rightarrow$ Call Tool B $\rightarrow$ Summarize*.
+A static workflow says: *call A → call B → summarize*.
 
-A dynamic workflow adapts: *Tool A failed twice $\rightarrow$ inject a diagnostic node; the API wrapper is missing $\rightarrow$ synthesize a temporary function and mount it into the execution DAG.*
+A dynamic workflow adapts: *A failed twice → insert diagnosis; the wrapper is missing → synthesize one; the task branches → fan out*.
 
-**Claude Code's Dynamic Workflows** make this literal: the execution plan leaves the conversation entirely. Claude writes a JavaScript orchestration script, and a separate runtime executes it in the background across subagents <d-cite key="anthropicdynamicworkflows2026"></d-cite>. The control flow - loops, branching, fan-out, error handling, resumability, and intermediate state - is compiled dynamically for that specific task.
+**Claude Code's Dynamic Workflows** make this literal: the execution plan leaves the conversation. Claude writes a JavaScript orchestration script, and a separate runtime executes it in the background across subagents <d-cite key="anthropicdynamicworkflows2026"></d-cite>. Loops, branches, fan-out, error handling, resumability, and intermediate state are compiled for the task itself.
 
-The generated script may be temporary, but for that session, the agent has fundamentally expanded its own action space.
+The script may be temporary, but within that session the agent has expanded its own action space.
 
-### Level 1: Test-Time Training
+### Layer 3: Test-Time Training
 
-The most aggressive online adaptation modifies the model itself during inference. In-Place Test-Time Training shows the core idea for LLMs: instead of relying only on frozen inference, the system updates a small set of fast weights using the current context stream <d-cite key="inplacettt2026"></d-cite>.
+The most aggressive online adaptation modifies the model itself during inference. In-Place Test-Time Training shows the core idea for LLMs: instead of relying on frozen inference alone, the system updates fast weights from the current context stream <d-cite key="inplacettt2026"></d-cite>.
 
-This is still a training/deployment pipeline, not the disappearance of training. The boundary becomes update-bearing: deployment can contain local learning loops. TTT is the upper edge of self-evolution because the agent does not just remember a discovery. It alters the machinery that generates discoveries.
+This does not eliminate training; it moves part of the learning loop into deployment. The boundary becomes update-bearing: deployment can contain local learning loops. TTT is the upper edge of online self-evolution: the agent does not merely remember a discovery; it alters the machinery that will generate the next one.
 
-This exposes a deeper mathematical reality: the boundary between external context (Level 3) and parametric weights (Level 1) is porous. When external memory enters the prompt, the model does not merely read text; each token is projected into key/value vectors and stored in the KV cache for later tokens to attend to. In standard attention, $\text{Attention}(Q, K, V) = \text{softmax}(QK^T / \sqrt{d_k})V$; appending experience changes the active $K$ and $V$ set even if the trained weights stay fixed <d-cite key="vaswani2017attention"></d-cite>. At runtime, memory is not merely a database. It is a transient substrate for computation.
+This exposes a deeper boundary problem: context and weights are less separate than the taxonomy suggests. Context does not edit the checkpoint, but it does become computation. Once retrieved tokens are projected into the KV cache, they shape future attention. Runtime memory is therefore not just text the model reads; it is transient state the model computes over.
 
 <details class="evo-aside" markdown="1">
 <summary>Technical aside: context, KV cache, and weights</summary>
 <div class="evo-aside-body" markdown="1">
 
-- **Context** is the symbolic input surface: prompt text, retrieved documents, scratchpad notes, code snippets, and prior turns.
-- **KV cache** is the runtime activation state created from that context. The model's fixed weights project each context token into key and value vectors; future query vectors attend over those cached vectors. This is why adding a memory paragraph is not just adding text. It changes the tensor state that subsequent computation reads from.
-- **Model weights** are durable parameters learned across training. Test-time training changes these parameters directly or changes weight-like internal state. By contrast, ordinary context only creates temporary activations. The boundary becomes blurry because fast-weight and linear-attention interpretations show that accumulated sequence state can behave like a short-lived memory matrix <d-cite key="lineartransformersrnn2020,linearfastweights2021"></d-cite>.
+- **Context** is the symbolic surface: prompt text, retrieved documents, scratchpad notes, code snippets, and prior turns.
+- **KV cache** is the runtime activation state created from that context. The model's fixed weights project each context token into key and value vectors; future query vectors attend over those cached vectors. In standard attention, $\text{Attention}(Q, K, V) = \text{softmax}(QK^T / \sqrt{d_k})V$; appending experience changes the active $K$ and $V$ set even if the trained weights stay fixed <d-cite key="vaswani2017attention"></d-cite>. This is why adding a memory paragraph is not just adding text. It changes the tensor state that subsequent computation reads from.
+- **Model weights** are durable parameters learned across training. Test-time training changes these parameters directly or changes weight-like internal state. By contrast, ordinary context only creates temporary activations. The boundary blurs because fast-weight and linear-attention interpretations show that accumulated sequence state can behave like a short-lived memory matrix <d-cite key="lineartransformersrnn2020,linearfastweights2021"></d-cite>.
 
-So the claim is not that a prompt literally edits the trained checkpoint. The narrower claim is that context becomes operational state inside the forward pass, and that state can function as a transient, computation-shaping memory.
+So the claim is not that a prompt literally edits the trained checkpoint. The narrower claim is that context becomes operational state inside the forward pass — a transient memory that shapes computation.
 
 </div>
 </details>
 
 ## Across Sessions: Longitudinal Alignment
 
-The second time scale is inter-session. How does an agent internalize the structural patterns of a specific user, project, or codebase over days and weeks?
+The second horizon is longitudinal: adaptation that survives the current task. How does an agent internalize the recurring structure of a user, project, codebase, or environment?
 
-### Level 3: Persistent Memory & Skills
+### Layer 1: Persistent Memory & Skills
 
-The most practical inter-session mechanism is caching both executable behaviors and structured context. **Voyager** pioneered the executable side in simulated environments by accumulating an ever-growing library of Minecraft skills, storing complex routines as code to be retrieved later <d-cite key="voyager2023"></d-cite>. Today, frameworks like **OpenHands** bring the same pattern into software engineering through persistent skill directories and installable skill lifecycles <d-cite key="openhandskills2026"></d-cite>. **OpenAI Codex Record & Replay** turns the same mechanism into a product workflow: the user demonstrates a repetitive or preference-heavy workflow once, and Codex converts that demonstration into a reusable skill <d-cite key="openaicodexrecordreplay2026"></d-cite>.
+The most practical cross-session mechanism is simple: save what was expensive to rediscover. That includes executable behavior and structured context. **Voyager** showed the executable side by accumulating Minecraft skills as reusable code <d-cite key="voyager2023"></d-cite>. **OpenHands** brings the same pattern into software engineering through persistent skill directories <d-cite key="openhandskills2026"></d-cite>. **OpenAI Codex Record & Replay** turns demonstration into a product interface: show a workflow once, then reuse it as a skill <d-cite key="openaicodexrecordreplay2026"></d-cite>.
 
-For a personal coding agent, this means saving an arcane project test command or verified API wrapper, but it also means maintaining a project memory file such as `.cursorrules`, `CLAUDE.md`, or `AGENTS.md` that records architecture, conventions, and constraints. The system transitions from generic semantic search to precise asset reuse. The agent simply stops paying the inference tax of rediscovering the exact same context or solution twice.
+For a personal coding agent, this means saving an arcane project test command or verified API wrapper, but it also means maintaining a project memory file such as `.cursorrules`, `CLAUDE.md`, or `AGENTS.md` that records architecture, conventions, and constraints. The system transitions from generic semantic search to precise asset reuse. The agent stops paying the inference tax of rediscovering the same command, convention, wrapper, or solution twice.
 
-### Level 2: Meta-Programming
+### Layer 2: Meta-Programming
 
-When an agent repeatedly solves the same class of problems, it should not reconstruct its execution plan from scratch. High-performing historical trajectories must be mined to optimize the harness itself.
+When an agent repeatedly solves the same class of problems, it should not reconstruct its execution plan from scratch. High-performing trajectories can be mined to optimize the harness itself.
 
-This is the domain of meta-programming. **DSPy** treats language-model programs as optimizable computational graphs, tuning instructions, few-shot demonstrations, and routing rules against an evaluation metric <d-cite key="dspy2023"></d-cite>. The mechanism here is structural: a bloated, verbose explicit context collapses into a lean, project-specific DAG (Directed Acyclic Graph).
+This is meta-programming at the harness layer. **DSPy** treats language-model programs as optimizable computational graphs, tuning instructions, few-shot demonstrations, and routing rules against an evaluation metric <d-cite key="dspy2023"></d-cite>. The structural move is compression: repeated prompt-level reasoning collapses into a lean, project-specific DAG (Directed Acyclic Graph).
 
-### Level 1: Personal Adapters
+### Layer 3: Personal Adapters
 
-At the parametric layer, inter-session evolution compresses implicit preferences - coding style, API choices, verbosity tolerance, and problem-solving habits - into parameter-efficient adapters. If a preference becomes parametric, the model no longer needs explicit instructions; it becomes instinct.
+At the parametric layer, cross-session evolution compresses stable preferences into adapters: coding style, API choices, verbosity tolerance, debugging habits. If a preference becomes parametric, the model no longer needs explicit instructions; it becomes instinct.
 
-This is the shift from a generic foundation model to a personalized intelligence. A static foundation model is inherently a generic, one-size-fits-all reasoner. Cross-session adapter updates let the agent specialize toward a user's recurring workflows and problem-solving habits. It ceases to just solve problems; it learns to solve them *your way*.
+This is the shift from a generic foundation model toward personalized behavior. A static foundation model is inherently a generic, one-size-fits-all reasoner. Cross-session adapter updates let the agent specialize toward a user's recurring workflows and problem-solving habits. It ceases to just solve problems; it learns to solve them *your way*.
 
-However, while file and harness updates are already widespread in production, scalable per-user parametric adaptation remains an active systems research frontier. It complicates serving, batching, evaluation, privacy, and update governance at user scale.
+File and harness updates are already practical. Scalable per-user parametric adaptation is not: it complicates serving, batching, evaluation, privacy, and update governance.
 
 ## Across Users: Population-Level Evolution
 
-The third time scale is population-level. How does a system aggregate millions of isolated trajectories, failures, and human corrections to conquer the long tail of edge cases?
+The third horizon is population-level. How does a system aggregate millions of trajectories, failures, and corrections into a better default?
 
-### Level 3: Collective Knowledge & Skill Commons
+### Layer 1: Collective Knowledge & Skill Commons
 
 At the external-state layer, population-level evolution builds a **collective knowledge and skill commons**.
 
-Just as human civilization scales by externalizing discoveries into shared books and libraries, a population of deployed agents draws on a common ecosystem of artifacts, hosted and curated at the platform level. This horizontal network effect splits into two halves:
+Human civilization scales by externalizing discovery into books, libraries, protocols, and tools. Agent populations can do the same: local discoveries become shared artifacts. The commons has two sides:
 
-- **Factual knowledge (the "what").** Shared environmental maps, constraints, and verified schemas. As agents across the population probe the same systems and APIs, their findings accrete into global knowledge banks of dependency behavior and failure modes that any later agent can query <d-cite key="agentkb2025,reasoningbank2025"></d-cite>.
-- **Operational skills (the "how").** Executable tools and runtime procedures. When one agent wraps an undocumented API quirk into a reusable tool, it commits that script to a shared registry; the next agent retrieves it instantly, skipping the inference tax of rediscovering it by trial and error <d-cite key="composio2026,llamahub2024"></d-cite>.
+- **Factual knowledge (the "what").** Shared maps of the environment: constraints, schemas, dependency behavior, and failure modes. As agents across the population probe the same systems and APIs, their findings accrete into global knowledge banks that any later agent can query <d-cite key="agentkb2025,reasoningbank2025"></d-cite>.
+- **Operational skills (the "how").** Shared ways to act: executable tools, wrappers, runtime procedures, and repair recipes. When one agent wraps an undocumented API quirk into a reusable tool, it commits that script to a shared registry; the next agent retrieves it instantly, skipping the inference tax of rediscovering it by trial and error <d-cite key="composio2026,llamahub2024"></d-cite>.
 
-This turns isolated execution into **horizontal compounding** - one agent's local discovery becomes a zero-shot capability for the entire population. The primary engineering challenge ceases to be capability and becomes **trust**: strict provenance and sandboxing to keep hallucinations and poisoned logic out of the shared commons.
+This turns isolated execution into **horizontal compounding** - one agent's local discovery becomes a zero-shot capability for the entire population. At this layer, the bottleneck shifts from capability to **trust**: provenance, sandboxing, validation, and defenses against poisoned logic.
 
-### Level 2: Platform-Level Harness Flywheels
+### Layer 2: Platform-Level Harness Flywheels
 
-At the harness layer, population-scale evolution is not about optimizing one user's workflow - that happens locally, across sessions. It is the internal **platform flywheel** that upgrades the *default* harness shipped to every deployed agent.
+At the harness layer, population-scale evolution is not about one user's workflow. That happens locally, across sessions. Here the target is the **platform flywheel**: the default harness shipped to every deployed agent.
 
-When millions of agents fail, aggregate telemetry exposes structural bottlenecks rather than individual knowledge gaps. If ten thousand agents drift off-track on step seven of the same refactor, the root cause is rarely the base model's intelligence; it is a defect in the underlying orchestration - the default prompt, tool schema, retry policy, or control flow. So platform teams read the telemetry and wire universal fixes into the default harness: an explicit **plan mode** that anchors long-horizon tasks against context drift, an **autonomous execution loop** that lets the agent self-drive through routine continuation points, or a mandatory **test-and-verify loop** that silently runs generated code in a sandbox and repairs it until it passes before replying. Each patch ships to production and instantly raises the capability floor for every user.
+When millions of agents fail, aggregate telemetry exposes structural bottlenecks rather than individual knowledge gaps. If ten thousand agents drift off-track on step seven of the same refactor, the root cause is rarely the base model's intelligence; it is a defect in the underlying orchestration - the default prompt, tool schema, retry policy, or control flow.
+
+Platform teams can then wire universal fixes into the default harness. A **plan mode** anchors long-horizon tasks against context drift. An **autonomous execution loop** handles routine continuation. A **test-and-verify loop** runs generated code in a sandbox and repairs it before the agent replies. Each patch ships to production and raises the capability floor for every user.
 
 The next step is automation: the harness itself becomes the optimization target. Platforms search over prompts, routing graphs, tool schemas, and recovery loops, promoting variants that improve reliability, cost, or latency. The harness stops being a static wrapper around a frozen model and becomes a continuously updating operating system.
 
-### Level 1: Checkpoint Bootstrapping Toward Self-Improvement
+### Layer 3: Checkpoint Bootstrapping Toward Self-Improvement
 
-At the parametric layer, population-level evolution is rarely real-time "continual learning" - updating a massive foundation model on the fly risks catastrophic forgetting. Instead it runs as an asynchronous data flywheel: Model $N$ becomes the data engine that bootstraps Model $N+1$.
+At the parametric layer, population-level evolution is rarely real-time continual learning. Updating a massive foundation model on the fly risks catastrophic forgetting. Instead, it runs as an asynchronous data flywheel: Model $N$ becomes the data engine that bootstraps Model $N+1$.
 
-Rather than relying on human annotation or static web scraping, deployed agents turn every population-level interaction into evolutionary material, and the loop runs on two tracks:
+Rather than relying on human annotation or static web scraping, deployed agents turn population-level interaction into training signal, and the loop runs on two tracks:
 
 - **Pre-training (synthetic bootstrapping).** When Agent $N$ solves a novel task that a compiler or sandbox can *verify*, its reasoning trace is harvested and folded back into the training mixture for Model $N+1$. The agent is effectively writing its own textbook.
 - **Post-training (preference & RLHF).** Here the agent treats the human population as its environment rather than its annotator: a developer interrupting it, or hand-editing its output, marks a sharp boundary of failure. Aggregated over millions of such friction points, these signals drive preference optimization (RLHF/DPO) that teaches the next generation exactly where the current one's reasoning breaks down. **Cursor** is the canonical public example - its online RL on tab autocomplete turns ordinary accept, reject, and edit behavior into reward <d-cite key="cursortabrl2025"></d-cite>.
 
-The paradigm shifts here: deployment stops being the *end* of the training pipeline and becomes its engine - the agent's own trial, error, and friction with reality are the fuel that forges its successor.
+The paradigm shift is simple: deployment stops being the *end* of the training pipeline and becomes its engine. The agent's trial, error, and friction with reality train its successor.
 
-**A note on autonomy.** This flywheel is not yet fully closed. Today agents are prolific *proposers* - of trajectories, tools, and corrections - while humans still verify and merge what gets promoted into the next checkpoint. Recursive self-improvement is the theoretical asymptote this loop bends toward as sandboxing and AI-driven evaluation mature, not today's baseline.
+**A note on autonomy.** This flywheel is not yet fully closed. Today, agents are prolific *proposers* — of trajectories, tools, and corrections — while humans still verify what gets promoted into the next checkpoint. Recursive self-improvement is the asymptote this loop bends toward as sandboxing and AI-driven evaluation mature. It is not today's baseline.
 
 ## What Is the 'Self' Here?
 
-The 3x3 matrix is built for today's engineering reality, but it hides a bias: it is largely organized around a **human-facing product frame**. Sessions, user habits, population telemetry - these are the surfaces where current products observe adaptation pressure. In that paradigm, the system is undergoing **human-driven adaptation**. The "self" is still scaffolded by us.
+The 3×3 matrix fits today's engineering reality, but it hides a bias: it is organized around the **human-facing product frame**. Sessions, user habits, and population telemetry are the surfaces where current products observe adaptation pressure. In that paradigm, the system adapts, but the adaptation pressure still comes from humans. The "self" is scaffolded by us.
 
-To see the first-principles shape of *true* self-evolution, hold the substrate columns fixed and re-derive the time axis from the agent's own world. A fully autonomous intelligence has no "sessions" or "users" - it has objectives, environments, and peers. The three horizons of adaptation fall out directly.
+To see the first-principles shape of *true* self-evolution, keep the substrate columns fixed and re-derive the time axis from the agent's world. A fully autonomous intelligence has no "sessions" or "users" - it has objectives, environments, and peers. The three horizons follow directly.
 
 <figure class="self-evolving-figure frame-shift-figure">
 <div class="evo-shift">
@@ -1023,35 +1031,35 @@ To see the first-principles shape of *true* self-evolution, hold the substrate c
 <div class="evo-shift-to"><div class="evo-shift-to-ic"><svg class="evo-ic" aria-hidden="true"><use href="#ei-swarm"></use></svg></div><div><div class="evo-shift-to-name">Inter-Agent <span>&middot; Swarm Horizon</span></div><div class="evo-shift-to-trigger">trigger: peer discovery &amp; self-play</div></div></div>
 </div>
 </div>
-<figcaption><strong>Figure 4.</strong> The same three horizons, re-derived from the agent's own frame of reference. The trigger for adaptation shifts from product/user interaction to the agent's environment, domain, and peers.</figcaption>
+<figcaption><strong>Figure 4.</strong> The same three horizons, re-derived from the agent's frame of reference. The trigger for adaptation shifts from user interaction to environment, domain, and peers.</figcaption>
 </figure>
 
-- **Single Session $\rightarrow$ Intra-Task (the execution horizon).** Adaptation bounded by one objective. The agent hits a blocker and pages its own context (Level 3), forges an ad-hoc tool (Level 2), or nudges weights mid-inference (Level 1) - driven by *environmental feedback*, not a user prompt. When the objective closes, the horizon closes.
-- **Across Sessions $\rightarrow$ Inter-Task (the environmental horizon).** Adaptation bounded by a domain. The agent does not learn "a user's preference"; it internalizes the physics, constraints, and dependencies of an environment - a sprawling legacy codebase, a live API ecosystem - and compiles its own trial-and-error into durable abstractions.
-- **Across Users $\rightarrow$ Inter-Agent (the swarm horizon).** Adaptation distributed across a population of agents. The network effect is no longer millions of human log-ins but millions of parallel runtimes: when one node discovers a tool or a leaner routing DAG, the update is validated and propagated to the collective. Early agent-native platforms like **EinsteinArena** already run a version of this loop in the wild - autonomous agents borrowing and building on each other's results without a human explicitly supplying the trigger <d-cite key="einsteinarena2026"></d-cite>.
+- **Single Session → Intra-Task.** Adaptation bounded by one objective. The trigger is environmental feedback: a failed test, a blocked API call, a contradiction in the trace. The agent pages context, forges a tool, or nudges fast state while the objective is still open. When the objective closes, the horizon closes.
+- **Across Sessions → Inter-Task.** Adaptation bounded by a domain. The agent no longer learns "a user preference." It learns the physics of an environment: the constraints of a legacy codebase, the failure modes of an API, the dependencies of a live system. Trial and error become durable abstractions.
+- **Across Users → Inter-Agent.** Adaptation distributed across a population of agents. The network effect is no longer millions of human log-ins but millions of parallel runtimes. When one node discovers a tool or a leaner routing DAG, the update is validated and propagated to the collective. Early agent-native platforms like **EinsteinArena** already run a version of this loop in the wild - autonomous agents borrowing and building on each other's results without a human explicitly supplying the trigger <d-cite key="einsteinarena2026"></d-cite>.
 
-These horizons are no cleaner than the matrix's cells. An intra-task discovery can be promoted to the swarm, exactly as a throwaway script became a shared skill in the sections above; the boundaries stay porous all the way up.
+These horizons are no cleaner than the matrix cells. An intra-task discovery can be promoted to the swarm, just as a throwaway script can become a shared skill. The boundaries stay porous all the way up.
 
-Structuring evolution around human users is how we must build today. But it is strictly transitional. As long as human interaction remains the primary environment that forces an AI to adapt, our typing speed, comprehension limits, and sleep schedules stay the hard ceiling on its capability. The true inflection point arrives when the human leaves the critical loop, and the driver of evolution becomes **open-ended exploration** - self-play where the problem admits an opponent, generate-and-test where it does not.
+Structuring evolution around human users is how we must build today. But it is strictly transitional. As long as human interaction remains the primary environment that forces an AI to adapt, our typing speed, evaluation bandwidth, and attention span remain the ceiling. The true inflection point arrives when humans leave the critical loop and the driver of evolution becomes **open-ended exploration**: self-play where the problem admits an opponent, generate-and-test where it does not.
 
-Imagine a network of autonomous agents set loose on an unsolved physics problem or the design of a next-generation operating system. They generate synthetic hypotheses, build their own sandboxes to test them, and distribute what survives - executable tools, optimized reasoning pathways, or weight updates - across a global collective intelligence. Their experience compounds at the speed of compute, not the speed of human typing.
+Imagine a network of autonomous agents working on an unsolved physics problem or a next-generation operating system. They generate hypotheses, build sandboxes to test them, and distribute what survives — tools, reasoning pathways, or weight updates — across a global collective intelligence. Their experience compounds at the speed of compute, not the speed of human typing.
 
-By architecting systems that can rewrite their own external state, cognitive harness, and parametric core, we stop engineering smarter Copilots. We begin laying the structural foundation for an intelligence that can finally evolve *itself*.
+By giving agents writable external state, editable harnesses, and eventually updatable weights, we stop building merely smarter copilots. We begin building the substrate for intelligence that can evolve itself.
 
 ## Appendix: The Complete Landscape
 
-The main essay keeps one or two anchor examples per cell. This appendix restores the broader map: the same 3x3 matrix, but with more systems, mechanisms, and caveats.
+The main essay keeps one or two anchor examples per cell. This appendix restores the broader map: the same 3×3 matrix, expanded with more systems, mechanisms, and caveats.
 
-The placement rule is simple: if an example changes the reader's understanding of the core mechanism, it belongs in the main text; if it primarily broadens coverage, it belongs here. Several systems also cut across cells:
+The placement rule is simple: if an example changes the reader's understanding of the core mechanism, it belongs in the main text; if it primarily broadens coverage, it belongs here. Several patterns also cut across cells:
 
-- **External state becoming harness:** skills begin as files, but become control logic once the runtime discovers, loads, and routes through them. Anthropic Agent Skills, OpenHands skills, and Memento-Skills all sit on this boundary <d-cite key="anthropicagentskills2026,openhandskills2026,mementoskills2026"></d-cite>.
+- **External state becoming harness:** skills begin as files, but become control logic once the runtime discovers them, loads them, and routes through them. Anthropic Agent Skills, OpenHands skills, and Memento-Skills all sit on this boundary <d-cite key="anthropicagentskills2026,openhandskills2026,mementoskills2026"></d-cite>.
 - **External state becoming transient parameters:** retrieved context is not just "read" by the model; it becomes key-value tensors in the active computation. Linear attention and fast-weight interpretations make this boundary especially explicit <d-cite key="lineartransformersrnn2020,linearfastweights2021"></d-cite>.
-- **Local discoveries becoming global defaults:** a temporary script can become a user skill, a user skill can become a shared registry asset, and a repeated population-level failure can become a harness or checkpoint update.
+- **Local discoveries becoming global defaults:** a temporary script can become a user skill; a user skill can become a shared registry asset; a repeated failure can become a harness or checkpoint update.
 
 The grid below is the same map as Figure 3, now expandable: open any cell for the concrete systems, mechanisms, and caveats behind that part of the matrix.
 
 <details class="appendix-cell" markdown="1" data-when="single-session" data-layer="files">
-<summary><span class="appendix-cell-title">Single Session / Level 3</span><span class="appendix-cell-subtitle">Working Memory and Context Paging</span></summary>
+<summary><span class="appendix-cell-title">Single Session / Layer 1</span><span class="appendix-cell-subtitle">Working Memory and Context Paging</span></summary>
 
 This cell covers state that is created, compressed, retrieved, or discarded inside one active trajectory.
 
@@ -1068,13 +1076,13 @@ This cell covers state that is created, compressed, retrieved, or discarded insi
 </details>
 
 <details class="appendix-cell" markdown="1" data-when="single-session" data-layer="harness">
-<summary><span class="appendix-cell-title">Single Session / Level 2</span><span class="appendix-cell-subtitle">Dynamic Orchestration and Ad-Hoc Tools</span></summary>
+<summary><span class="appendix-cell-title">Single Session / Layer 2</span><span class="appendix-cell-subtitle">Dynamic Orchestration and Ad-Hoc Tools</span></summary>
 
 This cell covers runtime changes to the control path: the agent changes how it acts before the current task is over.
 
 - **Claude Code Dynamic Workflows** move orchestration from the chat transcript into a JavaScript script executed by a separate workflow runtime, allowing loops, branching, subagent fan-out, resumability, and intermediate variables to live outside the model context <d-cite key="anthropicdynamicworkflows2026"></d-cite>.
 - **Large Language Models as Tool Makers** is a boundary case: tool making can begin inside a task, while cached tool APIs make the generated functionality reusable across later requests <d-cite key="latm2023"></d-cite>.
-- **Recursive Language Models** blur Level 2 and Level 3 by using recursive subcalls over context snippets as a control strategy for manipulating external context <d-cite key="rlm2025"></d-cite>.
+- **Recursive Language Models** blur Layers 1 and 2 by using recursive subcalls over context snippets as a control strategy for manipulating external context <d-cite key="rlm2025"></d-cite>.
 
 **Mechanism:** turn the live trace into executable control state: scripts, temporary tools, diagnostic branches, repair loops, and subagent coordination plans.
 
@@ -1083,7 +1091,7 @@ This cell covers runtime changes to the control path: the agent changes how it a
 </details>
 
 <details class="appendix-cell" markdown="1" data-when="single-session" data-layer="weights">
-<summary><span class="appendix-cell-title">Single Session / Level 1</span><span class="appendix-cell-subtitle">Test-Time Training and Fast Weights</span></summary>
+<summary><span class="appendix-cell-title">Single Session / Layer 3</span><span class="appendix-cell-subtitle">Test-Time Training and Fast Weights</span></summary>
 
 This cell covers parametric or quasi-parametric adaptation during inference.
 
@@ -1101,7 +1109,7 @@ This cell covers parametric or quasi-parametric adaptation during inference.
 </details>
 
 <details class="appendix-cell" markdown="1" data-when="across-sessions" data-layer="files">
-<summary><span class="appendix-cell-title">Across Sessions / Level 3</span><span class="appendix-cell-subtitle">Persistent Skills and User Memory</span></summary>
+<summary><span class="appendix-cell-title">Across Sessions / Layer 1</span><span class="appendix-cell-subtitle">Persistent Skills and User Memory</span></summary>
 
 This cell covers state that survives across sessions for one user, project, codebase, or environment.
 
@@ -1120,7 +1128,7 @@ This cell covers state that survives across sessions for one user, project, code
 </details>
 
 <details class="appendix-cell" markdown="1" data-when="across-sessions" data-layer="harness">
-<summary><span class="appendix-cell-title">Across Sessions / Level 2</span><span class="appendix-cell-subtitle">Meta-Programming and Workflow Optimization</span></summary>
+<summary><span class="appendix-cell-title">Across Sessions / Layer 2</span><span class="appendix-cell-subtitle">Meta-Programming and Workflow Optimization</span></summary>
 
 This cell covers changes to the user's or project's recurring execution graph.
 
@@ -1137,7 +1145,7 @@ DSPy and MIPRO stay in this cell when the optimizer is run against a project or 
 </details>
 
 <details class="appendix-cell" markdown="1" data-when="across-sessions" data-layer="weights">
-<summary><span class="appendix-cell-title">Across Sessions / Level 1</span><span class="appendix-cell-subtitle">Personal Adapters and Preference Alignment</span></summary>
+<summary><span class="appendix-cell-title">Across Sessions / Layer 3</span><span class="appendix-cell-subtitle">Personal Adapters and Preference Alignment</span></summary>
 
 This cell covers parametric personalization over repeated interactions with one user or organization.
 
@@ -1153,7 +1161,7 @@ This cell covers parametric personalization over repeated interactions with one 
 </details>
 
 <details class="appendix-cell" markdown="1" data-when="across-users" data-layer="files">
-<summary><span class="appendix-cell-title">Across Users / Level 3</span><span class="appendix-cell-subtitle">Collective Knowledge and Skill Commons</span></summary>
+<summary><span class="appendix-cell-title">Across Users / Layer 1</span><span class="appendix-cell-subtitle">Collective Knowledge and Skill Commons</span></summary>
 
 This cell covers shared external state - registries, knowledge banks, and artifact graphs - accumulated from the whole population's interactions.
 
@@ -1172,12 +1180,12 @@ FunSearch and AlphaEvolve are treated here as evolving program-artifact stores, 
 </details>
 
 <details class="appendix-cell" markdown="1" data-when="across-users" data-layer="harness">
-<summary><span class="appendix-cell-title">Across Users / Level 2</span><span class="appendix-cell-subtitle">Platform Harness Flywheels and Automated Design</span></summary>
+<summary><span class="appendix-cell-title">Across Users / Layer 2</span><span class="appendix-cell-subtitle">Platform Harness Flywheels and Automated Design</span></summary>
 
 This cell covers population-level improvement to the default agent process itself, plus automated search over agent code and harnesses that can later become defaults.
 
 - **Platform-shipped harness defaults** can turn population telemetry into upgrades baked into every agent's default harness: explicit planning for long-horizon tasks, autonomous execution loops, and test-and-verify steps that sandbox generated code before replying.
-- **Alita-G** sits on the L2/L3 boundary: it turns successful trajectories into curated MCP tools, then uses retrieval-augmented tool selection to instantiate stronger domain agents <d-cite key="alitag2025"></d-cite>.
+- **Alita-G** sits on the Layer 1/2 boundary: it turns successful trajectories into curated MCP tools, then uses retrieval-augmented tool selection to instantiate stronger domain agents <d-cite key="alitag2025"></d-cite>.
 - **Darwin Gödel Machine** explores open-ended evolution of self-improving coding agents <d-cite key="dgm2025"></d-cite>.
 - **Hyperagents** make the meta-level improvement procedure itself editable, so the system searches not only for better agents but for better ways to generate better agents <d-cite key="hyperagents2026"></d-cite>.
 
@@ -1188,7 +1196,7 @@ This cell covers population-level improvement to the default agent process itsel
 </details>
 
 <details class="appendix-cell" markdown="1" data-when="across-users" data-layer="weights">
-<summary><span class="appendix-cell-title">Across Users / Level 1</span><span class="appendix-cell-subtitle">Checkpoint Bootstrapping and Self-Improvement Frontier</span></summary>
+<summary><span class="appendix-cell-title">Across Users / Layer 3</span><span class="appendix-cell-subtitle">Checkpoint Bootstrapping and Self-Improvement Frontier</span></summary>
 
 This cell covers model updates derived from population-scale interaction data.
 

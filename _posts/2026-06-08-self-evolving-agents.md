@@ -785,15 +785,15 @@ toc:
 
 **The era of static AI agents is ending.**
 
-An agent's capability should not freeze on release day. If autonomy is the goal, intelligence has to compound through execution. Every interaction should create pressure for the system to adapt. We are now witnessing a fundamental shift toward dynamic, **self-evolving systems**, driven by a dual promise:
+An agent's capability should not freeze on release day; its intelligence must compound through execution. We are now witnessing a shift toward dynamic, **self-evolving systems**, driven by a dual promise:
 
-- **Motivation 1: Marginal Cost Reduction (Shrinking Costs).** Operationally, this means fewer prompt tokens, fewer tool calls, fewer retries, and less human intervention per solved task family. By compressing experience into reusable assets, the system stops paying for the same mistake twice.
+- **Motivation 1: Marginal Cost Reduction.** As an agent accumulates execution experience, the marginal inference cost of solving similar tasks should decrease. By compressing past experience into reusable assets, the system stops paying the "inference tax" for the same mistakes. Operationally, this means fewer prompt tokens, fewer tool calls, fewer retries, and less human intervention per task family.
 
-- **Motivation 2: Capability Ceiling Expansion (Breaking Ceilings).** Evolution helps agents handle long-tail tasks and enables robust **long-horizon execution**. Static agents tend to become brittle on complex, multi-step goals because small errors compound and context is eventually exhausted. By learning to forge ad-hoc tools, cache intermediate progress, and adapt strategies at runtime, a self-evolving agent turns long-term autonomy from a behavioral illusion into a systems claim.
+- **Motivation 2: Capability Ceiling Expansion.** As the agent interacts with its environment over time, its effective capability ceiling can rise. Static agents hit a practical ceiling on long-horizon tasks as small errors compound and context is exhausted. Self-evolving systems can forge ad-hoc tools, cache intermediate progress, and adapt strategies at runtime, turning long-term autonomy from a behavioral illusion into a structural claim.
 
 <figure class="self-evolving-figure tight-top medium">
   <img src="/assets/img/2026-06-08-self-evolving-agents/figure1-dual-promise.svg" alt="A chart showing self-evolving agents reducing cost per task while expanding capability over time.">
-  <figcaption><strong>Figure 1.</strong> Self-evolution has two linked payoffs: lower marginal cost and higher capability ceilings.</figcaption>
+  <figcaption><strong>Figure 1.</strong> As accumulated execution traces grow, reusable state should push marginal cost down while expanding the effective task frontier.</figcaption>
 </figure>
 
 Early systems are beginning to move beyond **stateless orchestration** toward updatable execution substrates. This does not mean every agent is self-evolving yet; it means experience is starting to be captured in places the system can reuse. But "learning" is not magic; it requires a physical substrate. To genuinely reduce costs and break capability ceilings, we must understand the architecture of this adaptation.
@@ -944,7 +944,7 @@ The second time scale is inter-session. How does an agent internalize the struct
 
 ### Level 3: Persistent Memory & Skills
 
-The most practical inter-session mechanism is caching both executable behaviors and structured context. **Voyager** pioneered the executable side in simulated environments by accumulating an ever-growing library of Minecraft skills, storing complex routines as code to be retrieved later <d-cite key="voyager2023"></d-cite>. Today, frameworks like **OpenHands** bring the same pattern into software engineering through persistent skill directories and installable skill lifecycles <d-cite key="openhandskills2026"></d-cite>.
+The most practical inter-session mechanism is caching both executable behaviors and structured context. **Voyager** pioneered the executable side in simulated environments by accumulating an ever-growing library of Minecraft skills, storing complex routines as code to be retrieved later <d-cite key="voyager2023"></d-cite>. Today, frameworks like **OpenHands** bring the same pattern into software engineering through persistent skill directories and installable skill lifecycles <d-cite key="openhandskills2026"></d-cite>. **OpenAI Codex Record & Replay** turns the same mechanism into a product workflow: the user demonstrates a repetitive or preference-heavy workflow once, and Codex converts that demonstration into a reusable skill <d-cite key="openaicodexrecordreplay2026"></d-cite>.
 
 For a personal coding agent, this means saving an arcane project test command or verified API wrapper, but it also means maintaining a project memory file such as `.cursorrules`, `CLAUDE.md`, or `AGENTS.md` that records architecture, conventions, and constraints. The system transitions from generic semantic search to precise asset reuse. The agent simply stops paying the inference tax of rediscovering the exact same context or solution twice.
 
@@ -1056,10 +1056,10 @@ The grid below is the same map as Figure 3, now expandable: open any cell for th
 This cell covers state that is created, compressed, retrieved, or discarded inside one active trajectory.
 
 - **MemGPT** frames the context window as constrained RAM and external storage as virtual memory, making memory movement an explicit systems problem <d-cite key="memgpt2023"></d-cite>.
-- **MEMENTO** teaches models to manage their own context by segmenting, compressing, and evicting intermediate reasoning blocks <d-cite key="memento2026"></d-cite>.
+- **MEMENTO** teaches models to manage their own context by segmenting intermediate reasoning and reasoning forward through compressed mementos <d-cite key="memento2026"></d-cite>.
 - **Memory-as-Action** treats memory editing as a learnable action policy instead of a fixed heuristic <d-cite key="memoryasaction2025"></d-cite>.
-- **AMA-Bench** highlights the core failure mode: long-horizon memory can introduce retrieval drift, so memory systems must be evaluated on causal usefulness rather than storage volume <d-cite key="amabench2026"></d-cite>.
-- **Lost in the Middle** explains why this matters even when context windows are large: attention over long context is positionally and semantically brittle <d-cite key="liu2023lostmiddle"></d-cite>.
+- **AMA-Bench** highlights the core failure mode: similarity-based memory retrieval can miss causal and objective information, so memory systems must be evaluated on task usefulness rather than storage volume <d-cite key="amabench2026"></d-cite>.
+- **Lost in the Middle** explains why this matters even when context windows are large: performance drops when relevant evidence sits in the middle of long context <d-cite key="liu2023lostmiddle"></d-cite>.
 
 **Mechanism:** compress the live trace into structured memory, page low-salience information out of active context, and rehydrate only the pieces needed for the next decision.
 
@@ -1073,9 +1073,7 @@ This cell covers state that is created, compressed, retrieved, or discarded insi
 This cell covers runtime changes to the control path: the agent changes how it acts before the current task is over.
 
 - **Claude Code Dynamic Workflows** move orchestration from the chat transcript into a JavaScript script executed by a separate workflow runtime, allowing loops, branching, subagent fan-out, resumability, and intermediate variables to live outside the model context <d-cite key="anthropicdynamicworkflows2026"></d-cite>.
-- **OpenClaw-RL** treats conversational feedback and next-state observations as a training signal for agents, making runtime experience a direct source of policy improvement <d-cite key="openclawrl2026"></d-cite>.
-- **Large Language Models as Tool Makers** shows agents generating tools that other agents can use, expanding the action space without modifying the base model <d-cite key="latm2023"></d-cite>.
-- **AlphaEvolve** generalizes this idea to scientific and algorithmic discovery, where generated programs become candidates in an iterative search loop <d-cite key="alphaevolve2025"></d-cite>.
+- **Large Language Models as Tool Makers** is a boundary case: tool making can begin inside a task, while cached tool APIs make the generated functionality reusable across later requests <d-cite key="latm2023"></d-cite>.
 - **Recursive Language Models** blur Level 2 and Level 3 by using recursive subcalls over context snippets as a control strategy for manipulating external context <d-cite key="rlm2025"></d-cite>.
 
 **Mechanism:** turn the live trace into executable control state: scripts, temporary tools, diagnostic branches, repair loops, and subagent coordination plans.
@@ -1094,6 +1092,7 @@ This cell covers parametric or quasi-parametric adaptation during inference.
 - **TTT Layers** reinterpret sequence modeling as a learned test-time update process, where hidden states behave like expressive memory substrates <d-cite key="tttlayers2024"></d-cite>.
 - **Linear Transformers Are Secretly Fast Weight Programmers** makes the fast-weight interpretation explicit: sequence history can write temporary associations into a memory matrix <d-cite key="linearfastweights2021"></d-cite>.
 - **Transformers are RNNs** and **Mamba** show adjacent forms of recurrent state accumulation, making the boundary between context, state, and weights less clean than the standard frozen-transformer picture suggests <d-cite key="lineartransformersrnn2020,mamba2023"></d-cite>.
+  These fast-weight and recurrent-state papers are supporting evidence for the context/state boundary, not self-evolving agents by themselves.
 
 **Mechanism:** use the current problem instance to change the computation itself: gradient updates, learned hidden-state updates, fast-weight memory, or recurrent state accumulation.
 
@@ -1108,9 +1107,11 @@ This cell covers state that survives across sessions for one user, project, code
 
 - **Voyager** accumulates executable Minecraft skills and retrieves them for future tasks, giving a clear early example of skill-library growth <d-cite key="voyager2023"></d-cite>.
 - **Anthropic Agent Skills** package reusable procedures into discoverable folders that an agent can load when relevant <d-cite key="anthropicagentskills2026"></d-cite>.
+- **OpenAI Codex Record & Replay** lets a user demonstrate a workflow on macOS and turn it into a reusable Codex skill, making "show once, reuse later" a concrete persistent-skill interface <d-cite key="openaicodexrecordreplay2026"></d-cite>.
 - **OpenHands Skills and Context** supports persistent skill installation, enabling skills to be managed, enabled, disabled, and reused across sessions <d-cite key="openhandskills2026"></d-cite>.
 - **Memento-Skills** pushes the same idea toward agents that design and improve agent skills themselves <d-cite key="mementoskills2026"></d-cite>.
-- **Hermes Agent** sits in the same product/research direction: persistent agent capability surfaces that can be reused across tasks <d-cite key="hermesagent2026"></d-cite>.
+- **Hermes Agent** couples persistent memory with procedural skills that it creates from experience and improves during use <d-cite key="hermesagent2026"></d-cite>.
+- **Agentic Context Engineering (ACE)** treats contexts as evolving playbooks that accumulate, refine, and organize strategies over time <d-cite key="ace2025"></d-cite>.
 
 **Mechanism:** convert repeated discoveries into durable artifacts: scripts, commands, wrappers, procedures, project conventions, and environment-specific recipes.
 
@@ -1125,8 +1126,9 @@ This cell covers changes to the user's or project's recurring execution graph.
 
 - **DSPy** treats language-model programs as optimizable graphs rather than hand-written prompts <d-cite key="dspy2023"></d-cite>.
 - **MIPRO** optimizes instructions and demonstrations for multi-stage language-model programs <d-cite key="mipro2024"></d-cite>.
-- **AgentOptimizer** uses agentic improvement loops to train or refine LLM agents <d-cite key="agentoptimizer2023"></d-cite>.
-- **Agentic Context Engineering (ACE)** studies evolving context for self-improving language models, moving context design from manual prompt craft toward an updateable system component <d-cite key="ace2025"></d-cite>.
+- **AgentOptimizer** iteratively adds, revises, and removes agent functions or skills from historical conversations and performance feedback, without updating the base model weights <d-cite key="agentoptimizer2023"></d-cite>.
+
+DSPy and MIPRO stay in this cell when the optimizer is run against a project or task distribution; they would move to the population row only when a platform ships the resulting program as a global default.
 
 **Mechanism:** mine historical trajectories, identify high-performing execution patterns, and compile them into reusable prompts, routers, DAGs, tool schemas, and workflows.
 
@@ -1142,6 +1144,7 @@ This cell covers parametric personalization over repeated interactions with one 
 - **OPPU** explores democratized personalized parameter-efficient fine-tuning <d-cite key="oppu2024"></d-cite>.
 - **Profile-to-PEFT** uses profile-derived signals to produce fast personalized adaptation <d-cite key="profiletopeft2025"></d-cite>.
 - **PERSOMA** studies personalized soft-prompt adapters for personalized language prompting <d-cite key="persoma2024"></d-cite>.
+- **OpenClaw-RL** treats next-state signals from user replies, tool outputs, terminal states, and GUI changes as online RL feedback for personal agents, making repeated use a source of policy improvement <d-cite key="openclawrl2026"></d-cite>.
 
 **Mechanism:** compress stable preferences into adapters, soft prompts, LoRA-style modules, or other parameter-efficient personalization layers.
 
@@ -1154,11 +1157,13 @@ This cell covers parametric personalization over repeated interactions with one 
 
 This cell covers shared external state - registries, knowledge banks, and artifact graphs - accumulated from the whole population's interactions.
 
-- **Composio** and **LlamaHub** are practical infrastructure for shared, executable tools: a wrapper or integration written once becomes an installable asset for other agents <d-cite key="composio2026,llamahub2024"></d-cite>.
+- **Composio** and **LlamaHub** are practical infrastructure for shared integration assets: hosted MCP/tool wrappers on one side, and reusable loaders, tools, and packs on the other <d-cite key="composio2026,llamahub2024"></d-cite>.
 - **Agent KB** studies how cross-domain experience can be reused for agentic problem solving <d-cite key="agentkb2025"></d-cite>.
 - **ReasoningBank** collects reasoning memories to scale agent self-evolution <d-cite key="reasoningbank2025"></d-cite>.
 - **FunSearch** shows a collective program-search loop in which generated programs are evaluated, selected, and reused for further discovery <d-cite key="funsearch2023"></d-cite>.
-- **Alita-G** explores self-evolving generative agents for agent generation, making agent-building artifacts themselves part of the evolving substrate <d-cite key="alitag2025"></d-cite>.
+- **AlphaEvolve** extends verified program search to scientific, algorithmic, and infrastructure problems, where generated code is evaluated, selected, and iteratively reused as the evolving artifact <d-cite key="alphaevolve2025"></d-cite>.
+
+FunSearch and AlphaEvolve are treated here as evolving program-artifact stores, not as literal multi-user registries.
 
 **Mechanism:** validate and promote local discoveries into shared assets: tools, integrations, reasoning traces, API wrappers, benchmark solutions, and capability graphs.
 
@@ -1169,9 +1174,10 @@ This cell covers shared external state - registries, knowledge banks, and artifa
 <details class="appendix-cell" markdown="1" data-when="across-users" data-layer="harness">
 <summary><span class="appendix-cell-title">Across Users / Level 2</span><span class="appendix-cell-subtitle">Platform Harness Flywheels and Automated Design</span></summary>
 
-This cell covers population-level improvement to the default agent process itself.
+This cell covers population-level improvement to the default agent process itself, plus automated search over agent code and harnesses that can later become defaults.
 
-- **Platform-shipped harness defaults** turn population telemetry into upgrades baked into every agent's default harness - an explicit plan mode for long-horizon tasks, autonomous execution loops, and a mandatory test-and-verify step that sandboxes generated code before replying.
+- **Platform-shipped harness defaults** can turn population telemetry into upgrades baked into every agent's default harness: explicit planning for long-horizon tasks, autonomous execution loops, and test-and-verify steps that sandbox generated code before replying.
+- **Alita-G** sits on the L2/L3 boundary: it turns successful trajectories into curated MCP tools, then uses retrieval-augmented tool selection to instantiate stronger domain agents <d-cite key="alitag2025"></d-cite>.
 - **Darwin Gödel Machine** explores open-ended evolution of self-improving coding agents <d-cite key="dgm2025"></d-cite>.
 - **Hyperagents** make the meta-level improvement procedure itself editable, so the system searches not only for better agents but for better ways to generate better agents <d-cite key="hyperagents2026"></d-cite>.
 

@@ -787,7 +787,7 @@ toc:
 
 An agent's capability should not freeze at release. Its intelligence should compound through execution. The field is shifting toward **self-evolving systems**, driven by two promises:
 
-- **Motivation 1: Marginal Cost Reduction.** As an agent accumulates execution experience, similar tasks should become cheaper. Past trajectories can be compressed into reusable assets, so the system stops paying the same "inference tax" twice: fewer prompt tokens, fewer tool calls, fewer retries, and fewer human interventions per task family.
+- **Motivation 1: Marginal Cost Reduction.** As an agent accumulates execution experience, similar tasks should become cheaper. Past trajectories can be compressed into reusable assets, so the system stops paying the same "inference tax" twice: fewer inference tokens, fewer tool calls, fewer retries, and fewer human interventions per task family.
 
 - **Motivation 2: Capability Ceiling Expansion.** Over time, an agent should not only get cheaper; it should bring harder tasks within reach. Static agents hit a ceiling on long-horizon work: errors compound, context decays, and brittle workflows break. Self-evolving systems can forge tools, cache progress, and revise strategy at runtime. They make autonomy a property of the architecture, not just a behavior in the transcript.
 
@@ -796,13 +796,13 @@ An agent's capability should not freeze at release. Its intelligence should comp
   <figcaption><strong>Figure 1.</strong> As execution traces accumulate, reusable state should reduce marginal cost while expanding the reachable task frontier.</figcaption>
 </figure>
 
-Early systems are moving beyond **stateless orchestration** toward execution substrates that can be updated. This does not make every agent self-evolving. It means experience is starting to land in places the system can reuse.
+Systems are moving beyond **stateless orchestration**. Instead of starting from scratch on every task, modern agent architectures can carry experience forward.
 
 But "learning" is not magic. It must land somewhere.
 
 The central question is simple: **Where exactly does this evolution happen?**
 
-Recent surveys organize self-evolving agents around what evolves, when it evolves, and how it evolves <d-cite key="selfevolvingsurvey2025"></d-cite>. The 3×3 matrix below takes a systems view: which layer is updated, and how long does that update persist?
+That question decomposes into two practical axes: **what can change, and how long does that change persist?**
 
 ## What Evolves
 
@@ -847,15 +847,15 @@ A self-evolving system can optimize tool selection, compile repeated workflows i
 
 ### External Files & State (Layer 1)
 
-**External files and state** are the outermost layer: persistent memories, skill libraries, knowledge graphs, and dynamic scratchpads. Unlike traditional read-only RAG, modern external memory is structured, writable, and operational. It stores code snippets, error logs, user preferences, reusable procedures, and project-specific context.
+**External files and state** are the outermost layer: writable artifacts such as persistent memories and skill libraries. Unlike traditional read-only RAG, modern external memory is structured and operational. It stores code snippets, error logs, user preferences, reusable procedures, and project-specific context.
 
 Evolution at this layer is cheap, reversible, and exact. A saved script, an error log, or a project convention stays literal; it does not dissolve into statistical memory.
 
 ### The Blurry Boundary: When Files Become Code
 
-The boundary between external state and harness logic is porous. A Python function written into a skill library begins as a file. The moment the runtime discovers it, loads it, and routes future tasks through it, that file becomes part of the harness. External memory no longer stores only facts. It stores executable operators.
+The boundary between external state and harness logic is porous. A Python function, workflow file, routing rule, or recovery script may begin as an external artifact. The moment the runtime discovers it, loads it, and routes future tasks through it, that artifact becomes part of the harness.
 
-This file-to-code transition is a core mechanism in advanced self-evolving agents. **External memory becomes latent control flow.**
+External state no longer stores only facts. It can store skills, workflows, policies, and executable operators. **The same object can be a file at rest and harness logic in motion.**
 
 ## Learning From Experience
 
@@ -1051,6 +1051,8 @@ By giving agents writable external state, editable harnesses, and eventually upd
 ## Appendix: The Complete Landscape
 
 The main essay keeps one or two anchor examples per cell. This appendix restores the broader map: the same 3×3 matrix, expanded with more systems, mechanisms, design tradeoffs, and caveats.
+
+For survey-level context, recent work organizes self-evolving agents around what evolves, when it evolves, and how it evolves <d-cite key="selfevolvingsurvey2025"></d-cite>.
 
 The placement rule is simple: if an example changes the reader's understanding of the core mechanism, it belongs in the main text; if it primarily broadens coverage, it belongs here. Several patterns also cut across cells:
 

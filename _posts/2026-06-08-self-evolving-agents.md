@@ -886,22 +886,24 @@ The result is a 3×3 map: three persistence horizons crossed with three update s
 <div class="evo-cell evo-weights"><span class="evo-cell-tag">Model Weights</span><svg class="evo-ic evo-cellicon" aria-hidden="true"><use href="#ei-continual"></use></svg><span class="evo-cell-title">Checkpoint bootstrapping</span><span class="evo-cell-desc">Verified traces feed future model training.</span></div>
 <div class="evo-rowlabel"><svg class="evo-ic evo-rowicon" aria-hidden="true"><use href="#ei-row-sessions"></use></svg><span class="evo-rowlabel-text">Across Sessions</span></div>
 <div class="evo-cell evo-files"><span class="evo-cell-tag">External Files</span><svg class="evo-ic evo-cellicon" aria-hidden="true"><use href="#ei-skills"></use></svg><span class="evo-cell-title">Skill library &amp; memory</span><span class="evo-cell-desc">Skills, notes &amp; assets that carry across sessions.</span></div>
-<div class="evo-cell evo-harness"><span class="evo-cell-tag">Agent Harness</span><svg class="evo-ic evo-cellicon" aria-hidden="true"><use href="#ei-pharness"></use></svg><span class="evo-cell-title">Compiled domain harness</span><span class="evo-cell-desc">Prompts &amp; routing graphs compiled for a project or codebase.</span></div>
-<div class="evo-cell evo-weights"><span class="evo-cell-tag">Model Weights</span><svg class="evo-ic evo-cellicon" aria-hidden="true"><use href="#ei-sliders"></use></svg><span class="evo-cell-title">Personalized fine-tuning</span><span class="evo-cell-desc">LoRA &amp; preference adaptation for one person.</span></div>
+<div class="evo-cell evo-harness"><span class="evo-cell-tag">Agent Harness</span><svg class="evo-ic evo-cellicon" aria-hidden="true"><use href="#ei-pharness"></use></svg><span class="evo-cell-title">Compiled workflow harness</span><span class="evo-cell-desc">Past traces compile into reusable workflows.</span></div>
+<div class="evo-cell evo-weights"><span class="evo-cell-tag">Model Weights</span><svg class="evo-ic evo-cellicon" aria-hidden="true"><use href="#ei-sliders"></use></svg><span class="evo-cell-title">Personal adapters</span><span class="evo-cell-desc">Repeated use trains lightweight adapters.</span></div>
 <div class="evo-rowlabel"><svg class="evo-ic evo-rowicon" aria-hidden="true"><use href="#ei-row-session"></use></svg><span class="evo-rowlabel-text">Single Session</span></div>
 <div class="evo-cell evo-files"><span class="evo-cell-tag">External Files</span><svg class="evo-ic evo-cellicon" aria-hidden="true"><use href="#ei-scratch"></use></svg><span class="evo-cell-title">Temporary memory</span><span class="evo-cell-desc">Runtime notes, scratchpads &amp; retrieved context.</span></div>
-<div class="evo-cell evo-harness"><span class="evo-cell-tag">Agent Harness</span><svg class="evo-ic evo-cellicon" aria-hidden="true"><use href="#ei-dynamic"></use></svg><span class="evo-cell-title">Dynamic task adaptation</span><span class="evo-cell-desc">On-the-fly prompt or step-order adjustment.</span></div>
+<div class="evo-cell evo-harness"><span class="evo-cell-tag">Agent Harness</span><svg class="evo-ic evo-cellicon" aria-hidden="true"><use href="#ei-dynamic"></use></svg><span class="evo-cell-title">Dynamic orchestration</span><span class="evo-cell-desc">Live traces create branches, tools, and repair loops.</span></div>
 <div class="evo-cell evo-weights"><span class="evo-cell-tag">Model Weights</span><svg class="evo-ic evo-cellicon" aria-hidden="true"><use href="#ei-chip"></use></svg><span class="evo-cell-title">Rare online adaptation</span><span class="evo-cell-desc">Snapshot tuning mid-run — powerful but seldom used.</span></div>
 <div class="evo-xaxis"><span class="evo-xaxis-title">What to update?</span><span class="evo-xaxis-scale"><span>cheaper &amp; shallower</span><span class="evo-xaxis-bar"></span><span>deeper &amp; costlier</span></span></div>
 </div>
 <figcaption><strong>Figure 3.</strong> The taxonomy as a visual map: update lifetime on one axis, update substrate on the other. An expandable version with the concrete systems behind every cell lives in the <a href="#appendix-the-complete-landscape">appendix</a>.</figcaption>
 </figure>
 
-The matrix is a map, not a rigid classification. Real systems move across cells. A temporary tool can become a persistent skill. A project workflow can become a product default. A failure pattern across millions of users can become a checkpoint update.
+The matrix is a map, not a rigid classification. It is descriptive, not prescriptive: the cells mark feasible places where evolution can land, not requirements every self-evolving agent must satisfy. Real systems move across cells. A temporary tool can become a persistent skill. A project workflow can become a product default. A failure pattern across millions of users can become a checkpoint update.
 
 ## Single Session: Online Adaptation
 
 The first horizon is the live trajectory: adaptation before the task is over. How does an agent use the trace it is generating to correct itself while it acts?
+
+Within one trajectory, experience can become working state: notes, branches, helpers, plans.
 
 ### Layer 1: Working Memory and Context Paging
 
@@ -950,7 +952,7 @@ The second horizon is longitudinal: adaptation that survives the current task. H
 
 ### Layer 1: Persistent Memory & Skills
 
-The most practical cross-session mechanism is simple: save what was expensive to rediscover. That includes executable behavior and structured context. **Voyager** showed the executable side by accumulating Minecraft skills as reusable code <d-cite key="voyager2023"></d-cite>. **OpenHands** brings the same pattern into software engineering through persistent skill directories <d-cite key="openhandskills2026"></d-cite>. **OpenAI Codex Record & Replay** turns demonstration into a product interface: show a workflow once, then reuse it as a skill <d-cite key="openaicodexrecordreplay2026"></d-cite>.
+The most practical cross-session mechanism is simple: save what was expensive to rediscover. The pattern is already visible in coding agents: project memory files, saved commands, verified wrappers, and persistent skill directories. **Voyager** showed the executable side early by accumulating Minecraft skills as reusable code <d-cite key="voyager2023"></d-cite>. **OpenAI Codex Record & Replay** turns demonstration into a product interface: show a workflow once, then reuse it as a skill <d-cite key="openaicodexrecordreplay2026"></d-cite>.
 
 For a personal coding agent, this means saving an arcane project test command or verified API wrapper, but it also means maintaining a project memory file such as `.cursorrules`, `CLAUDE.md`, or `AGENTS.md` that records architecture, conventions, and constraints. The system transitions from generic semantic search to precise asset reuse. The agent stops paying the inference tax of rediscovering the same command, convention, wrapper, or solution twice.
 
@@ -958,13 +960,13 @@ For a personal coding agent, this means saving an arcane project test command or
 
 When an agent repeatedly solves the same class of problems, it should not reconstruct its execution plan from scratch. High-performing trajectories can be mined to optimize the harness itself.
 
-This is meta-programming at the harness layer. **DSPy** treats language-model programs as optimizable computational graphs, tuning instructions, few-shot demonstrations, and routing rules against an evaluation metric <d-cite key="dspy2023"></d-cite>. The structural move is compression: repeated prompt-level reasoning collapses into a lean, project-specific DAG (Directed Acyclic Graph).
+This is meta-programming at the harness layer. **Meta-Harness** makes the idea literal: an outer-loop optimizer searches over harness code using prior candidates, scores, and execution traces <d-cite key="metaharness2026"></d-cite>. Earlier LM-program optimizers such as **DSPy** point in the same direction, but Meta-Harness is closer to agent-harness evolution <d-cite key="dspy2023"></d-cite>. The structural move is compression: repeated prompt-level reasoning collapses into a lean, reusable execution DAG (Directed Acyclic Graph).
 
 ### Layer 3: Personal Adapters
 
-At the parametric layer, cross-session evolution compresses stable preferences into adapters: coding style, API choices, verbosity tolerance, debugging habits. If a preference becomes parametric, the model no longer needs explicit instructions; it becomes instinct.
+At the parametric layer, cross-session evolution compresses stable behavioral patterns into adapters: coding style, API choices, debugging habits, recurring task structure. If a pattern becomes parametric, the model no longer needs explicit instructions; it becomes instinct.
 
-This is the shift from a generic foundation model toward personalized behavior. A static foundation model is inherently a generic, one-size-fits-all reasoner. Cross-session adapter updates let the agent specialize toward a user's recurring workflows and problem-solving habits. It ceases to just solve problems; it learns to solve them *your way*.
+This is the shift from a generic foundation model toward personalized behavior. A static foundation model is inherently a generic, one-size-fits-all reasoner. Cross-session adapter updates let the agent specialize toward a user's recurring workflows and task distribution. It ceases to just solve problems; it learns to solve them *your way*.
 
 File and harness updates are already practical. Scalable per-user parametric adaptation is not: it complicates serving, batching, evaluation, privacy, and update governance.
 
@@ -978,8 +980,8 @@ At the external-state layer, population-level evolution builds a **collective kn
 
 Human civilization scales by externalizing discovery into books, libraries, protocols, and tools. Agent populations can do the same: local discoveries become shared artifacts. The commons has two sides:
 
-- **Factual knowledge (the "what").** Shared maps of the environment: constraints, schemas, dependency behavior, and failure modes. As agents across the population probe the same systems and APIs, their findings accrete into global knowledge banks that any later agent can query <d-cite key="agentkb2025,reasoningbank2025"></d-cite>.
-- **Operational skills (the "how").** Shared ways to act: executable tools, wrappers, runtime procedures, and repair recipes. When one agent wraps an undocumented API quirk into a reusable tool, it commits that script to a shared registry; the next agent retrieves it instantly, skipping the inference tax of rediscovering it by trial and error <d-cite key="composio2026,llamahub2024"></d-cite>.
+- **Factual knowledge (the "what").** Shared maps of the environment: constraints, schemas, dependency behavior, failure modes, and knowledge discovered while solving open problems. As agents across the population probe the same systems and tasks, their findings accrete into global knowledge banks that any later agent can query <d-cite key="agentkb2025,reasoningbank2025,funsearch2023,alphaevolve2025"></d-cite>.
+- **Operational skills (the "how").** Shared ways to act: platform-published skills, agent-uploaded tools, verified wrappers, runtime procedures, and repair recipes. When one agent wraps an undocumented API quirk into a reusable tool, it can publish that script to a shared registry; the next agent retrieves it instantly, skipping the inference tax of rediscovering it by trial and error <d-cite key="anthropicagentskills2026,composio2026,llamahub2024"></d-cite>.
 
 This turns isolated execution into **horizontal compounding** - one agent's local discovery becomes a zero-shot capability for the entire population. At this layer, the bottleneck shifts from capability to **trust**: provenance, sandboxing, validation, and defenses against poisoned logic.
 
@@ -1048,7 +1050,7 @@ By giving agents writable external state, editable harnesses, and eventually upd
 
 ## Appendix: The Complete Landscape
 
-The main essay keeps one or two anchor examples per cell. This appendix restores the broader map: the same 3×3 matrix, expanded with more systems, mechanisms, and caveats.
+The main essay keeps one or two anchor examples per cell. This appendix restores the broader map: the same 3×3 matrix, expanded with more systems, mechanisms, design tradeoffs, and caveats.
 
 The placement rule is simple: if an example changes the reader's understanding of the core mechanism, it belongs in the main text; if it primarily broadens coverage, it belongs here. Several patterns also cut across cells:
 
@@ -1130,33 +1132,34 @@ This cell covers state that survives across sessions for one user, project, code
 <details class="appendix-cell" markdown="1" data-when="across-sessions" data-layer="harness">
 <summary><span class="appendix-cell-title">Across Sessions / Layer 2</span><span class="appendix-cell-subtitle">Meta-Programming and Workflow Optimization</span></summary>
 
-This cell covers changes to the user's or project's recurring execution graph.
+This cell covers recurring execution graphs that persist across tasks or sessions.
 
+- **Meta-Harness** searches over harness code using prior candidates, scores, and execution traces, making harness optimization the direct target <d-cite key="metaharness2026"></d-cite>.
 - **DSPy** treats language-model programs as optimizable graphs rather than hand-written prompts <d-cite key="dspy2023"></d-cite>.
 - **MIPRO** optimizes instructions and demonstrations for multi-stage language-model programs <d-cite key="mipro2024"></d-cite>.
 - **AgentOptimizer** iteratively adds, revises, and removes agent functions or skills from historical conversations and performance feedback, without updating the base model weights <d-cite key="agentoptimizer2023"></d-cite>.
 
-DSPy and MIPRO stay in this cell when the optimizer is run against a project or task distribution; they would move to the population row only when a platform ships the resulting program as a global default.
+These optimizers stay in this cell when they are run against a recurring task distribution; they would move to the population row only when a platform ships the resulting program as a global default.
 
-**Mechanism:** mine historical trajectories, identify high-performing execution patterns, and compile them into reusable prompts, routers, DAGs, tool schemas, and workflows.
+**Mechanism:** mine historical trajectories, identify high-performing execution patterns, and compile them into reusable routers, DAGs, tool schemas, recovery loops, and workflows.
 
 **Caveat:** harness optimization can overfit to yesterday's tasks. Good systems need evaluation sets that represent the future operating distribution, not just the past transcript.
 
 </details>
 
 <details class="appendix-cell" markdown="1" data-when="across-sessions" data-layer="weights">
-<summary><span class="appendix-cell-title">Across Sessions / Layer 3</span><span class="appendix-cell-subtitle">Personal Adapters and Preference Alignment</span></summary>
+<summary><span class="appendix-cell-title">Across Sessions / Layer 3</span><span class="appendix-cell-subtitle">Personal Adapters and Task Specialization</span></summary>
 
-This cell covers parametric personalization over repeated interactions with one user or organization.
+This cell covers parametric specialization over repeated interactions with one user or organization.
 
 - **OPPU** explores democratized personalized parameter-efficient fine-tuning <d-cite key="oppu2024"></d-cite>.
 - **Profile-to-PEFT** uses profile-derived signals to produce fast personalized adaptation <d-cite key="profiletopeft2025"></d-cite>.
 - **PERSOMA** studies personalized soft-prompt adapters for personalized language prompting <d-cite key="persoma2024"></d-cite>.
 - **OpenClaw-RL** treats next-state signals from user replies, tool outputs, terminal states, and GUI changes as online RL feedback for personal agents, making repeated use a source of policy improvement <d-cite key="openclawrl2026"></d-cite>.
 
-**Mechanism:** compress stable preferences into adapters, soft prompts, LoRA-style modules, or other parameter-efficient personalization layers.
+**Mechanism:** compress stable user- or organization-specific patterns into adapters, soft prompts, LoRA-style modules, or other parameter-efficient personalization layers.
 
-**Caveat:** personalization must separate durable preference from accidental context. A user accepting one terse answer should not permanently train the model to be terse in every domain.
+**Caveat:** personalization must separate durable signal from accidental context. A user accepting one terse answer should not permanently train the model to be terse in every domain.
 
 </details>
 

@@ -1113,6 +1113,7 @@ This cell covers parametric or quasi-parametric adaptation during inference.
 
 - **In-Place Test-Time Training** studies direct updates to model parameters during inference, making deployment itself part of the learning loop <d-cite key="inplacettt2026"></d-cite>.
 - **Learning to Discover at Test Time** explores updating model behavior on the exact problem instance rather than only searching longer with frozen weights <d-cite key="tttdiscover2026"></d-cite>.
+- **JitRL** is a boundary case: it keeps weights frozen, retrieves trajectory memory to estimate action advantages, and modulates logits at test time for policy improvement without gradient updates <d-cite key="jitrl2026"></d-cite>.
 - **TTT Layers** reinterpret sequence modeling as a learned test-time update process, where hidden states behave like expressive memory substrates <d-cite key="tttlayers2024"></d-cite>.
 - **Linear Transformers Are Secretly Fast Weight Programmers** makes the fast-weight interpretation explicit: sequence history can write temporary associations into a memory matrix <d-cite key="linearfastweights2021"></d-cite>.
 - **Transformers are RNNs** and **Mamba** show adjacent forms of recurrent state accumulation, making the boundary between context, state, and weights less clean than the standard frozen-transformer picture suggests <d-cite key="lineartransformersrnn2020,mamba2023"></d-cite>.
@@ -1120,7 +1121,7 @@ This cell covers parametric or quasi-parametric adaptation during inference.
 
 **Boundary note:** context does not edit the checkpoint, but it does become computation. Retrieved tokens become KV-cache state that shapes future attention <d-cite key="vaswani2017attention"></d-cite>. Fast-weight and linear-attention interpretations explain why this transient state can look weight-like without becoming durable model weights <d-cite key="lineartransformersrnn2020,linearfastweights2021"></d-cite>.
 
-**Mechanism:** use the current problem instance to change the computation itself: gradient updates, learned hidden-state updates, fast-weight memory, or recurrent state accumulation.
+**Mechanism:** use the current problem instance to change the computation itself: gradient updates, logit modulation, learned hidden-state updates, fast-weight memory, or recurrent state accumulation.
 
 **Caveat:** this is the most powerful and operationally expensive online adaptation cell. It demands tight evaluation because a useful local update can also create regressions.
 

@@ -9,7 +9,7 @@ authors:
   - name: Xinming Tu
     url: "https://xinmingtu.cn"
     affiliations:
-      name: University of Washington
+      name: University of Washington, Phylo
   - name: Tong Chen
     url: "https://scholar.google.com/citations?user=fOcXofAAAAAJ&hl=en"
     affiliations:
@@ -775,8 +775,6 @@ toc:
   - name: "Appendix: The Complete Landscape"
 ---
 
-> **Work in progress.**
-
 <div style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">
 <svg xmlns="http://www.w3.org/2000/svg">
 <symbol id="ei-db" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="8" ry="3"></ellipse><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"></path><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"></path></symbol>
@@ -851,19 +849,11 @@ Before asking how an agent evolves, we need to ask what can change. In practice,
 <figcaption><strong>Figure 2.</strong> The agent is not only the model. Its plastic state spans external files, harness logic, and model weights.</figcaption>
 </figure>
 
-A natural way to enter this structure is from the core outward: model weights, agent harness, then external files.
+A natural way to enter this structure is from the core outward:
 
-### Model Weights (Layer 3)
-
-**Model weights** are the parametric core: knowledge and behavior encoded inside the model checkpoint. Examples include model checkpoints such as GPT-family, DeepSeek, or Qwen weights.
-
-### Agent Harness (Layer 2)
-
-**The agent harness** is the control layer around the model: prompts, tools, routing, planning, recovery logic, and execution flow. In systems like Claude Code or Codex, this layer shows up as tool-use policies, edit-test-repair loops, workflow execution, subagents, and reusable skills.
-
-### External Files & State (Layer 1)
-
-**External files and state** are writable artifacts the agent can read or update outside the model and harness. Examples include skills, memory files, `CLAUDE.md`, `AGENTS.md`, saved commands, project notes, and reusable scripts.
+- **Layer 3: Model Weights.** The parametric core: knowledge and behavior encoded inside the model checkpoint. Examples include GPT-family, DeepSeek, or Qwen weights.
+- **Layer 2: Agent Harness.** The control layer around the model: prompts, tools, routing, planning, recovery logic, and execution flow. In systems like Claude Code or Codex, this layer shows up as tool-use policies, edit-test-repair loops, workflow execution, subagents, and reusable skills.
+- **Layer 1: External Files & State.** Writable artifacts the agent can read or update outside the model and harness. Examples include skills, memory files, `CLAUDE.md`, `AGENTS.md`, saved commands, project notes, and reusable scripts.
 
 <details class="evo-aside" markdown="1">
 <summary>Boundary note: when files become code</summary>
@@ -1006,7 +996,7 @@ The signal comes from aggregate failures. If many agents fail at the same step, 
 
 At the parametric layer, population-level evolution usually means checkpoint bootstrapping, not live continual learning. Deployed agents become data engines for future models.
 
-**Pre-training / synthetic bootstrapping.** When Agent $N$ solves a novel task that a compiler, sandbox, or verifier can check, the verified trace can enter the training mixture for Model $N+1$.
+**Pre-training / synthetic bootstrapping.** When an agent solves a novel task that a compiler, sandbox, or verifier can check, the verified trace can enter the pretraining data corpus for a future model.
 
 **Post-training / RL.** Population behavior becomes preference and reward signal: accepts, rejects, edits, interruptions, and corrections show where the current model fails. **Cursor Tab**, Cursor's code autocomplete feature, is a concrete example: users' Tab accepts and edits provide RL signal for training the next policy <d-cite key="cursortabrl2025"></d-cite>.
 

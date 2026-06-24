@@ -801,7 +801,7 @@ toc:
 
 **The era of static AI agents is ending.**
 
-An agent's capability should not freeze at release. Its intelligence should compound through execution. The field is shifting toward **self-evolving systems**, driven by two promises:
+An agent's capabilities should not remain fixed after release. As the agent continually learns from experience, those capabilities should improve over time. The field is shifting toward **self-evolving systems**, driven by two promises:
 
 - **Motivation 1: Marginal Cost Reduction.** As an agent accumulates execution experience, similar tasks should become cheaper. Past trajectories can be compressed into reusable assets, so the system stops paying the same "inference tax" twice: fewer inference tokens, fewer tool calls, fewer retries, and fewer human interventions per task family.
 

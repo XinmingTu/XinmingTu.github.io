@@ -801,7 +801,7 @@ toc:
 
 **The era of static AI agents is ending.**
 
-An agent's capabilities should not remain fixed after release. As the agent continually learns from experience, those capabilities should improve over time. The field is shifting toward **self-evolving systems**, driven by two promises:
+An agent's capabilities should not remain fixed after release. As agents accumulate experience from past attempts, tool results, and successful workflows, those capabilities should improve over time. The field is shifting toward **self-evolving systems**, driven by two promises:
 
 - **Motivation 1: Marginal Cost Reduction.** As an agent accumulates execution experience, similar tasks should become cheaper. Past trajectories can be compressed into reusable assets, so the system stops paying the same "inference tax" twice: fewer inference tokens, fewer tool calls, fewer retries, and fewer human interventions per task family.
 
@@ -809,7 +809,7 @@ An agent's capabilities should not remain fixed after release. As the agent cont
 
 <figure class="self-evolving-figure tight-top medium">
   <img src="/assets/img/2026-06-08-self-evolving-agents/figure1-dual-promise.svg" alt="A chart showing self-evolving agents reducing cost per task while expanding capability over time.">
-  <figcaption><strong>Figure 1.</strong> As execution traces accumulate, reusable state should reduce marginal cost while expanding the reachable task frontier.</figcaption>
+  <figcaption><strong>Figure 1.</strong> Agents accumulate experience, expanding the capability frontier while reducing marginal cost per task.</figcaption>
 </figure>
 
 Systems are moving beyond **stateless orchestration**. Instead of starting from scratch on every task, modern agent architectures can carry experience forward.
@@ -846,7 +846,7 @@ Before asking how an agent evolves, we need to ask what can change. In practice,
 <div class="evo-legend-note"><strong>Surface → Core.</strong> Outward = cheap, instant, reversible. Inward = expensive, slow, durable. The deeper a change goes, the more it sticks.</div>
 </div>
 </div>
-<figcaption><strong>Figure 2.</strong> The agent is not only the model. Its plastic state spans external files, harness logic, and model weights.</figcaption>
+<figcaption><strong>Figure 2.</strong> Agents include model weights, the agent harness, and external files; all three can evolve.</figcaption>
 </figure>
 
 A natural way to enter this structure is from the core outward:
@@ -913,23 +913,13 @@ The matrix shows possibility, not obligation: these are places self-evolution ca
 
 ## Single Session: Online Adaptation
 
-The first horizon is the live trajectory: adaptation before the task is over. How does an agent use the trace it is generating to correct itself while it acts?
+The first horizon is the live trajectory: using feedback from the current run to improve the task before it ends.
 
 Within one trajectory, experience can become working state: notes, branches, helpers, plans.
 
 ### Layer 1: Working Memory and Context Paging
 
 Inside one session, external state turns the live trace into working memory: notes, constraints, partial discoveries, and retrieved context can be written out and pulled back when needed. **MemGPT** is the canonical example, treating the context window as constrained RAM and external memory as virtual storage <d-cite key="memgpt2023"></d-cite>.
-
-<details class="evo-aside" markdown="1">
-<summary>Caveat: storage is not evolution</summary>
-
-<div class="evo-aside-body" markdown="1">
-
-Memory only helps when the agent can write, retrieve, and reuse the right state at the right time. Otherwise it just moves the bottleneck from context length to retrieval noise.
-
-</div>
-</details>
 
 ### Layer 2: Dynamic Orchestration
 
@@ -953,7 +943,7 @@ This does not eliminate training; it moves part of the learning loop into deploy
 
 ## Across Sessions: Longitudinal Alignment
 
-The second horizon is longitudinal: adaptation that survives the current task. How does an agent internalize the recurring structure of a user, project, codebase, or environment?
+The second horizon is longitudinal: adapting to recurring structure across the same user, project, workflow, or task family.
 
 ### Layer 1: Persistent Memory & Skills
 
@@ -977,7 +967,7 @@ This is still frontier work. Most personalization should stay in files or harnes
 
 ## Across Users: Population-Level Evolution
 
-The third horizon is across users: population-level evolution. How does a system aggregate many trajectories, failures, and discoveries into shared capability?
+The third horizon is population-level: using many users' trajectories, failures, and discoveries to improve shared assets, default harnesses, or future models after deployment.
 
 ### Layer 1: Collective Knowledge & Skill Commons
 

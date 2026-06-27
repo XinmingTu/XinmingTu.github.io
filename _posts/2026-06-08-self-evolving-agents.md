@@ -951,6 +951,8 @@ The practical cross-session layer has two forms: memory and skills.
 
 **Memory** preserves stable context across conversations: user preferences, project facts, long-term goals, or prior decisions. Chatbot memory is the familiar example: the assistant remembers facts about the user or workspace instead of asking again.
 
+In coding agents, the same pattern often appears as repository-level instruction files such as `CLAUDE.md` and `AGENTS.md`, which carry durable project conventions across sessions.
+
 **Skills** preserve repeatable procedures. A skill can be a saved command, a verified wrapper, a reusable script, or a demonstrated workflow. **Voyager** showed the executable version early by accumulating Minecraft skills as reusable code <d-cite key="voyager2023"></d-cite>. **OpenAI Codex Record & Replay** turns one demonstrated workflow into a reusable skill <d-cite key="openaicodexrecordreplay2026"></d-cite>.
 
 ### Layer 2: Meta-Programming

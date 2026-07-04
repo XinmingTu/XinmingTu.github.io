@@ -761,6 +761,151 @@ _styles: |
     d-article .evo-shift-to-name { font-size: 0.76rem; }
     d-article .evo-shift-to-trigger { font-size: 0.63rem; }
   }
+  d-article figure.rsi-figure .evo-rsi {
+    font-family: Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, sans-serif;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 26px auto;
+    align-items: stretch;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  d-article .evo-rsi-flow {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+  }
+  d-article .evo-rsi-node {
+    background: #ffffff;
+    border: 1px solid #e7e9f0;
+    border-radius: 13px;
+    padding: 0.72rem 1rem 0.78rem;
+    text-align: center;
+  }
+  d-article .evo-rsi-node--agents {
+    border: 1.5px solid #df7a18;
+  }
+  d-article .evo-rsi-node--tasks {
+    background: #fbfbfd;
+    border: 1.5px solid #d7dae3;
+  }
+  d-article .evo-rsi-node--next {
+    background: #fbfbfd;
+    border: 1.8px solid var(--global-theme-color);
+  }
+  d-article .evo-rsi-title {
+    color: #1a1d26;
+    font-size: 0.97rem;
+    font-weight: 700;
+    line-height: 1.3;
+  }
+  d-article .evo-rsi-sub {
+    color: #7a8196;
+    font-size: 0.84rem;
+    line-height: 1.4;
+    margin-top: 0.12rem;
+  }
+  d-article .evo-rsi-edge {
+    position: relative;
+    height: 48px;
+  }
+  d-article .evo-rsi-edge::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 7px;
+    bottom: 13px;
+    width: 2px;
+    margin-left: -1px;
+    border-radius: 1px;
+    background: #7a8196;
+  }
+  d-article .evo-rsi-edge::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 5px;
+    margin-left: -5px;
+    border: 5px solid transparent;
+    border-top: 7px solid #7a8196;
+  }
+  d-article .evo-rsi-edge span {
+    position: absolute;
+    left: calc(50% + 12px);
+    top: 50%;
+    transform: translateY(-58%);
+    color: #7a8196;
+    font-size: 0.8rem;
+    font-style: italic;
+    white-space: nowrap;
+  }
+  d-article .evo-rsi-chips {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.45rem;
+    margin-top: 0.55rem;
+  }
+  d-article .evo-rsi-chips span {
+    background: #ffffff;
+    border: 1px solid #d7dae3;
+    border-radius: 999px;
+    color: #3d4250;
+    font-size: 0.78rem;
+    font-weight: 500;
+    line-height: 1;
+    padding: 0.36rem 0.7rem 0.4rem;
+  }
+  d-article .evo-rsi-return {
+    color: var(--global-theme-color);
+    display: flex;
+    flex-direction: column;
+    margin: calc(2.05rem - 6px) 0;
+    width: 26px;
+  }
+  d-article .evo-rsi-return svg {
+    display: block;
+    flex: none;
+    overflow: visible;
+  }
+  d-article .evo-rsi-return svg.evo-rsi-return-line {
+    flex: 1 1 auto;
+    width: 26px;
+    min-height: 0;
+  }
+  d-article .evo-rsi-return-label {
+    align-self: center;
+    padding-left: 0.7rem;
+    line-height: 1.4;
+  }
+  d-article .evo-rsi-return-label b {
+    display: block;
+    color: var(--global-theme-color);
+    font-size: 0.84rem;
+    font-weight: 700;
+  }
+  d-article .evo-rsi-return-label span {
+    color: #3d4250;
+    display: block;
+    font-size: 0.78rem;
+    margin-top: 0.08rem;
+  }
+  @media (max-width: 640px) {
+    d-article figure.rsi-figure .evo-rsi {
+      grid-template-columns: minmax(0, 1fr) 26px;
+    }
+    d-article .evo-rsi-return-label {
+      grid-column: 1 / -1;
+      justify-self: center;
+      padding: 0.6rem 0 0;
+      text-align: center;
+    }
+    d-article .evo-rsi-edge span {
+      font-size: 0.72rem;
+      white-space: normal;
+      max-width: 45vw;
+      line-height: 1.25;
+    }
+  }
 
 toc:
   - name: "The Dual Promise"
@@ -1049,6 +1194,34 @@ Returning to the terminology note, the matrix makes the boundary sharper.
 The core feedback loop is simple: experience becomes state, and state changes future behavior.
 
 **Recursive self-improvement** sits on a different axis. It is not another substrate in the matrix; it is the same loop applied to AI development itself. **Recursive's automated AI research system** is an early example, applying agentic search to AI-development tasks such as model training and GPU-kernel optimization <d-cite key="recursiveautoresearch2026"></d-cite>.
+
+<figure class="self-evolving-figure rsi-figure">
+<div class="evo-rsi">
+<div class="evo-rsi-flow">
+<div class="evo-rsi-node evo-rsi-node--agents">
+<div class="evo-rsi-title">Self-evolving agents</div>
+<div class="evo-rsi-sub">experience &rarr; state &rarr; behavior</div>
+</div>
+<div class="evo-rsi-edge"><span>inference-time work</span></div>
+<div class="evo-rsi-node evo-rsi-node--tasks">
+<div class="evo-rsi-title">AI-development tasks</div>
+<div class="evo-rsi-chips"><span>data</span><span>training</span><span>eval</span><span>infra / kernels</span></div>
+</div>
+<div class="evo-rsi-edge"><span>saved artifacts &amp; signals</span></div>
+<div class="evo-rsi-node evo-rsi-node--next">
+<div class="evo-rsi-title">Next-gen agent</div>
+<div class="evo-rsi-sub">stronger model + harness</div>
+</div>
+</div>
+<div class="evo-rsi-return" aria-hidden="true">
+<svg viewBox="0 0 26 34" width="26" height="34"><path d="M3 6 H17 Q24.75 6 24.75 13.75 V34" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M9.5 0.5 L2 6 L9.5 11.5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+<svg class="evo-rsi-return-line" viewBox="0 0 26 10" preserveAspectRatio="none"><line x1="24.75" y1="0" x2="24.75" y2="10" stroke="currentColor" stroke-width="2.5" vector-effect="non-scaling-stroke"></line></svg>
+<svg viewBox="0 0 26 34" width="26" height="34"><path d="M24.75 0 V20.25 Q24.75 28 17 28 H1" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+</div>
+<div class="evo-rsi-return-label"><b>generation t+1</b><span>runs the loop again</span></div>
+</div>
+<figcaption><strong>Figure 5.</strong> Recursive self-improvement as the self-evolving loop applied to AI development: inference-time work produces artifacts, data, evaluations, or infrastructure improvements that feed future AI systems.</figcaption>
+</figure>
 
 The long-run question is how memory, skills, harness updates, and weight updates compose into systems where experience reliably becomes reusable capability.
 

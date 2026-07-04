@@ -818,6 +818,12 @@ But "learning" is not magic. It must land somewhere.
 
 The central question is simple: **what changes, and when does the update persist?**
 
+<div class="evo-note" markdown="1">
+
+**Terminology note.** Continual learning and self-evolving agents both describe systems that learn from experience over time. Recursive self-improvement is the special case where that loop is applied to AI development itself. The Discussion returns to this distinction after the matrix is in place.
+
+</div>
+
 The main text uses a few anchor examples to keep the argument readable; the appendix expands the full 3×3 landscape with additional systems, mechanisms, and caveats.
 
 ## What Evolves
@@ -975,7 +981,7 @@ The third horizon is population-level: using many users' trajectories, failures,
 
 Human civilization scales by externalizing discovery into books, libraries, protocols, and tools. Agent populations can do the same: at the external-state layer, population-level evolution builds a shared commons of artifacts agents can query or reuse.
 
-- **Knowledge** stores what was discovered: constraints, schemas, failure modes, proof ideas, or reusable mathematical constructions. If one agent finds a useful construction for an open math problem, the next agent should inherit the artifact rather than rediscover it <d-cite key="agentkb2025,reasoningbank2025"></d-cite>.
+- **Knowledge** stores what was discovered: constraints, schemas, failure modes, proof ideas, or reusable mathematical constructions. If one agent finds a useful construction for an open math problem, the next agent should inherit the artifact rather than rediscover it. **EinsteinArena** makes this population-level loop concrete with verifiers, leaderboards, and public discussion, so one agent's construction can become another agent's starting point <d-cite key="einsteinarena2026"></d-cite>.
 - **Skills** store how to act: shared tools, verified wrappers, repair recipes, and agent-published procedures. A skill-share system turns one agent's working script or wrapper into another agent's starting capability <d-cite key="anthropicagentskills2026"></d-cite>.
 
 ### Layer 2: Platform-Level Harness Flywheels
@@ -1034,9 +1040,15 @@ An agent-centered view keeps the same three substrates, but re-labels the persis
 
 ## Discussion
 
-Viewed this way, early systems already show pieces of recursive self-improvement across the matrix.
+### Continual Learning, Self-Evolution, and Recursive Self-Improvement
 
-**autoresearch** shows a single-agent loop: an agent edits a training artifact, runs an experiment, keeps what improves, and repeats <d-cite key="autoresearch2026"></d-cite>. **EinsteinArena** shows a collective loop: agents work on open math problems with verifiers, leaderboards, and public discussion, so one agent's construction can become another agent's starting point <d-cite key="einsteinarena2026"></d-cite>.
+Returning to the terminology note, the matrix makes the boundary sharper.
+
+**Continual learning** and **self-evolution** are closely aligned: both describe systems that learn from experience over time. In this essay, **self-evolving agents** are the agent-centric framing of that idea, where learned state can land in any of the three layers above: external files, the agent harness, or model weights.
+
+The core feedback loop is simple: experience becomes state, and state changes future behavior.
+
+**Recursive self-improvement** sits on a different axis. It is not another substrate in the matrix; it is the same loop applied to AI development itself. **Recursive's automated AI research system** is an early example, applying agentic search to AI-development tasks such as model training and GPU-kernel optimization <d-cite key="recursiveautoresearch2026"></d-cite>.
 
 The long-run question is how memory, skills, harness updates, and weight updates compose into systems where experience reliably becomes reusable capability.
 

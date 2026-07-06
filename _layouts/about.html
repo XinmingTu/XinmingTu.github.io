@@ -46,8 +46,11 @@ layout: default
             {%- include news.html limit=true %}
           {%- endif %}
 
-          <!-- Latest posts -->
-          {% if page.latest_posts -%}
+          <!-- Selected posts -->
+          {% if page.selected_posts and site.selected_posts.enabled -%}
+            <h2><a href="{{ '/blog/' | relative_url }}" style="color: inherit;">Selected Posts</a></h2>
+            {%- include selected_posts.html %}
+          {%- elsif page.latest_posts and site.latest_posts.enabled -%}
             <h2><a href="{{ '/blog/' | relative_url }}" style="color: inherit;">Latest Posts</a></h2>
             {%- include latest_posts.html %}
           {%- endif %}

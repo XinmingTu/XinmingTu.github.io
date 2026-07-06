@@ -912,7 +912,7 @@ toc:
   - name: "What Evolves"
   - name: "When Updates Persist"
   - name: "The 3×3 Evolution Matrix"
-  - name: "Single Session: Online Adaptation"
+  - name: "Single Session: On-the-Fly Adaptation"
   - name: "Across Sessions: Longitudinal Alignment"
   - name: "Across Users: Population-Level Evolution"
   - name: "What Is the 'Self' Here?"
@@ -948,9 +948,9 @@ toc:
 
 An agent's capabilities should not remain fixed after release. As agents accumulate experience from past attempts, tool results, and successful workflows, those capabilities should improve over time. The field is shifting toward **self-evolving systems**, driven by two promises:
 
-- **Motivation 1: Marginal Cost Reduction.** As an agent accumulates execution experience, similar tasks should become cheaper. Past trajectories can be compressed into reusable assets, so the system stops paying the same "inference tax" twice: fewer inference tokens, fewer tool calls, fewer retries, and fewer human interventions per task family.
+- **Motivation 1: Experience Lowers Marginal Cost.** As an agent accumulates execution experience, similar tasks should become cheaper. Past trajectories can be compressed into reusable assets, so the system stops paying the same "inference tax" twice: fewer inference tokens, fewer tool calls, fewer retries, and fewer human interventions per task family.
 
-- **Motivation 2: Capability Ceiling Expansion.** Over time, an agent should not only get cheaper; it should bring harder tasks within reach. Static agents hit a ceiling on long-horizon work: errors compound, context decays, and brittle workflows break. Self-evolving systems can forge tools, cache progress, and revise strategy at runtime. They make autonomy a property of the architecture, not just a behavior in the transcript.
+- **Motivation 2: Experience Expands the Capability Frontier.** Over time, an agent should not only get cheaper; it should bring harder tasks within reach. Static agents hit a ceiling on long-horizon work: errors compound, context decays, and brittle workflows break. Self-evolving systems can forge tools, cache progress, and revise strategy at runtime. They make autonomy a property of the architecture, not just a behavior in the transcript.
 
 <figure class="self-evolving-figure tight-top medium">
   <img src="/assets/img/2026-06-08-self-evolving-agents/figure1-dual-promise.svg" alt="A chart showing self-evolving agents reducing cost per task while expanding capability over time.">
@@ -968,8 +968,6 @@ The central question is simple: **what changes, and when does the update persist
 **Terminology note.** Continual learning and self-evolving agents both describe systems that learn from experience over time. Recursive self-improvement is the special case where that loop is applied to AI development itself. The Discussion returns to this distinction after the matrix is in place.
 
 </div>
-
-The main text uses a few anchor examples to keep the argument readable; the appendix expands the full 3×3 landscape with additional systems, mechanisms, and caveats.
 
 ## What Evolves
 
@@ -1024,6 +1022,8 @@ Once we know what can change, the next question is how long the change survives.
 
 At the systems level, this is what learning from experience means: experience becomes state, and state changes future behavior.
 
+Here, state means any stored change that can affect future behavior: notes, code, workflow rules, cached artifacts, or even weight deltas.
+
 A self-evolving agent does not discard execution traces at task end; it turns successes, tool errors, rejected actions, and user corrections into reusable state.
 
 To map this loop, we cross the three update substrates with three horizons of persistence:
@@ -1062,7 +1062,7 @@ The result is a 3×3 map: three persistence horizons crossed with three update s
 
 The matrix shows possibility, not obligation: these are places self-evolution can land, not requirements every agent must satisfy.
 
-## Single Session: Online Adaptation
+## Single Session: On-the-Fly Adaptation
 
 The first horizon is the live trajectory: using feedback from the current run to improve the task before it ends.
 
@@ -1116,7 +1116,7 @@ This is meta-programming at the harness layer. **Meta-Harness** makes the idea l
 
 At the model-weights layer, repeated interaction changes trainable parameters themselves, not the memory store or harness. **OpenClaw-RL** points in this direction: conversational feedback becomes training signal for updating the agent's model weights <d-cite key="openclawrl2026"></d-cite>.
 
-This is still frontier work. Most personalization should stay in files or harness logic; per-user weight adaptation complicates serving, batching, evaluation, privacy, and update governance.
+This remains frontier work. In many deployed systems, personalization is likely to appear first in files or harness logic, because per-user weight adaptation complicates serving, batching, evaluation, privacy, and update governance.
 
 ## Across Users: Population-Level Evolution
 

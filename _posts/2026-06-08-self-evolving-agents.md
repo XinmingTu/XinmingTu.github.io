@@ -115,6 +115,28 @@ _styles: |
   d-article .evo-note > :last-child {
     margin-bottom: 0;
   }
+  d-article .evo-abstract {
+    background: #fbfbfd;
+    border: 1px solid #d7dae3;
+    border-left: 4px solid var(--global-theme-color);
+    border-radius: 8px;
+    color: #3d4250;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0.15rem 0 1.45rem;
+    padding: 0.9rem 1rem 0.95rem;
+  }
+  d-article .evo-abstract-label {
+    color: #1a1d26;
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.45rem;
+    text-transform: uppercase;
+  }
+  d-article .evo-abstract p {
+    margin: 0;
+  }
   d-article details.appendix-cell {
     border-top: 1px solid #e7e9f0;
     padding: 0.8rem 0;
@@ -954,6 +976,11 @@ toc:
 <symbol id="ei-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18"></path><path d="M12 3c2.7 2.5 4.2 5.7 4.2 9s-1.5 6.5-4.2 9c-2.7-2.5-4.2-5.7-4.2-9s1.5-6.5 4.2-9z"></path></symbol>
 <symbol id="ei-swarm" viewBox="0 0 24 24"><path d="M12 7 6 11M12 7l6 4M7 12h10M6.5 13.5 9.5 18M17.5 13.5 14.5 18M10 19h4"></path><circle cx="12" cy="5" r="2"></circle><circle cx="5" cy="12" r="2"></circle><circle cx="19" cy="12" r="2"></circle><circle cx="9" cy="19" r="2"></circle><circle cx="15" cy="19" r="2"></circle></symbol>
 </svg>
+</div>
+
+<div class="evo-abstract">
+  <div class="evo-abstract-label">Abstract</div>
+  {{ page.abstract | markdownify }}
 </div>
 
 ## The Dual Promise

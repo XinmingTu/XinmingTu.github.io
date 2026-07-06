@@ -69,12 +69,6 @@
 
       <d-byline></d-byline>
 
-      {% if page.abstract %}
-      <d-abstract>
-        {{ page.abstract | markdownify }}
-      </d-abstract>
-      {% endif %}
-
       {% if page.bilingual %}
         {% include lang_switch.html %}
       {% endif %}

@@ -2,6 +2,20 @@
 layout: distill
 title: "The What & When of Self-Evolving Agents"
 description: "A 3×3 framework for understanding what evolves in AI agents and when those updates persist."
+abstract: >
+  The era of static AI agents is giving way to self-evolving systems that
+  compound experience into durable capabilities. Starting from two motivations
+  for why agents should evolve rather than remain fixed, this essay introduces
+  a 3×3 framework for understanding that transition through two questions:
+  **what** part of the agent evolves, and **when** does the update persist?
+  The matrix crosses three update substrates, external files, the agent
+  harness, and model weights, with three persistence horizons: single session,
+  across sessions, and across users. Beyond this product-centric view, the
+  essay reframes the agent's "self" from its own perspective, mapping the
+  human-facing horizons of single session, across sessions, and across users
+  onto the agent-centered horizons of intra-task, inter-task, and inter-agent
+  evolution. The discussion situates this framework in relation to continual
+  learning and recursive self-improvement.
 date: 2026-06-08
 tags: ['AI', 'agents', 'deep-learning']
 

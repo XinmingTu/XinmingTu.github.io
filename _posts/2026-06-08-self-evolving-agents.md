@@ -1114,7 +1114,7 @@ The central question is simple: **what changes, and when does the update persist
 
 <div class="evo-note" markdown="1">
 
-**Terminology note.** Continual learning and self-evolving agents both describe systems that learn from experience over time. Recursive self-improvement is the special case where that loop is applied to AI development itself. The Discussion returns to this distinction after the matrix is in place.
+**Terminology note.** Continual learning and self-evolving agents both describe systems that learn from experience over time. Recursive self-improvement is the special case where that loop is applied to AI development itself <d-cite key="wengharness2026"></d-cite>. The Discussion returns to this distinction after the matrix is in place.
 
 </div>
 
@@ -1238,6 +1238,8 @@ The script may be temporary, but within that session the agent has expanded its 
 ### Layer 3: Test-Time Training
 
 The most aggressive online adaptation modifies the model itself during inference. **TTT-Discover** makes this concrete: instead of only prompting a frozen model to search longer, the system trains at test time on feedback from the current problem <d-cite key="tttdiscover2026"></d-cite>.
+
+**ThetaEvolve** brings the same move to evolutionary search: test-time RL keeps updating the policy's weights as the search runs, letting even an 8B open-source model set new best-known bounds on open problems such as circle packing <d-cite key="thetaevolve2025"></d-cite>.
 
 This does not eliminate training; it moves part of the learning loop into deployment. TTT is the upper edge of online self-evolution: the agent does not merely remember a discovery; it alters the machinery that will generate the next one.
 
@@ -1380,13 +1382,14 @@ By giving agents writable external state, editable harnesses, and eventually upd
 
 The main essay keeps one or two anchor examples per cell. This appendix restores the broader map: the same 3×3 matrix, expanded with more systems, mechanisms, design tradeoffs, and caveats.
 
-For survey-level context, recent work organizes self-evolving agents around what evolves, when it evolves, and how it evolves <d-cite key="selfevolvingsurvey2025"></d-cite>.
+For survey-level context, recent work organizes self-evolving agents around what evolves, when it evolves, and how it evolves <d-cite key="selfevolvingsurvey2025"></d-cite>. For the harness column specifically, Weng's harness-engineering essay traces a progression of optimization targets from prompts and structured context through workflows and harness code up to the optimizer code itself <d-cite key="wengharness2026"></d-cite>.
 
 The placement rule is simple: if an example changes the reader's understanding of the core mechanism, it belongs in the main text; if it primarily broadens coverage, it belongs here. Several patterns also cut across cells:
 
 - **External state becoming harness:** skills begin as files, but become control logic once the runtime discovers them, loads them, and routes through them. Anthropic Agent Skills, OpenHands skills, and Memento-Skills all sit on this boundary <d-cite key="anthropicagentskills2026,openhandskills2026,mementoskills2026"></d-cite>.
 - **External state becoming transient parameters:** retrieved context is not just "read" by the model; it becomes key-value tensors in the active computation. Linear attention and fast-weight interpretations make this boundary especially explicit <d-cite key="lineartransformersrnn2020,linearfastweights2021"></d-cite>.
 - **Local discoveries becoming global defaults:** a temporary script can become a user skill; a user skill can become a shared registry asset; a repeated failure can become a harness or checkpoint update.
+- **Harness and weights co-evolving:** the two deeper substrates can also be optimized jointly. SIA runs a meta-agent/feedback-agent loop that chooses, per iteration, between rewriting the task agent's harness and applying LoRA weight updates <d-cite key="sia2026"></d-cite>. The evidence is still early, but the pattern is distinct enough to name.
 
 The grid below is the same map as Figure 3, now expandable: open any cell for the concrete systems, mechanisms, and caveats behind that part of the matrix.
 
@@ -1471,6 +1474,12 @@ This cell covers recurring execution graphs that persist across tasks or session
 - **DSPy** treats language-model programs as optimizable graphs rather than hand-written prompts <d-cite key="dspy2023"></d-cite>.
 - **MIPRO** optimizes instructions and demonstrations for multi-stage language-model programs <d-cite key="mipro2024"></d-cite>.
 - **AgentOptimizer** iteratively adds, revises, and removes agent functions or skills from historical conversations and performance feedback, without updating the base model weights <d-cite key="agentoptimizer2023"></d-cite>.
+- **Promptbreeder** is the self-referential ancestor of this cell: it evolves task prompts and, in the same loop, the mutation prompts that rewrite them <d-cite key="promptbreeder2023"></d-cite>.
+- **GEPA** pairs evolutionary prompt search with natural-language reflection over execution trajectories, extracting more improvement per rollout than RL-based prompt optimization <d-cite key="gepa2025"></d-cite>.
+- **AFlow** represents workflows as graphs of LLM-invoking nodes and searches over them with Monte Carlo Tree Search <d-cite key="aflow2024"></d-cite>.
+- **STOP** turns the optimizer on itself: a seed improver recursively rewrites its own improvement code, rediscovering strategies like beam search and genetic algorithms along the way <d-cite key="stop2023"></d-cite>.
+- **MCE** lifts context engineering to a bi-level problem: an inner loop optimizes the context artifact while an outer loop evolves the context-management skills that produce it, so the mechanism and the artifact co-evolve <d-cite key="mce2026"></d-cite>.
+- **Self-Harness** closes the loop on a single model's own failure patterns: weakness mining over execution traces, bounded harness proposals tied to those weaknesses, and regression-gated validation before any edit lands <d-cite key="selfharness2026"></d-cite>.
 
 These optimizers stay in this cell when they are run against a recurring task distribution; they would move to the population row only when a platform ships the resulting program as a global default.
 
@@ -1506,8 +1515,9 @@ This cell covers shared external state - registries, knowledge banks, and artifa
 - **ReasoningBank** collects reasoning memories to scale agent self-evolution <d-cite key="reasoningbank2025"></d-cite>.
 - **FunSearch** shows a collective program-search loop in which generated programs are evaluated, selected, and reused for further discovery <d-cite key="funsearch2023"></d-cite>.
 - **AlphaEvolve** extends verified program search to scientific, algorithmic, and infrastructure problems, where generated code is evaluated, selected, and iteratively reused as the evolving artifact <d-cite key="alphaevolve2025"></d-cite>.
+- **ShinkaEvolve** attacks the sample efficiency of this loop with balanced parent sampling, code-novelty rejection sampling, and bandit-based model selection <d-cite key="shinkaevolve2025"></d-cite>.
 
-FunSearch and AlphaEvolve are treated here as evolving program-artifact stores, not as literal multi-user registries.
+FunSearch, AlphaEvolve, and ShinkaEvolve are treated here as evolving program-artifact stores, not as literal multi-user registries.
 
 **Mechanism:** validate and promote local discoveries into shared assets: tools, integrations, reasoning traces, API wrappers, benchmark solutions, and capability graphs.
 
@@ -1522,6 +1532,7 @@ This cell covers population-level improvement to the default agent process itsel
 
 - **Platform-shipped harness defaults** can turn population telemetry into upgrades baked into every agent's default harness: explicit planning for long-horizon tasks, autonomous execution loops, and test-and-verify steps that sandbox generated code before replying.
 - **Alita-G** sits on the Layer 1/2 boundary: it turns successful trajectories into curated MCP tools, then uses retrieval-augmented tool selection to instantiate stronger domain agents <d-cite key="alitag2025"></d-cite>.
+- **ADAS** frames agent design itself as a search problem: a meta agent programs new agents in code, drawing on an ever-growing archive of prior discoveries <d-cite key="adas2024"></d-cite>.
 - **Darwin Gödel Machine** explores open-ended evolution of self-improving coding agents <d-cite key="dgm2025"></d-cite>.
 - **Hyperagents** make the meta-level improvement procedure itself editable, so the system searches not only for better agents but for better ways to generate better agents <d-cite key="hyperagents2026"></d-cite>.
 

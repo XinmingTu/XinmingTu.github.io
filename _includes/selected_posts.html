@@ -2,9 +2,8 @@
             {% if site.selected_posts.paths != blank -%}
             {%- assign selected_posts_size = site.selected_posts.paths | size -%}
             <div class="news-list{% if site.selected_posts.scrollable and selected_posts_size > 3 %} scrollable{% endif %}">
-              {% for selected_path in site.selected_posts.paths %}
-                {% for item in site.posts %}
-                  {% if item.path == selected_path %}
+              {% for item in site.posts %}
+                {% if site.selected_posts.paths contains item.path %}
                     <div class="news-item">
                       <time class="news-date">{{ item.date | date: "%b %-d, %Y" }}</time>
                       <div class="news-content">
@@ -20,8 +19,7 @@
                         {% endif %}
                       </div>
                     </div>
-                  {% endif %}
-                {%- endfor %}
+                {% endif %}
               {%- endfor %}
             </div>
           {%- else -%}

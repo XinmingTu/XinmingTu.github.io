@@ -31,6 +31,50 @@ authors:
 
 bibliography: 2026-06-08-self-evolving-agents.bib
 _styles: |
+  d-article {
+    --evo-surface: #fbfbfd;
+    --evo-surface-2: #ffffff;
+    --evo-border: #d7dae3;
+    --evo-border-soft: #e7e9f0;
+    --evo-ink: #1a1d26;
+    --evo-body: #3d4250;
+    --evo-muted: #6b7280;
+    --evo-faint: #7a8196;
+    --evo-faint-2: #9aa1b5;
+    --evo-faint-3: #aab0c0;
+    --evo-line: #c3c8d4;
+  }
+  html[data-theme='dark'] d-article {
+    --evo-surface: #232327;
+    --evo-surface-2: #2b2b31;
+    --evo-border: #45464e;
+    --evo-border-soft: #37383f;
+    --evo-ink: #e8eaf0;
+    --evo-body: #c7cbd6;
+    --evo-muted: #a3aab9;
+    --evo-faint: #9099ab;
+    --evo-faint-2: #7e8595;
+    --evo-faint-3: #6f7686;
+    --evo-line: #52545f;
+  }
+  html[data-theme='dark'] d-article .evo-files { --lc: #7aa9f7; --lc-bg: #1d2a44; --lc-dark: #accafa; --lc-border: #34508a; }
+  html[data-theme='dark'] d-article .evo-harness { --lc: #eb9b45; --lc-bg: #362510; --lc-dark: #f3c489; --lc-border: #74501f; }
+  html[data-theme='dark'] d-article .evo-weights { --lc: #ab84f0; --lc-bg: #2b2045; --lc-dark: #ccb4f9; --lc-border: #543e8c; }
+  html[data-theme='dark'] d-article figure.self-evolving-figure img {
+    background: #ffffff;
+    border-radius: 12px;
+    filter: brightness(0.94);
+  }
+  html[data-theme='dark'] d-article .evo-core-art g,
+  html[data-theme='dark'] d-article .evo-core-art circle[stroke] {
+    stroke: #ab84f0;
+  }
+  html[data-theme='dark'] d-article .evo-core-art circle[fill="#7c3aed"] {
+    fill: #ab84f0;
+  }
+  html[data-theme='dark'] d-article .evo-core-art circle[fill="#fff"] {
+    fill: var(--lc-bg);
+  }
   d-article h3 {
     margin-top: 1.15em;
     margin-bottom: 0.55em;
@@ -51,22 +95,43 @@ _styles: |
     height: auto;
     display: block;
   }
+  d-article svg.evo-dp {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  d-article .evo-dp-grid { stroke: var(--evo-border-soft); }
+  d-article .evo-dp-axis { stroke: var(--evo-line); }
+  d-article .evo-dp-arrowhead { fill: var(--evo-body); }
+  d-article .evo-dp-static { stroke: var(--evo-faint-3); }
+  d-article .evo-dp .evo-dp-area { fill: var(--lc-bg); opacity: 0.6; }
+  d-article .evo-dp .evo-dp-line { fill: none; stroke: var(--lc); }
+  d-article .evo-dp .evo-dp-dot { fill: var(--lc); }
+  d-article .evo-dp .evo-dp-label { fill: var(--lc); }
+  d-article .evo-dp-origin { fill: var(--evo-surface-2); stroke: var(--evo-ink); }
+  d-article .evo-dp-t-faint { fill: var(--evo-faint); }
+  d-article .evo-dp-t-static { fill: var(--evo-faint-2); }
+  d-article .evo-dp-t-body,
+  d-article .evo-dp-t-body text { fill: var(--evo-body); }
+  d-article .evo-dp-t-ink { fill: var(--evo-ink); }
+  d-article .evo-dp-ticklines { stroke: var(--evo-border-soft); }
+  d-article .evo-dp-tickdot { fill: var(--evo-faint-3); }
   d-article figure.self-evolving-figure figcaption {
-    color: #6b7280;
+    color: var(--evo-muted);
     font-size: 0.88rem;
     line-height: 1.45;
     margin-top: 0.55rem;
     text-align: center;
   }
   d-article details.evo-aside {
-    background: #fbfbfd;
-    border: 1px solid #d7dae3;
+    background: var(--evo-surface);
+    border: 1px solid var(--evo-border);
     border-radius: 8px;
     margin: 0.9rem 0 1.25rem;
   }
   d-article details.evo-aside summary {
     align-items: center;
-    color: #1a1d26;
+    color: var(--evo-ink);
     cursor: pointer;
     display: flex;
     font-weight: 700;
@@ -78,7 +143,7 @@ _styles: |
     display: none;
   }
   d-article details.evo-aside summary::before {
-    color: #7a8196;
+    color: var(--evo-faint);
     content: "+";
     flex: 0 0 auto;
     font-weight: 800;
@@ -87,7 +152,7 @@ _styles: |
     content: "-";
   }
   d-article details.evo-aside .evo-aside-body {
-    color: #3d4250;
+    color: var(--evo-body);
     font-size: 0.92rem;
     line-height: 1.55;
     padding: 0 0.9rem 0.85rem;
@@ -99,11 +164,11 @@ _styles: |
     margin-bottom: 0;
   }
   d-article .evo-note {
-    background: #fbfbfd;
-    border: 1px solid #d7dae3;
-    border-left: 4px solid #7a8196;
+    background: var(--evo-surface);
+    border: 1px solid var(--evo-border);
+    border-left: 4px solid var(--evo-faint);
     border-radius: 8px;
-    color: #3d4250;
+    color: var(--evo-body);
     font-size: 0.92rem;
     line-height: 1.55;
     margin: 1rem 0 1.3rem;
@@ -116,18 +181,18 @@ _styles: |
     margin-bottom: 0;
   }
   d-article .evo-abstract {
-    background: #fbfbfd;
-    border: 1px solid #d7dae3;
+    background: var(--evo-surface);
+    border: 1px solid var(--evo-border);
     border-left: 4px solid var(--global-theme-color);
     border-radius: 8px;
-    color: #3d4250;
+    color: var(--evo-body);
     font-size: 0.95rem;
     line-height: 1.6;
     margin: 0.15rem 0 1.45rem;
     padding: 0.9rem 1rem 0.95rem;
   }
   d-article .evo-abstract-label {
-    color: #1a1d26;
+    color: var(--evo-ink);
     font-size: 0.78rem;
     font-weight: 800;
     letter-spacing: 0.08em;
@@ -138,11 +203,11 @@ _styles: |
     margin: 0;
   }
   d-article details.appendix-cell {
-    border-top: 1px solid #e7e9f0;
+    border-top: 1px solid var(--evo-border-soft);
     padding: 0.8rem 0;
   }
   d-article details.appendix-cell:last-of-type {
-    border-bottom: 1px solid #e7e9f0;
+    border-bottom: 1px solid var(--evo-border-soft);
   }
   d-article details.appendix-cell summary {
     align-items: baseline;
@@ -155,7 +220,7 @@ _styles: |
     display: none;
   }
   d-article details.appendix-cell summary::before {
-    color: #7a8196;
+    color: var(--evo-faint);
     content: "+";
     flex: 0 0 auto;
     font-weight: 800;
@@ -164,12 +229,12 @@ _styles: |
     content: "-";
   }
   d-article .appendix-cell-title {
-    color: #1a1d26;
+    color: var(--evo-ink);
     flex: 0 0 14rem;
     font-weight: 800;
   }
   d-article .appendix-cell-subtitle {
-    color: #6b7280;
+    color: var(--evo-muted);
     font-size: 0.92rem;
     font-weight: 600;
   }
@@ -304,21 +369,21 @@ _styles: |
     margin-bottom: 0.05rem;
   }
   d-article .evo-legend-text {
-    color: #7a8196;
+    color: var(--evo-faint);
     font-size: 0.8rem;
     line-height: 1.45;
   }
   d-article .evo-legend-note {
-    border: 1px dashed #d7dae3;
+    border: 1px dashed var(--evo-border);
     border-radius: 10px;
-    background: #fbfbfd;
+    background: var(--evo-surface);
     padding: 0.7rem 0.85rem;
-    color: #3d4250;
+    color: var(--evo-body);
     font-size: 0.8rem;
     line-height: 1.5;
   }
   d-article .evo-legend-note strong {
-    color: #1a1d26;
+    color: var(--evo-ink);
   }
   d-article .evo-matrix {
     display: grid;
@@ -350,7 +415,7 @@ _styles: |
     line-height: 1.2;
   }
   d-article .evo-colhead-sub {
-    color: #7a8196;
+    color: var(--evo-faint);
     font-size: 0.68rem;
     font-weight: 500;
     line-height: 1.25;
@@ -364,7 +429,7 @@ _styles: |
   d-article .evo-rowlabel-text {
     writing-mode: vertical-rl;
     transform: rotate(180deg);
-    color: #1a1d26;
+    color: var(--evo-ink);
     font-weight: 700;
     font-size: 0.78rem;
     letter-spacing: 0.02em;
@@ -372,7 +437,7 @@ _styles: |
   d-article .evo-rowicon {
     width: 16px;
     height: 16px;
-    color: #7a8196;
+    color: var(--evo-faint);
   }
   d-article .evo-cell {
     background: var(--lc-bg);
@@ -392,13 +457,13 @@ _styles: |
     color: var(--lc);
   }
   d-article .evo-cell-title {
-    color: #1a1d26;
+    color: var(--evo-ink);
     font-weight: 700;
     font-size: 0.83rem;
     line-height: 1.3;
   }
   d-article .evo-cell-desc {
-    color: #3d4250;
+    color: var(--evo-body);
     font-size: 0.77rem;
     font-weight: 400;
     line-height: 1.4;
@@ -420,12 +485,12 @@ _styles: |
     height: 0;
     border-left: 5px solid transparent;
     border-right: 5px solid transparent;
-    border-bottom: 9px solid #7a8196;
+    border-bottom: 9px solid var(--evo-faint);
   }
   d-article .evo-yaxis-text {
     writing-mode: vertical-rl;
     transform: rotate(180deg);
-    color: #1a1d26;
+    color: var(--evo-ink);
     font-weight: 800;
     font-size: 0.7rem;
     letter-spacing: 0.09em;
@@ -434,7 +499,7 @@ _styles: |
   d-article .evo-yaxis-line {
     flex: 1;
     width: 1.5px;
-    background: #c3c8d4;
+    background: var(--evo-line);
     border-radius: 1px;
   }
   d-article .evo-xaxis {
@@ -446,7 +511,7 @@ _styles: |
   }
   d-article .evo-xaxis-title {
     text-align: center;
-    color: #1a1d26;
+    color: var(--evo-ink);
     font-weight: 800;
     font-size: 0.7rem;
     letter-spacing: 0.09em;
@@ -456,7 +521,7 @@ _styles: |
     display: flex;
     align-items: center;
     gap: 0.55rem;
-    color: #3d4250;
+    color: var(--evo-body);
     font-size: 0.72rem;
     font-weight: 600;
   }
@@ -514,7 +579,7 @@ _styles: |
     height: 20px;
   }
   d-article .evo-cell-plus {
-    color: #7a8196;
+    color: var(--evo-faint);
     font-weight: 800;
     font-size: 0.95rem;
     line-height: 1;
@@ -534,7 +599,7 @@ _styles: |
     text-align: left;
   }
   d-article .evo-cell-systems {
-    color: #6b7280;
+    color: var(--evo-muted);
     font-size: 0.72rem;
     font-weight: 400;
     line-height: 1.4;
@@ -544,7 +609,7 @@ _styles: |
     position: relative;
     border: 1px solid var(--lc-border);
     border-radius: 10px;
-    background: #ffffff;
+    background: var(--evo-surface-2);
     padding: 0.95rem 1.1rem 0.9rem;
     margin: 2px 0 5px;
   }
@@ -559,7 +624,7 @@ _styles: |
     width: 10px;
     height: 10px;
     transform: translateX(-50%) rotate(45deg);
-    background: #ffffff;
+    background: var(--evo-surface-2);
     border-left: 1px solid var(--lc-border);
     border-top: 1px solid var(--lc-border);
   }
@@ -567,7 +632,7 @@ _styles: |
   d-article .evo-from-2 { --cx: calc(48px + (100% - 48px) * 0.5); }
   d-article .evo-from-3 { --cx: calc(48px + (100% - 48px) * 0.8333); }
   d-article .evo-panel-head {
-    color: #6b7280;
+    color: var(--evo-muted);
     font-size: 0.8rem;
     margin: 0 0 0.6rem;
   }
@@ -609,17 +674,17 @@ _styles: |
     font-weight: 500;
     letter-spacing: 0;
     text-transform: none;
-    color: #aab0c0;
+    color: var(--evo-faint-3);
   }
-  d-article .evo-shift-head-from { color: #9aa1b5; }
-  d-article .evo-shift-head-to { color: #1a1d26; grid-column: 3; }
+  d-article .evo-shift-head-from { color: var(--evo-faint-2); }
+  d-article .evo-shift-head-to { color: var(--evo-ink); grid-column: 3; }
   d-article .evo-shift-from {
     display: grid;
     grid-template-columns: auto 1fr;
     gap: 0.5rem;
     align-items: center;
     border: 1px solid var(--lc-border);
-    background: #ffffff;
+    background: var(--evo-surface-2);
     border-radius: 10px;
     padding: 0.55rem 0.65rem;
   }
@@ -635,7 +700,7 @@ _styles: |
     line-height: 1.2;
   }
   d-article .evo-shift-from-sub {
-    color: #9aa1b5;
+    color: var(--evo-faint-2);
     font-size: 0.72rem;
     line-height: 1.3;
   }
@@ -666,7 +731,7 @@ _styles: |
     height: 32px;
     border-radius: 9px;
     background: var(--lc);
-    color: #ffffff;
+    color: var(--evo-surface-2);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -676,7 +741,7 @@ _styles: |
     height: 19px;
   }
   d-article .evo-shift-to-name {
-    color: #1a1d26;
+    color: var(--evo-ink);
     font-weight: 700;
     font-size: 0.92rem;
     line-height: 1.2;
@@ -686,7 +751,7 @@ _styles: |
     font-weight: 600;
   }
   d-article .evo-shift-to-trigger {
-    color: #6b7280;
+    color: var(--evo-muted);
     font-size: 0.74rem;
     line-height: 1.35;
     margin-top: 0.15rem;
@@ -811,8 +876,8 @@ _styles: |
     min-width: 0;
   }
   d-article .evo-rsi-node {
-    background: #ffffff;
-    border: 1px solid #e7e9f0;
+    background: var(--evo-surface-2);
+    border: 1px solid var(--evo-border-soft);
     border-radius: 13px;
     padding: 0.72rem 1rem 0.78rem;
     text-align: center;
@@ -821,21 +886,21 @@ _styles: |
     border: 1.5px solid #df7a18;
   }
   d-article .evo-rsi-node--tasks {
-    background: #fbfbfd;
-    border: 1.5px solid #d7dae3;
+    background: var(--evo-surface);
+    border: 1.5px solid var(--evo-border);
   }
   d-article .evo-rsi-node--next {
-    background: #fbfbfd;
+    background: var(--evo-surface);
     border: 1.8px solid var(--global-theme-color);
   }
   d-article .evo-rsi-title {
-    color: #1a1d26;
+    color: var(--evo-ink);
     font-size: 0.97rem;
     font-weight: 700;
     line-height: 1.3;
   }
   d-article .evo-rsi-sub {
-    color: #7a8196;
+    color: var(--evo-faint);
     font-size: 0.84rem;
     line-height: 1.4;
     margin-top: 0.12rem;
@@ -853,7 +918,7 @@ _styles: |
     width: 2px;
     margin-left: -1px;
     border-radius: 1px;
-    background: #7a8196;
+    background: var(--evo-faint);
   }
   d-article .evo-rsi-edge::after {
     content: "";
@@ -862,14 +927,14 @@ _styles: |
     bottom: 5px;
     margin-left: -5px;
     border: 5px solid transparent;
-    border-top: 7px solid #7a8196;
+    border-top: 7px solid var(--evo-faint);
   }
   d-article .evo-rsi-edge span {
     position: absolute;
     left: calc(50% + 12px);
     top: 50%;
     transform: translateY(-58%);
-    color: #7a8196;
+    color: var(--evo-faint);
     font-size: 0.8rem;
     font-style: italic;
     white-space: nowrap;
@@ -882,10 +947,10 @@ _styles: |
     margin-top: 0.55rem;
   }
   d-article .evo-rsi-chips span {
-    background: #ffffff;
-    border: 1px solid #d7dae3;
+    background: var(--evo-surface-2);
+    border: 1px solid var(--evo-border);
     border-radius: 999px;
-    color: #3d4250;
+    color: var(--evo-body);
     font-size: 0.78rem;
     font-weight: 500;
     line-height: 1;
@@ -920,7 +985,7 @@ _styles: |
     font-weight: 700;
   }
   d-article .evo-rsi-return-label span {
-    color: #3d4250;
+    color: var(--evo-body);
     display: block;
     font-size: 0.78rem;
     margin-top: 0.08rem;
@@ -994,7 +1059,50 @@ An agent's capabilities should not remain fixed after release. As agents accumul
 - **Motivation 2: Experience Expands the Capability Frontier.** Over time, an agent should not only get cheaper; it should bring harder tasks within reach. Static agents hit a ceiling on long-horizon work: errors compound, context decays, and brittle workflows break. Self-evolving systems can forge tools, cache progress, and revise strategy at runtime. They make autonomy a property of the architecture, not just a behavior in the transcript.
 
 <figure class="self-evolving-figure tight-top medium">
-  <img src="/assets/img/2026-06-08-self-evolving-agents/figure1-dual-promise.svg" alt="A chart showing self-evolving agents reducing cost per task while expanding capability over time.">
+<svg class="evo-dp" viewBox="0 18 880 442" role="img" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif" aria-label="Capability rises while cost per task falls">
+<g transform="translate(0,20)">
+<line class="evo-dp-grid" x1="70" y1="120" x2="836" y2="120" stroke-width="1"></line>
+<line class="evo-dp-grid" x1="70" y1="290" x2="836" y2="290" stroke-width="1"></line>
+<line class="evo-dp-grid" x1="70" y1="34" x2="70" y2="370" stroke-width="1.5"></line>
+<line class="evo-dp-axis" x1="70" y1="370" x2="836" y2="370" stroke-width="1.5"></line>
+<path class="evo-dp-arrowhead" d="M836 365.5 L849 370 L836 374.5 Z"></path>
+<g class="evo-weights"><path class="evo-dp-area" d="M78 210 C260 204 560 150 828 64 L828 210 Z"></path></g>
+<g class="evo-files"><path class="evo-dp-area" d="M78 210 C260 216 560 280 828 330 L828 210 Z"></path></g>
+<path class="evo-dp-static" d="M84 210 H820" fill="none" stroke-width="2.5" stroke-dasharray="2 7" stroke-linecap="round"></path>
+<g class="evo-weights">
+<path class="evo-dp-line" d="M78 210 C260 204 560 150 828 64" stroke-width="3.2" stroke-linecap="round"></path>
+<circle class="evo-dp-dot" cx="828" cy="64" r="4.5"></circle>
+<text class="evo-dp-label" x="500" y="108" text-anchor="middle" font-size="16.5" font-weight="700">Capability ↑</text>
+<text class="evo-dp-label" x="500" y="126" text-anchor="middle" font-family="Georgia,serif" font-size="13" font-style="italic">longer task horizons</text>
+</g>
+<g class="evo-files">
+<path class="evo-dp-line" d="M78 210 C260 216 560 280 828 330" stroke-width="3.2" stroke-linecap="round"></path>
+<circle class="evo-dp-dot" cx="828" cy="330" r="4.5"></circle>
+<text class="evo-dp-label" x="500" y="296" text-anchor="middle" font-size="16.5" font-weight="700">Cost per task ↓</text>
+<text class="evo-dp-label" x="500" y="314" text-anchor="middle" font-family="Georgia,serif" font-size="13" font-style="italic">fewer tokens · retries · human fixes</text>
+</g>
+<circle class="evo-dp-origin" cx="78" cy="210" r="5" stroke-width="2"></circle>
+<text class="evo-dp-t-faint" x="86" y="190" font-family="Georgia,serif" font-size="13" font-style="italic">deployment</text>
+<text class="evo-dp-t-static" x="782" y="198" text-anchor="end" font-size="16" font-weight="700">Static agent</text>
+<g transform="translate(40,262) rotate(-90)">
+<text class="evo-dp-t-body" font-size="17" font-weight="800"><tspan class="evo-files evo-dp-label">Cost</tspan> · <tspan class="evo-weights evo-dp-label">Capability</tspan></text>
+</g>
+<text class="evo-dp-t-ink" x="453" y="402" text-anchor="middle" font-size="17" font-weight="800">Time / experience</text>
+<g class="evo-dp-ticklines" stroke-width="1" stroke-dasharray="2 4">
+<line x1="265" y1="344" x2="265" y2="370"></line>
+<line x1="480" y1="344" x2="480" y2="370"></line>
+<line x1="660" y1="344" x2="660" y2="370"></line>
+</g>
+<g class="evo-dp-t-body" font-size="15" font-weight="700" text-anchor="middle">
+<circle class="evo-dp-tickdot" cx="265" cy="370" r="3"></circle>
+<text x="265" y="338">saves a skill</text>
+<circle class="evo-dp-tickdot" cx="480" cy="370" r="3"></circle>
+<text x="480" y="338">rewires its workflow</text>
+<circle class="evo-dp-tickdot" cx="660" cy="370" r="3"></circle>
+<text x="660" y="338">updates its weights</text>
+</g>
+</g>
+</svg>
   <figcaption><strong>Figure 1.</strong> Agents accumulate experience, expanding the capability frontier while reducing marginal cost per task.</figcaption>
 </figure>
 

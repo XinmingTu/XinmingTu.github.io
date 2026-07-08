@@ -1344,7 +1344,7 @@ Returning to the terminology note, the matrix makes the boundary sharper.
 
 The core feedback loop is simple: experience becomes state, and state changes future behavior.
 
-**Recursive self-improvement** sits on a different axis. It is not another substrate in the matrix; it is the same loop applied to AI development itself. **Recursive's automated AI research system** is an early example, applying agentic search to AI-development tasks such as model training and GPU-kernel optimization <d-cite key="recursiveautoresearch2026"></d-cite>.
+**Recursive self-improvement**, however, is fundamentally different. It is not an architectural mechanism but a specific task: take a self-evolving system and point it at the domain of building AI — generating synthetic pre-training data, building automated evaluations, curating post-training datasets — and that application is RSI. RSI is simply what happens when the environment a self-evolving agent acts upon is the AI development pipeline itself. **Recursive's automated AI research system** is an early example, applying agentic search to AI-development tasks such as model training and GPU-kernel optimization <d-cite key="recursiveautoresearch2026"></d-cite>.
 
 <figure class="self-evolving-figure rsi-figure">
 <div class="evo-rsi">

@@ -429,13 +429,19 @@ _styles: |
     text-transform: uppercase;
   }
   d-article .evo-rowstrip .evo-cell-title {
-    font-size: 0.78rem;
-    line-height: 1.3;
+    color: var(--evo-muted);
+    font-size: 0.69rem;
+    font-weight: 500;
+    line-height: 1.35;
+    order: 2;
     text-align: left;
   }
   d-article .evo-rowstrip .evo-cell-systems {
-    font-size: 0.7rem;
-    line-height: 1.35;
+    color: var(--evo-ink);
+    font-size: 0.8rem;
+    font-weight: 700;
+    line-height: 1.3;
+    order: 1;
   }
   @media (max-width: 720px) {
     d-article .evo-rowstrip {
@@ -827,7 +833,7 @@ _styles: |
     d-article .evo-matrix .evo-yaxis,
     d-article .evo-colhead-sub,
     d-article .evo-cell-desc,
-    d-article .evo-cell-systems {
+    d-article .evo-matrix .evo-cell-systems {
       display: none;
     }
     d-article .evo-colhead {
@@ -1455,15 +1461,9 @@ The core feedback loop is simple: experience becomes state, and state changes fu
 <figcaption><strong>Figure 5.</strong> Recursive self-improvement as the self-evolving loop applied to AI development: inference-time work produces artifacts, data, evaluations, or infrastructure improvements that feed future AI systems.</figcaption>
 </figure>
 
-### The Sedimentation System
+### Capability Consolidation
 
-The 3×3 matrix might look like a static taxonomy. It is better read as the lifecycle of a capability: experience does not stay in one cell forever — as it proves general, it sinks, layer by layer, from the flexible surface toward the rigid core.
-
-A discovery is born as an artifact — a custom script, a scratchpad note: cheap, flexible, fragile. If it helps only one task, it expires with the session, and that is fine. If it recurs — across tasks, across users — that recurrence is evidence of generality, and the system absorbs it into the harness: platform designers, or meta-agents, turn the ad-hoc script into a default tool, a routing rule, a recovery loop. And what the harness repeats often enough, the weights eventually learn: mature workflows produce thousands of clean trajectories, the next training run bakes them in, and the workflow becomes the model's native capability. Tools become instincts.
-
-In the static era, capability froze the moment training ended. In the self-evolving era, the designer's job is no longer to assemble the strongest agent for today, but to build the system through which experience keeps sinking — from files, into the harness, into the weights.
-
-Build that system well, and we stop building merely smarter copilots. We begin building the substrate for **intelligence that can evolve itself**.
+The matrix is not only a taxonomy; it also describes a path of capability consolidation. A useful discovery may begin as a task-local artifact. If it succeeds repeatedly across tasks or users, it can be promoted into a default tool or workflow in the harness. If that workflow generalizes broadly enough, training on its successful trajectories can internalize the capability into a future model's weights.
 
 ## Appendix: The Complete Landscape
 

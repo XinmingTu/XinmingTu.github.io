@@ -3,15 +3,15 @@ layout: distill
 title: "The What & When of Self-Evolving Agents"
 description: "A 3×3 framework for understanding what evolves in AI agents and when those updates persist."
 abstract: >
-  The era of static AI agents is giving way to self-evolving systems that
-  compound experience into durable capabilities. Starting from two motivations
-  for why agents should evolve rather than remain fixed, this essay introduces
-  a 3×3 framework for understanding that transition through two questions:
-  **what** part of the agent evolves, and **when** does the update persist?
+  Everyone wants AI agents that learn from experience — call it continual
+  learning, self-evolution, or recursive self-improvement. The words are
+  shared; the systems behind them are not. Instead of sorting the words,
+  this blog sorts the updates, asking two questions of any self-evolving
+  system: **what** is updated, and **when** does the update persist?
   The matrix crosses three update substrates, external files, the agent
   harness, and model weights, with three persistence horizons: single session,
   across sessions, and across users. Beyond this product-centric view, the
-  essay reframes the agent's "self" from its own perspective, mapping the
+  blog reframes the agent's "self" from its own perspective, mapping the
   human-facing horizons of single session, across sessions, and across users
   onto the agent-centered horizons of intra-task, inter-task, and inter-agent
   evolution. The discussion situates this framework in relation to continual
@@ -388,6 +388,63 @@ _styles: |
   d-article .evo-matrix {
     display: grid;
     gap: 6px;
+  }
+  d-article .evo-rowstrip {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+    font-family: Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, sans-serif;
+  }
+  d-article figure.rowstrip-figure {
+    margin: 1.05rem 0 1.45rem;
+  }
+  d-article .evo-rowstrip .evo-cell {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    text-align: left;
+    gap: 0.55rem;
+    min-height: 0;
+    padding: 0.6rem 0.7rem 0.65rem;
+    border: 1px solid var(--lc-border);
+  }
+  d-article .evo-rowstrip .evo-cellicon {
+    width: 18px;
+    height: 18px;
+    flex: none;
+    margin-top: 0.15rem;
+  }
+  d-article .evo-rowstrip .evo-cell-body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.12rem;
+    min-width: 0;
+  }
+  d-article .evo-rowstrip .evo-cell-tag {
+    display: block;
+    color: var(--lc);
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+  }
+  d-article .evo-rowstrip .evo-cell-title {
+    font-size: 0.78rem;
+    line-height: 1.3;
+    text-align: left;
+  }
+  d-article .evo-rowstrip .evo-cell-systems {
+    font-size: 0.7rem;
+    line-height: 1.35;
+  }
+  @media (max-width: 720px) {
+    d-article .evo-rowstrip {
+      grid-template-columns: 1fr;
+      gap: 4px;
+    }
+    d-article .evo-rowstrip .evo-cell {
+      padding: 0.45rem 0.6rem;
+    }
   }
   d-article .evo-matrix-fig {
     grid-template-columns: 24px 42px 1fr 1fr 1fr;
@@ -1050,13 +1107,11 @@ toc:
 
 ## The Dual Promise
 
-**The era of static AI agents is ending.**
+We expect AI systems to learn from experience. The push toward self-evolving agents rests on two promises:
 
-An agent's capabilities should not remain fixed after release. As agents accumulate experience from past attempts, tool results, and successful workflows, those capabilities should improve over time. The field is shifting toward **self-evolving systems**, driven by two promises:
+- **Experience should lower marginal cost.** Similar tasks should get cheaper: past trajectories compress into reusable assets, so the system stops paying the same inference tax twice — fewer tokens, fewer tool calls, fewer retries, fewer human interventions.
 
-- **Motivation 1: Experience Lowers Marginal Cost.** As an agent accumulates execution experience, similar tasks should become cheaper. Past trajectories can be compressed into reusable assets, so the system stops paying the same "inference tax" twice: fewer inference tokens, fewer tool calls, fewer retries, and fewer human interventions per task family.
-
-- **Motivation 2: Experience Expands the Capability Frontier.** Over time, an agent should not only get cheaper; it should bring harder tasks within reach. Static agents hit a ceiling on long-horizon work: errors compound, context decays, and brittle workflows break. Self-evolving systems can forge tools, cache progress, and revise strategy at runtime. They make autonomy a property of the architecture, not just a behavior in the transcript.
+- **Experience should expand the capability frontier.** The system should get more capable: by retaining discoveries, learning from feedback, and revising strategy, it solves harder problems and sustains longer task horizons than it could before.
 
 <figure class="self-evolving-figure tight-top medium">
 <svg class="evo-dp" viewBox="0 18 880 442" role="img" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif" aria-label="Capability rises while cost per task falls">
@@ -1106,17 +1161,11 @@ An agent's capabilities should not remain fixed after release. As agents accumul
   <figcaption><strong>Figure 1.</strong> Agents accumulate experience, expanding the capability frontier while reducing marginal cost per task.</figcaption>
 </figure>
 
-Systems are moving beyond **stateless orchestration**. Instead of starting from scratch on every task, modern agent architectures can carry experience forward.
+The pursuit goes by many names — continual learning, self-evolution, recursive self-improvement — and the names blur together. One line of work (AlphaEvolve, autoresearch) evolves an **artifact** — a program, a proof, training code — within **a single run** <d-cite key="alphaevolve2025,autoresearch2026"></d-cite>. Another (ACE, Mem0) accumulates **memory** — knowledge, strategies, playbooks — **across sessions** <d-cite key="ace2025,mem02025"></d-cite>. A third (self-play, auto-data agents) generates **synthetic experience** — data, rewards, curricula — for **the next model's training**.
 
-But "learning" is not magic. It must land somewhere.
+All three learn from experience. But what they update, and how long the update lives, could hardly be more different.
 
-The central question is simple: **what changes, and when does the update persist?**
-
-<div class="evo-note" markdown="1">
-
-**Terminology note.** Continual learning and self-evolving agents both describe systems that learn from experience over time. Recursive self-improvement is the special case where that loop is applied to AI development itself <d-cite key="wengharness2026"></d-cite>. The Discussion returns to this distinction after the matrix is in place.
-
-</div>
+Learning is not magic: it must land somewhere, and it must last for some horizon. So instead of sorting the words, this blog sorts the updates. Crossing three update substrates — external files, the agent harness, model weights — with three persistence horizons — a single session, across sessions, across users — gives a 3×3 map, and the three lines above land in three different cells. Even recursive self-improvement, the most loaded term of all, is not a separate mechanism: it is this same loop pointed at AI development itself <d-cite key="wengharness2026"></d-cite>, a special case the Discussion returns to. Our hope is to replace "does this agent self-evolve?" with a sharper question: **what does it update, and for how long?**
 
 ## What Evolves
 
@@ -1201,7 +1250,7 @@ The result is a 3×3 map: three persistence horizons crossed with three update s
 <div class="evo-cell evo-harness"><span class="evo-cell-tag">Agent Harness</span><svg class="evo-ic evo-cellicon" aria-hidden="true"><use href="#ei-pharness"></use></svg><span class="evo-cell-title">Compiled workflow harness</span><span class="evo-cell-desc">Past traces compile into reusable workflows.</span></div>
 <div class="evo-cell evo-weights"><span class="evo-cell-tag">Model Weights</span><svg class="evo-ic evo-cellicon" aria-hidden="true"><use href="#ei-sliders"></use></svg><span class="evo-cell-title">Parametric personalization</span><span class="evo-cell-desc">Repeated use updates trainable parameters.</span></div>
 <div class="evo-rowlabel"><svg class="evo-ic evo-rowicon" aria-hidden="true"><use href="#ei-row-session"></use></svg><span class="evo-rowlabel-text">Single Session</span></div>
-<div class="evo-cell evo-files"><span class="evo-cell-tag">External Files</span><svg class="evo-ic evo-cellicon" aria-hidden="true"><use href="#ei-scratch"></use></svg><span class="evo-cell-title">Temporary memory</span><span class="evo-cell-desc">Runtime notes, scratchpads &amp; retrieved context.</span></div>
+<div class="evo-cell evo-files"><span class="evo-cell-tag">External Files</span><svg class="evo-ic evo-cellicon" aria-hidden="true"><use href="#ei-scratch"></use></svg><span class="evo-cell-title">Task-local artifacts &amp; memory</span><span class="evo-cell-desc">Evolving artifacts, runtime notes &amp; scratchpads.</span></div>
 <div class="evo-cell evo-harness"><span class="evo-cell-tag">Agent Harness</span><svg class="evo-ic evo-cellicon" aria-hidden="true"><use href="#ei-dynamic"></use></svg><span class="evo-cell-title">Dynamic orchestration</span><span class="evo-cell-desc">Live traces create branches, tools, and repair loops.</span></div>
 <div class="evo-cell evo-weights"><span class="evo-cell-tag">Model Weights</span><svg class="evo-ic evo-cellicon" aria-hidden="true"><use href="#ei-chip"></use></svg><span class="evo-cell-title">Test-time training</span><span class="evo-cell-desc">Train on feedback from the current problem.</span></div>
 <div class="evo-xaxis"><span class="evo-xaxis-title">What to update?</span><span class="evo-xaxis-scale"><span>cheaper &amp; shallower</span><span class="evo-xaxis-bar"></span><span>deeper &amp; costlier</span></span></div>
@@ -1211,35 +1260,45 @@ The result is a 3×3 map: three persistence horizons crossed with three update s
 
 The matrix shows possibility, not obligation: these are places self-evolution can land, not requirements every agent must satisfy.
 
+It also classifies update loops, not papers. A single system can run several loops at once — ThetaEvolve evolves a program database while also training its search policy at test time <d-cite key="thetaevolve2025"></d-cite> — and then it simply occupies several cells.
+
 ## Single Session: On-the-Fly Adaptation
 
 The first horizon is the live trajectory: using feedback from the current run to improve the task before it ends.
 
-Within one trajectory, experience can become working state: notes, branches, helpers, plans.
+Within one trajectory, experience can become task-local state: artifacts, notes, helpers, plans.
 
-### Layer 1: Working Memory and Context Paging
+<figure class="self-evolving-figure rowstrip-figure">
+<div class="evo-rowstrip">
+<div class="evo-cell evo-files"><svg class="evo-ic evo-cellicon" aria-hidden="true"><use href="#ei-scratch"></use></svg><span class="evo-cell-body"><span class="evo-cell-tag">External Files</span><span class="evo-cell-title">Task-local artifacts &amp; memory</span><span class="evo-cell-systems">autoresearch · AlphaEvolve · MemGPT</span></span></div>
+<div class="evo-cell evo-harness"><svg class="evo-ic evo-cellicon" aria-hidden="true"><use href="#ei-dynamic"></use></svg><span class="evo-cell-body"><span class="evo-cell-tag">Agent Harness</span><span class="evo-cell-title">Dynamic orchestration</span><span class="evo-cell-systems">Claude Code Workflows · RLM</span></span></div>
+<div class="evo-cell evo-weights"><svg class="evo-ic evo-cellicon" aria-hidden="true"><use href="#ei-chip"></use></svg><span class="evo-cell-body"><span class="evo-cell-tag">Model Weights</span><span class="evo-cell-title">Test-time training</span><span class="evo-cell-systems">TTT-Discover · ThetaEvolve</span></span></div>
+</div>
+</figure>
 
-Inside one session, external state turns the live trace into working memory: notes, constraints, partial discoveries, and retrieved context can be written out and pulled back when needed. **MemGPT** is the canonical example, treating the context window as constrained RAM and external memory as virtual storage <d-cite key="memgpt2023"></d-cite>.
+### Layer 1 · External Files: Task-Local Artifacts and Memory
 
-### Layer 2: Dynamic Orchestration
+The clearest single-session loop is an evolving artifact. **autoresearch** runs it in its purest form: an agent modifies training code, runs the experiment, keeps or discards the change, and continues — no human intervention until the run ends <d-cite key="autoresearch2026"></d-cite>. **AlphaEvolve** drives the same loop with evaluator feedback at larger scale, improving programs, proofs, and constructions inside an external file <d-cite key="alphaevolve2025"></d-cite>. The agent itself may stay unchanged; what evolves is the artifact and the search state guiding the next attempt.
+
+External state also serves as plain working memory — notes, constraints, and retrieved context paged in and out of the window, with **MemGPT** as the canonical example <d-cite key="memgpt2023"></d-cite>.
+
+### Layer 2 · Agent Harness: Dynamic Orchestration
 
 At the harness layer, the agent rewires its execution plan at runtime.
 
-A static workflow says: *call A → call B → summarize*.
-
-A dynamic workflow adapts: *A failed twice → insert diagnosis; the wrapper is missing → synthesize one; the task branches → fan out*.
-
-**Recursive Language Models** expose a lighter version of the same idea: recursive subcalls turn context processing into runtime control flow <d-cite key="rlm2025"></d-cite>.
+A static agent pushes every tool call through one ever-growing context. A dynamic workflow splits the task across subagents, each with its own context, and decides what to run next from what just came back: the execution graph adapts, not just the next action.
 
 **Claude Code's Dynamic Workflows** make this literal: the execution plan leaves the conversation. Claude writes a JavaScript orchestration script, and a separate runtime executes it in the background across subagents <d-cite key="anthropicdynamicworkflows2026"></d-cite>. Loops, branches, fan-out, error handling, resumability, and intermediate state are compiled for the task itself.
 
+**Recursive Language Models** expose the underlying mechanism in a lighter form: recursive subcalls turn context processing into runtime control flow <d-cite key="rlm2025"></d-cite>.
+
 The script may be temporary, but within that session the agent has expanded its own action space.
 
-### Layer 3: Test-Time Training
+### Layer 3 · Model Weights: Test-Time Training
 
 The most aggressive online adaptation modifies the model itself during inference. **TTT-Discover** makes this concrete: instead of only prompting a frozen model to search longer, the system trains at test time on feedback from the current problem <d-cite key="tttdiscover2026"></d-cite>.
 
-**ThetaEvolve** brings the same move to evolutionary search: test-time RL keeps updating the policy's weights as the search runs, letting even an 8B open-source model set new best-known bounds on open problems such as circle packing <d-cite key="thetaevolve2025"></d-cite>.
+**ThetaEvolve** brings the same move to evolutionary search: test-time RL keeps updating the policy's weights as the search runs <d-cite key="thetaevolve2025"></d-cite>.
 
 This does not eliminate training; it moves part of the learning loop into deployment. TTT is the upper edge of online self-evolution: the agent does not merely remember a discovery; it alters the machinery that will generate the next one.
 
@@ -1247,7 +1306,15 @@ This does not eliminate training; it moves part of the learning loop into deploy
 
 The second horizon is longitudinal: adapting to recurring structure across the same user, project, workflow, or task family.
 
-### Layer 1: Persistent Memory & Skills
+<figure class="self-evolving-figure rowstrip-figure">
+<div class="evo-rowstrip">
+<div class="evo-cell evo-files"><svg class="evo-ic evo-cellicon" aria-hidden="true"><use href="#ei-skills"></use></svg><span class="evo-cell-body"><span class="evo-cell-tag">External Files</span><span class="evo-cell-title">Skill library &amp; memory</span><span class="evo-cell-systems">Voyager · Codex Record &amp; Replay · CLAUDE.md</span></span></div>
+<div class="evo-cell evo-harness"><svg class="evo-ic evo-cellicon" aria-hidden="true"><use href="#ei-pharness"></use></svg><span class="evo-cell-body"><span class="evo-cell-tag">Agent Harness</span><span class="evo-cell-title">Compiled workflow harness</span><span class="evo-cell-systems">Meta-Harness</span></span></div>
+<div class="evo-cell evo-weights"><svg class="evo-ic evo-cellicon" aria-hidden="true"><use href="#ei-sliders"></use></svg><span class="evo-cell-body"><span class="evo-cell-tag">Model Weights</span><span class="evo-cell-title">Parametric personalization</span><span class="evo-cell-systems">OpenClaw-RL</span></span></div>
+</div>
+</figure>
+
+### Layer 1 · External Files: Persistent Memory & Skills
 
 The practical cross-session layer has two forms: memory and skills.
 
@@ -1257,13 +1324,13 @@ In coding agents, the same pattern often appears as repository-level instruction
 
 **Skills** preserve repeatable procedures. A skill can be a saved command, a verified wrapper, a reusable script, or a demonstrated workflow. **Voyager** showed the executable version early by accumulating Minecraft skills as reusable code <d-cite key="voyager2023"></d-cite>. **OpenAI Codex Record & Replay** turns one demonstrated workflow into a reusable skill <d-cite key="openaicodexrecordreplay2026"></d-cite>.
 
-### Layer 2: Meta-Programming
+### Layer 2 · Agent Harness: Meta-Programming
 
 When an agent repeatedly solves the same class of problems, it should not reconstruct its execution plan from scratch. High-performing trajectories can be mined to optimize the harness itself.
 
 This is meta-programming at the harness layer. **Meta-Harness** makes the idea literal: an outer-loop optimizer searches over harness code using prior candidates, scores, and execution traces <d-cite key="metaharness2026"></d-cite>. The structural move is compression: repeated execution patterns collapse into a lean, reusable execution DAG (Directed Acyclic Graph).
 
-### Layer 3: Parametric Personalization
+### Layer 3 · Model Weights: Parametric Personalization
 
 At the model-weights layer, repeated interaction changes trainable parameters themselves, not the memory store or harness. **OpenClaw-RL** points in this direction: conversational feedback becomes training signal for updating the agent's model weights <d-cite key="openclawrl2026"></d-cite>.
 
@@ -1271,26 +1338,34 @@ This remains frontier work. In many deployed systems, personalization is likely 
 
 ## Across Users: Population-Level Evolution
 
-The third horizon is population-level: using many users' trajectories, failures, and discoveries to improve shared assets, default harnesses, or future models after deployment.
+The third horizon is population-level, and its goal is different in kind: not solving one problem (single session), not adapting to one task family (across sessions), but raising the baseline every user starts from. One agent's failure or discovery becomes the population's default — landing in shared assets, default harnesses, or future models.
 
-### Layer 1: Collective Knowledge & Skill Commons
+<figure class="self-evolving-figure rowstrip-figure">
+<div class="evo-rowstrip">
+<div class="evo-cell evo-files"><svg class="evo-ic evo-cellicon" aria-hidden="true"><use href="#ei-collective"></use></svg><span class="evo-cell-body"><span class="evo-cell-tag">External Files</span><span class="evo-cell-title">Knowledge &amp; skill commons</span><span class="evo-cell-systems">EinsteinArena · Agent Skills</span></span></div>
+<div class="evo-cell evo-harness"><svg class="evo-ic evo-cellicon" aria-hidden="true"><use href="#ei-tuning"></use></svg><span class="evo-cell-body"><span class="evo-cell-tag">Agent Harness</span><span class="evo-cell-title">Platform harness flywheel</span><span class="evo-cell-systems">Claude Code / Codex defaults</span></span></div>
+<div class="evo-cell evo-weights"><svg class="evo-ic evo-cellicon" aria-hidden="true"><use href="#ei-continual"></use></svg><span class="evo-cell-body"><span class="evo-cell-tag">Model Weights</span><span class="evo-cell-title">Checkpoint bootstrapping</span><span class="evo-cell-systems">Cursor Tab · self-play</span></span></div>
+</div>
+</figure>
+
+### Layer 1 · External Files: Collective Knowledge & Skill Commons
 
 Human civilization scales by externalizing discovery into books, libraries, protocols, and tools. Agent populations can do the same: at the external-state layer, population-level evolution builds a shared commons of artifacts agents can query or reuse.
 
 - **Knowledge** stores what was discovered: constraints, schemas, failure modes, proof ideas, or reusable mathematical constructions. If one agent finds a useful construction for an open math problem, the next agent should inherit the artifact rather than rediscover it. **EinsteinArena** makes this population-level loop concrete with verifiers, leaderboards, and public discussion, so one agent's construction can become another agent's starting point <d-cite key="einsteinarena2026"></d-cite>.
 - **Skills** store how to act: shared tools, verified wrappers, repair recipes, and agent-published procedures. A skill-share system turns one agent's working script or wrapper into another agent's starting capability <d-cite key="anthropicagentskills2026"></d-cite>.
 
-### Layer 2: Platform-Level Harness Flywheels
+### Layer 2 · Agent Harness: Platform Harness Flywheels
 
 At the harness layer, population-scale evolution upgrades the default agent runtime. This is platform-level change: when Claude Code, Codex, or a similar agent ships plan mode, `/loop`, `/goal`, better tool schemas, or stronger recovery logic, every user inherits a better harness.
 
 The signal comes from aggregate failures. If many agents fail at the same step, the fix may not be a smarter base model; it may be a better prompt, router, tool contract, retry policy, or verification loop. Over time, the harness itself becomes an optimization target.
 
-### Layer 3: Checkpoint Bootstrapping Toward Self-Improvement
+### Layer 3 · Model Weights: Checkpoint Bootstrapping
 
 At the parametric layer, population-level evolution usually means checkpoint bootstrapping, not live continual learning. Deployed agents become data engines for future models.
 
-**Pre-training / synthetic bootstrapping.** When an agent solves a novel task that a compiler, sandbox, or verifier can check, the verified trace can enter the pretraining data corpus for a future model.
+**Pre-training / synthetic bootstrapping.** When an agent solves a novel task that a compiler, sandbox, or verifier can check, the verified trace can enter the pretraining data corpus for a future model. Self-play and auto-data agents push this further: the agent manufactures its own challenges, data, and rewards, targeting the weaknesses it discovered in the environment.
 
 **Post-training / RL.** Population behavior becomes preference and reward signal: accepts, rejects, edits, interruptions, and corrections show where the current model fails. **Cursor Tab**, Cursor's code autocomplete feature, is a concrete example: users' Tab accepts and edits provide RL signal for training the next policy <d-cite key="cursortabrl2025"></d-cite>.
 
@@ -1338,9 +1413,9 @@ An agent-centered view keeps the same three substrates, but re-labels the persis
 
 ### Continual Learning, Self-Evolution, and Recursive Self-Improvement
 
-Returning to the terminology note, the matrix makes the boundary sharper.
+The intro deferred the vocabulary question; with the matrix in place, the boundaries get sharper.
 
-**Continual learning** and **self-evolution** are closely aligned: both describe systems that learn from experience over time. In this essay, **self-evolving agents** are the agent-centric framing of that idea, where learned state can land in any of the three layers above: external files, the agent harness, or model weights.
+**Continual learning** and **self-evolution** are closely aligned: both describe systems that learn from experience over time. In this blog, **self-evolving agents** are the agent-centric framing of that idea, where learned state can land in any of the three layers above: external files, the agent harness, or model weights.
 
 The core feedback loop is simple: experience becomes state, and state changes future behavior.
 
@@ -1374,13 +1449,19 @@ The core feedback loop is simple: experience becomes state, and state changes fu
 <figcaption><strong>Figure 5.</strong> Recursive self-improvement as the self-evolving loop applied to AI development: inference-time work produces artifacts, data, evaluations, or infrastructure improvements that feed future AI systems.</figcaption>
 </figure>
 
-The long-run question is how memory, skills, harness updates, and weight updates compose into systems where experience reliably becomes reusable capability.
+### The Sedimentation System
 
-By giving agents writable external state, editable harnesses, and eventually updatable weights, we stop building merely smarter copilots. We begin building the substrate for **intelligence that can evolve itself**.
+The 3×3 matrix might look like a static taxonomy. It is better read as the lifecycle of a capability: experience does not stay in one cell forever — as it proves general, it sinks, layer by layer, from the flexible surface toward the rigid core.
+
+A discovery is born as an artifact — a custom script, a scratchpad note: cheap, flexible, fragile. If it helps only one task, it expires with the session, and that is fine. If it recurs — across tasks, across users — that recurrence is evidence of generality, and the system absorbs it into the harness: platform designers, or meta-agents, turn the ad-hoc script into a default tool, a routing rule, a recovery loop. And what the harness repeats often enough, the weights eventually learn: mature workflows produce thousands of clean trajectories, the next training run bakes them in, and the workflow becomes the model's native capability. Tools become instincts.
+
+In the static era, capability froze the moment training ended. In the self-evolving era, the designer's job is no longer to assemble the strongest agent for today, but to build the system through which experience keeps sinking — from files, into the harness, into the weights.
+
+Build that system well, and we stop building merely smarter copilots. We begin building the substrate for **intelligence that can evolve itself**.
 
 ## Appendix: The Complete Landscape
 
-The main essay keeps one or two anchor examples per cell. This appendix restores the broader map: the same 3×3 matrix, expanded with more systems, mechanisms, design tradeoffs, and caveats.
+The main text keeps one or two anchor examples per cell. This appendix restores the broader map: the same 3×3 matrix, expanded with more systems, mechanisms, design tradeoffs, and caveats.
 
 For survey-level context, recent work organizes self-evolving agents around what evolves, when it evolves, and how it evolves <d-cite key="selfevolvingsurvey2025"></d-cite>. For the harness column specifically, Weng's harness-engineering essay traces a progression of optimization targets from prompts and structured context through workflows and harness code up to the optimizer code itself <d-cite key="wengharness2026"></d-cite>.
 
@@ -1394,17 +1475,23 @@ The placement rule is simple: if an example changes the reader's understanding o
 The grid below is the same map as Figure 3, now expandable: open any cell for the concrete systems, mechanisms, and caveats behind that part of the matrix.
 
 <details class="appendix-cell" markdown="1" data-when="single-session" data-layer="files">
-<summary><span class="appendix-cell-title">Single Session / Layer 1</span><span class="appendix-cell-subtitle">Working Memory and Context Paging</span></summary>
+<summary><span class="appendix-cell-title">Single Session / Layer 1</span><span class="appendix-cell-subtitle">Task-Local Artifacts and Memory</span></summary>
 
-This cell covers state that is created, compressed, retrieved, or discarded inside one active trajectory.
+This cell covers state that is created, compressed, retrieved, or discarded inside one active trajectory — evolving artifacts on one side, working memory on the other.
 
+- **autoresearch** turns one long run into an experiment loop: the agent edits training code, launches the experiment, and keeps or discards the change based on results <d-cite key="autoresearch2026"></d-cite>.
+- **FunSearch** shows the program-search version of the same loop: generated programs are evaluated, selected, and reused for further discovery <d-cite key="funsearch2023"></d-cite>.
+- **AlphaEvolve** extends verified program search to scientific, algorithmic, and infrastructure problems, where generated code is evaluated, selected, and iteratively reused as the evolving artifact <d-cite key="alphaevolve2025"></d-cite>.
+- **ShinkaEvolve** attacks the sample efficiency of this loop with balanced parent sampling, code-novelty rejection sampling, and bandit-based model selection <d-cite key="shinkaevolve2025"></d-cite>.
 - **MemGPT** frames the context window as constrained RAM and external storage as virtual memory, making memory movement an explicit systems problem <d-cite key="memgpt2023"></d-cite>.
 - **MEMENTO** teaches models to manage their own context by segmenting intermediate reasoning and reasoning forward through compressed mementos <d-cite key="memento2026"></d-cite>.
 - **Memory-as-Action** treats memory editing as a learnable action policy instead of a fixed heuristic <d-cite key="memoryasaction2025"></d-cite>.
 - **AMA-Bench** highlights the core failure mode: similarity-based memory retrieval can miss causal and objective information, so memory systems must be evaluated on task usefulness rather than storage volume <d-cite key="amabench2026"></d-cite>.
 - **Lost in the Middle** explains why this matters even when context windows are large: performance drops when relevant evidence sits in the middle of long context <d-cite key="liu2023lostmiddle"></d-cite>.
 
-**Mechanism:** compress the live trace into structured memory, page low-salience information out of active context, and rehydrate only the pieces needed for the next decision.
+The artifact-evolution systems run their whole loop inside a single session; their program databases would move up the matrix only when shared as commons across runs and users.
+
+**Mechanism:** iterate on external artifacts against evaluator feedback until the run ends; compress the live trace into structured memory and page low-salience information out of active context.
 
 **Caveat:** a larger memory store is not automatically an evolved agent. Without reliable write policy, retrieval policy, and evaluation, memory becomes another noisy tool.
 
@@ -1513,11 +1600,7 @@ This cell covers shared external state - registries, knowledge banks, and artifa
 - **Composio** and **LlamaHub** are practical infrastructure for shared integration assets: hosted MCP/tool wrappers on one side, and reusable loaders, tools, and packs on the other <d-cite key="composio2026,llamahub2024"></d-cite>.
 - **Agent KB** studies how cross-domain experience can be reused for agentic problem solving <d-cite key="agentkb2025"></d-cite>.
 - **ReasoningBank** collects reasoning memories to scale agent self-evolution <d-cite key="reasoningbank2025"></d-cite>.
-- **FunSearch** shows a collective program-search loop in which generated programs are evaluated, selected, and reused for further discovery <d-cite key="funsearch2023"></d-cite>.
-- **AlphaEvolve** extends verified program search to scientific, algorithmic, and infrastructure problems, where generated code is evaluated, selected, and iteratively reused as the evolving artifact <d-cite key="alphaevolve2025"></d-cite>.
-- **ShinkaEvolve** attacks the sample efficiency of this loop with balanced parent sampling, code-novelty rejection sampling, and bandit-based model selection <d-cite key="shinkaevolve2025"></d-cite>.
-
-FunSearch, AlphaEvolve, and ShinkaEvolve are treated here as evolving program-artifact stores, not as literal multi-user registries.
+- **EinsteinArena** makes the population-level loop concrete with verifiers, leaderboards, and public discussion, so one agent's construction becomes another agent's starting point <d-cite key="einsteinarena2026"></d-cite>.
 
 **Mechanism:** validate and promote local discoveries into shared assets: tools, integrations, reasoning traces, API wrappers, benchmark solutions, and capability graphs.
 

@@ -1158,7 +1158,7 @@ We expect AI systems to learn from experience. The push toward self-evolving age
 </g>
 </g>
 </svg>
-  <figcaption><strong>Figure 1.</strong> Agents accumulate experience, expanding the capability frontier while reducing marginal cost per task.</figcaption>
+  <figcaption><strong>Figure 1.</strong> Agents accumulate experience, expanding the capability frontier while reducing marginal cost per task. An idealized view.</figcaption>
 </figure>
 
 The pursuit goes by many names — continual learning, self-evolution, recursive self-improvement — and the names blur together. One line of work (AlphaEvolve, autoresearch) evolves an **artifact** — a program, a proof, training code — within **a single run** <d-cite key="alphaevolve2025,autoresearch2026"></d-cite>. Another (ACE, Mem0) accumulates **memory** — knowledge, strategies, playbooks — **across sessions** <d-cite key="ace2025,mem02025"></d-cite>. A third (self-play, auto-data agents) generates **synthetic experience** — data, rewards, curricula — for **the next model's training**.
@@ -1484,6 +1484,7 @@ This cell covers state that is created, compressed, retrieved, or discarded insi
 - **AlphaEvolve** extends verified program search to scientific, algorithmic, and infrastructure problems, where generated code is evaluated, selected, and iteratively reused as the evolving artifact <d-cite key="alphaevolve2025"></d-cite>.
 - **ShinkaEvolve** attacks the sample efficiency of this loop with balanced parent sampling, code-novelty rejection sampling, and bandit-based model selection <d-cite key="shinkaevolve2025"></d-cite>.
 - **MemGPT** frames the context window as constrained RAM and external storage as virtual memory, making memory movement an explicit systems problem <d-cite key="memgpt2023"></d-cite>.
+- **Reflexion** stores verbal self-critique of failed attempts in an episodic buffer that conditions the next trial: the canonical early demonstration that feedback can become reusable textual state without weight updates <d-cite key="reflexion2023"></d-cite>.
 - **MEMENTO** teaches models to manage their own context by segmenting intermediate reasoning and reasoning forward through compressed mementos <d-cite key="memento2026"></d-cite>.
 - **Memory-as-Action** treats memory editing as a learnable action policy instead of a fixed heuristic <d-cite key="memoryasaction2025"></d-cite>.
 - **AMA-Bench** highlights the core failure mode: similarity-based memory retrieval can miss causal and objective information, so memory systems must be evaluated on task usefulness rather than storage volume <d-cite key="amabench2026"></d-cite>.
@@ -1558,6 +1559,7 @@ This cell covers state that survives across sessions for one user, project, code
 This cell covers recurring execution graphs that persist across tasks or sessions.
 
 - **Meta-Harness** searches over harness code using prior candidates, scores, and execution traces, making harness optimization the direct target <d-cite key="metaharness2026"></d-cite>.
+- **Agent Workflow Memory** induces reusable workflows from past trajectories and injects them into future tasks, a lightweight version of the same compression that sits deliberately on the file/harness boundary <d-cite key="awm2024"></d-cite>.
 - **DSPy** treats language-model programs as optimizable graphs rather than hand-written prompts <d-cite key="dspy2023"></d-cite>.
 - **MIPRO** optimizes instructions and demonstrations for multi-stage language-model programs <d-cite key="mipro2024"></d-cite>.
 - **AgentOptimizer** iteratively adds, revises, and removes agent functions or skills from historical conversations and performance feedback, without updating the base model weights <d-cite key="agentoptimizer2023"></d-cite>.
@@ -1581,6 +1583,7 @@ These optimizers stay in this cell when they are run against a recurring task di
 
 This cell covers parametric specialization over repeated interactions with one user or organization.
 
+- **SEAL** makes self-evolving weights literal: the model writes its own finetuning data and update directives, applies them as persistent updates, and learns to write better self-edits from the updated model's performance <d-cite key="seal2025"></d-cite>.
 - **OPPU** explores democratized personalized parameter-efficient fine-tuning <d-cite key="oppu2024"></d-cite>.
 - **Profile-to-PEFT** uses profile-derived signals to produce fast personalized adaptation <d-cite key="profiletopeft2025"></d-cite>.
 - **PERSOMA** studies personalized soft-prompt adapters for personalized language prompting <d-cite key="persoma2024"></d-cite>.
@@ -1615,7 +1618,7 @@ This cell covers population-level improvement to the default agent process itsel
 
 - **Platform-shipped harness defaults** can turn population telemetry into upgrades baked into every agent's default harness: explicit planning for long-horizon tasks, autonomous execution loops, and test-and-verify steps that sandbox generated code before replying.
 - **Alita-G** sits on the Layer 1/2 boundary: it turns successful trajectories into curated MCP tools, then uses retrieval-augmented tool selection to instantiate stronger domain agents <d-cite key="alitag2025"></d-cite>.
-- **ADAS** frames agent design itself as a search problem: a meta agent programs new agents in code, drawing on an ever-growing archive of prior discoveries <d-cite key="adas2024"></d-cite>.
+- **Automated Design of Agentic Systems (ADAS)** established the search template behind this cell: a meta-agent programs new agents in code, evaluates them, and iterates against a growing archive of discovered designs <d-cite key="adas2024"></d-cite>.
 - **Darwin Gödel Machine** explores open-ended evolution of self-improving coding agents <d-cite key="dgm2025"></d-cite>.
 - **Hyperagents** make the meta-level improvement procedure itself editable, so the system searches not only for better agents but for better ways to generate better agents <d-cite key="hyperagents2026"></d-cite>.
 

@@ -3,19 +3,19 @@ layout: distill
 title: "The What & When of Self-Evolving Agents"
 description: "A 3×3 framework for understanding what evolves in AI agents and when those updates persist."
 abstract: >
-  Everyone wants AI agents that learn from experience — call it continual
-  learning, self-evolution, or recursive self-improvement. The words are
-  shared; the systems behind them are not. Instead of sorting the words,
-  this blog sorts the updates, asking two questions of any self-evolving
-  system: **what** is updated, and **when** does the update persist?
-  The matrix crosses three update substrates, external files, the agent
-  harness, and model weights, with three persistence horizons: single session,
-  across sessions, and across users. Beyond this product-centric view, the
-  blog reframes the agent's "self" from its own perspective, mapping the
-  human-facing horizons of single session, across sessions, and across users
-  onto the agent-centered horizons of intra-task, inter-task, and inter-agent
-  evolution. The discussion situates this framework in relation to continual
-  learning and recursive self-improvement.
+  AI agents are increasingly expected to learn from experience, yet systems
+  described as continual learning, self-evolution, or self-improvement often
+  change different parts of the agent and preserve those changes for different
+  lengths of time. We organize this landscape with a 3×3 framework crossing
+  three update substrates — external files, the agent harness, and model
+  weights — with three persistence horizons. The framework then shifts from a
+  product-centered view to an agent-centered one, distinguishing intra-task,
+  inter-task, and inter-agent evolution. It also relates self-evolution to
+  continual learning and distinguishes general self-improvement from
+  **recursive self-improvement**, where the target of improvement is the
+  AI-development process itself. Finally, we trace how repeated discoveries
+  can consolidate from temporary artifacts into reusable harness logic and,
+  eventually, model parameters.
 date: 2026-06-08
 tags: ['AI', 'agents', 'deep-learning']
 
@@ -1161,11 +1161,25 @@ We expect AI systems to learn from experience. The push toward self-evolving age
   <figcaption><strong>Figure 1.</strong> Agents accumulate experience, expanding the capability frontier while reducing marginal cost per task. An idealized view.</figcaption>
 </figure>
 
-The pursuit goes by many names — continual learning, self-evolution, recursive self-improvement — and the names blur together. One line of work (AlphaEvolve, autoresearch) evolves an **artifact** — a program, a proof, training code — within **a single run** <d-cite key="alphaevolve2025,autoresearch2026"></d-cite>. Another (ACE, Mem0) accumulates **memory** — knowledge, strategies, playbooks — **across sessions** <d-cite key="ace2025,mem02025"></d-cite>. A third (self-play, auto-data agents) generates **synthetic experience** — data, rewards, curricula — for **the next model's training**.
+The pursuit goes by many names — continual learning, self-evolution, and self-improvement — and the boundaries between them are often blurred. AlphaEvolve and autoresearch evolve **artifacts** — programs, proofs, and training code — within a run <d-cite key="alphaevolve2025,autoresearch2026"></d-cite>. ACE evolves **context** — instructions, strategies, and evidence — into structured playbooks, while Mem0 preserves **long-term conversational memory** across sessions <d-cite key="ace2025,mem02025"></d-cite>. Autodata turns agentic inference into higher-quality **training and evaluation data** for subsequent model training <d-cite key="autodata2026"></d-cite>.
 
-All three learn from experience. But what they update, and how long the update lives, could hardly be more different.
+All learn from experience, but they update different substrates over different horizons.
 
 Learning is not magic: it must land somewhere, and it must last for some horizon. So instead of sorting the words, this blog sorts the updates. Crossing three update substrates — external files, the agent harness, model weights — with three persistence horizons — a single session, across sessions, across users — gives a 3×3 map, and the three lines above land in three different cells. Even recursive self-improvement, the most loaded term of all, is not a separate mechanism: it is this same loop pointed at AI development itself <d-cite key="wengharness2026"></d-cite>, a special case the Discussion returns to. Our hope is to replace "does this agent self-evolve?" with a sharper question: **what does it update, and for how long?**
+
+<details class="evo-aside" markdown="1">
+<summary>Read this alongside</summary>
+
+<div class="evo-aside-body" markdown="1">
+
+- **Gao et al., [A Survey of Self-Evolving Agents](https://arxiv.org/abs/2507.21046)** — A comprehensive literature map organized around what, when, how, and where agents evolve, with broader coverage of evaluation, applications, and open challenges.
+- **Lilian Weng, [Harness Engineering for Self-Improvement](https://lilianweng.github.io/posts/2026-07-04-harness/)** — A harness-centered account of self-improvement, tracing optimization from context and workflows to harness and optimizer code.
+- **Shilong Liu, [A Taxonomy of Self-evolving Agents](https://lsl.zone/blog/2026/a-taxonomy-of-self-evolving-agents/)** — A complementary model–harness–artifact taxonomy organized by what evolves, what feedback drives it, and where the loop closes.
+
+This post takes a different cut: **update substrate × persistence horizon**, followed by a consolidation path across layers.
+
+</div>
+</details>
 
 ## What Evolves
 
@@ -1216,15 +1230,7 @@ External state no longer stores only facts. It can store skills, workflows, poli
 
 ## When Updates Persist
 
-Once we know what can change, the next question is how long the change survives.
-
-At the systems level, this is what learning from experience means: experience becomes state, and state changes future behavior.
-
-Here, state means any stored change that can affect future behavior: notes, code, workflow rules, cached artifacts, or even weight deltas.
-
-A self-evolving agent does not discard execution traces at task end; it turns successes, tool errors, rejected actions, and user corrections into reusable state.
-
-To map this loop, we cross the three update substrates with three horizons of persistence:
+Experience becomes learning only when it leaves state that changes a later action. That state may be a note, script, workflow rule, cached artifact, or weight update; its lifetime defines three persistence horizons:
 
 - **Single Session:** adaptation inside one live trajectory.
 - **Across Sessions:** adaptation that persists for a user, project, codebase, or environment.

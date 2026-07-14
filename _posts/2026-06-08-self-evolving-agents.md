@@ -3,19 +3,19 @@ layout: distill
 title: "The What & When of Self-Evolving Agents"
 description: "A 3×3 framework for understanding what evolves in AI agents and when those updates persist."
 abstract: >
-  AI agents are increasingly expected to learn from experience, yet systems
-  described as continual learning, self-evolution, or self-improvement often
-  change different parts of the agent and preserve those changes for different
-  lengths of time. We organize this landscape with a 3×3 framework crossing
-  three update substrates — external files, the agent harness, and model
-  weights — with three persistence horizons. The framework then shifts from a
-  product-centered view to an agent-centered one, distinguishing intra-task,
-  inter-task, and inter-agent evolution. It also relates self-evolution to
-  continual learning and distinguishes general self-improvement from
-  **recursive self-improvement**, where the target of improvement is the
-  AI-development process itself. Finally, we trace how repeated discoveries
+  AI agents are increasingly expected to learn from experience. Yet systems
+  labeled continual learning, self-evolution, or self-improvement differ in
+  what they update and how long those updates persist. We map these differences
+  in a 3×3 framework along two axes: the update substrate — **external files**,
+  **the agent harness**, or **model weights** — and the persistence horizon —
+  **within a single session**, **across sessions**, or **across users**. We then
+  reframe these product-centered horizons around the agent, distinguishing
+  **intra-task**, **inter-task**, and **inter-agent** evolution. It treats
+  continual learning and self-evolution as closely aligned, and recursive
+  self-improvement as the special case where self-evolution is applied to **AI
+  development itself**. Finally, we trace how repeated discoveries
   can consolidate from temporary artifacts into reusable harness logic and,
-  eventually, model parameters.
+  eventually, model weights.
 date: 2026-06-08
 tags: ['AI', 'agents', 'deep-learning']
 
@@ -1276,7 +1276,7 @@ It also classifies update loops, not papers. A single system can run several loo
 
 ## Single Session: On-the-Fly Adaptation
 
-The first horizon is the live trajectory: using feedback from the current run to improve the task before it ends.
+The first horizon is the live trajectory: using feedback from the current run to improve performance on the task before the run ends.
 
 Within one trajectory, experience can become task-local state: artifacts, notes, helpers, plans.
 
@@ -1298,7 +1298,9 @@ External state also serves as plain working memory — notes, constraints, and r
 
 At the harness layer, the agent rewires its execution plan at runtime.
 
-A static agent pushes every tool call through one ever-growing context. A dynamic workflow splits the task across subagents, each with its own context, and decides what to run next from what just came back: the execution graph adapts, not just the next action.
+A conventional agent loop keeps tool use inside one continually growing conversation: each result informs the next action, but the surrounding execution loop stays fixed.
+
+A dynamic workflow makes that surrounding control structure task-dependent, introducing branches, loops, and subagent calls at runtime while distributing intermediate state across separate contexts.
 
 **Claude Code's Dynamic Workflows** make this literal: the execution plan leaves the conversation. Claude writes a JavaScript orchestration script, and a separate runtime executes it in the background across subagents <d-cite key="anthropicdynamicworkflows2026"></d-cite>. Loops, branches, fan-out, error handling, resumability, and intermediate state are compiled for the task itself.
 
@@ -1423,15 +1425,21 @@ An agent-centered view keeps the same three substrates, but re-labels the persis
 
 ## Discussion
 
-### Continual Learning, Self-Evolution, and Recursive Self-Improvement
+### Continual Learning and Self-Evolution
 
-The intro deferred the vocabulary question; with the matrix in place, the boundaries get sharper.
+The intro deferred the vocabulary question; with the matrix in place, the relationships become clearer.
 
-**Continual learning** and **self-evolution** are closely aligned: both describe systems that learn from experience over time. In this blog, **self-evolving agents** are the agent-centric framing of that idea, where learned state can land in any of the three layers above: external files, the agent harness, or model weights.
+**Continual learning** and **self-evolution** are closely aligned: both describe systems in which experience becomes state that shapes future behavior. In this blog, **self-evolving agent** names an agent-centered view of this process, with learned state residing in external files, the agent harness, or model weights.
 
-The core feedback loop is simple: experience becomes state, and state changes future behavior.
+### Capability Consolidation
 
-**Recursive self-improvement**, however, is fundamentally different. It is not an architectural mechanism but a specific task: take a self-evolving system and point it at the domain of building AI — generating synthetic pre-training data, building automated evaluations, curating post-training datasets — and that application is RSI. RSI is simply what happens when the environment a self-evolving agent acts upon is the AI development pipeline itself. **Recursive's automated AI research system** is an early example, applying agentic search to AI-development tasks such as model training and GPU-kernel optimization <d-cite key="recursiveautoresearch2026"></d-cite>.
+The matrix is not only a taxonomy; it also describes a possible path of capability consolidation. A useful discovery may begin as a task-local artifact. If it succeeds repeatedly across tasks or users, it can be promoted into a reusable tool or workflow in the harness. If that workflow generalizes broadly enough, training on its successful trajectories can internalize the capability into a future model's weights.
+
+Yet consolidation is not a race toward weights. The design question is what to retain, where, and for how long.
+
+### Recursive Self-Improvement
+
+**Recursive self-improvement** is not a separate architectural mechanism, but the same self-evolving loop applied to the AI development pipeline itself. An agent may generate synthetic pre-training data, build automated evaluations, curate post-training datasets, or improve training infrastructure. **Recursive's automated AI research system** is an early example, applying agentic search to AI-development tasks such as model training and GPU-kernel optimization <d-cite key="recursiveautoresearch2026"></d-cite>.
 
 <figure class="self-evolving-figure rsi-figure">
 <div class="evo-rsi">
@@ -1461,9 +1469,7 @@ The core feedback loop is simple: experience becomes state, and state changes fu
 <figcaption><strong>Figure 5.</strong> Recursive self-improvement as the self-evolving loop applied to AI development: inference-time work produces artifacts, data, evaluations, or infrastructure improvements that feed future AI systems.</figcaption>
 </figure>
 
-### Capability Consolidation
-
-The matrix is not only a taxonomy; it also describes a path of capability consolidation. A useful discovery may begin as a task-local artifact. If it succeeds repeatedly across tasks or users, it can be promoted into a default tool or workflow in the harness. If that workflow generalizes broadly enough, training on its successful trajectories can internalize the capability into a future model's weights.
+When experience can reliably become reusable capability, we stop building merely smarter copilots. We begin building the substrate for **intelligence that can evolve itself**.
 
 ## Appendix: The Complete Landscape
 
@@ -1476,6 +1482,7 @@ The placement rule is simple: if an example changes the reader's understanding o
 - **External state becoming harness:** skills begin as files, but become control logic once the runtime discovers them, loads them, and routes through them. Anthropic Agent Skills, OpenHands skills, and Memento-Skills all sit on this boundary <d-cite key="anthropicagentskills2026,openhandskills2026,mementoskills2026"></d-cite>.
 - **External state becoming transient parameters:** retrieved context is not just "read" by the model; it becomes key-value tensors in the active computation. Linear attention and fast-weight interpretations make this boundary especially explicit <d-cite key="lineartransformersrnn2020,linearfastweights2021"></d-cite>.
 - **Local discoveries becoming global defaults:** a temporary script can become a user skill; a user skill can become a shared registry asset; a repeated failure can become a harness or checkpoint update.
+- **Long-running environment learning:** EdgeBench measures whether agents can turn environmental feedback into better plans, artifacts, and outcomes over tasks lasting 12 hours or more, providing benchmark evidence for the single-session horizon without prescribing one update substrate <d-cite key="edgebench2026"></d-cite>.
 - **Harness and weights co-evolving:** the two deeper substrates can also be optimized jointly. SIA runs a meta-agent/feedback-agent loop that chooses, per iteration, between rewriting the task agent's harness and applying LoRA weight updates <d-cite key="sia2026"></d-cite>. The evidence is still early, but the pattern is distinct enough to name.
 
 The grid below is the same map as Figure 3, now expandable: open any cell for the concrete systems, mechanisms, and caveats behind that part of the matrix.

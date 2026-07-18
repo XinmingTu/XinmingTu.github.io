@@ -1471,6 +1471,10 @@ Yet consolidation is not a race toward weights. The design question is what to r
 
 When experience can reliably become reusable capability, we stop building merely smarter copilots. We begin building the substrate for **intelligence that can evolve itself**.
 
+## Acknowledgements
+
+We thank [Xi Fu](https://fuxialexander.github.io/), [Yiping Wang](https://ypwang61.github.io/), [Qizheng Zhang](https://alex-q-z.github.io/), and [Qiuyang Mang](https://joyemang33.github.io/) for reading the blog and for their helpful comments.
+
 ## Appendix: The Complete Landscape
 
 The main text keeps one or two anchor examples per cell. This appendix restores the broader map: the same 3×3 matrix, expanded with more systems, mechanisms, design tradeoffs, and caveats.

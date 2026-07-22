@@ -534,6 +534,26 @@ _styles: |
   d-article .evo-cell-tag {
     display: none;
   }
+  d-article .evo-main-cell {
+    appearance: none;
+    -webkit-appearance: none;
+    color: inherit;
+    cursor: pointer;
+    font-family: inherit;
+    position: relative;
+    width: 100%;
+  }
+  d-article .evo-main-cell:hover {
+    border-color: var(--lc);
+  }
+  d-article .evo-main-cell:focus-visible {
+    outline: 2px solid var(--lc);
+    outline-offset: 2px;
+  }
+  d-article .evo-main-cell[aria-expanded="true"] {
+    border-color: var(--lc);
+    box-shadow: inset 0 0 0 1px var(--lc);
+  }
   d-article .evo-yaxis {
     grid-column: 1;
     grid-row: 2 / span 3;
@@ -657,6 +677,14 @@ _styles: |
   d-article .evo-cell-btn[aria-expanded="true"] .evo-cell-plus::before {
     content: "−";
   }
+  d-article .evo-main-cell .evo-cell-plus {
+    position: absolute;
+    right: 0.65rem;
+    top: 0.6rem;
+  }
+  d-article .evo-main-cell[aria-expanded="true"] .evo-cell-plus::before {
+    content: "−";
+  }
   d-article .evo-cell-btn .evo-cell-title {
     font-size: 0.8rem;
     text-align: left;
@@ -708,6 +736,87 @@ _styles: |
   }
   d-article .evo-panel > *:last-child {
     margin-bottom: 0;
+  }
+  d-article .evo-matrix-fig > .evo-main-row-users,
+  d-article .evo-matrix-fig > .evo-main-cell[aria-controls^="figure3-across-users"] {
+    grid-row: 2;
+  }
+  d-article .evo-matrix-fig > .evo-main-panel-users {
+    grid-row: 3;
+  }
+  d-article .evo-matrix-fig > .evo-main-row-sessions,
+  d-article .evo-matrix-fig > .evo-main-cell[aria-controls^="figure3-across-sessions"] {
+    grid-row: 4;
+  }
+  d-article .evo-matrix-fig > .evo-main-panel-sessions {
+    grid-row: 5;
+  }
+  d-article .evo-matrix-fig > .evo-main-row-single,
+  d-article .evo-matrix-fig > .evo-main-cell[aria-controls^="figure3-single-session"] {
+    grid-row: 6;
+  }
+  d-article .evo-matrix-fig > .evo-main-panel-single {
+    grid-row: 7;
+  }
+  d-article .evo-matrix-fig > .evo-rowlabel {
+    grid-column: 2;
+  }
+  d-article .evo-matrix-fig > .evo-yaxis {
+    grid-row: 2 / 8;
+  }
+  d-article .evo-matrix-fig > .evo-xaxis {
+    grid-row: 8;
+  }
+  d-article .evo-main-panel {
+    background: var(--evo-surface-2);
+    border: 1px solid var(--lc-border);
+    border-left: 4px solid var(--lc);
+    border-radius: 10px;
+    grid-column: 2 / -1;
+    margin: 2px 0 5px;
+    padding: 0.85rem 1rem 0.9rem;
+    position: relative;
+  }
+  d-article .evo-main-panel[hidden] {
+    display: none;
+  }
+  d-article .evo-main-panel::before {
+    background: var(--evo-surface-2);
+    border-left: 1px solid var(--lc-border);
+    border-top: 1px solid var(--lc-border);
+    content: "";
+    height: 10px;
+    left: var(--cx, 50%);
+    position: absolute;
+    top: -6px;
+    transform: translateX(-50%) rotate(45deg);
+    width: 10px;
+  }
+  d-article .evo-main-panel-head {
+    color: var(--evo-muted);
+    font-family: Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, sans-serif;
+    font-size: 0.84rem;
+    margin: 0 0 0.55rem;
+  }
+  d-article .evo-main-panel-head strong {
+    color: var(--lc-dark);
+  }
+  d-article .evo-main-examples {
+    margin: 0 0 0.55rem;
+    padding-left: 1.15rem;
+  }
+  d-article .evo-main-examples li {
+    color: var(--evo-body);
+    font-size: 0.86rem;
+    line-height: 1.45;
+    margin: 0.2rem 0;
+  }
+  d-article .evo-main-examples strong {
+    color: var(--evo-ink);
+  }
+  d-article .evo-main-full-link {
+    font-size: 0.8rem;
+    font-weight: 700;
   }
   d-article .evo-shift {
     font-family: Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, sans-serif;
@@ -877,6 +986,19 @@ _styles: |
     }
     d-article .evo-panel {
       padding: 0.85rem 0.85rem 0.8rem;
+    }
+    d-article .evo-matrix-fig > .evo-main-row-users.evo-rowlabel { grid-column: 1 / -1; grid-row: 2; }
+    d-article .evo-matrix-fig > .evo-main-cell[aria-controls^="figure3-across-users"] { grid-row: 3; }
+    d-article .evo-matrix-fig > .evo-main-panel-users { grid-column: 1 / -1; grid-row: 4; }
+    d-article .evo-matrix-fig > .evo-main-row-sessions.evo-rowlabel { grid-column: 1 / -1; grid-row: 5; }
+    d-article .evo-matrix-fig > .evo-main-cell[aria-controls^="figure3-across-sessions"] { grid-row: 6; }
+    d-article .evo-matrix-fig > .evo-main-panel-sessions { grid-column: 1 / -1; grid-row: 7; }
+    d-article .evo-matrix-fig > .evo-main-row-single.evo-rowlabel { grid-column: 1 / -1; grid-row: 8; }
+    d-article .evo-matrix-fig > .evo-main-cell[aria-controls^="figure3-single-session"] { grid-row: 9; }
+    d-article .evo-matrix-fig > .evo-main-panel-single { grid-column: 1 / -1; grid-row: 10; }
+    d-article .evo-matrix-fig > .evo-xaxis { grid-column: 1 / -1; grid-row: 11; }
+    d-article .evo-main-panel {
+      padding: 0.8rem 0.8rem 0.75rem;
     }
     d-article .evo-from-1 { --cx: 16.67%; }
     d-article .evo-from-2 { --cx: 50%; }
@@ -1253,21 +1375,98 @@ The result is a 3×3 map: three persistence horizons crossed with three update s
 <div class="evo-colhead evo-harness"><span class="evo-colhead-name">Agent Harness</span><span class="evo-colhead-sub">workflow / prompts / tools</span></div>
 <div class="evo-colhead evo-weights"><span class="evo-colhead-name">Model Weights</span><span class="evo-colhead-sub">parametric memory / core</span></div>
 <div class="evo-yaxis"><span class="evo-yaxis-arrow"></span><span class="evo-yaxis-line"></span><span class="evo-yaxis-text">When to update?</span><span class="evo-yaxis-line"></span></div>
-<div class="evo-rowlabel"><svg class="evo-ic evo-rowicon" aria-hidden="true"><use href="#ei-row-users"></use></svg><span class="evo-rowlabel-text">Across Users</span></div>
-<div class="evo-cell evo-files"><span class="evo-cell-tag">External Files</span><svg class="evo-ic evo-cellicon" aria-hidden="true"><use href="#ei-collective"></use></svg><span class="evo-cell-title">Knowledge &amp; skill commons</span><span class="evo-cell-desc">One agent's discovery becomes a zero-shot capability for all.</span></div>
-<div class="evo-cell evo-harness"><span class="evo-cell-tag">Agent Harness</span><svg class="evo-ic evo-cellicon" aria-hidden="true"><use href="#ei-tuning"></use></svg><span class="evo-cell-title">Platform harness flywheel</span><span class="evo-cell-desc">Aggregate failures upgrade everyone's default harness.</span></div>
-<div class="evo-cell evo-weights"><span class="evo-cell-tag">Model Weights</span><svg class="evo-ic evo-cellicon" aria-hidden="true"><use href="#ei-continual"></use></svg><span class="evo-cell-title">Checkpoint bootstrapping</span><span class="evo-cell-desc">Verified traces feed future model training.</span></div>
-<div class="evo-rowlabel"><svg class="evo-ic evo-rowicon" aria-hidden="true"><use href="#ei-row-sessions"></use></svg><span class="evo-rowlabel-text">Across Sessions</span></div>
-<div class="evo-cell evo-files"><span class="evo-cell-tag">External Files</span><svg class="evo-ic evo-cellicon" aria-hidden="true"><use href="#ei-skills"></use></svg><span class="evo-cell-title">Skill library &amp; memory</span><span class="evo-cell-desc">Skills, notes &amp; assets that carry across sessions.</span></div>
-<div class="evo-cell evo-harness"><span class="evo-cell-tag">Agent Harness</span><svg class="evo-ic evo-cellicon" aria-hidden="true"><use href="#ei-pharness"></use></svg><span class="evo-cell-title">Compiled workflow harness</span><span class="evo-cell-desc">Past traces compile into reusable workflows.</span></div>
-<div class="evo-cell evo-weights"><span class="evo-cell-tag">Model Weights</span><svg class="evo-ic evo-cellicon" aria-hidden="true"><use href="#ei-sliders"></use></svg><span class="evo-cell-title">Parametric personalization</span><span class="evo-cell-desc">Repeated use updates trainable parameters.</span></div>
-<div class="evo-rowlabel"><svg class="evo-ic evo-rowicon" aria-hidden="true"><use href="#ei-row-session"></use></svg><span class="evo-rowlabel-text">Single Session</span></div>
-<div class="evo-cell evo-files"><span class="evo-cell-tag">External Files</span><svg class="evo-ic evo-cellicon" aria-hidden="true"><use href="#ei-scratch"></use></svg><span class="evo-cell-title">Task-local artifacts &amp; memory</span><span class="evo-cell-desc">Evolving artifacts, runtime notes &amp; scratchpads.</span></div>
-<div class="evo-cell evo-harness"><span class="evo-cell-tag">Agent Harness</span><svg class="evo-ic evo-cellicon" aria-hidden="true"><use href="#ei-dynamic"></use></svg><span class="evo-cell-title">Dynamic orchestration</span><span class="evo-cell-desc">Live traces create branches, tools, and repair loops.</span></div>
-<div class="evo-cell evo-weights"><span class="evo-cell-tag">Model Weights</span><svg class="evo-ic evo-cellicon" aria-hidden="true"><use href="#ei-chip"></use></svg><span class="evo-cell-title">Test-time training</span><span class="evo-cell-desc">Train on feedback from the current problem.</span></div>
+<div class="evo-rowlabel evo-main-row-users"><svg class="evo-ic evo-rowicon" aria-hidden="true"><use href="#ei-row-users"></use></svg><span class="evo-rowlabel-text">Across Users</span></div>
+<button type="button" class="evo-cell evo-main-cell evo-files" aria-expanded="false" aria-controls="figure3-across-users-files"><span class="evo-cell-tag">External Files</span><svg class="evo-ic evo-cellicon" aria-hidden="true"><use href="#ei-collective"></use></svg><span class="evo-cell-title">Knowledge &amp; skill commons</span><span class="evo-cell-desc">One agent's discovery becomes a zero-shot capability for all.</span><span class="evo-cell-plus" aria-hidden="true"></span></button>
+<button type="button" class="evo-cell evo-main-cell evo-harness" aria-expanded="false" aria-controls="figure3-across-users-harness"><span class="evo-cell-tag">Agent Harness</span><svg class="evo-ic evo-cellicon" aria-hidden="true"><use href="#ei-tuning"></use></svg><span class="evo-cell-title">Platform harness flywheel</span><span class="evo-cell-desc">Aggregate failures upgrade everyone's default harness.</span><span class="evo-cell-plus" aria-hidden="true"></span></button>
+<button type="button" class="evo-cell evo-main-cell evo-weights" aria-expanded="false" aria-controls="figure3-across-users-weights"><span class="evo-cell-tag">Model Weights</span><svg class="evo-ic evo-cellicon" aria-hidden="true"><use href="#ei-continual"></use></svg><span class="evo-cell-title">Checkpoint bootstrapping</span><span class="evo-cell-desc">Verified traces feed future model training.</span><span class="evo-cell-plus" aria-hidden="true"></span></button>
+<div class="evo-rowlabel evo-main-row-sessions"><svg class="evo-ic evo-rowicon" aria-hidden="true"><use href="#ei-row-sessions"></use></svg><span class="evo-rowlabel-text">Across Sessions</span></div>
+<button type="button" class="evo-cell evo-main-cell evo-files" aria-expanded="false" aria-controls="figure3-across-sessions-files"><span class="evo-cell-tag">External Files</span><svg class="evo-ic evo-cellicon" aria-hidden="true"><use href="#ei-skills"></use></svg><span class="evo-cell-title">Skill library &amp; memory</span><span class="evo-cell-desc">Skills, notes &amp; assets that carry across sessions.</span><span class="evo-cell-plus" aria-hidden="true"></span></button>
+<button type="button" class="evo-cell evo-main-cell evo-harness" aria-expanded="false" aria-controls="figure3-across-sessions-harness"><span class="evo-cell-tag">Agent Harness</span><svg class="evo-ic evo-cellicon" aria-hidden="true"><use href="#ei-pharness"></use></svg><span class="evo-cell-title">Compiled workflow harness</span><span class="evo-cell-desc">Past traces compile into reusable workflows.</span><span class="evo-cell-plus" aria-hidden="true"></span></button>
+<button type="button" class="evo-cell evo-main-cell evo-weights" aria-expanded="false" aria-controls="figure3-across-sessions-weights"><span class="evo-cell-tag">Model Weights</span><svg class="evo-ic evo-cellicon" aria-hidden="true"><use href="#ei-sliders"></use></svg><span class="evo-cell-title">Parametric personalization</span><span class="evo-cell-desc">Repeated use updates trainable parameters.</span><span class="evo-cell-plus" aria-hidden="true"></span></button>
+<div class="evo-rowlabel evo-main-row-single"><svg class="evo-ic evo-rowicon" aria-hidden="true"><use href="#ei-row-session"></use></svg><span class="evo-rowlabel-text">Single Session</span></div>
+<button type="button" class="evo-cell evo-main-cell evo-files" aria-expanded="false" aria-controls="figure3-single-session-files"><span class="evo-cell-tag">External Files</span><svg class="evo-ic evo-cellicon" aria-hidden="true"><use href="#ei-scratch"></use></svg><span class="evo-cell-title">Task-local artifacts &amp; memory</span><span class="evo-cell-desc">Evolving artifacts, runtime notes &amp; scratchpads.</span><span class="evo-cell-plus" aria-hidden="true"></span></button>
+<button type="button" class="evo-cell evo-main-cell evo-harness" aria-expanded="false" aria-controls="figure3-single-session-harness"><span class="evo-cell-tag">Agent Harness</span><svg class="evo-ic evo-cellicon" aria-hidden="true"><use href="#ei-dynamic"></use></svg><span class="evo-cell-title">Dynamic orchestration</span><span class="evo-cell-desc">Live traces create branches, tools, and repair loops.</span><span class="evo-cell-plus" aria-hidden="true"></span></button>
+<button type="button" class="evo-cell evo-main-cell evo-weights" aria-expanded="false" aria-controls="figure3-single-session-weights"><span class="evo-cell-tag">Model Weights</span><svg class="evo-ic evo-cellicon" aria-hidden="true"><use href="#ei-chip"></use></svg><span class="evo-cell-title">Test-time training</span><span class="evo-cell-desc">Train on feedback from the current problem.</span><span class="evo-cell-plus" aria-hidden="true"></span></button>
 <div class="evo-xaxis"><span class="evo-xaxis-title">What to update?</span><span class="evo-xaxis-scale"><span>cheaper &amp; shallower</span><span class="evo-xaxis-bar"></span><span>deeper &amp; costlier</span></span></div>
 </div>
-<figcaption><strong>Figure 3.</strong> The taxonomy as a visual map: update lifetime on one axis, update substrate on the other. An expandable version with the concrete systems behind every cell lives in the <a href="#appendix-the-complete-landscape">appendix</a>.</figcaption>
+<div class="evo-main-panels">
+<section class="evo-main-panel evo-files" id="figure3-across-users-files" hidden>
+<p class="evo-main-panel-head"><strong>Across Users · External Files</strong> — Knowledge &amp; skill commons</p>
+<ul class="evo-main-examples">
+<li><strong>EinsteinArena.</strong> Verified discoveries become shared starting points for other agents.</li>
+<li><strong>Agent Skills.</strong> Reusable tools and procedures move from one agent's success into a shared skill commons.</li>
+</ul>
+<a class="evo-main-full-link" href="#matrix-across-users-files">See the full landscape in the appendix →</a>
+</section>
+<section class="evo-main-panel evo-harness" id="figure3-across-users-harness" hidden>
+<p class="evo-main-panel-head"><strong>Across Users · Agent Harness</strong> — Platform harness flywheel</p>
+<ul class="evo-main-examples">
+<li><strong>Claude Code / Codex defaults.</strong> Platform-level workflow, tool, and recovery improvements become the default harness for every user.</li>
+</ul>
+<a class="evo-main-full-link" href="#matrix-across-users-harness">See the full landscape in the appendix →</a>
+</section>
+<section class="evo-main-panel evo-weights" id="figure3-across-users-weights" hidden>
+<p class="evo-main-panel-head"><strong>Across Users · Model Weights</strong> — Checkpoint bootstrapping</p>
+<ul class="evo-main-examples">
+<li><strong>Autodata.</strong> Agentic inference produces training and evaluation data for future models.</li>
+<li><strong>Self-play.</strong> Agents generate challenges, data, and rewards that target discovered weaknesses.</li>
+<li><strong>Cursor Tab.</strong> Population-scale accepts and edits become RL signal for the next policy.</li>
+</ul>
+<a class="evo-main-full-link" href="#matrix-across-users-weights">See the full landscape in the appendix →</a>
+</section>
+<section class="evo-main-panel evo-files" id="figure3-across-sessions-files" hidden>
+<p class="evo-main-panel-head"><strong>Across Sessions · External Files</strong> — Skill library &amp; memory</p>
+<ul class="evo-main-examples">
+<li><strong>ACE.</strong> Evolving playbooks accumulate strategies and evidence across tasks.</li>
+<li><strong>Mem0.</strong> Long-term conversational memory carries user context across sessions.</li>
+<li><strong>Voyager.</strong> Executable skills accumulate and are retrieved for later tasks.</li>
+<li><strong>Codex Record &amp; Replay.</strong> One demonstrated workflow becomes a reusable skill.</li>
+<li><strong>CLAUDE.md / AGENTS.md.</strong> Repository instructions preserve project conventions across sessions.</li>
+</ul>
+<a class="evo-main-full-link" href="#matrix-across-sessions-files">See the full landscape in the appendix →</a>
+</section>
+<section class="evo-main-panel evo-harness" id="figure3-across-sessions-harness" hidden>
+<p class="evo-main-panel-head"><strong>Across Sessions · Agent Harness</strong> — Compiled workflow harness</p>
+<ul class="evo-main-examples">
+<li><strong>Meta-Harness.</strong> Repeated execution traces are compressed into a reusable workflow DAG.</li>
+</ul>
+<a class="evo-main-full-link" href="#matrix-across-sessions-harness">See the full landscape in the appendix →</a>
+</section>
+<section class="evo-main-panel evo-weights" id="figure3-across-sessions-weights" hidden>
+<p class="evo-main-panel-head"><strong>Across Sessions · Model Weights</strong> — Parametric personalization</p>
+<ul class="evo-main-examples">
+<li><strong>OpenClaw-RL.</strong> Repeated conversational and environment feedback becomes signal for updating a personal agent's policy.</li>
+</ul>
+<a class="evo-main-full-link" href="#matrix-across-sessions-weights">See the full landscape in the appendix →</a>
+</section>
+<section class="evo-main-panel evo-files" id="figure3-single-session-files" hidden>
+<p class="evo-main-panel-head"><strong>Single Session · External Files</strong> — Task-local artifacts &amp; memory</p>
+<ul class="evo-main-examples">
+<li><strong>autoresearch.</strong> The agent edits training code and keeps or discards each change within one run.</li>
+<li><strong>AlphaEvolve.</strong> Evaluator feedback iteratively improves programs, proofs, and constructions.</li>
+<li><strong>MemGPT.</strong> Working memory is paged between the live context and external storage.</li>
+<li><strong>ThetaEvolve.</strong> A program database evolves alongside the test-time-trained search policy.</li>
+</ul>
+<a class="evo-main-full-link" href="#matrix-single-session-files">See the full landscape in the appendix →</a>
+</section>
+<section class="evo-main-panel evo-harness" id="figure3-single-session-harness" hidden>
+<p class="evo-main-panel-head"><strong>Single Session · Agent Harness</strong> — Dynamic orchestration</p>
+<ul class="evo-main-examples">
+<li><strong>Claude Code's Dynamic Workflows.</strong> A task-specific orchestration script creates live branches, loops, and subagent calls.</li>
+<li><strong>Recursive Language Models.</strong> Recursive subcalls turn context processing into runtime control flow.</li>
+</ul>
+<a class="evo-main-full-link" href="#matrix-single-session-harness">See the full landscape in the appendix →</a>
+</section>
+<section class="evo-main-panel evo-weights" id="figure3-single-session-weights" hidden>
+<p class="evo-main-panel-head"><strong>Single Session · Model Weights</strong> — Test-time training</p>
+<ul class="evo-main-examples">
+<li><strong>TTT-Discover.</strong> Feedback from the current problem updates the model during inference.</li>
+<li><strong>ThetaEvolve.</strong> Test-time RL updates the search policy as evolutionary search proceeds.</li>
+</ul>
+<a class="evo-main-full-link" href="#matrix-single-session-weights">See the full landscape in the appendix →</a>
+</section>
+</div>
+<figcaption><strong>Figure 3.</strong> The taxonomy as a visual map: update lifetime on one axis, update substrate on the other. Click any cell for the systems discussed in the main text; the <a href="#appendix-the-complete-landscape">appendix</a> expands each cell into the broader landscape.</figcaption>
 </figure>
 
 The matrix shows possibility, not obligation: these are places self-evolution can land, not requirements every agent must satisfy.
@@ -1437,6 +1636,8 @@ The matrix is not only a taxonomy; it also describes a possible path of capabili
 
 Yet consolidation is not a race toward weights. The design question is what to retain, where, and for how long.
 
+Substrate also shapes portability: files are easy to move, harness updates require a compatible runtime, and weight updates are checkpoint-bound. But portability is not generalization — a portable skill can be brittle, while an internalized update can generalize broadly.
+
 ### Recursive Self-Improvement
 
 **Recursive self-improvement** is not a separate architectural mechanism, but the same self-evolving loop applied to the AI development pipeline itself. An agent may generate synthetic pre-training data, build automated evaluations, curate post-training datasets, or improve training infrastructure. **Recursive's automated AI research system** is an early example, applying agentic search to AI-development tasks such as model training and GPU-kernel optimization <d-cite key="recursiveautoresearch2026"></d-cite>.
@@ -1477,7 +1678,7 @@ We thank [Xi Fu](https://fuxialexander.github.io/), [Yiping Wang](https://ypwang
 
 ## Appendix: The Complete Landscape
 
-The main text keeps one or two anchor examples per cell. This appendix restores the broader map: the same 3×3 matrix, expanded with more systems, mechanisms, design tradeoffs, and caveats.
+The main text keeps a curated set of anchor examples per cell. This appendix restores the broader map: the same 3×3 matrix, expanded with more systems, mechanisms, design tradeoffs, and caveats.
 
 For survey-level context, recent work organizes self-evolving agents around what evolves, when it evolves, and how it evolves <d-cite key="selfevolvingsurvey2025"></d-cite>. For the harness column specifically, Weng's harness-engineering essay traces a progression of optimization targets from prompts and structured context through workflows and harness code up to the optimizer code itself <d-cite key="wengharness2026"></d-cite>.
 
@@ -1663,6 +1864,39 @@ This cell covers model updates derived from population-scale interaction data.
 <script>
 (function () {
   function init() {
+    var mainMatrix = document.querySelector(".evo-matrix-fig");
+    var mainPanelHolder = document.querySelector(".evo-main-panels");
+    if (mainMatrix && mainPanelHolder) {
+      Array.prototype.slice.call(mainPanelHolder.querySelectorAll(".evo-main-panel")).forEach(function (panel) {
+        var id = panel.id;
+        if (id.indexOf("figure3-across-users-") === 0) panel.classList.add("evo-main-panel-users");
+        else if (id.indexOf("figure3-across-sessions-") === 0) panel.classList.add("evo-main-panel-sessions");
+        else panel.classList.add("evo-main-panel-single");
+        if (id.slice(-6) === "-files") panel.classList.add("evo-from-1");
+        else if (id.slice(-8) === "-harness") panel.classList.add("evo-from-2");
+        else panel.classList.add("evo-from-3");
+        mainMatrix.appendChild(panel);
+      });
+      mainPanelHolder.parentNode.removeChild(mainPanelHolder);
+    }
+
+    var mainButtons = Array.prototype.slice.call(document.querySelectorAll(".evo-main-cell"));
+    var mainOpen = null;
+    mainButtons.forEach(function (btn) {
+      var panel = document.getElementById(btn.getAttribute("aria-controls"));
+      if (!panel) return;
+      btn.addEventListener("click", function () {
+        var isOpen = btn.getAttribute("aria-expanded") === "true";
+        if (mainOpen && mainOpen.btn !== btn) {
+          mainOpen.btn.setAttribute("aria-expanded", "false");
+          mainOpen.panel.hidden = true;
+        }
+        btn.setAttribute("aria-expanded", isOpen ? "false" : "true");
+        panel.hidden = isOpen;
+        mainOpen = isOpen ? null : { btn: btn, panel: panel };
+      });
+    });
+
     var details = Array.prototype.slice.call(document.querySelectorAll("details.appendix-cell"));
     if (!details.length || !document.getElementById("ei-collective")) return;
     var ROWS = [
@@ -1704,15 +1938,19 @@ This cell covers model updates derived from population-scale interaction data.
       entry.btn.setAttribute("aria-expanded", on ? "true" : "false");
       entry.panel.hidden = !on;
     }
+    function openEntry(entry, scroll) {
+      if (openCell && openCell !== entry) setOpen(openCell, false);
+      openCell = entry;
+      setOpen(entry, true);
+      if (scroll) entry.panel.scrollIntoView({ block: "start" });
+    }
     function toggle(entry) {
       if (openCell === entry) {
         setOpen(entry, false);
         openCell = null;
         return;
       }
-      if (openCell) setOpen(openCell, false);
-      openCell = entry;
-      setOpen(entry, true);
+      openEntry(entry, false);
       if (history.replaceState) history.replaceState(null, "", "#" + entry.panel.id);
     }
     var mo = 4;
@@ -1775,11 +2013,18 @@ This cell covers model updates derived from population-scale interaction data.
     details.forEach(function (d) {
       if (d.parentNode) d.parentNode.removeChild(d);
     });
-    var hash = location.hash ? location.hash.slice(1) : "";
-    if (hash && byId[hash]) {
-      toggle(byId[hash]);
-      byId[hash].panel.scrollIntoView();
+    function openHash() {
+      var hash = location.hash ? location.hash.slice(1) : "";
+      if (hash && byId[hash]) openEntry(byId[hash], true);
     }
+    Array.prototype.slice.call(document.querySelectorAll(".evo-main-full-link")).forEach(function (link) {
+      link.addEventListener("click", function () {
+        var id = link.getAttribute("href").slice(1);
+        if (byId[id]) openEntry(byId[id], true);
+      });
+    });
+    window.addEventListener("hashchange", openHash);
+    openHash();
   }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
   else init();

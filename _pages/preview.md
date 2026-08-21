@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Preview
-description: Drafts and recent writing in one place.
+description: Writing in progress.
 permalink: /preview/
 nav: false
 sitemap: false
@@ -9,7 +9,8 @@ sitemap: false
 
 <div class="post">
   <ul class="post-list">
-    {% for post in site.posts %}
+    {% assign preview_pages = site.pages | where: "preview", true | sort: "date" | reverse %}
+    {% for post in preview_pages %}
       {% assign read_time = post.content | number_of_words | divided_by: 180 | plus: 1 %}
       <li>
         <h3>
@@ -29,6 +30,8 @@ sitemap: false
           {{ post.date | date: "%B %-d, %Y" }}
         </p>
       </li>
+    {% else %}
+      <li><p>No drafts at the moment.</p></li>
     {% endfor %}
   </ul>
 </div>

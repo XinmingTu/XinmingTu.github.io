@@ -4,6 +4,10 @@ title: "From Data to Experience / 从数据到经验"
 description: "Agent 改变的不只是训练数据的数量，而是模型究竟在压缩什么。"
 date: 2026-08-20
 tags: ['AI', 'agents', 'learning']
+permalink: /preview/from-data-to-experience/
+preview: true
+nav: false
+sitemap: false
 
 authors:
   - name: Xinming Tu

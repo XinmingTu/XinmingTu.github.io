@@ -586,6 +586,35 @@ footer.sticky-bottom {
     ol.bibliography li:first-child {
       margin-top: 0;
     }
+
+    ol.bibliography li {
+      margin-bottom: 1.1rem;
+
+      .author,
+      .pub-meta {
+        display: inline;
+      }
+
+      .author {
+        font-size: 0.9rem;
+        line-height: 1.45;
+      }
+
+      .pub-meta {
+        margin-top: 0;
+
+        &::before {
+          content: " \00b7  ";
+          color: var(--global-text-color-light);
+          opacity: 0.6;
+        }
+      }
+
+      .pub-note,
+      .badges {
+        display: none;
+      }
+    }
   }
 
   ol.bibliography {

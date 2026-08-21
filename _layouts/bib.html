@@ -30,13 +30,22 @@
         <div id="{{entry.key}}" class="col-sm-12">
           <div class="pub-entry">
 
-            <!-- Title (links to the paper) -->
-            <div class="title">
-              {%- if pub_url -%}<a href="{{ pub_url }}">{{ entry.title }}</a>{%- else -%}{{ entry.title }}{%- endif -%}
+            <div class="pub-head">
+              <!-- Title (links to the paper) -->
+              <div class="title">
+                {%- if pub_url -%}<a href="{{ pub_url }}">{{ entry.title }}</a>{%- else -%}{{ entry.title }}{%- endif -%}
+              </div>
+
+              <!-- Venue and year. The year is hidden on the grouped publications page. -->
+              <div class="venue-meta">
+                {%- if venue_label and venue_label != "" -%}<span class="venue">{{ venue_label }}</span>{%- endif -%}
+                {%- if entry.year -%}<span class="year">{%- if venue_label and venue_label != "" -%}<span class="meta-sep">&middot;</span>{%- endif -%}{{ entry.year }}</span>{%- endif -%}
+              </div>
             </div>
 
-            <!-- Author -->
-            <div class="author">
+            <div class="pub-details">
+              <!-- Authors -->
+              <div class="author">
             {% assign author_array_size = entry.author_array | size %}
             {%- assign last_index = author_array_size | minus: 1 -%}
 
@@ -96,7 +105,7 @@
                 {%- comment -%} Always show the final (senior) author; emit the collapsed-middle toggle just before it {%- endcomment -%}
                 {%- if more_authors > 0 -%}
                   {%- if printed > 0 -%},&nbsp;{%- endif -%}
-                  {%- assign more_authors_hide = more_authors | append: " more author" -%}
+                  {%- assign more_authors_hide = "+" | append: more_authors | append: " author" -%}
                   {%- if more_authors > 1 -%}{%- assign more_authors_hide = more_authors_hide | append: "s" -%}{%- endif -%}
                   <span
                       class="more-authors"
@@ -131,18 +140,19 @@
               {%- endif -%}
             {%- endfor -%}
 
-            </div>
+              </div>
 
-            <!-- Metadata line: venue · year · extra resources (Code/Slides/…) -->
-            <div class="pub-meta">
-              {%- if venue_label and venue_label != "" -%}<span class="venue">{{ venue_label }}</span>{%- endif -%}
-              {%- if entry.year -%}&nbsp;{{ entry.year }}{%- endif -%}
-              {%- if entry.code %}<span class="sep">&middot;</span><a href="{{ entry.code }}">Code</a>{%- endif -%}
-              {%- if entry.supp %}<span class="sep">&middot;</span>{% if entry.supp contains '://' %}<a href="{{ entry.supp }}">Supp</a>{% else %}<a href="{{ entry.supp | prepend: '/assets/pdf/' | relative_url }}">Supp</a>{% endif %}{%- endif -%}
-              {%- if entry.slides %}<span class="sep">&middot;</span>{% if entry.slides contains '://' %}<a href="{{ entry.slides }}">Slides</a>{% else %}<a href="{{ entry.slides | prepend: '/assets/pdf/' | relative_url }}">Slides</a>{% endif %}{%- endif -%}
-              {%- if entry.poster %}<span class="sep">&middot;</span>{% if entry.poster contains '://' %}<a href="{{ entry.poster }}">Poster</a>{% else %}<a href="{{ entry.poster | prepend: '/assets/pdf/' | relative_url }}">Poster</a>{% endif %}{%- endif -%}
-              {%- if entry.blog %}<span class="sep">&middot;</span><a href="{{ entry.blog }}">Blog</a>{%- endif -%}
-              {%- if entry.website %}<span class="sep">&middot;</span><a href="{{ entry.website }}">Website</a>{%- endif -%}
+              <!-- Optional resources -->
+              {%- if entry.code or entry.supp or entry.slides or entry.poster or entry.blog or entry.website and entry.website != pub_url -%}
+              <div class="pub-links">
+                {%- if entry.code %}<a href="{{ entry.code }}">Code</a>{%- endif -%}
+                {%- if entry.supp %}{% if entry.supp contains '://' %}<a href="{{ entry.supp }}">Supp</a>{% else %}<a href="{{ entry.supp | prepend: '/assets/pdf/' | relative_url }}">Supp</a>{% endif %}{%- endif -%}
+                {%- if entry.slides %}{% if entry.slides contains '://' %}<a href="{{ entry.slides }}">Slides</a>{% else %}<a href="{{ entry.slides | prepend: '/assets/pdf/' | relative_url }}">Slides</a>{% endif %}{%- endif -%}
+                {%- if entry.poster %}{% if entry.poster contains '://' %}<a href="{{ entry.poster }}">Poster</a>{% else %}<a href="{{ entry.poster | prepend: '/assets/pdf/' | relative_url }}">Poster</a>{% endif %}{%- endif -%}
+                {%- if entry.blog %}<a href="{{ entry.blog }}">Blog</a>{%- endif -%}
+                {%- if entry.website and entry.website != pub_url %}<a href="{{ entry.website }}">Website</a>{%- endif -%}
+              </div>
+              {%- endif -%}
             </div>
 
             {%- assign entry_note = entry.note | strip -%}
@@ -151,7 +161,7 @@
               {{ entry_note }}
             </div>
             {%- endif %}
-            {% if site.badges %}
+            {% if site.badges.altmetric_badge or site.badges.dimensions_badge %}
             <div class="badges">
               {%- if site.badges.altmetric_badge %}
               <span class="altmetric-embed" data-hide-no-mentions="true" data-hide-less-than="15" data-badge-type="2" data-badge-popover="right"

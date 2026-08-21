@@ -331,7 +331,7 @@ _styles: |
 {::options parse_block_html="true" /}
 
 <div class="exp-lede">
-近期流行的 <em>Car Wash Test</em> 会问模型：<strong>“我想洗车。洗车店离我只有 100 米，我应该走路还是开车？”</strong>有些模型选择 walk：距离这么近，步行更快、更环保。每一步局部推理都像是对的，却漏掉了决定性的 task constraint——要洗的是车，车必须到场。这个 failure 并非所有模型、所有措辞下都会出现，但它精准暴露了 language fluency 与 grounded task understanding 之间仍然存在的缝隙。
+一个很能说明问题的例子是 <em>Car Wash Test</em>。问题是：<strong>“我想洗车。洗车店离我只有 100 米，我应该走路还是开车？”</strong>有些模型选择 walk：距离这么近，步行更快、更环保。每一步局部推理都像是对的，却漏掉了决定性的 task constraint——要洗的是车，车必须到场。这个 failure 并非所有模型、所有措辞下都会出现，但它精准暴露了 language fluency 与 grounded task understanding 之间仍然存在的缝隙。
 </div>
 
 这不是说 pretraining 与 experience 无关。恰恰相反，从这个 lens 看，传统 pretraining 一直在间接学习 experience——只是这些 experience 已经先经过了人类的注意、理解、筛选与表达。

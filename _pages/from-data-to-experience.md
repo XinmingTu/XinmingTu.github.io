@@ -331,7 +331,7 @@ _styles: |
 {::options parse_block_html="true" /}
 
 <div class="exp-lede">
-早期语言模型偶尔会给出一种听起来完全合理、但又明显不对的建议：<strong>“你可以走路去洗车。”</strong>每个词都对，句法也对；可如果目的是洗车，你得把车带过去。这个小错误暴露了一个更大的问题：模型读过大量关于世界的文字，却没有经历过世界本身。
+近期流行的 <em>Car Wash Test</em> 会问模型：<strong>“我想洗车。洗车店离我只有 100 米，我应该走路还是开车？”</strong>有些模型选择 walk：距离这么近，步行更快、更环保。每一步局部推理都像是对的，却漏掉了决定性的 task constraint——要洗的是车，车必须到场。这个 failure 并非所有模型、所有措辞下都会出现，但它精准暴露了 language fluency 与 grounded task understanding 之间仍然存在的缝隙 <d-cite key="jo2026committed"></d-cite>。
 </div>
 
 这不是说 pretraining 与 experience 无关。恰恰相反，从这个 lens 看，传统 pretraining 一直在间接学习 experience——只是这些 experience 已经先经过了人类的注意、理解、筛选与表达。
@@ -409,7 +409,11 @@ $$
 P(\text{event in life}) \neq P(\text{event in text})
 $$
 
-这就是 reporting bias <d-cite key="gordon2013reporting"></d-cite>。相对于日常发生的频率，互联网过度保存罕见、抽象、值得讨论的事件，却很少记录 mundane reality。
+这就是 reporting bias <d-cite key="gordon2013reporting"></d-cite>。Forbes 与 Choi 用一个极简例子抓住了它：人们几乎不会特意写下 “my house is bigger than me”；但 “Tyler entered his house” 又在间接泄露同一份 physical knowledge <d-cite key="forbes2017verb"></d-cite>。Text 并非没有 common sense，而是把它藏在 implication 里，并以高度偏斜的频率出现。
+
+Yejin Choi 把 commonsense intelligence 描述为：依赖关于 physical 与 social world 的丰富背景知识，对 everyday situations 做 intuitive reasoning <d-cite key="choi2022curious"></d-cite>。这也提醒我们，common sense 不只是一组静态 facts；它还包括对 object affordance、人的意图，以及 context 改变后哪些 inference 应当失效的把握。
+
+规模化 pretraining 能补回其中一部分，但并不会自动消除 selection bias。Shwartz 与 Choi 发现，语言模型可以更好地估计一些“高频发生、很少明说”的 action、outcome 与 property；与此同时，它们也会高估极罕见事件的 plausibility，放大 corpus 中已有的偏差 <d-cite key="shwartz2020reporting"></d-cite>。
 
 人类的 common sense 也许并不是一座由命题组成的百科全书。它更像从无数次日常互动中压缩出来的 consequence model：
 
@@ -417,7 +421,7 @@ $$
 f(\text{state},\ \text{action}) \rightarrow \text{likely consequence}
 $$
 
-在这个 lens 下，可以把它概括为：**Common sense is the low-frequency-in-language, high-frequency-in-life part of the world model.**
+因此，至少对 physical 与 practical common sense，可以抓住这样一个核心：**Common sense is often the low-frequency-in-language, high-frequency-in-life part of the world model.**
 
 ## The New Unit of Learning
 

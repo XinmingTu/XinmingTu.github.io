@@ -549,7 +549,7 @@ footer.sticky-bottom {
 // Publications
 
 .publications {
-  margin-top: 1.5rem;
+  margin-top: 2rem;
 
   h1 {
     color: var(--global-theme-color);
@@ -568,27 +568,52 @@ footer.sticky-bottom {
   }
 
   h2.bibliography {
-    color: var(--global-text-color);
-    border: 0;
-    padding: 0;
-    margin: 2.25rem 0 0.35rem;
-    font-size: 1.15rem;
-    font-weight: 600;
-    line-height: 1.2;
-    text-align: left;
+    color: var(--global-divider-color);
+    border-top: 1px solid var(--global-divider-color);
+    padding-top: 1rem;
+    margin-top: 2rem;
+    margin-bottom: -2rem;
+    text-align: right;
   }
 
-  // The homepage is one continuous list, so show each entry's year there.
-  // The full publications page already groups entries by year.
+  // On the homepage "selected publications" list the year is already shown in
+  // each entry's venue line, so the faded year group-headers are redundant.
   &.selected {
-    margin-top: 1rem;
-
     h2.bibliography {
       display: none;
     }
 
-    .venue-meta .year {
-      display: inline;
+    ol.bibliography li:first-child {
+      margin-top: 0;
+    }
+
+    ol.bibliography li {
+      margin-bottom: 1.1rem;
+
+      .author,
+      .pub-meta {
+        display: inline;
+      }
+
+      .author {
+        font-size: 0.9rem;
+        line-height: 1.45;
+      }
+
+      .pub-meta {
+        margin-top: 0;
+
+        &::before {
+          content: " \00b7  ";
+          color: var(--global-text-color-light);
+          opacity: 0.6;
+        }
+      }
+
+      .pub-note,
+      .badges {
+        display: none;
+      }
     }
   }
 
@@ -596,29 +621,15 @@ footer.sticky-bottom {
     list-style: none;
     padding: 0;
     margin-top: 0;
-    margin-bottom: 0;
 
     li {
-      margin: 0;
-      padding: 0.9rem 0;
-      border-bottom: 1px solid var(--global-divider-color);
-
-      .pub-head,
-      .pub-details {
-        display: grid;
-        grid-template-columns: minmax(0, 1fr) auto;
-        column-gap: 1.25rem;
-        align-items: baseline;
-      }
-
-      .pub-details {
-        margin-top: 0.24rem;
-      }
+      margin-bottom: 1.9rem;
 
       .title {
         font-weight: 600;
-        font-size: 1rem;
-        line-height: 1.38;
+        font-size: 1.08rem;
+        line-height: 1.42;
+        margin-bottom: 0.12rem;
 
         a {
           color: var(--global-text-color);
@@ -631,79 +642,69 @@ footer.sticky-bottom {
       }
 
       .author {
-        min-width: 0;
-        color: var(--global-text-color-light);
-        font-size: 0.86rem;
-        line-height: 1.45;
+        line-height: 1.55;
 
         a {
-          color: inherit;
+          border-bottom: 1px dashed var(--global-theme-color);
 
           &:hover {
-            color: var(--global-theme-color);
+            border-bottom-style: solid;
             text-decoration: none;
           }
         }
 
         >em {
-          color: var(--global-text-color);
-          font-weight: 600;
+          border-bottom: 1px solid;
           font-style: normal;
         }
 
         >span.more-authors {
           color: var(--global-text-color-light);
+          border-bottom: 1px dashed var(--global-text-color-light);
           cursor: pointer;
 
           &:hover {
-            color: var(--global-theme-color);
+            color: var(--global-text-color);
+            border-bottom: 1px dashed var(--global-text-color);
           }
         }
       }
 
-      .venue-meta {
-        white-space: nowrap;
+      // Quiet metadata line: purple venue, then year and any extra-resource
+      // links in muted text (each goes purple on hover).
+      .pub-meta {
+        font-size: 0.86rem;
+        margin-top: 0.38rem;
         color: var(--global-text-color-light);
-        font-size: 0.8rem;
-        font-weight: 500;
-        line-height: 1.35;
-        text-align: right;
 
-        .year {
-          display: none;
+        .venue {
+          color: var(--global-theme-color);
+          font-weight: 500;
         }
 
-        .meta-sep {
-          margin: 0 0.32rem;
-          opacity: 0.6;
+        .sep {
+          margin: 0 0.45rem;
+          opacity: 0.55;
         }
-      }
-
-      .pub-links {
-        display: flex;
-        gap: 0.7rem;
-        justify-content: flex-end;
-        white-space: nowrap;
-        font-size: 0.78rem;
-        line-height: 1.4;
 
         a {
           color: var(--global-text-color-light);
 
           &:hover {
             color: var(--global-theme-color);
-            text-decoration: none;
+            text-decoration: underline;
           }
         }
       }
 
       .pub-note {
-        display: none;
+        font-size: 0.85rem;
+        margin-top: 0.15rem;
+        color: var(--global-text-color-light);
       }
 
       .badges {
-        margin-top: 0.35rem;
-
+        padding-bottom: 0.5rem;
         span {
           display: inline-block;
           color: $black-color;
@@ -714,20 +715,6 @@ footer.sticky-bottom {
           &:hover {
             text-decoration: underline;
           }
-        }
-      }
-
-      @media (max-width: 575.98px) {
-        .pub-head,
-        .pub-details {
-          grid-template-columns: minmax(0, 1fr);
-          row-gap: 0.18rem;
-        }
-
-        .venue-meta,
-        .pub-links {
-          justify-content: flex-start;
-          text-align: left;
         }
       }
 

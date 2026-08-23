@@ -277,10 +277,6 @@ _styles: |
     font-size: 0.76rem;
     line-height: 1.38;
   }
-  d-article .exp-rung:last-child {
-    background: var(--exp-green-soft);
-    border-color: color-mix(in srgb, var(--exp-green) 35%, var(--exp-line));
-  }
   d-article .exp-loop {
     align-items: center;
     display: flex;
@@ -331,75 +327,37 @@ _styles: |
 {::options parse_block_html="true" /}
 
 <div class="exp-lede">
-一个很能说明问题的例子是 <em>Car Wash Test</em>。问题是：<strong>“我想洗车。洗车店离我只有 100 米，我应该走路还是开车？”</strong>有些模型选择 walk：距离这么近，步行更快、更环保。每一步局部推理都像是对的，却漏掉了决定性的 task constraint——要洗的是车，车必须到场。这个 failure 并非所有模型、所有措辞下都会出现，但它精准暴露了 language fluency 与 grounded task understanding 之间仍然存在的缝隙。
+Language models do not learn from the world directly. They learn from traces of interaction with it. Until now, most of those traces have been written by humans—after experience has already been filtered through attention, abstraction, and judgment about what was worth recording.
 </div>
 
-这不是说 pretraining 与 experience 无关。恰恰相反，从这个 lens 看，传统 pretraining 一直在间接学习 experience——只是这些 experience 已经先经过了人类的注意、理解、筛选与表达。
+Pretraining 因此从来不只是“学习 text”。它在间接学习 human experience，只是中间隔着一条很长的 epistemic path：
 
 $$
-\text{World} \rightarrow \text{Human Experience} \rightarrow \text{Abstraction} \rightarrow \text{Text} \rightarrow \text{Model}
+\text{World} \rightarrow \text{Human Experience} \rightarrow \text{Attention / Abstraction / Selection} \rightarrow \text{Text} \rightarrow \text{Model}
 $$
 
-Agent 带来的变化，不只是更多数据，而是一条更短的 epistemic path：
+Agent 带来的变化，不是让 compression 消失，也不是让模型突然直接接触未经中介的 reality。它增加了一条新的路径：模型可以通过行动主动引出 observations，并与 environment 共同产生新的 traces。本文关心的问题是：当训练从压缩 human-written records，扩展到压缩由模型自身行动触发的 consequences，什么发生了变化？
 
-$$
-\text{Model} \rightarrow \text{Action} \rightarrow \text{Environment} \rightarrow \text{Observation / Feedback} \rightarrow \text{Trace}
-$$
+## Text Is Selected Experience
 
-只有当这些 traces 被保存、筛选并重新用于 memory 或 training，这个 loop 才真正闭合：
-
-$$
-\text{Trace} \rightarrow \text{Selection / Verification} \rightarrow \text{Learning} \rightarrow \text{Updated Model}
-$$
-
-**真正改变的是 what gets compressed。**
-
-## Text Is Compressed Experience
-
-互联网不是世界的随机样本。它是人类认为“值得说”的那部分世界。
-
-一个真实事件本来有完整的结构：当时是什么 state，做了什么 action，发生了什么 consequence，又得到了怎样的 feedback。但写进文档时，它往往只剩下一句话：
+一个真实事件本来有完整的结构：当时是什么 state，做了什么 action，发生了什么 consequence，又得到了怎样的 feedback。但它写进文档时，可能只剩下一句话：
 
 > Don't call this API concurrently.
 
-触发 bug 的上下文、失败的尝试、报错的细节、定位答案的过程，都消失了。一个 trajectory 被压成了一串 tokens。
+触发 bug 的上下文、失败的尝试、报错的细节与定位答案的过程，大多消失了。一个 trajectory 被压成一串 tokens。
 
-所以，更准确的说法不是“text 是 experience 的简化版”，而是：
+Text 不只是 compressed experience，还是 **selected experience**。进入训练数据的，是某个人注意到、理解了，并认为值得写下来的那部分 experience。
 
 <div class="exp-pullquote">
-Pretraining data is a lossy, flattened projection of experience.
-<span>训练数据是真实经验经过有损压缩后留下的平面投影。</span>
+Pretraining data is a lossy, selectively recorded projection of experience.
+<span>训练数据是经验经过有损压缩与人类筛选后留下的投影。</span>
 </div>
 
 这也解释了为什么 next-token prediction 能学到远超语言表面的东西。Text 本身是一个复杂过程的结果：世界影响人的 perception，perception 形成 belief 与 intention，最后才生成 language。要足够好地预测 text，模型就有动力捕捉一部分产生 text 的 latent regularities。
 
 Next-token prediction 是 training interface；它可以学到 compressed predictive representations，但并不自动保证一个完整、忠实的 world model。
 
-<figure class="exp-figure" markdown="0">
-  <div class="exp-pipelines">
-    <div class="exp-pipeline">
-      <div class="exp-pipeline-label">Recorded experience</div>
-      <div class="exp-flow">
-        <span class="exp-node evidence">World</span><span class="exp-arrow">→</span>
-        <span class="exp-node human">Human experience</span><span class="exp-arrow">→</span>
-        <span class="exp-node human">Text</span><span class="exp-arrow">→</span>
-        <span class="exp-node model">Model</span>
-      </div>
-    </div>
-    <div class="exp-pipeline">
-      <div class="exp-pipeline-label">Model experience</div>
-      <div class="exp-flow">
-        <span class="exp-node model">Model</span><span class="exp-arrow">→</span>
-        <span class="exp-node model">Action</span><span class="exp-arrow">→</span>
-        <span class="exp-node evidence">Environment</span><span class="exp-arrow">→</span>
-        <span class="exp-node evidence">Consequence</span><span class="exp-arrow">↺</span>
-      </div>
-    </div>
-  </div>
-  <figcaption>Agent 没有取代 recorded experience；它增加了一条从行动后果获得信息的路径。只有经过后续更新，这些 traces 才会改变模型。</figcaption>
-</figure>
-
-## The Missing Obvious
+## What We Do Not Write Down
 
 Text 的问题不只在于 compression，还在于 selection。
 
@@ -415,7 +373,9 @@ Yejin Choi 把 commonsense intelligence 描述为：依赖关于 physical 与 so
 
 规模化 pretraining 能补回其中一部分，但并不会自动消除 selection bias。Shwartz 与 Choi 发现，语言模型可以更好地估计一些“高频发生、很少明说”的 action、outcome 与 property；与此同时，它们也会高估极罕见事件的 plausibility，放大 corpus 中已有的偏差 <d-cite key="shwartz2020reporting"></d-cite>。
 
-人类的 common sense 也许并不是一座由命题组成的百科全书。它更像从无数次日常互动中压缩出来的 consequence model：
+这也提供了理解 <em>Car Wash Test</em> 的一个 lens。问题是：“我想洗车。洗车店离我只有 100 米，我应该走路还是开车？”有些模型选择 walk：距离近，步行更快、更环保。局部推理都像是对的，却漏掉了 task constraint——要洗的是车，车必须到场。这个 failure 并非所有模型、所有措辞下都会出现，但它暴露了 language plausibility 与 grounded task understanding 之间仍然存在的缝隙。
+
+人类的 common sense 也许不是一座由命题组成的百科全书。它更像从无数次日常互动中压缩出来的 consequence model：
 
 $$
 f(\text{state},\ \text{action}) \rightarrow \text{likely consequence}
@@ -423,7 +383,7 @@ $$
 
 因此，至少对 physical 与 practical common sense，可以抓住这样一个核心：**Common sense is often the low-frequency-in-language, high-frequency-in-life part of the world model.**
 
-## The New Unit of Learning
+## Agents Generate Their Own Traces
 
 从 interaction 中学习并不是新事物；reinforcement learning 与 robotics 早已建立在 agent–environment loop 上 <d-cite key="sutton2018reinforcement"></d-cite>。新的地方在于，foundation-model agents 正把这条路径扩展到 code、browser 与各种通用数字环境，并持续产生大规模 traces。
 
@@ -436,8 +396,6 @@ E_t = (s_t, a_t, o_{t+1}, f_t)
 $$
 
 其中包含当前 state、采取的 action、下一步 observation，以及 success、failure 或其他 feedback。
-
-但 trace 仍然不是未经处理的 reality：它受 API、sensor、simulator fidelity 与 logging choices 的限制。更重要的是，**Agent 产生 experience，不等于模型已经 learning。**多数部署中的模型权重在一次 interaction 后并不会自动改变；只有 trace 被保留、验证，并用于 context、memory 或 weight update，experience 才可能沉淀为 knowledge。
 
 <figure class="exp-figure" markdown="0">
   <div class="exp-transition">
@@ -457,101 +415,105 @@ $$
       </div>
     </div>
   </div>
-  <figcaption>学习的基本单位，从静态 document 走向带有 action–consequence structure 与反馈的 transition。</figcaption>
+  <figcaption>数据的基本单位，从静态 document 扩展到带有 action–consequence structure 与反馈的 transition。</figcaption>
 </figure>
 
-这篇文章采用三个 working definitions：
+关键差别不在于 text versus non-text——terminal output 仍然是 text。区别在于 causal provenance：human-written text 是他人过去留下的记录；agent trace 中的 observation，则是 environment 对模型刚刚采取的 action 所作的回应。
 
-- **Experience** 是发生过什么。
-- **Knowledge** 是从许多 experience 中压缩出的、可复用的规律。
-- **Intelligence** 是把 experience 变成 knowledge，再用 knowledge 指导下一次行动的能力。
-
-三者连起来，才构成 learning loop：
-
-<div class="exp-loop" aria-label="Experience, knowledge, and action learning loop" markdown="0">
-  <span class="exp-node evidence">Experience</span><span class="exp-arrow">→</span>
-  <span class="exp-node model">Compression</span><span class="exp-arrow">→</span>
-  <span class="exp-node model">Knowledge</span><span class="exp-arrow">→</span>
-  <span class="exp-node human">Action</span><span class="exp-arrow">→</span>
-  <span class="exp-node evidence">New experience</span><span class="exp-arrow">↺</span>
-</div>
-
-## Abundance Is Not Knowledge
-
-Agent 可以低成本、持续地产生大规模 trajectories，但这不等于可以生成同等规模的 knowledge。
-
-如果模型已经把同一类任务做过一百万次，第一百万零一次成功不会提供多少新信息。更有价值的时刻通常是：模型预测会发生 $X$，environment 却返回了 $Y$。当 observation 可靠且结果可以归因时，这个 discrepancy 才构成 surprise，并真正减少 uncertainty。
-
-因此，未来训练数据的价值不应只按 token 数量计算。一个更有用的直觉是：
-
-<div class="exp-equation" aria-label="Experience value equation" markdown="0">
-  <div class="exp-equation-inner">
-    <span class="num">Novelty × Reliability × Generalizability</span>
-    <span class="den">Compute Cost</span>
+<figure class="exp-figure" markdown="0">
+  <div class="exp-pipelines">
+    <div class="exp-pipeline">
+      <div class="exp-pipeline-label">Recorded experience</div>
+      <div class="exp-flow">
+        <span class="exp-node evidence">World</span><span class="exp-arrow">→</span>
+        <span class="exp-node human">Human experience</span><span class="exp-arrow">→</span>
+        <span class="exp-node human">Text</span><span class="exp-arrow">→</span>
+        <span class="exp-node model">Model</span>
+      </div>
+    </div>
+    <div class="exp-pipeline">
+      <div class="exp-pipeline-label">Generated experience</div>
+      <div class="exp-flow">
+        <span class="exp-node model">Model</span><span class="exp-arrow">→</span>
+        <span class="exp-node model">Action</span><span class="exp-arrow">→</span>
+        <span class="exp-node evidence">Environment</span><span class="exp-arrow">→</span>
+        <span class="exp-node evidence">Observation</span><span class="exp-arrow">↺</span>
+      </div>
+    </div>
   </div>
-</div>
+  <figcaption>Agent 没有取代 recorded experience；它增加了一条通过自身 action 主动引出 environment observation 的路径。</figcaption>
+</figure>
 
-这意味着 data wall 没有消失，只是换了形态：从寻找更多高质量文本，变成在海量 interaction 中寻找少数 grounded、可信、能迁移的 surprise。
+## Tools Mediate Experience
 
-**Data scarcity becomes information scarcity.** 我们或许不会耗尽 tokens，但会耗尽廉价而可信的新发现。
+Agent 通常不会直接作用于 environment。Tool 把模型的 intention 变成 environment 可以执行的 action，再把 consequence 变成模型可以读取的 observation：
 
-## Tools as Teachers
+$$
+\text{Model} \rightarrow \text{Tool} \rightarrow \text{Environment} \rightarrow \text{Tool Output} \rightarrow \text{Model}
+$$
 
-这也让 synthetic data 这个词显得过于粗糙。
+Terminal 把 command 交给 operating system，并返回 stdout、errors、files 与 traces；browser 把 clicks 或 code 变成 web state transitions；scientific instruments 把不可直接读取的 physical state 转换成 images、counts 或 measurements。**Tools define an agent's action space and observation space.**
 
-模型生成一段文字再拿来训练，仍然可能只是在自己的 distribution 内循环。真正重要的区别，不是 synthetic versus real，而是 **closed loop versus grounded loop**：系统外部有没有一个 source of truth，能告诉模型“你刚才错了”。
+Recent work 也开始直接利用这条 observation stream。ECHO 让 terminal agent 预测自身 commands 所引起的 environment outputs，结果显示这些 outputs 不只是下一步 action 的 transient context，也可以作为 dense supervision，帮助模型学习 terminal dynamics <d-cite key="shrivastava2026echo"></d-cite>。
+
+在 science 中，tool-mediated observations 有不同的 epistemic provenance。Database 与 search tool 返回已经记录的 evidence；compiler 与 theorem prover 返回 formal consequence；AlphaFold 这样的 specialized model 把 structural data 与规律压缩成 predicted structure 与 confidence <d-cite key="jumper2021alphafold"></d-cite>；simulator 返回近似世界中的 trajectory；experiment 则通过 instrument 返回新的 measurement。
 
 <figure class="exp-figure" markdown="0">
   <div class="exp-ladder">
-    <div class="exp-rung"><span class="exp-rung-level">Closed</span><strong>Model → Text</strong><span>重新组合已有 distribution</span></div>
-    <div class="exp-rung"><span class="exp-rung-level">Verified</span><strong>Compiler / Solver</strong><span>得到可检查的反馈</span></div>
-    <div class="exp-rung"><span class="exp-rung-level">Simulated</span><strong>Simulator</strong><span>观察 intervention 的后果</span></div>
-    <div class="exp-rung"><span class="exp-rung-level">Grounded</span><strong>Real experiment</strong><span>由 measurement 更新模型</span></div>
+    <div class="exp-rung"><span class="exp-rung-level">Retrieved</span><strong>Database / Search</strong><span>过去记录的 evidence</span></div>
+    <div class="exp-rung"><span class="exp-rung-level">Computed</span><strong>Compiler / Prover</strong><span>formal system 的 consequence</span></div>
+    <div class="exp-rung"><span class="exp-rung-level">Predicted</span><strong>AlphaFold / Simulator</strong><span>specialized model 中的 world</span></div>
+    <div class="exp-rung"><span class="exp-rung-level">Measured</span><strong>Real Experiment</strong><span>physical world 返回的 evidence</span></div>
   </div>
-  <figcaption>这些 loops 提供不同形式的 external constraint，并不是简单的质量排序：formal verifier 的正确性、simulator fidelity 与 measurement quality 都决定了经验是否可信。</figcaption>
+  <figcaption>这不是简单的质量排序，而是不同的 epistemic relations。Tool output 是 observation，不自动等于 truth；模型还需要理解它来自 retrieval、formal rules、prediction、simulation，还是 measurement。</figcaption>
 </figure>
 
-在这个框架下，当输出足够可靠或可验证时，compiler、theorem prover、simulator 和 scientific model 可以有两种身份：既是 inference-time extension，也是 training-time teacher。
-
-模型可以在不会时调用工具；也可以把经过收集与验证的 interactions 用于后续训练，将工具暴露出来的一部分规律 distilled into weights。这种 distillation 通常是近似的，并不保证保留工具的精确性或完整能力。由此可能形成一个 flywheel：
-
-$$
-\text{Model} \rightarrow \text{Tools} \rightarrow \text{Evidence} \rightarrow \text{Training} \rightarrow \text{Better Model}
-$$
-
-但这并不意味着所有工具最终都要被塞回 model weights。更自然的分工也许是：weights 保存缓慢变化的 compressed knowledge，memory 保存 episodic experience，tools 充当 specialized cognitive organs，而 environment 持续提供 evidence。
-
-模型真正需要学会的是：什么时候回答，什么时候行动，什么时候调用工具，以及面对冲突的 evidence 时应该相信什么。让模型学习何时调用 API、如何传参并利用结果，已经有了早期实例 <d-cite key="schick2023toolformer"></d-cite>。
-
-## From Observation to Intervention
-
-即使一段 text 描述的是实验，它到达模型时通常也已经变成 observational record：模型看到 $X$ 与 $Y$ 一起出现。Agent 则有机会主动改变环境，在合适的实验设计下执行接近 $do(X)$ 的 intervention，再观察 $Y$ 是否发生。
-
-但 action 不自动等于一个有效的 causal intervention。要获得 causal knowledge，仍然需要控制 confounders、明确 estimand，并保证 measurement 与环境足够可靠 <d-cite key="pearl2009causal"></d-cite>。满足这些条件后，进入 science 的 learning loop 才可能变成：
-
-$$
-\text{Hypothesis} \rightarrow \text{Experiment} \rightarrow \text{Measurement} \rightarrow \text{Updated Model}
-$$
-
-此时，prediction 不再只是“下一个 token 是什么”，而是一个更一般的问题：
-
 <div class="exp-pullquote">
-Given what I know, if I do X, what will happen?
-<span>在我已知的一切之上，如果采取这个行动，世界将如何变化？</span>
+Every tool exposes an environment, but only through a particular representation of it.
+<span>Tool 不是 world 本身，而是让某个 task-relevant projection of the world 变得可交互。</span>
 </div>
 
-Common sense、agent planning、program execution、biology 与 scientific discovery，都可以被放进这个 consequence-prediction 的框架。模型从预测下一段描述，走向预测 action-conditioned next state。
+Tool 因而既可能扩展模型的 inference-time capability，也可能成为 experience 的来源。但 agent 学到的是 environment as represented by the tool，其中同时包含 tool 捕捉到的规律与它施加的 assumptions。模型需要知道的不只是 output 是什么，还包括这个 tool 有资格支持什么样的 claim。
 
-## A New Epistemic Loop
+## The Corpus Becomes a Process
 
-如果只看通用 foundation model 的 dominant data interface，可以把这条演化理解为三个彼此重叠的层次，而不是严格替代的历史阶段：
+传统 pretraining 从一个相对固定的 archive 开始：先收集 human-written corpus，再训练 model。Agent interaction 则把 corpus 变成一个可以持续运行的 process：
+
+<div class="exp-loop" aria-label="A continuously generated interaction corpus" markdown="0">
+  <span class="exp-node model">Model</span><span class="exp-arrow">→</span>
+  <span class="exp-node model">Interaction</span><span class="exp-arrow">→</span>
+  <span class="exp-node evidence">New Trace</span><span class="exp-arrow">→</span>
+  <span class="exp-node human">Training</span><span class="exp-arrow">→</span>
+  <span class="exp-node model">Updated Model</span><span class="exp-arrow">↺</span>
+</div>
+
+这也说明为什么 synthetic data 这个词过于粗糙。模型生成一段文字再训练自己，可能只是在已有 distribution 内循环；agent self-play 或 tool use 则可以产生另一种 data：**actions 由 model 生成，consequences 由 environment 返回。**
+
+<div class="exp-pullquote">
+The actions may be synthetic; the consequences need not be.
+<span>Self-play 产生 actions 与 questions；environment 提供 constraints 与 consequences。</span>
+</div>
+
+从规模看，这已经不只是一个理论上的 data source。Google 在 2026 年报告其产品与 APIs 每月处理约 3.2 quadrillion tokens；作为数量级参照，Llama 3.1 的公开 pretraining 规模约为 15 trillion tokens <d-cite key="google2026tokens,meta2024llama31"></d-cite>。这个比较并非 apples-to-apples：processed tokens 包含重复 inputs 与 context，大量 interaction 也受隐私、授权和质量限制，不能直接变成 training data。但它说明，interaction throughput 已经可以迅速超过一个固定 corpus 的规模。
+
+这些 data 不是 infinite，而是 **renewable**。只要继续投入 inference compute、运行 environments 与 verifiers，系统就能产生下一轮 traces。Data generation 本身开始成为 inference workload：compute 不再只是在 training 时消费 data，也可以在 interaction 时生产未来的 data。
+
+新的边界因此不是“还有多少 text 没有抓取”。在 digital environments 中，experience generation 受到 GPU、CPU、energy、storage 与 execution throughput 的限制；在 physical science 中，它仍受到 experiment latency、instrument capacity、sample availability 与 biological timescale 的限制。
+
+**In digital environments, experience becomes compute-bound. In physical science, it remains reality-bound.**
+
+## From Experience to Knowledge Production
+
+最后仍需要一个重要的 distinction：**Agent 产生 trace，不等于 model 已经从 trace 中 learning。**只有当 experience 系统性地改变了模型未来的 prediction 或 action，learning loop 才真正闭合。至于这种变化最终存在 weights、memory、skills 还是其他 persistent component 中，是 implementation question，而不是这里最重要的 conceptual boundary。
+
+可以把这条演化理解为三个彼此重叠的层次，而不是严格替代的历史阶段：
 
 1. **Human experience**：人类与世界互动，从中形成经验。
-2. **Recorded experience**：人类把经验压缩成文本，模型再压缩这些记录。Internet 像 humanity's giant offline replay buffer。
-3. **Model experience**：模型开始行动、观察与验证；当 traces 被保留并重新用于 learning，它也开始写入自己的 replay buffer。
+2. **Recorded experience**：人类把认为值得记录的部分压缩成 text，模型再压缩这些 traces。
+3. **Generated experience**：模型通过 tools 行动，environment 返回 observations；这些 action-conditioned traces 又成为未来 learning 的原料。
 
-Pretraining 让 AI 学会压缩 humanity's records of the world。Agentic learning 在 traces 被重新用于更新时，则开始让它压缩 what the world—and its tools—reveal through interaction。
+Pretraining 让模型压缩 what humans found worth writing down。Agentic learning 则可能让 training corpus 从固定 archive 变成 renewable process：model 产生 actions，environment 产生 consequences，interaction 本身开始产生新的 experience。
 
 <div class="exp-coda">
-这场 shift 最深的含义，不是“我们突然有了更多 training data”。而是 <strong>AI training 开始从学习人类积累的知识，扩展到参与知识产生的过程本身。</strong>
+The deeper shift is from passively compressing human-written records to actively producing and compressing tool-mediated experience. <strong>AI training 开始从学习人类积累的知识，扩展到参与知识产生的过程本身。</strong>
 </div>

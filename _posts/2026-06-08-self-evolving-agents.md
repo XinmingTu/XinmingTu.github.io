@@ -18,6 +18,7 @@ abstract: >
   eventually, model weights.
 date: 2026-06-08
 tags: ['AI', 'agents', 'deep-learning']
+categories: blog
 
 authors:
   - name: Xinming Tu

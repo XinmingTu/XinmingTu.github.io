@@ -3,6 +3,7 @@ layout: distill
 title: AI for General Science - Large language models for scientific hypothesis/research ideas generation
 description:
 date: 2023-02-07
+categories: blog
 
 authors:
   - name: Xinming Tu

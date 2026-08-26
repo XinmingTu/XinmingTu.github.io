@@ -4,6 +4,7 @@ title: "The Redistribution of Human Intelligence / 人类智能的重分配"
 description: "AI's core impact isn't replacing human intelligence but redistributing it — from execution to decision-making, enabling unprecedented scale."
 date: 2026-02-18
 tags: ['AI', 'agents', 'future']
+categories: blog
 bilingual: true
 
 authors:

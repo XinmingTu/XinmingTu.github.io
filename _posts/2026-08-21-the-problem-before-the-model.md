@@ -4,9 +4,9 @@ title: "The Problem Before the Model / 模型之前的问题"
 description: "Before AI can solve a scientific problem, science has to make the problem solvable."
 date: 2026-08-21
 tags: ['AI', 'science', 'benchmarks']
-permalink: /preview/the-problem-before-the-model/
+categories: blog
+permalink: /blog/preview/the-problem-before-the-model/
 preview: true
-nav: false
 sitemap: false
 bibliography: 2026-08-21-the-problem-before-the-model.bib
 

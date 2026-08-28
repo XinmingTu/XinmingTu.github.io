@@ -138,16 +138,6 @@ _styles: |
     line-height: 1.43;
     margin-top: 0.35rem;
   }
-  d-article .sle-pullquote {
-    color: var(--sle-ink);
-    font-family: Georgia, 'Times New Roman', serif;
-    font-size: clamp(1.32rem, 3vw, 1.78rem);
-    font-style: italic;
-    line-height: 1.42;
-    margin: 2.15rem auto;
-    max-width: 760px;
-    text-align: center;
-  }
   d-article .sle-stats {
     display: grid;
     gap: 0.65rem;
@@ -211,7 +201,7 @@ An agent evaluation usually ends with a number. That is a lossy ending. The run 
 
 If tasks, traces, outcomes, and provenance are preserved, the output of one evaluation can become the input of another. Not merely *reused* as examples, but **compiled** into new, executable agent tasks.
 
-<figure class="sle-figure">
+<figure class="sle-figure" markdown="0">
   <div class="sle-flow" aria-label="From a source agent evaluation to derived agentic evaluations" markdown="0">
     <div class="sle-step source">Source agent eval</div>
     <div class="sle-step">Frozen tasks, traces, outcomes, provenance</div>
@@ -221,11 +211,19 @@ If tasks, traces, outcomes, and provenance are preserved, the output of one eval
   <figcaption>The output of one agent evaluation becomes the environment of another.</figcaption>
 </figure>
 
-We explored this idea using frozen executions from three Terminal-Bench 3 runs: Fable, GPT-5.6 Sol, and GLM-5.3. The original benchmark asked whether an agent could solve a terminal task. Our derived benchmark asks whether another agent can recognize what actually happened.
+We tested this idea on Terminal-Bench 3. The original evaluations asked whether an agent could solve a terminal task. Our derived evaluations ask whether another agent can recognize what actually happened.
 
-## One corpus, three verification tasks
+## From Terminal-Bench runs to verification tasks
 
-The source corpus contains 85 mixed Best-of-5 pools: each has at least one successful and one failed execution under the original environment verifier. From them, we built a 340-task family.
+We started from three completed 74-task Terminal-Bench 3 evaluations, each with five solver rollouts per task:
+
+- Claude Fable 5 with Claude Code;
+- GPT-5.6 Sol with Codex;
+- GLM-5.3 with Claude Code.
+
+We grouped each source evaluation into five-run pools, then kept the pools containing both successful and failed executions. This produced 85 mixed pools—33 from Fable, 29 from GPT-5.6 Sol, and 23 from GLM-5.3—spanning 50 unique source tasks. The original environment-verifier rewards became hidden operational labels for the new tasks.
+
+From those frozen pools, we built a 340-task verification family.
 
 <div class="sle-family" markdown="0">
   <div class="sle-family-card">
@@ -279,9 +277,7 @@ Pair failure recall rose by roughly 15–16 percentage points for every reviewer
 
 But classification and ranking are not the same capability. A reviewer can mislabel one or both traces and still prefer the successful one. GPT-5.6 Sol did exactly that in 22 pools where both isolated reviews said *pass*, yet joint comparison still preferred the successful trace.
 
-<div class="sle-pullquote">
-Agents may struggle to certify that one run is correct while still recognizing which run is more likely to be correct.
-</div>
+**Agents may struggle to certify that one run is correct while still recognizing which run is more likely to be correct.**
 
 That relative judgment is a practical form of verification. It is weaker than an executable oracle, but stronger than choosing blindly.
 

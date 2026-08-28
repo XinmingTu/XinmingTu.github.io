@@ -220,6 +220,146 @@ def render_single_confusion_matrices() -> None:
     )
 
 
+def render_pair_comparison() -> None:
+    reviewers = (
+        ("GPT-5.6 Sol", 43.53, 60.00, 64.71, BLUE),
+        ("GLM-5.3", 23.53, 38.82, 69.41, GREEN),
+        ("DeepSeek V4 Pro 0423", 25.88, 42.35, 60.00, WARM),
+    )
+    width, height = 1200, 590
+    plot_top, plot_bottom = 175, 470
+    plot_height = plot_bottom - plot_top
+    y_max = 75.0
+    left_x = (85, 660)
+    right_x = (755, 1160)
+
+    def y_position(value: float) -> float:
+        return plot_bottom - value / y_max * plot_height
+
+    body = [
+        text(
+            width / 2,
+            42,
+            "Comparison reveals a stronger verification signal",
+            size=22,
+            color=INK,
+            weight=700,
+        ),
+        text(
+            width / 2,
+            72,
+            "Pair reviews the same successful and failed anchors together, with neither label revealed",
+            size=13,
+            color=MUTED,
+        ),
+        text(372, 116, "Failure detection", size=17, color=INK, weight=700),
+        text(958, 116, "Relative ranking", size=17, color=INK, weight=700),
+        text(958, 146, "Dashed line = 50% blind selection", size=12, color=MUTED),
+        rect(250, 137, 14, 14, fill="#B9BFC7", radius=2),
+        text(272, 149, "Single", size=12, color=BODY, anchor="start"),
+        rect(358, 137, 14, 14, fill=BLUE, radius=2),
+        text(380, 149, "Pair (colored by reviewer)", size=12, color=BODY, anchor="start"),
+    ]
+
+    for panel_left, panel_right in (left_x, right_x):
+        for tick in (0, 20, 40, 60):
+            y = y_position(tick)
+            body.extend(
+                [
+                    f'<line x1="{panel_left}" y1="{y}" x2="{panel_right}" y2="{y}" '
+                    f'stroke="{LINE}" stroke-width="1"/>',
+                    text(panel_left - 11, y + 5, str(tick), size=12, color=MUTED, anchor="end"),
+                ]
+            )
+        body.extend(
+            [
+                f'<line x1="{panel_left}" y1="{plot_top}" x2="{panel_left}" y2="{plot_bottom}" '
+                f'stroke="{LINE}" stroke-width="1.3"/>',
+                f'<line x1="{panel_left}" y1="{plot_bottom}" x2="{panel_right}" y2="{plot_bottom}" '
+                f'stroke="{LINE}" stroke-width="1.3"/>',
+            ]
+        )
+
+    body.extend(
+        [
+            text(
+                26,
+                (plot_top + plot_bottom) / 2,
+                "Failure recall (%)",
+                size=13,
+                color=BODY,
+                transform=f"rotate(-90 26 {(plot_top + plot_bottom) / 2})",
+            ),
+            text(
+                704,
+                (plot_top + plot_bottom) / 2,
+                "Selected success (%)",
+                size=13,
+                color=BODY,
+                transform=f"rotate(-90 704 {(plot_top + plot_bottom) / 2})",
+            ),
+        ]
+    )
+
+    left_centers = (190, 372, 554)
+    bar_width = 48
+    for (label, single, pair, _, color), center in zip(reviewers, left_centers):
+        for value, x, bar_color in (
+            (single, center - 53, "#B9BFC7"),
+            (pair, center + 5, color),
+        ):
+            y = y_position(value)
+            body.extend(
+                [
+                    rect(x, y, bar_width, plot_bottom - y, fill=bar_color, radius=3),
+                    text(x + bar_width / 2, y - 9, f"{value:.1f}", size=12, color=BODY, weight=650),
+                ]
+            )
+        if label.startswith("DeepSeek"):
+            body.extend(
+                [
+                    text(center, 510, "DeepSeek V4 Pro", size=13, color=INK, weight=650),
+                    text(center, 531, "0423 preview", size=12, color=MUTED),
+                ]
+            )
+        else:
+            body.append(text(center, 516, label, size=13, color=INK, weight=650))
+
+    baseline_y = y_position(50.0)
+    body.extend(
+        [
+            f'<line x1="{right_x[0]}" y1="{baseline_y}" x2="{right_x[1]}" y2="{baseline_y}" '
+            f'stroke="{MUTED}" stroke-width="1.5" stroke-dasharray="7 6"/>',
+        ]
+    )
+    right_centers = (825, 957, 1089)
+    for (label, _, _, selected, color), center in zip(reviewers, right_centers):
+        bar_width = 64
+        y = y_position(selected)
+        body.extend(
+            [
+                rect(center - bar_width / 2, y, bar_width, plot_bottom - y, fill=color, radius=3),
+                text(center, y - 9, f"{selected:.1f}", size=12, color=BODY, weight=650),
+            ]
+        )
+        short_label = "DeepSeek" if label.startswith("DeepSeek") else label
+        body.append(text(center, 516, short_label, size=13, color=INK, weight=650))
+
+    body.extend(
+        [
+            text(372, 566, "Same 85 failures reviewed in isolation or with a contrasting trace", size=12, color=MUTED),
+            text(958, 566, "Successful trace selected from each balanced Pair", size=12, color=MUTED),
+        ]
+    )
+    write_svg(
+        "pair-comparison",
+        width,
+        height,
+        "Paired bar charts for failure recall and pairwise trace selection",
+        body,
+    )
+
+
 TOTAL_TASKS = 74
 N_TRIALS = 5
 
@@ -380,6 +520,7 @@ def render_best_of_five_grouped_bars() -> None:
 
 def main() -> None:
     render_single_confusion_matrices()
+    render_pair_comparison()
     render_best_of_five_grouped_bars()
 
 

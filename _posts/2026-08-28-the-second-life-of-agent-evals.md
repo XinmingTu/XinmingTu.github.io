@@ -211,11 +211,11 @@ If tasks, traces, outcomes, and provenance are preserved, the output of one eval
   <figcaption>The output of one agent evaluation becomes the environment of another.</figcaption>
 </figure>
 
-We tested this idea on Terminal-Bench 3. The original evaluations asked whether an agent could solve a terminal task. Our derived evaluations ask whether another agent can recognize what actually happened.
+We tested this idea on Terminal-Bench 3.0. The original evaluations asked whether an agent could solve a terminal task. Our derived evaluations ask whether another agent can recognize what actually happened.
 
-## From Terminal-Bench runs to verification tasks
+## From Terminal-Bench 3.0 runs to verification tasks
 
-We started from three completed 74-task Terminal-Bench 3 evaluations, each with five solver rollouts per task:
+We started from three completed 74-task Terminal-Bench 3.0 evaluations, each with five solver rollouts per task:
 
 - Claude Fable 5 with Claude Code;
 - GPT-5.6 Sol with Codex;
@@ -294,7 +294,7 @@ Across the 85 mixed five-run pools, uniform selection succeeds 42.12% of the tim
 | DeepSeek V4 Flash 0731 | **51.76%** |
 | Uniform selection | 42.12% |
 
-For the primary GPT-5.6 Sol reviewer, combining the selector with all-positive and all-fail pools gives the following derived full-source picture across three 74-task Terminal-Bench 3 trace sets:
+For the primary GPT-5.6 Sol reviewer, combining the selector with all-positive and all-fail pools gives the following derived full-source picture across three 74-task Terminal-Bench 3.0 trace sets:
 
 <div class="sle-stats" markdown="0">
   <div class="sle-stat">
@@ -311,9 +311,9 @@ For the primary GPT-5.6 Sol reviewer, combining the selector with all-positive a
   </div>
 </div>
 
-The ranker adds about 8.2 absolute points over empirical pass@1, a 24% relative lift, and recovers roughly 37% of the gap to the oracle. This is not a fresh official Terminal-Bench submission; it is arithmetic over frozen source runs. But it shows how verification can convert already-generated diversity into realized task success—even on a difficult benchmark where the underlying pass rate is near one third.
+The ranker adds about 8.2 absolute points over empirical pass@1, a 24% relative lift, and recovers roughly 37% of the gap to the oracle. This is not a fresh official Terminal-Bench 3.0 submission; it is arithmetic over frozen source runs. But it shows how verification can convert already-generated diversity into realized task success—even on a difficult benchmark where the underlying pass rate is near one third.
 
-This result builds directly on **LLM-as-a-Verifier**, which established fine-grained trajectory verification and cost-efficient ranking as a mechanism for test-time scaling <d-cite key="kwok2026llmverifier"></d-cite>. Its [current repository](https://github.com/llm-as-a-verifier/llm-as-a-verifier) also reports self-verification on Terminal-Bench 2.1. Our question is complementary: what happens when verification itself becomes a native, tool-using agent task, and when isolated judgment and comparative review are measured on the same Terminal-Bench 3 executions?
+This result builds directly on **LLM-as-a-Verifier**, which established fine-grained trajectory verification and cost-efficient ranking as a mechanism for test-time scaling <d-cite key="kwok2026llmverifier"></d-cite>. Its [current repository](https://github.com/llm-as-a-verifier/llm-as-a-verifier) also reports self-verification on Terminal-Bench 2.1. Our question is complementary: what happens when verification itself becomes a native, tool-using agent task, and when isolated judgment and comparative review are measured on the same Terminal-Bench 3.0 executions?
 
 ## The larger idea: eval compilation
 
@@ -321,7 +321,7 @@ Verification is only the first clean example because the original environment al
 
 A richer corpus could also yield tasks for failure diagnosis, error localization, progress prediction, recovery, monitoring, or tool-use auditing. These do not all come for free: error localization may require annotation, while recovery may require a saved environment snapshot. The compilation rule must match the evidence actually preserved.
 
-Derived evals also inherit dependencies. Our 85 pools come from 50 unique source tasks, so they are not 85 independent universes. Two negative anchors are explicit unavailable-trajectory sentinels. And the original rewards are operational labels, not a new semantic adjudication of every Terminal-Bench outcome.
+Derived evals also inherit dependencies. Our 85 pools come from 50 unique source tasks, so they are not 85 independent universes. Two negative anchors are explicit unavailable-trajectory sentinels. And the original rewards are operational labels, not a new semantic adjudication of every Terminal-Bench 3.0 outcome.
 
 That suggests a compact discipline for second-life evals:
 

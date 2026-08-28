@@ -67,6 +67,11 @@ _styles: |
   d-article figure.sle-figure {
     margin: 1.65rem 0 2rem;
   }
+  d-article figure.sle-figure img {
+    display: block;
+    height: auto;
+    width: 100%;
+  }
   d-article figure.sle-figure figcaption {
     color: var(--sle-muted);
     font-size: 0.83rem;
@@ -138,31 +143,6 @@ _styles: |
     line-height: 1.43;
     margin-top: 0.35rem;
   }
-  d-article .sle-stats {
-    display: grid;
-    gap: 0.65rem;
-    grid-template-columns: repeat(3, 1fr);
-    margin: 1.2rem 0 1.55rem;
-  }
-  d-article .sle-stat {
-    background: var(--sle-soft);
-    border: 1px solid var(--sle-line);
-    border-radius: 12px;
-    padding: 0.9rem;
-    text-align: center;
-  }
-  d-article .sle-stat strong {
-    color: var(--sle-ink);
-    display: block;
-    font-size: 1.28rem;
-  }
-  d-article .sle-stat span {
-    color: var(--sle-muted);
-    display: block;
-    font-size: 0.74rem;
-    line-height: 1.35;
-    margin-top: 0.25rem;
-  }
   d-article .sle-note {
     background: var(--sle-soft);
     border-left: 3px solid var(--sle-line);
@@ -184,8 +164,7 @@ _styles: |
   @media (max-width: 720px) {
     d-article .sle-flow { grid-template-columns: 1fr 1fr; }
     d-article .sle-step:nth-child(2)::after { display: none; }
-    d-article .sle-family,
-    d-article .sle-stats { grid-template-columns: 1fr; }
+    d-article .sle-family { grid-template-columns: 1fr; }
   }
   @media (max-width: 430px) {
     d-article .sle-flow { grid-template-columns: 1fr; }
@@ -253,13 +232,12 @@ The Single reviewer was explicitly warned not to trust an agent's narration or c
 
 That warning was not enough to make absolute verification reliable.
 
-| Agentic reviewer | Single accuracy | Success recall | Failure recall |
-| --- | ---: | ---: | ---: |
-| GPT-5.6 Sol | **62.35%** | 81.18% | **43.53%** |
-| GLM-5.3 | 60.59% | **97.65%** | 23.53% |
-| DeepSeek V4 Pro 0423 preview | 56.47% | 87.06% | 25.88% |
+<figure class="sle-figure" markdown="0">
+  <img src="/assets/img/2026-08-28-second-life-agent-evals/single-trace-confusion-matrices.svg" alt="Three confusion matrices comparing environment outcomes with the pass or fail verdicts from GPT-5.6 Sol, GLM-5.3, and DeepSeek V4 Pro 0423 preview." loading="lazy">
+  <figcaption>Rows are hidden environment outcomes; columns are reviewer verdicts. Each reviewer judged the same balanced set of 85 successful and 85 failed traces. The orange lower-left cell is the critical error: approving an execution that actually failed.</figcaption>
+</figure>
 
-The dataset is balanced, so 50% is both random accuracy and the score of approving every trace. All three reviewers were modestly better than that baseline—but all three were much better at recognizing success than failure. GLM-5.3 approved nearly every successful trace while detecting fewer than one in four failures.
+The dataset is balanced, so 50% is both random accuracy and the score of approving every trace. All three reviewers were modestly better than that baseline, but the matrices reveal why accuracy alone is incomplete. GPT-5.6 Sol approved 48 of 85 failed traces; GLM-5.3 approved 65; DeepSeek approved 63. GLM-5.3 accepted 83 of 85 successes while correctly rejecting only 20 of 85 failures.
 
 These reviewers were not simply checking whether an execution *looked complete*. They were told that completion claims were not proof. Yet plausible-looking failures still passed review.
 
@@ -294,24 +272,14 @@ Across the 85 mixed five-run pools, uniform selection succeeds 42.12% of the tim
 | DeepSeek V4 Flash 0731 | **51.76%** |
 | Uniform selection | 42.12% |
 
-For the primary GPT-5.6 Sol reviewer, combining the selector with all-positive and all-fail pools gives the following derived full-source picture across three 74-task Terminal-Bench 3.0 trace sets:
+The mixed-pool table isolates cases where selection can change the outcome. To see the full test-time-scaling picture, we then restored the all-success and all-failure pools for each original 74-task evaluation.
 
-<div class="sle-stats" markdown="0">
-  <div class="sle-stat">
-    <strong>33.69%</strong>
-    <span>Empirical pass@1 / uniform run selection</span>
-  </div>
-  <div class="sle-stat">
-    <strong>41.89%</strong>
-    <span>GPT-ranked Best-of-5 derived score</span>
-  </div>
-  <div class="sle-stat">
-    <strong>55.86%</strong>
-    <span>Oracle pass@5 ceiling</span>
-  </div>
-</div>
+<figure class="sle-figure" markdown="0">
+  <img src="/assets/img/2026-08-28-second-life-agent-evals/terminal-bench-3-0-best-of-five-selection.svg" alt="Grouped bars for three Terminal-Bench 3.0 trace pools comparing empirical pass at one, DeepSeek, GLM, and GPT agentic selectors, and oracle pass at five." loading="lazy">
+  <figcaption>Each group is one original 74-task Terminal-Bench 3.0 evaluation with five runs per task. <em>pass@1</em> is empirical uniform selection; <em>pass@5</em> is the oracle ceiling. Selector bars add successful choices from mixed pools to the pools where all five runs passed; all-failure pools contribute zero. This is derived analysis over frozen executions, not a new official benchmark submission.</figcaption>
+</figure>
 
-The ranker adds about 8.2 absolute points over empirical pass@1, a 24% relative lift, and recovers roughly 37% of the gap to the oracle. This is not a fresh official Terminal-Bench 3.0 submission; it is arithmetic over frozen source runs. But it shows how verification can convert already-generated diversity into realized task success—even on a difficult benchmark where the underlying pass rate is near one third.
+Averaged across the three source pools, empirical pass@1 is 33.69%, the GPT-5.6 Sol selector reaches a derived 41.89%, and oracle pass@5 is 55.86%. The ranker therefore adds about 8.2 absolute points, a 24% relative lift, and recovers roughly 37% of the available gap. Verification is converting already-generated diversity into realized task success—even on a difficult benchmark where the underlying pass rate is near one third.
 
 This result builds directly on **LLM-as-a-Verifier**, which established fine-grained trajectory verification and cost-efficient ranking as a mechanism for test-time scaling <d-cite key="kwok2026llmverifier"></d-cite>. Its [current repository](https://github.com/llm-as-a-verifier/llm-as-a-verifier) also reports self-verification on Terminal-Bench 2.1. Our question is complementary: what happens when verification itself becomes a native, tool-using agent task, and when isolated judgment and comparative review are measured on the same Terminal-Bench 3.0 executions?
 

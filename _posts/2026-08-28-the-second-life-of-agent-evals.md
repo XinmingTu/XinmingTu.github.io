@@ -247,11 +247,10 @@ These reviewers were not simply checking whether an execution *looked complete*.
 
 Pair gave the reviewer the same positive and negative anchors together, without revealing that exactly one had succeeded. Across all three models, comparative context made the reviewer more skeptical in almost the same way.
 
-| Agentic reviewer | Single failure recall | Pair failure recall | Pair selected success |
-| --- | ---: | ---: | ---: |
-| GPT-5.6 Sol | 43.53% | **60.00%** | **64.71%** |
-| GLM-5.3 | 23.53% | **38.82%** | **69.41%** |
-| DeepSeek V4 Pro 0423 preview | 25.88% | **42.35%** | **60.00%** |
+<figure class="sle-figure" markdown="0">
+  <img src="/assets/img/2026-08-28-second-life-agent-evals/pair-comparison.svg" alt="Two bar charts showing the increase from Single to Pair failure recall and the successful-trace selection rate for GPT-5.6 Sol, GLM-5.3, and DeepSeek V4 Pro 0423 preview." loading="lazy">
+  <figcaption>Left: giving the reviewer a contrasting trace raises failure recall by roughly 15–16 points for every model. Right: all three reviewers select the successful member of a balanced Pair more often than the 50% blind-selection baseline.</figcaption>
+</figure>
 
 Pair failure recall rose by roughly 15–16 percentage points for every reviewer. Pair also raised per-trace classification accuracy by about five points and substantially increased the rate at which both anchors were classified correctly.
 
@@ -310,3 +309,29 @@ Agent evals are expensive data-generation processes. They produce much more than
 <div class="sle-coda">
 <strong>A benchmark run does not have to end when the score is computed.</strong> For agentic evaluations, that may only be the first thing the data can tell us.
 </div>
+
+## Appendix: observed inference cost
+
+The canonical headline runs used **\$778.08** in provider-reported model inference. This counts the attempts required to complete the reported Single and Pair results—including attempts later replaced in the final record—and the primary Five runs. It excludes smoke tests, discarded prompt variants, diagnostics, targeted sensitivity retries, infrastructure, and the cost of generating the original solver traces.
+
+| Agentic reviewer | Single · 170 tasks | Pair · 85 tasks | Five · 85 tasks | Total |
+| --- | ---: | ---: | ---: | ---: |
+| GPT-5.6 Sol | \$160.04 | \$110.93 | \$163.29 | **\$434.25** |
+| GLM-5.3 | \$94.96 | \$68.98 | \$91.35 | **\$255.29** |
+| DeepSeek V4* | \$49.39 | \$36.21 | \$2.94 | **\$88.54** |
+| **Total** | **\$304.39** | **\$216.12** | **\$257.57** | **\$778.08** |
+
+\* DeepSeek uses V4 Pro 0423 preview for Single and Pair, and V4 Flash 0731 for Five. Dollar costs reflect different model and provider pricing, caching, and task context lengths; they should not be read as a controlled efficiency comparison.
+
+## Cite this post
+
+```bibtex
+@misc{tu2026secondlife,
+  author = {Tu, Xinming},
+  title  = {The Second Life of Agent Evals},
+  year   = {2026},
+  month  = aug,
+  url    = {https://xinmingtu.cn/blog/preview/the-second-life-of-agent-evals/},
+  note   = {Blog post}
+}
+```

@@ -222,6 +222,8 @@ From those frozen pools, we built a 340-task verification family.
   </div>
 </div>
 
+**Single and Pair are balanced by construction; Five is not.** Single contains exactly 85 successful and 85 failed anchors, while every Pair contains one of each. Their blind classification or selection baseline is therefore 50%. Five instead preserves the original composition of each mixed five-run pool: 179 of its 425 candidate traces succeeded, so uniform selection succeeds 42.12% of the time—not 50%, and not simply one in five. Each condition must be read against its own baseline.
+
 The 170 Single and 85 Pair tasks are new native Harbor tasks. The 85 Five tasks were already constructed from the same frozen pools. The source rewards remain hidden; they are visible only to the new verifier.
 
 This is why *compile* matters. The task has changed. The original agent had to solve the problem. The second agent has read-only traces, a different instruction, a different output contract, and a hidden verifier that scores its review.

@@ -212,7 +212,7 @@ An agent evaluation usually ends with a number. That is a lossy ending. The run 
 If tasks, traces, outcomes, and provenance are preserved, the output of one evaluation can become the input of another. Not merely *reused* as examples, but **compiled** into new, executable agent tasks.
 
 <figure class="sle-figure">
-  <div class="sle-flow" aria-label="From a source agent evaluation to derived agentic evaluations">
+  <div class="sle-flow" aria-label="From a source agent evaluation to derived agentic evaluations" markdown="0">
     <div class="sle-step source">Source agent eval</div>
     <div class="sle-step">Frozen tasks, traces, outcomes, provenance</div>
     <div class="sle-step compiler">Deterministic eval compiler</div>
@@ -227,7 +227,7 @@ We explored this idea using frozen executions from three Terminal-Bench 3 runs: 
 
 The source corpus contains 85 mixed Best-of-5 pools: each has at least one successful and one failed execution under the original environment verifier. From them, we built a 340-task family.
 
-<div class="sle-family">
+<div class="sle-family" markdown="0">
   <div class="sle-family-card">
     <strong>Single</strong>
     <span class="count">170</span>
@@ -300,7 +300,7 @@ Across the 85 mixed five-run pools, uniform selection succeeds 42.12% of the tim
 
 For the primary GPT-5.6 Sol reviewer, combining the selector with all-positive and all-fail pools gives the following derived full-source picture across three 74-task Terminal-Bench 3 trace sets:
 
-<div class="sle-stats">
+<div class="sle-stats" markdown="0">
   <div class="sle-stat">
     <strong>33.69%</strong>
     <span>Empirical pass@1 / uniform run selection</span>

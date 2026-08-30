@@ -224,7 +224,7 @@ Pretraining has never been only about learning text. It learns indirectly from h
 <div class="exp-flow" aria-label="World to model epistemic path" markdown="0">
   <span class="exp-flow-step">World</span>
   <span class="exp-flow-link"><span class="exp-flow-arrow">→</span><span class="exp-flow-step">Human Experience</span></span>
-  <span class="exp-flow-link"><span class="exp-flow-arrow">→</span><span class="exp-flow-step">Attention / Abstraction / Selection</span></span>
+  <span class="exp-flow-link"><span class="exp-flow-arrow">→</span><span class="exp-flow-step">What Gets Recorded</span></span>
   <span class="exp-flow-link"><span class="exp-flow-arrow">→</span><span class="exp-flow-step">Text</span></span>
   <span class="exp-flow-link"><span class="exp-flow-arrow">→</span><span class="exp-flow-step">Model</span></span>
 </div>
@@ -235,17 +235,13 @@ The deeper shift is therefore not simply from human data to synthetic data, or e
 
 ## Text Is Selected Experience
 
-A scientific or engineering result begins as a trajectory: conditions are set, an intervention is made, instruments return measurements, hypotheses fail, and the experiment is revised. By the time that trajectory enters a paper, it may have collapsed into one proposition:
+Text is not raw experience. It is the part of experience that people chose to put into words. Before experience enters a corpus, someone has already decided what was worth recording—and left the rest out.
 
-> Yield decreases sharply above 40°C.
-
-The experimental conditions, instrument readings, failed attempts, uncertainty, and path from observation to conclusion have mostly disappeared. A process has been compressed into a sentence.
-
-Text is therefore compressed experience—but, more importantly, it is **selected experience**. What enters the corpus is what someone noticed, understood, and considered worth recording. Surprising results, useful conclusions, and failures worth documenting survive more often than routine observations.
+What survives is not a representative sample of life. Surprising events, useful conclusions, and unusual failures are more likely to be recorded than routine regularities. The corpus is shaped as much by human selection as by the world it describes.
 
 <div class="exp-pullquote">
-The training corpus is a distorted projection of lived experience.
-<span>It preserves what survived both compression and human attention.</span>
+The training corpus is not a sample of life.
+<span>It is a sample of what people found worth recording.</span>
 </div>
 
 This does not mean language contains no world structure. Text is the output of a latent process: the world affects perception; perception shapes beliefs and intentions; beliefs and intentions produce language. Predicting language well creates pressure to reverse-engineer some of the regularities that produced it.
@@ -254,7 +250,7 @@ Next-token prediction can therefore learn facts, object properties, affordances,
 
 ## What We Do Not Write Down
 
-People do not record everything they observe. Cups do not pass through tables. Objects fall when released. A bag usually becomes heavier as more things are placed inside it. These events are common in life but rarely worth stating because they are too obvious.
+People do not record everything they observe. Cups do not pass through tables, yet almost nobody writes this down because it is too obvious.
 
 $$
 P_{\mathrm{life}}(e) \neq P_{\mathrm{text}}(e)
@@ -262,7 +258,7 @@ $$
 
 This is reporting bias <d-cite key="gordon2013reporting"></d-cite>. Forbes and Choi illustrate it with a simple contrast: people almost never bother to write “my house is bigger than me,” even though a sentence such as “Tyler entered his house” indirectly reveals the same physical knowledge <d-cite key="forbes2017verb"></d-cite>. Commonsense knowledge is not absent from text; it is hidden in implication and represented at highly distorted frequencies.
 
-The <em>Car Wash Test</em> makes the distortion concrete. Asked, “I want to wash my car. The car wash is only 100 meters away. Should I walk or drive?”, a model may choose walking because short distances strongly predict walking in both life and language. The local association is plausible, but the goal requires the car to move.
+The <em>Car Wash Test</em> makes the consequence concrete. Asked, “I want to wash my car. The car wash is only 100 meters away. Should I walk or drive?”, a model may choose walking because `short distance → walk` is a powerful default. The model may already know that washing a car requires bringing the car; the failure is that the familiar association wins before the goal is fully applied.
 
 For physical and practical reasoning, a useful shorthand is that common sense often consists of **low-frequency-in-language, high-frequency-in-life structure**. Scaling can recover some of it from implication, but it does not make the frequencies in text match the frequencies in experience.
 
@@ -274,14 +270,14 @@ Language can also reveal more than it states explicitly. To predict what people 
 
 At the same time, perception and interaction provide a differently structured learning channel. Animals and infants acquire rich physical expectations with far less symbolic language than a foundation model sees. That observation does not prove that language models cannot learn world structure. It shows that repeated consequences can make certain regularities direct, dense, and difficult to omit.
 
-The sharpest limit appears when the answer does not yet exist in the record. Imagine a model that has read every scientific paper and asks: what happens if gene X is perturbed under a condition nobody has tested? It can hypothesize, extrapolate, or simulate. But new empirical evidence appears only after an intervention produces a measurement.
+The sharper limit appears when a consequence does not yet exist in the record. Language can encode previously observed regularities, but it cannot already contain the consequence of every action in every future state. A model can predict what will happen; interaction lets it act and observe what actually follows.
 
 <div class="exp-pullquote">
 The important step may not be from language to sensors, but from records to consequences.
-<span>Science advances by asking questions whose answers are not yet in the corpus.</span>
+<span>Interaction gives prediction something outside the model to answer to.</span>
 </div>
 
-Grounding therefore need not mean a humanoid body. The more general requirement is access to environments that return consequences independently of what the model itself chooses to generate. A compiler, theorem prover, simulator, or laboratory can all provide such a boundary—although each supports a different kind of claim.
+Grounding therefore need not mean a humanoid body. The more general requirement is access to environments that return consequences independently of what the model itself chooses to generate. A compiler, browser, game, or simulator can all provide such a boundary—although each exposes a different part of the world.
 
 ## Agents Generate Their Own Traces
 
@@ -407,7 +403,7 @@ World learning and policy learning are also distinct. A predictive model describ
 `walk → person arrives, car stays home`<br>
 `drive → person and car arrive`
 
-A policy, $\pi(a \mid s, g, c)$, makes a goal-conditioned choice among them. The <em>Car Wash Test</em> fails when the behavioral prior “short distance → walk” substitutes for the policy the goal requires. **Knowing what people usually do is not the same as knowing what this goal requires.** Posttraining is therefore not simply more pretraining: one of its central functions is to turn knowledge, goals, and constraints into policy.
+A policy, $\pi(a \mid s, g, c)$, makes a goal-conditioned choice among them. The earlier <em>Car Wash Test</em> can now be read more precisely: it need not indicate missing world knowledge. It fails when the behavioral prior “short distance → walk” substitutes for the policy the goal requires. **Knowing what people usually do is not the same as knowing what this goal requires.** Posttraining is therefore not simply more pretraining: one of its central functions is to turn knowledge, goals, and constraints into policy.
 
 Experience shaping is equally fundamental, but need not belong to a stage called midtraining. It may occur during pretraining, after posttraining, in deployment, between generations, or continuously. Midtraining as a stage is contingent; experience shaping as a function is fundamental.
 
@@ -468,7 +464,7 @@ AI learning is moving from a one-way pipeline over a fixed dataset toward a feed
 <div class="exp-flow" aria-label="从世界到模型的认识论路径" markdown="0">
   <span class="exp-flow-step">World</span>
   <span class="exp-flow-link"><span class="exp-flow-arrow">→</span><span class="exp-flow-step">Human Experience</span></span>
-  <span class="exp-flow-link"><span class="exp-flow-arrow">→</span><span class="exp-flow-step">Attention / Abstraction / Selection</span></span>
+  <span class="exp-flow-link"><span class="exp-flow-arrow">→</span><span class="exp-flow-step">被记录的部分</span></span>
   <span class="exp-flow-link"><span class="exp-flow-arrow">→</span><span class="exp-flow-step">Text</span></span>
   <span class="exp-flow-link"><span class="exp-flow-arrow">→</span><span class="exp-flow-step">Model</span></span>
 </div>
@@ -479,17 +475,13 @@ AI learning is moving from a one-way pipeline over a fixed dataset toward a feed
 
 ## 文本是经过选择的经验
 
-一个科学或工程结论最初是一条 trajectory：设定条件、实施 intervention、仪器返回 measurements、hypothesis 失败、实验被修改。当这条 trajectory 进入论文时，它可能已经被压缩成一句 proposition：
+文本不是未经处理的经验，而是人们选择写进语言的那一部分。在经验进入 corpus 之前，已经有人决定什么值得记录，其余部分则被留在了文本之外。
 
-> 当温度超过 40°C 时，产率急剧下降。
-
-实验条件、instrument readings、失败尝试、不确定性，以及从观察走向结论的路径，大多已经消失。一个过程被压缩成了一句话。
-
-因此，文本是被压缩的经验；但更重要的是，它是**经过选择的经验**。进入 corpus 的，是某个人注意到、理解了，并认为值得记录的部分。惊人的结果、有用的结论和值得总结的失败，比日常观察更容易被保留下来。
+被保留下来的并不是生活的代表性样本。令人意外的事件、有用的结论和不寻常的失败，比日常规律更可能被写下。Corpus 因此既受它所描述的世界塑造，也受人类选择塑造。
 
 <div class="exp-pullquote">
-训练语料是 lived experience 的失真投影。
-<span>它保留下来的，是同时经受住信息压缩与人类注意筛选的内容。</span>
+训练语料不是生活本身的样本。
+<span>它是人们认为值得记录之事的样本。</span>
 </div>
 
 这并不意味着 language 中没有 world structure。文本是一个 latent process 的输出：世界影响感知，感知塑造信念与意图，信念与意图再产生语言。要准确预测语言，模型就有动力 reverse-engineer 产生语言的部分规律。
@@ -498,7 +490,7 @@ AI learning is moving from a one-way pipeline over a fixed dataset toward a feed
 
 ## 那些我们不会写下来的东西
 
-人们不会记录观察到的一切。杯子不会穿过桌面，物体松手后会下落，往袋子里放入更多东西通常会让它变重。这些事情在生活中极为常见，却很少值得专门写下，因为它们太显而易见。
+人们不会记录观察到的一切。杯子不会穿过桌面，但几乎没有人会把它写下来，因为这件事太显而易见。
 
 $$
 P_{\mathrm{life}}(e) \neq P_{\mathrm{text}}(e)
@@ -506,7 +498,7 @@ $$
 
 这就是 reporting bias <d-cite key="gordon2013reporting"></d-cite>。Forbes 和 Choi 用一个简单对比说明了这一点：人们几乎不会写“我的房子比我大”，但“Tyler 走进了他的房子”这样的句子，已经间接透露出同样的物理知识 <d-cite key="forbes2017verb"></d-cite>。常识知识并没有从文本中消失；它隐藏在含义之中，并以高度失真的频率出现。
 
-<em>Car Wash Test</em>让这种失真变得具体。面对“我想洗车，洗车店只有 100 米远，我应该走路还是开车？”这个问题，模型可能选择步行，因为短距离在生活和语言中都强烈预测步行。这个局部关联没有错，但目标要求车也必须移动。
+<em>Car Wash Test</em>让这种后果变得具体。面对“我想洗车，洗车店只有 100 米远，我应该走路还是开车？”这个问题，模型可能选择步行，因为 `短距离 → 步行` 是一个强大的 default。模型可能已经知道洗车需要把车带过去；失败之处在于，熟悉的关联抢在 goal 被完整应用之前主导了回答。
 
 对于物理和实践推理，一个有用的简写是：常识往往是**在语言中低频、在生活中高频的结构**。Scaling 可以从隐含信息中恢复一部分常识，但不会让文本频率自动等同于经验频率。
 
@@ -518,14 +510,14 @@ Language 还能透露超出字面陈述的结构。为了预测人们会说什�
 
 与此同时，perception 和 interaction 提供了另一种结构的学习通道。动物和婴儿接触的 symbolic language 远少于 foundation model，却能形成丰富的物理预期。这个观察并不能证明 language model 学不到 world structure；它说明反复出现的 consequences 能让某些规律变得直接、密集，而且不容易被省略。
 
-最尖锐的限制出现在答案尚未存在于 records 中的时候。设想一个读完所有科学论文的模型问：如果在一个从未测试过的条件下扰动 gene X，会发生什么？它可以提出 hypothesis、外推或模拟，但新的 empirical evidence 只有在 intervention 产生 measurement 之后才会出现。
+更尖锐的限制出现在某个 consequence 尚未存在于 records 中的时候。Language 可以编码已经观察到的规律，却不可能预先包含每个未来状态中每个 action 的后果。模型可以预测会发生什么；interaction 则让它采取行动，并观察实际发生了什么。
 
 <div class="exp-pullquote">
 重要的跨越可能不是从 language 到 sensors，而是从 records 到 consequences。
-<span>科学通过提出那些答案尚未存在于 corpus 中的问题而前进。</span>
+<span>Interaction 让 prediction 必须面对来自模型之外的回答。</span>
 </div>
 
-因此，grounding 不一定意味着 humanoid body。更一般的要求，是能够访问这样的 environments：它们返回的 consequences 独立于模型自己选择生成的内容。Compiler、theorem prover、simulator 和 laboratory 都可以提供这样的边界，只是它们各自有资格支持不同类型的 claim。
+因此，grounding 不一定意味着 humanoid body。更一般的要求，是能够访问这样的 environments：它们返回的 consequences 独立于模型自己选择生成的内容。Compiler、browser、game 和 simulator 都可以提供这样的边界，只是它们暴露的是世界的不同部分。
 
 ## Agent 生成自己的经验痕迹
 
@@ -651,7 +643,7 @@ World learning 与 policy learning 也必须区分。Predictive model 描述可�
 `walk → 人到了，车留在家里`<br>
 `drive → 人和车都到了`
 
-Policy $\pi(a \mid s, g, c)$ 则在这些后果之间做 goal-conditioned choice。<em>Car Wash Test</em> 的失败在于，“短距离 → 步行”的 behavioral prior 取代了目标真正要求的 policy。**知道人们通常怎么做，不等于知道这个目标要求什么。**因此，posttraining 不只是更多 pretraining；它的一个核心功能，是把 knowledge、goals 和 constraints 转化为 policy。
+Policy $\pi(a \mid s, g, c)$ 则在这些后果之间做 goal-conditioned choice。现在可以更准确地理解前面的 <em>Car Wash Test</em>：它不一定意味着 world knowledge 缺失，而是“短距离 → 步行”的 behavioral prior 取代了目标真正要求的 policy。**知道人们通常怎么做，不等于知道这个目标要求什么。**因此，posttraining 不只是更多 pretraining；它的一个核心功能，是把 knowledge、goals 和 constraints 转化为 policy。
 
 Experience shaping 同样 fundamental，却不一定属于一个叫作 midtraining 的阶段。它可以发生在 pretraining 中、posttraining 后、deployment 中、模型世代之间，或持续发生。Midtraining as a stage is contingent; experience shaping as a function is fundamental.
 

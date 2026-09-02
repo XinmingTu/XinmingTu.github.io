@@ -1,0 +1,33 @@
+{% assign entry = include.post %}
+<li class="blog-list-item{% if entry.thumbnail %} blog-list-item--thumbnail{% endif %}">
+  <div class="blog-list-meta">
+    <time datetime="{{ entry.date | date_to_xmlschema }}">{{ entry.date | date: "%b %-d, %Y" }}</time>
+    {% if entry.external_source == blank %}
+      {% assign read_time = entry.content | markdownify | reading_time_minutes %}
+    {% else %}
+      {% assign read_time = entry.feed_content | reading_time_minutes %}
+    {% endif %}
+    <span class="blog-list-reading-time" aria-label="Estimated reading time: {{ read_time }} minutes">{{ read_time }} min read</span>
+  </div>
+  <div class="blog-list-content">
+    <h2>
+      {% if entry.redirect == blank %}
+        <a href="{{ entry.url | relative_url }}">{{ entry.title }}</a>
+      {% elsif entry.redirect contains '://' %}
+        <a href="{{ entry.redirect }}" target="_blank" rel="noopener noreferrer">{{ entry.title }} <span class="blog-list-external" aria-label="opens in a new tab">↗</span></a>
+      {% else %}
+        <a href="{{ entry.redirect | relative_url }}">{{ entry.title }}</a>
+      {% endif %}
+      {% if entry.featured %}<span class="blog-list-badge">Featured</span>{% endif %}
+    </h2>
+    {% if entry.description != blank %}
+      <p class="blog-list-description">{{ entry.description | strip_html }}</p>
+    {% endif %}
+    {% if entry.external_source %}
+      <span class="blog-list-source">{{ entry.external_source }}</span>
+    {% endif %}
+  </div>
+  {% if entry.thumbnail %}
+    <img class="blog-list-thumbnail" src="{{ entry.thumbnail | relative_url }}" alt="" loading="lazy" width="72" height="54">
+  {% endif %}
+</li>

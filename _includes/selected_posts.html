@@ -2,7 +2,8 @@
             {% if site.selected_posts.paths != blank -%}
             {%- assign selected_posts_size = site.selected_posts.paths | size -%}
             <div class="news-list{% if site.selected_posts.scrollable and selected_posts_size > 3 %} scrollable{% endif %}">
-              {% for item in site.posts %}
+              {% assign published_posts = site.posts | where_exp: "post", "post.preview != true" %}
+              {% for item in published_posts %}
                 {% if site.selected_posts.paths contains item.path %}
                     <div class="news-item">
                       <time class="news-date">{{ item.date | date: "%b %-d, %Y" }}</time>

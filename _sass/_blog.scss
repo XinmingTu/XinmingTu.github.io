@@ -1,0 +1,205 @@
+// Listing pages only; article typography is intentionally unchanged.
+.blog-index {
+  max-width: 720px;
+  margin: 0 auto;
+  padding-bottom: 2rem;
+
+  .blog-index-header {
+    margin-bottom: 1.25rem;
+
+    h1 {
+      margin: 0 0 .4rem;
+      font-size: 1.875rem;
+      font-weight: 500;
+      line-height: 1.2;
+      letter-spacing: -.025em;
+    }
+
+    p {
+      margin: 0;
+      color: var(--global-text-color-light);
+      font-size: .875rem;
+      line-height: 1.5;
+    }
+  }
+
+  .blog-index-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: .25rem 1rem;
+    padding-bottom: .65rem;
+    border-bottom: 1px solid var(--global-divider-color);
+  }
+
+  .blog-index-nav,
+  .blog-index-topics {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: .25rem 1rem;
+
+    a {
+      display: inline-block;
+      padding: .35rem 0;
+      color: var(--global-text-color-light);
+      font-size: .8125rem;
+      line-height: 1.4;
+      text-decoration: none;
+
+      &:hover,
+      &[aria-current="page"] {
+        color: var(--global-theme-color);
+      }
+    }
+  }
+
+  .blog-index-nav {
+    a[aria-current="page"] { font-weight: 500; }
+    span { margin-left: .2rem; font-size: .75rem; }
+  }
+
+  .blog-index-topics {
+    gap: .25rem .75rem;
+    a { font-size: .75rem; }
+  }
+
+  .blog-list {
+    margin: 0 0 1.5rem;
+    padding: 0;
+    list-style: none;
+  }
+
+  .blog-list-item {
+    display: grid;
+    grid-template-columns: 6rem minmax(0, 1fr);
+    gap: 1.25rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--global-divider-color);
+  }
+
+  .blog-list-meta {
+    padding-top: .2rem;
+    color: var(--global-text-color-light);
+    font-size: .75rem;
+    line-height: 1.5;
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+
+    time,
+    .blog-list-reading-time { display: block; }
+
+    .blog-list-reading-time { margin-top: .2rem; }
+  }
+
+  .blog-list-content {
+    min-width: 0;
+
+    h2 {
+      margin: 0;
+      font-size: 1.125rem;
+      font-weight: 500;
+      line-height: 1.4;
+      overflow-wrap: anywhere;
+
+      a {
+        color: var(--global-text-color);
+        text-decoration: none;
+
+        &:hover { color: var(--global-theme-color); }
+      }
+    }
+  }
+
+  .blog-list-description {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    margin: .3rem 0 0;
+    color: var(--global-text-color-light);
+    font-size: .8125rem;
+    line-height: 1.55;
+    overflow-wrap: anywhere;
+  }
+
+  .blog-list-source,
+  .blog-list-badge,
+  .blog-list-external {
+    color: var(--global-text-color-light);
+    font-size: .75rem;
+    font-weight: 400;
+  }
+
+  .blog-list-badge { margin-left: .35rem; }
+  .blog-list-source { display: block; margin-top: .3rem; }
+
+  .blog-list-item--thumbnail {
+    grid-template-columns: 6rem minmax(0, 1fr) 72px;
+  }
+
+  .blog-list-thumbnail {
+    width: 72px;
+    height: 54px;
+    object-fit: cover;
+    border-radius: 3px;
+  }
+
+  .blog-list-empty {
+    padding: 1.5rem 0;
+    color: var(--global-text-color-light);
+    font-size: .875rem;
+  }
+
+  .pagination {
+    gap: .25rem;
+
+    .page-link {
+      padding: .35rem .65rem;
+      border: 0;
+      border-radius: 3px;
+      font-size: .8125rem;
+      line-height: 1.5;
+    }
+  }
+
+  a:focus-visible {
+    outline: 2px solid var(--global-theme-color);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  @media (max-width: 575px) {
+    .blog-index-header h1 { font-size: 1.625rem; }
+    .blog-index-toolbar { align-items: flex-start; flex-direction: column; }
+
+    .blog-list-item {
+      grid-template-columns: minmax(0, 1fr);
+      gap: .3rem;
+      padding: .875rem 0;
+    }
+
+    .blog-list-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .5rem;
+      padding-top: 0;
+
+      .blog-list-reading-time {
+        margin-top: 0;
+
+        &::before { content: "·"; margin-right: .5rem; }
+      }
+    }
+    .blog-list-content h2 { font-size: 1.0625rem; }
+
+    .blog-list-item--thumbnail {
+      grid-template-columns: minmax(0, 1fr) 72px;
+      column-gap: .75rem;
+
+      .blog-list-meta { grid-column: 1 / -1; }
+      .blog-list-thumbnail { grid-column: 2; grid-row: 2; }
+    }
+  }
+}

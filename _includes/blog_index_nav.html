@@ -1,0 +1,17 @@
+{% assign published_posts = site.categories.blog | where_exp: "post", "post.preview != true" %}
+<div class="blog-index-toolbar">
+  <nav class="blog-index-nav" aria-label="Blog sections">
+    <a href="{{ '/blog/' | relative_url }}"{% unless include.preview %} aria-current="page"{% endunless %}>All posts <span>{{ published_posts.size }}</span></a>
+    {% if include.preview %}
+      {% assign preview_posts = site.posts | where: "preview", true %}
+      <a href="{{ '/blog/preview/' | relative_url }}"{% if include.preview %} aria-current="page"{% endif %}>Preview <span>{{ preview_posts.size }}</span></a>
+    {% endif %}
+  </nav>
+  {% if site.display_tags.size > 0 %}
+    <nav class="blog-index-topics" aria-label="Blog topics">
+      {% for tag in site.display_tags %}
+        <a href="{{ tag | slugify | prepend: '/blog/tag/' | relative_url }}">{{ tag }}</a>
+      {% endfor %}
+    </nav>
+  {% endif %}
+</div>

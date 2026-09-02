@@ -117,9 +117,9 @@ bing_site_verification:  # out your bing-site-verification ID (Bing Webmaster)
 # Blog
 # -----------------------------------------------------------------------------
 
-blog_name: CompBio blog  # your blog must have a name for it to show up in the nav bar
+blog_name: Blog  # your blog must have a name for it to show up in the nav bar
 blog_nav_title: Blog
-blog_description: Write some notes/blogs about CompBio
+blog_description: Notes on AI, agents, and computational biology.
 permalink: /blog/:year/:title/
 
 # Pagination

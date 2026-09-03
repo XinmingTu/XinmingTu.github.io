@@ -22,7 +22,7 @@ authors:
   - name: Xinming Tu
     url: "https://xinmingtu.cn"
     affiliations:
-      name: University of Washington
+      name: University of Washington, Phylo
 
 _styles: |
   d-article {

@@ -272,7 +272,7 @@ We started from three completed Terminal-Bench 3.0 evaluations. Each covers 74 t
 Pass@1 is 32–35%. With five runs, pass@5 reaches 50–61%.
 
 <figure class="sle-figure" markdown="0">
-  <img src="/assets/img/2026-08-28-second-life-agent-evals/terminal-bench-3-0-pass-at-k.svg" alt="Three connected scatter lines showing pass at one through pass at five for the Fable with Claude Code, GPT-5.6 Sol with Codex, and GLM-5.3 with Claude Code Terminal-Bench 3.0 source evaluations." loading="lazy">
+  <img src="/assets/img/2026-08-28-second-life-agent-evals/terminal-bench-3-0-pass-at-k.svg?v=20260902" alt="Three connected scatter lines showing pass at one through pass at five for the Fable with Claude Code, GPT-5.6 Sol with Codex, and GLM-5.3 with Claude Code Terminal-Bench 3.0 source evaluations." loading="lazy">
   <figcaption>Five frozen runs per task. pass@5 is the oracle ceiling over those runs, not a new benchmark submission.</figcaption>
 </figure>
 
@@ -338,7 +338,7 @@ string. Do not add keys or create any other deliverable.
 </details>
 
 <figure class="sle-figure" markdown="0">
-  <img src="/assets/img/2026-08-28-second-life-agent-evals/single-trace-confusion-matrices.svg" alt="Four confusion matrices comparing environment outcomes with the pass or fail verdicts from GPT-5.6 Sol, GLM-5.3, DeepSeek V4 Pro 0813 GA, and DeepSeek V4 Flash 0731." loading="lazy">
+  <img src="/assets/img/2026-08-28-second-life-agent-evals/single-trace-confusion-matrices.svg?v=20260902" alt="Four confusion matrices comparing environment outcomes with the pass or fail verdicts from GPT-5.6 Sol, GLM-5.3, DeepSeek V4 Pro 0813 GA, and DeepSeek V4 Flash 0731." loading="lazy">
   <figcaption>Rows: hidden environment outcome. Columns: reviewer verdict. Orange cells are failed runs that the reviewer approved.</figcaption>
 </figure>
 
@@ -347,7 +347,7 @@ Overall accuracy was 55.9–62.4%, but the clearer result was approval bias. Mos
 The GPT-5.6 Sol reviewer led or tied in every source slice. Failure recall also changed sharply by source:
 
 <figure class="sle-figure" markdown="0">
-  <img src="/assets/img/2026-08-28-second-life-agent-evals/single-failure-recall-by-source.svg" alt="Grouped bars comparing single-trace failure recall across traces from Fable with Claude Code, GLM-5.3 with Claude Code, and GPT-5.6 Sol with Codex for four agentic reviewers." loading="lazy">
+  <img src="/assets/img/2026-08-28-second-life-agent-evals/single-failure-recall-by-source.svg?v=20260902" alt="Grouped bars comparing single-trace failure recall across traces from Fable with Claude Code, GLM-5.3 with Claude Code, and GPT-5.6 Sol with Codex for four agentic reviewers." loading="lazy">
   <figcaption>Each retained task instance contributes one failed trace: 33 Fable, 29 GPT-5.6 Sol, and 23 GLM-5.3.</figcaption>
 </figure>
 
@@ -396,7 +396,7 @@ deliverable.
 </details>
 
 <figure class="sle-figure" markdown="0">
-  <img src="/assets/img/2026-08-28-second-life-agent-evals/pair-comparison.svg" alt="Bar chart with its y-axis beginning at the 50% random baseline, showing how often GPT-5.6 Sol, GLM-5.3, DeepSeek V4 Pro 0813, and DeepSeek V4 Flash 0731 select the successful trace from a balanced pair." loading="lazy">
+  <img src="/assets/img/2026-08-28-second-life-agent-evals/pair-comparison.svg?v=20260902" alt="Bar chart with its y-axis beginning at the 50% random baseline, showing how often GPT-5.6 Sol, GLM-5.3, DeepSeek V4 Pro 0813, and DeepSeek V4 Flash 0731 select the successful trace from a balanced pair." loading="lazy">
   <figcaption>Successful trace selected from each balanced Pair. The y-axis begins at the 50% random baseline.</figcaption>
 </figure>
 
@@ -455,7 +455,7 @@ DeepSeek V4 Pro 0813 was evaluated only on Single and Pair. The DeepSeek Five re
 These 85 instances are exactly where selection can change the result. Adding back all-pass and all-fail tasks gives the full 74-task view:
 
 <figure class="sle-figure" markdown="0">
-  <img src="/assets/img/2026-08-28-second-life-agent-evals/terminal-bench-3-0-best-of-five-selection.svg" alt="Grouped bars for three Terminal-Bench 3.0 source evaluations comparing empirical pass at one, DeepSeek, GLM, and GPT agentic selectors, and oracle pass at five." loading="lazy">
+  <img src="/assets/img/2026-08-28-second-life-agent-evals/terminal-bench-3-0-best-of-five-selection.svg?v=20260902" alt="Grouped bars for three Terminal-Bench 3.0 source evaluations comparing empirical pass at one, DeepSeek, GLM, and GPT agentic selectors, and oracle pass at five." loading="lazy">
   <figcaption>Derived Terminal-Bench 3.0 performance across all 74 tasks. <em>pass@1</em> is uniform selection; <em>pass@5</em> is the oracle ceiling; selector bars use each reviewer's choices on mixed-outcome tasks.</figcaption>
 </figure>
 

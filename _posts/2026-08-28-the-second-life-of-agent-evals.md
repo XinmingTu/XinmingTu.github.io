@@ -59,7 +59,16 @@ _styles: |
   }
   d-article h2 {
     color: var(--sle-ink);
-    margin-top: 2.15em;
+    margin-bottom: 0.7em;
+    margin-top: 1.75rem;
+  }
+  d-article h3 {
+    color: var(--sle-ink);
+    margin-bottom: 0.55em;
+    margin-top: 1.35em;
+  }
+  d-article h2 + h3 {
+    margin-top: 0.9em;
   }
   d-article .sle-lede {
     border-left: 3px solid var(--sle-green);
@@ -210,13 +219,23 @@ _styles: |
     border-radius: 14px;
     color: var(--sle-ink);
     font-size: 1.08rem;
-    line-height: 1.7;
-    margin-top: 2.2rem;
-    padding: 1.15rem 1.25rem;
+    line-height: 1.6;
+    margin: 1.35rem 0 0;
+    padding: 1rem 1.15rem;
+  }
+  d-article .sle-coda + h2 {
+    margin-top: 1.75rem;
+  }
+  d-article p.sle-repo-link {
+    color: var(--sle-ink);
+    font-size: 1.15rem;
+    margin: 1.45rem 0 1.1rem;
+  }
+  d-article p.sle-repo-link a {
+    font-weight: 650;
   }
   @media (max-width: 720px) {
-    d-article .sle-flow { grid-template-columns: 1fr 1fr; }
-    d-article .sle-step:nth-child(2)::after { display: none; }
+    d-article .sle-step { font-size: 0.78rem; padding: 0.6rem; }
     d-article .sle-family { grid-template-columns: 1fr; }
   }
   @media (max-width: 430px) {
@@ -470,6 +489,8 @@ Average provider-reported inference cost per scored task. Repaired or replaced f
 | DeepSeek V4 Flash 0731 | \$0.022 | \$0.041 | \$0.035 |
 
 No Pro 0813 Five run is available. These observed averages reflect different models, providers, caching, and context lengths; they should not be read as a controlled efficiency comparison across reviewers.
+
+<p class="sle-repo-link"><strong>Code, tasks, and results:</strong> <a href="https://github.com/XinmingTu/Agentic-Verification-Eval">Agentic Verification Eval</a></p>
 
 **Cite this post**
 

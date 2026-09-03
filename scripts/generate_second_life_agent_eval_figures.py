@@ -352,10 +352,11 @@ def render_pair_comparison() -> None:
     plot_left, plot_right = 110, 1155
     plot_top, plot_bottom = 145, 430
     plot_height = plot_bottom - plot_top
+    y_min = 50.0
     y_max = 75.0
 
     def y_position(value: float) -> float:
-        return plot_bottom - value / y_max * plot_height
+        return plot_bottom - (value - y_min) / (y_max - y_min) * plot_height
 
     body = [
         text(
@@ -369,13 +370,13 @@ def render_pair_comparison() -> None:
         text(
             width / 2,
             73,
-            "One successful and one failed run per task · labels hidden",
+            "One successful and one failed run per task · 50% is random",
             size=13,
             color=MUTED,
         ),
     ]
 
-    for tick in (0, 25, 50, 75):
+    for tick in (50, 55, 60, 65, 70, 75):
         y = y_position(tick)
         body.extend(
             [
@@ -389,8 +390,6 @@ def render_pair_comparison() -> None:
         [
             f'<line x1="{plot_left}" y1="{plot_top}" x2="{plot_left}" y2="{plot_bottom}" '
             f'stroke="{LINE}" stroke-width="1.3"/>',
-            f'<line x1="{plot_left}" y1="{plot_bottom}" x2="{plot_right}" y2="{plot_bottom}" '
-            f'stroke="{LINE}" stroke-width="1.3"/>',
             text(
                 32,
                 (plot_top + plot_bottom) / 2,
@@ -402,12 +401,11 @@ def render_pair_comparison() -> None:
         ]
     )
 
-    baseline_y = y_position(50.0)
+    baseline_y = y_position(y_min)
     body.extend(
         [
             f'<line x1="{plot_left}" y1="{baseline_y}" x2="{plot_right}" y2="{baseline_y}" '
             f'stroke="{MUTED}" stroke-width="1.8" stroke-dasharray="8 7"/>',
-            text(plot_right - 5, baseline_y - 10, "50% blind selection", size=12, color=MUTED, anchor="end"),
         ]
     )
 

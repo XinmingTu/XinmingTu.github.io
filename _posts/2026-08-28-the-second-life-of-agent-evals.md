@@ -377,8 +377,8 @@ deliverable.
 </details>
 
 <figure class="sle-figure" markdown="0">
-  <img src="/assets/img/2026-08-28-second-life-agent-evals/pair-comparison.svg" alt="Bar chart showing how often GPT-5.6 Sol, GLM-5.3, DeepSeek V4 Pro 0813, and DeepSeek V4 Flash 0731 select the successful trace from a balanced pair." loading="lazy">
-  <figcaption>Successful trace selected from each balanced Pair. The blind-selection baseline is 50%.</figcaption>
+  <img src="/assets/img/2026-08-28-second-life-agent-evals/pair-comparison.svg" alt="Bar chart with its y-axis beginning at the 50% random baseline, showing how often GPT-5.6 Sol, GLM-5.3, DeepSeek V4 Pro 0813, and DeepSeek V4 Flash 0731 select the successful trace from a balanced pair." loading="lazy">
+  <figcaption>Successful trace selected from each balanced Pair. The y-axis begins at the 50% random baseline.</figcaption>
 </figure>
 
 All four reviewers beat 50%. GLM-5.3 led at 69.4%, followed by GPT-5.6 Sol at 64.7%; both DeepSeek variants were only slightly above baseline.

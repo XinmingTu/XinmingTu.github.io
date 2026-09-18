@@ -101,6 +101,7 @@ def main():
             "key": key, "name": label, "single": percent(m["single_full"]["accuracy"]),
             "success_recall": percent(m["single_full"]["success_recall"]),
             "failure_recall": percent(m["single_full"]["failure_recall"]),
+            "false_pass": percent(cm[1][0] / 79),
             "single_invalid": cm[0][2] + cm[1][2],
             "pair": percent(m["pair_full"]["preferred_success_rate"]),
             "pair_exact": percent(m["pair_full"]["exact_pair_classification_rate"]),
@@ -109,14 +110,24 @@ def main():
             "single_ci": f'{percent(ci["single-full"]["lower"])}–{percent(ci["single-full"]["upper"])}',
             "pair_ci": f'{percent(ci["pair-full"]["lower"])}–{percent(ci["pair-full"]["upper"])}',
         })
+        assert sum(s["reviewer_mixed_successes"][key] for s in sources) == wins
     for s in sources:
         fallback = sum(s["unreviewed_mixed_pools"].values()) / 5
         effective = (s["all_pass_pools"] + s["reviewer_mixed_successes"]["gpt-5-6-sol"] + fallback) / s["tasks"]
+        successes = round(s["pass_at_k"][0] * s["tasks"] * 5) - s["all_pass_pools"] * 5 - round(fallback * 5)
+        uniform = successes / (s["reviewed_mixed_pools"] * 5)
+        # Recompute coverage bounds for the fixed GPT reviewer, not a best-of-model policy.
+        lower = (s["all_pass_pools"] + s["reviewer_mixed_successes"]["gpt-5-6-sol"]) / s["tasks"]
+        upper = lower + len(s["unreviewed_mixed_pools"]) / s["tasks"]
         data["sources"].append({
             "name": SOURCES[s["source"]], "pools": s["reviewed_mixed_pools"],
+            "uniform": percent(uniform), "uniform_rate": uniform,
+            "reviewer_rates": [percent(s["reviewer_mixed_successes"][key] / s["reviewed_mixed_pools"]) for key in REVIEWERS],
+            "gpt_selection_gain": percent(s["reviewer_mixed_successes"]["gpt-5-6-sol"] / s["reviewed_mixed_pools"] - uniform),
             "pass1": percent(s["pass_at_k"][0]), "pass5": percent(s["pass_at_k"][-1]),
             "selected": percent(effective), "gain": percent(effective - s["pass_at_k"][0]),
-            "coverage_bounds": f'{percent(s["missing_pool_lower_bound"])}–{percent(s["missing_pool_upper_bound"])}',
+            "selected_rate": effective, "lower": lower, "upper": upper,
+            "coverage_bounds": f'{percent(lower)}–{percent(upper)}',
         })
     data["cost_batches"] = []
     for label, filename in [
@@ -130,67 +141,89 @@ def main():
             "cost": f'{ledger["accounted_new_cost_usd"]:.2f}'})
     (ROOT / "_data/second_life_tb4.json").write_text(json.dumps(data, indent=2) + "\n")
 
-    # Recall retains all 79 anchors in each class, including invalid outputs.
-    recall = np.array([[panels[key]["metrics"]["single_full"][metric] * 100
-                        for metric in ("success_recall", "failure_recall")]
-                       for key in REVIEWERS])
-    fig, ax = plt.subplots(figsize=(7.6, 3.8), layout="constrained")
-    cmap = LinearSegmentedColormap.from_list("recall", ["#f3f6fb", "#3757a6"])
-    heatmap = ax.imshow(recall, cmap=cmap, vmin=0, vmax=100, aspect="auto")
-    for i in range(4):
-        for j in range(2):
-            value = recall[i, j]
-            ax.text(j, i, f"{value:.1f}%", ha="center", va="center",
-                    fontsize=18, weight="bold", color="white" if value >= 60 else "#20242d")
-    ax.set(xticks=[0, 1], xticklabels=["Success recall", "Failure recall"],
-           yticks=range(4), yticklabels=list(REVIEWERS.values()))
-    ax.xaxis.tick_top()
-    ax.tick_params(length=0, pad=12)
-    ax.set_xticks([.5], minor=True)
-    ax.set_yticks([.5, 1.5, 2.5], minor=True)
-    ax.grid(which="minor", color="white", linewidth=3)
-    ax.tick_params(which="minor", length=0)
-    for spine in ax.spines.values():
-        spine.set_visible(False)
-    colorbar = fig.colorbar(heatmap, ax=ax, fraction=.045, pad=.04, ticks=[0, 25, 50, 75, 100])
-    colorbar.set_label("Correctly identified (%)", labelpad=10)
-    colorbar.outline.set_visible(False)
-    save(fig, "tb4-single-recall", "Single Full success and failure recall. Each class has 79 anchors per reviewer. Invalid outputs count as errors; the shared color scale spans 0 to 100 percent.")
+    # Show literal pass/fail predictions. Invalid mass stays in the denominator
+    # but is not assigned to either visible column, so rows may sum below 100%.
+    for mobile in (False, True):
+        fig, axes = plt.subplots(4 if mobile else 2, 1 if mobile else 2, figsize=(4.4, 9.4) if mobile else (8.4, 5.6), layout="constrained")
+        cmap = LinearSegmentedColormap.from_list("predictions", ["#f3f6fb", "#3757a6"])
+        for ax, (key, label) in zip(axes.flat, REVIEWERS.items()):
+            rates = np.array(counts[key])[:, :2] / 79 * 100
+            heatmap = ax.imshow(rates, cmap=cmap, vmin=0, vmax=100, aspect="auto")
+            for i in range(2):
+                for j in range(2):
+                    value = rates[i, j]
+                    ax.text(j, i, f"{value:.1f}%", ha="center", va="center",
+                            fontsize=19, weight="bold", color="white" if value >= 60 else "#20242d")
+            ax.set(xticks=[0, 1], xticklabels=["Pass", "Fail"],
+                   yticks=[0, 1], yticklabels=["Succeeded", "Failed"], xlabel="Reviewer verdict")
+            ax.set_title(label, weight="bold", pad=10)
+            ax.tick_params(length=0, pad=7)
+            ax.set_xticks([.5], minor=True)
+            ax.set_yticks([.5], minor=True)
+            ax.grid(which="minor", color="white", linewidth=3)
+            ax.tick_params(which="minor", length=0)
+            for spine in ax.spines.values():
+                spine.set_visible(False)
+        colorbar = fig.colorbar(heatmap, ax=axes, fraction=.035, pad=.035, ticks=[0, 25, 50, 75, 100])
+        colorbar.set_label("Share of each outcome class (%)", labelpad=10)
+        colorbar.outline.set_visible(False)
+        save(fig, "tb4-single-confusion" + ("-mobile" if mobile else ""), "Single: source outcomes in rows, reviewer verdicts in columns. Percentages use 79 anchors per row. Invalid outputs are omitted from columns, retained in denominators. Shared 0–100% scale.")
 
-    fig, axes = plt.subplots(2, 1, figsize=(8, 7), layout="constrained")
-    for ax, metric, title, base in zip(axes, ["pair", "five"], ["Pair · 79 pools / 3 sources", "Five · 97 pools / 4 sources"], [50, baseline * 100]):
-        vals = [float(r[metric]) for r in data["reviewers"]]
-        ax.barh(range(4), vals, color=COLORS, height=.55)
-        ax.axvline(base, color="#747d8b", linestyle="--", linewidth=1.4)
-        for i, v in enumerate(vals):
-            ax.text(v + 1, i, f"{v:.1f}%", va="center", fontsize=11, weight="bold")
-        ax.set(yticks=range(4), yticklabels=list(REVIEWERS.values()), xlim=(0, 100), xlabel="Successful selection (%)", title=title)
-        ax.set_xticks([0, 25, 50, 75, 100])
-        ax.text(.02, -.24, f"Dashed line: uniform choice ({base:.1f}%)", transform=ax.transAxes, fontsize=10, color="#747d8b")
-        ax.set_axisbelow(True)
-        ax.grid(axis="x", alpha=.15)
-        ax.invert_yaxis()
-    save(fig, "tb4-selection", "Pair and Five selection rates; different source coverage and chance baselines, not a causal context ladder.")
+    short_labels = ["GPT-5.6\nSol", "GLM-5.3", "DeepSeek\nV4.1 Flash", "GLM-5.3\nFlash"]
+    for mobile in (False, True):
+        fig, axes = plt.subplots(2 if mobile else 1, 1 if mobile else 2, figsize=(4.4, 6.7) if mobile else (8.4, 4), layout="constrained", sharey=True)
+        for ax, metric, title, ylabel in zip(axes, ["single", "pair"],
+                                           ["Single · 158 runs", "Pair · 79 pools"],
+                                           ["Correct judgments (%)", "Successful selections (%)"]):
+            vals = [float(r[metric]) for r in data["reviewers"]]
+            bars = ax.bar(range(4), vals, color=COLORS, width=.65)
+            ax.bar_label(bars, labels=[f"{v:.1f}%" for v in vals], padding=5, fontsize=10, weight="bold", bbox={"facecolor": "white", "edgecolor": "none", "pad": .3})
+            ax.axhline(50, color="#747d8b", linestyle="--", linewidth=1.4)
+            ax.set(xticks=range(4), xticklabels=short_labels, ylim=(0, 100), yticks=[0, 25, 50, 75, 100], ylabel=ylabel, title=title)
+            ax.tick_params(axis="x", labelsize=9)
+            ax.set_axisbelow(True)
+            ax.grid(axis="y", alpha=.15)
+        save(fig, "tb4-single-pair" + ("-mobile" if mobile else ""), "Single accuracy and Pair successful selection on the same 79 pools. Dashed lines mark 50% baselines. Different metrics, not a causal context-gain estimate.")
 
-    fig, axes = plt.subplots(2, 2, figsize=(10, 7.5), layout="constrained", sharex=True, sharey=True)
-    for ax, s, item, color in zip(axes.flat, sources, data["sources"], COLORS):
-        ys = np.array(s["pass_at_k"]) * 100
-        fallback = sum(s["unreviewed_mixed_pools"].values()) / 5
-        mid = (s["all_pass_pools"] + s["reviewer_mixed_successes"]["gpt-5-6-sol"] + fallback) / s["tasks"] * 100
-        lo, hi = s["missing_pool_lower_bound"] * 100, s["missing_pool_upper_bound"] * 100
-        ax.plot(range(1, 6), ys, "o-", color=color, linewidth=2, label="Oracle pass@k")
-        ax.errorbar(5, mid, yerr=[[mid-lo], [hi-mid]], fmt="*", color="#20242d", markersize=14, capsize=5, label="GPT-5.6 Sol selector at k=5")
-        ax.annotate(f"{mid:.1f}% selected", (5, mid), xytext=(-12, -19), textcoords="offset points", ha="right", fontsize=10, weight="bold")
-        ax.annotate(f"{ys[-1]:.1f}% oracle", (5, ys[-1]), xytext=(-10, 10), textcoords="offset points", ha="right", fontsize=10, color=color)
-        ax.set(title=SOURCES[s["source"]], xticks=range(1, 6), xlim=(.7, 5.5), ylim=(30, 87), yticks=[30, 40, 50, 60, 70, 80])
-        ax.grid(alpha=.18)
-    for ax in axes[:, 0]:
-        ax.set_ylabel("Whole-job success (%)")
-    for ax in axes[1]:
-        ax.set_xlabel("Number of frozen attempts (k)")
-    handles, labels = axes[0, 0].get_legend_handles_labels()
-    fig.legend(handles, labels, loc="outside lower center", ncol=2, frameon=False)
-    save(fig, "tb4-pass-at-k", "All 66 tasks per source. Stars use the same GPT-5.6 Sol reviewer. Error bars bound excluded mixed pools, not statistical uncertainty.")
+    for mobile in (False, True):
+        fig, axes = plt.subplots(4 if mobile else 2, 1 if mobile else 2, figsize=(4.4, 11.8) if mobile else (8.4, 6.6), layout="constrained", sharey=True)
+        for ax, s in zip(axes.flat, data["sources"]):
+            vals = [float(v) for v in s["reviewer_rates"]]
+            bars = ax.bar(range(4), vals, color=COLORS, width=.65)
+            ax.bar_label(bars, labels=[f"{v:.1f}%" for v in vals], padding=5, fontsize=10, weight="bold", bbox={"facecolor": "white", "edgecolor": "none", "pad": .3})
+            ax.axhline(s["uniform_rate"] * 100, color="#747d8b", linestyle="--", linewidth=1.4)
+            ax.set(xticks=range(4), xticklabels=short_labels, ylim=(0, 103), yticks=[0, 25, 50, 75, 100])
+            ax.set_title(f'{s["name"]} · {s["pools"]} pools\nUniform choice: {s["uniform"]}%', fontsize=11, pad=12)
+            ax.tick_params(axis="x", labelsize=9)
+            ax.set_axisbelow(True)
+            ax.grid(axis="y", alpha=.15)
+        for ax in (axes if mobile else axes[:, 0]):
+            ax.set_ylabel("Successful selections (%)")
+        save(fig, "tb4-five-by-source" + ("-mobile" if mobile else ""), "Five selection by source and reviewer; fixed reviewer colors and order, source-specific uniform baselines, invalid outputs counted as failures. Source task sets differ.")
+
+    for mobile in (False, True):
+        fig, axes = plt.subplots(4 if mobile else 2, 1 if mobile else 2, figsize=(4.8, 12.6) if mobile else (8.8, 7), layout="constrained", sharex=True, sharey=True)
+        for ax, s, item in zip(axes.flat, sources, data["sources"]):
+            ys = np.array(s["pass_at_k"]) * 100
+            mid = item["selected_rate"] * 100
+            lo, hi = item["lower"] * 100, item["upper"] * 100
+            color = COLORS[0]
+            ax.plot(range(1, 6), ys, "o-", color=color, linewidth=2, label="Oracle pass@k")
+            ax.hlines(ys[0], 1, 5, color="#b8c0ce", linestyle=":", linewidth=1)
+            ax.errorbar(5, mid, yerr=[[mid-lo], [hi-mid]], fmt="*", color="#20242d", markersize=14, capsize=5, label="GPT-5.6 Sol selector at k=5")
+            ax.annotate(f"{mid:.1f}% selected", (5, mid), xytext=(-12, -19), textcoords="offset points", ha="right", fontsize=10, weight="bold", bbox={"facecolor": "white", "edgecolor": "none", "pad": .3})
+            ax.annotate(f"{ys[-1]:.1f}% oracle", (5, ys[-1]), xytext=(-10, 10), textcoords="offset points", ha="right", fontsize=10, color=color)
+            ax.annotate(f"{ys[0]:.1f}%", (1, ys[0]), xytext=(6, -17), textcoords="offset points", fontsize=10, color="#747d8b")
+            ax.set_title(f'{item["name"]}\n+{item["gain"]} pp over pass@1', fontsize=12, pad=12)
+            ax.set(xticks=range(1, 6), xlim=(.7, 5.5), ylim=(30, 88), yticks=[30, 40, 50, 60, 70, 80])
+            ax.grid(alpha=.18)
+        for ax in (axes if mobile else axes[:, 0]):
+            ax.set_ylabel("Whole-job success (%)")
+        for ax in ([axes[-1]] if mobile else axes[1]):
+            ax.set_xlabel("Number of frozen attempts (k)")
+        handles, labels = axes.flat[0].get_legend_handles_labels()
+        fig.legend(handles, labels, loc="outside lower center", ncol=1 if mobile else 2, frameon=False)
+        save(fig, "tb4-sampling-hero" + ("-mobile" if mobile else ""), "All 66 tasks per source. Oracle pass@1–5, GPT-5.6 Sol selection stars at k=5, and reconstructed gains over pass@1. Whiskers bound excluded mixed pools, not statistical uncertainty.")
 
     neutral = next(r for r in complete if r["condition"] == "five_neutral")
     original_rows = read("deepseek-five-positions.json")
@@ -204,7 +237,7 @@ def main():
     ax.set(xlabel="Selected candidate position", ylabel="Selections (out of 79)", xticks=x, ylim=(0, 87))
     ax.legend(frameon=False, loc="upper right", fontsize=10)
     save(fig, "tb4-prompt-position", "DeepSeek V4.1 Flash changes position preference after removing the numbered output example; the success difference is inconclusive.")
-    print(f"Generated TB4 data and four figures from {COMMIT}; {total_pools} pools, baseline {baseline:.6f}.")
+    print(f"Generated TB4 data and five figures from {COMMIT}; {total_pools} pools, baseline {baseline:.6f}.")
 
 
 if __name__ == "__main__":

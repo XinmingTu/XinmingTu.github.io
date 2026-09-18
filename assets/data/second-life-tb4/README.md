@@ -18,10 +18,12 @@ failures as rows. These counts retain invalid outputs as errors without
 misrepresenting them as pass/fail judgments. Raw reviewer reasoning and
 machine-local job paths are not copied into this website.
 
-The Single figure displays success/failure recall as a percentage heatmap,
-with a shared 0–100% color scale. Each pool supplies one anchor per class, so
-each cell's denominator is 79, including invalid outputs as errors. The
-underlying verdict counts are retained for auditing.
+The Single figure displays four percentage confusion matrices, with actual
+outcomes in rows and literal Pass/Fail verdicts in columns. All share a 0–100%
+color scale. Each row's denominator is 79, including invalid outputs, which
+are omitted from the visible columns. Rows may therefore sum below 100%.
+Invalid responses are never reassigned to Fail or removed from denominators.
+The underlying verdict counts are retained for auditing.
 
 The three instruction excerpts under `_includes/second-life-tb4/` are copied
 verbatim from `SINGLE_FULL_INSTRUCTION`, `PAIR_INSTRUCTION`, and
@@ -36,7 +38,9 @@ python scripts/generate_second_life_tb4_figures.py
 ```
 
 This generates `_data/second_life_tb4.json` (used by the article's Liquid
-tables) and four SVGs under `assets/img/2026-08-28-second-life-agent-evals/`.
+tables) and five figure families under `assets/img/2026-08-28-second-life-agent-evals/`.
+The four main figures also have stacked `-mobile.svg` variants, selected with
+HTML `picture` elements below 600px. They use identical data and scales.
 PNG copies for visual inspection go to `/tmp/`. The original TB3 figure script
 and SVGs are retained separately.
 
@@ -46,6 +50,13 @@ Combined Five counts add the original 79-pool panel and the 18 GPT-6-source
 pools, weighting pools equally. Single/Pair retain their original three-source
 coverage. No combined 97-pool confidence interval is inferred from the two
 separate batch intervals.
+
+The Single/Pair vertical bar panels share the same 79 source pools and
+anchors, but show different metrics: judgment accuracy versus selection
+success. The source-by-reviewer Five panels use the source-specific success
+counts in `tbench4-pass-at-k.json`. The generator cross-checks their sums
+against the separate 79- and 18-pool result files. Every source has its own
+uniform baseline, computed from its reviewed candidate outcomes.
 
 The pass@k figure uses **GPT-5.6 Sol as the reviewer in every source panel**,
 computed from the source-specific counts. This is explicit rather than a

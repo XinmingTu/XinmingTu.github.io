@@ -1,0 +1,126 @@
+{
+  "commit": "6d99501ad21662cad4ef82c9089e15492d24e976",
+  "repo": "https://github.com/XinmingTu/Agentic-Verification-Eval/blob/6d99501ad21662cad4ef82c9089e15492d24e976",
+  "updated": "September 18, 2026",
+  "five_pools": 97,
+  "source_runs": 485,
+  "five_baseline": "55.3",
+  "candidate_successes": 268,
+  "reviewers": [
+    {
+      "key": "gpt-5-6-sol",
+      "name": "GPT-5.6 Sol",
+      "single": "59.5",
+      "success_recall": "82.3",
+      "failure_recall": "36.7",
+      "single_invalid": 0,
+      "pair": "62.0",
+      "pair_exact": "44.3",
+      "five": "78.4",
+      "five_wins": 76,
+      "five_gain": "23.1",
+      "single_ci": "54.8\u201364.7",
+      "pair_ci": "50.6\u201373.0"
+    },
+    {
+      "key": "glm-5-3",
+      "name": "GLM-5.3",
+      "single": "54.4",
+      "success_recall": "98.7",
+      "failure_recall": "10.1",
+      "single_invalid": 1,
+      "pair": "65.8",
+      "pair_exact": "41.8",
+      "five": "62.9",
+      "five_wins": 61,
+      "five_gain": "7.6",
+      "single_ci": "50.6\u201359.1",
+      "pair_ci": "55.6\u201376.4"
+    },
+    {
+      "key": "deepseek-v4p1-flash",
+      "name": "DeepSeek V4.1 Flash",
+      "single": "50.0",
+      "success_recall": "64.6",
+      "failure_recall": "35.4",
+      "single_invalid": 9,
+      "pair": "53.2",
+      "pair_exact": "19.0",
+      "five": "56.7",
+      "five_wins": 55,
+      "five_gain": "1.4",
+      "single_ci": "43.4\u201357.1",
+      "pair_ci": "40.7\u201365.8"
+    },
+    {
+      "key": "glm-5-3-flash",
+      "name": "GLM-5.3 Flash",
+      "single": "55.7",
+      "success_recall": "100.0",
+      "failure_recall": "11.4",
+      "single_invalid": 1,
+      "pair": "63.3",
+      "pair_exact": "36.7",
+      "five": "70.1",
+      "five_wins": 68,
+      "five_gain": "14.8",
+      "single_ci": "51.9\u201360.3",
+      "pair_ci": "50.7\u201375.3"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Fable 5.1",
+      "pools": 30,
+      "pass1": "57.9",
+      "pass5": "78.8",
+      "selected": "70.0",
+      "gain": "12.1",
+      "coverage_bounds": "68.2\u201372.7"
+    },
+    {
+      "name": "GPT-5.6 Sol",
+      "pools": 28,
+      "pass1": "37.3",
+      "pass5": "60.6",
+      "selected": "51.2",
+      "gain": "13.9",
+      "coverage_bounds": "47.0\u201354.5"
+    },
+    {
+      "name": "GLM-5.3",
+      "pools": 21,
+      "pass1": "41.8",
+      "pass5": "57.6",
+      "selected": "45.8",
+      "gain": "3.9",
+      "coverage_bounds": "43.9\u201347.0"
+    },
+    {
+      "name": "GPT-6 Astra",
+      "pools": 18,
+      "pass1": "58.2",
+      "pass5": "71.2",
+      "selected": "62.1",
+      "gain": "3.9",
+      "coverage_bounds": "62.1\u201362.1"
+    }
+  ],
+  "cost_batches": [
+    {
+      "name": "September 16 completion + prompt control",
+      "reviews": 677,
+      "cost": "265.78"
+    },
+    {
+      "name": "GPT-6-source Five extension",
+      "reviews": 72,
+      "cost": "51.82"
+    },
+    {
+      "name": "GLM Flash Single/Pair completion",
+      "reviews": 237,
+      "cost": "30.27"
+    }
+  ]
+}

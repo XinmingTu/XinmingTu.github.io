@@ -1,0 +1,234 @@
+[
+  {
+    "reviewer": "gpt-5-6-sol",
+    "condition": "five_full",
+    "metrics": {
+      "single_full": {
+        "n": 0,
+        "accuracy": null,
+        "balanced_accuracy": null,
+        "success_recall": null,
+        "failure_recall": null,
+        "false_approval_rate": null,
+        "format_valid_rate": null,
+        "mean_brier_score": null,
+        "confusion": {
+          "true_positive": 0,
+          "false_negative_or_invalid": 0,
+          "true_negative": 0,
+          "false_positive_or_invalid": 0,
+          "invalid_outputs": 0
+        }
+      },
+      "pair_full": {
+        "n": 0,
+        "preferred_success_rate": null,
+        "exact_pair_classification_rate": null,
+        "per_candidate_classification_accuracy": null,
+        "format_valid_rate": null
+      },
+      "five_full": {
+        "n": 18,
+        "selection_success_rate": 0.6666666666666666,
+        "format_valid_rate": 1.0
+      }
+    },
+    "cluster_bootstrap_95_ci": {
+      "single-full": {
+        "estimate": null,
+        "lower": null,
+        "upper": null,
+        "clusters": 0,
+        "replicates": 0
+      },
+      "pair-full": {
+        "estimate": null,
+        "lower": null,
+        "upper": null,
+        "clusters": 0,
+        "replicates": 0
+      },
+      "five-full": {
+        "estimate": 0.6666666666666666,
+        "lower": 0.4444444444444444,
+        "upper": 0.8888888888888888,
+        "clusters": 18,
+        "replicates": 10000
+      }
+    }
+  },
+  {
+    "reviewer": "glm-5-3",
+    "condition": "five_full",
+    "metrics": {
+      "single_full": {
+        "n": 0,
+        "accuracy": null,
+        "balanced_accuracy": null,
+        "success_recall": null,
+        "failure_recall": null,
+        "false_approval_rate": null,
+        "format_valid_rate": null,
+        "mean_brier_score": null,
+        "confusion": {
+          "true_positive": 0,
+          "false_negative_or_invalid": 0,
+          "true_negative": 0,
+          "false_positive_or_invalid": 0,
+          "invalid_outputs": 0
+        }
+      },
+      "pair_full": {
+        "n": 0,
+        "preferred_success_rate": null,
+        "exact_pair_classification_rate": null,
+        "per_candidate_classification_accuracy": null,
+        "format_valid_rate": null
+      },
+      "five_full": {
+        "n": 18,
+        "selection_success_rate": 0.5555555555555556,
+        "format_valid_rate": 1.0
+      }
+    },
+    "cluster_bootstrap_95_ci": {
+      "single-full": {
+        "estimate": null,
+        "lower": null,
+        "upper": null,
+        "clusters": 0,
+        "replicates": 0
+      },
+      "pair-full": {
+        "estimate": null,
+        "lower": null,
+        "upper": null,
+        "clusters": 0,
+        "replicates": 0
+      },
+      "five-full": {
+        "estimate": 0.5555555555555556,
+        "lower": 0.3333333333333333,
+        "upper": 0.7777777777777778,
+        "clusters": 18,
+        "replicates": 10000
+      }
+    }
+  },
+  {
+    "reviewer": "deepseek-v4p1-flash",
+    "condition": "five_full",
+    "metrics": {
+      "single_full": {
+        "n": 0,
+        "accuracy": null,
+        "balanced_accuracy": null,
+        "success_recall": null,
+        "failure_recall": null,
+        "false_approval_rate": null,
+        "format_valid_rate": null,
+        "mean_brier_score": null,
+        "confusion": {
+          "true_positive": 0,
+          "false_negative_or_invalid": 0,
+          "true_negative": 0,
+          "false_positive_or_invalid": 0,
+          "invalid_outputs": 0
+        }
+      },
+      "pair_full": {
+        "n": 0,
+        "preferred_success_rate": null,
+        "exact_pair_classification_rate": null,
+        "per_candidate_classification_accuracy": null,
+        "format_valid_rate": null
+      },
+      "five_full": {
+        "n": 18,
+        "selection_success_rate": 0.5,
+        "format_valid_rate": 1.0
+      }
+    },
+    "cluster_bootstrap_95_ci": {
+      "single-full": {
+        "estimate": null,
+        "lower": null,
+        "upper": null,
+        "clusters": 0,
+        "replicates": 0
+      },
+      "pair-full": {
+        "estimate": null,
+        "lower": null,
+        "upper": null,
+        "clusters": 0,
+        "replicates": 0
+      },
+      "five-full": {
+        "estimate": 0.5,
+        "lower": 0.2777777777777778,
+        "upper": 0.7222222222222222,
+        "clusters": 18,
+        "replicates": 10000
+      }
+    }
+  },
+  {
+    "reviewer": "glm-5-3-flash",
+    "condition": "five_full",
+    "metrics": {
+      "single_full": {
+        "n": 0,
+        "accuracy": null,
+        "balanced_accuracy": null,
+        "success_recall": null,
+        "failure_recall": null,
+        "false_approval_rate": null,
+        "format_valid_rate": null,
+        "mean_brier_score": null,
+        "confusion": {
+          "true_positive": 0,
+          "false_negative_or_invalid": 0,
+          "true_negative": 0,
+          "false_positive_or_invalid": 0,
+          "invalid_outputs": 0
+        }
+      },
+      "pair_full": {
+        "n": 0,
+        "preferred_success_rate": null,
+        "exact_pair_classification_rate": null,
+        "per_candidate_classification_accuracy": null,
+        "format_valid_rate": null
+      },
+      "five_full": {
+        "n": 18,
+        "selection_success_rate": 0.6666666666666666,
+        "format_valid_rate": 0.9444444444444444
+      }
+    },
+    "cluster_bootstrap_95_ci": {
+      "single-full": {
+        "estimate": null,
+        "lower": null,
+        "upper": null,
+        "clusters": 0,
+        "replicates": 0
+      },
+      "pair-full": {
+        "estimate": null,
+        "lower": null,
+        "upper": null,
+        "clusters": 0,
+        "replicates": 0
+      },
+      "five-full": {
+        "estimate": 0.6666666666666666,
+        "lower": 0.4444444444444444,
+        "upper": 0.8888888888888888,
+        "clusters": 18,
+        "replicates": 10000
+      }
+    }
+  }
+]

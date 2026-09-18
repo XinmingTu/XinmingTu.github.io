@@ -1,0 +1,50 @@
+{
+  "status": "complete",
+  "updated_at": "2026-09-17T02:32:43.570588+00:00",
+  "budget_usd": 200,
+  "accounted_new_cost_usd": 51.815401416,
+  "cost_note": "Completed calls only; in-flight calls reserve budget before launch.",
+  "progress": [
+    {
+      "model": "gpt-5-6-sol",
+      "condition": "five_full",
+      "completed_new": 18,
+      "planned_new": 18,
+      "reused": 0,
+      "cost_usd": 26.323937799999996,
+      "format_valid": 18,
+      "cost_limit_reached": 0
+    },
+    {
+      "model": "glm-5-3",
+      "condition": "five_full",
+      "completed_new": 18,
+      "planned_new": 18,
+      "reused": 0,
+      "cost_usd": 21.480102780000006,
+      "format_valid": 18,
+      "cost_limit_reached": 0
+    },
+    {
+      "model": "deepseek-v4p1-flash",
+      "condition": "five_full",
+      "completed_new": 18,
+      "planned_new": 18,
+      "reused": 0,
+      "cost_usd": 1.313630016,
+      "format_valid": 18,
+      "cost_limit_reached": 0
+    },
+    {
+      "model": "glm-5-3-flash",
+      "condition": "five_full",
+      "completed_new": 18,
+      "planned_new": 18,
+      "reused": 0,
+      "cost_usd": 2.69773082,
+      "format_valid": 17,
+      "cost_limit_reached": 0
+    }
+  ],
+  "errors": []
+}

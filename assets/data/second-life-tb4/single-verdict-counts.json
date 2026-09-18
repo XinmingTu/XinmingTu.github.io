@@ -1,0 +1,74 @@
+{
+  "source_commit": "6d99501ad21662cad4ef82c9089e15492d24e976",
+  "note": "Counts derived from pinned per-review rows; columns: pass, fail, invalid. Rows: source success, source failure.",
+  "reviewers": [
+    {
+      "reviewer": "gpt-5-6-sol",
+      "source_file": "results/tbench4-complete-gpt-5-6-sol-single_pair.jsonl",
+      "n": 158,
+      "confusion": [
+        [
+          65,
+          14,
+          0
+        ],
+        [
+          50,
+          29,
+          0
+        ]
+      ]
+    },
+    {
+      "reviewer": "glm-5-3",
+      "source_file": "results/tbench4-complete-glm-5-3-single_pair.jsonl",
+      "n": 158,
+      "confusion": [
+        [
+          78,
+          0,
+          1
+        ],
+        [
+          71,
+          8,
+          0
+        ]
+      ]
+    },
+    {
+      "reviewer": "deepseek-v4p1-flash",
+      "source_file": "results/tbench4-complete-deepseek-v4p1-flash-single_pair.jsonl",
+      "n": 158,
+      "confusion": [
+        [
+          51,
+          25,
+          3
+        ],
+        [
+          45,
+          28,
+          6
+        ]
+      ]
+    },
+    {
+      "reviewer": "glm-5-3-flash",
+      "source_file": "results/tbench4-glm-flash-complete-glm-5-3-flash-single_pair.jsonl",
+      "n": 158,
+      "confusion": [
+        [
+          79,
+          0,
+          0
+        ],
+        [
+          69,
+          9,
+          1
+        ]
+      ]
+    }
+  ]
+}

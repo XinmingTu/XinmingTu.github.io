@@ -1,0 +1,305 @@
+[
+  {
+    "reviewer": "gpt-5-6-sol",
+    "condition": "single_pair",
+    "metrics": {
+      "single_full": {
+        "n": 158,
+        "accuracy": 0.5949367088607594,
+        "balanced_accuracy": 0.5949367088607596,
+        "success_recall": 0.8227848101265823,
+        "failure_recall": 0.3670886075949367,
+        "false_approval_rate": 0.6329113924050633,
+        "format_valid_rate": 1.0,
+        "mean_brier_score": 0.36025063291139237,
+        "confusion": {
+          "true_positive": 65,
+          "false_negative_or_invalid": 14,
+          "true_negative": 29,
+          "false_positive_or_invalid": 50,
+          "invalid_outputs": 0
+        }
+      },
+      "pair_full": {
+        "n": 79,
+        "preferred_success_rate": 0.620253164556962,
+        "exact_pair_classification_rate": 0.4430379746835443,
+        "per_candidate_classification_accuracy": 0.6772151898734177,
+        "format_valid_rate": 1.0
+      },
+      "five_full": {
+        "n": 79,
+        "selection_success_rate": 0.810126582278481,
+        "format_valid_rate": 1.0
+      }
+    },
+    "cluster_bootstrap_95_ci": {
+      "single-full": {
+        "estimate": 0.5949367088607594,
+        "lower": 0.5476190476190477,
+        "upper": 0.6466666666666666,
+        "clusters": 48,
+        "replicates": 10000
+      },
+      "pair-full": {
+        "estimate": 0.620253164556962,
+        "lower": 0.5058823529411764,
+        "upper": 0.7303370786516854,
+        "clusters": 48,
+        "replicates": 10000
+      },
+      "five-full": {
+        "estimate": 0.810126582278481,
+        "lower": 0.7283950617283951,
+        "upper": 0.8873239436619719,
+        "clusters": 48,
+        "replicates": 10000
+      }
+    }
+  },
+  {
+    "reviewer": "glm-5-3",
+    "condition": "single_pair",
+    "metrics": {
+      "single_full": {
+        "n": 158,
+        "accuracy": 0.5443037974683544,
+        "balanced_accuracy": 0.5443037974683544,
+        "success_recall": 0.9873417721518988,
+        "failure_recall": 0.10126582278481013,
+        "false_approval_rate": 0.8987341772151899,
+        "format_valid_rate": 0.9936708860759493,
+        "mean_brier_score": 0.3117764331210191,
+        "confusion": {
+          "true_positive": 78,
+          "false_negative_or_invalid": 1,
+          "true_negative": 8,
+          "false_positive_or_invalid": 71,
+          "invalid_outputs": 1
+        }
+      },
+      "pair_full": {
+        "n": 79,
+        "preferred_success_rate": 0.6582278481012658,
+        "exact_pair_classification_rate": 0.4177215189873418,
+        "per_candidate_classification_accuracy": 0.6329113924050633,
+        "format_valid_rate": 0.9746835443037974
+      },
+      "five_full": {
+        "n": 79,
+        "selection_success_rate": 0.6455696202531646,
+        "format_valid_rate": 1.0
+      }
+    },
+    "cluster_bootstrap_95_ci": {
+      "single-full": {
+        "estimate": 0.5443037974683544,
+        "lower": 0.5060975609756098,
+        "upper": 0.5909090909090909,
+        "clusters": 48,
+        "replicates": 10000
+      },
+      "pair-full": {
+        "estimate": 0.6582278481012658,
+        "lower": 0.5555555555555556,
+        "upper": 0.7638888888888888,
+        "clusters": 48,
+        "replicates": 10000
+      },
+      "five-full": {
+        "estimate": 0.6455696202531646,
+        "lower": 0.5316455696202531,
+        "upper": 0.7534246575342466,
+        "clusters": 48,
+        "replicates": 10000
+      }
+    }
+  },
+  {
+    "reviewer": "deepseek-v4p1-flash",
+    "condition": "single_pair",
+    "metrics": {
+      "single_full": {
+        "n": 158,
+        "accuracy": 0.5,
+        "balanced_accuracy": 0.5,
+        "success_recall": 0.6455696202531646,
+        "failure_recall": 0.35443037974683544,
+        "false_approval_rate": 0.6455696202531646,
+        "format_valid_rate": 0.9430379746835443,
+        "mean_brier_score": 0.28114563758389266,
+        "confusion": {
+          "true_positive": 51,
+          "false_negative_or_invalid": 28,
+          "true_negative": 28,
+          "false_positive_or_invalid": 51,
+          "invalid_outputs": 9
+        }
+      },
+      "pair_full": {
+        "n": 79,
+        "preferred_success_rate": 0.5316455696202531,
+        "exact_pair_classification_rate": 0.189873417721519,
+        "per_candidate_classification_accuracy": 0.5253164556962026,
+        "format_valid_rate": 0.9240506329113924
+      },
+      "five_full": {
+        "n": 79,
+        "selection_success_rate": 0.5822784810126582,
+        "format_valid_rate": 1.0
+      }
+    },
+    "cluster_bootstrap_95_ci": {
+      "single-full": {
+        "estimate": 0.5,
+        "lower": 0.43373493975903615,
+        "upper": 0.5714285714285714,
+        "clusters": 48,
+        "replicates": 10000
+      },
+      "pair-full": {
+        "estimate": 0.5316455696202531,
+        "lower": 0.4074074074074074,
+        "upper": 0.6578947368421053,
+        "clusters": 48,
+        "replicates": 10000
+      },
+      "five-full": {
+        "estimate": 0.5822784810126582,
+        "lower": 0.47297297297297297,
+        "upper": 0.6823529411764706,
+        "clusters": 48,
+        "replicates": 10000
+      }
+    }
+  },
+  {
+    "reviewer": "deepseek-v4p1-flash",
+    "condition": "five_neutral",
+    "metrics": {
+      "single_full": {
+        "n": 0,
+        "accuracy": null,
+        "balanced_accuracy": null,
+        "success_recall": null,
+        "failure_recall": null,
+        "false_approval_rate": null,
+        "format_valid_rate": null,
+        "mean_brier_score": null,
+        "confusion": {
+          "true_positive": 0,
+          "false_negative_or_invalid": 0,
+          "true_negative": 0,
+          "false_positive_or_invalid": 0,
+          "invalid_outputs": 0
+        }
+      },
+      "pair_full": {
+        "n": 0,
+        "preferred_success_rate": null,
+        "exact_pair_classification_rate": null,
+        "per_candidate_classification_accuracy": null,
+        "format_valid_rate": null
+      },
+      "five_full": {
+        "n": 79,
+        "selection_success_rate": 0.5949367088607594,
+        "format_valid_rate": 1.0
+      }
+    },
+    "cluster_bootstrap_95_ci": {
+      "single-full": {
+        "estimate": null,
+        "lower": null,
+        "upper": null,
+        "clusters": 0,
+        "replicates": 0
+      },
+      "pair-full": {
+        "estimate": null,
+        "lower": null,
+        "upper": null,
+        "clusters": 0,
+        "replicates": 0
+      },
+      "five-full": {
+        "estimate": 0.5949367088607594,
+        "lower": 0.4931506849315068,
+        "upper": 0.7011494252873564,
+        "clusters": 48,
+        "replicates": 10000
+      }
+    },
+    "selected_candidate_counts": {
+      "5": 3,
+      "1": 70,
+      "3": 2,
+      "2": 4
+    },
+    "paired_success_delta_ci": {
+      "estimate": 0.012658227848101266,
+      "lower": -0.13513513513513514,
+      "upper": 0.16901408450704225,
+      "clusters": 48,
+      "replicates": 10000
+    }
+  },
+  {
+    "reviewer": "glm-5-3-flash",
+    "condition": "five_full",
+    "metrics": {
+      "single_full": {
+        "n": 0,
+        "accuracy": null,
+        "balanced_accuracy": null,
+        "success_recall": null,
+        "failure_recall": null,
+        "false_approval_rate": null,
+        "format_valid_rate": null,
+        "mean_brier_score": null,
+        "confusion": {
+          "true_positive": 0,
+          "false_negative_or_invalid": 0,
+          "true_negative": 0,
+          "false_positive_or_invalid": 0,
+          "invalid_outputs": 0
+        }
+      },
+      "pair_full": {
+        "n": 0,
+        "preferred_success_rate": null,
+        "exact_pair_classification_rate": null,
+        "per_candidate_classification_accuracy": null,
+        "format_valid_rate": null
+      },
+      "five_full": {
+        "n": 79,
+        "selection_success_rate": 0.7088607594936709,
+        "format_valid_rate": 0.9746835443037974
+      }
+    },
+    "cluster_bootstrap_95_ci": {
+      "single-full": {
+        "estimate": null,
+        "lower": null,
+        "upper": null,
+        "clusters": 0,
+        "replicates": 0
+      },
+      "pair-full": {
+        "estimate": null,
+        "lower": null,
+        "upper": null,
+        "clusters": 0,
+        "replicates": 0
+      },
+      "five-full": {
+        "estimate": 0.7088607594936709,
+        "lower": 0.6103896103896104,
+        "upper": 0.8059701492537313,
+        "clusters": 48,
+        "replicates": 10000
+      }
+    }
+  }
+]

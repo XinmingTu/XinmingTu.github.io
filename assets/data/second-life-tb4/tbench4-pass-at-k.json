@@ -1,0 +1,128 @@
+{
+  "note": "Finite five-run empirical oracle pass@k, averaged over all 66 tasks per source. Best reviewer is selected retrospectively per source, not per task. Five reconstruction assumes valid selection on unreviewed homogeneous pools and uniform fallback on unreviewed mixed pools. Bounds vary only the latter; they are not confidence intervals. Missing source rewards count as failure. Not an end-to-end measured score.",
+  "sources": [
+    {
+      "source": "fable-5.1",
+      "tasks": 66,
+      "pass_at_k": [
+        0.5787878787878789,
+        0.7000000000000001,
+        0.746969696969697,
+        0.7727272727272727,
+        0.7878787878787878
+      ],
+      "best_observed_reviewers": [
+        "gpt-5-6-sol"
+      ],
+      "reviewer_mixed_successes": {
+        "gpt-5-6-sol": 26,
+        "glm-5-3": 19,
+        "deepseek-v4p1-flash": 20,
+        "glm-5-3-flash": 22
+      },
+      "reviewed_mixed_pools": 30,
+      "unreviewed_mixed_pools": {
+        "terminal-bench/html-js-filter": 2,
+        "terminal-bench/interleaved-vigenere": 3,
+        "terminal-bench/photonic-waveguide-routing": 1
+      },
+      "all_pass_pools": 19,
+      "missing_rewards_counted_as_failure": 0,
+      "reconstructed_best_five": 0.7000000000000001,
+      "missing_pool_lower_bound": 0.6818181818181818,
+      "missing_pool_upper_bound": 0.7272727272727273
+    },
+    {
+      "source": "gpt-5.6-sol",
+      "tasks": 66,
+      "pass_at_k": [
+        0.37272727272727274,
+        0.4954545454545455,
+        0.5499999999999999,
+        0.5818181818181818,
+        0.6060606060606061
+      ],
+      "best_observed_reviewers": [
+        "gpt-5-6-sol"
+      ],
+      "reviewer_mixed_successes": {
+        "gpt-5-6-sol": 24,
+        "glm-5-3": 18,
+        "deepseek-v4p1-flash": 13,
+        "glm-5-3-flash": 21
+      },
+      "reviewed_mixed_pools": 28,
+      "unreviewed_mixed_pools": {
+        "terminal-bench/atrx-vep-crispr": 1,
+        "terminal-bench/intrastat-meldung": 4,
+        "terminal-bench/kv-live-surgery": 1,
+        "terminal-bench/shadow-relay": 4,
+        "terminal-bench/uefi-bootkit": 4
+      },
+      "all_pass_pools": 7,
+      "missing_rewards_counted_as_failure": 0,
+      "reconstructed_best_five": 0.5121212121212121,
+      "missing_pool_lower_bound": 0.4696969696969697,
+      "missing_pool_upper_bound": 0.5454545454545454
+    },
+    {
+      "source": "glm-5.3",
+      "tasks": 66,
+      "pass_at_k": [
+        0.4181818181818182,
+        0.5075757575757576,
+        0.546969696969697,
+        0.5666666666666667,
+        0.5757575757575758
+      ],
+      "best_observed_reviewers": [
+        "gpt-5-6-sol",
+        "glm-5-3"
+      ],
+      "reviewer_mixed_successes": {
+        "gpt-5-6-sol": 14,
+        "glm-5-3": 14,
+        "deepseek-v4p1-flash": 13,
+        "glm-5-3-flash": 13
+      },
+      "reviewed_mixed_pools": 21,
+      "unreviewed_mixed_pools": {
+        "terminal-bench/fp8-rmsnorm-gemm": 2,
+        "terminal-bench/layout-config-recreation2": 4
+      },
+      "all_pass_pools": 15,
+      "missing_rewards_counted_as_failure": 1,
+      "reconstructed_best_five": 0.4575757575757576,
+      "missing_pool_lower_bound": 0.4393939393939394,
+      "missing_pool_upper_bound": 0.4696969696969697
+    },
+    {
+      "source": "gpt-6-astra",
+      "tasks": 66,
+      "pass_at_k": [
+        0.5818181818181818,
+        0.6484848484848484,
+        0.6787878787878787,
+        0.696969696969697,
+        0.7121212121212122
+      ],
+      "best_observed_reviewers": [
+        "gpt-5-6-sol",
+        "glm-5-3-flash"
+      ],
+      "reviewer_mixed_successes": {
+        "gpt-5-6-sol": 12,
+        "glm-5-3": 10,
+        "deepseek-v4p1-flash": 9,
+        "glm-5-3-flash": 12
+      },
+      "reviewed_mixed_pools": 18,
+      "unreviewed_mixed_pools": {},
+      "all_pass_pools": 29,
+      "missing_rewards_counted_as_failure": 0,
+      "reconstructed_best_five": 0.6212121212121212,
+      "missing_pool_lower_bound": 0.6212121212121212,
+      "missing_pool_upper_bound": 0.6212121212121212
+    }
+  ]
+}

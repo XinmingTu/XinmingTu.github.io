@@ -1,0 +1,20 @@
+{
+  "status": "complete",
+  "updated_at": "2026-09-17T22:21:11.568185+00:00",
+  "budget_usd": 400,
+  "accounted_new_cost_usd": 30.272034849999997,
+  "cost_note": "Completed calls only; in-flight calls reserve budget before launch.",
+  "progress": [
+    {
+      "model": "glm-5-3-flash",
+      "condition": "single_pair",
+      "completed_new": 237,
+      "planned_new": 237,
+      "reused": 79,
+      "cost_usd": 30.272034849999997,
+      "format_valid": 235,
+      "cost_limit_reached": 0
+    }
+  ],
+  "errors": []
+}

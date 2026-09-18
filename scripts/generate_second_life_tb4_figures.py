@@ -207,11 +207,10 @@ def main():
         for ax, s, item in zip(axes.flat, sources, data["sources"]):
             ys = np.array(s["pass_at_k"]) * 100
             mid = item["selected_rate"] * 100
-            lo, hi = item["lower"] * 100, item["upper"] * 100
             color = COLORS[0]
             ax.plot(range(1, 6), ys, "o-", color=color, linewidth=2, label="Oracle pass@k")
             ax.hlines(ys[0], 1, 5, color="#b8c0ce", linestyle=":", linewidth=1)
-            ax.errorbar(5, mid, yerr=[[mid-lo], [hi-mid]], fmt="*", color="#20242d", markersize=14, capsize=5, label="GPT-5.6 Sol selector at k=5")
+            ax.plot(5, mid, "*", color="#20242d", markersize=14, label="GPT-5.6 Sol reviewer at k=5")
             ax.annotate(f"{mid:.1f}% selected", (5, mid), xytext=(-12, -19), textcoords="offset points", ha="right", fontsize=10, weight="bold", bbox={"facecolor": "white", "edgecolor": "none", "pad": .3})
             ax.annotate(f"{ys[-1]:.1f}% oracle", (5, ys[-1]), xytext=(-10, 10), textcoords="offset points", ha="right", fontsize=10, color=color)
             ax.annotate(f"{ys[0]:.1f}%", (1, ys[0]), xytext=(6, -17), textcoords="offset points", fontsize=10, color="#747d8b")
@@ -224,7 +223,7 @@ def main():
             ax.set_xlabel("Number of frozen attempts (k)")
         handles, labels = axes.flat[0].get_legend_handles_labels()
         fig.legend(handles, labels, loc="outside lower center", ncol=1 if mobile else 2, frameon=False)
-        save(fig, "tb4-sampling-hero" + ("-mobile" if mobile else ""), "All 66 tasks per source. Oracle pass@1–5, GPT-5.6 Sol selection stars at k=5, and reconstructed gains over pass@1. Whiskers bound excluded mixed pools, not statistical uncertainty.")
+        save(fig, "tb4-sampling-hero" + ("-mobile" if mobile else ""), "All 66 tasks per source. Oracle pass@1–5 and reconstructed selection stars using the same GPT-5.6 Sol reviewer at k=5. Excluded mixed pools use uniform fallback; their outcome bounds are reported in the methods table.")
 
     neutral = next(r for r in complete if r["condition"] == "five_neutral")
     original_rows = read("deepseek-five-positions.json")

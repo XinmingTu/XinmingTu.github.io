@@ -376,14 +376,14 @@ The paired success change is +1.3 points, with a task-cluster 95% interval of [â
 
 ## Selection recovers part of the sampling gain
 
-**Five attempts create headroom. Selection determines how much of it becomes useful.** To see the full task-level effect, we add back all-success and all-failure pools and use the same GPT reviewer across all four sources.
+**Five attempts create headroom. Selection determines how much of it becomes useful.** To see the full task-level effect, we add back all-success and all-failure pools and use **GPT-5.6 Sol as the reviewer across all four sources**.
 
 <figure class="sle-figure" markdown="0">
   <picture>
     <source media="(max-width: 600px)" srcset="/assets/img/2026-08-28-second-life-agent-evals/tb4-sampling-hero-mobile.svg">
     <img src="/assets/img/2026-08-28-second-life-agent-evals/tb4-sampling-hero.svg" alt="Oracle pass@1â€“5 curves and GPT selection stars over all 66 tasks per source. Fable rises from 57.9% to 70.0%, GPT from 37.3% to 51.2%, GLM from 41.8% to 45.8%, and GPT-6 from 58.2% to 62.1%." loading="lazy">
   </picture>
-  <figcaption>Curves: empirical oracle pass@k. Stars: reconstructed whole-job success using the GPT-5.6 Sol reviewer at k=5. Excluded mixed pools use uniform fallback; whiskers bound their possible outcomes, not statistical confidence. These are derived estimates, not official end-to-end benchmark scores.</figcaption>
+  <figcaption>Curves: empirical oracle pass@k. Stars: reconstructed whole-job success using the same GPT-5.6 Sol reviewer at k=5. Excluded mixed pools use uniform fallback; bounds for their possible outcomes are in the methods below. These are derived estimates, not official end-to-end benchmark scores.</figcaption>
 </figure>
 
 On Fable-source runs, selection raises reconstructed success from **57.9% to 70.0%**. On GPT-source runs, it rises from **37.3% to 51.2%**. GLM and GPT-6 sources gain about 3.9 points each. Mixed-pool selection gains translate into smaller whole-job gains because selection can change the outcome only on mixed tasks.
@@ -398,10 +398,12 @@ Ten mixed pools were excluded by construction: eight had source-run exceptions a
 
 For Fable, the calculation is `(19 + 26 + (2 + 3 + 1) / 5) / 66 = 70.0%`: 19 all-success pools, 26 successful selections, and three excluded pools with 2, 3, and 1 successes among five attempts.
 
-| Source | pass@1 | GPT selection | Oracle pass@5 | Excluded-pool bounds |
+| Source | pass@1 | GPT-5.6 Sol selection | Oracle pass@5 | Excluded-pool bounds |
 | --- | ---: | ---: | ---: | ---: |
 {% for source in tb4.sources %}| {{ source.name }} | {{ source.pass1 }}% | {{ source.selected }}% | {{ source.pass5 }}% | {{ source.coverage_bounds }}% |
 {% endfor %}
+
+The bounds hold the GPT-5.6 Sol review results fixed and treat every excluded mixed pool as either an unsuccessful or a successful selection. They are not confidence intervals or a range across reviewers.
 
 The curve is the probability that a uniformly sampled subset of k frozen attempts contains a success. Reviewer selection was evaluated at k=5 only. [Data and assumptions]({{ tb4.repo }}/results/tbench4-pass-at-k.json).
 

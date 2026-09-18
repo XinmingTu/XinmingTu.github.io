@@ -62,10 +62,17 @@ The pass@k figure uses **GPT-5.6 Sol as the reviewer in every source panel**,
 computed from the source-specific counts. This is explicit rather than a
 retrospective choice of a different best reviewer per source. In this snapshot
 GPT is also tied for, or attains, the highest observed count in each panel.
-Stars are whole-job reconstructions at k=5; whiskers bound unreviewed mixed
-pool outcomes and are not statistical confidence intervals. Homogeneous pools
-assume valid selection; excluded mixed pools use uniform fallback. The source
-data records one missing GLM reward counted as failure.
+Stars are reconstructions at k=5 on the included tasks. Both the oracle curves
+and selection stars exclude the 10 mixed pools omitted for source-run exceptions
+or artifact collection failures: 3 Fable, 5 GPT, 2 GLM, and 0 GPT-6. The respective
+denominators are 63, 61, 64, and 66 tasks. There is no fallback or coverage range.
+For each excluded pool with c successes among five attempts, the generator
+subtracts `1 - C(5-c,k)/C(5,k)` from the full source's summed oracle pass@k,
+then divides by the included task count. Selection is `(all_pass_pools +
+gpt_selection_successes) / included_tasks`. Homogeneous pools assume valid
+selection. The source data records one missing GLM reward counted as failure.
+The pinned input JSON remains unchanged; derived blog metrics implement this
+exclusion policy rather than the input's original whole-job fallback policy.
 
 Cost tables cover only three named incremental batches, including the separate
 prompt control. They exclude earlier panels and source-run generation, and

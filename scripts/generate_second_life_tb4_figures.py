@@ -178,12 +178,13 @@ def main():
             vals = [float(r[metric]) for r in data["reviewers"]]
             bars = ax.bar(range(4), vals, color=COLORS, width=.65)
             ax.bar_label(bars, labels=[f"{v:.1f}%" for v in vals], padding=5, fontsize=10, weight="bold", bbox={"facecolor": "white", "edgecolor": "none", "pad": .3})
-            ax.axhline(50, color="#747d8b", linestyle="--", linewidth=1.4)
-            ax.set(xticks=range(4), xticklabels=short_labels, ylim=(0, 100), yticks=[0, 25, 50, 75, 100], ylabel=ylabel, title=title)
+            ax.axhline(50, color="#747d8b", linestyle="--", linewidth=1.4, clip_on=False, zorder=4)
+            ax.spines["bottom"].set_visible(False)
+            ax.set(xticks=range(4), xticklabels=short_labels, ylim=(50, 100), yticks=[50, 60, 70, 80, 90, 100], ylabel=ylabel, title=title)
             ax.tick_params(axis="x", labelsize=9)
             ax.set_axisbelow(True)
             ax.grid(axis="y", alpha=.15)
-        save(fig, "tb4-single-pair" + ("-mobile" if mobile else ""), "Single accuracy and Pair successful selection on the same 79 pools. Dashed lines mark 50% baselines. Different metrics, not a causal context-gain estimate.")
+        save(fig, "tb4-single-pair" + ("-mobile" if mobile else ""), "Single accuracy (79 successful and 79 failed runs) and Pair successful selection on the same 79 pools. Axes start at the dashed 50% baselines. Different metrics, not a causal context-gain estimate.")
 
     for mobile in (False, True):
         fig, axes = plt.subplots(4 if mobile else 2, 1 if mobile else 2, figsize=(4.4, 11.8) if mobile else (8.4, 6.6), layout="constrained", sharey=True)

@@ -337,7 +337,7 @@ GLM Flash approves **{{ flash.success_recall }}% of successful runs and {{ flash
     <source media="(max-width: 600px)" srcset="/assets/img/2026-08-28-second-life-agent-evals/tb4-single-pair-mobile.svg">
     <img src="/assets/img/2026-08-28-second-life-agent-evals/tb4-single-pair.svg" alt="Side-by-side vertical bar charts: Single accuracy is 59.5%, 54.4%, 50.0%, and 55.7%; Pair successful selection is 62.0%, 65.8%, 53.2%, and 63.3% for GPT, GLM, DeepSeek, and GLM Flash respectively." loading="lazy">
   </picture>
-  <figcaption>Same 79 pools and anchors, same reviewer colors, shared 0–100% axes. Single measures judgment accuracy; Pair measures successful selection. Dashed lines mark their 50% baselines. The metrics differ, so the gap is not a causal estimate of context benefit.</figcaption>
+  <figcaption>Same 79 pools and anchors, same reviewer colors. Single measures judgment accuracy on 79 successful and 79 failed runs; Pair measures successful selection. Both axes start at the dashed 50% random baselines; labels show absolute rates. The metrics differ, so the gap is not a causal estimate of context benefit.</figcaption>
 </figure>
 
 The distinction also appears within Pair: **GLM labels both candidates correctly in only {{ glm.pair_exact }}% of pairs, yet selects the successful candidate in {{ glm.pair }}%**. A reviewer can choose well without correctly certifying every candidate.

@@ -9,7 +9,6 @@ from __future__ import annotations
 
 import json
 import os
-from math import comb
 from pathlib import Path
 
 os.environ.setdefault("MPLCONFIGDIR", "/tmp/second-life-matplotlib")
@@ -113,18 +112,16 @@ def main():
         })
         assert sum(s["reviewer_mixed_successes"][key] for s in sources) == wins
     for s in sources:
-        excluded = list(s["unreviewed_mixed_pools"].values())
-        included_tasks = s["tasks"] - len(excluded)
-        # Remove the same excluded pools from both the oracle curve and selection.
-        pass_at_k = [
-            (rate * s["tasks"] - sum(1 - comb(5 - c, k) / comb(5, k) for c in excluded)) / included_tasks
-            for k, rate in enumerate(s["pass_at_k"], start=1)
-        ]
-        effective = (s["all_pass_pools"] + s["reviewer_mixed_successes"]["gpt-5-6-sol"]) / included_tasks
-        successes = round(s["pass_at_k"][0] * s["tasks"] * 5) - s["all_pass_pools"] * 5 - sum(excluded)
+        unreviewed = list(s["unreviewed_mixed_pools"].values())
+        tasks = s["tasks"]
+        pass_at_k = s["pass_at_k"]
+        fallback = sum(unreviewed) / 5
+        effective = (s["all_pass_pools"] + s["reviewer_mixed_successes"]["gpt-5-6-sol"] + fallback) / tasks
+        successes = round(pass_at_k[0] * tasks * 5) - s["all_pass_pools"] * 5 - sum(unreviewed)
         uniform = successes / (s["reviewed_mixed_pools"] * 5)
-        assert np.isclose(pass_at_k[0], (successes + s["all_pass_pools"] * 5) / (included_tasks * 5))
-        assert np.isclose(pass_at_k[-1], (s["all_pass_pools"] + s["reviewed_mixed_pools"]) / included_tasks)
+        assert tasks == 66
+        assert np.isclose(pass_at_k[0], (successes + s["all_pass_pools"] * 5 + sum(unreviewed)) / (tasks * 5))
+        assert np.isclose(pass_at_k[-1], (s["all_pass_pools"] + s["reviewed_mixed_pools"] + len(unreviewed)) / tasks)
         assert all(a <= b + 1e-12 for a, b in zip(pass_at_k, pass_at_k[1:]))
         assert effective <= pass_at_k[-1] + 1e-12
         data["sources"].append({
@@ -132,7 +129,7 @@ def main():
             "uniform": percent(uniform), "uniform_rate": uniform,
             "reviewer_rates": [percent(s["reviewer_mixed_successes"][key] / s["reviewed_mixed_pools"]) for key in REVIEWERS],
             "gpt_selection_gain": percent(s["reviewer_mixed_successes"]["gpt-5-6-sol"] / s["reviewed_mixed_pools"] - uniform),
-            "included_tasks": included_tasks, "excluded_pools": len(excluded), "pass_at_k": pass_at_k,
+            "tasks": tasks, "unreviewed_mixed_pools": len(unreviewed), "pass_at_k": pass_at_k,
             "pass1": percent(pass_at_k[0]), "pass5": percent(pass_at_k[-1]),
             "selected": percent(effective), "gain": percent(effective - pass_at_k[0]),
             "selected_rate": effective,
@@ -222,16 +219,16 @@ def main():
             ax.annotate(f"{mid:.1f}% selected", (5, mid), xytext=(-12, -19), textcoords="offset points", ha="right", fontsize=10, weight="bold", bbox={"facecolor": "white", "edgecolor": "none", "pad": .3})
             ax.annotate(f"{ys[-1]:.1f}% oracle", (5, ys[-1]), xytext=(-10, 10), textcoords="offset points", ha="right", fontsize=10, color=color)
             ax.annotate(f"{ys[0]:.1f}%", (1, ys[0]), xytext=(6, -17), textcoords="offset points", fontsize=10, color="#747d8b")
-            ax.set_title(f'{item["name"]} · {item["included_tasks"]} tasks\n+{item["gain"]} pp over pass@1', fontsize=12, pad=12)
+            ax.set_title(f'{item["name"]} · {item["tasks"]} tasks\n+{item["gain"]} pp over pass@1', fontsize=12, pad=12)
             ax.set(xticks=range(1, 6), xlim=(.7, 5.5), ylim=(30, 88), yticks=[30, 40, 50, 60, 70, 80])
             ax.grid(alpha=.18)
         for ax in (axes if mobile else axes[:, 0]):
-            ax.set_ylabel("Success on included tasks (%)")
+            ax.set_ylabel("Whole-job success (%)")
         for ax in ([axes[-1]] if mobile else axes[1]):
             ax.set_xlabel("Number of frozen attempts (k)")
         handles, labels = axes.flat[0].get_legend_handles_labels()
         fig.legend(handles, labels, loc="outside lower center", ncol=1 if mobile else 2, frameon=False)
-        save(fig, "tb4-sampling-hero" + ("-mobile" if mobile else ""), "Oracle pass@1–5 and reconstructed selection stars using GPT-5.6 Sol at k=5, on the same included tasks per source. Excludes 3 Fable, 5 GPT, 2 GLM, and 0 GPT-6 mixed pools from both curves and stars. Homogeneous pools assume valid selection; no fallback is used.")
+        save(fig, "tb4-sampling-hero" + ("-mobile" if mobile else ""), "Full 66-task source jobs. Oracle pass@1–5 and reconstructed selection stars using GPT-5.6 Sol at k=5. Homogeneous pools assume valid selection; unreviewed mixed pools use uniform fallback. No tasks are removed from the denominator.")
 
     neutral = next(r for r in complete if r["condition"] == "five_neutral")
     original_rows = read("deepseek-five-positions.json")

@@ -18,6 +18,7 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import numpy as np
 from matplotlib.colors import LinearSegmentedColormap
+from matplotlib.lines import Line2D
 
 ROOT = Path(__file__).resolve().parents[1]
 INPUT = ROOT / "assets/data/second-life-tb4"
@@ -207,28 +208,42 @@ def main():
             ax.set_ylabel("Successful selections (%)")
         save(fig, "tb4-five-by-source" + ("-mobile" if mobile else ""), "Five selection by source and reviewer; fixed reviewer colors and order, source-specific uniform baselines, invalid outputs counted as failures. Source task sets differ.")
 
+    # Color encodes the source of the runs; every star uses the same reviewer.
+    source_colors = [COLORS[2], COLORS[0], COLORS[1], COLORS[3]]
     for mobile in (False, True):
-        fig, axes = plt.subplots(4 if mobile else 2, 1 if mobile else 2, figsize=(4.8, 12.6) if mobile else (8.8, 7), layout="constrained", sharex=True, sharey=True)
-        for ax, item in zip(axes.flat, data["sources"]):
+        fig, ax = plt.subplots(figsize=(4.8, 6.6) if mobile else (8.8, 5.7), layout="constrained")
+        for item, color in zip(data["sources"], source_colors):
             ys = np.array(item["pass_at_k"]) * 100
-            mid = item["selected_rate"] * 100
-            color = COLORS[0]
-            ax.plot(range(1, 6), ys, "o-", color=color, linewidth=2, label="Oracle pass@k")
-            ax.hlines(ys[0], 1, 5, color="#b8c0ce", linestyle=":", linewidth=1)
-            ax.plot(5, mid, "*", color="#20242d", markersize=14, label="GPT-5.6 Sol reviewer at k=5")
-            ax.annotate(f"{mid:.1f}% selected", (5, mid), xytext=(-12, -19), textcoords="offset points", ha="right", fontsize=10, weight="bold", bbox={"facecolor": "white", "edgecolor": "none", "pad": .3})
-            ax.annotate(f"{ys[-1]:.1f}% oracle", (5, ys[-1]), xytext=(-10, 10), textcoords="offset points", ha="right", fontsize=10, color=color)
-            ax.annotate(f"{ys[0]:.1f}%", (1, ys[0]), xytext=(6, -17), textcoords="offset points", fontsize=10, color="#747d8b")
-            ax.set_title(f'{item["name"]} · {item["tasks"]} tasks\n+{item["gain"]} pp over pass@1', fontsize=12, pad=12)
-            ax.set(xticks=range(1, 6), xlim=(.7, 5.5), ylim=(30, 88), yticks=[30, 40, 50, 60, 70, 80])
-            ax.grid(alpha=.18)
-        for ax in (axes if mobile else axes[:, 0]):
-            ax.set_ylabel("Whole-job success (%)")
-        for ax in ([axes[-1]] if mobile else axes[1]):
-            ax.set_xlabel("Number of frozen attempts (k)")
-        handles, labels = axes.flat[0].get_legend_handles_labels()
-        fig.legend(handles, labels, loc="outside lower center", ncol=1 if mobile else 2, frameon=False)
-        save(fig, "tb4-sampling-hero" + ("-mobile" if mobile else ""), "Full 66-task source jobs. Oracle pass@1–5 and reconstructed selection stars using GPT-5.6 Sol at k=5. Homogeneous pools assume valid selection; unreviewed mixed pools use uniform fallback. No tasks are removed from the denominator.")
+            ax.plot(range(1, 6), ys, "o-", color=color, linewidth=2.2, markersize=4, zorder=2)
+        for item, color in zip(data["sources"], source_colors):
+            selected = item["selected_rate"] * 100
+            ax.plot(5, selected, "*", color=color, markersize=15,
+                    markeredgecolor="white", markeredgewidth=.8, zorder=4)
+            ax.annotate(f'{item["selected"]}%\n+{item["gain"]} pp', (5, selected),
+                        xytext=(12, 0), textcoords="offset points", va="center",
+                        color=color, fontsize=10 if mobile else 11, weight="bold", linespacing=1.4)
+        ax.set(xticks=range(1, 6), xlim=(.8, 6.45 if mobile else 6.05),
+               ylim=(30, 84), yticks=[30, 40, 50, 60, 70, 80],
+               xlabel="Number of frozen attempts (k)", ylabel="Whole-job success (%)")
+        ax.set_title("All 66 tasks per source", loc="left", fontsize=10 if mobile else 11,
+                     color="#747d8b", pad=30 if mobile else 14)
+        ax.text(0 if mobile else 1, 1.025 if mobile else 1.035,
+                "Star labels: score / gain over pass@1", transform=ax.transAxes,
+                ha="left" if mobile else "right", fontsize=8 if mobile else 10, color="#747d8b")
+        ax.set_axisbelow(True)
+        ax.grid(axis="y", alpha=.18)
+        ax.spines["right"].set_visible(False)
+        source_handles = [Line2D([], [], color=color, linewidth=2.5, label=item["name"])
+                          for item, color in zip(data["sources"], source_colors)]
+        fig.legend(handles=source_handles, loc="outside upper center", ncol=2 if mobile else 4,
+                   title="Run source", frameon=False, fontsize=10, title_fontsize=10,
+                   columnspacing=1.4, handlelength=1.6)
+        semantics = [Line2D([], [], color="#747d8b", marker="o", markersize=4, label="Oracle pass@k"),
+                     Line2D([], [], color="#20242d", marker="*", linestyle="none", markersize=12,
+                            label="GPT-5.6 Sol selection at k=5")]
+        fig.legend(handles=semantics, loc="outside lower center", ncol=1 if mobile else 2,
+                   frameon=False, fontsize=10)
+        save(fig, "tb4-sampling-hero" + ("-mobile" if mobile else ""), "One shared plot over the full 66-task source jobs. Color identifies the source model; curves show oracle pass@1–5 and stars show GPT-5.6 Sol selection at k=5. Star labels give reconstructed success and percentage-point gain over pass@1. Homogeneous pools assume valid selection; unreviewed mixed pools use uniform fallback.")
 
     neutral = next(r for r in complete if r["condition"] == "five_neutral")
     original_rows = read("deepseek-five-positions.json")

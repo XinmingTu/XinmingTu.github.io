@@ -38,10 +38,10 @@ python scripts/generate_second_life_tb4_figures.py
 ```
 
 This generates `_data/second_life_tb4.json` (used by the article's Liquid
-tables) and five figure families under `assets/img/2026-08-28-second-life-agent-evals/`.
-The four main figures also have `-mobile.svg` variants, selected with HTML
+tables) and six figure families under `assets/img/2026-08-28-second-life-agent-evals/`.
+The four main figures and appendix oracle curves have `-mobile.svg` variants, selected with HTML
 `picture` elements below 600px. Panel figures stack on mobile; the sampling
-hero retains one shared plot with a taller layout. Data and scales are identical.
+hero retains four source rows on a shared success axis. Data and scales are identical.
 PNG copies for visual inspection go to `/tmp/`. The original TB3 figure script
 and SVGs are retained separately.
 
@@ -59,19 +59,23 @@ counts in `tbench4-pass-at-k.json`. The generator cross-checks their sums
 against the separate 79- and 18-pool result files. Every source has its own
 uniform baseline, computed from its reviewed candidate outcomes.
 
-The pass@k figure combines four source-colored curves on shared axes and uses
+The main sampling figure shows four source rows with pass@1, selection, and
+oracle pass@5 on a shared success axis. It uses
 **GPT-5.6 Sol as the reviewer for every source**,
 computed from the source-specific counts. This is explicit rather than a
 retrospective choice of a different best reviewer per source. In this snapshot
 GPT is also tied for, or attains, the highest observed count for each source.
-Stars are whole-job reconstructions at k=5 over **all 66 tasks per source**,
+Selection points are whole-job reconstructions at k=5 over **all 66 tasks per source**,
 matching the task coverage of each frozen source job. The oracle curves use the
 unchanged full-job pass@k values. Selection is `(all_pass_pools +
 gpt_selection_successes + sum(unreviewed_success_counts)/5) / 66`.
 Homogeneous pools assume valid selection; the 3 Fable, 5 GPT, 2 GLM, and 0 GPT-6
 unreviewed mixed pools use uniform fallback. These are assumptions, not measured
-reviewer outcomes. Matching colored stars show selection at k=5, labeled with the success rate
-and percentage-point gain over pass@1. There are no coverage whiskers.
+reviewer outcomes. Solid segments show realized selection gains; dashed segments
+show remaining oracle headroom. Selection points are labeled with success and
+percentage-point gain over pass@1. There are no coverage whiskers. The appendix
+contains four separate oracle pass@1–5 line plots with shared axes; these do not
+represent reviewer evaluations at k=2–4.
 The source data records one missing GLM reward counted as failure. No tasks
 are removed from the denominator. These reconstructions are not official
 end-to-end leaderboard scores; direct comparisons also require matching the

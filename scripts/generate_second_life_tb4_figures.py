@@ -208,42 +208,62 @@ def main():
             ax.set_ylabel("Successful selections (%)")
         save(fig, "tb4-five-by-source" + ("-mobile" if mobile else ""), "Five selection by source and reviewer; fixed reviewer colors and order, source-specific uniform baselines, invalid outputs counted as failures. Source task sets differ.")
 
-    # Color encodes the source of the runs; every star uses the same reviewer.
+    # Separate each source's baseline, realized selection, and oracle ceiling.
     source_colors = [COLORS[2], COLORS[0], COLORS[1], COLORS[3]]
     for mobile in (False, True):
-        fig, ax = plt.subplots(figsize=(4.8, 6.6) if mobile else (8.8, 5.7), layout="constrained")
-        for item, color in zip(data["sources"], source_colors):
-            ys = np.array(item["pass_at_k"]) * 100
-            ax.plot(range(1, 6), ys, "o-", color=color, linewidth=2.2, markersize=4, zorder=2)
-        for item, color in zip(data["sources"], source_colors):
-            selected = item["selected_rate"] * 100
-            ax.plot(5, selected, "*", color=color, markersize=15,
-                    markeredgecolor="white", markeredgewidth=.8, zorder=4)
-            ax.annotate(f'{item["selected"]}%\n+{item["gain"]} pp', (5, selected),
-                        xytext=(12, 0), textcoords="offset points", va="center",
-                        color=color, fontsize=10 if mobile else 11, weight="bold", linespacing=1.4)
-        ax.set(xticks=range(1, 6), xlim=(.8, 6.45 if mobile else 6.05),
-               ylim=(30, 84), yticks=[30, 40, 50, 60, 70, 80],
-               xlabel="Number of frozen attempts (k)", ylabel="Whole-job success (%)")
-        ax.set_title("All 66 tasks per source", loc="left", fontsize=10 if mobile else 11,
-                     color="#747d8b", pad=30 if mobile else 14)
-        ax.text(0 if mobile else 1, 1.025 if mobile else 1.035,
-                "Star labels: score / gain over pass@1", transform=ax.transAxes,
-                ha="left" if mobile else "right", fontsize=8 if mobile else 10, color="#747d8b")
+        fig, ax = plt.subplots(figsize=(5.2, 6.1) if mobile else (8.8, 4.8), layout="constrained")
+        for y, item, color in zip(range(3, -1, -1), data["sources"], source_colors):
+            base, selected, oracle = item["pass_at_k"][0] * 100, item["selected_rate"] * 100, item["pass_at_k"][-1] * 100
+            assert base <= selected <= oracle
+            ax.plot([base, selected], [y, y], color=color, linewidth=4, solid_capstyle="round", zorder=2)
+            ax.plot([selected, oracle], [y, y], color=color, alpha=.45, linewidth=2, linestyle=(0, (3, 3)), zorder=2)
+            ax.plot(base, y, "o", color="#747d8b", markersize=5, zorder=3)
+            ax.plot(selected, y, "o", color=color, markersize=10, markeredgecolor="white", markeredgewidth=1, zorder=4)
+            ax.plot(oracle, y, "o", markerfacecolor="white", markeredgecolor=color, markeredgewidth=2, markersize=8, zorder=3)
+            for value in (base, oracle):
+                ax.annotate(f"{value:.1f}%", (value, y), xytext=(0, -18), textcoords="offset points",
+                            ha="center", fontsize=9 if mobile else 10, color="#747d8b")
+            ax.annotate(f'{item["selected"]}%  (+{item["gain"]} pp)', (selected, y),
+                        xytext=(0, 13), textcoords="offset points", ha="center",
+                        fontsize=10 if mobile else 11, color=color, weight="bold")
+        ax.set(xlim=(30, 88), ylim=(-.55, 3.65), xticks=[30, 40, 50, 60, 70, 80],
+               yticks=[3, 2, 1, 0], yticklabels=[item["name"].replace(" ", "\n", 1) if mobile else item["name"] for item in data["sources"]],
+               xlabel="Whole-job success (%)")
+        for tick, color in zip(ax.get_yticklabels(), source_colors):
+            tick.set_color(color)
+            tick.set_fontweight("bold")
+            tick.set_fontsize(10 if mobile else 11)
+        ax.tick_params(axis="y", length=0, pad=12)
+        ax.spines["left"].set_visible(False)
         ax.set_axisbelow(True)
-        ax.grid(axis="y", alpha=.18)
-        ax.spines["right"].set_visible(False)
-        source_handles = [Line2D([], [], color=color, linewidth=2.5, label=item["name"])
-                          for item, color in zip(data["sources"], source_colors)]
-        fig.legend(handles=source_handles, loc="outside upper center", ncol=2 if mobile else 4,
-                   title="Run source", frameon=False, fontsize=10, title_fontsize=10,
-                   columnspacing=1.4, handlelength=1.6)
-        semantics = [Line2D([], [], color="#747d8b", marker="o", markersize=4, label="Oracle pass@k"),
-                     Line2D([], [], color="#20242d", marker="*", linestyle="none", markersize=12,
-                            label="GPT-5.6 Sol selection at k=5")]
-        fig.legend(handles=semantics, loc="outside lower center", ncol=1 if mobile else 2,
-                   frameon=False, fontsize=10)
-        save(fig, "tb4-sampling-hero" + ("-mobile" if mobile else ""), "One shared plot over the full 66-task source jobs. Color identifies the source model; curves show oracle pass@1–5 and stars show GPT-5.6 Sol selection at k=5. Star labels give reconstructed success and percentage-point gain over pass@1. Homogeneous pools assume valid selection; unreviewed mixed pools use uniform fallback.")
+        ax.grid(axis="x", alpha=.15)
+        ax.set_title("Reviewer: GPT-5.6 Sol" + ("\n" if mobile else "  ·  ") + "All 66 tasks per source",
+                     loc="left", fontsize=11, color="#747d8b", pad=16)
+        semantics = [Line2D([], [], color="#747d8b", marker="o", linestyle="none", markersize=5, label="pass@1"),
+                     Line2D([], [], color="#20242d", marker="o", linestyle="none", markersize=9, label="Selection"),
+                     Line2D([], [], color="#20242d", marker="o", markerfacecolor="white", linestyle="none", markersize=8, label="Oracle pass@5")]
+        fig.legend(handles=semantics, loc="outside lower center", ncol=3, frameon=False,
+                   fontsize=9 if mobile else 10, handletextpad=.4, columnspacing=1 if mobile else 2)
+        save(fig, "tb4-sampling-hero" + ("-mobile" if mobile else ""), "Four source rows on a shared success axis: pass@1, GPT-5.6 Sol selection, and oracle pass@5. Solid segments show realized gains; dashed segments show remaining headroom. Selection labels show score and percentage-point gain over pass@1. All 66 tasks per source; homogeneous pools assume valid selection and unreviewed mixed pools use uniform fallback.")
+
+    for mobile in (False, True):
+        fig, axes = plt.subplots(4 if mobile else 2, 1 if mobile else 2,
+                                 figsize=(4.8, 11.5) if mobile else (8.8, 6.2),
+                                 layout="constrained", sharex=True, sharey=True)
+        for ax, item, color in zip(axes.flat, data["sources"], source_colors):
+            ys = np.array(item["pass_at_k"]) * 100
+            ax.plot(range(1, 6), ys, "o-", color=color, linewidth=2, markersize=5)
+            for k, value in enumerate(ys, start=1):
+                ax.annotate(f"{value:.1f}%", (k, value), xytext=(0, 8), textcoords="offset points",
+                            ha="center", color=color, fontsize=9)
+            ax.set_title(item["name"], color=color, weight="bold", fontsize=12, pad=10)
+            ax.set(xticks=range(1, 6), xlim=(.6, 5.4), ylim=(30, 87), yticks=[30, 40, 50, 60, 70, 80])
+            ax.grid(alpha=.15)
+        for ax in (axes if mobile else axes[:, 0]):
+            ax.set_ylabel("Oracle pass@k (%)")
+        for ax in ([axes[-1]] if mobile else axes[1]):
+            ax.set_xlabel("Number of frozen attempts (k)")
+        save(fig, "tb4-oracle-curves" + ("-mobile" if mobile else ""), "Appendix: empirical oracle pass@1–5 for each of the four full 66-task source jobs. Shared axes and source colors match the main selection figure. These are oracle availability curves, not reviewer evaluations at k=2–4.")
 
     neutral = next(r for r in complete if r["condition"] == "five_neutral")
     original_rows = read("deepseek-five-positions.json")
@@ -257,7 +277,7 @@ def main():
     ax.set(xlabel="Selected candidate position", ylabel="Selections (out of 79)", xticks=x, ylim=(0, 87))
     ax.legend(frameon=False, loc="upper right", fontsize=10)
     save(fig, "tb4-prompt-position", "DeepSeek V4.1 Flash changes position preference after removing the numbered output example; the success difference is inconclusive.")
-    print(f"Generated TB4 data and five figures from {COMMIT}; {total_pools} pools, baseline {baseline:.6f}.")
+    print(f"Generated TB4 data and six figure families from {COMMIT}; {total_pools} pools, baseline {baseline:.6f}.")
 
 
 if __name__ == "__main__":

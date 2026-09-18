@@ -12,7 +12,7 @@ sitemap: false
 bibliography: 2026-08-28-the-second-life-of-agent-evals.bib
 
 toc:
-  - name: "Three verification tasks"
+  - name: "Turning agent eval runs into verification tasks"
   - name: "Reviewers tend to say pass"
   - name: "Judgment and selection diverge"
   - name: "Selection depends on the reviewer and the source"
@@ -282,9 +282,11 @@ Using frozen Terminal-Bench 4.0 runs<d-cite key="terminalbench4"></d-cite>, revi
 
 <p class="sle-update">Updated {{ tb4.updated }} · Results through September 17 · <a href="{{ tb4.repo }}/README.md">Code and experiment snapshot</a></p>
 
-## Three verification tasks
+## Turning agent eval runs into verification tasks
 
-Each setting asks a different question about the same saved evidence:
+A completed eval run gives us both evidence and an outcome. We preserve the task, trajectory, and recorded artifacts, then use the original verifier outcome as a hidden label for a new verification task.
+
+We construct three settings: judge one run, compare two, or select among five.
 
 <div class="sle-family" markdown="0">
   <div class="sle-family-card">

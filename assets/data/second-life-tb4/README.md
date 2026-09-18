@@ -18,6 +18,11 @@ failures as rows. These counts retain invalid outputs as errors without
 misrepresenting them as pass/fail judgments. Raw reviewer reasoning and
 machine-local job paths are not copied into this website.
 
+The Single figure displays success/failure recall as a percentage heatmap,
+with a shared 0–100% color scale. Each pool supplies one anchor per class, so
+each cell's denominator is 79, including invalid outputs as errors. The
+underlying verdict counts are retained for auditing.
+
 The three instruction excerpts under `_includes/second-life-tb4/` are copied
 verbatim from `SINGLE_FULL_INSTRUCTION`, `PAIR_INSTRUCTION`, and
 `FIVE_INSTRUCTION` in the pinned `scripts/build_tbench4_run_bundle_tasks.py`.

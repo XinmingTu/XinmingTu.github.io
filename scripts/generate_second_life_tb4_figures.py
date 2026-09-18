@@ -17,7 +17,7 @@ import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import numpy as np
-from matplotlib.colors import ListedColormap
+from matplotlib.colors import LinearSegmentedColormap
 
 ROOT = Path(__file__).resolve().parents[1]
 INPUT = ROOT / "assets/data/second-life-tb4"
@@ -87,6 +87,9 @@ def main():
         m = panels[key]["metrics"]
         cm = counts[key]
         assert sum(map(sum, cm)) == m["single_full"]["n"] == 158
+        assert all(sum(row) == 79 for row in cm)
+        assert np.isclose(cm[0][0] / 79, m["single_full"]["success_recall"])
+        assert np.isclose(cm[1][1] / 79, m["single_full"]["failure_recall"])
         assert cm[0][0] + cm[1][1] == round(m["single_full"]["accuracy"] * 158)
         assert cm[0][2] + cm[1][2] == m["single_full"]["confusion"]["invalid_outputs"]
         n = m["five_full"]["n"] + gpt6[key]["metrics"]["five_full"]["n"]
@@ -127,21 +130,32 @@ def main():
             "cost": f'{ledger["accounted_new_cost_usd"]:.2f}'})
     (ROOT / "_data/second_life_tb4.json").write_text(json.dumps(data, indent=2) + "\n")
 
-    # Keep invalid responses separate from literal pass/fail judgments.
-    fig, axes = plt.subplots(2, 2, figsize=(10, 6.6), layout="constrained")
-    for ax, (key, label) in zip(axes.flat, REVIEWERS.items()):
-        cm = counts[key]
-        ax.imshow([[0, 1, 2], [1, 0, 2]], cmap=ListedColormap(["#eaf7f2", "#fff1e9", "#f0f2f5"]), vmin=0, vmax=2)
-        for i in range(2):
-            for j in range(3):
-                ax.text(j, i, str(cm[i][j]), ha="center", va="center", fontsize=22, weight="bold")
-        ax.set(xticks=[0, 1, 2], xticklabels=["Pass", "Fail", "Invalid"],
-               yticks=[0, 1], yticklabels=["Succeeded", "Failed"], xlabel="Reviewer output")
-        ax.set_title(label, weight="bold", pad=12)
-        ax.tick_params(length=0, pad=7)
-        for spine in ax.spines.values():
-            spine.set_visible(False)
-    save(fig, "tb4-single-verdicts", "Single Full: 79 successful and 79 failed runs per reviewer; invalid judgments are separate.")
+    # Recall retains all 79 anchors in each class, including invalid outputs.
+    recall = np.array([[panels[key]["metrics"]["single_full"][metric] * 100
+                        for metric in ("success_recall", "failure_recall")]
+                       for key in REVIEWERS])
+    fig, ax = plt.subplots(figsize=(7.6, 3.8), layout="constrained")
+    cmap = LinearSegmentedColormap.from_list("recall", ["#f3f6fb", "#3757a6"])
+    heatmap = ax.imshow(recall, cmap=cmap, vmin=0, vmax=100, aspect="auto")
+    for i in range(4):
+        for j in range(2):
+            value = recall[i, j]
+            ax.text(j, i, f"{value:.1f}%", ha="center", va="center",
+                    fontsize=18, weight="bold", color="white" if value >= 60 else "#20242d")
+    ax.set(xticks=[0, 1], xticklabels=["Success recall", "Failure recall"],
+           yticks=range(4), yticklabels=list(REVIEWERS.values()))
+    ax.xaxis.tick_top()
+    ax.tick_params(length=0, pad=12)
+    ax.set_xticks([.5], minor=True)
+    ax.set_yticks([.5, 1.5, 2.5], minor=True)
+    ax.grid(which="minor", color="white", linewidth=3)
+    ax.tick_params(which="minor", length=0)
+    for spine in ax.spines.values():
+        spine.set_visible(False)
+    colorbar = fig.colorbar(heatmap, ax=ax, fraction=.045, pad=.04, ticks=[0, 25, 50, 75, 100])
+    colorbar.set_label("Correctly identified (%)", labelpad=10)
+    colorbar.outline.set_visible(False)
+    save(fig, "tb4-single-recall", "Single Full success and failure recall. Each class has 79 anchors per reviewer. Invalid outputs count as errors; the shared color scale spans 0 to 100 percent.")
 
     fig, axes = plt.subplots(2, 1, figsize=(8, 7), layout="constrained")
     for ax, metric, title, base in zip(axes, ["pair", "five"], ["Pair · 79 pools / 3 sources", "Five · 97 pools / 4 sources"], [50, baseline * 100]):

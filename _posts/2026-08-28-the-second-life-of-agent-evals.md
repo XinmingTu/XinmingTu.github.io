@@ -326,13 +326,13 @@ Single asks a direct question: did this completed run satisfy the original task?
 </details>
 
 <figure class="sle-figure" markdown="0">
-  <img src="/assets/img/2026-08-28-second-life-agent-evals/tb4-single-verdicts.svg" alt="Four Single Full verdict matrices. Each reviewer sees 79 successful and 79 failed runs. Pass, Fail, and Invalid are separate columns; GLM and GLM Flash approve most failed runs." loading="lazy">
-  <figcaption>Rows: original environment outcome. Columns: reviewer output. Every row contains 79 runs. Orange cells are incorrect verdicts; gray cells are invalid outputs, which count as errors but are not literal pass or fail judgments.</figcaption>
+  <img src="/assets/img/2026-08-28-second-life-agent-evals/tb4-single-recall.svg" alt="Heatmap of success and failure recall. GPT-5.6 Sol: 82.3% and 36.7%; GLM-5.3: 98.7% and 10.1%; DeepSeek V4.1 Flash: 64.6% and 35.4%; GLM-5.3 Flash: 100.0% and 11.4%. Darker blue means higher recall on a shared 0–100% scale." loading="lazy">
+  <figcaption>Single Full: correctly identified successes and failures, each out of 79 runs per reviewer. Darker blue means higher recall on a shared 0–100% scale. Invalid outputs remain in the denominator as errors.</figcaption>
 </figure>
 
-Accuracy ranges from 50.0% to 59.5%. Approval bias is especially strong for the GLM reviewers: GLM-5.3 recognizes 98.7% of successful runs but only 10.1% of failures. GLM Flash recognizes all 79 successes, yet correctly rejects only 9 of 79 failures. Of the remaining 70 failed runs, it approves 69 and produces one invalid response.
+Accuracy ranges from 50.0% to 59.5%. Approval bias is especially strong for the GLM reviewers: GLM-5.3 recognizes 98.7% of successful runs but only 10.1% of failures. GLM Flash recognizes 100.0% of successes, yet correctly rejects only 11.4% of failures.
 
-GPT-5.6 Sol has the highest failure recall here, but still approves 50 of 79 failed runs. Access to recorded outputs does not make these reviewers reliable certifiers of individual executions.
+GPT-5.6 Sol has the highest failure recall here, at 36.7%, but still approves 63.3% of failed runs. Access to recorded outputs does not make these reviewers reliable certifiers of individual executions.
 
 This is a finding about the Full-bundle setting. It does not establish the effect of artifacts: the main panel has no matched Trace-only arm, and comparing it with TB3 would also change tasks and some model versions.
 

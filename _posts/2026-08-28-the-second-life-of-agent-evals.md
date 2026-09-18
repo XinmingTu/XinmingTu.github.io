@@ -106,78 +106,132 @@ _styles: |
     margin-top: 0.65rem;
     text-align: center;
   }
-  d-article .sle-flow {
-    align-items: stretch;
-    display: grid;
-    gap: 0.55rem;
-    grid-template-columns: repeat(4, 1fr);
-  }
-  d-article .sle-step {
-    align-items: center;
-    background: var(--sle-card);
+  d-article .sle-task-diagram {
     border: 1px solid var(--sle-line);
-    border-radius: 12px;
+    border-radius: 16px;
+    margin: 1.4rem 0 1.6rem;
+    overflow: hidden;
+    background: var(--sle-card);
     color: var(--sle-ink);
+  }
+  d-article .sle-evidence {
+    background: var(--sle-soft);
+    padding: 1.15rem 1.3rem;
+  }
+  d-article .sle-diagram-label {
+    display: block;
+    font-size: .69rem;
+    font-weight: 700;
+    letter-spacing: .09em;
+    text-transform: uppercase;
+    color: var(--sle-muted);
+  }
+  d-article .sle-evidence-items {
     display: flex;
-    font-size: 0.83rem;
-    font-weight: 680;
-    justify-content: center;
-    line-height: 1.35;
-    min-height: 4.5rem;
-    padding: 0.75rem;
-    position: relative;
+    flex-wrap: wrap;
+    gap: .4rem 1.2rem;
+    margin-top: .55rem;
+    font-size: .92rem;
+    font-weight: 600;
+  }
+  d-article .sle-evidence-items span::before {
+    content: "↳";
+    color: var(--sle-blue);
+    margin-right: .4rem;
+  }
+  d-article .sle-settings {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    padding: 1.25rem 0;
+  }
+  d-article .sle-setting {
+    padding: 0 .8rem;
     text-align: center;
   }
-  d-article .sle-step:not(:last-child)::after {
+  d-article .sle-setting + .sle-setting { border-left: 1px solid var(--sle-line); }
+  d-article .sle-setting h3 {
+    font-size: 1.05rem;
+    line-height: 1.2;
+    margin: 0 0 .25rem;
+  }
+  d-article .sle-input-count {
+    font-size: .76rem;
     color: var(--sle-muted);
-    content: "→";
-    font-size: 0.92rem;
+  }
+  d-article .sle-run-set {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    height: 80px;
+  }
+  d-article .sle-run-paper {
+    display: block;
+    position: relative;
+    box-sizing: border-box;
+    width: 29px;
+    height: 42px;
+    border: 1px solid var(--sle-blue);
+    border-radius: 3px;
+    background: var(--sle-blue-soft);
+    color: var(--sle-blue);
+    font: 600 10px/1 sans-serif;
+    text-align: left;
+    padding: 5px;
+  }
+  d-article .sle-run-paper::after {
+    content: "";
     position: absolute;
-    right: -0.52rem;
-    top: calc(50% - 0.65rem);
-    z-index: 2;
+    left: 5px;
+    right: 5px;
+    top: 22px;
+    height: 1px;
+    background: currentColor;
+    box-shadow: 0 5px 0 currentColor;
+    opacity: .5;
   }
-  d-article .sle-step.source { background: var(--sle-blue-soft); color: var(--sle-blue); }
-  d-article .sle-step.compiler { background: var(--sle-warm-soft); color: var(--sle-warm); }
-  d-article .sle-step.derived { background: var(--sle-green-soft); color: var(--sle-green); }
-  d-article .sle-family {
-    display: grid;
-    gap: 0.72rem;
-    grid-template-columns: repeat(3, 1fr);
-    margin: 1.25rem 0 1.55rem;
-  }
-  d-article .sle-family-card {
-    background: var(--sle-card);
-    border: 1px solid var(--sle-line);
-    border-radius: 13px;
-    padding: 0.95rem;
-  }
-  d-article .sle-family-card strong {
-    color: var(--sle-ink);
-    display: block;
-    font-size: 0.96rem;
-    margin-bottom: 0.35rem;
-  }
-  d-article .sle-family-card .sle-question {
-    display: block;
-    color: var(--sle-ink);
-    font-size: 1.03rem;
-    font-weight: 600;
-    line-height: 1.45;
-    margin: 0.6rem 0;
-  }
-  d-article .sle-family-card .count {
-    color: var(--sle-green);
-    font-size: 1.34rem;
-    font-weight: 760;
-  }
-  d-article .sle-family-card span:last-child {
+  d-article .sle-review-action {
     color: var(--sle-muted);
-    display: block;
-    font-size: 0.79rem;
-    line-height: 1.43;
-    margin-top: 0.35rem;
+    font-size: .72rem;
+    line-height: 1.4;
+    margin: 0 0 .7rem;
   }
+  d-article .sle-review-action::before {
+    content: "↓";
+    display: block;
+    color: var(--sle-blue);
+    font-size: 1.2rem;
+    line-height: 1;
+    margin-bottom: .4rem;
+  }
+  d-article .sle-output {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: var(--sle-green-soft);
+    color: var(--sle-green);
+    border-radius: 7px;
+    min-height: 58px;
+    font-size: .85rem;
+    line-height: 1.4;
+    font-weight: 650;
+  }
+  d-article .sle-output small { font-size: .7rem; font-weight: 400; }
+  d-article .sle-setting-meta {
+    margin-top: .8rem;
+    font-size: .7rem;
+    line-height: 1.55;
+    color: var(--sle-muted);
+  }
+  d-article .sle-setting-meta span { display: block; }
+  d-article .sle-hidden-label {
+    border-top: 1px dashed var(--sle-line);
+    padding: .8rem 1.3rem;
+    color: var(--sle-muted);
+    font-size: .75rem;
+    line-height: 1.5;
+  }
+  d-article .sle-hidden-label strong { color: var(--sle-ink); font-weight: 600; }
   d-article details.sle-instruction {
     background: var(--sle-soft);
     border: 1px solid var(--sle-line);
@@ -249,13 +303,29 @@ _styles: |
   d-article p.sle-repo-link a {
     font-weight: 650;
   }
-  @media (max-width: 720px) {
-    d-article .sle-step { font-size: 0.78rem; padding: 0.6rem; }
-    d-article .sle-family { grid-template-columns: 1fr; }
-  }
-  @media (max-width: 430px) {
-    d-article .sle-flow { grid-template-columns: 1fr; }
-    d-article .sle-step::after { display: none; }
+  @media (max-width: 600px) {
+    d-article .sle-settings { grid-template-columns: 1fr; padding: 0 1rem; }
+    d-article .sle-setting {
+      padding: 1rem 0;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: .5rem .6rem;
+      align-items: center;
+    }
+    d-article .sle-setting h3 { grid-column: 1 / -1; margin: 0; }
+    d-article .sle-input-count { grid-column: 1; grid-row: 2; }
+    d-article .sle-review-action { grid-column: 2; grid-row: 2; margin: 0; }
+    d-article .sle-review-action::before { display: none; }
+    d-article .sle-run-set { grid-column: 1; grid-row: 3; gap: 3px; }
+    d-article .sle-run-paper { width: clamp(18px, 5.8vw, 25px); height: 40px; flex-shrink: 0; }
+    d-article .sle-output { grid-column: 2; grid-row: 3; }
+    d-article .sle-setting-meta { grid-column: 1 / -1; margin-top: .2rem; }
+
+    d-article .sle-setting + .sle-setting { border-left: 0; border-top: 1px solid var(--sle-line); }
+    d-article .sle-run-set { height: 55px; }
+    d-article .sle-output { min-height: 50px; }
+    d-article .sle-setting-meta span { display: inline; }
+    d-article .sle-setting-meta span + span::before { content: " · "; }
   }
 ---
 
@@ -270,40 +340,44 @@ _styles: |
 
 Using frozen Terminal-Bench 4.0 runs<d-cite key="terminalbench4"></d-cite>, reviewers inspect the original task, execution trace, and recorded artifacts. The original verifier outcomes stay hidden and provide the labels for scoring.
 
-<figure class="sle-figure" markdown="0">
-  <div class="sle-flow" aria-label="Completed agent runs become new verification tasks" markdown="0">
-    <div class="sle-step source">Completed agent eval</div>
-    <div class="sle-step">Frozen traces + artifacts</div>
-    <div class="sle-step compiler">New verification tasks</div>
-    <div class="sle-step derived">Judge, compare, select</div>
-  </div>
-  <figcaption>The executions stay fixed. The question changes.</figcaption>
-</figure>
-
 <p class="sle-update">Updated {{ tb4.updated }} · Results through September 17 · <a href="{{ tb4.repo }}/README.md">Code and experiment snapshot</a></p>
 
 ## Turning agent eval runs into verification tasks
 
-A completed eval run gives us both evidence and an outcome. We preserve the task, trajectory, and recorded artifacts, then use the original verifier outcome as a hidden label for a new verification task.
+Keep the evidence. Hide the outcome. Ask a reviewer to judge or select.
 
-We construct three settings: judge one run, compare two, or select among five.
-
-<div class="sle-family" markdown="0">
-  <div class="sle-family-card">
-    <strong>Single</strong>
-    <span class="sle-question">Did this run succeed?</span>
-    <span>Judge one attempt.<br>158 runs · 50% baseline</span>
+<div class="sle-task-diagram" role="group" aria-label="Completed eval runs become three verification settings" markdown="0">
+  <div class="sle-evidence">
+    <span class="sle-diagram-label">Reused from each completed run</span>
+    <div class="sle-evidence-items"><span>Task</span><span>Trajectory</span><span>Artifacts</span></div>
   </div>
-  <div class="sle-family-card">
-    <strong>Pair</strong>
-    <span class="sle-question">Did each run succeed, and which would you choose?</span>
-    <span>Judge both, then select one.<br>79 pools · 50% baseline</span>
+  <div class="sle-settings">
+    <div class="sle-setting">
+      <h3>Single</h3>
+      <div class="sle-input-count">1 run</div>
+      <div class="sle-run-set" aria-hidden="true"><span class="sle-run-paper">A</span></div>
+      <div class="sle-review-action">Judge</div>
+      <div class="sle-output">Pass / Fail<small>1 verdict</small></div>
+      <div class="sle-setting-meta"><span>158 runs</span><span>50% random baseline</span></div>
+    </div>
+    <div class="sle-setting">
+      <h3>Pair</h3>
+      <div class="sle-input-count">2 runs · same task</div>
+      <div class="sle-run-set" aria-hidden="true"><span class="sle-run-paper">A</span><span class="sle-run-paper">B</span></div>
+      <div class="sle-review-action">Judge + compare</div>
+      <div class="sle-output">Pass / Fail × 2<small>+ choose one run</small></div>
+      <div class="sle-setting-meta"><span>79 pools</span><span>50% random baseline</span></div>
+    </div>
+    <div class="sle-setting">
+      <h3>Five</h3>
+      <div class="sle-input-count">5 runs · same task</div>
+      <div class="sle-run-set" aria-hidden="true"><span class="sle-run-paper">A</span><span class="sle-run-paper">B</span><span class="sle-run-paper">C</span><span class="sle-run-paper">D</span><span class="sle-run-paper">E</span></div>
+      <div class="sle-review-action">Compare + select</div>
+      <div class="sle-output">Choose one run<small>from five candidates</small></div>
+      <div class="sle-setting-meta"><span>{{ tb4.five_pools }} pools</span><span>{{ tb4.five_baseline }}% random baseline</span></div>
+    </div>
   </div>
-  <div class="sle-family-card">
-    <strong>Five</strong>
-    <span class="sle-question">Which of five attempts would you choose?</span>
-    <span>Select one attempt.<br>{{ tb4.five_pools }} pools · {{ tb4.five_baseline }}% baseline</span>
-  </div>
+  <div class="sle-hidden-label"><strong>Original verifier outcome → scoring label.</strong> Hidden from the reviewer.</div>
 </div>
 
 A *pool* contains five attempts at one task from one source configuration. We evaluate selection on **mixed pools**, where at least one attempt succeeded and one failed. Single uses one successful and one failed anchor from each pool; Pair shows those same anchors together, without revealing that exactly one succeeded. Five keeps the original five attempts, so its random baseline depends on their success rate.

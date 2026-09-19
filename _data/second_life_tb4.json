@@ -24,6 +24,22 @@
       "pair_ci": "50.6\u201373.0"
     },
     {
+      "key": "glm-5-3-flash",
+      "name": "GLM-5.3 Flash",
+      "single": "55.7",
+      "success_recall": "100.0",
+      "failure_recall": "11.4",
+      "false_pass": "87.3",
+      "single_invalid": 1,
+      "pair": "63.3",
+      "pair_exact": "36.7",
+      "five": "70.1",
+      "five_wins": 68,
+      "five_gain": "14.8",
+      "single_ci": "51.9\u201360.3",
+      "pair_ci": "50.7\u201375.3"
+    },
+    {
       "key": "glm-5-3",
       "name": "GLM-5.3",
       "single": "54.4",
@@ -54,35 +70,48 @@
       "five_gain": "1.4",
       "single_ci": "43.4\u201357.1",
       "pair_ci": "40.7\u201365.8"
-    },
-    {
-      "key": "glm-5-3-flash",
-      "name": "GLM-5.3 Flash",
-      "single": "55.7",
-      "success_recall": "100.0",
-      "failure_recall": "11.4",
-      "false_pass": "87.3",
-      "single_invalid": 1,
-      "pair": "63.3",
-      "pair_exact": "36.7",
-      "five": "70.1",
-      "five_wins": 68,
-      "five_gain": "14.8",
-      "single_ci": "51.9\u201360.3",
-      "pair_ci": "50.7\u201375.3"
     }
   ],
   "sources": [
     {
+      "key": "gpt-6-astra",
+      "name": "GPT-6 Astra",
+      "pools": 18,
+      "uniform": "52.2",
+      "uniform_rate": 0.5222222222222223,
+      "reviewer_rates": [
+        "66.7",
+        "66.7",
+        "55.6",
+        "50.0"
+      ],
+      "gpt_selection_gain": "14.4",
+      "tasks": 66,
+      "unreviewed_mixed_pools": 0,
+      "pass_at_k": [
+        0.5818181818181818,
+        0.6484848484848484,
+        0.6787878787878787,
+        0.696969696969697,
+        0.7121212121212122
+      ],
+      "pass1": "58.2",
+      "pass5": "71.2",
+      "selected": "62.1",
+      "gain": "3.9",
+      "selected_rate": 0.6212121212121212
+    },
+    {
+      "key": "fable-5.1",
       "name": "Fable 5.1",
       "pools": 30,
       "uniform": "60.0",
       "uniform_rate": 0.6,
       "reviewer_rates": [
         "86.7",
+        "73.3",
         "63.3",
-        "66.7",
-        "73.3"
+        "66.7"
       ],
       "gpt_selection_gain": "26.7",
       "tasks": 66,
@@ -101,41 +130,15 @@
       "selected_rate": 0.7000000000000001
     },
     {
-      "name": "GPT-5.6 Sol",
-      "pools": 28,
-      "uniform": "52.9",
-      "uniform_rate": 0.5285714285714286,
-      "reviewer_rates": [
-        "85.7",
-        "64.3",
-        "46.4",
-        "75.0"
-      ],
-      "gpt_selection_gain": "32.9",
-      "tasks": 66,
-      "unreviewed_mixed_pools": 5,
-      "pass_at_k": [
-        0.37272727272727274,
-        0.4954545454545455,
-        0.5499999999999999,
-        0.5818181818181818,
-        0.6060606060606061
-      ],
-      "pass1": "37.3",
-      "pass5": "60.6",
-      "selected": "51.2",
-      "gain": "13.9",
-      "selected_rate": 0.5121212121212121
-    },
-    {
+      "key": "glm-5.3",
       "name": "GLM-5.3",
       "pools": 21,
       "uniform": "54.3",
       "uniform_rate": 0.5428571428571428,
       "reviewer_rates": [
         "66.7",
-        "66.7",
         "61.9",
+        "66.7",
         "61.9"
       ],
       "gpt_selection_gain": "12.4",
@@ -155,31 +158,32 @@
       "selected_rate": 0.4575757575757576
     },
     {
-      "name": "GPT-6 Astra",
-      "pools": 18,
-      "uniform": "52.2",
-      "uniform_rate": 0.5222222222222223,
+      "key": "gpt-5.6-sol",
+      "name": "GPT-5.6 Sol",
+      "pools": 28,
+      "uniform": "52.9",
+      "uniform_rate": 0.5285714285714286,
       "reviewer_rates": [
-        "66.7",
-        "55.6",
-        "50.0",
-        "66.7"
+        "85.7",
+        "75.0",
+        "64.3",
+        "46.4"
       ],
-      "gpt_selection_gain": "14.4",
+      "gpt_selection_gain": "32.9",
       "tasks": 66,
-      "unreviewed_mixed_pools": 0,
+      "unreviewed_mixed_pools": 5,
       "pass_at_k": [
+        0.37272727272727274,
+        0.4954545454545455,
+        0.5499999999999999,
         0.5818181818181818,
-        0.6484848484848484,
-        0.6787878787878787,
-        0.696969696969697,
-        0.7121212121212122
+        0.6060606060606061
       ],
-      "pass1": "58.2",
-      "pass5": "71.2",
-      "selected": "62.1",
-      "gain": "3.9",
-      "selected_rate": 0.6212121212121212
+      "pass1": "37.3",
+      "pass5": "60.6",
+      "selected": "51.2",
+      "gain": "13.9",
+      "selected_rate": 0.5121212121212121
     }
   ],
   "cost_batches": [

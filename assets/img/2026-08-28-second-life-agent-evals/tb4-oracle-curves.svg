@@ -205,14 +205,14 @@ L 332.866213 47.977768
     </g>
    </g>
    <g id="line2d_23">
-    <path d="M 65.110348 117.632535 
-L 125.963954 79.465539 
-L 186.81756 64.675829 
-L 247.671165 56.565342 
-L 308.524771 51.794468 
-" clip-path="url(#p9b247f2549)" style="fill: none; stroke: #a75e3c; stroke-width: 2; stroke-linecap: square"/>
+    <path d="M 65.110348 116.67836 
+L 125.963954 95.686512 
+L 186.81756 86.144764 
+L 247.671165 80.419714 
+L 308.524771 75.64884 
+" clip-path="url(#p9b247f2549)" style="fill: none; stroke: #8971aa; stroke-width: 2; stroke-linecap: square"/>
     <defs>
-     <path id="mf30f57c677" d="M 0 2.5 
+     <path id="mf92245fcb9" d="M 0 2.5 
 C 0.663008 2.5 1.29895 2.236584 1.767767 1.767767 
 C 2.236584 1.29895 2.5 0.663008 2.5 0 
 C 2.5 -0.663008 2.236584 -1.29895 1.767767 -1.767767 
@@ -222,14 +222,14 @@ C -2.236584 -1.29895 -2.5 -0.663008 -2.5 0
 C -2.5 0.663008 -2.236584 1.29895 -1.767767 1.767767 
 C -1.29895 2.236584 -0.663008 2.5 0 2.5 
 z
-" style="stroke: #a75e3c"/>
+" style="stroke: #8971aa"/>
     </defs>
     <g clip-path="url(#p9b247f2549)">
-     <use xlink:href="#mf30f57c677" x="65.110348" y="117.632535" style="fill: #a75e3c; stroke: #a75e3c"/>
-     <use xlink:href="#mf30f57c677" x="125.963954" y="79.465539" style="fill: #a75e3c; stroke: #a75e3c"/>
-     <use xlink:href="#mf30f57c677" x="186.81756" y="64.675829" style="fill: #a75e3c; stroke: #a75e3c"/>
-     <use xlink:href="#mf30f57c677" x="247.671165" y="56.565342" style="fill: #a75e3c; stroke: #a75e3c"/>
-     <use xlink:href="#mf30f57c677" x="308.524771" y="51.794468" style="fill: #a75e3c; stroke: #a75e3c"/>
+     <use xlink:href="#mf92245fcb9" x="65.110348" y="116.67836" style="fill: #8971aa; stroke: #8971aa"/>
+     <use xlink:href="#mf92245fcb9" x="125.963954" y="95.686512" style="fill: #8971aa; stroke: #8971aa"/>
+     <use xlink:href="#mf92245fcb9" x="186.81756" y="86.144764" style="fill: #8971aa; stroke: #8971aa"/>
+     <use xlink:href="#mf92245fcb9" x="247.671165" y="80.419714" style="fill: #8971aa; stroke: #8971aa"/>
+     <use xlink:href="#mf92245fcb9" x="308.524771" y="75.64884" style="fill: #8971aa; stroke: #8971aa"/>
     </g>
    </g>
    <g id="patch_3">
@@ -243,22 +243,22 @@ L 332.866213 205.416624
 " style="fill: none; stroke: #dfe4e9; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
    </g>
    <g id="text_8">
-    <text style="font-size: 9px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #a75e3c" x="65.110348" y="109.632535" transform="rotate(-0 65.110348 109.632535)">57.9%</text>
+    <text style="font-size: 9px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #8971aa" x="65.110348" y="108.67836" transform="rotate(-0 65.110348 108.67836)">58.2%</text>
    </g>
    <g id="text_9">
-    <text style="font-size: 9px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #a75e3c" x="125.963954" y="71.465539" transform="rotate(-0 125.963954 71.465539)">70.0%</text>
+    <text style="font-size: 9px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #8971aa" x="125.963954" y="87.686512" transform="rotate(-0 125.963954 87.686512)">64.8%</text>
    </g>
    <g id="text_10">
-    <text style="font-size: 9px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #a75e3c" x="186.81756" y="56.675829" transform="rotate(-0 186.81756 56.675829)">74.7%</text>
+    <text style="font-size: 9px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #8971aa" x="186.81756" y="78.144764" transform="rotate(-0 186.81756 78.144764)">67.9%</text>
    </g>
    <g id="text_11">
-    <text style="font-size: 9px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #a75e3c" x="247.671165" y="48.565342" transform="rotate(-0 247.671165 48.565342)">77.3%</text>
+    <text style="font-size: 9px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #8971aa" x="247.671165" y="72.419714" transform="rotate(-0 247.671165 72.419714)">69.7%</text>
    </g>
    <g id="text_12">
-    <text style="font-size: 9px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #a75e3c" x="308.524771" y="43.794468" transform="rotate(-0 308.524771 43.794468)">78.8%</text>
+    <text style="font-size: 9px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #8971aa" x="308.524771" y="67.64884" transform="rotate(-0 308.524771 67.64884)">71.2%</text>
    </g>
    <g id="text_13">
-    <text style="font-weight: 700; font-size: 12px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #a75e3c" x="186.81756" y="15.936328" transform="rotate(-0 186.81756 15.936328)">Fable 5.1</text>
+    <text style="font-weight: 700; font-size: 12px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #8971aa" x="186.81756" y="15.936328" transform="rotate(-0 186.81756 15.936328)">GPT-6 Astra</text>
    </g>
   </g>
   <g id="axes_2">
@@ -407,14 +407,14 @@ L 634.79952 47.977768
     </g>
    </g>
    <g id="line2d_46">
-    <path d="M 367.043655 182.516427 
-L 427.897261 143.872344 
-L 488.750867 126.697196 
-L 549.604472 116.67836 
-L 610.458078 109.044961 
-" clip-path="url(#pa9a876e47f)" style="fill: none; stroke: #4f68b3; stroke-width: 2; stroke-linecap: square"/>
+    <path d="M 367.043655 117.632535 
+L 427.897261 79.465539 
+L 488.750867 64.675829 
+L 549.604472 56.565342 
+L 610.458078 51.794468 
+" clip-path="url(#pa9a876e47f)" style="fill: none; stroke: #a75e3c; stroke-width: 2; stroke-linecap: square"/>
     <defs>
-     <path id="mfe580b3dac" d="M 0 2.5 
+     <path id="mf30f57c677" d="M 0 2.5 
 C 0.663008 2.5 1.29895 2.236584 1.767767 1.767767 
 C 2.236584 1.29895 2.5 0.663008 2.5 0 
 C 2.5 -0.663008 2.236584 -1.29895 1.767767 -1.767767 
@@ -424,14 +424,14 @@ C -2.236584 -1.29895 -2.5 -0.663008 -2.5 0
 C -2.5 0.663008 -2.236584 1.29895 -1.767767 1.767767 
 C -1.29895 2.236584 -0.663008 2.5 0 2.5 
 z
-" style="stroke: #4f68b3"/>
+" style="stroke: #a75e3c"/>
     </defs>
     <g clip-path="url(#pa9a876e47f)">
-     <use xlink:href="#mfe580b3dac" x="367.043655" y="182.516427" style="fill: #4f68b3; stroke: #4f68b3"/>
-     <use xlink:href="#mfe580b3dac" x="427.897261" y="143.872344" style="fill: #4f68b3; stroke: #4f68b3"/>
-     <use xlink:href="#mfe580b3dac" x="488.750867" y="126.697196" style="fill: #4f68b3; stroke: #4f68b3"/>
-     <use xlink:href="#mfe580b3dac" x="549.604472" y="116.67836" style="fill: #4f68b3; stroke: #4f68b3"/>
-     <use xlink:href="#mfe580b3dac" x="610.458078" y="109.044961" style="fill: #4f68b3; stroke: #4f68b3"/>
+     <use xlink:href="#mf30f57c677" x="367.043655" y="117.632535" style="fill: #a75e3c; stroke: #a75e3c"/>
+     <use xlink:href="#mf30f57c677" x="427.897261" y="79.465539" style="fill: #a75e3c; stroke: #a75e3c"/>
+     <use xlink:href="#mf30f57c677" x="488.750867" y="64.675829" style="fill: #a75e3c; stroke: #a75e3c"/>
+     <use xlink:href="#mf30f57c677" x="549.604472" y="56.565342" style="fill: #a75e3c; stroke: #a75e3c"/>
+     <use xlink:href="#mf30f57c677" x="610.458078" y="51.794468" style="fill: #a75e3c; stroke: #a75e3c"/>
     </g>
    </g>
    <g id="patch_6">
@@ -445,22 +445,22 @@ L 634.79952 205.416624
 " style="fill: none; stroke: #dfe4e9; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
    </g>
    <g id="text_14">
-    <text style="font-size: 9px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #4f68b3" x="367.043655" y="174.516427" transform="rotate(-0 367.043655 174.516427)">37.3%</text>
+    <text style="font-size: 9px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #a75e3c" x="367.043655" y="109.632535" transform="rotate(-0 367.043655 109.632535)">57.9%</text>
    </g>
    <g id="text_15">
-    <text style="font-size: 9px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #4f68b3" x="427.897261" y="135.872344" transform="rotate(-0 427.897261 135.872344)">49.5%</text>
+    <text style="font-size: 9px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #a75e3c" x="427.897261" y="71.465539" transform="rotate(-0 427.897261 71.465539)">70.0%</text>
    </g>
    <g id="text_16">
-    <text style="font-size: 9px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #4f68b3" x="488.750867" y="118.697196" transform="rotate(-0 488.750867 118.697196)">55.0%</text>
+    <text style="font-size: 9px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #a75e3c" x="488.750867" y="56.675829" transform="rotate(-0 488.750867 56.675829)">74.7%</text>
    </g>
    <g id="text_17">
-    <text style="font-size: 9px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #4f68b3" x="549.604472" y="108.67836" transform="rotate(-0 549.604472 108.67836)">58.2%</text>
+    <text style="font-size: 9px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #a75e3c" x="549.604472" y="48.565342" transform="rotate(-0 549.604472 48.565342)">77.3%</text>
    </g>
    <g id="text_18">
-    <text style="font-size: 9px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #4f68b3" x="610.458078" y="101.044961" transform="rotate(-0 610.458078 101.044961)">60.6%</text>
+    <text style="font-size: 9px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #a75e3c" x="610.458078" y="43.794468" transform="rotate(-0 610.458078 43.794468)">78.8%</text>
    </g>
    <g id="text_19">
-    <text style="font-weight: 700; font-size: 12px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #4f68b3" x="488.750867" y="15.936328" transform="rotate(-0 488.750867 15.936328)">GPT-5.6 Sol</text>
+    <text style="font-weight: 700; font-size: 12px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #a75e3c" x="488.750867" y="15.936328" transform="rotate(-0 488.750867 15.936328)">Fable 5.1</text>
    </g>
   </g>
   <g id="axes_3">
@@ -868,14 +868,14 @@ L 634.79952 258.513964
     </g>
    </g>
    <g id="line2d_92">
-    <path d="M 367.043655 327.214556 
-L 427.897261 306.222709 
-L 488.750867 296.68096 
-L 549.604472 290.95591 
-L 610.458078 286.185036 
-" clip-path="url(#p284609d6e6)" style="fill: none; stroke: #8971aa; stroke-width: 2; stroke-linecap: square"/>
+    <path d="M 367.043655 393.052623 
+L 427.897261 354.408541 
+L 488.750867 337.233393 
+L 549.604472 327.214556 
+L 610.458078 319.581157 
+" clip-path="url(#p284609d6e6)" style="fill: none; stroke: #4f68b3; stroke-width: 2; stroke-linecap: square"/>
     <defs>
-     <path id="mf92245fcb9" d="M 0 2.5 
+     <path id="mfe580b3dac" d="M 0 2.5 
 C 0.663008 2.5 1.29895 2.236584 1.767767 1.767767 
 C 2.236584 1.29895 2.5 0.663008 2.5 0 
 C 2.5 -0.663008 2.236584 -1.29895 1.767767 -1.767767 
@@ -885,14 +885,14 @@ C -2.236584 -1.29895 -2.5 -0.663008 -2.5 0
 C -2.5 0.663008 -2.236584 1.29895 -1.767767 1.767767 
 C -1.29895 2.236584 -0.663008 2.5 0 2.5 
 z
-" style="stroke: #8971aa"/>
+" style="stroke: #4f68b3"/>
     </defs>
     <g clip-path="url(#p284609d6e6)">
-     <use xlink:href="#mf92245fcb9" x="367.043655" y="327.214556" style="fill: #8971aa; stroke: #8971aa"/>
-     <use xlink:href="#mf92245fcb9" x="427.897261" y="306.222709" style="fill: #8971aa; stroke: #8971aa"/>
-     <use xlink:href="#mf92245fcb9" x="488.750867" y="296.68096" style="fill: #8971aa; stroke: #8971aa"/>
-     <use xlink:href="#mf92245fcb9" x="549.604472" y="290.95591" style="fill: #8971aa; stroke: #8971aa"/>
-     <use xlink:href="#mf92245fcb9" x="610.458078" y="286.185036" style="fill: #8971aa; stroke: #8971aa"/>
+     <use xlink:href="#mfe580b3dac" x="367.043655" y="393.052623" style="fill: #4f68b3; stroke: #4f68b3"/>
+     <use xlink:href="#mfe580b3dac" x="427.897261" y="354.408541" style="fill: #4f68b3; stroke: #4f68b3"/>
+     <use xlink:href="#mfe580b3dac" x="488.750867" y="337.233393" style="fill: #4f68b3; stroke: #4f68b3"/>
+     <use xlink:href="#mfe580b3dac" x="549.604472" y="327.214556" style="fill: #4f68b3; stroke: #4f68b3"/>
+     <use xlink:href="#mfe580b3dac" x="610.458078" y="319.581157" style="fill: #4f68b3; stroke: #4f68b3"/>
     </g>
    </g>
    <g id="patch_12">
@@ -906,22 +906,22 @@ L 634.79952 415.952821
 " style="fill: none; stroke: #dfe4e9; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
    </g>
    <g id="text_45">
-    <text style="font-size: 9px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #8971aa" x="367.043655" y="319.214556" transform="rotate(-0 367.043655 319.214556)">58.2%</text>
+    <text style="font-size: 9px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #4f68b3" x="367.043655" y="385.052623" transform="rotate(-0 367.043655 385.052623)">37.3%</text>
    </g>
    <g id="text_46">
-    <text style="font-size: 9px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #8971aa" x="427.897261" y="298.222709" transform="rotate(-0 427.897261 298.222709)">64.8%</text>
+    <text style="font-size: 9px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #4f68b3" x="427.897261" y="346.408541" transform="rotate(-0 427.897261 346.408541)">49.5%</text>
    </g>
    <g id="text_47">
-    <text style="font-size: 9px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #8971aa" x="488.750867" y="288.68096" transform="rotate(-0 488.750867 288.68096)">67.9%</text>
+    <text style="font-size: 9px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #4f68b3" x="488.750867" y="329.233393" transform="rotate(-0 488.750867 329.233393)">55.0%</text>
    </g>
    <g id="text_48">
-    <text style="font-size: 9px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #8971aa" x="549.604472" y="282.95591" transform="rotate(-0 549.604472 282.95591)">69.7%</text>
+    <text style="font-size: 9px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #4f68b3" x="549.604472" y="319.214556" transform="rotate(-0 549.604472 319.214556)">58.2%</text>
    </g>
    <g id="text_49">
-    <text style="font-size: 9px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #8971aa" x="610.458078" y="278.185036" transform="rotate(-0 610.458078 278.185036)">71.2%</text>
+    <text style="font-size: 9px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #4f68b3" x="610.458078" y="311.581157" transform="rotate(-0 610.458078 311.581157)">60.6%</text>
    </g>
    <g id="text_50">
-    <text style="font-weight: 700; font-size: 12px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #8971aa" x="488.750867" y="226.472524" transform="rotate(-0 488.750867 226.472524)">GPT-6 Astra</text>
+    <text style="font-weight: 700; font-size: 12px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #4f68b3" x="488.750867" y="226.472524" transform="rotate(-0 488.750867 226.472524)">GPT-5.6 Sol</text>
    </g>
   </g>
  </g>

@@ -84,3 +84,10 @@ benchmark version, agent setup, and scoring protocol.
 Cost tables cover only three named incremental batches, including the separate
 prompt control. They exclude earlier panels and source-run generation, and
 must not be described as total project cost.
+
+Display order for sources is GPT-6 Astra, Fable 5.1, GLM-5.3, then GPT-5.6 Sol,
+following the requested presentation order. Colors and prose metrics are keyed
+to model identifiers rather than positions, so reordering preserves their meaning.
+Reviewer order is fixed by descending aggregate Five success: GPT-5.6 Sol,
+GLM-5.3 Flash, GLM-5.3, DeepSeek V4.1 Flash. This same order is used in Single,
+Pair, and per-source Five charts and tables; individual panels are not re-ranked.

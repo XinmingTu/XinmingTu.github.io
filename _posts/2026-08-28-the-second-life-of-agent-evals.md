@@ -330,9 +330,14 @@ _styles: |
 ---
 
 {% assign tb4 = site.data.second_life_tb4 %}
-{% assign gpt = tb4.reviewers[0] %}
-{% assign glm = tb4.reviewers[1] %}
-{% assign flash = tb4.reviewers[3] %}
+{% assign gpt = tb4.reviewers | where: "key", "gpt-5-6-sol" | first %}
+{% assign glm = tb4.reviewers | where: "key", "glm-5-3" | first %}
+{% assign flash = tb4.reviewers | where: "key", "glm-5-3-flash" | first %}
+{% assign deepseek = tb4.reviewers | where: "key", "deepseek-v4p1-flash" | first %}
+{% assign fable_source = tb4.sources | where: "key", "fable-5.1" | first %}
+{% assign gpt_source = tb4.sources | where: "key", "gpt-5.6-sol" | first %}
+{% assign glm_source = tb4.sources | where: "key", "glm-5.3" | first %}
+{% assign astra_source = tb4.sources | where: "key", "gpt-6-astra" | first %}
 
 <div class="sle-lede">
 <strong>Agent evals can have a second life.</strong> We turn completed runs into verification tasks: judge one attempt, compare two, or choose among five.
@@ -382,10 +387,10 @@ Keep the evidence. Hide the outcome. Ask a reviewer to judge or select.
 
 A *pool* contains five attempts at one task from one source configuration. We evaluate selection on **mixed pools**, where at least one attempt succeeded and one failed. Single uses one successful and one failed anchor from each pool; Pair shows those same anchors together, without revealing that exactly one succeeded. Five keeps the original five attempts, so its random baseline depends on their success rate.
 
-Four reviewers—GPT-5.6 Sol, GLM-5.3, DeepSeek V4.1 Flash, and GLM-5.3 Flash—use mini-swe-agent to inspect read-only evidence in Harbor tasks<d-cite key="harbor"></d-cite>. They can check evidence with tools, but cannot repair a candidate or continue the original task.
+Four reviewers—GPT-5.6 Sol, GLM-5.3 Flash, GLM-5.3, and DeepSeek V4.1 Flash—use mini-swe-agent to inspect read-only evidence in Harbor tasks<d-cite key="harbor"></d-cite>. They can check evidence with tools, but cannot repair a candidate or continue the original task.
 
 <div class="sle-note" markdown="1">
-**Coverage.** Single/Pair cover 79 pools from Fable 5.1, GPT-5.6 Sol, and GLM-5.3 source runs. Five adds 18 GPT-6 Astra pools, for **97 pools / 485 runs / 49 task names**. GPT-6 is a source, not a reviewer. Each original source evaluation has 66 tasks with five attempts per task. [Construction details](#dataset-and-scoring).
+**Coverage.** Single/Pair cover 79 pools from Fable 5.1, GLM-5.3, and GPT-5.6 Sol source runs. Five adds 18 GPT-6 Astra pools, for **97 pools / 485 runs / 49 task names**. GPT-6 is a source, not a reviewer. Each original source evaluation has 66 tasks with five attempts per task. [Construction details](#dataset-and-scoring).
 </div>
 
 ## Reviewers tend to say pass
@@ -409,7 +414,7 @@ GLM Flash approves **{{ flash.success_recall }}% of successful runs and {{ flash
 <figure class="sle-figure" markdown="0">
   <picture>
     <source media="(max-width: 600px)" srcset="/assets/img/2026-08-28-second-life-agent-evals/tb4-single-pair-mobile.svg">
-    <img src="/assets/img/2026-08-28-second-life-agent-evals/tb4-single-pair.svg" alt="Side-by-side vertical bar charts: Single accuracy is 59.5%, 54.4%, 50.0%, and 55.7%; Pair successful selection is 62.0%, 65.8%, 53.2%, and 63.3% for GPT, GLM, DeepSeek, and GLM Flash respectively." loading="lazy">
+    <img src="/assets/img/2026-08-28-second-life-agent-evals/tb4-single-pair.svg" alt="Side-by-side vertical bar charts: Single accuracy is 59.5%, 55.7%, 54.4%, and 50.0%; Pair successful selection is 62.0%, 63.3%, 65.8%, and 53.2% for GPT, GLM Flash, GLM, and DeepSeek respectively." loading="lazy">
   </picture>
   <figcaption>Same 79 pools and anchors, same reviewer colors. Single measures judgment accuracy on 79 successful and 79 failed runs; Pair measures successful selection. Both axes start at the dashed 50% random baselines; labels show absolute rates. The metrics differ, so the gap is not a causal estimate of context benefit.</figcaption>
 </figure>
@@ -418,12 +423,12 @@ The distinction also appears within Pair: **GLM labels both candidates correctly
 
 ## Selection depends on the reviewer and the source
 
-Five makes the selection problem concrete: which attempt should we keep? Across all {{ tb4.five_pools }} mixed pools, GPT selects a successful run **{{ gpt.five }}%** of the time, against **{{ tb4.five_baseline }}%** uniform choice. GLM Flash reaches {{ flash.five }}%, full GLM {{ glm.five }}%, and DeepSeek {{ tb4.reviewers[2].five }}%.
+Five makes the selection problem concrete: which attempt should we keep? Across all {{ tb4.five_pools }} mixed pools, GPT selects a successful run **{{ gpt.five }}%** of the time, against **{{ tb4.five_baseline }}%** uniform choice. GLM Flash reaches {{ flash.five }}%, full GLM {{ glm.five }}%, and DeepSeek {{ deepseek.five }}%.
 
 <figure class="sle-figure" markdown="0">
   <picture>
     <source media="(max-width: 600px)" srcset="/assets/img/2026-08-28-second-life-agent-evals/tb4-five-by-source-mobile.svg">
-    <img src="/assets/img/2026-08-28-second-life-agent-evals/tb4-five-by-source.svg" alt="Five selection by reviewer in four source panels. GPT leads or ties in every panel. Source-specific uniform baselines are 60.0%, 52.9%, 54.3%, and 52.2%. Reviewer colors and order are fixed across panels." loading="lazy">
+    <img src="/assets/img/2026-08-28-second-life-agent-evals/tb4-five-by-source.svg" alt="Five selection by reviewer in four source panels. GPT leads or ties in every panel. Source order is GPT-6 Astra, Fable 5.1, GLM-5.3, and GPT-5.6 Sol; their uniform baselines are 52.2%, 60.0%, 54.3%, and 52.9%. Reviewer colors and order are fixed across panels, ordered by overall Five selection success." loading="lazy">
   </picture>
   <figcaption>Each panel contains frozen runs from one source; each bar is a reviewer selecting among those runs. Dashed lines show source-specific uniform choice. Invalid outputs count as unsuccessful selections. Rates are conditional on mixed pools.</figcaption>
 </figure>
@@ -460,7 +465,7 @@ The paired success change is +1.3 points, with a task-cluster 95% interval of [�
   <figcaption>Solid segments show the gain from GPT-5.6 Sol selection over pass@1; dashed segments show the remaining gap to oracle pass@5. Labels above the selection points give success and gain in percentage points. Every source retains all 66 tasks. Selection scores are reconstructed under the assumptions below.</figcaption>
 </figure>
 
-On Fable-source runs, selection raises reconstructed success from **{{ tb4.sources[0].pass1 }}% to {{ tb4.sources[0].selected }}%**. On GPT-source runs, it rises from **{{ tb4.sources[1].pass1 }}% to {{ tb4.sources[1].selected }}%**. GLM and GPT-6 sources gain {{ tb4.sources[2].gain }} and {{ tb4.sources[3].gain }} points, respectively. Whole-job gains are smaller than gains on mixed pools because selection can change the outcome only on mixed tasks.
+On Fable-source runs, selection raises reconstructed success from **{{ fable_source.pass1 }}% to {{ fable_source.selected }}%**. On GPT-source runs, it rises from **{{ gpt_source.pass1 }}% to {{ gpt_source.selected }}%**. GLM and GPT-6 sources gain {{ glm_source.gain }} and {{ astra_source.gain }} points, respectively. Whole-job gains are smaller than gains on mixed pools because selection can change the outcome only on mixed tasks.
 
 <details class="sle-instruction" markdown="1">
 <summary>How the reconstruction works</summary>
@@ -468,7 +473,7 @@ On Fable-source runs, selection raises reconstructed success from **{{ tb4.sourc
 
 Every source retains all 66 tasks. Selection success is reconstructed by adding all-success pools, successful GPT-5.6 Sol selections on reviewed mixed pools, and the expected successes from uniform choice on unreviewed mixed pools, then dividing by 66. Homogeneous pools were not reviewed; this assumes valid selection there.
 
-Ten mixed pools were unavailable for review: eight had source-run exceptions and two failed artifact collection (3 Fable, 5 GPT, 2 GLM, and 0 GPT-6). They remain in the full-task denominator and use uniform fallback, not measured reviewer outcomes. All 97 eligible mixed pools have been reviewed. One missing GLM source reward retains the source data's failure label.
+Ten mixed pools were unavailable for review: eight had source-run exceptions and two failed artifact collection (0 GPT-6, 3 Fable, 2 GLM, and 5 GPT). They remain in the full-task denominator and use uniform fallback, not measured reviewer outcomes. All 97 eligible mixed pools have been reviewed. One missing GLM source reward retains the source data's failure label.
 
 For Fable, selection success is `(19 + 26 + (2 + 3 + 1) / 5) / 66 = 70.0%`: 19 all-success pools, 26 successful selections, and uniform fallback on three unreviewed pools.
 
@@ -505,7 +510,7 @@ These curves show how often at least one successful attempt is available as k in
 <figure class="sle-figure" markdown="0">
   <picture>
     <source media="(max-width: 600px)" srcset="/assets/img/2026-08-28-second-life-agent-evals/tb4-oracle-curves-mobile.svg">
-    <img src="/assets/img/2026-08-28-second-life-agent-evals/tb4-oracle-curves.svg" alt="Four separate line plots show empirical oracle pass@1 through pass@5 for Fable, GPT-5.6 Sol, GLM-5.3, and GPT-6 Astra. All panels share the same axes and include all 66 tasks per source." loading="lazy">
+    <img src="/assets/img/2026-08-28-second-life-agent-evals/tb4-oracle-curves.svg" alt="Four separate line plots show empirical oracle pass@1 through pass@5 for GPT-6 Astra, Fable 5.1, GLM-5.3, and GPT-5.6 Sol. All panels share the same axes and include all 66 tasks per source." loading="lazy">
   </picture>
   <figcaption>Each point averages the probability of finding at least one success in a uniformly sampled subset of k of the five frozen attempts.</figcaption>
 </figure>
@@ -517,7 +522,7 @@ These curves show how often at least one successful attempt is available as k in
 {% for reviewer in tb4.reviewers %}| {{ reviewer.name }} | {{ reviewer.single }}% | {{ reviewer.pair }}% | {{ reviewer.five }}% ({{ reviewer.five_wins }}/97) |
 {% endfor %}| Blind baseline | 50.0% | 50.0% | {{ tb4.five_baseline }}% |
 
-The Five aggregate weights each pool equally. GPT's original three-source result is 64/79 (81.0%); adding 12/18 GPT-6-source successes gives 76/97 (78.4%). On the original 79 pools, the paired GPT gain over uniform is +25.1 points, with a task-cluster 95% interval of [16.3, 33.9]. That interval does not describe the expanded 97-pool aggregate.
+Reviewer order is fixed throughout by overall Five selection success. The Five aggregate weights each pool equally. GPT's original three-source result is 64/79 (81.0%); adding 12/18 GPT-6-source successes gives 76/97 (78.4%). On the original 79 pools, the paired GPT gain over uniform is +25.1 points, with a task-cluster 95% interval of [16.3, 33.9]. That interval does not describe the expanded 97-pool aggregate.
 
 | Reviewer | Single accuracy · 95% cluster CI | Pair selection · 95% cluster CI |
 | --- | ---: | ---: |
@@ -528,11 +533,11 @@ Task identities recur across sources. Intervals use 10,000 bootstrap resamples o
 
 ### Dataset and scoring
 
-The sources are Fable 5.1 + Claude Code (30 pools), GPT-5.6 Sol + Codex (28), GLM-5.3 + Claude Code (21), and GPT-6 Astra + Codex (18). All retained pools pass metadata and archive validation. Recorded artifacts may be partial environment snapshots. Labels are the original operational verifier rewards, not new semantic adjudications.
+The sources are GPT-6 Astra + Codex (18 pools), Fable 5.1 + Claude Code (30), GLM-5.3 + Claude Code (21), and GPT-5.6 Sol + Codex (28). All retained pools pass metadata and archive validation. Recorded artifacts may be partial environment snapshots. Labels are the original operational verifier rewards, not new semantic adjudications.
 
 Single supplies 79 successful and 79 failed anchors. Pair uses those same anchors; reviewers are not told that one succeeded. Five retains the original mix: 268 of 485 candidates succeeded, giving 55.3% uniform choice. Single is not an independent-score ranking baseline over all five candidates. These metrics and source coverage differ; they do not isolate the benefit of additional context.
 
-Invalid outputs count as errors in all headline metrics. In the confusion matrices they remain in the 79-run row denominators but are omitted from the Pass/Fail columns. Single invalid counts are 0 for GPT, 1 for GLM, 9 for DeepSeek, and 1 for GLM Flash.
+Invalid outputs count as errors in all headline metrics. In the confusion matrices they remain in the 79-run row denominators but are omitted from the Pass/Fail columns. Single invalid counts are 0 for GPT, 1 for GLM Flash, 1 for GLM, and 9 for DeepSeek.
 
 Reviewer inputs exclude source rewards, verifier outputs, and source-identifying metadata. Earlier compatible observations are reused once based on identical trials, anchors, and rewards, not selected for correctness. Automated leakage checks cover declared surfaces; they do not establish that arbitrary archived content contains no indirect shortcuts.
 

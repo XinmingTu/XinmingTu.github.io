@@ -26,18 +26,30 @@ OUTPUT = ROOT / "assets/img/2026-08-28-second-life-agent-evals"
 COMMIT = "6d99501ad21662cad4ef82c9089e15492d24e976"
 REPO = f"https://github.com/XinmingTu/Agentic-Verification-Eval/blob/{COMMIT}"
 REVIEWERS = {
+    # Fixed presentation order: descending aggregate Five selection success.
     "gpt-5-6-sol": "GPT-5.6 Sol",
+    "glm-5-3-flash": "GLM-5.3 Flash",
     "glm-5-3": "GLM-5.3",
     "deepseek-v4p1-flash": "DeepSeek V4.1 Flash",
-    "glm-5-3-flash": "GLM-5.3 Flash",
 }
 SOURCES = {
-    "fable-5.1": "Fable 5.1",
-    "gpt-5.6-sol": "GPT-5.6 Sol",
-    "glm-5.3": "GLM-5.3",
     "gpt-6-astra": "GPT-6 Astra",
+    "fable-5.1": "Fable 5.1",
+    "glm-5.3": "GLM-5.3",
+    "gpt-5.6-sol": "GPT-5.6 Sol",
 }
-COLORS = ["#4f68b3", "#287a68", "#a75e3c", "#8971aa"]
+REVIEWER_COLORS = {
+    "gpt-5-6-sol": "#4f68b3", "glm-5-3": "#287a68",
+    "deepseek-v4p1-flash": "#a75e3c", "glm-5-3-flash": "#8971aa",
+}
+SOURCE_COLORS = {
+    "gpt-6-astra": "#8971aa", "fable-5.1": "#a75e3c",
+    "glm-5.3": "#287a68", "gpt-5.6-sol": "#4f68b3",
+}
+REVIEWER_SHORT_LABELS = {
+    "gpt-5-6-sol": "GPT-5.6\nSol", "glm-5-3": "GLM-5.3",
+    "deepseek-v4p1-flash": "DeepSeek\nV4.1 Flash", "glm-5-3-flash": "GLM-5.3\nFlash",
+}
 
 
 def read(name):
@@ -72,7 +84,8 @@ def main():
     panels = {r["reviewer"]: r for r in complete if r["condition"] == "single_pair"}
     panels.update({r["reviewer"]: r for r in read("tbench4-glm-flash-complete-comparison.json")})
     gpt6 = {r["reviewer"]: r for r in read("tbench4-gpt6-source-comparison.json")}
-    sources = read("tbench4-pass-at-k.json")["sources"]
+    source_records = {s["source"]: s for s in read("tbench4-pass-at-k.json")["sources"]}
+    sources = [source_records[key] for key in SOURCES]
     counts = {r["reviewer"]: r["confusion"] for r in read("single-verdict-counts.json")["reviewers"]}
     total_pools = sum(s["reviewed_mixed_pools"] for s in sources)
     candidate_successes = sum(round(s["pass_at_k"][0] * s["tasks"] * 5)
@@ -126,7 +139,7 @@ def main():
         assert all(a <= b + 1e-12 for a, b in zip(pass_at_k, pass_at_k[1:]))
         assert effective <= pass_at_k[-1] + 1e-12
         data["sources"].append({
-            "name": SOURCES[s["source"]], "pools": s["reviewed_mixed_pools"],
+            "key": s["source"], "name": SOURCES[s["source"]], "pools": s["reviewed_mixed_pools"],
             "uniform": percent(uniform), "uniform_rate": uniform,
             "reviewer_rates": [percent(s["reviewer_mixed_successes"][key] / s["reviewed_mixed_pools"]) for key in REVIEWERS],
             "gpt_selection_gain": percent(s["reviewer_mixed_successes"]["gpt-5-6-sol"] / s["reviewed_mixed_pools"] - uniform),
@@ -175,14 +188,15 @@ def main():
         colorbar.outline.set_visible(False)
         save(fig, "tb4-single-confusion" + ("-mobile" if mobile else ""), "Single: source outcomes in rows, reviewer verdicts in columns. Percentages use 79 anchors per row. Invalid outputs are omitted from columns, retained in denominators. Shared 0–100% scale.")
 
-    short_labels = ["GPT-5.6\nSol", "GLM-5.3", "DeepSeek\nV4.1 Flash", "GLM-5.3\nFlash"]
+    short_labels = [REVIEWER_SHORT_LABELS[key] for key in REVIEWERS]
+    reviewer_colors = [REVIEWER_COLORS[key] for key in REVIEWERS]
     for mobile in (False, True):
         fig, axes = plt.subplots(2 if mobile else 1, 1 if mobile else 2, figsize=(4.4, 6.7) if mobile else (8.4, 4), layout="constrained", sharey=True)
         for ax, metric, title, ylabel in zip(axes, ["single", "pair"],
                                            ["Single · 158 runs", "Pair · 79 pools"],
                                            ["Correct judgments (%)", "Successful selections (%)"]):
             vals = [float(r[metric]) for r in data["reviewers"]]
-            bars = ax.bar(range(4), vals, color=COLORS, width=.65)
+            bars = ax.bar(range(4), vals, color=reviewer_colors, width=.65)
             ax.bar_label(bars, labels=[f"{v:.1f}%" for v in vals], padding=5, fontsize=10, weight="bold", bbox={"facecolor": "white", "edgecolor": "none", "pad": .3})
             ax.axhline(50, color="#747d8b", linestyle="--", linewidth=1.4, clip_on=False, zorder=4)
             ax.spines["bottom"].set_visible(False)
@@ -196,7 +210,7 @@ def main():
         fig, axes = plt.subplots(4 if mobile else 2, 1 if mobile else 2, figsize=(4.4, 11.8) if mobile else (8.4, 6.6), layout="constrained", sharey=True)
         for ax, s in zip(axes.flat, data["sources"]):
             vals = [float(v) for v in s["reviewer_rates"]]
-            bars = ax.bar(range(4), vals, color=COLORS, width=.65)
+            bars = ax.bar(range(4), vals, color=reviewer_colors, width=.65)
             ax.bar_label(bars, labels=[f"{v:.1f}%" for v in vals], padding=5, fontsize=10, weight="bold", bbox={"facecolor": "white", "edgecolor": "none", "pad": .3})
             ax.axhline(s["uniform_rate"] * 100, color="#747d8b", linestyle="--", linewidth=1.4)
             ax.set(xticks=range(4), xticklabels=short_labels, ylim=(0, 103), yticks=[0, 25, 50, 75, 100])
@@ -209,7 +223,7 @@ def main():
         save(fig, "tb4-five-by-source" + ("-mobile" if mobile else ""), "Five selection by source and reviewer; fixed reviewer colors and order, source-specific uniform baselines, invalid outputs counted as failures. Source task sets differ.")
 
     # Separate each source's baseline, realized selection, and oracle ceiling.
-    source_colors = [COLORS[2], COLORS[0], COLORS[1], COLORS[3]]
+    source_colors = [SOURCE_COLORS[item["key"]] for item in data["sources"]]
     for mobile in (False, True):
         fig, ax = plt.subplots(figsize=(5.2, 6.1) if mobile else (8.8, 4.8), layout="constrained")
         for y, item, color in zip(range(3, -1, -1), data["sources"], source_colors):
@@ -271,7 +285,7 @@ def main():
     x = np.arange(1, 6)
     original = original_rows["original_counts"]
     control = [neutral["selected_candidate_counts"].get(str(i), 0) for i in x]
-    for offsets, vals, color, label in [(x-.18, original, COLORS[2], "Original example · 58.2% success"), (x+.18, control, COLORS[0], "Neutral example · 59.5% success")]:
+    for offsets, vals, color, label in [(x-.18, original, REVIEWER_COLORS["deepseek-v4p1-flash"], "Original example · 58.2% success"), (x+.18, control, REVIEWER_COLORS["gpt-5-6-sol"], "Neutral example · 59.5% success")]:
         bars = ax.bar(offsets, vals, width=.36, color=color, label=label)
         ax.bar_label(bars, padding=3, fontsize=10)
     ax.set(xlabel="Selected candidate position", ylabel="Selections (out of 79)", xticks=x, ylim=(0, 87))

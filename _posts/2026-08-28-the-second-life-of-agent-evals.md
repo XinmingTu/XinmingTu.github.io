@@ -430,7 +430,7 @@ Five makes the selection problem concrete: which attempt should we keep? Across 
     <source media="(max-width: 600px)" srcset="/assets/img/2026-08-28-second-life-agent-evals/tb4-five-by-source-mobile.svg">
     <img src="/assets/img/2026-08-28-second-life-agent-evals/tb4-five-by-source.svg" alt="Five selection by reviewer in four source panels. GPT leads or ties in every panel. Source order is GPT-6 Astra, Fable 5.1, GLM-5.3, and GPT-5.6 Sol; their uniform baselines are 52.2%, 60.0%, 54.3%, and 52.9%. Reviewer colors and order are fixed across panels, ordered by overall Five selection success." loading="lazy">
   </picture>
-  <figcaption>Each panel contains frozen runs from one source; each bar is a reviewer selecting among those runs. Dashed lines show source-specific uniform choice. Invalid outputs count as unsuccessful selections. Rates are conditional on mixed pools.</figcaption>
+  <figcaption>Each panel contains frozen runs from one source; each bar is a reviewer selecting among those runs. All panels use the same 40–100% axis range. Dashed lines show source-specific uniform choice. Invalid outputs count as unsuccessful selections. Rates are conditional on mixed pools.</figcaption>
 </figure>
 
 GPT leads or ties in all four source slices, but other reviewers' point-estimate rankings change. DeepSeek exceeds full GLM on Fable runs (66.7% versus 63.3%); on GPT-source runs, the ordering reverses (46.4% versus 64.3%).

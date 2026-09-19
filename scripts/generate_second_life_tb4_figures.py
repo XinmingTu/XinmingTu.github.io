@@ -213,14 +213,14 @@ def main():
             bars = ax.bar(range(4), vals, color=reviewer_colors, width=.65)
             ax.bar_label(bars, labels=[f"{v:.1f}%" for v in vals], padding=5, fontsize=10, weight="bold", bbox={"facecolor": "white", "edgecolor": "none", "pad": .3})
             ax.axhline(s["uniform_rate"] * 100, color="#747d8b", linestyle="--", linewidth=1.4)
-            ax.set(xticks=range(4), xticklabels=short_labels, ylim=(0, 103), yticks=[0, 25, 50, 75, 100])
+            ax.set(xticks=range(4), xticklabels=short_labels, ylim=(40, 100), yticks=[40, 50, 60, 70, 80, 90, 100])
             ax.set_title(f'{s["name"]} · {s["pools"]} pools\nUniform choice: {s["uniform"]}%', fontsize=11, pad=12)
             ax.tick_params(axis="x", labelsize=9)
             ax.set_axisbelow(True)
             ax.grid(axis="y", alpha=.15)
         for ax in (axes if mobile else axes[:, 0]):
             ax.set_ylabel("Successful selections (%)")
-        save(fig, "tb4-five-by-source" + ("-mobile" if mobile else ""), "Five selection by source and reviewer; fixed reviewer colors and order, source-specific uniform baselines, invalid outputs counted as failures. Source task sets differ.")
+        save(fig, "tb4-five-by-source" + ("-mobile" if mobile else ""), "Five selection by source and reviewer on shared 40–100% axes; fixed reviewer colors and order, source-specific uniform baselines, invalid outputs counted as failures. Source task sets differ.")
 
     # Three adjacent vertical bars distinguish baseline, selection, and oracle.
     source_colors = [SOURCE_COLORS[item["key"]] for item in data["sources"]]

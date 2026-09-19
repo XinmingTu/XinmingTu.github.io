@@ -264,23 +264,23 @@ def main():
         save(fig, "tb4-sampling-hero" + ("-mobile" if mobile else ""), "Grouped vertical bars for each source: gray pass@1, solid source-colored GPT-5.6 Sol selection, and hollow dashed oracle pass@5. Group annotations give selection gain over pass@1 in percentage points. All 66 tasks per source; homogeneous pools assume valid selection and unreviewed mixed pools use uniform fallback.")
 
     for mobile in (False, True):
-        fig, axes = plt.subplots(4 if mobile else 2, 1 if mobile else 2,
-                                 figsize=(4.8, 11.5) if mobile else (8.8, 6.2),
-                                 layout="constrained", sharex=True, sharey=True)
-        for ax, item, color in zip(axes.flat, data["sources"], source_colors):
+        fig, ax = plt.subplots(figsize=(4.8, 5.3) if mobile else (8.8, 4.8), layout="constrained")
+        for item, color in zip(data["sources"], source_colors):
             ys = np.array(item["pass_at_k"]) * 100
-            ax.plot(range(1, 6), ys, "o-", color=color, linewidth=2, markersize=5)
-            for k, value in enumerate(ys, start=1):
-                ax.annotate(f"{value:.1f}%", (k, value), xytext=(0, 8), textcoords="offset points",
-                            ha="center", color=color, fontsize=9)
-            ax.set_title(item["name"], color=color, weight="bold", fontsize=12, pad=10)
-            ax.set(xticks=range(1, 6), xlim=(.6, 5.4), ylim=(30, 87), yticks=[30, 40, 50, 60, 70, 80])
-            ax.grid(alpha=.15)
-        for ax in (axes if mobile else axes[:, 0]):
-            ax.set_ylabel("Oracle pass@k (%)")
-        for ax in ([axes[-1]] if mobile else axes[1]):
-            ax.set_xlabel("Number of frozen attempts (k)")
-        save(fig, "tb4-oracle-curves" + ("-mobile" if mobile else ""), "Appendix: empirical oracle pass@1–5 for each of the four full 66-task source jobs. Shared axes and source colors match the main selection figure. These are oracle availability curves, not reviewer evaluations at k=2–4.")
+            ax.plot(range(1, 6), ys, "o-", color=color, linewidth=2.2, markersize=4, label=item["name"])
+            ax.annotate(f"{ys[-1]:.1f}%", (5, ys[-1]), xytext=(9, 0), textcoords="offset points",
+                        ha="left", va="center", color=color, fontsize=10, weight="bold")
+        ax.set(xticks=range(1, 6), xlim=(.85, 5.75 if mobile else 5.55), ylim=(30, 84),
+               yticks=[30, 40, 50, 60, 70, 80], xlabel="Number of frozen attempts (k)", ylabel="Oracle pass@k (%)")
+        ax.set_axisbelow(True)
+        ax.grid(axis="y", alpha=.18)
+        handles, labels = ax.get_legend_handles_labels()
+        # Matplotlib fills legend columns first; preserve left-to-right source order.
+        order = [0, 2, 1, 3] if mobile else [0, 1, 2, 3]
+        fig.legend([handles[i] for i in order], [labels[i] for i in order], loc="outside upper center",
+                   ncol=2 if mobile else 4, title="Run source · 66 tasks each", frameon=False,
+                   fontsize=10, title_fontsize=10, columnspacing=1.2, handlelength=1.8)
+        save(fig, "tb4-oracle-curves" + ("-mobile" if mobile else ""), "Appendix: four source-colored empirical oracle pass@1–5 curves overlaid on one shared plot, each covering the full 66-task source job. Legend order and colors match the main selection figure; endpoint labels show oracle pass@5. These are oracle availability curves, not reviewer evaluations at k=2–4.")
 
     neutral = next(r for r in complete if r["condition"] == "five_neutral")
     original_rows = read("deepseek-five-positions.json")

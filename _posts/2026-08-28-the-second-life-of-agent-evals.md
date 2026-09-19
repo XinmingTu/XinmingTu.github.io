@@ -510,7 +510,7 @@ These curves show how often at least one successful attempt is available as k in
 <figure class="sle-figure" markdown="0">
   <picture>
     <source media="(max-width: 600px)" srcset="/assets/img/2026-08-28-second-life-agent-evals/tb4-oracle-curves-mobile.svg">
-    <img src="/assets/img/2026-08-28-second-life-agent-evals/tb4-oracle-curves.svg" alt="Four separate line plots show empirical oracle pass@1 through pass@5 for GPT-6 Astra, Fable 5.1, GLM-5.3, and GPT-5.6 Sol. All panels share the same axes and include all 66 tasks per source." loading="lazy">
+    <img src="/assets/img/2026-08-28-second-life-agent-evals/tb4-oracle-curves.svg" alt="Four overlaid source-colored curves show empirical oracle pass@1 through pass@5 for GPT-6 Astra, Fable 5.1, GLM-5.3, and GPT-5.6 Sol on shared axes. All 66 tasks per source are included; endpoint labels show pass@5." loading="lazy">
   </picture>
   <figcaption>Each point averages the probability of finding at least one success in a uniformly sampled subset of k of the five frozen attempts.</figcaption>
 </figure>

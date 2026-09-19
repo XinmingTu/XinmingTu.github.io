@@ -74,7 +74,8 @@ unreviewed mixed pools use uniform fallback. These are assumptions, not measured
 reviewer outcomes. Gray bars encode pass@1; source-colored solid bars encode
 selection; hollow dashed bars encode oracle pass@5. Bar labels show success,
 and group annotations give selection gains over pass@1 in percentage points. There are no coverage whiskers. The appendix
-contains four separate oracle pass@1–5 line plots with shared axes; these do not
+overlays all four oracle pass@1–5 curves on one plot, with source colors and
+legend order matching the main figure. Only endpoints are labeled; these do not
 represent reviewer evaluations at k=2–4.
 The source data records one missing GLM reward counted as failure. No tasks
 are removed from the denominator. These reconstructions are not official

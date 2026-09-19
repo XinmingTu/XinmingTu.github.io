@@ -6,7 +6,7 @@
   <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
    <cc:Work>
     <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
-    <dc:description>Grouped vertical bars for each source: gray pass@1, solid source-colored GPT-5.6 Sol selection, and hollow dashed oracle pass@5. Group annotations give selection gain over pass@1 in percentage points. All 66 tasks per source; homogeneous pools assume valid selection and unreviewed mixed pools use uniform fallback.</dc:description>
+    <dc:description>Grouped vertical bars for each source: light source-colored pass@1, solid source-colored GPT-5.6 Sol selection, and lightly filled source-colored oracle pass@5 with dashed outlines. Group annotations give selection gain over pass@1 in percentage points. All 66 tasks per source; homogeneous pools assume valid selection and unreviewed mixed pools use uniform fallback.</dc:description>
     <dc:format>image/svg+xml</dc:format>
     <dc:creator>
      <cc:Agent>
@@ -172,7 +172,7 @@ L 102.174424 314.236149
 L 102.174424 147.424061 
 L 73.069228 147.424061 
 z
-" clip-path="url(#pb95ade449a)" style="fill: #c8ced9"/>
+" clip-path="url(#pb95ade449a)" style="fill: #8971aa; fill-opacity: 0.35"/>
    </g>
    <g id="patch_4">
     <path d="M 107.995463 314.236149 
@@ -187,9 +187,8 @@ z
 L 172.026896 314.236149 
 L 172.026896 110.065104 
 L 142.921699 110.065104 
-L 142.921699 314.236149 
 z
-" clip-path="url(#pb95ade449a)" style="fill: none; stroke-dasharray: 5.1,3.4; stroke-dashoffset: 0; stroke: #8971aa; stroke-width: 1.7; stroke-linejoin: miter"/>
+" clip-path="url(#pb95ade449a)" style="fill: #8971aa; fill-opacity: 0.25; stroke-dasharray: 5.1,3.4; stroke-dashoffset: 0; stroke: #8971aa; stroke-width: 1.7; stroke-linejoin: miter"/>
    </g>
    <g id="patch_6">
     <path d="M 218.59521 314.236149 
@@ -197,7 +196,7 @@ L 247.700407 314.236149
 L 247.700407 148.292874 
 L 218.59521 148.292874 
 z
-" clip-path="url(#pb95ade449a)" style="fill: #c8ced9"/>
+" clip-path="url(#pb95ade449a)" style="fill: #a75e3c; fill-opacity: 0.35"/>
    </g>
    <g id="patch_7">
     <path d="M 253.521446 314.236149 
@@ -212,9 +211,8 @@ z
 L 317.552878 314.236149 
 L 317.552878 88.34478 
 L 288.447682 88.34478 
-L 288.447682 314.236149 
 z
-" clip-path="url(#pb95ade449a)" style="fill: none; stroke-dasharray: 5.1,3.4; stroke-dashoffset: 0; stroke: #a75e3c; stroke-width: 1.7; stroke-linejoin: miter"/>
+" clip-path="url(#pb95ade449a)" style="fill: #a75e3c; fill-opacity: 0.25; stroke-dasharray: 5.1,3.4; stroke-dashoffset: 0; stroke: #a75e3c; stroke-width: 1.7; stroke-linejoin: miter"/>
    </g>
    <g id="patch_9">
     <path d="M 364.121193 314.236149 
@@ -222,7 +220,7 @@ L 393.226389 314.236149
 L 393.226389 194.339961 
 L 364.121193 194.339961 
 z
-" clip-path="url(#pb95ade449a)" style="fill: #c8ced9"/>
+" clip-path="url(#pb95ade449a)" style="fill: #287a68; fill-opacity: 0.35"/>
    </g>
    <g id="patch_10">
     <path d="M 399.047428 314.236149 
@@ -237,9 +235,8 @@ z
 L 463.078861 314.236149 
 L 463.078861 149.161687 
 L 433.973664 149.161687 
-L 433.973664 314.236149 
 z
-" clip-path="url(#pb95ade449a)" style="fill: none; stroke-dasharray: 5.1,3.4; stroke-dashoffset: 0; stroke: #287a68; stroke-width: 1.7; stroke-linejoin: miter"/>
+" clip-path="url(#pb95ade449a)" style="fill: #287a68; fill-opacity: 0.25; stroke-dasharray: 5.1,3.4; stroke-dashoffset: 0; stroke: #287a68; stroke-width: 1.7; stroke-linejoin: miter"/>
    </g>
    <g id="patch_12">
     <path d="M 509.647175 314.236149 
@@ -247,7 +244,7 @@ L 538.752372 314.236149
 L 538.752372 207.372155 
 L 509.647175 207.372155 
 z
-" clip-path="url(#pb95ade449a)" style="fill: #c8ced9"/>
+" clip-path="url(#pb95ade449a)" style="fill: #4f68b3; fill-opacity: 0.35"/>
    </g>
    <g id="patch_13">
     <path d="M 544.573411 314.236149 
@@ -262,9 +259,8 @@ z
 L 608.604843 314.236149 
 L 608.604843 140.473557 
 L 579.499647 140.473557 
-L 579.499647 314.236149 
 z
-" clip-path="url(#pb95ade449a)" style="fill: none; stroke-dasharray: 5.1,3.4; stroke-dashoffset: 0; stroke: #4f68b3; stroke-width: 1.7; stroke-linejoin: miter"/>
+" clip-path="url(#pb95ade449a)" style="fill: #4f68b3; fill-opacity: 0.25; stroke-dasharray: 5.1,3.4; stroke-dashoffset: 0; stroke: #4f68b3; stroke-width: 1.7; stroke-linejoin: miter"/>
    </g>
    <g id="patch_15">
     <path d="M 46.874551 314.236149 
@@ -277,7 +273,7 @@ L 634.79952 314.236149
 " style="fill: none; stroke: #dfe4e9; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
    </g>
    <g id="text_12">
-    <text style="font-size: 9px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #747d8b" x="87.621826" y="142.424061" transform="rotate(-0 87.621826 142.424061)">58.2%</text>
+    <text style="font-size: 9px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #8971aa" x="87.621826" y="142.424061" transform="rotate(-0 87.621826 142.424061)">58.2%</text>
    </g>
    <g id="text_13">
     <text style="font-weight: 700; font-size: 9px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #8971aa" x="122.548062" y="131.129493" transform="rotate(-0 122.548062 131.129493)">62.1%</text>
@@ -290,7 +286,7 @@ L 634.79952 314.236149
     <text style="font-weight: 700; font-size: 10px; font-family: 'Arial', 'DejaVu Sans', sans-serif; fill: #8971aa" transform="translate(105.180874 64.178325)">+3.9 pp</text>
    </g>
    <g id="text_16">
-    <text style="font-size: 9px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #747d8b" x="233.147808" y="143.292874" transform="rotate(-0 233.147808 143.292874)">57.9%</text>
+    <text style="font-size: 9px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #a75e3c" x="233.147808" y="143.292874" transform="rotate(-0 233.147808 143.292874)">57.9%</text>
    </g>
    <g id="text_17">
     <text style="font-weight: 700; font-size: 9px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #a75e3c" x="268.074044" y="108.540356" transform="rotate(-0 268.074044 108.540356)">70.0%</text>
@@ -303,7 +299,7 @@ L 634.79952 314.236149
     <text style="font-weight: 700; font-size: 10px; font-family: 'Arial', 'DejaVu Sans', sans-serif; fill: #a75e3c" transform="translate(247.926388 64.178325)">+12.1 pp</text>
    </g>
    <g id="text_20">
-    <text style="font-size: 9px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #747d8b" x="378.673791" y="189.339961" transform="rotate(-0 378.673791 189.339961)">41.8%</text>
+    <text style="font-size: 9px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #287a68" x="378.673791" y="189.339961" transform="rotate(-0 378.673791 189.339961)">41.8%</text>
    </g>
    <g id="text_21">
     <text style="font-weight: 700; font-size: 9px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #287a68" x="413.600027" y="178.045392" transform="rotate(-0 413.600027 178.045392)">45.8%</text>
@@ -316,7 +312,7 @@ L 634.79952 314.236149
     <text style="font-weight: 700; font-size: 10px; font-family: 'Arial', 'DejaVu Sans', sans-serif; fill: #287a68" transform="translate(396.232839 64.178325)">+3.9 pp</text>
    </g>
    <g id="text_24">
-    <text style="font-size: 9px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #747d8b" x="524.199773" y="202.372155" transform="rotate(-0 524.199773 202.372155)">37.3%</text>
+    <text style="font-size: 9px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #4f68b3" x="524.199773" y="202.372155" transform="rotate(-0 524.199773 202.372155)">37.3%</text>
    </g>
    <g id="text_25">
     <text style="font-weight: 700; font-size: 9px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #4f68b3" x="559.126009" y="162.406759" transform="rotate(-0 559.126009 162.406759)">51.2%</text>
@@ -339,7 +335,7 @@ L 209.982573 362.495072
 L 209.982573 355.495072 
 L 189.982573 355.495072 
 z
-" style="fill: #c8ced9"/>
+" style="fill: #4f68b3; fill-opacity: 0.35"/>
    </g>
    <g id="text_29">
     <text style="font-size: 10px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #20242d" x="214.982573" y="362.495072" transform="rotate(-0 214.982573 362.495072)">pass@1</text>
@@ -350,7 +346,7 @@ L 291.816948 362.495072
 L 291.816948 355.495072 
 L 271.816948 355.495072 
 z
-" style="fill: #434a57"/>
+" style="fill: #4f68b3"/>
    </g>
    <g id="text_30">
     <text style="font-size: 10px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #20242d" x="296.816948" y="362.495072" transform="rotate(-0 296.816948 362.495072)">Selection</text>
@@ -360,9 +356,8 @@ z
 L 377.952885 362.495072 
 L 377.952885 355.495072 
 L 357.952885 355.495072 
-L 357.952885 362.495072 
 z
-" style="fill: none; stroke-dasharray: 3,2; stroke-dashoffset: 0; stroke: #434a57; stroke-linejoin: miter"/>
+" style="fill: #4f68b3; fill-opacity: 0.25; stroke-dasharray: 3,2; stroke-dashoffset: 0; stroke: #4f68b3; stroke-linejoin: miter"/>
    </g>
    <g id="text_31">
     <text style="font-size: 10px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #20242d" x="382.952885" y="362.495072" transform="rotate(-0 382.952885 362.495072)">Oracle pass@5</text>

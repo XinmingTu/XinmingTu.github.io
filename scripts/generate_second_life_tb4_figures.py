@@ -17,7 +17,7 @@ import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import numpy as np
-from matplotlib.colors import LinearSegmentedColormap
+from matplotlib.colors import LinearSegmentedColormap, to_rgba
 from matplotlib.patches import Patch
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -234,11 +234,11 @@ def main():
                 color = SOURCE_COLORS[item["key"]]
                 base, selected, oracle = item["pass_at_k"][0] * 100, item["selected_rate"] * 100, item["pass_at_k"][-1] * 100
                 assert base <= selected <= oracle
-                ax.bar(center - .3, base, width=.25, color="#c8ced9", zorder=2)
+                ax.bar(center - .3, base, width=.25, color=to_rgba(color, .35), zorder=2)
                 ax.bar(center, selected, width=.25, color=color, zorder=2)
-                ax.bar(center + .3, oracle, width=.25, facecolor="none", edgecolor=color,
+                ax.bar(center + .3, oracle, width=.25, facecolor=to_rgba(color, .25), edgecolor=color,
                        linewidth=1.7, linestyle=(0, (3, 2)), zorder=2)
-                for offset, value, text_color in [(-.3, base, "#747d8b"), (0, selected, color), (.3, oracle, color)]:
+                for offset, value, text_color in [(-.3, base, color), (0, selected, color), (.3, oracle, color)]:
                     ax.annotate(f"{value:.1f}%", (center + offset, value), xytext=(0, 5),
                                 textcoords="offset points", ha="center", fontsize=9,
                                 color=text_color, weight="bold" if offset == 0 else "normal")
@@ -256,12 +256,14 @@ def main():
             ax.grid(axis="y", alpha=.15)
         fig.suptitle("Reviewer: GPT-5.6 Sol" + ("\n" if mobile else "  ·  ") + "All 66 tasks per source",
                      fontsize=11, color="#747d8b")
-        semantics = [Patch(facecolor="#c8ced9", label="pass@1"),
-                     Patch(facecolor="#434a57", label="Selection"),
-                     Patch(facecolor="none", edgecolor="#434a57", linestyle=(0, (3, 2)), label="Oracle pass@5")]
+        legend_color = SOURCE_COLORS["gpt-5.6-sol"]
+        semantics = [Patch(facecolor=to_rgba(legend_color, .35), label="pass@1"),
+                     Patch(facecolor=legend_color, label="Selection"),
+                     Patch(facecolor=to_rgba(legend_color, .25), edgecolor=legend_color,
+                           linestyle=(0, (3, 2)), label="Oracle pass@5")]
         fig.legend(handles=semantics, loc="outside lower center", ncol=3, frameon=False,
                    fontsize=9 if mobile else 10, handletextpad=.5, columnspacing=1 if mobile else 2)
-        save(fig, "tb4-sampling-hero" + ("-mobile" if mobile else ""), "Grouped vertical bars for each source: gray pass@1, solid source-colored GPT-5.6 Sol selection, and hollow dashed oracle pass@5. Group annotations give selection gain over pass@1 in percentage points. All 66 tasks per source; homogeneous pools assume valid selection and unreviewed mixed pools use uniform fallback.")
+        save(fig, "tb4-sampling-hero" + ("-mobile" if mobile else ""), "Grouped vertical bars for each source: light source-colored pass@1, solid source-colored GPT-5.6 Sol selection, and lightly filled source-colored oracle pass@5 with dashed outlines. Group annotations give selection gain over pass@1 in percentage points. All 66 tasks per source; homogeneous pools assume valid selection and unreviewed mixed pools use uniform fallback.")
 
     for mobile in (False, True):
         fig, ax = plt.subplots(figsize=(4.8, 5.3) if mobile else (8.8, 4.8), layout="constrained")

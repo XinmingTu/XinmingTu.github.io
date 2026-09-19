@@ -71,8 +71,9 @@ unchanged full-job pass@k values. Selection is `(all_pass_pools +
 gpt_selection_successes + sum(unreviewed_success_counts)/5) / 66`.
 Homogeneous pools assume valid selection; the 3 Fable, 5 GPT, 2 GLM, and 0 GPT-6
 unreviewed mixed pools use uniform fallback. These are assumptions, not measured
-reviewer outcomes. Gray bars encode pass@1; source-colored solid bars encode
-selection; hollow dashed bars encode oracle pass@5. Bar labels show success,
+reviewer outcomes. Every bar uses its source color: light fills encode pass@1,
+solid fills encode selection, and light fills with dashed outlines encode oracle
+pass@5. Bar labels show success,
 and group annotations give selection gains over pass@1 in percentage points. There are no coverage whiskers. The appendix
 overlays all four oracle pass@1–5 curves on one plot, with source colors and
 legend order matching the main figure. Only endpoints are labeled; these do not

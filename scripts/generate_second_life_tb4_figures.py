@@ -18,7 +18,7 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import numpy as np
 from matplotlib.colors import LinearSegmentedColormap
-from matplotlib.lines import Line2D
+from matplotlib.patches import Patch
 
 ROOT = Path(__file__).resolve().parents[1]
 INPUT = ROOT / "assets/data/second-life-tb4"
@@ -222,43 +222,46 @@ def main():
             ax.set_ylabel("Successful selections (%)")
         save(fig, "tb4-five-by-source" + ("-mobile" if mobile else ""), "Five selection by source and reviewer; fixed reviewer colors and order, source-specific uniform baselines, invalid outputs counted as failures. Source task sets differ.")
 
-    # Separate each source's baseline, realized selection, and oracle ceiling.
+    # Three adjacent vertical bars distinguish baseline, selection, and oracle.
     source_colors = [SOURCE_COLORS[item["key"]] for item in data["sources"]]
     for mobile in (False, True):
-        fig, ax = plt.subplots(figsize=(5.2, 6.1) if mobile else (8.8, 4.8), layout="constrained")
-        for y, item, color in zip(range(3, -1, -1), data["sources"], source_colors):
-            base, selected, oracle = item["pass_at_k"][0] * 100, item["selected_rate"] * 100, item["pass_at_k"][-1] * 100
-            assert base <= selected <= oracle
-            ax.plot([base, selected], [y, y], color=color, linewidth=4, solid_capstyle="round", zorder=2)
-            ax.plot([selected, oracle], [y, y], color=color, alpha=.45, linewidth=2, linestyle=(0, (3, 3)), zorder=2)
-            ax.plot(base, y, "o", color="#747d8b", markersize=5, zorder=3)
-            ax.plot(selected, y, "o", color=color, markersize=10, markeredgecolor="white", markeredgewidth=1, zorder=4)
-            ax.plot(oracle, y, "o", markerfacecolor="white", markeredgecolor=color, markeredgewidth=2, markersize=8, zorder=3)
-            for value in (base, oracle):
-                ax.annotate(f"{value:.1f}%", (value, y), xytext=(0, -18), textcoords="offset points",
-                            ha="center", fontsize=9 if mobile else 10, color="#747d8b")
-            ax.annotate(f'{item["selected"]}%  (+{item["gain"]} pp)', (selected, y),
-                        xytext=(0, 13), textcoords="offset points", ha="center",
-                        fontsize=10 if mobile else 11, color=color, weight="bold")
-        ax.set(xlim=(30, 88), ylim=(-.55, 3.65), xticks=[30, 40, 50, 60, 70, 80],
-               yticks=[3, 2, 1, 0], yticklabels=[item["name"].replace(" ", "\n", 1) if mobile else item["name"] for item in data["sources"]],
-               xlabel="Whole-job success (%)")
-        for tick, color in zip(ax.get_yticklabels(), source_colors):
-            tick.set_color(color)
-            tick.set_fontweight("bold")
-            tick.set_fontsize(10 if mobile else 11)
-        ax.tick_params(axis="y", length=0, pad=12)
-        ax.spines["left"].set_visible(False)
-        ax.set_axisbelow(True)
-        ax.grid(axis="x", alpha=.15)
-        ax.set_title("Reviewer: GPT-5.6 Sol" + ("\n" if mobile else "  ·  ") + "All 66 tasks per source",
-                     loc="left", fontsize=11, color="#747d8b", pad=16)
-        semantics = [Line2D([], [], color="#747d8b", marker="o", linestyle="none", markersize=5, label="pass@1"),
-                     Line2D([], [], color="#20242d", marker="o", linestyle="none", markersize=9, label="Selection"),
-                     Line2D([], [], color="#20242d", marker="o", markerfacecolor="white", linestyle="none", markersize=8, label="Oracle pass@5")]
+        fig, axes = plt.subplots(2 if mobile else 1, 1, figsize=(4.8, 7.6) if mobile else (8.8, 5.1),
+                                 layout="constrained", squeeze=False)
+        groups = [data["sources"][:2], data["sources"][2:]] if mobile else [data["sources"]]
+        for ax, group in zip(axes.flat, groups):
+            centers = np.arange(len(group)) * 1.25
+            for center, item in zip(centers, group):
+                color = SOURCE_COLORS[item["key"]]
+                base, selected, oracle = item["pass_at_k"][0] * 100, item["selected_rate"] * 100, item["pass_at_k"][-1] * 100
+                assert base <= selected <= oracle
+                ax.bar(center - .3, base, width=.25, color="#c8ced9", zorder=2)
+                ax.bar(center, selected, width=.25, color=color, zorder=2)
+                ax.bar(center + .3, oracle, width=.25, facecolor="none", edgecolor=color,
+                       linewidth=1.7, linestyle=(0, (3, 2)), zorder=2)
+                for offset, value, text_color in [(-.3, base, "#747d8b"), (0, selected, color), (.3, oracle, color)]:
+                    ax.annotate(f"{value:.1f}%", (center + offset, value), xytext=(0, 5),
+                                textcoords="offset points", ha="center", fontsize=9,
+                                color=text_color, weight="bold" if offset == 0 else "normal")
+                ax.text(center, 95, f'Selection gain\n+{item["gain"]} pp', ha="center", va="top",
+                        fontsize=10, color=color, weight="bold", linespacing=1.4)
+            ax.set(xticks=centers, xticklabels=[item["name"].replace(" ", "\n", 1) for item in group],
+                   xlim=(centers[0] - .65, centers[-1] + .65), ylim=(0, 100), yticks=[0, 20, 40, 60, 80, 100],
+                   ylabel="Whole-job success (%)")
+            for tick, item in zip(ax.get_xticklabels(), group):
+                tick.set_color(SOURCE_COLORS[item["key"]])
+                tick.set_fontweight("bold")
+                tick.set_fontsize(10)
+            ax.tick_params(axis="x", length=0, pad=9)
+            ax.set_axisbelow(True)
+            ax.grid(axis="y", alpha=.15)
+        fig.suptitle("Reviewer: GPT-5.6 Sol" + ("\n" if mobile else "  ·  ") + "All 66 tasks per source",
+                     fontsize=11, color="#747d8b")
+        semantics = [Patch(facecolor="#c8ced9", label="pass@1"),
+                     Patch(facecolor="#434a57", label="Selection"),
+                     Patch(facecolor="none", edgecolor="#434a57", linestyle=(0, (3, 2)), label="Oracle pass@5")]
         fig.legend(handles=semantics, loc="outside lower center", ncol=3, frameon=False,
-                   fontsize=9 if mobile else 10, handletextpad=.4, columnspacing=1 if mobile else 2)
-        save(fig, "tb4-sampling-hero" + ("-mobile" if mobile else ""), "Four source rows on a shared success axis: pass@1, GPT-5.6 Sol selection, and oracle pass@5. Solid segments show realized gains; dashed segments show remaining headroom. Selection labels show score and percentage-point gain over pass@1. All 66 tasks per source; homogeneous pools assume valid selection and unreviewed mixed pools use uniform fallback.")
+                   fontsize=9 if mobile else 10, handletextpad=.5, columnspacing=1 if mobile else 2)
+        save(fig, "tb4-sampling-hero" + ("-mobile" if mobile else ""), "Grouped vertical bars for each source: gray pass@1, solid source-colored GPT-5.6 Sol selection, and hollow dashed oracle pass@5. Group annotations give selection gain over pass@1 in percentage points. All 66 tasks per source; homogeneous pools assume valid selection and unreviewed mixed pools use uniform fallback.")
 
     for mobile in (False, True):
         fig, axes = plt.subplots(4 if mobile else 2, 1 if mobile else 2,

@@ -460,9 +460,9 @@ The paired success change is +1.3 points, with a task-cluster 95% interval of [â
 <figure class="sle-figure" markdown="0">
   <picture>
     <source media="(max-width: 600px)" srcset="/assets/img/2026-08-28-second-life-agent-evals/tb4-sampling-hero-mobile.svg">
-    <img src="/assets/img/2026-08-28-second-life-agent-evals/tb4-sampling-hero.svg" alt="Four rows compare pass@1, GPT-5.6 Sol selection, and oracle pass@5 on a shared success-rate axis. Solid segments show selection gains; dashed segments show remaining headroom. Every source retains all 66 tasks." loading="lazy">
+    <img src="/assets/img/2026-08-28-second-life-agent-evals/tb4-sampling-hero.svg" alt="Four groups of vertical bars compare gray pass@1, solid source-colored GPT-5.6 Sol selection, and hollow dashed oracle pass@5. Annotations show selection gains over pass@1. Every source retains all 66 tasks." loading="lazy">
   </picture>
-  <figcaption>Solid segments show the gain from GPT-5.6 Sol selection over pass@1; dashed segments show the remaining gap to oracle pass@5. Labels above the selection points give success and gain in percentage points. Every source retains all 66 tasks. Selection scores are reconstructed under the assumptions below.</figcaption>
+  <figcaption>Gray bars show pass@1; solid colored bars show GPT-5.6 Sol selection; hollow dashed bars show oracle pass@5. Annotations above each group give the selection gain over pass@1 in percentage points. Every source retains all 66 tasks. Selection scores are reconstructed under the assumptions below.</figcaption>
 </figure>
 
 On Fable-source runs, selection raises reconstructed success from **{{ fable_source.pass1 }}% to {{ fable_source.selected }}%**. On GPT-source runs, it rises from **{{ gpt_source.pass1 }}% to {{ gpt_source.selected }}%**. GLM and GPT-6 sources gain {{ glm_source.gain }} and {{ astra_source.gain }} points, respectively. Whole-job gains are smaller than gains on mixed pools because selection can change the outcome only on mixed tasks.

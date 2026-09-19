@@ -501,6 +501,25 @@ The original evaluation measured task execution. Reusing its runs lets us measur
 A completed evaluation can seed both <strong>the next benchmark</strong> and <strong>the next training set</strong>.
 </div>
 
+### Reproduction
+
+Results are pinned to experiment commit [`6d99501`]({{ tb4.repo }}/README.md). [Local snapshots and provenance](/assets/data/second-life-tb4/README.md) drive the tables and figures. Regenerate them without model calls using `python scripts/generate_second_life_tb4_figures.py` with Matplotlib installed. The original TB3 script and figures are retained.
+
+<p class="sle-repo-link"><strong>Code, tasks, and results:</strong> <a href="{{ tb4.repo }}/README.md">Agentic Verification Eval</a></p>
+
+**Cite this post**
+
+```bibtex
+@misc{tu2026secondlife,
+  author = {Tu, Xinming},
+  title  = {The Second Life of Agent Evals},
+  year   = {2026},
+  month  = aug,
+  url    = {https://xinmingtu.cn/blog/preview/the-second-life-of-agent-evals/},
+  note   = {Blog post; updated September 18, 2026}
+}
+```
+
 ## Appendix
 
 ### Oracle sampling curves
@@ -590,22 +609,3 @@ TB3 and TB4 differ in tasks, evidence, and some reviewer versions; their differe
 {% endfor %}
 
 These are three distinct batches; reused observations are not charged again. The September 16 batch includes the DeepSeek prompt control and GLM Flash's original Five reviews. Costs exclude earlier TB4 panels, the September 12 Five extension, solver execution, and infrastructure. They are recorded model costs, not lifetime project spend or provider invoices.
-
-### Reproduction
-
-Results are pinned to experiment commit [`6d99501`]({{ tb4.repo }}/README.md). [Local snapshots and provenance](/assets/data/second-life-tb4/README.md) drive the tables and figures. Regenerate them without model calls using `python scripts/generate_second_life_tb4_figures.py` with Matplotlib installed. The original TB3 script and figures are retained.
-
-<p class="sle-repo-link"><strong>Code, tasks, and results:</strong> <a href="{{ tb4.repo }}/README.md">Agentic Verification Eval</a></p>
-
-**Cite this post**
-
-```bibtex
-@misc{tu2026secondlife,
-  author = {Tu, Xinming},
-  title  = {The Second Life of Agent Evals},
-  year   = {2026},
-  month  = aug,
-  url    = {https://xinmingtu.cn/blog/preview/the-second-life-of-agent-evals/},
-  note   = {Blog post; updated September 18, 2026}
-}
-```

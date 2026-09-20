@@ -1,0 +1,901 @@
+{
+  "commit": "6d99501ad21662cad4ef82c9089e15492d24e976",
+  "three_source_tasks": [
+    "terminal-bench/batched-eval-parity",
+    "terminal-bench/fin-saccr-rwa",
+    "terminal-bench/react-lead-form",
+    "terminal-bench/rs-archive-clone",
+    "terminal-bench/vba-userform-port",
+    "terminal-bench/vpp-loss-divergence"
+  ],
+  "four_source_tasks": [
+    "terminal-bench/batched-eval-parity",
+    "terminal-bench/vba-userform-port"
+  ],
+  "three_source_results": [
+    {
+      "panel": "Single: classify success or failure",
+      "population": "all",
+      "source": "fable-5.1",
+      "reviewer": "gpt-5-6-sol",
+      "wins": 37,
+      "n": 60
+    },
+    {
+      "panel": "Single: classify success or failure",
+      "population": "shared",
+      "source": "fable-5.1",
+      "reviewer": "gpt-5-6-sol",
+      "wins": 8,
+      "n": 12
+    },
+    {
+      "panel": "Single: classify success or failure",
+      "population": "all",
+      "source": "fable-5.1",
+      "reviewer": "glm-5-3-flash",
+      "wins": 35,
+      "n": 60
+    },
+    {
+      "panel": "Single: classify success or failure",
+      "population": "shared",
+      "source": "fable-5.1",
+      "reviewer": "glm-5-3-flash",
+      "wins": 6,
+      "n": 12
+    },
+    {
+      "panel": "Single: classify success or failure",
+      "population": "all",
+      "source": "fable-5.1",
+      "reviewer": "glm-5-3",
+      "wins": 34,
+      "n": 60
+    },
+    {
+      "panel": "Single: classify success or failure",
+      "population": "shared",
+      "source": "fable-5.1",
+      "reviewer": "glm-5-3",
+      "wins": 6,
+      "n": 12
+    },
+    {
+      "panel": "Single: classify success or failure",
+      "population": "all",
+      "source": "fable-5.1",
+      "reviewer": "deepseek-v4p1-flash",
+      "wins": 35,
+      "n": 60
+    },
+    {
+      "panel": "Single: classify success or failure",
+      "population": "shared",
+      "source": "fable-5.1",
+      "reviewer": "deepseek-v4p1-flash",
+      "wins": 6,
+      "n": 12
+    },
+    {
+      "panel": "Single: classify success or failure",
+      "population": "all",
+      "source": "glm-5.3",
+      "reviewer": "gpt-5-6-sol",
+      "wins": 25,
+      "n": 42
+    },
+    {
+      "panel": "Single: classify success or failure",
+      "population": "shared",
+      "source": "glm-5.3",
+      "reviewer": "gpt-5-6-sol",
+      "wins": 7,
+      "n": 12
+    },
+    {
+      "panel": "Single: classify success or failure",
+      "population": "all",
+      "source": "glm-5.3",
+      "reviewer": "glm-5-3-flash",
+      "wins": 23,
+      "n": 42
+    },
+    {
+      "panel": "Single: classify success or failure",
+      "population": "shared",
+      "source": "glm-5.3",
+      "reviewer": "glm-5-3-flash",
+      "wins": 6,
+      "n": 12
+    },
+    {
+      "panel": "Single: classify success or failure",
+      "population": "all",
+      "source": "glm-5.3",
+      "reviewer": "glm-5-3",
+      "wins": 22,
+      "n": 42
+    },
+    {
+      "panel": "Single: classify success or failure",
+      "population": "shared",
+      "source": "glm-5.3",
+      "reviewer": "glm-5-3",
+      "wins": 6,
+      "n": 12
+    },
+    {
+      "panel": "Single: classify success or failure",
+      "population": "all",
+      "source": "glm-5.3",
+      "reviewer": "deepseek-v4p1-flash",
+      "wins": 18,
+      "n": 42
+    },
+    {
+      "panel": "Single: classify success or failure",
+      "population": "shared",
+      "source": "glm-5.3",
+      "reviewer": "deepseek-v4p1-flash",
+      "wins": 4,
+      "n": 12
+    },
+    {
+      "panel": "Single: classify success or failure",
+      "population": "all",
+      "source": "gpt-5.6-sol",
+      "reviewer": "gpt-5-6-sol",
+      "wins": 32,
+      "n": 56
+    },
+    {
+      "panel": "Single: classify success or failure",
+      "population": "shared",
+      "source": "gpt-5.6-sol",
+      "reviewer": "gpt-5-6-sol",
+      "wins": 7,
+      "n": 12
+    },
+    {
+      "panel": "Single: classify success or failure",
+      "population": "all",
+      "source": "gpt-5.6-sol",
+      "reviewer": "glm-5-3-flash",
+      "wins": 30,
+      "n": 56
+    },
+    {
+      "panel": "Single: classify success or failure",
+      "population": "shared",
+      "source": "gpt-5.6-sol",
+      "reviewer": "glm-5-3-flash",
+      "wins": 7,
+      "n": 12
+    },
+    {
+      "panel": "Single: classify success or failure",
+      "population": "all",
+      "source": "gpt-5.6-sol",
+      "reviewer": "glm-5-3",
+      "wins": 30,
+      "n": 56
+    },
+    {
+      "panel": "Single: classify success or failure",
+      "population": "shared",
+      "source": "gpt-5.6-sol",
+      "reviewer": "glm-5-3",
+      "wins": 6,
+      "n": 12
+    },
+    {
+      "panel": "Single: classify success or failure",
+      "population": "all",
+      "source": "gpt-5.6-sol",
+      "reviewer": "deepseek-v4p1-flash",
+      "wins": 26,
+      "n": 56
+    },
+    {
+      "panel": "Single: classify success or failure",
+      "population": "shared",
+      "source": "gpt-5.6-sol",
+      "reviewer": "deepseek-v4p1-flash",
+      "wins": 3,
+      "n": 12
+    },
+    {
+      "panel": "Pair: select the successful attempt",
+      "population": "all",
+      "source": "fable-5.1",
+      "reviewer": "gpt-5-6-sol",
+      "wins": 18,
+      "n": 30
+    },
+    {
+      "panel": "Pair: select the successful attempt",
+      "population": "shared",
+      "source": "fable-5.1",
+      "reviewer": "gpt-5-6-sol",
+      "wins": 4,
+      "n": 6
+    },
+    {
+      "panel": "Pair: select the successful attempt",
+      "population": "all",
+      "source": "fable-5.1",
+      "reviewer": "glm-5-3-flash",
+      "wins": 19,
+      "n": 30
+    },
+    {
+      "panel": "Pair: select the successful attempt",
+      "population": "shared",
+      "source": "fable-5.1",
+      "reviewer": "glm-5-3-flash",
+      "wins": 4,
+      "n": 6
+    },
+    {
+      "panel": "Pair: select the successful attempt",
+      "population": "all",
+      "source": "fable-5.1",
+      "reviewer": "glm-5-3",
+      "wins": 21,
+      "n": 30
+    },
+    {
+      "panel": "Pair: select the successful attempt",
+      "population": "shared",
+      "source": "fable-5.1",
+      "reviewer": "glm-5-3",
+      "wins": 2,
+      "n": 6
+    },
+    {
+      "panel": "Pair: select the successful attempt",
+      "population": "all",
+      "source": "fable-5.1",
+      "reviewer": "deepseek-v4p1-flash",
+      "wins": 15,
+      "n": 30
+    },
+    {
+      "panel": "Pair: select the successful attempt",
+      "population": "shared",
+      "source": "fable-5.1",
+      "reviewer": "deepseek-v4p1-flash",
+      "wins": 4,
+      "n": 6
+    },
+    {
+      "panel": "Pair: select the successful attempt",
+      "population": "all",
+      "source": "glm-5.3",
+      "reviewer": "gpt-5-6-sol",
+      "wins": 12,
+      "n": 21
+    },
+    {
+      "panel": "Pair: select the successful attempt",
+      "population": "shared",
+      "source": "glm-5.3",
+      "reviewer": "gpt-5-6-sol",
+      "wins": 3,
+      "n": 6
+    },
+    {
+      "panel": "Pair: select the successful attempt",
+      "population": "all",
+      "source": "glm-5.3",
+      "reviewer": "glm-5-3-flash",
+      "wins": 12,
+      "n": 21
+    },
+    {
+      "panel": "Pair: select the successful attempt",
+      "population": "shared",
+      "source": "glm-5.3",
+      "reviewer": "glm-5-3-flash",
+      "wins": 4,
+      "n": 6
+    },
+    {
+      "panel": "Pair: select the successful attempt",
+      "population": "all",
+      "source": "glm-5.3",
+      "reviewer": "glm-5-3",
+      "wins": 15,
+      "n": 21
+    },
+    {
+      "panel": "Pair: select the successful attempt",
+      "population": "shared",
+      "source": "glm-5.3",
+      "reviewer": "glm-5-3",
+      "wins": 4,
+      "n": 6
+    },
+    {
+      "panel": "Pair: select the successful attempt",
+      "population": "all",
+      "source": "glm-5.3",
+      "reviewer": "deepseek-v4p1-flash",
+      "wins": 13,
+      "n": 21
+    },
+    {
+      "panel": "Pair: select the successful attempt",
+      "population": "shared",
+      "source": "glm-5.3",
+      "reviewer": "deepseek-v4p1-flash",
+      "wins": 4,
+      "n": 6
+    },
+    {
+      "panel": "Pair: select the successful attempt",
+      "population": "all",
+      "source": "gpt-5.6-sol",
+      "reviewer": "gpt-5-6-sol",
+      "wins": 19,
+      "n": 28
+    },
+    {
+      "panel": "Pair: select the successful attempt",
+      "population": "shared",
+      "source": "gpt-5.6-sol",
+      "reviewer": "gpt-5-6-sol",
+      "wins": 5,
+      "n": 6
+    },
+    {
+      "panel": "Pair: select the successful attempt",
+      "population": "all",
+      "source": "gpt-5.6-sol",
+      "reviewer": "glm-5-3-flash",
+      "wins": 19,
+      "n": 28
+    },
+    {
+      "panel": "Pair: select the successful attempt",
+      "population": "shared",
+      "source": "gpt-5.6-sol",
+      "reviewer": "glm-5-3-flash",
+      "wins": 2,
+      "n": 6
+    },
+    {
+      "panel": "Pair: select the successful attempt",
+      "population": "all",
+      "source": "gpt-5.6-sol",
+      "reviewer": "glm-5-3",
+      "wins": 16,
+      "n": 28
+    },
+    {
+      "panel": "Pair: select the successful attempt",
+      "population": "shared",
+      "source": "gpt-5.6-sol",
+      "reviewer": "glm-5-3",
+      "wins": 3,
+      "n": 6
+    },
+    {
+      "panel": "Pair: select the successful attempt",
+      "population": "all",
+      "source": "gpt-5.6-sol",
+      "reviewer": "deepseek-v4p1-flash",
+      "wins": 14,
+      "n": 28
+    },
+    {
+      "panel": "Pair: select the successful attempt",
+      "population": "shared",
+      "source": "gpt-5.6-sol",
+      "reviewer": "deepseek-v4p1-flash",
+      "wins": 3,
+      "n": 6
+    },
+    {
+      "panel": "Five: select any successful attempt",
+      "population": "all",
+      "source": "fable-5.1",
+      "reviewer": "gpt-5-6-sol",
+      "wins": 26,
+      "n": 30
+    },
+    {
+      "panel": "Five: select any successful attempt",
+      "population": "shared",
+      "source": "fable-5.1",
+      "reviewer": "gpt-5-6-sol",
+      "wins": 6,
+      "n": 6
+    },
+    {
+      "panel": "Five: select any successful attempt",
+      "population": "all",
+      "source": "fable-5.1",
+      "reviewer": "glm-5-3-flash",
+      "wins": 22,
+      "n": 30
+    },
+    {
+      "panel": "Five: select any successful attempt",
+      "population": "shared",
+      "source": "fable-5.1",
+      "reviewer": "glm-5-3-flash",
+      "wins": 3,
+      "n": 6
+    },
+    {
+      "panel": "Five: select any successful attempt",
+      "population": "all",
+      "source": "fable-5.1",
+      "reviewer": "glm-5-3",
+      "wins": 19,
+      "n": 30
+    },
+    {
+      "panel": "Five: select any successful attempt",
+      "population": "shared",
+      "source": "fable-5.1",
+      "reviewer": "glm-5-3",
+      "wins": 2,
+      "n": 6
+    },
+    {
+      "panel": "Five: select any successful attempt",
+      "population": "all",
+      "source": "fable-5.1",
+      "reviewer": "deepseek-v4p1-flash",
+      "wins": 20,
+      "n": 30
+    },
+    {
+      "panel": "Five: select any successful attempt",
+      "population": "shared",
+      "source": "fable-5.1",
+      "reviewer": "deepseek-v4p1-flash",
+      "wins": 5,
+      "n": 6
+    },
+    {
+      "panel": "Five: select any successful attempt",
+      "population": "all",
+      "source": "glm-5.3",
+      "reviewer": "gpt-5-6-sol",
+      "wins": 14,
+      "n": 21
+    },
+    {
+      "panel": "Five: select any successful attempt",
+      "population": "shared",
+      "source": "glm-5.3",
+      "reviewer": "gpt-5-6-sol",
+      "wins": 3,
+      "n": 6
+    },
+    {
+      "panel": "Five: select any successful attempt",
+      "population": "all",
+      "source": "glm-5.3",
+      "reviewer": "glm-5-3-flash",
+      "wins": 13,
+      "n": 21
+    },
+    {
+      "panel": "Five: select any successful attempt",
+      "population": "shared",
+      "source": "glm-5.3",
+      "reviewer": "glm-5-3-flash",
+      "wins": 2,
+      "n": 6
+    },
+    {
+      "panel": "Five: select any successful attempt",
+      "population": "all",
+      "source": "glm-5.3",
+      "reviewer": "glm-5-3",
+      "wins": 14,
+      "n": 21
+    },
+    {
+      "panel": "Five: select any successful attempt",
+      "population": "shared",
+      "source": "glm-5.3",
+      "reviewer": "glm-5-3",
+      "wins": 4,
+      "n": 6
+    },
+    {
+      "panel": "Five: select any successful attempt",
+      "population": "all",
+      "source": "glm-5.3",
+      "reviewer": "deepseek-v4p1-flash",
+      "wins": 13,
+      "n": 21
+    },
+    {
+      "panel": "Five: select any successful attempt",
+      "population": "shared",
+      "source": "glm-5.3",
+      "reviewer": "deepseek-v4p1-flash",
+      "wins": 3,
+      "n": 6
+    },
+    {
+      "panel": "Five: select any successful attempt",
+      "population": "all",
+      "source": "gpt-5.6-sol",
+      "reviewer": "gpt-5-6-sol",
+      "wins": 24,
+      "n": 28
+    },
+    {
+      "panel": "Five: select any successful attempt",
+      "population": "shared",
+      "source": "gpt-5.6-sol",
+      "reviewer": "gpt-5-6-sol",
+      "wins": 6,
+      "n": 6
+    },
+    {
+      "panel": "Five: select any successful attempt",
+      "population": "all",
+      "source": "gpt-5.6-sol",
+      "reviewer": "glm-5-3-flash",
+      "wins": 21,
+      "n": 28
+    },
+    {
+      "panel": "Five: select any successful attempt",
+      "population": "shared",
+      "source": "gpt-5.6-sol",
+      "reviewer": "glm-5-3-flash",
+      "wins": 6,
+      "n": 6
+    },
+    {
+      "panel": "Five: select any successful attempt",
+      "population": "all",
+      "source": "gpt-5.6-sol",
+      "reviewer": "glm-5-3",
+      "wins": 18,
+      "n": 28
+    },
+    {
+      "panel": "Five: select any successful attempt",
+      "population": "shared",
+      "source": "gpt-5.6-sol",
+      "reviewer": "glm-5-3",
+      "wins": 6,
+      "n": 6
+    },
+    {
+      "panel": "Five: select any successful attempt",
+      "population": "all",
+      "source": "gpt-5.6-sol",
+      "reviewer": "deepseek-v4p1-flash",
+      "wins": 13,
+      "n": 28
+    },
+    {
+      "panel": "Five: select any successful attempt",
+      "population": "shared",
+      "source": "gpt-5.6-sol",
+      "reviewer": "deepseek-v4p1-flash",
+      "wins": 6,
+      "n": 6
+    }
+  ],
+  "four_source_results": [
+    {
+      "panel": "Five: select any successful attempt",
+      "population": "all",
+      "source": "fable-5.1",
+      "reviewer": "gpt-5-6-sol",
+      "wins": 26,
+      "n": 30
+    },
+    {
+      "panel": "Five: select any successful attempt",
+      "population": "shared",
+      "source": "fable-5.1",
+      "reviewer": "gpt-5-6-sol",
+      "wins": 2,
+      "n": 2
+    },
+    {
+      "panel": "Five: select any successful attempt",
+      "population": "all",
+      "source": "fable-5.1",
+      "reviewer": "glm-5-3-flash",
+      "wins": 22,
+      "n": 30
+    },
+    {
+      "panel": "Five: select any successful attempt",
+      "population": "shared",
+      "source": "fable-5.1",
+      "reviewer": "glm-5-3-flash",
+      "wins": 0,
+      "n": 2
+    },
+    {
+      "panel": "Five: select any successful attempt",
+      "population": "all",
+      "source": "fable-5.1",
+      "reviewer": "glm-5-3",
+      "wins": 19,
+      "n": 30
+    },
+    {
+      "panel": "Five: select any successful attempt",
+      "population": "shared",
+      "source": "fable-5.1",
+      "reviewer": "glm-5-3",
+      "wins": 0,
+      "n": 2
+    },
+    {
+      "panel": "Five: select any successful attempt",
+      "population": "all",
+      "source": "fable-5.1",
+      "reviewer": "deepseek-v4p1-flash",
+      "wins": 20,
+      "n": 30
+    },
+    {
+      "panel": "Five: select any successful attempt",
+      "population": "shared",
+      "source": "fable-5.1",
+      "reviewer": "deepseek-v4p1-flash",
+      "wins": 2,
+      "n": 2
+    },
+    {
+      "panel": "Five: select any successful attempt",
+      "population": "all",
+      "source": "glm-5.3",
+      "reviewer": "gpt-5-6-sol",
+      "wins": 14,
+      "n": 21
+    },
+    {
+      "panel": "Five: select any successful attempt",
+      "population": "shared",
+      "source": "glm-5.3",
+      "reviewer": "gpt-5-6-sol",
+      "wins": 2,
+      "n": 2
+    },
+    {
+      "panel": "Five: select any successful attempt",
+      "population": "all",
+      "source": "glm-5.3",
+      "reviewer": "glm-5-3-flash",
+      "wins": 13,
+      "n": 21
+    },
+    {
+      "panel": "Five: select any successful attempt",
+      "population": "shared",
+      "source": "glm-5.3",
+      "reviewer": "glm-5-3-flash",
+      "wins": 0,
+      "n": 2
+    },
+    {
+      "panel": "Five: select any successful attempt",
+      "population": "all",
+      "source": "glm-5.3",
+      "reviewer": "glm-5-3",
+      "wins": 14,
+      "n": 21
+    },
+    {
+      "panel": "Five: select any successful attempt",
+      "population": "shared",
+      "source": "glm-5.3",
+      "reviewer": "glm-5-3",
+      "wins": 1,
+      "n": 2
+    },
+    {
+      "panel": "Five: select any successful attempt",
+      "population": "all",
+      "source": "glm-5.3",
+      "reviewer": "deepseek-v4p1-flash",
+      "wins": 13,
+      "n": 21
+    },
+    {
+      "panel": "Five: select any successful attempt",
+      "population": "shared",
+      "source": "glm-5.3",
+      "reviewer": "deepseek-v4p1-flash",
+      "wins": 1,
+      "n": 2
+    },
+    {
+      "panel": "Five: select any successful attempt",
+      "population": "all",
+      "source": "gpt-5.6-sol",
+      "reviewer": "gpt-5-6-sol",
+      "wins": 24,
+      "n": 28
+    },
+    {
+      "panel": "Five: select any successful attempt",
+      "population": "shared",
+      "source": "gpt-5.6-sol",
+      "reviewer": "gpt-5-6-sol",
+      "wins": 2,
+      "n": 2
+    },
+    {
+      "panel": "Five: select any successful attempt",
+      "population": "all",
+      "source": "gpt-5.6-sol",
+      "reviewer": "glm-5-3-flash",
+      "wins": 21,
+      "n": 28
+    },
+    {
+      "panel": "Five: select any successful attempt",
+      "population": "shared",
+      "source": "gpt-5.6-sol",
+      "reviewer": "glm-5-3-flash",
+      "wins": 2,
+      "n": 2
+    },
+    {
+      "panel": "Five: select any successful attempt",
+      "population": "all",
+      "source": "gpt-5.6-sol",
+      "reviewer": "glm-5-3",
+      "wins": 18,
+      "n": 28
+    },
+    {
+      "panel": "Five: select any successful attempt",
+      "population": "shared",
+      "source": "gpt-5.6-sol",
+      "reviewer": "glm-5-3",
+      "wins": 2,
+      "n": 2
+    },
+    {
+      "panel": "Five: select any successful attempt",
+      "population": "all",
+      "source": "gpt-5.6-sol",
+      "reviewer": "deepseek-v4p1-flash",
+      "wins": 13,
+      "n": 28
+    },
+    {
+      "panel": "Five: select any successful attempt",
+      "population": "shared",
+      "source": "gpt-5.6-sol",
+      "reviewer": "deepseek-v4p1-flash",
+      "wins": 2,
+      "n": 2
+    },
+    {
+      "panel": "Five: select any successful attempt",
+      "population": "all",
+      "source": "gpt-6-astra",
+      "reviewer": "gpt-5-6-sol",
+      "wins": 12,
+      "n": 18
+    },
+    {
+      "panel": "Five: select any successful attempt",
+      "population": "shared",
+      "source": "gpt-6-astra",
+      "reviewer": "gpt-5-6-sol",
+      "wins": 0,
+      "n": 2
+    },
+    {
+      "panel": "Five: select any successful attempt",
+      "population": "all",
+      "source": "gpt-6-astra",
+      "reviewer": "glm-5-3-flash",
+      "wins": 12,
+      "n": 18
+    },
+    {
+      "panel": "Five: select any successful attempt",
+      "population": "shared",
+      "source": "gpt-6-astra",
+      "reviewer": "glm-5-3-flash",
+      "wins": 0,
+      "n": 2
+    },
+    {
+      "panel": "Five: select any successful attempt",
+      "population": "all",
+      "source": "gpt-6-astra",
+      "reviewer": "glm-5-3",
+      "wins": 10,
+      "n": 18
+    },
+    {
+      "panel": "Five: select any successful attempt",
+      "population": "shared",
+      "source": "gpt-6-astra",
+      "reviewer": "glm-5-3",
+      "wins": 1,
+      "n": 2
+    },
+    {
+      "panel": "Five: select any successful attempt",
+      "population": "all",
+      "source": "gpt-6-astra",
+      "reviewer": "deepseek-v4p1-flash",
+      "wins": 9,
+      "n": 18
+    },
+    {
+      "panel": "Five: select any successful attempt",
+      "population": "shared",
+      "source": "gpt-6-astra",
+      "reviewer": "deepseek-v4p1-flash",
+      "wins": 1,
+      "n": 2
+    }
+  ],
+  "costs": [
+    {
+      "name": "GPT-5.6 Sol",
+      "single": "0.775",
+      "single_total": 122.4745754,
+      "single_n": 158,
+      "pair": "0.985",
+      "pair_total": 77.8017966,
+      "pair_n": 79,
+      "five": "1.399",
+      "five_total": 110.4948792,
+      "five_n": 79
+    },
+    {
+      "name": "GLM-5.3 Flash",
+      "single": "0.106",
+      "single_total": 16.69812511,
+      "single_n": 158,
+      "pair": "0.172",
+      "pair_total": 13.573909740000001,
+      "pair_n": 79,
+      "five": "0.146",
+      "five_total": 11.499318670000001,
+      "five_n": 79
+    },
+    {
+      "name": "GLM-5.3",
+      "single": "0.672",
+      "single_total": 106.10874232,
+      "single_n": 158,
+      "pair": "1.250",
+      "pair_total": 98.73898406,
+      "pair_n": 79,
+      "five": "1.287",
+      "five_total": 101.7023678,
+      "five_n": 79
+    },
+    {
+      "name": "DeepSeek V4.1 Flash",
+      "single": "0.053",
+      "single_total": 8.404856308000001,
+      "single_n": 158,
+      "pair": "0.055",
+      "pair_total": 4.367183322000001,
+      "pair_n": 79,
+      "five": "0.062",
+      "five_total": 4.926499796,
+      "five_n": 79
+    }
+  ]
+}

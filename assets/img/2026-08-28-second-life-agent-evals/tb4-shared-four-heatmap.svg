@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 375">
+<title>Terminal-Bench 4.0: identical task pool, different sources and reviewers</title>
+<text x="8" y="20" text-anchor="start" style="font-family:Arial,sans-serif;font-size:14px;fill:#20242d">Same 2 tasks; color = percentage-point difference from random</text>
+<rect x="8" y="32" width="22" height="14" fill="#a74918"/>
+<text x="36" y="44" text-anchor="start" style="font-family:Arial,sans-serif;font-size:12px;fill:#20242d">-100 pp</text>
+<rect x="136" y="32" width="22" height="14" fill="#cd9e86"/>
+<text x="164" y="44" text-anchor="start" style="font-family:Arial,sans-serif;font-size:12px;fill:#20242d">-50 pp</text>
+<rect x="264" y="32" width="22" height="14" fill="#f3f3f3"/>
+<text x="292" y="44" text-anchor="start" style="font-family:Arial,sans-serif;font-size:12px;fill:#20242d">Random</text>
+<rect x="392" y="32" width="22" height="14" fill="#8d9cbb"/>
+<text x="420" y="44" text-anchor="start" style="font-family:Arial,sans-serif;font-size:12px;fill:#20242d">+50 pp</text>
+<rect x="520" y="32" width="22" height="14" fill="#274683"/>
+<text x="548" y="44" text-anchor="start" style="font-family:Arial,sans-serif;font-size:12px;fill:#20242d">+100 pp</text>
+<text x="8" y="85" text-anchor="start" style="font-family:Arial,sans-serif;font-size:17px;fill:#20242d">Five: select any successful attempt</text>
+<text x="219" y="109" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:13px;fill:#20242d">GPT-5.6 Sol</text>
+<text x="342" y="109" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:13px;fill:#20242d">GLM-5.3 Flash</text>
+<text x="465" y="109" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:13px;fill:#20242d">GLM-5.3</text>
+<text x="588" y="109" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:13px;fill:#20242d">DeepSeek V4.1</text>
+<text x="588" y="124" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:13px;fill:#20242d">Flash</text>
+<text x="8" y="156" text-anchor="start" style="font-family:Arial,sans-serif;font-size:14px;fill:#20242d">Fable 5.1</text>
+<rect x="160" y="132" width="118" height="41" rx="2" fill="#8d9cbb"/>
+<text x="219" y="149" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:14px;fill:#17243b">100% (2/2)</text>
+<text x="219" y="165" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:12px;fill:#17243b">+50.0 pp</text>
+<rect x="283" y="132" width="118" height="41" rx="2" fill="#cd9e86"/>
+<text x="342" y="149" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:14px;fill:#17243b">0% (0/2)</text>
+<text x="342" y="165" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:12px;fill:#17243b">-50.0 pp</text>
+<rect x="406" y="132" width="118" height="41" rx="2" fill="#cd9e86"/>
+<text x="465" y="149" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:14px;fill:#17243b">0% (0/2)</text>
+<text x="465" y="165" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:12px;fill:#17243b">-50.0 pp</text>
+<rect x="529" y="132" width="118" height="41" rx="2" fill="#8d9cbb"/>
+<text x="588" y="149" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:14px;fill:#17243b">100% (2/2)</text>
+<text x="588" y="165" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:12px;fill:#17243b">+50.0 pp</text>
+<text x="8" y="201" text-anchor="start" style="font-family:Arial,sans-serif;font-size:14px;fill:#20242d">GLM-5.3</text>
+<rect x="160" y="177" width="118" height="41" rx="2" fill="#8d9cbb"/>
+<text x="219" y="194" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:14px;fill:#17243b">100% (2/2)</text>
+<text x="219" y="210" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:12px;fill:#17243b">+50.0 pp</text>
+<rect x="283" y="177" width="118" height="41" rx="2" fill="#cd9e86"/>
+<text x="342" y="194" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:14px;fill:#17243b">0% (0/2)</text>
+<text x="342" y="210" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:12px;fill:#17243b">-50.0 pp</text>
+<rect x="406" y="177" width="118" height="41" rx="2" fill="#f3f3f3"/>
+<text x="465" y="194" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:14px;fill:#17243b">50% (1/2)</text>
+<text x="465" y="210" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:12px;fill:#17243b">At random</text>
+<rect x="529" y="177" width="118" height="41" rx="2" fill="#f3f3f3"/>
+<text x="588" y="194" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:14px;fill:#17243b">50% (1/2)</text>
+<text x="588" y="210" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:12px;fill:#17243b">At random</text>
+<text x="8" y="246" text-anchor="start" style="font-family:Arial,sans-serif;font-size:14px;fill:#20242d">GPT-5.6 Sol</text>
+<rect x="160" y="222" width="118" height="41" rx="2" fill="#a1aec6"/>
+<text x="219" y="239" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:14px;fill:#17243b">100% (2/2)</text>
+<text x="219" y="255" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:12px;fill:#17243b">+40.0 pp</text>
+<rect x="283" y="222" width="118" height="41" rx="2" fill="#a1aec6"/>
+<text x="342" y="239" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:14px;fill:#17243b">100% (2/2)</text>
+<text x="342" y="255" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:12px;fill:#17243b">+40.0 pp</text>
+<rect x="406" y="222" width="118" height="41" rx="2" fill="#a1aec6"/>
+<text x="465" y="239" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:14px;fill:#17243b">100% (2/2)</text>
+<text x="465" y="255" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:12px;fill:#17243b">+40.0 pp</text>
+<rect x="529" y="222" width="118" height="41" rx="2" fill="#a1aec6"/>
+<text x="588" y="239" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:14px;fill:#17243b">100% (2/2)</text>
+<text x="588" y="255" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:12px;fill:#17243b">+40.0 pp</text>
+<text x="8" y="291" text-anchor="start" style="font-family:Arial,sans-serif;font-size:14px;fill:#20242d">GPT-6 Astra</text>
+<rect x="160" y="267" width="118" height="41" rx="2" fill="#e4d1c7"/>
+<text x="219" y="284" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:14px;fill:#17243b">0% (0/2)</text>
+<text x="219" y="300" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:12px;fill:#17243b">-20.0 pp</text>
+<rect x="283" y="267" width="118" height="41" rx="2" fill="#e4d1c7"/>
+<text x="342" y="284" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:14px;fill:#17243b">0% (0/2)</text>
+<text x="342" y="300" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:12px;fill:#17243b">-20.0 pp</text>
+<rect x="406" y="267" width="118" height="41" rx="2" fill="#b6bfd1"/>
+<text x="465" y="284" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:14px;fill:#17243b">50% (1/2)</text>
+<text x="465" y="300" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:12px;fill:#17243b">+30.0 pp</text>
+<rect x="529" y="267" width="118" height="41" rx="2" fill="#b6bfd1"/>
+<text x="588" y="284" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:14px;fill:#17243b">50% (1/2)</text>
+<text x="588" y="300" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:12px;fill:#17243b">+30.0 pp</text>
+<text x="8" y="329" text-anchor="start" style="font-family:Arial,sans-serif;font-size:13px;fill:#20242d">Uniform: Fable 5.1 50.0% · GLM-5.3 50.0%</text>
+<text x="8" y="346" text-anchor="start" style="font-family:Arial,sans-serif;font-size:13px;fill:#20242d">GPT-5.6 Sol 60.0% · GPT-6 Astra 20.0%</text>
+</svg>

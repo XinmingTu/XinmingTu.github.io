@@ -1,0 +1,183 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 904">
+<title>Terminal-Bench 4.0: all available pools versus shared tasks</title>
+<desc>Each cell shows all available pools on top and the shared-task subset below. Counts and rates by reviewer and source; matching controls task identities, not trace contents or success mixtures.</desc>
+<text x="8" y="24" text-anchor="start" style="font-family:Arial,sans-serif;font-size:17px;fill:#20242d">Single: classify success or failure</text>
+<text x="8" y="46" text-anchor="start" style="font-family:Arial,sans-serif;font-size:13px;fill:#20242d">Each cell: all available pools (top) / shared tasks only (bottom)</text>
+<text x="220" y="69" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:13px;fill:#20242d">GPT-5.6 Sol</text>
+<text x="343" y="69" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:13px;fill:#20242d">GLM-5.3 Flash</text>
+<text x="466" y="69" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:13px;fill:#20242d">GLM-5.3</text>
+<text x="589" y="69" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:13px;fill:#20242d">DeepSeek V4.1</text>
+<text x="589" y="84" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:13px;fill:#20242d">Flash</text>
+<text x="8" y="110" text-anchor="start" style="font-family:Arial,sans-serif;font-size:15px;fill:#20242d">Fable 5.1</text>
+<rect x="166" y="89" width="66.60" height="19" rx="2" style="fill:#747d8b;opacity:0.16"/>
+<text x="220" y="103" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:13px;fill:#20242d">37/60 (61.7%)</text>
+<rect x="166" y="109" width="72.00" height="19" rx="2" style="fill:#4f68b3;opacity:0.16"/>
+<text x="220" y="123" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:13px;fill:#20242d">8/12 (66.7%)</text>
+<rect x="289" y="89" width="63.00" height="19" rx="2" style="fill:#747d8b;opacity:0.16"/>
+<text x="343" y="103" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:13px;fill:#20242d">35/60 (58.3%)</text>
+<rect x="289" y="109" width="54.00" height="19" rx="2" style="fill:#4f68b3;opacity:0.16"/>
+<text x="343" y="123" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:13px;fill:#20242d">6/12 (50.0%)</text>
+<rect x="412" y="89" width="61.20" height="19" rx="2" style="fill:#747d8b;opacity:0.16"/>
+<text x="466" y="103" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:13px;fill:#20242d">34/60 (56.7%)</text>
+<rect x="412" y="109" width="54.00" height="19" rx="2" style="fill:#4f68b3;opacity:0.16"/>
+<text x="466" y="123" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:13px;fill:#20242d">6/12 (50.0%)</text>
+<rect x="535" y="89" width="63.00" height="19" rx="2" style="fill:#747d8b;opacity:0.16"/>
+<text x="589" y="103" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:13px;fill:#20242d">35/60 (58.3%)</text>
+<rect x="535" y="109" width="54.00" height="19" rx="2" style="fill:#4f68b3;opacity:0.16"/>
+<text x="589" y="123" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:13px;fill:#20242d">6/12 (50.0%)</text>
+<text x="8" y="158" text-anchor="start" style="font-family:Arial,sans-serif;font-size:15px;fill:#20242d">GLM-5.3</text>
+<rect x="166" y="137" width="64.29" height="19" rx="2" style="fill:#747d8b;opacity:0.16"/>
+<text x="220" y="151" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:13px;fill:#20242d">25/42 (59.5%)</text>
+<rect x="166" y="157" width="63.00" height="19" rx="2" style="fill:#4f68b3;opacity:0.16"/>
+<text x="220" y="171" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:13px;fill:#20242d">7/12 (58.3%)</text>
+<rect x="289" y="137" width="59.14" height="19" rx="2" style="fill:#747d8b;opacity:0.16"/>
+<text x="343" y="151" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:13px;fill:#20242d">23/42 (54.8%)</text>
+<rect x="289" y="157" width="54.00" height="19" rx="2" style="fill:#4f68b3;opacity:0.16"/>
+<text x="343" y="171" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:13px;fill:#20242d">6/12 (50.0%)</text>
+<rect x="412" y="137" width="56.57" height="19" rx="2" style="fill:#747d8b;opacity:0.16"/>
+<text x="466" y="151" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:13px;fill:#20242d">22/42 (52.4%)</text>
+<rect x="412" y="157" width="54.00" height="19" rx="2" style="fill:#4f68b3;opacity:0.16"/>
+<text x="466" y="171" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:13px;fill:#20242d">6/12 (50.0%)</text>
+<rect x="535" y="137" width="46.29" height="19" rx="2" style="fill:#747d8b;opacity:0.16"/>
+<text x="589" y="151" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:13px;fill:#20242d">18/42 (42.9%)</text>
+<rect x="535" y="157" width="36.00" height="19" rx="2" style="fill:#4f68b3;opacity:0.16"/>
+<text x="589" y="171" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:13px;fill:#20242d">4/12 (33.3%)</text>
+<text x="8" y="206" text-anchor="start" style="font-family:Arial,sans-serif;font-size:15px;fill:#20242d">GPT-5.6 Sol</text>
+<rect x="166" y="185" width="61.71" height="19" rx="2" style="fill:#747d8b;opacity:0.16"/>
+<text x="220" y="199" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:13px;fill:#20242d">32/56 (57.1%)</text>
+<rect x="166" y="205" width="63.00" height="19" rx="2" style="fill:#4f68b3;opacity:0.16"/>
+<text x="220" y="219" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:13px;fill:#20242d">7/12 (58.3%)</text>
+<rect x="289" y="185" width="57.86" height="19" rx="2" style="fill:#747d8b;opacity:0.16"/>
+<text x="343" y="199" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:13px;fill:#20242d">30/56 (53.6%)</text>
+<rect x="289" y="205" width="63.00" height="19" rx="2" style="fill:#4f68b3;opacity:0.16"/>
+<text x="343" y="219" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:13px;fill:#20242d">7/12 (58.3%)</text>
+<rect x="412" y="185" width="57.86" height="19" rx="2" style="fill:#747d8b;opacity:0.16"/>
+<text x="466" y="199" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:13px;fill:#20242d">30/56 (53.6%)</text>
+<rect x="412" y="205" width="54.00" height="19" rx="2" style="fill:#4f68b3;opacity:0.16"/>
+<text x="466" y="219" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:13px;fill:#20242d">6/12 (50.0%)</text>
+<rect x="535" y="185" width="50.14" height="19" rx="2" style="fill:#747d8b;opacity:0.16"/>
+<text x="589" y="199" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:13px;fill:#20242d">26/56 (46.4%)</text>
+<rect x="535" y="205" width="27.00" height="19" rx="2" style="fill:#4f68b3;opacity:0.16"/>
+<text x="589" y="219" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:13px;fill:#20242d">3/12 (25.0%)</text>
+<text x="8" y="254" text-anchor="start" style="font-family:Arial,sans-serif;font-size:13px;fill:#20242d">Random binary guess: 50%</text>
+<text x="8" y="316" text-anchor="start" style="font-family:Arial,sans-serif;font-size:17px;fill:#20242d">Pair: select the successful attempt</text>
+<text x="8" y="338" text-anchor="start" style="font-family:Arial,sans-serif;font-size:13px;fill:#20242d">Each cell: all available pools (top) / shared tasks only (bottom)</text>
+<text x="220" y="361" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:13px;fill:#20242d">GPT-5.6 Sol</text>
+<text x="343" y="361" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:13px;fill:#20242d">GLM-5.3 Flash</text>
+<text x="466" y="361" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:13px;fill:#20242d">GLM-5.3</text>
+<text x="589" y="361" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:13px;fill:#20242d">DeepSeek V4.1</text>
+<text x="589" y="376" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:13px;fill:#20242d">Flash</text>
+<text x="8" y="402" text-anchor="start" style="font-family:Arial,sans-serif;font-size:15px;fill:#20242d">Fable 5.1</text>
+<rect x="166" y="381" width="64.80" height="19" rx="2" style="fill:#747d8b;opacity:0.16"/>
+<text x="220" y="395" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:13px;fill:#20242d">18/30 (60.0%)</text>
+<rect x="166" y="401" width="72.00" height="19" rx="2" style="fill:#4f68b3;opacity:0.16"/>
+<text x="220" y="415" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:13px;fill:#20242d">4/6 (66.7%)</text>
+<rect x="289" y="381" width="68.40" height="19" rx="2" style="fill:#747d8b;opacity:0.16"/>
+<text x="343" y="395" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:13px;fill:#20242d">19/30 (63.3%)</text>
+<rect x="289" y="401" width="72.00" height="19" rx="2" style="fill:#4f68b3;opacity:0.16"/>
+<text x="343" y="415" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:13px;fill:#20242d">4/6 (66.7%)</text>
+<rect x="412" y="381" width="75.60" height="19" rx="2" style="fill:#747d8b;opacity:0.16"/>
+<text x="466" y="395" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:13px;fill:#20242d">21/30 (70.0%)</text>
+<rect x="412" y="401" width="36.00" height="19" rx="2" style="fill:#4f68b3;opacity:0.16"/>
+<text x="466" y="415" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:13px;fill:#20242d">2/6 (33.3%)</text>
+<rect x="535" y="381" width="54.00" height="19" rx="2" style="fill:#747d8b;opacity:0.16"/>
+<text x="589" y="395" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:13px;fill:#20242d">15/30 (50.0%)</text>
+<rect x="535" y="401" width="72.00" height="19" rx="2" style="fill:#4f68b3;opacity:0.16"/>
+<text x="589" y="415" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:13px;fill:#20242d">4/6 (66.7%)</text>
+<text x="8" y="450" text-anchor="start" style="font-family:Arial,sans-serif;font-size:15px;fill:#20242d">GLM-5.3</text>
+<rect x="166" y="429" width="61.71" height="19" rx="2" style="fill:#747d8b;opacity:0.16"/>
+<text x="220" y="443" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:13px;fill:#20242d">12/21 (57.1%)</text>
+<rect x="166" y="449" width="54.00" height="19" rx="2" style="fill:#4f68b3;opacity:0.16"/>
+<text x="220" y="463" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:13px;fill:#20242d">3/6 (50.0%)</text>
+<rect x="289" y="429" width="61.71" height="19" rx="2" style="fill:#747d8b;opacity:0.16"/>
+<text x="343" y="443" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:13px;fill:#20242d">12/21 (57.1%)</text>
+<rect x="289" y="449" width="72.00" height="19" rx="2" style="fill:#4f68b3;opacity:0.16"/>
+<text x="343" y="463" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:13px;fill:#20242d">4/6 (66.7%)</text>
+<rect x="412" y="429" width="77.14" height="19" rx="2" style="fill:#747d8b;opacity:0.16"/>
+<text x="466" y="443" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:13px;fill:#20242d">15/21 (71.4%)</text>
+<rect x="412" y="449" width="72.00" height="19" rx="2" style="fill:#4f68b3;opacity:0.16"/>
+<text x="466" y="463" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:13px;fill:#20242d">4/6 (66.7%)</text>
+<rect x="535" y="429" width="66.86" height="19" rx="2" style="fill:#747d8b;opacity:0.16"/>
+<text x="589" y="443" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:13px;fill:#20242d">13/21 (61.9%)</text>
+<rect x="535" y="449" width="72.00" height="19" rx="2" style="fill:#4f68b3;opacity:0.16"/>
+<text x="589" y="463" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:13px;fill:#20242d">4/6 (66.7%)</text>
+<text x="8" y="498" text-anchor="start" style="font-family:Arial,sans-serif;font-size:15px;fill:#20242d">GPT-5.6 Sol</text>
+<rect x="166" y="477" width="73.29" height="19" rx="2" style="fill:#747d8b;opacity:0.16"/>
+<text x="220" y="491" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:13px;fill:#20242d">19/28 (67.9%)</text>
+<rect x="166" y="497" width="90.00" height="19" rx="2" style="fill:#4f68b3;opacity:0.16"/>
+<text x="220" y="511" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:13px;fill:#20242d">5/6 (83.3%)</text>
+<rect x="289" y="477" width="73.29" height="19" rx="2" style="fill:#747d8b;opacity:0.16"/>
+<text x="343" y="491" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:13px;fill:#20242d">19/28 (67.9%)</text>
+<rect x="289" y="497" width="36.00" height="19" rx="2" style="fill:#4f68b3;opacity:0.16"/>
+<text x="343" y="511" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:13px;fill:#20242d">2/6 (33.3%)</text>
+<rect x="412" y="477" width="61.71" height="19" rx="2" style="fill:#747d8b;opacity:0.16"/>
+<text x="466" y="491" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:13px;fill:#20242d">16/28 (57.1%)</text>
+<rect x="412" y="497" width="54.00" height="19" rx="2" style="fill:#4f68b3;opacity:0.16"/>
+<text x="466" y="511" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:13px;fill:#20242d">3/6 (50.0%)</text>
+<rect x="535" y="477" width="54.00" height="19" rx="2" style="fill:#747d8b;opacity:0.16"/>
+<text x="589" y="491" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:13px;fill:#20242d">14/28 (50.0%)</text>
+<rect x="535" y="497" width="54.00" height="19" rx="2" style="fill:#4f68b3;opacity:0.16"/>
+<text x="589" y="511" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:13px;fill:#20242d">3/6 (50.0%)</text>
+<text x="8" y="546" text-anchor="start" style="font-family:Arial,sans-serif;font-size:13px;fill:#20242d">Uniform selection: 50%</text>
+<text x="8" y="608" text-anchor="start" style="font-family:Arial,sans-serif;font-size:17px;fill:#20242d">Five: select any successful attempt</text>
+<text x="8" y="630" text-anchor="start" style="font-family:Arial,sans-serif;font-size:13px;fill:#20242d">Each cell: all available pools (top) / shared tasks only (bottom)</text>
+<text x="220" y="653" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:13px;fill:#20242d">GPT-5.6 Sol</text>
+<text x="343" y="653" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:13px;fill:#20242d">GLM-5.3 Flash</text>
+<text x="466" y="653" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:13px;fill:#20242d">GLM-5.3</text>
+<text x="589" y="653" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:13px;fill:#20242d">DeepSeek V4.1</text>
+<text x="589" y="668" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:13px;fill:#20242d">Flash</text>
+<text x="8" y="694" text-anchor="start" style="font-family:Arial,sans-serif;font-size:15px;fill:#20242d">Fable 5.1</text>
+<rect x="166" y="673" width="93.60" height="19" rx="2" style="fill:#747d8b;opacity:0.16"/>
+<text x="220" y="687" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:13px;fill:#20242d">26/30 (86.7%)</text>
+<rect x="166" y="693" width="108.00" height="19" rx="2" style="fill:#4f68b3;opacity:0.16"/>
+<text x="220" y="707" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:13px;fill:#20242d">6/6 (100.0%)</text>
+<rect x="289" y="673" width="79.20" height="19" rx="2" style="fill:#747d8b;opacity:0.16"/>
+<text x="343" y="687" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:13px;fill:#20242d">22/30 (73.3%)</text>
+<rect x="289" y="693" width="54.00" height="19" rx="2" style="fill:#4f68b3;opacity:0.16"/>
+<text x="343" y="707" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:13px;fill:#20242d">3/6 (50.0%)</text>
+<rect x="412" y="673" width="68.40" height="19" rx="2" style="fill:#747d8b;opacity:0.16"/>
+<text x="466" y="687" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:13px;fill:#20242d">19/30 (63.3%)</text>
+<rect x="412" y="693" width="36.00" height="19" rx="2" style="fill:#4f68b3;opacity:0.16"/>
+<text x="466" y="707" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:13px;fill:#20242d">2/6 (33.3%)</text>
+<rect x="535" y="673" width="72.00" height="19" rx="2" style="fill:#747d8b;opacity:0.16"/>
+<text x="589" y="687" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:13px;fill:#20242d">20/30 (66.7%)</text>
+<rect x="535" y="693" width="90.00" height="19" rx="2" style="fill:#4f68b3;opacity:0.16"/>
+<text x="589" y="707" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:13px;fill:#20242d">5/6 (83.3%)</text>
+<text x="8" y="742" text-anchor="start" style="font-family:Arial,sans-serif;font-size:15px;fill:#20242d">GLM-5.3</text>
+<rect x="166" y="721" width="72.00" height="19" rx="2" style="fill:#747d8b;opacity:0.16"/>
+<text x="220" y="735" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:13px;fill:#20242d">14/21 (66.7%)</text>
+<rect x="166" y="741" width="54.00" height="19" rx="2" style="fill:#4f68b3;opacity:0.16"/>
+<text x="220" y="755" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:13px;fill:#20242d">3/6 (50.0%)</text>
+<rect x="289" y="721" width="66.86" height="19" rx="2" style="fill:#747d8b;opacity:0.16"/>
+<text x="343" y="735" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:13px;fill:#20242d">13/21 (61.9%)</text>
+<rect x="289" y="741" width="36.00" height="19" rx="2" style="fill:#4f68b3;opacity:0.16"/>
+<text x="343" y="755" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:13px;fill:#20242d">2/6 (33.3%)</text>
+<rect x="412" y="721" width="72.00" height="19" rx="2" style="fill:#747d8b;opacity:0.16"/>
+<text x="466" y="735" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:13px;fill:#20242d">14/21 (66.7%)</text>
+<rect x="412" y="741" width="72.00" height="19" rx="2" style="fill:#4f68b3;opacity:0.16"/>
+<text x="466" y="755" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:13px;fill:#20242d">4/6 (66.7%)</text>
+<rect x="535" y="721" width="66.86" height="19" rx="2" style="fill:#747d8b;opacity:0.16"/>
+<text x="589" y="735" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:13px;fill:#20242d">13/21 (61.9%)</text>
+<rect x="535" y="741" width="54.00" height="19" rx="2" style="fill:#4f68b3;opacity:0.16"/>
+<text x="589" y="755" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:13px;fill:#20242d">3/6 (50.0%)</text>
+<text x="8" y="790" text-anchor="start" style="font-family:Arial,sans-serif;font-size:15px;fill:#20242d">GPT-5.6 Sol</text>
+<rect x="166" y="769" width="92.57" height="19" rx="2" style="fill:#747d8b;opacity:0.16"/>
+<text x="220" y="783" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:13px;fill:#20242d">24/28 (85.7%)</text>
+<rect x="166" y="789" width="108.00" height="19" rx="2" style="fill:#4f68b3;opacity:0.16"/>
+<text x="220" y="803" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:13px;fill:#20242d">6/6 (100.0%)</text>
+<rect x="289" y="769" width="81.00" height="19" rx="2" style="fill:#747d8b;opacity:0.16"/>
+<text x="343" y="783" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:13px;fill:#20242d">21/28 (75.0%)</text>
+<rect x="289" y="789" width="108.00" height="19" rx="2" style="fill:#4f68b3;opacity:0.16"/>
+<text x="343" y="803" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:13px;fill:#20242d">6/6 (100.0%)</text>
+<rect x="412" y="769" width="69.43" height="19" rx="2" style="fill:#747d8b;opacity:0.16"/>
+<text x="466" y="783" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:13px;fill:#20242d">18/28 (64.3%)</text>
+<rect x="412" y="789" width="108.00" height="19" rx="2" style="fill:#4f68b3;opacity:0.16"/>
+<text x="466" y="803" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:13px;fill:#20242d">6/6 (100.0%)</text>
+<rect x="535" y="769" width="50.14" height="19" rx="2" style="fill:#747d8b;opacity:0.16"/>
+<text x="589" y="783" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:13px;fill:#20242d">13/28 (46.4%)</text>
+<rect x="535" y="789" width="108.00" height="19" rx="2" style="fill:#4f68b3;opacity:0.16"/>
+<text x="589" y="803" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:13px;fill:#20242d">6/6 (100.0%)</text>
+<text x="8" y="838" text-anchor="start" style="font-family:Arial,sans-serif;font-size:13px;fill:#20242d">Uniform baseline (all / shared):</text>
+<text x="8" y="856" text-anchor="start" style="font-family:Arial,sans-serif;font-size:13px;fill:#20242d">Fable 5.1 60.0% / 63.3% · GLM-5.3 54.3% / 56.7%</text>
+<text x="8" y="874" text-anchor="start" style="font-family:Arial,sans-serif;font-size:13px;fill:#20242d">GPT-5.6 Sol 52.9% / 63.3%</text>
+</svg>

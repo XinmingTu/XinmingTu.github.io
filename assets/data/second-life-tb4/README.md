@@ -93,3 +93,39 @@ to model identifiers rather than positions, so reordering preserves their meanin
 Reviewer order is fixed by descending aggregate Five success: GPT-5.6 Sol,
 GLM-5.3 Flash, GLM-5.3, DeepSeek V4.1 Flash. This same order is used in Single,
 Pair, and per-source Five charts and tables; individual panels are not re-ranked.
+
+## Shared-task appendix
+
+`shared-task-records.json` retains minimal case records from the same pinned
+experiment commit. Its `files` array lists the source JSONL files. Single/Pair
+batch files also contain Five rows: the importer explicitly excludes those and
+loads each Five observation once from its designated result file.
+
+Run `python scripts/generate_second_life_shared.py` to rebuild the two transparent
+SVG panels and `_data/second_life_shared.json`. To refresh the snapshot from a
+checkout of the pinned experiment repo, pass `--import-dir /path/to/checkout`.
+The three-source intersection contains six original task identities; the
+four-source intersection contains two. Astra has Five observations only.
+Each appendix cell pairs the full source-specific sample with the shared-task
+subset, retaining identical reviewer order, metrics, and scoring. Five baselines
+are recomputed separately for both populations. These nested samples are not
+independent; their difference is descriptive, not a causal matching effect.
+The appendix now leads with matched-task heatmaps (fixed −100 to +100 percentage
+points relative to random: orange below, neutral equal, blue above). Single,
+and Pair use 50%; Five uses the source-specific successful
+candidate fraction in the matched subset. Raw scores and counts remain visible;
+the colors do not encode significance. The
+all/shared paired views remain in expandable details. These do not replace
+the main-text figures.
+
+The snapshot also retains per-case usage for average reviewer costs. Averages
+use the three-source 79-pool population in all settings (158 Single reviews,
+79 Pair, 79 Five), with original reused costs included once. GPT uses reported
+dollar cost; other reviewers use max(reported, token estimate), following the
+pinned `scripts/run_tbench4_complete.py` rates and cache accounting. Invalid
+reviews remain in the denominators. Astra-only Five extension and prompt-control
+experiments are not mixed into these matched-population averages.
+Pair uses the recorded preferred-success outcome; Single and Five are also
+recomputed from predictions/selections and gold labels. Invalid outputs count
+as errors. Assertions check uniqueness, reviewer coverage, candidate ordering,
+label agreement, and the Single/Pair anchor relationship to Five candidates.

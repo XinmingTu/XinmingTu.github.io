@@ -163,28 +163,42 @@ def main():
     # Show literal pass/fail predictions. Invalid mass stays in the denominator
     # but is not assigned to either visible column, so rows may sum below 100%.
     for mobile in (False, True):
-        fig, axes = plt.subplots(4 if mobile else 2, 1 if mobile else 2, figsize=(4.4, 9.4) if mobile else (8.4, 5.6), layout="constrained")
+        fig, axes = plt.subplots(2, 2, figsize=(5.4, 4.4) if mobile else (8.4, 5.6), layout="constrained")
         cmap = LinearSegmentedColormap.from_list("predictions", ["#f3f6fb", "#3757a6"])
-        for ax, (key, label) in zip(axes.flat, REVIEWERS.items()):
+        for panel_index, (ax, (key, label)) in enumerate(zip(axes.flat, REVIEWERS.items())):
             rates = np.array(counts[key])[:, :2] / 79 * 100
             heatmap = ax.imshow(rates, cmap=cmap, vmin=0, vmax=100, aspect="auto")
             for i in range(2):
                 for j in range(2):
                     value = rates[i, j]
                     ax.text(j, i, f"{value:.1f}%", ha="center", va="center",
-                            fontsize=19, weight="bold", color="white" if value >= 60 else "#20242d")
+                            fontsize=13, weight="bold" if mobile else "semibold", color="white" if value >= 60 else "#20242d")
             ax.set(xticks=[0, 1], xticklabels=["Pass", "Fail"],
                    yticks=[0, 1], yticklabels=["Succeeded", "Failed"], xlabel="Reviewer verdict")
-            ax.set_title(label, weight="bold", pad=10)
-            ax.tick_params(length=0, pad=7)
+            if mobile:
+                ax.set_xlabel("")
+                if panel_index % 2:
+                    ax.set_yticklabels([])
+                if key == "deepseek-v4p1-flash":
+                    label = "DeepSeek V4.1\nFlash"
+            ax.set_title(label, weight="bold", pad=7 if mobile else 10,
+                         fontsize=10 if mobile else 12)
+            ax.tick_params(length=0, pad=4 if mobile else 7,
+                           labelsize=9 if mobile else 11)
             ax.set_xticks([.5], minor=True)
             ax.set_yticks([.5], minor=True)
             ax.grid(which="minor", color="white", linewidth=3)
             ax.tick_params(which="minor", length=0)
             for spine in ax.spines.values():
                 spine.set_visible(False)
-        colorbar = fig.colorbar(heatmap, ax=axes, fraction=.035, pad=.035, ticks=[0, 25, 50, 75, 100])
-        colorbar.set_label("Share of each outcome class (%)", labelpad=10)
+        if mobile:
+            colorbar = fig.colorbar(heatmap, ax=axes, orientation="horizontal",
+                                   fraction=.055, pad=.06, shrink=.75, ticks=[0, 50, 100])
+            colorbar.ax.tick_params(labelsize=9)
+            colorbar.set_label("Share of actual outcome (%) · columns: reviewer verdict", fontsize=9, labelpad=5)
+        else:
+            colorbar = fig.colorbar(heatmap, ax=axes, fraction=.035, pad=.035, ticks=[0, 25, 50, 75, 100])
+            colorbar.set_label("Share of each outcome class (%)", labelpad=10)
         colorbar.outline.set_visible(False)
         save(fig, "tb4-single-confusion" + ("-mobile" if mobile else ""), "Single: source outcomes in rows, reviewer verdicts in columns. Percentages use 79 anchors per row. Invalid outputs are omitted from columns, retained in denominators. Shared 0–100% scale.")
 

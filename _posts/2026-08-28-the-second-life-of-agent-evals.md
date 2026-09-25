@@ -13,8 +13,8 @@ bibliography: 2026-08-28-the-second-life-of-agent-evals.bib
 
 toc:
   - name: "Turning agent eval runs into verification tasks"
-  - name: "Reviewers tend to say pass"
-  - name: "Judgment and selection diverge"
+  - name: "Reviewers pass most failed runs"
+  - name: "Choosing is easier than judging"
   - name: "Selection depends on the reviewer and the source"
   - name: "Selection recovers part of the sampling gain"
   - name: "From evaluation to training"
@@ -436,16 +436,16 @@ _styles: |
 {% assign astra_source = tb4.sources | where: "key", "gpt-6-astra" | first %}
 
 <div class="sle-lede">
-<strong>Agent evals can have a second life.</strong> A completed evaluation run can be the starting point for a new task. Here, we turn existing runs into verification tasks, using their checked outcomes to evaluate whether another agent can recognize success or failure.
+<strong>Agent evals can have a second life.</strong> A graded agent run leaves behind a trajectory, the files it produced, and a pass/fail verdict from the benchmark's checker. Hide the verdict, and the run becomes a new task: can another agent tell whether it worked? We built such tasks from Terminal-Bench 4.0 runs. Judging one run at a time, every reviewer we tested passed most of the failed runs. Given five attempts at the same task, the best reviewer still picked a successful one {{ gpt.five }}% of the time, against {{ tb4.five_baseline }}% for a random pick.
 </div>
 
 ## Turning agent eval runs into verification tasks
 
-An agent's attempt at a task leaves an execution trace and artifacts such as files or code. When the evaluation includes an automatic verifier, it also records whether that attempt passed or failed. We give another agent the original task and saved evidence, ask whether the attempt succeeded, and withhold the recorded outcome to use as the reference answer. This creates a verification task with an existing, checked answer, subject to the original verifier's criteria and limitations.
+To build a verification task, we give a second agent the original task and the saved evidence: the trajectory of tool calls and observations, plus artifacts such as files and code. We ask whether the attempt succeeded and keep the benchmark verifier's recorded outcome as the answer key. No new labels are needed, though the answer key is only as good as the original verifier.
 
-Repeated attempts at the same task produce multiple traces and sets of artifacts, sometimes with different outcomes. We can turn these into **selection tasks** by asking an agent to choose a successful attempt from the group. The original verifier's results let us score its choice.
+Benchmarks often run each task several times, and the attempts don't always agree. That gives us a second kind of task, **selection**: show an agent several attempts at the same task and ask it to pick one that succeeded. The recorded outcomes score the pick.
 
-We construct three settings from these runs, shown below. They differ in how many attempts the agent sees and whether it must judge their outcomes, select an attempt, or do both.
+We build three settings from these runs. They differ in how many attempts the agent sees and what it has to decide:
 
 <div class="sle-task-diagram" role="group" aria-label="Completed eval runs become three verification settings" markdown="0">
   <div class="sle-evidence">
@@ -458,7 +458,7 @@ We construct three settings from these runs, shown below. They differ in how man
       <div><strong>Artifacts</strong><small>Files, code, outputs</small></div>
     </div>
     <div class="sle-evidence-note">The execution is saved as a trajectory. Reviewers receive the task, trajectory, and artifacts.</div>
-    <div class="sle-verified-outcome"><strong>Original verifier → checked outcome: Pass / Fail</strong><small>Held out as the reference answer for scoring; not shown to the reviewer.</small></div>
+    <div class="sle-verified-outcome"><strong>Original verifier → checked outcome: Pass / Fail</strong><small>Hidden from the reviewer and used only as the answer key.</small></div>
   </div>
   <div class="sle-settings">
     <div class="sle-setting">
@@ -483,67 +483,67 @@ We construct three settings from these runs, shown below. They differ in how man
       <div class="sle-output">Choose one run<small>from five candidates</small></div>
     </div>
   </div>
-  <div class="sle-hidden-label">Each run has a verifier-checked outcome—not necessarily a successful one. The reference answer follows the original verifier's criteria.</div>
+  <div class="sle-hidden-label">The recorded outcomes score all three settings: verdicts in Single and Pair, the chosen run in Pair and Five.</div>
 </div>
 
-**Single** asks whether one attempt completed the original task. **Pair** presents two attempts at the same task, asks for a pass/fail judgment on each, and asks which is more likely to have succeeded. **Five** presents five attempts at the same task and asks the agent to select the one most likely to have succeeded.
+**Single** shows one attempt and asks whether it completed the task. **Pair** shows two attempts at the same task, asks for a pass/fail verdict on each, and asks which one more likely succeeded. **Five** shows five attempts and asks only for the one most likely to have succeeded.
 
-We apply this construction to saved **Terminal-Bench 4.0** runs<d-cite key="terminalbench4"></d-cite>, with five attempts per task from each source configuration—a model and its agent setup. We then evaluate four models as verifiers: **GPT-5.6 Sol, GLM-5.3 Flash, GLM-5.3, and DeepSeek V4.1 Flash**. We call these agents *reviewers* to distinguish them from the benchmark's original automatic verifier. Each uses mini-swe-agent in Harbor<d-cite key="harbor"></d-cite> to read the saved evidence and check it with tools; it cannot repair an attempt or continue the original task.
+The runs come from **Terminal-Bench 4.0**<d-cite key="terminalbench4"></d-cite>. Each *source* is a model plus the agent harness that ran it: Fable 5.1 and GLM-5.3 in Claude Code, GPT-5.6 Sol and GPT-6 Astra in Codex. Each source attempted all 66 tasks five times. Four models then act as *reviewers*: **GPT-5.6 Sol, GLM-5.3 Flash, GLM-5.3, and DeepSeek V4.1 Flash**. We say reviewer rather than verifier to keep them apart from the benchmark's own checker. Each reviewer runs in mini-swe-agent on Harbor<d-cite key="harbor"></d-cite> and can inspect the saved evidence with shell tools, but it cannot fix the work or continue the task.
 
-For the verification and selection comparisons below, we use groups containing both successful and failed attempts, so there is a meaningful choice to make. Each five-attempt group from one task and source is a *pool*; a group containing both outcomes is a *mixed pool*. Single evaluates one successful and one failed attempt from each pool separately. Pair presents those same two attempts together, without revealing that exactly one succeeded. Five presents all five attempts. Random guessing has an expected score of 50% in Single and Pair; Five's uniform-choice baseline depends on the proportion of successful attempts in each pool.
+One source's five attempts at one task form a *pool*. The main comparisons use only *mixed pools*, which contain at least one success and one failure, so there is a real choice to make. From each mixed pool, Single judges one successful and one failed attempt separately. Pair shows the same two attempts side by side, without saying that exactly one succeeded. Five shows all five. A coin flip scores 50% in Single and Pair. In Five, a random pick succeeds {{ tb4.five_baseline }}% of the time, because many pools contain more than one success.
 
 <div class="sle-note" markdown="1">
-**Coverage.** Single/Pair cover 79 pools from Fable 5.1, GLM-5.3, and GPT-5.6 Sol source runs. Five adds 18 GPT-6 Astra pools, for **97 pools / 485 runs / 49 task names**. GPT-6 Astra is a source, not a reviewer. Each original source evaluation has 66 tasks with five attempts per task. [Construction details](#dataset-and-scoring).
+**Coverage.** Single and Pair use 79 mixed pools from Fable 5.1, GLM-5.3, and GPT-5.6 Sol runs. Five adds 18 pools from GPT-6 Astra runs, for 97 pools, 485 runs, and 49 distinct tasks. GPT-6 Astra only supplies runs; it is not a reviewer. [Construction details](#dataset-and-scoring).
 </div>
 
-## Reviewers tend to say pass
+## Reviewers pass most failed runs
 
-Single reviewers are told that a completion claim is not proof. Even so, their verdicts lean toward **pass**, including on runs that failed the original verifier.
+The Single prompt warns that "a completion claim without supporting observations or artifacts is not proof." Reviewers still lean heavily toward **pass**, and every one of them passes more than half of the failed runs.
 
 <figure class="sle-figure" markdown="0">
   <h3 class="sle-figure-title">Terminal-Bench 4.0: Single-run verification</h3>
   <div class="sle-figure-desktop">{% inline_eval_figure tb4-single-confusion %}</div>
   <div class="sle-figure-mobile">{% inline_eval_figure tb4-single-confusion-mobile %}</div>
-  <figcaption>Actual outcomes in rows; reviewer verdicts in columns. Each row has 79 runs. Darker blue means a larger percentage, on a shared 0–100% scale. Invalid outputs remain in the denominator but are not shown as a verdict, so some rows sum to less than 100%.</figcaption>
+  <figcaption>Rows are recorded outcomes; columns are reviewer verdicts. Each row has 79 runs. Darker blue means a larger share, on a shared 0–100% scale. Invalid outputs stay in the denominator but have no verdict column, so some rows sum to less than 100%.</figcaption>
 </figure>
 
-GLM-5.3 Flash approves **{{ flash.success_recall }}% of successful runs and {{ flash.false_pass }}% of failed runs**. GLM-5.3 shows a similar pattern. GPT-5.6 Sol has the highest failure recall at {{ gpt.failure_recall }}%, yet still approves {{ gpt.false_pass }}% of failures. These reviewers frequently accept evidence that falls short of the original verifier's standard.
+GLM-5.3 Flash passes **every successful run, and {{ flash.false_pass }}% of the failed ones**. GLM-5.3 behaves almost the same way. GPT-5.6 Sol is the best at catching failures, and even it catches only {{ gpt.failure_recall }}% of them. The reviewers' bar for "done" sits well below the verifier's.
 
-## Judgment and selection diverge
+## Choosing is easier than judging
 
-**Unreliable judgments can still support useful selection.** Single accuracy ranges from 50.0% to 59.5%. When asked to compare the same attempts in Pair, reviewers select the successful run in 53.2–65.8% of pools.
+Judging runs one at a time, these reviewers are not much better than a coin flip: Single accuracy ranges from 50.0% to 59.5%. Shown the same attempts side by side in Pair, every reviewer does better, picking the successful run in 53.2–65.8% of pools.
 
 <figure class="sle-figure" markdown="0">
   <h3 class="sle-figure-title">Terminal-Bench 4.0: Judgment versus selection</h3>
   <div class="sle-figure-desktop">{% inline_eval_figure tb4-single-pair %}</div>
   <div class="sle-figure-mobile">{% inline_eval_figure tb4-single-pair-mobile %}</div>
-  <figcaption>Single and Pair use the same attempts from 79 pools, with consistent reviewer colors. Single measures judgment accuracy on 79 successful and 79 failed runs; Pair measures successful selection. Both axes start at the dashed 50% random baselines; labels show absolute rates. The metrics differ, so the gap is not a causal estimate of context benefit.</figcaption>
+  <figcaption>Single and Pair use the same attempts from 79 pools. Single scores verdict accuracy on 79 successful and 79 failed runs; Pair scores whether the reviewer picks the successful run. Both axes start at the dashed 50% random baseline, and labels give the actual rates. The two metrics differ, so the gap does not measure how much the side-by-side view helps.</figcaption>
 </figure>
 
-The distinction also appears within Pair: **GLM-5.3 labels both candidates correctly in only {{ glm.pair_exact }}% of pairs, yet selects the successful candidate in {{ glm.pair }}%**. A reviewer can choose well without correctly certifying every candidate.
+The same gap shows up inside Pair. **GLM-5.3 labels both runs correctly in only {{ glm.pair_exact }}% of pairs, yet picks the successful one in {{ glm.pair }}%.** In 33 pairs it calls both runs a pass, and in 19 of those it still prefers the one that succeeded. A reviewer doesn't have to grade every candidate correctly to choose well.
 
 ## Selection depends on the reviewer and the source
 
-**GPT-5.6 Sol has the highest overall five-run selection success among the four reviewers evaluated.** It selects a successful run in **{{ gpt.five }}%** of the {{ tb4.five_pools }} mixed pools, compared with {{ flash.five }}% for GLM-5.3 Flash, {{ glm.five }}% for GLM-5.3, and {{ deepseek.five }}% for DeepSeek V4.1 Flash. Uniform random selection succeeds {{ tb4.five_baseline }}% of the time.
+**GPT-5.6 Sol is the best selector overall.** It picks a successful run in {{ gpt.five }}% of the {{ tb4.five_pools }} mixed pools. GLM-5.3 Flash follows at {{ flash.five }}%, then GLM-5.3 at {{ glm.five }}%. DeepSeek V4.1 Flash, at {{ deepseek.five }}%, barely beats the {{ tb4.five_baseline }}% of a random pick.
 
 <figure class="sle-figure" markdown="0">
   <h3 class="sle-figure-title">Terminal-Bench 4.0: Five-run selection by source</h3>
   <div class="sle-figure-desktop">{% inline_eval_figure tb4-five-by-source %}</div>
   <div class="sle-figure-mobile">{% inline_eval_figure tb4-five-by-source-mobile %}</div>
-  <figcaption>Each panel contains frozen runs from one source; each bar is a reviewer selecting among those runs. All panels use the same 40–100% axis range. Dashed lines show source-specific uniform choice. Invalid outputs count as unsuccessful selections. Rates are conditional on mixed pools.</figcaption>
+  <figcaption>Each panel holds runs from one source; each bar is one reviewer choosing among them. All panels share a 40–100% axis. Dashed lines mark each source's random-pick baseline (uniform choice). Invalid outputs count as failed selections. Mixed pools only.</figcaption>
 </figure>
 
-GPT-5.6 Sol leads or ties in all four source slices, but the relative ranking of the other reviewers varies across source models. DeepSeek V4.1 Flash exceeds GLM-5.3 on runs generated by Fable 5.1 (66.7% versus 63.3%); on runs generated by GPT-5.6 Sol, the ordering reverses (46.4% versus 64.3%).
+GPT-5.6 Sol leads or ties on every source. Below it, the order shifts. On Fable 5.1 runs, DeepSeek V4.1 Flash edges out GLM-5.3 (66.7% versus 63.3%, a one-pool difference). On GPT-5.6 Sol runs, DeepSeek drops to 46.4%, below the 52.9% random baseline, while GLM-5.3 reaches 64.3%.
 
-The opportunity for selection also varies. GPT-5.6 Sol's gain over uniform is **+26.7 points on Fable 5.1 pools and +32.9 on GPT-5.6 Sol pools**, compared with +12.4 on GLM-5.3 and +14.4 on GPT-6 Astra. These are descriptive differences: source task sets differ, and small samples—especially the 18 GPT-6 Astra pools—limit model-ranking claims.
+How much selection helps also depends on whose runs are being reviewed. GPT-5.6 Sol beats a random pick by **26.7 points on Fable 5.1 runs and 32.9 on GPT-5.6 Sol runs**, but only by 12.4 on GLM-5.3 runs and 14.4 on GPT-6 Astra runs. These differences are descriptive: each source contributes a different set of tasks, and the samples are small, especially the 18 GPT-6 Astra pools.
 
-Restricting the comparison to shared tasks changes some rankings, but the overlap is small: six tasks across the three original sources and two across all four. The [matched-task comparisons in the appendix](#comparing-sources-on-shared-tasks) hold the task set fixed across sources.
+The [appendix](#comparing-sources-on-shared-tasks) repeats the comparison on tasks where every source has a mixed pool. Some rankings change, but there are only six such tasks across the three original sources, and two across all four.
 
 <details class="sle-instruction" markdown="1">
 <summary>Prompt check: a different favorite, little change in success</summary>
 <div class="sle-instruction-body" markdown="1">
 
-The Five prompt includes `{"selected_candidate":3}` as its example output. On the original 79 pools, DeepSeek V4.1 Flash picked candidate 3 in 64 reviews. Replacing that example with a neutral prose schema shifted its favorite to candidate 1 (70 reviews), while success changed only from 58.2% to 59.5%.
+The Five prompt shows `{"selected_candidate":3}` as its example output. On the original 79 pools, DeepSeek V4.1 Flash picked candidate 3 in 64 reviews. When we replaced the example with a neutral prose description, its favorite moved to candidate 1 (70 reviews), but success barely changed: 58.2% before, 59.5% after. Either way, most of its picks go to a single slot, which helps explain why its Five score stays close to the random baseline.
 
 <figure class="sle-figure" markdown="0">
   <h3 class="sle-figure-title">Terminal-Bench 4.0: Selection under two prompt variants</h3>
@@ -551,61 +551,61 @@ The Five prompt includes `{"selected_candidate":3}` as its example output. On th
   <figcaption>Same evidence, candidate order, model, and reasoning settings. Both conditions produce valid outputs in all 79 cases.</figcaption>
 </figure>
 
-The paired success change is +1.3 points, with a task-cluster 95% interval of [−13.5, 16.9]. This single sensitivity run does not establish an effect independent of sampling noise. It is reported separately from the main Five results. [Report]({{ tb4.repo }}/reports/tbench4-complete-results-2026-09-16.md#deepseek-five-prompt-sensitivity).
+The paired change is +1.3 points, with a task-cluster 95% interval of [−13.5, 16.9], so a single rerun cannot separate a prompt effect from noise. We report it separately from the main Five results. [Report]({{ tb4.repo }}/reports/tbench4-complete-results-2026-09-16.md#deepseek-five-prompt-sensitivity).
 
 </div>
 </details>
 
 ## Selection recovers part of the sampling gain
 
-**Five attempts create headroom. Selection determines how much of it becomes useful.** We return to the **full 66-task source jobs**, using **GPT-5.6 Sol as the reviewer across all four sources**.
+**Five attempts create headroom. Selection decides how much of it you keep.** So far we have scored only mixed pools. Here we score all 66 tasks per source, including pools where every attempt passed or every attempt failed. For each source, we compare a single attempt (pass@1), GPT-5.6 Sol's pick from five attempts, and an oracle that always finds a success when there is one (oracle pass@5).
 
 <figure class="sle-figure" markdown="0">
   <h3 class="sle-figure-title">Terminal-Bench 4.0: Selection gains from repeated attempts</h3>
   <div class="sle-figure-desktop">{% inline_eval_figure tb4-sampling-hero %}</div>
   <div class="sle-figure-mobile">{% inline_eval_figure tb4-sampling-hero-mobile %}</div>
-  <figcaption>Each group uses its source color: light bars show pass@1, solid bars show GPT-5.6 Sol selection, and lightly filled bars with dashed outlines show oracle pass@5. Annotations above each group give the selection gain over pass@1 in percentage points. Every source retains all 66 tasks. Selection scores are reconstructed under the assumptions below.</figcaption>
+  <figcaption>Light bars show pass@1, solid bars show GPT-5.6 Sol's selection, and dashed outlines show oracle pass@5, each in its source's color. The number above each group is the selection gain over pass@1, in percentage points. Selection scores are reconstructed as described below.</figcaption>
 </figure>
 
-For runs generated by Fable 5.1, selection raises reconstructed success from **{{ fable_source.pass1 }}% to {{ fable_source.selected }}%**. For runs generated by GPT-5.6 Sol, it rises from **{{ gpt_source.pass1 }}% to {{ gpt_source.selected }}%**. GLM-5.3 and GPT-6 Astra sources gain {{ glm_source.gain }} and {{ astra_source.gain }} points, respectively. Whole-job gains are smaller than gains on mixed pools because selection can change the outcome only on mixed tasks.
+On Fable 5.1 runs, selection raises reconstructed success from **{{ fable_source.pass1 }}% to {{ fable_source.selected }}%**. On GPT-5.6 Sol runs, it goes from **{{ gpt_source.pass1 }}% to {{ gpt_source.selected }}%**. In both cases, selection closes about 60% of the gap to oracle pass@5. GLM-5.3 and GPT-6 Astra runs each gain only {{ glm_source.gain }} points, closing 25–30% of their gaps. These gains are smaller than the mixed-pool gains above because selection can only change the outcome when the attempts disagree.
 
 <details class="sle-instruction" markdown="1">
 <summary>How the reconstruction works</summary>
 <div class="sle-instruction-body" markdown="1">
 
-Every source retains all 66 tasks. Selection success is reconstructed by adding all-success pools, successful GPT-5.6 Sol selections on reviewed mixed pools, and the expected successes from uniform choice on unreviewed mixed pools, then dividing by 66. Homogeneous pools were not reviewed; this assumes valid selection there.
+For each source, we add up three things and divide by 66: pools where every attempt succeeded, mixed pools where GPT-5.6 Sol picked a success, and the expected successes of a random pick on mixed pools that were never reviewed. We did not run the reviewer on all-pass or all-fail pools. We assume it would return a valid pick there, and any valid pick gives the same result.
 
-Ten mixed pools were unavailable for review: eight had source-run exceptions and two failed artifact collection (0 GPT-6 Astra, 3 Fable 5.1, 2 GLM-5.3, and 5 GPT-5.6 Sol). They remain in the full-task denominator and use uniform fallback, not measured reviewer outcomes. All 97 eligible mixed pools have been reviewed. One missing GLM-5.3 source reward retains the source data's failure label.
+Ten mixed pools could not be reviewed (3 Fable 5.1, 2 GLM-5.3, 5 GPT-5.6 Sol, none from GPT-6 Astra): eight had errors in the source runs, and two had artifacts that failed to collect. They stay in the denominator and are scored as a random pick. The other 97 mixed pools were all reviewed. One GLM-5.3 run with a missing reward counts as a failure, as it does in the source data.
 
-For Fable 5.1, selection success is `(19 + 26 + (2 + 3 + 1) / 5) / 66 = 70.0%`: 19 all-success pools, 26 successful selections, and uniform fallback on three unreviewed pools.
+For Fable 5.1: `(19 + 26 + (2 + 3 + 1) / 5) / 66 = 70.0%`. That is 19 all-pass pools, 26 successful picks, and a random pick on three unreviewed pools with 2, 3, and 1 successes.
 
 | Source | Tasks | pass@1 | GPT-5.6 Sol selection | Oracle pass@5 |
 | --- | ---: | ---: | ---: | ---: |
 {% for source in tb4.sources %}| {{ source.name }} | {{ source.tasks }} | {{ source.pass1 }}% | {{ source.selected }}% | {{ source.pass5 }}% |
 {% endfor %}
 
-The full-task denominator preserves the source evaluation's scope. Direct leaderboard comparisons would also require matching the benchmark version, agent setup, and scoring protocol.
+Keeping all 66 tasks preserves the scope of the original evaluation. These are still not leaderboard scores; comparing against one would also require matching the benchmark version, agent setup, and scoring protocol.
 
-Oracle pass@k is the probability that a uniformly sampled subset of k frozen attempts contains a success. Reviewer selection was evaluated at k=5 only. The [full pass@1–5 curves](#oracle-sampling-curves) are in the appendix. [Data and assumptions]({{ tb4.repo }}/results/tbench4-pass-at-k.json).
+Oracle pass@k is the probability that a random subset of k of the five attempts contains a success. Reviewers were tested at k = 5 only; the [full pass@1–5 curves](#oracle-sampling-curves) are in the appendix. [Data and assumptions]({{ tb4.repo }}/results/tbench4-pass-at-k.json).
 
 </div>
 </details>
 
-This follows **LLM-as-a-Verifier** in using verification for test-time scaling<d-cite key="kwok2026llmverifier"></d-cite>. Here, verification is itself a tool-using agent task built from the original evaluation's saved runs.
+Like **LLM-as-a-Verifier**<d-cite key="kwok2026llmverifier"></d-cite>, this uses verification for test-time scaling. In our setup, the verifier is itself a tool-using agent, working from runs the original evaluation had already produced.
 
 ## From evaluation to training
 
-The original evaluation measured task execution. Reusing its runs lets us measure verification and selection—and see where those capabilities diverge.
+Terminal-Bench 4.0 measured whether agents can do its tasks. Reusing its runs lets us ask whether agents can check the work, without any new labels. For these reviewers, the answer depends on how we ask. They are poor judges of a single run, but most of them beat chance when choosing among five, and GPT-5.6 Sol beats it by a wide margin.
 
-**The resulting verification runs could also become training data.** Grounded in the original outcome labels, they could support training agents to inspect evidence, recognize failures, and select successful attempts. We have not tested that training benefit here. Correct verdicts do not automatically validate a reviewer's reasoning; training would need trajectory quality checks and train/test splits by original task.
+**The reviews themselves could become training data.** Each one is already labeled by the original verifier, which makes the reviews a natural fit for teaching agents to inspect evidence, catch failures, and pick successful attempts. We have not tested this. A correct verdict does not mean the reasoning behind it was sound, so training would need quality checks on the review trajectories and train/test splits by original task.
 
 <div class="sle-coda">
-A completed evaluation can seed both <strong>the next benchmark</strong> and <strong>the next training set</strong>.
+Most eval runs are used once, for a single score. Kept, they can become <strong>the next benchmark</strong>, and perhaps <strong>the next training set</strong>.
 </div>
 
 ### Reproduction
 
-Code, tasks, and results are available in the [GitHub repository](https://github.com/XinmingTu/Agentic-Verification-Eval).
+Code, tasks, and results are in the [GitHub repository](https://github.com/XinmingTu/Agentic-Verification-Eval).
 
 **Cite this post**
 
@@ -627,27 +627,27 @@ Code, tasks, and results are available in the [GitHub repository](https://github
 | Reviewer | Single accuracy · 158 runs | Pair selection · 79 pools | Five selection · 97 pools |
 | --- | ---: | ---: | ---: |
 {% for reviewer in tb4.reviewers %}| {{ reviewer.name }} | {{ reviewer.single }}% | {{ reviewer.pair }}% | {{ reviewer.five }}% ({{ reviewer.five_wins }}/97) |
-{% endfor %}| Blind baseline | 50.0% | 50.0% | {{ tb4.five_baseline }}% |
+{% endfor %}| Random baseline | 50.0% | 50.0% | {{ tb4.five_baseline }}% |
 
-Reviewer order is fixed throughout by overall Five selection success. The Five aggregate weights each pool equally. GPT-5.6 Sol's original three-source result is 64/79 (81.0%); adding 12/18 GPT-6 Astra-source successes gives 76/97 (78.4%). On the original 79 pools, the paired GPT-5.6 Sol gain over uniform is +25.1 points, with a task-cluster 95% interval of [16.3, 33.9]. That interval does not describe the expanded 97-pool aggregate.
+Reviewers are ordered by overall Five success throughout. The Five aggregate weights each pool equally. GPT-5.6 Sol gets 64/79 (81.0%) on the original three sources; adding 12/18 on GPT-6 Astra runs gives 76/97 (78.4%). On the original 79 pools, its paired gain over a random pick is +25.1 points, with a task-cluster 95% interval of [16.3, 33.9]. That interval covers only those 79 pools, not the 97-pool total.
 
 | Reviewer | Single accuracy · 95% cluster CI | Pair selection · 95% cluster CI |
 | --- | ---: | ---: |
 {% for reviewer in tb4.reviewers %}| {{ reviewer.name }} | {{ reviewer.single_ci }}% | {{ reviewer.pair_ci }}% |
 {% endfor %}
 
-Task identities recur across sources. Intervals use 10,000 bootstrap resamples of task-name clusters; the Single/Pair panel has 48 distinct task names. GPT-6 Astra's 18-pool Five extension has broad intervals: GPT-5.6 Sol and GLM-5.3 Flash both select 12/18, with [44.4%, 88.9%] intervals. Their tie does not establish equivalent capabilities. [Main report]({{ tb4.repo }}/reports/tbench4-complete-results-2026-09-16.md) · [GLM-5.3 Flash completion]({{ tb4.repo }}/reports/tbench4-glm-flash-results-2026-09-17.md) · [GPT-6 Astra extension]({{ tb4.repo }}/reports/tbench4-gpt6-source-results-2026-09-17.md).
+The same task can appear under several sources, so the intervals resample tasks rather than pools: 10,000 bootstrap resamples over task clusters, with 48 distinct tasks in the Single/Pair panel. The 18 GPT-6 Astra pools give wide intervals. GPT-5.6 Sol and GLM-5.3 Flash both pick 12/18, each with a [44.4%, 88.9%] interval, so the tie says little about whether they are equally good. [Main report]({{ tb4.repo }}/reports/tbench4-complete-results-2026-09-16.md) · [GLM-5.3 Flash completion]({{ tb4.repo }}/reports/tbench4-glm-flash-results-2026-09-17.md) · [GPT-6 Astra extension]({{ tb4.repo }}/reports/tbench4-gpt6-source-results-2026-09-17.md).
 
 ### Comparing sources on shared tasks
 
-Are some sources' failed attempts harder to recognize, or their successful attempts harder to select? The main source slices contain different task sets. Here we hold the task identities fixed and keep all four reviewers separate. A shared task means the same original task was attempted by each source; it does **not** mean the sources produced identical traces or identical success/failure mixtures. Reviewers see trajectories and recorded artifacts, so these comparisons concern run bundles, not text alone.
+Are some sources' failures harder to catch, or their successes harder to find? In the main results, each source contributes a different set of tasks, so the source and the tasks are tangled together. Here we fix the tasks and keep the four reviewers separate. A shared task is one where every source has an eligible mixed pool. The sources still produced different runs, with different mixes of successes and failures.
 
-We compare two views of the same recorded evaluations. **All available pools** uses each source's full eligible set: 30 Fable 5.1 pools, 21 GLM-5.3 pools, and 28 GPT-5.6 Sol pools. **Shared tasks only** restricts each source to the same six task identities. On this intersection, each source contributes 12 Single judgments (one successful and one failed anchor per task), six Pair selections using those same anchors, and six Five selections using the full five-attempt pools. Reviewers, metrics, candidate order within each pool, and scoring rules stay fixed; only the included task set changes. The intersection is chosen from task availability, not reviewer scores; invalid answers remain errors. The shared subset is contained in the full set, so these are not independent samples or a causal intervention.
+We compare two views of the same results. **All available pools** uses every eligible pool: 30 from Fable 5.1, 21 from GLM-5.3, and 28 from GPT-5.6 Sol. **Shared tasks only** keeps the six tasks common to all three. On those six, each source contributes 12 Single judgments (one successful and one failed run per task), six Pair selections on the same two runs, and six Five selections over the full pools. Reviewers, metrics, candidate order, and scoring stay the same; only the set of tasks changes. The six were chosen by availability, not by reviewer scores, and invalid answers still count as errors. Because the shared tasks are a subset of the full set, the two views are not independent samples.
 
 <figure class="sle-figure" markdown="0">
   <h3 class="sle-figure-title">Terminal-Bench 4.0: Same task pool, different sources</h3>
   {% inline_eval_figure tb4-shared-heatmap %}
-  <figcaption>Every source row uses exactly the same six tasks; columns are reviewers. Blue means above random, orange below random, and neutral means equal to random. Color measures the percentage-point difference on a shared −100 to +100 scale, not statistical significance. Cells show the raw score, correct/total count, and difference from random. Single and Pair use a 50% baseline; Five uses each source's actual successful-candidate fraction on these tasks, listed below the panel.</figcaption>
+  <figcaption>Every row uses the same six tasks; columns are reviewers. Blue is above random, orange below, and neutral equal. Color shows the percentage-point difference from random on a shared −100 to +100 scale; it does not indicate statistical significance. Each cell gives the score, the correct/total count, and the difference from random. Single and Pair use a 50% baseline; Five uses each source's share of successful candidates on these tasks, listed below the panel.</figcaption>
 </figure>
 
 <details markdown="1">
@@ -656,12 +656,12 @@ We compare two views of the same recorded evaluations. **All available pools** u
 <figure class="sle-figure" markdown="0">
   <h3 class="sle-figure-title">Terminal-Bench 4.0: All pools versus six shared tasks</h3>
   {% inline_eval_figure tb4-shared-tasks %}
-  <figcaption>Rows are source agents; columns are reviewers. Each cell shows all available pools on top (gray) and the shared-task subset below (blue), with counts and percentages on the same 0–100% bar scale. Single denominators count runs; Pair and Five denominators count pools.</figcaption>
+  <figcaption>Rows are sources; columns are reviewers. Each cell shows all available pools on top (gray) and the shared-task subset below (blue), with counts and percentages on the same 0–100% bar scale. Single denominators count runs; Pair and Five denominators count pools.</figcaption>
 </figure>
 
 </details>
 
-Pair makes one aspect of the comparison cleaner: every pair contains one success and one failure, giving every source the same 50% uniform-selection baseline. Five keeps the original outcome mix, so its source-specific baselines differ even on shared tasks. Neither comparison isolates an intrinsic property of a model's traces: source agents, harnesses, artifacts, candidate order, and the kinds of failures can still differ. With only six tasks, one changed selection moves a Pair or Five result by 16.7 percentage points; these are exploratory comparisons, not a stable source ranking.
+Pair is the cleaner comparison: every pair has one success and one failure, so every source has the same 50% baseline. Five keeps each pool's original mix, so its baselines differ by source even on shared tasks. Neither view isolates something intrinsic to a model's runs, because the agents, harnesses, artifacts, candidate order, and kinds of failure still differ. And with six tasks, one changed pick moves a Pair or Five score by 16.7 points. Read these as exploratory rather than as a source ranking.
 
 <details markdown="1">
 <summary>Shared task identities</summary>
@@ -672,46 +672,47 @@ Pair makes one aspect of the comparison cleaner: every pair contains one success
 
 </details>
 
-Adding GPT-6 Astra leaves only two tasks shared by all four sources: `batched-eval-parity` and `vba-userform-port`. Astra currently has Five results only; there are no corresponding Single or Pair observations to fill a fourth source row in the earlier panels. We show the available four-source intersection below, but two tasks cannot support a general difficulty ranking.
+Adding GPT-6 Astra leaves only two tasks shared by all four sources: `batched-eval-parity` and `vba-userform-port`. Astra has Five results only, so it has no row in the Single and Pair panels above. We show the four-source view below for completeness; two tasks cannot support a ranking.
 
 <figure class="sle-figure" markdown="0">
   <h3 class="sle-figure-title">Terminal-Bench 4.0: Four sources, the same two tasks</h3>
   {% inline_eval_figure tb4-shared-four-heatmap %}
-  <figcaption>Five selection on the identical two-task intersection. The same diverging scale shows percentage points above or below each source's uniform-selection baseline. A single selection changes the score by 50 percentage points; color does not imply statistical significance. This tiny subset cannot establish a general source ranking.</figcaption>
+  <figcaption>Five selection on the two tasks shared by all four sources, on the same diverging scale: percentage points above or below each source's random baseline. One changed pick moves a score by 50 points, and color does not indicate significance.</figcaption>
 </figure>
 
 <details markdown="1">
 <summary>Four-source comparison with all available pools</summary>
 
 <figure class="sle-figure" markdown="0">
+  <h3 class="sle-figure-title">Terminal-Bench 4.0: All pools versus two shared tasks</h3>
   {% inline_eval_figure tb4-shared-four %}
-  <figcaption>All available pools above, identical two-task intersection below. These are nested samples, not independent experiments.</figcaption>
+  <figcaption>All available pools above, the two shared tasks below. The second is a subset of the first, not a separate experiment.</figcaption>
 </figure>
 
 </details>
 
-These panels reuse existing observations; no additional model evaluations were run. The [minimal per-case snapshot](/assets/data/second-life-tb4/shared-task-records.json) records candidate IDs, labels, and reviewer outcomes from the same pinned experiment commit. Rebuild with `python scripts/generate_second_life_shared.py`; the generator checks duplicate observations, matching candidate order and labels across reviewers, and matching Single/Pair anchors within Five pools.
+These panels reuse existing results; no new model calls were made. A [per-case snapshot](/assets/data/second-life-tb4/shared-task-records.json) records candidate IDs, labels, and reviewer outcomes from the same pinned experiment commit. Rebuild it with `python scripts/generate_second_life_shared.py`, which also checks for duplicate observations, consistent candidate order and labels across reviewers, and consistent Single/Pair runs within each Five pool.
 
 ### Oracle sampling curves
 
-These curves show how often at least one successful attempt is available as k increases. They use all 66 tasks per source and the same source colors as the main figure. Intermediate points are oracle availability estimates, not reviewer selection results.
+These curves show how often at least one of k attempts succeeds, for k from 1 to 5. They use all 66 tasks per source and the same colors as the main figure. Points below k = 5 show what an oracle could get; no reviewer was run at those k.
 
 <figure class="sle-figure" markdown="0">
   <h3 class="sle-figure-title">Terminal-Bench 4.0: Oracle success with repeated attempts</h3>
   <div class="sle-figure-desktop">{% inline_eval_figure tb4-oracle-curves %}</div>
   <div class="sle-figure-mobile">{% inline_eval_figure tb4-oracle-curves-mobile %}</div>
-  <figcaption>Each point averages the probability of finding at least one success in a uniformly sampled subset of k of the five frozen attempts.</figcaption>
+  <figcaption>Each point averages, over tasks, the probability that a random subset of k of the five attempts contains a success.</figcaption>
 </figure>
 
 ### Dataset and scoring
 
-The sources are GPT-6 Astra + Codex (18 pools), Fable 5.1 + Claude Code (30), GLM-5.3 + Claude Code (21), and GPT-5.6 Sol + Codex (28). All retained pools pass metadata and archive validation. Recorded artifacts may be partial environment snapshots. Labels are the original operational verifier rewards, not new semantic adjudications.
+The sources are GPT-6 Astra + Codex (18 pools), Fable 5.1 + Claude Code (30), GLM-5.3 + Claude Code (21), and GPT-5.6 Sol + Codex (28). Every retained pool passed metadata and archive validation. Recorded artifacts may be partial snapshots of the environment. Labels are the benchmark verifier's original rewards; we did not re-grade any run.
 
-Single supplies 79 successful and 79 failed anchors. Pair uses those same anchors; reviewers are not told that one succeeded. Five retains the original mix: 268 of 485 candidates succeeded, giving 55.3% uniform choice. Single is not an independent-score ranking baseline over all five candidates. These metrics and source coverage differ; they do not isolate the benefit of additional context.
+Single uses one successful and one failed run from each pool, 79 of each. Pair uses the same two runs, and reviewers are not told that exactly one succeeded. Five keeps the original mix: 268 of 485 candidates succeeded, so a random pick succeeds 55.3% of the time. We did not run Single on all five candidates, so there is no score-each-then-pick baseline for Five. The settings differ in both metric and coverage, so comparing them does not isolate the value of seeing more runs.
 
 Invalid outputs count as errors in all headline metrics. In the confusion matrices they remain in the 79-run row denominators but are omitted from the Pass/Fail columns. Single invalid counts are 0 for GPT-5.6 Sol, 1 for GLM-5.3 Flash, 1 for GLM-5.3, and 9 for DeepSeek V4.1 Flash.
 
-Reviewer inputs exclude source rewards, verifier outputs, and source-identifying metadata. Earlier compatible observations are reused once based on identical trials, anchors, and rewards, not selected for correctness. Automated leakage checks cover declared surfaces; they do not establish that arbitrary archived content contains no indirect shortcuts.
+Reviewers never see source rewards, verifier outputs, or metadata that identifies the source. Some reviews are reused from earlier batches of this study. A review was reused only when its runs and labels were identical, never based on whether it was correct. Automated checks look for label leaks in the inputs we know about, but they cannot rule out indirect hints elsewhere in an archived run.
 
 ### Reviewer instructions
 
@@ -757,7 +758,7 @@ Mean cost per review (USD).
 {% for reviewer in site.data.second_life_shared.costs %}| {{ reviewer.name }} | {{ reviewer.single }} | {{ reviewer.pair }} | {{ reviewer.five }} |
 {% endfor %}
 
-Same 79 source-task pools: 158 Single reviews, 79 Pair, and 79 Five. Incorrect and invalid reviews are included.
+Computed over the same 79 pools: 158 Single reviews, 79 Pair, and 79 Five, including incorrect and invalid reviews.
 
 <details class="sle-instruction" markdown="1">
 <summary>Accounting details</summary>
@@ -773,7 +774,7 @@ Historical rates used for estimation (**USD per million tokens**, not current pr
 | GLM-5.3 Flash | 0.15 | 0.03 | 0.50 |
 | DeepSeek V4.1 Flash | 0.22 | 0.007 | 0.66 |
 
-Reused reviews count once at their original cost; missing dollar accounting is not treated as free. Excludes source-agent execution, infrastructure, superseded runs, prompt controls, and Astra's Five-only extension.
+Reused reviews count once, at their original cost. Reviews with missing cost data are estimated from tokens rather than counted as free. The figures exclude source-agent runs, infrastructure, superseded runs, the prompt control, and Astra's Five-only extension.
 
 [Accounting implementation]({{ tb4.repo }}/scripts/run_tbench4_complete.py).
 
@@ -782,6 +783,6 @@ Reused reviews count once at their original cost; missing dollar accounting is n
 
 ### Earlier studies
 
-The Terminal-Bench 3.0 trace-only pilot<d-cite key="terminalbench3"></d-cite> used 85 mixed pools, 50 task names, and 340 derived tasks. GPT-5.6 Sol's Five selection rate was 63.53%, against 42.12% uniform choice. Averaged across the three original 74-task evaluations, reconstructed success was 41.89%, compared with 33.69% pass@1 and 55.86% oracle pass@5.
+An earlier pilot on Terminal-Bench 3.0<d-cite key="terminalbench3"></d-cite> showed reviewers trajectories only, without artifacts. It used 85 mixed pools, 50 distinct tasks, and 340 derived tasks. GPT-5.6 Sol's Five selection rate was 63.5%, against 42.1% for a random pick. Averaged across the three original 74-task evaluations, reconstructed success was 41.9%, compared with 33.7% pass@1 and 55.9% oracle pass@5.
 
-TB3 and TB4 differ in tasks, evidence, and some reviewer versions; their difference cannot establish artifact benefit. The initial 18-pool TB4 study had a matched Trace-only Single control. The expanded panel did not repeat that ablation. [TB3 report]({{ tb4.repo }}/reports/context-ladder-reviewer-comparison-2026-08-28.md) · [Initial TB4 study]({{ tb4.repo }}/reports/tbench4-run-bundle-results-2026-09-05.md).
+It is tempting to read the TB3-to-TB4 difference as the value of artifacts, but the tasks and some reviewer versions changed too. The initial 18-pool TB4 study did include a matched trajectory-only Single control; the expanded panel did not repeat it. [TB3 report]({{ tb4.repo }}/reports/context-ladder-reviewer-comparison-2026-08-28.md) · [Initial TB4 study]({{ tb4.repo }}/reports/tbench4-run-bundle-results-2026-09-05.md).

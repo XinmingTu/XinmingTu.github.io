@@ -397,6 +397,60 @@ _styles: |
   d-article .sle-coda + h2 {
     margin-top: 1.75rem;
   }
+  d-article .sle-duo {
+    border: 1px solid var(--sle-line);
+    border-radius: 16px;
+    background: var(--sle-card);
+    padding: 1.3rem 1.3rem 1.05rem;
+    margin: 1.4rem 0 1.6rem;
+  }
+  d-article .sle-duo-cols {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 1.5rem;
+  }
+  d-article .sle-duo-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .5rem;
+    text-align: center;
+  }
+  d-article .sle-duo-col + .sle-duo-col { border-left: 1px solid var(--sle-line); }
+  d-article .sle-duo-weak .sle-duo-runs, d-article .sle-duo-weak .sle-duo-marks { opacity: .5; }
+  d-article .sle-duo-head {
+    color: var(--sle-muted);
+    font-size: .68rem;
+    font-weight: 700;
+    letter-spacing: .09em;
+    text-transform: uppercase;
+  }
+  d-article .sle-duo-runs, d-article .sle-duo-marks { display: flex; gap: 5px; justify-content: center; }
+  d-article .sle-duo-runs span {
+    width: 22px;
+    height: 30px;
+    border: 1px solid var(--sle-blue);
+    border-radius: 3px;
+    background: var(--sle-blue-soft);
+  }
+  d-article .sle-duo-marks span { width: 22px; font-size: 1.15rem; font-weight: 600; line-height: 1.2; }
+  d-article .sle-duo-marks .up { color: var(--sle-green); }
+  d-article .sle-duo-marks .down, d-article .sle-duo-marks .ask { color: var(--sle-muted); }
+  d-article .sle-duo-q { color: var(--sle-ink); font-size: .9rem; font-weight: 600; margin-top: .15rem; }
+  d-article .sle-duo-res { color: var(--sle-muted); font-size: .74rem; line-height: 1.4; }
+  d-article .sle-duo-foot {
+    border-top: 1px dashed var(--sle-line);
+    color: var(--sle-body);
+    font-size: .78rem;
+    line-height: 1.5;
+    margin: 1.1rem 0 0;
+    padding-top: .85rem;
+    text-align: center;
+  }
+  @media (max-width: 560px) {
+    d-article .sle-duo-cols { grid-template-columns: 1fr; gap: 1.1rem; }
+    d-article .sle-duo-col + .sle-duo-col { border-left: 0; border-top: 1px solid var(--sle-line); padding-top: 1.1rem; }
+  }
   d-article .sle-update {
     color: var(--sle-muted);
     font-size: 0.82rem;
@@ -640,7 +694,30 @@ The two best selectors are also the two most expensive per Five review: <span>${
 
 Terminal-Bench 4.0 measured whether agents can do its tasks. Reusing its runs lets us ask whether agents can check the work, without any new labels. For these reviewers, the answer depends on how we ask. They are poor judges of a single run, but all except DeepSeek V4.1 Flash beat chance when choosing among five, and the best two beat it by more than 20 points.
 
-A reviewer that selects well could also serve as an RL reward. GRPO<d-cite key="shao2024deepseekmath"></d-cite> samples a group of attempts at the same task and scores each one against the group average, so adding the same amount to every reward in a group changes nothing. Only the comparison between attempts matters, and comparing is what these reviewers do better. A Five pool already has the shape of a GRPO group, and frozen runs with verifier labels let us measure a reviewer before trusting it as a reward. There are two problems, though. One pick per group is not a reward for every attempt: scoring the chosen run 1 and the rest 0 would penalize the other successful attempts, and most pools here have more than one. And a policy trained against a reviewer will learn to exploit its blind spots, such as a docstring that argues its way past all six reviewers.
+A reviewer that selects well could also serve as an RL reward. The case for it is the gap between judging and choosing. Judging a single run, these reviewers do little better than guessing. Given several runs of the same task, the best of them pick a successful one well above chance. GRPO<d-cite key="shao2024deepseekmath"></d-cite> needs only that second kind of answer: it samples a group of attempts at the same task and scores each one against the group average, so adding the same amount to every reward in a group changes nothing. A Five pool already has the shape of a GRPO group, and frozen runs with verifier labels let us measure a reviewer before trusting it as a reward.
+
+<div class="sle-duo" role="img" aria-label="Two questions a reviewer can answer. Is this run correct: judging one run alone, reviewers are close to guessing. Which of these are better: comparing runs of the same task, the best reviewers are well above chance. GRPO only needs the second." markdown="0">
+  <div class="sle-duo-cols">
+    <div class="sle-duo-col sle-duo-weak">
+      <span class="sle-duo-head">Judge one run</span>
+      <div class="sle-duo-runs"><span></span></div>
+      <div class="sle-duo-marks"><span class="ask">?</span></div>
+      <div class="sle-duo-q">Is this run correct?</div>
+      <div class="sle-duo-res">Single: close to guessing</div>
+    </div>
+    <div class="sle-duo-col">
+      <span class="sle-duo-head">Compare runs</span>
+      <div class="sle-duo-runs"><span></span><span></span><span></span><span></span><span></span></div>
+      <div class="sle-duo-marks"><span class="up">↑</span><span class="down">↓</span><span class="down">↓</span><span class="up">↑</span><span class="down">↓</span></div>
+      <div class="sle-duo-q">Which of these are better?</div>
+      <div class="sle-duo-res">Pair and Five: well above chance</div>
+    </div>
+  </div>
+  <p class="sle-duo-foot">GRPO only needs the comparison. It scores each attempt against the rest of its group, pushes the better ones up, and samples again.</p>
+</div>
+
+There are two problems, though. One pick per group is not a reward for every attempt: scoring the chosen run 1 and the rest 0 would penalize the other successful attempts, and most pools here have more than one. And a policy trained against a reviewer will learn to exploit its blind spots, such as a docstring that argues its way past all six reviewers.
+</div>
 
 The reviews themselves could also become training data. Each one is already labeled by the original verifier, which makes the reviews a natural fit for teaching agents to inspect evidence, catch failures, and pick successful attempts. A correct verdict does not mean the reasoning behind it was sound, so training would need quality checks on the review trajectories and train/test splits by original task. We have tested neither idea here.
 

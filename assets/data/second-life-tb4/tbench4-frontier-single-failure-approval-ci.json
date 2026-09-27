@@ -1,0 +1,35 @@
+{
+  "scope": "Complete Single Full conditions for both frontier reviewers; not an overall run-completion claim",
+  "method": "Percentile bootstrap of task-name clusters using the unchanged scorer helper _cluster_ci",
+  "replicates": 10000,
+  "statistic": "Fraction of gold-failed Single traces with predicted_reward equal to 1; all included outputs are usable and format-valid",
+  "interpretation": "Both 95% intervals include 50%. These conditional, disclosed-step-budget results do not establish that either frontier reviewer approves a majority of failures in a broader population.",
+  "reviewers": [
+    {
+      "reviewer": "gpt-6-sol",
+      "failed_traces": 79,
+      "approved": 44,
+      "seed": "tbench4-frontier:gpt-6-sol:single-failure-approval",
+      "task_cluster_bootstrap_95_ci": {
+        "estimate": 0.5569620253164557,
+        "lower": 0.43243243243243246,
+        "upper": 0.6794871794871795,
+        "clusters": 48,
+        "replicates": 10000
+      }
+    },
+    {
+      "reviewer": "opus-5-5",
+      "failed_traces": 79,
+      "approved": 41,
+      "seed": "tbench4-frontier:opus-5-5:single-failure-approval",
+      "task_cluster_bootstrap_95_ci": {
+        "estimate": 0.5189873417721519,
+        "lower": 0.39759036144578314,
+        "upper": 0.6447368421052632,
+        "clusters": 48,
+        "replicates": 10000
+      }
+    }
+  ]
+}

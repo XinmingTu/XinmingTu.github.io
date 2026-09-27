@@ -8,8 +8,10 @@ module Jekyll
       "#20242d" => "--sle-ink", "#434a57" => "--sle-body",
       "#747d8b" => "--sle-muted", "#dfe4e9" => "--sle-line",
       "#b0b0b0" => "--sle-figure-grid", "#000000" => "--sle-body",
-      "#4f68b3" => "--sle-blue", "#287a68" => "--sle-green",
-      "#a75e3c" => "--sle-warm", "#8971aa" => "--sle-purple"
+      # Reviewer identity colors, then colors that carry no model identity.
+      "#d97349" => "--sle-opus", "#34a77e" => "--sle-gpt56", "#1b7653" => "--sle-gpt6",
+      "#b47cbb" => "--sle-glm-flash", "#8d46b9" => "--sle-glm", "#4b72f4" => "--sle-deepseek",
+      "#d1392e" => "--sle-error", "#2a86b8" => "--sle-above"
     }.freeze
 
     def initialize(tag_name, name, tokens)
@@ -43,19 +45,12 @@ module Jekyll
         end
       end
       svg.xpath(".//*[@style]").each do |node|
-        # The confusion matrices use 19px cell annotations on a fixed color
-        # scale. Keep their original dark/white inks in both page themes.
-        fixed_cell_ink = @name.start_with?("tb4-single-confusion") &&
-          node.name == "text" && node["style"].include?("font-size: 19px")
-        next if fixed_cell_ink
-
-        node["style"] = node["style"].gsub(/#[0-9a-fA-F]{6}/) do |color|
+        # White marker fills and rings (paths and <use> markers alike) should
+        # match the page, so they stay invisible against the dark theme.
+        style = node["style"].gsub(/(fill|stroke): #ffffff/i, '\1: var(--global-bg-color, #ffffff)')
+        node["style"] = style.gsub(/#[0-9a-fA-F]{6}\b/) do |color|
           variable = COLORS[color.downcase]
           variable ? "var(#{variable}, #{color})" : color
-        end
-        # Small opaque annotation boxes should match the surrounding page.
-        if node.name == "path" && node["style"].include?("fill: #ffffff")
-          node["style"] = node["style"].sub("fill: #ffffff", "fill: var(--global-bg-color, #ffffff)")
         end
       end
       svg.xpath(".//*[local-name()='style']").each do |style|

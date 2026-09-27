@@ -1,131 +1,100 @@
 # Frozen TB4 blog data
 
 Source: [XinmingTu/Agentic-Verification-Eval at
-6d99501ad21662cad4ef82c9089e15492d24e976](https://github.com/XinmingTu/Agentic-Verification-Eval/tree/6d99501ad21662cad4ef82c9089e15492d24e976).
-Snapshot date: September 18, 2026. No reviewer calls are made by the blog build.
+882fcc3349f161e9bfc3c1b92ab3c49b507480cc](https://github.com/XinmingTu/Agentic-Verification-Eval/tree/882fcc3349f161e9bfc3c1b92ab3c49b507480cc),
+the `main` merge that adds the audited Opus 5.5 and GPT-6 Sol reviewer results.
+Snapshot date: September 26, 2026. No reviewer calls are made by the blog build.
 
 The `tbench4-*.json` files are unchanged copies of the files with the same names
-under the source repository's `results/` directory. They contain compact
-metrics, task-cluster intervals, source pass@k data, and incremental cost ledgers.
-The September 16 comparison predates the GLM Flash completion and GPT-6
-extension; the generator combines the three batches explicitly and excludes
-the DeepSeek neutral-prompt control from the main result.
+under the source repository's `results/` directory: compact metrics,
+task-cluster intervals, source pass@k data, and cost ledgers. The September 16
+comparison predates the GLM Flash completion, the GPT-6 Astra extension, and
+the frontier reviewers; the generator combines the batches explicitly and
+excludes the DeepSeek neutral-prompt control from the main results.
+
+`shared-task-records.json` holds one minimal record per review: 334 cases for
+each of the six reviewers (158 Single, 79 Pair, 97 Five), from the result files
+listed in its `files` array. Single/Pair batch files also contain Five rows; the
+importer skips those and loads each Five observation once, from its own file.
+Raw reviewer reasoning and machine-local job paths are not copied into this
+website.
 
 `single-verdict-counts.json` and `deepseek-five-positions.json` are compact
-aggregations of the pinned per-review JSONL files identified inside them.
-Single verdict columns are **pass, fail, invalid**, with original successes and
-failures as rows. These counts retain invalid outputs as errors without
-misrepresenting them as pass/fail judgments. Raw reviewer reasoning and
-machine-local job paths are not copied into this website.
-
-The Single figure displays four percentage confusion matrices, with actual
-outcomes in rows and literal Pass/Fail verdicts in columns. All share a 0–100%
-color scale. Each row's denominator is 79, including invalid outputs, which
-are omitted from the visible columns. Rows may therefore sum below 100%.
-Invalid responses are never reassigned to Fail or removed from denominators.
-The underlying verdict counts are retained for auditing.
+aggregations from the earlier four-reviewer snapshot. The generator recomputes
+the confusion counts for all six reviewers from the per-case records and checks
+them against the first file.
 
 The three instruction excerpts under `_includes/second-life-tb4/` are copied
 verbatim from `SINGLE_FULL_INSTRUCTION`, `PAIR_INSTRUCTION`, and
 `FIVE_INSTRUCTION` in the pinned `scripts/build_tbench4_run_bundle_tasks.py`.
+The `harness-*.txt` files are the mini-swe-agent system prompts and the text
+appended after each task instruction, copied from the recorded trajectories:
+`harness-system.txt` for five reviewers, `harness-system-tool.txt` for GPT-6
+Sol, and `harness-wrapper.txt` (which states the 55-step limit) for all six.
 
 ## Rebuild
 
-With Python and Matplotlib installed, run from the website root:
+From the website root, with Python, Matplotlib, and the Roboto font:
 
 ```sh
+python scripts/generate_second_life_shared.py
 python scripts/generate_second_life_tb4_figures.py
 ```
 
-This generates `_data/second_life_tb4.json` (used by the article's Liquid
-tables) and six figure families under `assets/img/2026-08-28-second-life-agent-evals/`.
-The four main figures and appendix oracle curves have `-mobile.svg` variants, selected with HTML
-`picture` elements below 600px. Panel figures stack on mobile; the sampling
-hero shows four groups of vertical bars (two groups per row on mobile). Data and scales are identical.
-PNG copies for visual inspection go to `/tmp/`. The original TB3 figure script
-and SVGs are retained separately.
+The first validates the per-case snapshot and writes
+`_data/second_life_shared.json` (shared-task lists and average costs). Add
+`--import-dir /path/to/Agentic-Verification-Eval` to refresh the snapshot and
+the aggregate copies; files are read from the pinned commit with `git show`, so
+the checkout may be on any branch. The second writes `_data/second_life_tb4.json`
+and every figure, desktop and `-mobile`, under
+`assets/img/2026-08-28-second-life-agent-evals/`. Set `SECOND_LIFE_FONT_DIR`
+to a folder of Roboto TTFs if Roboto is not installed; its metrics set label
+placement, and the page renders figure text in Roboto. PNG copies for visual
+inspection go to `/tmp/`. The TB3 figure script and SVGs are retained
+separately.
 
-The 97-pool uniform baseline is derived from each source's successful-run
-total after subtracting all-success and excluded mixed pools: 268/485.
-Combined Five counts add the original 79-pool panel and the 18 GPT-6-source
-pools, weighting pools equally. Single/Pair retain their original three-source
-coverage. No combined 97-pool confidence interval is inferred from the two
-separate batch intervals.
+## Checks and conventions
 
-The Single/Pair vertical bar panels share the same 79 source pools and
-anchors, but show different metrics: judgment accuracy versus selection
-success. The source-by-reviewer Five panels use the source-specific success
-counts in `tbench4-pass-at-k.json`. The generator cross-checks their sums
-against the separate 79- and 18-pool result files. Every source has its own
-uniform baseline, computed from its reviewed candidate outcomes.
+The validation asserts unique observations, identical candidates, order, and
+labels for all six reviewers in every case, and the Single/Pair anchor
+relationship to each Five pool. The figure generator cross-checks Single
+accuracy, success recall, Pair selection, exact Pair classification, Five
+selection, and per-source Five counts against the pinned summaries.
 
-The main sampling figure shows four source groups with vertical pass@1,
-selection, and oracle pass@5 bars on a shared success scale. It uses
-**GPT-5.6 Sol as the reviewer for every source**,
-computed from the source-specific counts. This is explicit rather than a
-retrospective choice of a different best reviewer per source. In this snapshot
-GPT is also tied for, or attains, the highest observed count for each source.
-Selection bars are whole-job reconstructions at k=5 over **all 66 tasks per source**,
-matching the task coverage of each frozen source job. The oracle curves use the
-unchanged full-job pass@k values. Selection is `(all_pass_pools +
-gpt_selection_successes + sum(unreviewed_success_counts)/5) / 66`.
-Homogeneous pools assume valid selection; the 3 Fable, 5 GPT, 2 GLM, and 0 GPT-6
-unreviewed mixed pools use uniform fallback. These are assumptions, not measured
-reviewer outcomes. Every bar uses its source color: light fills encode pass@1,
-solid fills encode selection, and light fills with dashed outlines encode oracle
-pass@5. Bar labels show success,
-and group annotations give selection gains over pass@1 in percentage points. There are no coverage whiskers. The appendix
-overlays all four oracle pass@1–5 curves on one plot, with source colors and
-legend order matching the main figure. Only endpoints are labeled; these do not
-represent reviewer evaluations at k=2–4.
-The source data records one missing GLM reward counted as failure. No tasks
-are removed from the denominator. These reconstructions are not official
-end-to-end leaderboard scores; direct comparisons also require matching the
-benchmark version, agent setup, and scoring protocol.
+Reviewer order is fixed everywhere: Opus 5.5, GPT-5.6 Sol, GPT-6 Sol, GLM-5.3
+Flash, GLM-5.3, DeepSeek V4.1 Flash. That is descending Five success over all
+97 pools, and it is also the Single accuracy order. Source order is GPT-6
+Astra, Fable 5.1, GLM-5.3, GPT-5.6 Sol. Colors are keyed to model identifiers:
+brand-anchored reviewer colors, one set for both page themes, checked for
+color-vision separation on every pair. Sources that are also reviewers keep
+their reviewer color; source-only models are gray. Red marks wrong verdicts in
+the confusion matrices and below-random cells in the heatmaps; blue marks
+above-random cells.
 
-Cost tables cover only three named incremental batches, including the separate
-prompt control. They exclude earlier panels and source-run generation, and
-must not be described as total project cost.
+The confusion matrices show literal Pass and Fail verdicts with 79 runs per
+row. Invalid outputs are neither: they are listed under the matrix, count as
+wrong, and stay in the denominators, so such rows sum below 100%.
 
-Display order for sources is GPT-6 Astra, Fable 5.1, GLM-5.3, then GPT-5.6 Sol,
-following the requested presentation order. Colors and prose metrics are keyed
-to model identifiers rather than positions, so reordering preserves their meaning.
-Reviewer order is fixed by descending aggregate Five success: GPT-5.6 Sol,
-GLM-5.3 Flash, GLM-5.3, DeepSeek V4.1 Flash. This same order is used in Single,
-Pair, and per-source Five charts and tables; individual panels are not re-ranked.
+The 97-pool random baseline is 268/485 successful candidates, after removing
+all-success and unreviewed mixed pools from each source's totals. Five totals
+weight pools equally. Whole-job selection is `(all_pass_pools +
+selection_successes + sum(unreviewed_success_counts) / 5) / 66` per source and
+reviewer. Homogeneous pools assume a valid pick; the 3 Fable, 2 GLM, 5 GPT,
+and 0 GPT-6 Astra unreviewed mixed pools use a random pick. These are
+assumptions, not measured outcomes, and not leaderboard scores. One missing
+GLM reward counts as a failure.
 
-## Shared-task appendix
+Average costs use the three-source, 79-pool population for every reviewer
+(158 Single, 79 Pair, 79 Five reviews), because that is where all six have
+recorded costs; the cost figure scores Five on the same 79 pools. Opus 5.5,
+GPT-5.6 Sol, and GPT-6 Sol use recorded cost; the other reviewers use
+max(reported, token estimate) at the rates in the pinned
+`scripts/run_tbench4_complete.py`. Reused reviews count once. GPT-6 Astra
+pools and the prompt control are excluded. These are experiment-accounting
+figures, not invoices or total project cost.
 
-`shared-task-records.json` retains minimal case records from the same pinned
-experiment commit. Its `files` array lists the source JSONL files. Single/Pair
-batch files also contain Five rows: the importer explicitly excludes those and
-loads each Five observation once from its designated result file.
-
-Run `python scripts/generate_second_life_shared.py` to rebuild the two transparent
-SVG panels and `_data/second_life_shared.json`. To refresh the snapshot from a
-checkout of the pinned experiment repo, pass `--import-dir /path/to/checkout`.
-The three-source intersection contains six original task identities; the
-four-source intersection contains two. Astra has Five observations only.
-Each appendix cell pairs the full source-specific sample with the shared-task
-subset, retaining identical reviewer order, metrics, and scoring. Five baselines
-are recomputed separately for both populations. These nested samples are not
-independent; their difference is descriptive, not a causal matching effect.
-The appendix now leads with matched-task heatmaps (fixed −100 to +100 percentage
-points relative to random: orange below, neutral equal, blue above). Single,
-and Pair use 50%; Five uses the source-specific successful
-candidate fraction in the matched subset. Raw scores and counts remain visible;
-the colors do not encode significance. The
-all/shared paired views remain in expandable details. These do not replace
-the main-text figures.
-
-The snapshot also retains per-case usage for average reviewer costs. Averages
-use the three-source 79-pool population in all settings (158 Single reviews,
-79 Pair, 79 Five), with original reused costs included once. GPT uses reported
-dollar cost; other reviewers use max(reported, token estimate), following the
-pinned `scripts/run_tbench4_complete.py` rates and cache accounting. Invalid
-reviews remain in the denominators. Astra-only Five extension and prompt-control
-experiments are not mixed into these matched-population averages.
-Pair uses the recorded preferred-success outcome; Single and Five are also
-recomputed from predictions/selections and gold labels. Invalid outputs count
-as errors. Assertions check uniqueness, reviewer coverage, candidate ordering,
-label agreement, and the Single/Pair anchor relationship to Five candidates.
+The shared-task heatmaps fix the task set: six tasks common to the three
+original sources, two common to all four. Each cell gives the shared-task
+score, its difference from random in percentage points (50% for Single and
+Pair; the matched candidates' success share for Five), and the score on all
+available pools. The two populations are nested, not independent.

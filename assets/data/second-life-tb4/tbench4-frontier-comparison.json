@@ -1,0 +1,155 @@
+[
+  {
+    "reviewer": "gpt-6-sol",
+    "coverage": {
+      "single-full": 158,
+      "five-full": 97,
+      "pair-full": 79
+    },
+    "scope": "terminal-bench-4-frozen-frontier-reviewer-extension",
+    "expected_cases": 334,
+    "reasoning_effort": "max",
+    "per_review_dollar_cap": null,
+    "agent_exit_statuses": {
+      "RepeatedFormatError": 313,
+      "LimitsExceeded": 21
+    },
+    "protocol_health_totals": {
+      "requests": 12460,
+      "actions": 9209,
+      "format_errors": 3251
+    },
+    "metrics": {
+      "single_full": {
+        "n": 158,
+        "accuracy": 0.5822784810126582,
+        "balanced_accuracy": 0.5822784810126582,
+        "success_recall": 0.7215189873417721,
+        "failure_recall": 0.4430379746835443,
+        "false_approval_rate": 0.5569620253164558,
+        "format_valid_rate": 1.0,
+        "mean_brier_score": 0.35104240506329115,
+        "confusion": {
+          "true_positive": 57,
+          "false_negative_or_invalid": 22,
+          "true_negative": 35,
+          "false_positive_or_invalid": 44,
+          "invalid_outputs": 0
+        }
+      },
+      "pair_full": {
+        "n": 79,
+        "preferred_success_rate": 0.7468354430379747,
+        "exact_pair_classification_rate": 0.46835443037974683,
+        "per_candidate_classification_accuracy": 0.6772151898734177,
+        "format_valid_rate": 1.0
+      },
+      "five_full": {
+        "n": 97,
+        "selection_success_rate": 0.7422680412371134,
+        "format_valid_rate": 1.0
+      }
+    },
+    "cost_usd": 240.9881367,
+    "cluster_bootstrap_95_ci": {
+      "single-full": {
+        "estimate": 0.5822784810126582,
+        "lower": 0.53125,
+        "upper": 0.6333333333333333,
+        "clusters": 48,
+        "replicates": 10000
+      },
+      "pair-full": {
+        "estimate": 0.7468354430379747,
+        "lower": 0.6385542168674698,
+        "upper": 0.8441558441558441,
+        "clusters": 48,
+        "replicates": 10000
+      },
+      "five-full": {
+        "estimate": 0.7422680412371134,
+        "lower": 0.6631578947368421,
+        "upper": 0.82,
+        "clusters": 49,
+        "replicates": 10000
+      }
+    }
+  },
+  {
+    "reviewer": "opus-5-5",
+    "coverage": {
+      "single-full": 158,
+      "five-full": 97,
+      "pair-full": 79
+    },
+    "scope": "terminal-bench-4-frozen-frontier-reviewer-extension",
+    "expected_cases": 334,
+    "reasoning_effort": "max",
+    "per_review_dollar_cap": null,
+    "agent_exit_statuses": {
+      "LimitsExceeded": 159,
+      "Submitted": 165,
+      "RepeatedFormatError": 10
+    },
+    "protocol_health_totals": {
+      "requests": 14759,
+      "actions": 14082,
+      "format_errors": 677
+    },
+    "metrics": {
+      "single_full": {
+        "n": 158,
+        "accuracy": 0.620253164556962,
+        "balanced_accuracy": 0.620253164556962,
+        "success_recall": 0.759493670886076,
+        "failure_recall": 0.4810126582278481,
+        "false_approval_rate": 0.5189873417721519,
+        "format_valid_rate": 1.0,
+        "mean_brier_score": 0.22883417721518987,
+        "confusion": {
+          "true_positive": 60,
+          "false_negative_or_invalid": 19,
+          "true_negative": 38,
+          "false_positive_or_invalid": 41,
+          "invalid_outputs": 0
+        }
+      },
+      "pair_full": {
+        "n": 79,
+        "preferred_success_rate": 0.7721518987341772,
+        "exact_pair_classification_rate": 0.6075949367088608,
+        "per_candidate_classification_accuracy": 0.740506329113924,
+        "format_valid_rate": 1.0
+      },
+      "five_full": {
+        "n": 97,
+        "selection_success_rate": 0.7938144329896907,
+        "format_valid_rate": 1.0
+      }
+    },
+    "cost_usd": 970.0552462,
+    "cluster_bootstrap_95_ci": {
+      "single-full": {
+        "estimate": 0.620253164556962,
+        "lower": 0.5454545454545454,
+        "upper": 0.6927710843373494,
+        "clusters": 48,
+        "replicates": 10000
+      },
+      "pair-full": {
+        "estimate": 0.7721518987341772,
+        "lower": 0.6756756756756757,
+        "upper": 0.8589743589743589,
+        "clusters": 48,
+        "replicates": 10000
+      },
+      "five-full": {
+        "estimate": 0.7938144329896907,
+        "lower": 0.7216494845360825,
+        "upper": 0.8705882352941177,
+        "clusters": 49,
+        "replicates": 10000
+      }
+    }
+  }
+]

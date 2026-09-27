@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="283.55976pt" height="189.95976pt" viewBox="0 0 283.55976 189.95976" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:description>Which candidate position DeepSeek V4.1 Flash picked in 79 Five reviews, with the original prompt (whose example output picks candidate 3) and with a neutral prompt.</dc:description>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>generate_second_life_tb4_figures.py</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 189.95976 
+L 283.55976 189.95976 
+L 283.55976 0 
+L 0 0 
+L 0 189.95976 
+z
+" style="fill: none"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 32.212271 162.42351 
+L 280.67976 162.42351 
+L 280.67976 41.444314 
+L 32.212271 41.444314 
+L 32.212271 162.42351 
+z
+" style="fill: none"/>
+   </g>
+   <g id="matplotlib.axis_1">
+    <g id="xtick_1">
+     <g id="line2d_1"/>
+     <g id="text_1">
+      <text style="font-size: 9px; font-family: 'Roboto'; text-anchor: middle; fill: #434a57" x="61.538648" y="172.67351" transform="rotate(-0 61.538648 172.67351)">#1</text>
+     </g>
+    </g>
+    <g id="xtick_2">
+     <g id="line2d_2"/>
+     <g id="text_2">
+      <text style="font-size: 9px; font-family: 'Roboto'; text-anchor: middle; fill: #434a57" x="108.992332" y="172.67351" transform="rotate(-0 108.992332 172.67351)">#2</text>
+     </g>
+    </g>
+    <g id="xtick_3">
+     <g id="line2d_3"/>
+     <g id="text_3">
+      <text style="font-size: 9px; font-family: 'Roboto'; text-anchor: middle; fill: #434a57" x="156.446016" y="172.67351" transform="rotate(-0 156.446016 172.67351)">#3</text>
+     </g>
+    </g>
+    <g id="xtick_4">
+     <g id="line2d_4"/>
+     <g id="text_4">
+      <text style="font-size: 9px; font-family: 'Roboto'; text-anchor: middle; fill: #434a57" x="203.899699" y="172.67351" transform="rotate(-0 203.899699 172.67351)">#4</text>
+     </g>
+    </g>
+    <g id="xtick_5">
+     <g id="line2d_5"/>
+     <g id="text_5">
+      <text style="font-size: 9px; font-family: 'Roboto'; text-anchor: middle; fill: #434a57" x="251.353383" y="172.67351" transform="rotate(-0 251.353383 172.67351)">#5</text>
+     </g>
+    </g>
+    <g id="text_6">
+     <text style="font-size: 9px; font-family: 'Roboto'; text-anchor: middle; fill: #434a57" x="156.446016" y="185.251635" transform="rotate(-0 156.446016 185.251635)">Candidate DeepSeek V4.1 Flash picked</text>
+    </g>
+   </g>
+   <g id="matplotlib.axis_2">
+    <g id="ytick_1">
+     <g id="line2d_6">
+      <path d="M 32.212271 162.42351 
+L 280.67976 162.42351 
+" clip-path="url(#p766e1953db)" style="fill: none; stroke: #dfe4e9; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_7"/>
+     <g id="text_7">
+      <text style="font-size: 8.5px; font-family: 'Roboto'; text-anchor: end; fill: #747d8b" x="28.712271" y="165.61101" transform="rotate(-0 28.712271 165.61101)">0</text>
+     </g>
+    </g>
+    <g id="ytick_2">
+     <g id="line2d_8">
+      <path d="M 32.212271 133.618939 
+L 280.67976 133.618939 
+" clip-path="url(#p766e1953db)" style="fill: none; stroke: #dfe4e9; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_9"/>
+     <g id="text_8">
+      <text style="font-size: 8.5px; font-family: 'Roboto'; text-anchor: end; fill: #747d8b" x="28.712271" y="136.806439" transform="rotate(-0 28.712271 136.806439)">20</text>
+     </g>
+    </g>
+    <g id="ytick_3">
+     <g id="line2d_10">
+      <path d="M 32.212271 104.814369 
+L 280.67976 104.814369 
+" clip-path="url(#p766e1953db)" style="fill: none; stroke: #dfe4e9; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_11"/>
+     <g id="text_9">
+      <text style="font-size: 8.5px; font-family: 'Roboto'; text-anchor: end; fill: #747d8b" x="28.712271" y="108.001869" transform="rotate(-0 28.712271 108.001869)">40</text>
+     </g>
+    </g>
+    <g id="ytick_4">
+     <g id="line2d_12">
+      <path d="M 32.212271 76.009798 
+L 280.67976 76.009798 
+" clip-path="url(#p766e1953db)" style="fill: none; stroke: #dfe4e9; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_13"/>
+     <g id="text_10">
+      <text style="font-size: 8.5px; font-family: 'Roboto'; text-anchor: end; fill: #747d8b" x="28.712271" y="79.197298" transform="rotate(-0 28.712271 79.197298)">60</text>
+     </g>
+    </g>
+    <g id="ytick_5">
+     <g id="line2d_14">
+      <path d="M 32.212271 47.205228 
+L 280.67976 47.205228 
+" clip-path="url(#p766e1953db)" style="fill: none; stroke: #dfe4e9; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_15"/>
+     <g id="text_11">
+      <text style="font-size: 8.5px; font-family: 'Roboto'; text-anchor: end; fill: #747d8b" x="28.712271" y="50.392728" transform="rotate(-0 28.712271 50.392728)">80</text>
+     </g>
+    </g>
+    <g id="text_12">
+     <text style="font-size: 9px; font-family: 'Roboto'; text-anchor: middle; fill: #434a57" x="13.099927" y="101.933912" transform="rotate(-90 13.099927 101.933912)">Reviews (of 79)</text>
+    </g>
+   </g>
+   <g id="patch_3">
+    <path d="M 43.506248 162.42351 
+L 60.589574 162.42351 
+L 60.589574 140.820082 
+L 43.506248 140.820082 
+z
+" clip-path="url(#p766e1953db)" style="fill: #4b72f4; opacity: 0.32"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 90.959932 162.42351 
+L 108.043258 162.42351 
+L 108.043258 162.42351 
+L 90.959932 162.42351 
+z
+" clip-path="url(#p766e1953db)" style="fill: #4b72f4; opacity: 0.32"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 138.413616 162.42351 
+L 155.496942 162.42351 
+L 155.496942 70.248884 
+L 138.413616 70.248884 
+z
+" clip-path="url(#p766e1953db)" style="fill: #4b72f4; opacity: 0.32"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 185.8673 162.42351 
+L 202.950626 162.42351 
+L 202.950626 162.42351 
+L 185.8673 162.42351 
+z
+" clip-path="url(#p766e1953db)" style="fill: #4b72f4; opacity: 0.32"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 233.320983 162.42351 
+L 250.40431 162.42351 
+L 250.40431 162.42351 
+L 233.320983 162.42351 
+z
+" clip-path="url(#p766e1953db)" style="fill: #4b72f4; opacity: 0.32"/>
+   </g>
+   <g id="patch_8">
+    <path d="M 62.487722 162.42351 
+L 79.571048 162.42351 
+L 79.571048 61.607513 
+L 62.487722 61.607513 
+z
+" clip-path="url(#p766e1953db)" style="fill: #4b72f4"/>
+   </g>
+   <g id="patch_9">
+    <path d="M 109.941405 162.42351 
+L 127.024732 162.42351 
+L 127.024732 156.662596 
+L 109.941405 156.662596 
+z
+" clip-path="url(#p766e1953db)" style="fill: #4b72f4"/>
+   </g>
+   <g id="patch_10">
+    <path d="M 157.395089 162.42351 
+L 174.478415 162.42351 
+L 174.478415 159.543053 
+L 157.395089 159.543053 
+z
+" clip-path="url(#p766e1953db)" style="fill: #4b72f4"/>
+   </g>
+   <g id="patch_11">
+    <path d="M 204.848773 162.42351 
+L 221.932099 162.42351 
+L 221.932099 162.42351 
+L 204.848773 162.42351 
+z
+" clip-path="url(#p766e1953db)" style="fill: #4b72f4"/>
+   </g>
+   <g id="patch_12">
+    <path d="M 252.302457 162.42351 
+L 269.385783 162.42351 
+L 269.385783 158.102824 
+L 252.302457 158.102824 
+z
+" clip-path="url(#p766e1953db)" style="fill: #4b72f4"/>
+   </g>
+   <g id="text_13">
+    <text style="font-size: 8.5px; font-family: 'Roboto'; text-anchor: middle; fill: #434a57" x="52.047911" y="136.09352" transform="rotate(-0 52.047911 136.09352)">15</text>
+   </g>
+   <g id="text_14">
+    <text style="font-size: 8.5px; font-family: 'Roboto'; text-anchor: middle; fill: #434a57" x="146.955279" y="65.522322" transform="rotate(-0 146.955279 65.522322)">64</text>
+   </g>
+   <g id="text_15">
+    <text style="font-size: 8.5px; font-family: 'Roboto'; text-anchor: middle; fill: #434a57" x="71.029385" y="56.880951" transform="rotate(-0 71.029385 56.880951)">70</text>
+   </g>
+   <g id="text_16">
+    <text style="font-size: 8.5px; font-family: 'Roboto'; text-anchor: middle; fill: #434a57" x="118.483069" y="151.936033" transform="rotate(-0 118.483069 151.936033)">4</text>
+   </g>
+   <g id="text_17">
+    <text style="font-size: 8.5px; font-family: 'Roboto'; text-anchor: middle; fill: #434a57" x="165.936752" y="154.81649" transform="rotate(-0 165.936752 154.81649)">2</text>
+   </g>
+   <g id="text_18">
+    <text style="font-size: 8.5px; font-family: 'Roboto'; text-anchor: middle; fill: #434a57" x="260.84412" y="153.376262" transform="rotate(-0 260.84412 153.376262)">3</text>
+   </g>
+  </g>
+  <g id="legend_1">
+   <g id="patch_13">
+    <path d="M 3.6 10.819687 
+L 14.4 10.819687 
+L 14.4 4.519687 
+L 3.6 4.519687 
+z
+" style="fill: #4b72f4; opacity: 0.32"/>
+   </g>
+   <g id="text_19">
+    <text style="font-size: 9px; font-family: 'Roboto'; text-anchor: start; fill: #20242d" x="18.9" y="10.819687" transform="rotate(-0 18.9 10.819687)">Original prompt (example says 3) · 58.2% success</text>
+   </g>
+   <g id="patch_14">
+    <path d="M 3.6 24.135469 
+L 14.4 24.135469 
+L 14.4 17.835469 
+L 3.6 17.835469 
+z
+" style="fill: #4b72f4"/>
+   </g>
+   <g id="text_20">
+    <text style="font-size: 9px; font-family: 'Roboto'; text-anchor: start; fill: #20242d" x="18.9" y="24.135469" transform="rotate(-0 18.9 24.135469)">Neutral prompt · 59.5% success</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p766e1953db">
+   <rect x="32.212271" y="41.444314" width="248.467489" height="120.979196"/>
+  </clipPath>
+ </defs>
+</svg>

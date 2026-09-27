@@ -1,0 +1,7 @@
+Use local shell tools to inspect the supplied instruction and frozen run
+evidence. Do not redo or continue the original task and do not use external
+sources. Write the exact output file requested by the task instruction.
+
+You have a hard limit of 55 steps. Create a provisional valid output by your
+third command, then refine it if later evidence warrants a change. A missing
+or malformed output is always a failed review.

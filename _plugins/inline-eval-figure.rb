@@ -56,14 +56,11 @@ module Jekyll
       svg.xpath(".//*[local-name()='style']").each do |style|
         style.content = style.content.gsub("*{", "##{prefix} *{")
       end
+      # aria-label, not <title>: browsers show <title> as a hover tooltip over the chart.
       description = document.at_xpath("//*[local-name()='description']")&.text || @name
-      title = Nokogiri::XML::Node.new("title", document)
-      title["id"] = "#{prefix}-title"
-      title.content = description
-      svg.prepend_child(title)
       svg["id"] = prefix
       svg["role"] = "img"
-      svg["aria-labelledby"] = title["id"]
+      svg["aria-label"] = description
       svg["class"] = "sle-inline-figure"
       svg["focusable"] = "false"
       svg.to_xml

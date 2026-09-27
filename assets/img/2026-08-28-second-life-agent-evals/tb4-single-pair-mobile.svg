@@ -44,7 +44,7 @@ z
      <g id="line2d_1">
       <path d="M 71.754459 211.800072 
 L 71.754459 40.922595 
-" clip-path="url(#p7aa79f8e75)" style="fill: none; stroke: #dfe4e9; stroke-width: 0.8; stroke-linecap: square"/>
+" clip-path="url(#p7aa79f8e75)" style="fill: none; stroke: #dfe4e9; stroke-opacity: 0.7; stroke-width: 0.6; stroke-linecap: square"/>
      </g>
      <g id="line2d_2"/>
      <g id="text_1">
@@ -55,7 +55,7 @@ L 71.754459 40.922595
      <g id="line2d_3">
       <path d="M 118.783789 211.800072 
 L 118.783789 40.922595 
-" clip-path="url(#p7aa79f8e75)" style="fill: none; stroke: #dfe4e9; stroke-width: 0.8; stroke-linecap: square"/>
+" clip-path="url(#p7aa79f8e75)" style="fill: none; stroke: #dfe4e9; stroke-opacity: 0.7; stroke-width: 0.6; stroke-linecap: square"/>
      </g>
      <g id="line2d_4"/>
      <g id="text_2">
@@ -66,7 +66,7 @@ L 118.783789 40.922595
      <g id="line2d_5">
       <path d="M 165.813119 211.800072 
 L 165.813119 40.922595 
-" clip-path="url(#p7aa79f8e75)" style="fill: none; stroke: #dfe4e9; stroke-width: 0.8; stroke-linecap: square"/>
+" clip-path="url(#p7aa79f8e75)" style="fill: none; stroke: #dfe4e9; stroke-opacity: 0.7; stroke-width: 0.6; stroke-linecap: square"/>
      </g>
      <g id="line2d_6"/>
      <g id="text_3">
@@ -77,7 +77,7 @@ L 165.813119 40.922595
      <g id="line2d_7">
       <path d="M 212.84245 211.800072 
 L 212.84245 40.922595 
-" clip-path="url(#p7aa79f8e75)" style="fill: none; stroke: #dfe4e9; stroke-width: 0.8; stroke-linecap: square"/>
+" clip-path="url(#p7aa79f8e75)" style="fill: none; stroke: #dfe4e9; stroke-opacity: 0.7; stroke-width: 0.6; stroke-linecap: square"/>
      </g>
      <g id="line2d_8"/>
      <g id="text_4">
@@ -88,7 +88,7 @@ L 212.84245 40.922595
      <g id="line2d_9">
       <path d="M 259.87178 211.800072 
 L 259.87178 40.922595 
-" clip-path="url(#p7aa79f8e75)" style="fill: none; stroke: #dfe4e9; stroke-width: 0.8; stroke-linecap: square"/>
+" clip-path="url(#p7aa79f8e75)" style="fill: none; stroke: #dfe4e9; stroke-opacity: 0.7; stroke-width: 0.6; stroke-linecap: square"/>
      </g>
      <g id="line2d_10"/>
      <g id="text_5">
@@ -174,42 +174,24 @@ L 133.666489 196.882197
 " clip-path="url(#p7aa79f8e75)" style="fill: none; stroke: #4b72f4; stroke-opacity: 0.32; stroke-width: 2.6"/>
    </g>
    <g id="text_13">
-    <text style="font-size: 8.5px; font-family: 'Roboto'; text-anchor: end; fill: #747d8b" x="167.338047" y="63.589371" transform="rotate(-0 167.338047 63.589371)">62.0%</text>
-   </g>
-   <g id="text_14">
     <text style="font-weight: 700; font-size: 9.5px; font-family: 'Roboto'; text-anchor: start; fill: #20242d" x="254.775004" y="63.862808" transform="rotate(-0 254.775004 63.862808)">77.2%</text>
    </g>
-   <g id="text_15">
-    <text style="font-size: 8.5px; font-family: 'Roboto'; text-anchor: end; fill: #747d8b" x="155.431887" y="90.71278" transform="rotate(-0 155.431887 90.71278)">59.5%</text>
-   </g>
-   <g id="text_16">
+   <g id="text_14">
     <text style="font-weight: 700; font-size: 9.5px; font-family: 'Roboto'; text-anchor: start; fill: #20242d" x="183.338047" y="90.986217" transform="rotate(-0 183.338047 90.986217)">62.0%</text>
    </g>
-   <g id="text_17">
-    <text style="font-size: 8.5px; font-family: 'Roboto'; text-anchor: end; fill: #747d8b" x="149.478808" y="117.836189" transform="rotate(-0 149.478808 117.836189)">58.2%</text>
-   </g>
-   <g id="text_18">
+   <g id="text_15">
     <text style="font-weight: 700; font-size: 9.5px; font-family: 'Roboto'; text-anchor: start; fill: #20242d" x="242.868845" y="118.109626" transform="rotate(-0 242.868845 118.109626)">74.7%</text>
    </g>
-   <g id="text_19">
-    <text style="font-size: 8.5px; font-family: 'Roboto'; text-anchor: end; fill: #747d8b" x="137.572648" y="144.959598" transform="rotate(-0 137.572648 144.959598)">55.7%</text>
-   </g>
-   <g id="text_20">
+   <g id="text_16">
     <text style="font-weight: 700; font-size: 9.5px; font-family: 'Roboto'; text-anchor: start; fill: #20242d" x="189.291127" y="145.233035" transform="rotate(-0 189.291127 145.233035)">63.3%</text>
    </g>
-   <g id="text_21">
-    <text style="font-size: 8.5px; font-family: 'Roboto'; text-anchor: end; fill: #747d8b" x="131.619568" y="172.083007" transform="rotate(-0 131.619568 172.083007)">54.4%</text>
-   </g>
-   <g id="text_22">
+   <g id="text_17">
     <text style="font-weight: 700; font-size: 9.5px; font-family: 'Roboto'; text-anchor: start; fill: #20242d" x="201.197286" y="172.356445" transform="rotate(-0 201.197286 172.356445)">65.8%</text>
    </g>
-   <g id="text_23">
-    <text style="font-size: 8.5px; font-family: 'Roboto'; text-anchor: end; fill: #747d8b" x="110.783789" y="199.206416" transform="rotate(-0 110.783789 199.206416)">50.0%</text>
-   </g>
-   <g id="text_24">
+   <g id="text_18">
     <text style="font-weight: 700; font-size: 9.5px; font-family: 'Roboto'; text-anchor: start; fill: #20242d" x="141.666489" y="199.479854" transform="rotate(-0 141.666489 199.479854)">53.2%</text>
    </g>
-   <g id="text_25">
+   <g id="text_19">
     <text style="font-size: 8px; font-family: 'Roboto'; text-anchor: end; fill: #747d8b" x="114.783789" y="53.347277" transform="rotate(-0 114.783789 53.347277)">random 50%</text>
    </g>
    <g id="line2d_24">
@@ -427,6 +409,72 @@ z
     <g clip-path="url(#p7aa79f8e75)">
      <use xlink:href="#m2a6d0433c8" x="133.666489" y="196.882197" style="fill: #4b72f4; stroke: #000000; stroke-opacity: 0"/>
     </g>
+   </g>
+   <g id="text_20">
+    <g id="patch_3">
+     <path d="M 146.095547 65.877652 
+L 169.138047 65.877652 
+L 169.138047 56.652652 
+L 146.095547 56.652652 
+z
+" style="fill: #ffffff"/>
+    </g>
+    <text style="font-size: 8px; font-family: 'Roboto'; text-anchor: end; fill: #747d8b" x="168.338047" y="63.452652" transform="rotate(-0 168.338047 63.452652)">62.0%</text>
+   </g>
+   <g id="text_21">
+    <g id="patch_4">
+     <path d="M 134.189387 93.001061 
+L 157.231887 93.001061 
+L 157.231887 83.776061 
+L 134.189387 83.776061 
+z
+" style="fill: #ffffff"/>
+    </g>
+    <text style="font-size: 8px; font-family: 'Roboto'; text-anchor: end; fill: #747d8b" x="156.431887" y="90.576061" transform="rotate(-0 156.431887 90.576061)">59.5%</text>
+   </g>
+   <g id="text_22">
+    <g id="patch_5">
+     <path d="M 128.236308 120.12447 
+L 151.278808 120.12447 
+L 151.278808 110.89947 
+L 128.236308 110.89947 
+z
+" style="fill: #ffffff"/>
+    </g>
+    <text style="font-size: 8px; font-family: 'Roboto'; text-anchor: end; fill: #747d8b" x="150.478808" y="117.69947" transform="rotate(-0 150.478808 117.69947)">58.2%</text>
+   </g>
+   <g id="text_23">
+    <g id="patch_6">
+     <path d="M 116.330148 147.247879 
+L 139.372648 147.247879 
+L 139.372648 138.022879 
+L 116.330148 138.022879 
+z
+" style="fill: #ffffff"/>
+    </g>
+    <text style="font-size: 8px; font-family: 'Roboto'; text-anchor: end; fill: #747d8b" x="138.572648" y="144.822879" transform="rotate(-0 138.572648 144.822879)">55.7%</text>
+   </g>
+   <g id="text_24">
+    <g id="patch_7">
+     <path d="M 110.377068 174.371288 
+L 133.419568 174.371288 
+L 133.419568 165.146288 
+L 110.377068 165.146288 
+z
+" style="fill: #ffffff"/>
+    </g>
+    <text style="font-size: 8px; font-family: 'Roboto'; text-anchor: end; fill: #747d8b" x="132.619568" y="171.946288" transform="rotate(-0 132.619568 171.946288)">54.4%</text>
+   </g>
+   <g id="text_25">
+    <g id="patch_8">
+     <path d="M 89.541289 201.494697 
+L 112.583789 201.494697 
+L 112.583789 192.269697 
+L 89.541289 192.269697 
+z
+" style="fill: #ffffff"/>
+    </g>
+    <text style="font-size: 8px; font-family: 'Roboto'; text-anchor: end; fill: #747d8b" x="111.783789" y="199.069697" transform="rotate(-0 111.783789 199.069697)">50.0%</text>
    </g>
   </g>
   <g id="legend_1">

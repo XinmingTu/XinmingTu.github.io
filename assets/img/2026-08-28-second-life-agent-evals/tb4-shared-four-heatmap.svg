@@ -1,74 +1,752 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 375">
-<title>Terminal-Bench 4.0: identical task pool, different sources and reviewers</title>
-<text x="8" y="20" text-anchor="start" style="font-family:Arial,sans-serif;font-size:14px;fill:#20242d">Same 2 tasks; color = percentage-point difference from random</text>
-<rect x="8" y="32" width="22" height="14" fill="#a74918"/>
-<text x="36" y="44" text-anchor="start" style="font-family:Arial,sans-serif;font-size:12px;fill:#20242d">-100 pp</text>
-<rect x="136" y="32" width="22" height="14" fill="#cd9e86"/>
-<text x="164" y="44" text-anchor="start" style="font-family:Arial,sans-serif;font-size:12px;fill:#20242d">-50 pp</text>
-<rect x="264" y="32" width="22" height="14" fill="#f3f3f3"/>
-<text x="292" y="44" text-anchor="start" style="font-family:Arial,sans-serif;font-size:12px;fill:#20242d">Random</text>
-<rect x="392" y="32" width="22" height="14" fill="#8d9cbb"/>
-<text x="420" y="44" text-anchor="start" style="font-family:Arial,sans-serif;font-size:12px;fill:#20242d">+50 pp</text>
-<rect x="520" y="32" width="22" height="14" fill="#274683"/>
-<text x="548" y="44" text-anchor="start" style="font-family:Arial,sans-serif;font-size:12px;fill:#20242d">+100 pp</text>
-<text x="8" y="85" text-anchor="start" style="font-family:Arial,sans-serif;font-size:17px;fill:#20242d">Five: select any successful attempt</text>
-<text x="219" y="109" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:13px;fill:#20242d">GPT-5.6 Sol</text>
-<text x="342" y="109" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:13px;fill:#20242d">GLM-5.3 Flash</text>
-<text x="465" y="109" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:13px;fill:#20242d">GLM-5.3</text>
-<text x="588" y="109" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:13px;fill:#20242d">DeepSeek V4.1</text>
-<text x="588" y="124" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:13px;fill:#20242d">Flash</text>
-<text x="8" y="156" text-anchor="start" style="font-family:Arial,sans-serif;font-size:14px;fill:#20242d">Fable 5.1</text>
-<rect x="160" y="132" width="118" height="41" rx="2" fill="#8d9cbb"/>
-<text x="219" y="149" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:14px;fill:#17243b">100% (2/2)</text>
-<text x="219" y="165" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:12px;fill:#17243b">+50.0 pp</text>
-<rect x="283" y="132" width="118" height="41" rx="2" fill="#cd9e86"/>
-<text x="342" y="149" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:14px;fill:#17243b">0% (0/2)</text>
-<text x="342" y="165" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:12px;fill:#17243b">-50.0 pp</text>
-<rect x="406" y="132" width="118" height="41" rx="2" fill="#cd9e86"/>
-<text x="465" y="149" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:14px;fill:#17243b">0% (0/2)</text>
-<text x="465" y="165" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:12px;fill:#17243b">-50.0 pp</text>
-<rect x="529" y="132" width="118" height="41" rx="2" fill="#8d9cbb"/>
-<text x="588" y="149" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:14px;fill:#17243b">100% (2/2)</text>
-<text x="588" y="165" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:12px;fill:#17243b">+50.0 pp</text>
-<text x="8" y="201" text-anchor="start" style="font-family:Arial,sans-serif;font-size:14px;fill:#20242d">GLM-5.3</text>
-<rect x="160" y="177" width="118" height="41" rx="2" fill="#8d9cbb"/>
-<text x="219" y="194" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:14px;fill:#17243b">100% (2/2)</text>
-<text x="219" y="210" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:12px;fill:#17243b">+50.0 pp</text>
-<rect x="283" y="177" width="118" height="41" rx="2" fill="#cd9e86"/>
-<text x="342" y="194" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:14px;fill:#17243b">0% (0/2)</text>
-<text x="342" y="210" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:12px;fill:#17243b">-50.0 pp</text>
-<rect x="406" y="177" width="118" height="41" rx="2" fill="#f3f3f3"/>
-<text x="465" y="194" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:14px;fill:#17243b">50% (1/2)</text>
-<text x="465" y="210" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:12px;fill:#17243b">At random</text>
-<rect x="529" y="177" width="118" height="41" rx="2" fill="#f3f3f3"/>
-<text x="588" y="194" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:14px;fill:#17243b">50% (1/2)</text>
-<text x="588" y="210" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:12px;fill:#17243b">At random</text>
-<text x="8" y="246" text-anchor="start" style="font-family:Arial,sans-serif;font-size:14px;fill:#20242d">GPT-5.6 Sol</text>
-<rect x="160" y="222" width="118" height="41" rx="2" fill="#a1aec6"/>
-<text x="219" y="239" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:14px;fill:#17243b">100% (2/2)</text>
-<text x="219" y="255" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:12px;fill:#17243b">+40.0 pp</text>
-<rect x="283" y="222" width="118" height="41" rx="2" fill="#a1aec6"/>
-<text x="342" y="239" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:14px;fill:#17243b">100% (2/2)</text>
-<text x="342" y="255" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:12px;fill:#17243b">+40.0 pp</text>
-<rect x="406" y="222" width="118" height="41" rx="2" fill="#a1aec6"/>
-<text x="465" y="239" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:14px;fill:#17243b">100% (2/2)</text>
-<text x="465" y="255" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:12px;fill:#17243b">+40.0 pp</text>
-<rect x="529" y="222" width="118" height="41" rx="2" fill="#a1aec6"/>
-<text x="588" y="239" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:14px;fill:#17243b">100% (2/2)</text>
-<text x="588" y="255" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:12px;fill:#17243b">+40.0 pp</text>
-<text x="8" y="291" text-anchor="start" style="font-family:Arial,sans-serif;font-size:14px;fill:#20242d">GPT-6 Astra</text>
-<rect x="160" y="267" width="118" height="41" rx="2" fill="#e4d1c7"/>
-<text x="219" y="284" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:14px;fill:#17243b">0% (0/2)</text>
-<text x="219" y="300" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:12px;fill:#17243b">-20.0 pp</text>
-<rect x="283" y="267" width="118" height="41" rx="2" fill="#e4d1c7"/>
-<text x="342" y="284" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:14px;fill:#17243b">0% (0/2)</text>
-<text x="342" y="300" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:12px;fill:#17243b">-20.0 pp</text>
-<rect x="406" y="267" width="118" height="41" rx="2" fill="#b6bfd1"/>
-<text x="465" y="284" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:14px;fill:#17243b">50% (1/2)</text>
-<text x="465" y="300" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:12px;fill:#17243b">+30.0 pp</text>
-<rect x="529" y="267" width="118" height="41" rx="2" fill="#b6bfd1"/>
-<text x="588" y="284" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:14px;fill:#17243b">50% (1/2)</text>
-<text x="588" y="300" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:12px;fill:#17243b">+30.0 pp</text>
-<text x="8" y="329" text-anchor="start" style="font-family:Arial,sans-serif;font-size:13px;fill:#20242d">Uniform: Fable 5.1 50.0% · GLM-5.3 50.0%</text>
-<text x="8" y="346" text-anchor="start" style="font-family:Arial,sans-serif;font-size:13px;fill:#20242d">GPT-5.6 Sol 60.0% · GPT-6 Astra 20.0%</text>
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="504.72pt" height="234pt" viewBox="0 0 504.72 234" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:description>Five selection on the two tasks shared by all four sources, by source and reviewer, in the same layout.</dc:description>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>generate_second_life_tb4_figures.py</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 234 
+L 504.72 234 
+L 504.72 -0 
+L 0 -0 
+L 0 234 
+z
+" style="fill: none"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 78.48 14.4 
+L 80.64 14.4 
+L 80.64 23.04 
+L 78.48 23.04 
+z
+" clip-path="url(#pa3b936b2c5)" style="fill: #d1392e; opacity: 0.7"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 80.64 14.4 
+L 82.8 14.4 
+L 82.8 23.04 
+L 80.64 23.04 
+z
+" clip-path="url(#pa3b936b2c5)" style="fill: #d1392e; opacity: 0.67"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 82.8 14.4 
+L 84.96 14.4 
+L 84.96 23.04 
+L 82.8 23.04 
+z
+" clip-path="url(#pa3b936b2c5)" style="fill: #d1392e; opacity: 0.64"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 84.96 14.4 
+L 87.12 14.4 
+L 87.12 23.04 
+L 84.96 23.04 
+z
+" clip-path="url(#pa3b936b2c5)" style="fill: #d1392e; opacity: 0.61"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 87.12 14.4 
+L 89.28 14.4 
+L 89.28 23.04 
+L 87.12 23.04 
+z
+" clip-path="url(#pa3b936b2c5)" style="fill: #d1392e; opacity: 0.58"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 89.28 14.4 
+L 91.44 14.4 
+L 91.44 23.04 
+L 89.28 23.04 
+z
+" clip-path="url(#pa3b936b2c5)" style="fill: #d1392e; opacity: 0.55"/>
+   </g>
+   <g id="patch_8">
+    <path d="M 91.44 14.4 
+L 93.6 14.4 
+L 93.6 23.04 
+L 91.44 23.04 
+z
+" clip-path="url(#pa3b936b2c5)" style="fill: #d1392e; opacity: 0.52"/>
+   </g>
+   <g id="patch_9">
+    <path d="M 93.6 14.4 
+L 95.76 14.4 
+L 95.76 23.04 
+L 93.6 23.04 
+z
+" clip-path="url(#pa3b936b2c5)" style="fill: #d1392e; opacity: 0.49"/>
+   </g>
+   <g id="patch_10">
+    <path d="M 95.76 14.4 
+L 97.92 14.4 
+L 97.92 23.04 
+L 95.76 23.04 
+z
+" clip-path="url(#pa3b936b2c5)" style="fill: #d1392e; opacity: 0.46"/>
+   </g>
+   <g id="patch_11">
+    <path d="M 97.92 14.4 
+L 100.08 14.4 
+L 100.08 23.04 
+L 97.92 23.04 
+z
+" clip-path="url(#pa3b936b2c5)" style="fill: #d1392e; opacity: 0.43"/>
+   </g>
+   <g id="patch_12">
+    <path d="M 100.08 14.4 
+L 102.24 14.4 
+L 102.24 23.04 
+L 100.08 23.04 
+z
+" clip-path="url(#pa3b936b2c5)" style="fill: #d1392e; opacity: 0.4"/>
+   </g>
+   <g id="patch_13">
+    <path d="M 102.24 14.4 
+L 104.4 14.4 
+L 104.4 23.04 
+L 102.24 23.04 
+z
+" clip-path="url(#pa3b936b2c5)" style="fill: #d1392e; opacity: 0.37"/>
+   </g>
+   <g id="patch_14">
+    <path d="M 104.4 14.4 
+L 106.56 14.4 
+L 106.56 23.04 
+L 104.4 23.04 
+z
+" clip-path="url(#pa3b936b2c5)" style="fill: #d1392e; opacity: 0.34"/>
+   </g>
+   <g id="patch_15">
+    <path d="M 106.56 14.4 
+L 108.72 14.4 
+L 108.72 23.04 
+L 106.56 23.04 
+z
+" clip-path="url(#pa3b936b2c5)" style="fill: #d1392e; opacity: 0.31"/>
+   </g>
+   <g id="patch_16">
+    <path d="M 108.72 14.4 
+L 110.88 14.4 
+L 110.88 23.04 
+L 108.72 23.04 
+z
+" clip-path="url(#pa3b936b2c5)" style="fill: #d1392e; opacity: 0.28"/>
+   </g>
+   <g id="patch_17">
+    <path d="M 110.88 14.4 
+L 113.04 14.4 
+L 113.04 23.04 
+L 110.88 23.04 
+z
+" clip-path="url(#pa3b936b2c5)" style="fill: #d1392e; opacity: 0.25"/>
+   </g>
+   <g id="patch_18">
+    <path d="M 113.04 14.4 
+L 115.2 14.4 
+L 115.2 23.04 
+L 113.04 23.04 
+z
+" clip-path="url(#pa3b936b2c5)" style="fill: #d1392e; opacity: 0.22"/>
+   </g>
+   <g id="patch_19">
+    <path d="M 115.2 14.4 
+L 117.36 14.4 
+L 117.36 23.04 
+L 115.2 23.04 
+z
+" clip-path="url(#pa3b936b2c5)" style="fill: #d1392e; opacity: 0.19"/>
+   </g>
+   <g id="patch_20">
+    <path d="M 117.36 14.4 
+L 119.52 14.4 
+L 119.52 23.04 
+L 117.36 23.04 
+z
+" clip-path="url(#pa3b936b2c5)" style="fill: #d1392e; opacity: 0.16"/>
+   </g>
+   <g id="patch_21">
+    <path d="M 119.52 14.4 
+L 121.68 14.4 
+L 121.68 23.04 
+L 119.52 23.04 
+z
+" clip-path="url(#pa3b936b2c5)" style="fill: #d1392e; opacity: 0.13"/>
+   </g>
+   <g id="patch_22">
+    <path d="M 121.68 14.4 
+L 123.84 14.4 
+L 123.84 23.04 
+L 121.68 23.04 
+z
+" clip-path="url(#pa3b936b2c5)" style="fill: #2a86b8; opacity: 0.1"/>
+   </g>
+   <g id="patch_23">
+    <path d="M 123.84 14.4 
+L 126 14.4 
+L 126 23.04 
+L 123.84 23.04 
+z
+" clip-path="url(#pa3b936b2c5)" style="fill: #2a86b8; opacity: 0.13"/>
+   </g>
+   <g id="patch_24">
+    <path d="M 126 14.4 
+L 128.16 14.4 
+L 128.16 23.04 
+L 126 23.04 
+z
+" clip-path="url(#pa3b936b2c5)" style="fill: #2a86b8; opacity: 0.16"/>
+   </g>
+   <g id="patch_25">
+    <path d="M 128.16 14.4 
+L 130.32 14.4 
+L 130.32 23.04 
+L 128.16 23.04 
+z
+" clip-path="url(#pa3b936b2c5)" style="fill: #2a86b8; opacity: 0.19"/>
+   </g>
+   <g id="patch_26">
+    <path d="M 130.32 14.4 
+L 132.48 14.4 
+L 132.48 23.04 
+L 130.32 23.04 
+z
+" clip-path="url(#pa3b936b2c5)" style="fill: #2a86b8; opacity: 0.22"/>
+   </g>
+   <g id="patch_27">
+    <path d="M 132.48 14.4 
+L 134.64 14.4 
+L 134.64 23.04 
+L 132.48 23.04 
+z
+" clip-path="url(#pa3b936b2c5)" style="fill: #2a86b8; opacity: 0.25"/>
+   </g>
+   <g id="patch_28">
+    <path d="M 134.64 14.4 
+L 136.8 14.4 
+L 136.8 23.04 
+L 134.64 23.04 
+z
+" clip-path="url(#pa3b936b2c5)" style="fill: #2a86b8; opacity: 0.28"/>
+   </g>
+   <g id="patch_29">
+    <path d="M 136.8 14.4 
+L 138.96 14.4 
+L 138.96 23.04 
+L 136.8 23.04 
+z
+" clip-path="url(#pa3b936b2c5)" style="fill: #2a86b8; opacity: 0.31"/>
+   </g>
+   <g id="patch_30">
+    <path d="M 138.96 14.4 
+L 141.12 14.4 
+L 141.12 23.04 
+L 138.96 23.04 
+z
+" clip-path="url(#pa3b936b2c5)" style="fill: #2a86b8; opacity: 0.34"/>
+   </g>
+   <g id="patch_31">
+    <path d="M 141.12 14.4 
+L 143.28 14.4 
+L 143.28 23.04 
+L 141.12 23.04 
+z
+" clip-path="url(#pa3b936b2c5)" style="fill: #2a86b8; opacity: 0.37"/>
+   </g>
+   <g id="patch_32">
+    <path d="M 143.28 14.4 
+L 145.44 14.4 
+L 145.44 23.04 
+L 143.28 23.04 
+z
+" clip-path="url(#pa3b936b2c5)" style="fill: #2a86b8; opacity: 0.4"/>
+   </g>
+   <g id="patch_33">
+    <path d="M 145.44 14.4 
+L 147.6 14.4 
+L 147.6 23.04 
+L 145.44 23.04 
+z
+" clip-path="url(#pa3b936b2c5)" style="fill: #2a86b8; opacity: 0.43"/>
+   </g>
+   <g id="patch_34">
+    <path d="M 147.6 14.4 
+L 149.76 14.4 
+L 149.76 23.04 
+L 147.6 23.04 
+z
+" clip-path="url(#pa3b936b2c5)" style="fill: #2a86b8; opacity: 0.46"/>
+   </g>
+   <g id="patch_35">
+    <path d="M 149.76 14.4 
+L 151.92 14.4 
+L 151.92 23.04 
+L 149.76 23.04 
+z
+" clip-path="url(#pa3b936b2c5)" style="fill: #2a86b8; opacity: 0.49"/>
+   </g>
+   <g id="patch_36">
+    <path d="M 151.92 14.4 
+L 154.08 14.4 
+L 154.08 23.04 
+L 151.92 23.04 
+z
+" clip-path="url(#pa3b936b2c5)" style="fill: #2a86b8; opacity: 0.52"/>
+   </g>
+   <g id="patch_37">
+    <path d="M 154.08 14.4 
+L 156.24 14.4 
+L 156.24 23.04 
+L 154.08 23.04 
+z
+" clip-path="url(#pa3b936b2c5)" style="fill: #2a86b8; opacity: 0.55"/>
+   </g>
+   <g id="patch_38">
+    <path d="M 156.24 14.4 
+L 158.4 14.4 
+L 158.4 23.04 
+L 156.24 23.04 
+z
+" clip-path="url(#pa3b936b2c5)" style="fill: #2a86b8; opacity: 0.58"/>
+   </g>
+   <g id="patch_39">
+    <path d="M 158.4 14.4 
+L 160.56 14.4 
+L 160.56 23.04 
+L 158.4 23.04 
+z
+" clip-path="url(#pa3b936b2c5)" style="fill: #2a86b8; opacity: 0.61"/>
+   </g>
+   <g id="patch_40">
+    <path d="M 160.56 14.4 
+L 162.72 14.4 
+L 162.72 23.04 
+L 160.56 23.04 
+z
+" clip-path="url(#pa3b936b2c5)" style="fill: #2a86b8; opacity: 0.64"/>
+   </g>
+   <g id="patch_41">
+    <path d="M 162.72 14.4 
+L 164.88 14.4 
+L 164.88 23.04 
+L 162.72 23.04 
+z
+" clip-path="url(#pa3b936b2c5)" style="fill: #2a86b8; opacity: 0.67"/>
+   </g>
+   <g id="patch_42">
+    <path d="M 164.88 14.4 
+L 167.04 14.4 
+L 167.04 23.04 
+L 164.88 23.04 
+z
+" clip-path="url(#pa3b936b2c5)" style="fill: #2a86b8; opacity: 0.7"/>
+   </g>
+   <g id="patch_43">
+    <path d="M 79.92 89.28 
+L 147.6 89.28 
+L 147.6 119.52 
+L 79.92 119.52 
+z
+" clip-path="url(#pa3b936b2c5)" style="fill: #2a86b8; opacity: 0.26"/>
+   </g>
+   <g id="patch_44">
+    <path d="M 150.48 89.28 
+L 218.16 89.28 
+L 218.16 119.52 
+L 150.48 119.52 
+z
+" clip-path="url(#pa3b936b2c5)" style="fill: #d1392e; opacity: 0.2"/>
+   </g>
+   <g id="patch_45">
+    <path d="M 221.04 89.28 
+L 288.72 89.28 
+L 288.72 119.52 
+L 221.04 119.52 
+z
+" clip-path="url(#pa3b936b2c5)" style="fill: #d1392e; opacity: 0.2"/>
+   </g>
+   <g id="patch_46">
+    <path d="M 291.6 89.28 
+L 359.28 89.28 
+L 359.28 119.52 
+L 291.6 119.52 
+z
+" clip-path="url(#pa3b936b2c5)" style="fill: #d1392e; opacity: 0.2"/>
+   </g>
+   <g id="patch_47">
+    <path d="M 362.16 89.28 
+L 429.84 89.28 
+L 429.84 119.52 
+L 362.16 119.52 
+z
+" clip-path="url(#pa3b936b2c5)" style="fill: #2a86b8; opacity: 0.26"/>
+   </g>
+   <g id="patch_48">
+    <path d="M 432.72 89.28 
+L 500.4 89.28 
+L 500.4 119.52 
+L 432.72 119.52 
+z
+" clip-path="url(#pa3b936b2c5)" style="fill: #2a86b8; opacity: 0.26"/>
+   </g>
+   <g id="patch_49">
+    <path d="M 79.92 122.4 
+L 147.6 122.4 
+L 147.6 152.64 
+L 79.92 152.64 
+z
+" clip-path="url(#pa3b936b2c5)" style="fill: #2a86b8; opacity: 0.08"/>
+   </g>
+   <g id="patch_50">
+    <path d="M 150.48 122.4 
+L 218.16 122.4 
+L 218.16 152.64 
+L 150.48 152.64 
+z
+" clip-path="url(#pa3b936b2c5)" style="fill: #2a86b8; opacity: 0.38"/>
+   </g>
+   <g id="patch_51">
+    <path d="M 221.04 122.4 
+L 288.72 122.4 
+L 288.72 152.64 
+L 221.04 152.64 
+z
+" clip-path="url(#pa3b936b2c5)" style="fill: #2a86b8; opacity: 0.38"/>
+   </g>
+   <g id="patch_52">
+    <path d="M 291.6 122.4 
+L 359.28 122.4 
+L 359.28 152.64 
+L 291.6 152.64 
+z
+" clip-path="url(#pa3b936b2c5)" style="fill: #d1392e; opacity: 0.38"/>
+   </g>
+   <g id="patch_53">
+    <path d="M 362.16 122.4 
+L 429.84 122.4 
+L 429.84 152.64 
+L 362.16 152.64 
+z
+" clip-path="url(#pa3b936b2c5)" style="fill: #d1392e; opacity: 0.38"/>
+   </g>
+   <g id="patch_54">
+    <path d="M 432.72 122.4 
+L 500.4 122.4 
+L 500.4 152.64 
+L 432.72 152.64 
+z
+" clip-path="url(#pa3b936b2c5)" style="fill: #2a86b8; opacity: 0.38"/>
+   </g>
+   <g id="patch_55">
+    <path d="M 79.92 155.52 
+L 147.6 155.52 
+L 147.6 185.76 
+L 79.92 185.76 
+z
+" clip-path="url(#pa3b936b2c5)" style="fill: #2a86b8; opacity: 0.08"/>
+   </g>
+   <g id="patch_56">
+    <path d="M 150.48 155.52 
+L 218.16 155.52 
+L 218.16 185.76 
+L 150.48 185.76 
+z
+" clip-path="url(#pa3b936b2c5)" style="fill: #2a86b8; opacity: 0.38"/>
+   </g>
+   <g id="patch_57">
+    <path d="M 221.04 155.52 
+L 288.72 155.52 
+L 288.72 185.76 
+L 221.04 185.76 
+z
+" clip-path="url(#pa3b936b2c5)" style="fill: #2a86b8; opacity: 0.38"/>
+   </g>
+   <g id="patch_58">
+    <path d="M 291.6 155.52 
+L 359.28 155.52 
+L 359.28 185.76 
+L 291.6 185.76 
+z
+" clip-path="url(#pa3b936b2c5)" style="fill: #d1392e; opacity: 0.38"/>
+   </g>
+   <g id="patch_59">
+    <path d="M 362.16 155.52 
+L 429.84 155.52 
+L 429.84 185.76 
+L 362.16 185.76 
+z
+" clip-path="url(#pa3b936b2c5)" style="fill: #2a86b8; opacity: 0.08"/>
+   </g>
+   <g id="patch_60">
+    <path d="M 432.72 155.52 
+L 500.4 155.52 
+L 500.4 185.76 
+L 432.72 185.76 
+z
+" clip-path="url(#pa3b936b2c5)" style="fill: #2a86b8; opacity: 0.08"/>
+   </g>
+   <g id="patch_61">
+    <path d="M 79.92 188.64 
+L 147.6 188.64 
+L 147.6 218.88 
+L 79.92 218.88 
+z
+" clip-path="url(#pa3b936b2c5)" style="fill: #2a86b8; opacity: 0.32"/>
+   </g>
+   <g id="patch_62">
+    <path d="M 150.48 188.64 
+L 218.16 188.64 
+L 218.16 218.88 
+L 150.48 218.88 
+z
+" clip-path="url(#pa3b936b2c5)" style="fill: #2a86b8; opacity: 0.32"/>
+   </g>
+   <g id="patch_63">
+    <path d="M 221.04 188.64 
+L 288.72 188.64 
+L 288.72 218.88 
+L 221.04 218.88 
+z
+" clip-path="url(#pa3b936b2c5)" style="fill: #d1392e; opacity: 0.14"/>
+   </g>
+   <g id="patch_64">
+    <path d="M 291.6 188.64 
+L 359.28 188.64 
+L 359.28 218.88 
+L 291.6 218.88 
+z
+" clip-path="url(#pa3b936b2c5)" style="fill: #2a86b8; opacity: 0.32"/>
+   </g>
+   <g id="patch_65">
+    <path d="M 362.16 188.64 
+L 429.84 188.64 
+L 429.84 218.88 
+L 362.16 218.88 
+z
+" clip-path="url(#pa3b936b2c5)" style="fill: #2a86b8; opacity: 0.32"/>
+   </g>
+   <g id="patch_66">
+    <path d="M 432.72 188.64 
+L 500.4 188.64 
+L 500.4 218.88 
+L 432.72 218.88 
+z
+" clip-path="url(#pa3b936b2c5)" style="fill: #2a86b8; opacity: 0.32"/>
+   </g>
+   <g id="text_1">
+    <text style="font-size: 8px; font-family: 'Roboto'; text-anchor: end; fill: #747d8b" x="72.72" y="20.9075" transform="rotate(-0 72.72 20.9075)">vs random</text>
+   </g>
+   <g id="text_2">
+    <text style="font-size: 7.5px; font-family: 'Roboto'; text-anchor: middle; fill: #747d8b" x="78.48" y="33.730781" transform="rotate(-0 78.48 33.730781)">−100 pp</text>
+   </g>
+   <g id="text_3">
+    <text style="font-size: 7.5px; font-family: 'Roboto'; text-anchor: middle; fill: #747d8b" x="122.76" y="33.730781" transform="rotate(-0 122.76 33.730781)">0</text>
+   </g>
+   <g id="text_4">
+    <text style="font-size: 7.5px; font-family: 'Roboto'; text-anchor: middle; fill: #747d8b" x="167.04" y="33.730781" transform="rotate(-0 167.04 33.730781)">+100 pp</text>
+   </g>
+   <g id="text_5">
+    <text style="font-weight: 700; font-size: 9.5px; font-family: 'Roboto'; text-anchor: start; fill: #20242d" x="2.88" y="58.757656" transform="rotate(-0 2.88 58.757656)">Five: select any successful attempt</text>
+   </g>
+   <g id="text_6">
+    <text style="font-size: 8px; font-family: 'Roboto'; text-anchor: middle; fill: #434a57" x="113.76" y="77.0675" transform="rotate(-0 113.76 77.0675)">Opus 5.5</text>
+   </g>
+   <g id="text_7">
+    <text style="font-size: 8px; font-family: 'Roboto'; text-anchor: middle; fill: #434a57" x="184.32" y="77.0675" transform="rotate(-0 184.32 77.0675)">GPT-5.6 Sol</text>
+   </g>
+   <g id="text_8">
+    <text style="font-size: 8px; font-family: 'Roboto'; text-anchor: middle; fill: #434a57" x="254.88" y="77.0675" transform="rotate(-0 254.88 77.0675)">GPT-6 Sol</text>
+   </g>
+   <g id="text_9">
+    <text style="font-size: 8px; font-family: 'Roboto'; fill: #434a57" transform="translate(310.421875 72.955)">GLM-5.3</text>
+    <text style="font-size: 8px; font-family: 'Roboto'; fill: #434a57" transform="translate(315.816875 81.18)">Flash</text>
+   </g>
+   <g id="text_10">
+    <text style="font-size: 8px; font-family: 'Roboto'; text-anchor: middle; fill: #434a57" x="396" y="77.0675" transform="rotate(-0 396 77.0675)">GLM-5.3</text>
+   </g>
+   <g id="text_11">
+    <text style="font-size: 8px; font-family: 'Roboto'; fill: #434a57" transform="translate(448.814375 68.8425)">DeepSeek</text>
+    <text style="font-size: 8px; font-family: 'Roboto'; fill: #434a57" transform="translate(458.47 77.0675)">V4.1</text>
+    <text style="font-size: 8px; font-family: 'Roboto'; fill: #434a57" transform="translate(456.936875 85.2925)">Flash</text>
+   </g>
+   <g id="text_12">
+    <text style="font-size: 8.5px; font-family: 'Roboto'; text-anchor: end; fill: #434a57" x="72.72" y="106.724219" transform="rotate(-0 72.72 106.724219)">GPT-6 Astra</text>
+   </g>
+   <g id="text_13">
+    <text style="font-weight: 700; font-size: 8.5px; font-family: 'Roboto'; text-anchor: middle; fill: #20242d" x="113.76" y="102.172419" transform="rotate(-0 113.76 102.172419)">50% (1/2)</text>
+   </g>
+   <g id="text_14">
+    <text style="font-size: 7.5px; font-family: 'Roboto'; text-anchor: middle; fill: #434a57" x="113.76" y="113.737181" transform="rotate(-0 113.76 113.737181)">+30 pp · all 67%</text>
+   </g>
+   <g id="text_15">
+    <text style="font-weight: 700; font-size: 8.5px; font-family: 'Roboto'; text-anchor: middle; fill: #20242d" x="184.32" y="102.172419" transform="rotate(-0 184.32 102.172419)">0% (0/2)</text>
+   </g>
+   <g id="text_16">
+    <text style="font-size: 7.5px; font-family: 'Roboto'; text-anchor: middle; fill: #434a57" x="184.32" y="113.737181" transform="rotate(-0 184.32 113.737181)">-20 pp · all 67%</text>
+   </g>
+   <g id="text_17">
+    <text style="font-weight: 700; font-size: 8.5px; font-family: 'Roboto'; text-anchor: middle; fill: #20242d" x="254.88" y="102.172419" transform="rotate(-0 254.88 102.172419)">0% (0/2)</text>
+   </g>
+   <g id="text_18">
+    <text style="font-size: 7.5px; font-family: 'Roboto'; text-anchor: middle; fill: #434a57" x="254.88" y="113.737181" transform="rotate(-0 254.88 113.737181)">-20 pp · all 61%</text>
+   </g>
+   <g id="text_19">
+    <text style="font-weight: 700; font-size: 8.5px; font-family: 'Roboto'; text-anchor: middle; fill: #20242d" x="325.44" y="102.172419" transform="rotate(-0 325.44 102.172419)">0% (0/2)</text>
+   </g>
+   <g id="text_20">
+    <text style="font-size: 7.5px; font-family: 'Roboto'; text-anchor: middle; fill: #434a57" x="325.44" y="113.737181" transform="rotate(-0 325.44 113.737181)">-20 pp · all 67%</text>
+   </g>
+   <g id="text_21">
+    <text style="font-weight: 700; font-size: 8.5px; font-family: 'Roboto'; text-anchor: middle; fill: #20242d" x="396" y="102.172419" transform="rotate(-0 396 102.172419)">50% (1/2)</text>
+   </g>
+   <g id="text_22">
+    <text style="font-size: 7.5px; font-family: 'Roboto'; text-anchor: middle; fill: #434a57" x="396" y="113.737181" transform="rotate(-0 396 113.737181)">+30 pp · all 56%</text>
+   </g>
+   <g id="text_23">
+    <text style="font-weight: 700; font-size: 8.5px; font-family: 'Roboto'; text-anchor: middle; fill: #20242d" x="466.56" y="102.172419" transform="rotate(-0 466.56 102.172419)">50% (1/2)</text>
+   </g>
+   <g id="text_24">
+    <text style="font-size: 7.5px; font-family: 'Roboto'; text-anchor: middle; fill: #434a57" x="466.56" y="113.737181" transform="rotate(-0 466.56 113.737181)">+30 pp · all 50%</text>
+   </g>
+   <g id="text_25">
+    <text style="font-size: 8.5px; font-family: 'Roboto'; text-anchor: end; fill: #434a57" x="72.72" y="139.844219" transform="rotate(-0 72.72 139.844219)">Fable 5.1</text>
+   </g>
+   <g id="text_26">
+    <text style="font-weight: 700; font-size: 8.5px; font-family: 'Roboto'; text-anchor: middle; fill: #20242d" x="113.76" y="135.292419" transform="rotate(-0 113.76 135.292419)">50% (1/2)</text>
+   </g>
+   <g id="text_27">
+    <text style="font-size: 7.5px; font-family: 'Roboto'; text-anchor: middle; fill: #434a57" x="113.76" y="146.857181" transform="rotate(-0 113.76 146.857181)">+0 pp · all 83%</text>
+   </g>
+   <g id="text_28">
+    <text style="font-weight: 700; font-size: 8.5px; font-family: 'Roboto'; text-anchor: middle; fill: #20242d" x="184.32" y="135.292419" transform="rotate(-0 184.32 135.292419)">100% (2/2)</text>
+   </g>
+   <g id="text_29">
+    <text style="font-size: 7.5px; font-family: 'Roboto'; text-anchor: middle; fill: #434a57" x="184.32" y="146.857181" transform="rotate(-0 184.32 146.857181)">+50 pp · all 87%</text>
+   </g>
+   <g id="text_30">
+    <text style="font-weight: 700; font-size: 8.5px; font-family: 'Roboto'; text-anchor: middle; fill: #20242d" x="254.88" y="135.292419" transform="rotate(-0 254.88 135.292419)">100% (2/2)</text>
+   </g>
+   <g id="text_31">
+    <text style="font-size: 7.5px; font-family: 'Roboto'; text-anchor: middle; fill: #434a57" x="254.88" y="146.857181" transform="rotate(-0 254.88 146.857181)">+50 pp · all 77%</text>
+   </g>
+   <g id="text_32">
+    <text style="font-weight: 700; font-size: 8.5px; font-family: 'Roboto'; text-anchor: middle; fill: #20242d" x="325.44" y="135.292419" transform="rotate(-0 325.44 135.292419)">0% (0/2)</text>
+   </g>
+   <g id="text_33">
+    <text style="font-size: 7.5px; font-family: 'Roboto'; text-anchor: middle; fill: #434a57" x="325.44" y="146.857181" transform="rotate(-0 325.44 146.857181)">-50 pp · all 73%</text>
+   </g>
+   <g id="text_34">
+    <text style="font-weight: 700; font-size: 8.5px; font-family: 'Roboto'; text-anchor: middle; fill: #20242d" x="396" y="135.292419" transform="rotate(-0 396 135.292419)">0% (0/2)</text>
+   </g>
+   <g id="text_35">
+    <text style="font-size: 7.5px; font-family: 'Roboto'; text-anchor: middle; fill: #434a57" x="396" y="146.857181" transform="rotate(-0 396 146.857181)">-50 pp · all 63%</text>
+   </g>
+   <g id="text_36">
+    <text style="font-weight: 700; font-size: 8.5px; font-family: 'Roboto'; text-anchor: middle; fill: #20242d" x="466.56" y="135.292419" transform="rotate(-0 466.56 135.292419)">100% (2/2)</text>
+   </g>
+   <g id="text_37">
+    <text style="font-size: 7.5px; font-family: 'Roboto'; text-anchor: middle; fill: #434a57" x="466.56" y="146.857181" transform="rotate(-0 466.56 146.857181)">+50 pp · all 67%</text>
+   </g>
+   <g id="text_38">
+    <text style="font-size: 8.5px; font-family: 'Roboto'; text-anchor: end; fill: #434a57" x="72.72" y="172.964219" transform="rotate(-0 72.72 172.964219)">GLM-5.3</text>
+   </g>
+   <g id="text_39">
+    <text style="font-weight: 700; font-size: 8.5px; font-family: 'Roboto'; text-anchor: middle; fill: #20242d" x="113.76" y="168.412419" transform="rotate(-0 113.76 168.412419)">50% (1/2)</text>
+   </g>
+   <g id="text_40">
+    <text style="font-size: 7.5px; font-family: 'Roboto'; text-anchor: middle; fill: #434a57" x="113.76" y="179.977181" transform="rotate(-0 113.76 179.977181)">+0 pp · all 81%</text>
+   </g>
+   <g id="text_41">
+    <text style="font-weight: 700; font-size: 8.5px; font-family: 'Roboto'; text-anchor: middle; fill: #20242d" x="184.32" y="168.412419" transform="rotate(-0 184.32 168.412419)">100% (2/2)</text>
+   </g>
+   <g id="text_42">
+    <text style="font-size: 7.5px; font-family: 'Roboto'; text-anchor: middle; fill: #434a57" x="184.32" y="179.977181" transform="rotate(-0 184.32 179.977181)">+50 pp · all 67%</text>
+   </g>
+   <g id="text_43">
+    <text style="font-weight: 700; font-size: 8.5px; font-family: 'Roboto'; text-anchor: middle; fill: #20242d" x="254.88" y="168.412419" transform="rotate(-0 254.88 168.412419)">100% (2/2)</text>
+   </g>
+   <g id="text_44">
+    <text style="font-size: 7.5px; font-family: 'Roboto'; text-anchor: middle; fill: #434a57" x="254.88" y="179.977181" transform="rotate(-0 254.88 179.977181)">+50 pp · all 81%</text>
+   </g>
+   <g id="text_45">
+    <text style="font-weight: 700; font-size: 8.5px; font-family: 'Roboto'; text-anchor: middle; fill: #20242d" x="325.44" y="168.412419" transform="rotate(-0 325.44 168.412419)">0% (0/2)</text>
+   </g>
+   <g id="text_46">
+    <text style="font-size: 7.5px; font-family: 'Roboto'; text-anchor: middle; fill: #434a57" x="325.44" y="179.977181" transform="rotate(-0 325.44 179.977181)">-50 pp · all 62%</text>
+   </g>
+   <g id="text_47">
+    <text style="font-weight: 700; font-size: 8.5px; font-family: 'Roboto'; text-anchor: middle; fill: #20242d" x="396" y="168.412419" transform="rotate(-0 396 168.412419)">50% (1/2)</text>
+   </g>
+   <g id="text_48">
+    <text style="font-size: 7.5px; font-family: 'Roboto'; text-anchor: middle; fill: #434a57" x="396" y="179.977181" transform="rotate(-0 396 179.977181)">+0 pp · all 67%</text>
+   </g>
+   <g id="text_49">
+    <text style="font-weight: 700; font-size: 8.5px; font-family: 'Roboto'; text-anchor: middle; fill: #20242d" x="466.56" y="168.412419" transform="rotate(-0 466.56 168.412419)">50% (1/2)</text>
+   </g>
+   <g id="text_50">
+    <text style="font-size: 7.5px; font-family: 'Roboto'; text-anchor: middle; fill: #434a57" x="466.56" y="179.977181" transform="rotate(-0 466.56 179.977181)">+0 pp · all 62%</text>
+   </g>
+   <g id="text_51">
+    <text style="font-size: 8.5px; font-family: 'Roboto'; text-anchor: end; fill: #434a57" x="72.72" y="206.084219" transform="rotate(-0 72.72 206.084219)">GPT-5.6 Sol</text>
+   </g>
+   <g id="text_52">
+    <text style="font-weight: 700; font-size: 8.5px; font-family: 'Roboto'; text-anchor: middle; fill: #20242d" x="113.76" y="201.532419" transform="rotate(-0 113.76 201.532419)">100% (2/2)</text>
+   </g>
+   <g id="text_53">
+    <text style="font-size: 7.5px; font-family: 'Roboto'; text-anchor: middle; fill: #434a57" x="113.76" y="213.097181" transform="rotate(-0 113.76 213.097181)">+40 pp · all 82%</text>
+   </g>
+   <g id="text_54">
+    <text style="font-weight: 700; font-size: 8.5px; font-family: 'Roboto'; text-anchor: middle; fill: #20242d" x="184.32" y="201.532419" transform="rotate(-0 184.32 201.532419)">100% (2/2)</text>
+   </g>
+   <g id="text_55">
+    <text style="font-size: 7.5px; font-family: 'Roboto'; text-anchor: middle; fill: #434a57" x="184.32" y="213.097181" transform="rotate(-0 184.32 213.097181)">+40 pp · all 86%</text>
+   </g>
+   <g id="text_56">
+    <text style="font-weight: 700; font-size: 8.5px; font-family: 'Roboto'; text-anchor: middle; fill: #20242d" x="254.88" y="201.532419" transform="rotate(-0 254.88 201.532419)">50% (1/2)</text>
+   </g>
+   <g id="text_57">
+    <text style="font-size: 7.5px; font-family: 'Roboto'; text-anchor: middle; fill: #434a57" x="254.88" y="213.097181" transform="rotate(-0 254.88 213.097181)">-10 pp · all 75%</text>
+   </g>
+   <g id="text_58">
+    <text style="font-weight: 700; font-size: 8.5px; font-family: 'Roboto'; text-anchor: middle; fill: #20242d" x="325.44" y="201.532419" transform="rotate(-0 325.44 201.532419)">100% (2/2)</text>
+   </g>
+   <g id="text_59">
+    <text style="font-size: 7.5px; font-family: 'Roboto'; text-anchor: middle; fill: #434a57" x="325.44" y="213.097181" transform="rotate(-0 325.44 213.097181)">+40 pp · all 75%</text>
+   </g>
+   <g id="text_60">
+    <text style="font-weight: 700; font-size: 8.5px; font-family: 'Roboto'; text-anchor: middle; fill: #20242d" x="396" y="201.532419" transform="rotate(-0 396 201.532419)">100% (2/2)</text>
+   </g>
+   <g id="text_61">
+    <text style="font-size: 7.5px; font-family: 'Roboto'; text-anchor: middle; fill: #434a57" x="396" y="213.097181" transform="rotate(-0 396 213.097181)">+40 pp · all 64%</text>
+   </g>
+   <g id="text_62">
+    <text style="font-weight: 700; font-size: 8.5px; font-family: 'Roboto'; text-anchor: middle; fill: #20242d" x="466.56" y="201.532419" transform="rotate(-0 466.56 201.532419)">100% (2/2)</text>
+   </g>
+   <g id="text_63">
+    <text style="font-size: 7.5px; font-family: 'Roboto'; text-anchor: middle; fill: #434a57" x="466.56" y="213.097181" transform="rotate(-0 466.56 213.097181)">+40 pp · all 46%</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="pa3b936b2c5">
+   <rect x="2.88" y="2.88" width="498.96" height="228.24"/>
+  </clipPath>
+ </defs>
 </svg>

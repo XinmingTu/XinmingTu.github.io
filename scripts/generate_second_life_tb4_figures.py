@@ -85,9 +85,12 @@ def label(name, mobile):
     return name.replace(" V4.1 Flash", "\nV4.1 Flash") if mobile else name
 
 
+GRID = dict(color=LINE, linewidth=0.6, alpha=0.7)  # faint, value axis only
+
+
 def x_grid(ax, ticks, fmt="{}%"):
     ax.set_xticks(ticks, labels=[fmt.format(t) for t in ticks])
-    ax.grid(axis="x", color=LINE, linewidth=0.8)
+    ax.grid(axis="x", **GRID)
     ax.set_axisbelow(True)
     ax.tick_params(length=0, pad=5)
 
@@ -276,7 +279,8 @@ def main():
             ax.plot([s, p], [y, y], color=c, alpha=TINT, lw=2.6, solid_capstyle="butt", zorder=2)
             ax.plot([s], [y], "o", ms=7, mfc="#ffffff", mec=c, mew=1.7, zorder=4)
             ax.plot([p], [y], "o", ms=7.5, color=c, mec="none", zorder=4)
-            ax.annotate(f"{s:.1f}%", (s, y), xytext=(-8, 0), textcoords="offset points", ha="right", va="center", fontsize=8.5, color=MUTED)
+            ax.annotate(f"{s:.1f}%", (s, y), xytext=(-7, 0), textcoords="offset points", ha="right", va="center", fontsize=8 if mobile else 8.5,
+                        color=MUTED, zorder=5, bbox=dict(boxstyle="square,pad=0.1", fc="#ffffff", ec="none"))  # page-colored: hides the 50% line
             ax.annotate(f"{p:.1f}%", (p, y), xytext=(8, 0), textcoords="offset points", ha="left", va="center", fontsize=9.5, color=INK, weight="bold")
         ax.axvline(50, color=MUTED, lw=1, ls=(0, (3, 2.5)), zorder=1)
         ax.annotate("random 50%", (50, -0.55), xytext=(-4, -1), textcoords="offset points", ha="right", va="top", fontsize=8, color=MUTED)
@@ -306,10 +310,10 @@ def main():
                 ax.plot([gain], [y], "o", ms=6, color=COLOR[key], mec="none", zorder=4)
                 ax.annotate(f"{rate:.1f}%", (max(gain, 0), y), xytext=(6 if gain >= 0 else 5, 0), textcoords="offset points",
                             ha="left", va="center", fontsize=8, color=BODY)
-            ax.axvline(0, color=MUTED, lw=1, zorder=1)
+            ax.axvline(0, color=MUTED, lw=0.8, alpha=0.6, zorder=1)
             ax.set_xlim(-16, 48)
             ax.set_xticks([0, 20, 40], labels=["0", "+20", "+40"])
-            ax.grid(axis="x", color=LINE, linewidth=0.8)
+            ax.grid(axis="x", **GRID)
             ax.set_axisbelow(True)
             ax.tick_params(length=0, pad=4)
             ax.text(0, 1.13 if mobile else 1.12, SOURCE_NAME[s], transform=ax.transAxes, fontsize=9.5, weight="bold", color=INK, ha="left", va="bottom")
@@ -336,12 +340,9 @@ def main():
                             ha="center", va="bottom", fontsize=7 if mobile else 8.5, color=ink, weight=weight)
         ax.set_xticks(range(4), labels=[SOURCE_NAME[s].replace(" ", "\n", 1) if mobile else SOURCE_NAME[s] for s in SOURCES])
         ax.tick_params(axis="x", length=0, pad=6, labelcolor=BODY, labelsize=9 if mobile else 9.5)
-        ax.tick_params(axis="y", length=0, labelcolor=MUTED, labelsize=8.5)
-        ax.set_ylim(0, 92)
-        ax.set_yticks([0, 20, 40, 60, 80], labels=[f"{t}%" for t in (0, 20, 40, 60, 80)])
-        ax.grid(axis="y", color=LINE, linewidth=0.8)
-        ax.set_axisbelow(True)
-        ax.set_ylabel("Success on all 66 tasks")
+        ax.set_ylim(0, 88)
+        ax.set_yticks([])  # every bar carries its own label
+        ax.axhline(0, color=LINE, lw=1, zorder=3)
         handles = [Patch(color=MUTED, alpha=0.42, label="pass@1 (one attempt)"),
                    Patch(color=COLOR["opus-5-5"], label="Opus 5.5 picks from five"),
                    Patch(color=COLOR["gpt-5-6-sol"], label="GPT-5.6 Sol picks from five"),
@@ -357,10 +358,10 @@ def main():
     ticks = [0.05, 0.1, 0.2, 0.5, 1, 2, 5]
     # Hand-placed label offsets (points) keep six names clear of each other.
     offsets = {
-        "five": {"opus-5-5": (-6, 10, "right"), "gpt-5-6-sol": (8, -9, "left"), "gpt-6-sol": (8, -9, "left"),
-                 "glm-5-3-flash": (8, 6, "left"), "glm-5-3": (8, 0, "left"), "deepseek-v4p1-flash": (8, 8, "left")},
-        "single": {"opus-5-5": (-8, 7, "right"), "gpt-5-6-sol": (8, -8, "left"), "gpt-6-sol": (-8, 7, "right"),
-                   "glm-5-3-flash": (8, 0, "left"), "glm-5-3": (8, -6, "left"), "deepseek-v4p1-flash": (8, 9, "left")},
+        "five": {"opus-5-5": (0, 11, "center"), "gpt-5-6-sol": (8, 0, "left"), "gpt-6-sol": (8, -2, "left"),
+                 "glm-5-3-flash": (8, 0, "left"), "glm-5-3": (8, 0, "left"), "deepseek-v4p1-flash": (8, 0, "left")},
+        "single": {"opus-5-5": (0, 11, "center"), "gpt-5-6-sol": (8, 6, "left"), "gpt-6-sol": (8, -9, "left"),
+                   "glm-5-3-flash": (8, 0, "left"), "glm-5-3": (8, -7, "left"), "deepseek-v4p1-flash": (8, 8, "left")},
     }
     for mobile in (False, True):
         fig, axes = plt.subplots(2 if mobile else 1, 1 if mobile else 2, figsize=(3.9, 6.2) if mobile else (7.6, 3.3), layout="constrained")
@@ -372,30 +373,28 @@ def main():
             for c, v, k in sorted(pts):
                 if v > best:
                     front.append((c, v)); best = v
-            ax.plot(*zip(*front), color=LINE, lw=2.2, zorder=1, solid_capstyle="round")
+            ax.plot(*zip(*front), color=LINE, lw=3, alpha=0.8, zorder=1, solid_capstyle="round", solid_joinstyle="round")
             for c, v, k in pts:
-                ax.plot([c], [v], "o", ms=8, color=COLOR[k], mec="#ffffff", mew=1.4, zorder=4)
+                ax.plot([c], [v], "o", ms=9, color=COLOR[k], mec="#ffffff", mew=1.6, zorder=4)
                 dx, dy, ha = offsets[cond][k]
-                ax.annotate(f"{NAME[k]}  {v:.1f}%", (c, v), xytext=(dx, dy), textcoords="offset points", ha=ha, va="center",
+                ax.annotate(NAME[k], (c, v), xytext=(dx, dy), textcoords="offset points", ha=ha, va="center",
                             fontsize=8 if mobile else 8.5, color=BODY)
-            ax.axhline(base * 100, color=MUTED, lw=1, ls=(0, (3, 2.5)), zorder=1)
-            ax.annotate(f"random {base * 100:.1f}%" if cond == "five" else "random 50%", (6, base * 100), xytext=(-2, 3),
+            ax.axhline(base * 100, color=MUTED, lw=0.9, ls=(0, (2, 3)), alpha=0.8, zorder=1)
+            ax.annotate(f"random {base * 100:.1f}%" if cond == "five" else "random 50%", (3.4, base * 100), xytext=(-2, 3),
                         textcoords="offset points", ha="right", va="bottom", fontsize=8, color=MUTED)
-            ax.set_xscale("log")
-            ax.set_xlim(0.035, 6)
-            ax.xaxis.set_major_locator(FixedLocator(ticks))
+            ax.set_xlim(-0.1, 3.4)
+            ax.set_xticks([0, 1, 2, 3], labels=["$0", "$1", "$2", "$3"])
             ax.xaxis.set_minor_locator(NullLocator())
-            ax.set_xticks(ticks, labels=[f"${t:g}" for t in ticks])
-            ax.grid(axis="both", color=LINE, linewidth=0.8)
+            ax.grid(axis="y", **GRID)
             ax.set_axisbelow(True)
             ax.tick_params(length=0, pad=5, labelcolor=MUTED)
             ax.set_ylim(*ylim)
             yt = list(range(int(np.ceil(ylim[0] / 5) * 5), ylim[1] + 1, 5))
             ax.set_yticks(yt, labels=[f"{t}%" for t in yt])
             ax.set_title(title, loc="left", fontsize=9.5, weight="bold", color=INK, pad=8)
-            ax.set_xlabel("Mean cost per review (log scale)")
+            ax.set_xlabel("Mean cost per review")
         save(fig, "tb4-cost-performance" + ("-mobile" if mobile else ""),
-             "Mean recorded cost per review, on a log scale, against Five selection success and Single accuracy for each "
+             "Mean recorded cost per review against Five selection success and Single accuracy for each "
              "reviewer, on the 79 pools with recorded costs for every reviewer. A gray line joins reviewers that no "
              "cheaper reviewer beats.")
 
@@ -404,7 +403,7 @@ def main():
     original = read("deepseek-five-positions.json")["original_counts"]
     control = [neutral["selected_candidate_counts"].get(str(i), 0) for i in range(1, 6)]
     for mobile in (False, True):
-        fig, ax = plt.subplots(figsize=(3.9, 2.6) if mobile else (6.4, 2.6), layout="constrained")
+        fig, ax = plt.subplots(figsize=(3.9, 2.6) if mobile else (7.6, 2.6), layout="constrained")
         x = np.arange(1, 6)
         for off, vals, alpha, lab in [(-0.2, original, TINT, "Original prompt (example says 3) · 58.2% success"),
                                       (0.2, control, 1, "Neutral prompt · 59.5% success")]:
@@ -414,12 +413,10 @@ def main():
                     ax.annotate(str(v), (xi, v), xytext=(0, 3), textcoords="offset points", ha="center", va="bottom", fontsize=8.5, color=BODY)
         ax.set_xticks(x, labels=[f"#{i}" for i in x])
         ax.tick_params(axis="x", length=0, labelcolor=BODY, labelsize=9)
-        ax.tick_params(axis="y", length=0, labelcolor=MUTED, labelsize=8.5)
-        ax.set_ylim(0, 84)
-        ax.grid(axis="y", color=LINE, linewidth=0.8)
-        ax.set_axisbelow(True)
-        ax.set_xlabel("Candidate DeepSeek V4.1 Flash picked")
-        ax.set_ylabel("Reviews (of 79)")
+        ax.set_ylim(0, 80)
+        ax.set_yticks([])  # every bar carries its own count
+        ax.axhline(0, color=LINE, lw=1, zorder=3)
+        ax.set_xlabel("Candidate DeepSeek V4.1 Flash picked, out of 79 reviews")
         fig.legend(loc="outside upper left", ncol=1, frameon=False, fontsize=9, handlelength=1.2, handletextpad=0.5, borderaxespad=0)
         save(fig, "tb4-prompt-position" + ("-mobile" if mobile else ""),
              "Which candidate position DeepSeek V4.1 Flash picked in 79 Five reviews, with the original prompt (whose "
@@ -439,7 +436,7 @@ def main():
         ax.set_xlim(0.85, 5.1)
         ax.set_ylim(30, 84)
         ax.set_yticks([30, 40, 50, 60, 70, 80], labels=[f"{t}%" for t in (30, 40, 50, 60, 70, 80)])
-        ax.grid(axis="y", color=LINE, linewidth=0.8)
+        ax.grid(axis="y", **GRID)
         ax.set_axisbelow(True)
         ax.tick_params(length=0, pad=5, labelcolor=MUTED)
         ax.set_xlabel("Attempts per task (k)")

@@ -445,7 +445,7 @@ def main():
              "Oracle pass@k for k = 1 to 5 for each source, over all 66 tasks. These show what an oracle could get, "
              "not reviewer results.")
 
-    # ------------------------------------------------------------ 8. Shared-task heatmaps (appendix)
+    # ------------------------------------------------------------ 8. Shared-task heatmap (appendix)
     def cell(key, s, cond, tasks):
         subset = select(key, cond, s)
         matched = [r for r in subset if r["task_name"] in tasks]
@@ -492,17 +492,15 @@ def main():
             y0 += panel_h + 0.28
         save(fig, name + ("-mobile" if mobile else ""), description)
 
-    three, four = shared(rows, ORIGINAL), shared(rows, ORIGINAL + ["gpt-6-astra"])
-    assert len(three) == 6 and len(four) == 2
+    three = shared(rows, ORIGINAL)
+    assert len(three) == 6
     for mobile in (False, True):
         heatmap("tb4-shared-heatmap", ORIGINAL, three, [("Single: classify success or failure", "single-full"),
                                                          ("Pair: select the successful attempt", "pair-full"),
                                                          ("Five: select any successful attempt", "five-full")], mobile,
                 "Scores on the six tasks shared by the three original sources, by source and reviewer, for Single, Pair "
                 "and Five. Blue cells are above random and red cells below; each cell also gives the score on all pools.")
-        heatmap("tb4-shared-four-heatmap", SOURCES, four, [("Five: select any successful attempt", "five-full")], mobile,
-                "Five selection on the two tasks shared by all four sources, by source and reviewer, in the same layout.")
-    print(f"Generated TB4 data and nine figure families from {COMMIT[:7]}; {total_pools} pools, baseline {baseline:.6f}.")
+    print(f"Generated TB4 data and eight figure families from {COMMIT[:7]}; {total_pools} pools, baseline {baseline:.6f}.")
 
 
 if __name__ == "__main__":

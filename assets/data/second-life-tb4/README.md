@@ -93,8 +93,8 @@ max(reported, token estimate) at the rates in the pinned
 pools and the prompt control are excluded. These are experiment-accounting
 figures, not invoices or total project cost.
 
-The shared-task heatmaps fix the task set: six tasks common to the three
-original sources, two common to all four. Each cell gives the shared-task
+The shared-task heatmap fixes the task set: the six tasks common to the three
+original sources. Each cell gives the shared-task
 score, its difference from random in percentage points (50% for Single and
 Pair; the matched candidates' success share for Five), and the score on all
 available pools. The two populations are nested, not independent.

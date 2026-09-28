@@ -741,14 +741,14 @@ Code, tasks, and results are in the [GitHub repository](https://github.com/Xinmi
 {% for reviewer in tb4.reviewers %}| {{ reviewer.name }} | {{ reviewer.single }}% | {{ reviewer.pair }}% | {{ reviewer.five }}% ({{ reviewer.five_wins }}/97) |
 {% endfor %}| Random baseline | 50.0% | 50.0% | {{ tb4.five_baseline }}% |
 
-Reviewers are ordered by overall Five success throughout; Single accuracy gives the same order. The Five aggregate weights each pool equally. Opus 5.5 gets {{ opus.five79_wins }}/79 on the original three sources and 12/18 on GPT-6 Astra runs, for {{ opus.five_wins }}/97. GPT-5.6 Sol gets {{ gpt.five79_wins }}/79 and 12/18, for {{ gpt.five_wins }}/97. One pool apart, their order says little about which selects better.
+Reviewers are ordered by Five success, which gives the same order as Single accuracy. Opus 5.5 and GPT-5.6 Sol are one pool apart ({{ opus.five_wins }}/97 and {{ gpt.five_wins }}/97), so their order says little about which selects better.
 
 | Reviewer | Single accuracy · 95% cluster CI | Pair selection · 95% cluster CI |
 | --- | ---: | ---: |
 {% for reviewer in tb4.reviewers %}| {{ reviewer.name }} | {{ reviewer.single_ci }}% | {{ reviewer.pair_ci }}% |
 {% endfor %}
 
-The same task can appear under several sources, so the intervals resample tasks rather than pools: 10,000 bootstrap resamples over task clusters, with 48 distinct tasks in the Single/Pair panel. The share of failed runs judged pass has intervals of [39.8%, 64.5%] for Opus 5.5 and [43.2%, 67.9%] for GPT-6 Sol; both include 50%. The 18 GPT-6 Astra pools give wide intervals: GPT-5.6 Sol and GLM-5.3 Flash both pick 12/18, each with a [44.4%, 88.9%] interval, so that tie says little about whether they are equally good. [Main report]({{ tb4.repo }}/reports/tbench4-complete-results-2026-09-16.md) · [GLM-5.3 Flash completion]({{ tb4.repo }}/reports/tbench4-glm-flash-results-2026-09-17.md) · [GPT-6 Astra extension]({{ tb4.repo }}/reports/tbench4-gpt6-source-results-2026-09-17.md) · [Opus 5.5 and GPT-6 Sol]({{ tb4.repo }}/reports/tbench4-frontier-results-2026-09-26.md).
+The intervals resample tasks rather than pools, because the same task can appear under several sources: 10,000 bootstrap resamples over 48 task clusters. The share of failed runs judged pass has intervals of [39.8%, 64.5%] for Opus 5.5 and [43.2%, 67.9%] for GPT-6 Sol; both include 50%. Reports: [main]({{ tb4.repo }}/reports/tbench4-complete-results-2026-09-16.md) · [GLM-5.3 Flash]({{ tb4.repo }}/reports/tbench4-glm-flash-results-2026-09-17.md) · [GPT-6 Astra runs]({{ tb4.repo }}/reports/tbench4-gpt6-source-results-2026-09-17.md) · [Opus 5.5 and GPT-6 Sol]({{ tb4.repo }}/reports/tbench4-frontier-results-2026-09-26.md).
 
 ### Reviewer configurations
 
@@ -761,19 +761,17 @@ The same task can appear under several sources, so the intervals resample tasks 
 | GLM-5.3 | Fireworks | tool call | max | 51% | 0 |
 | DeepSeek V4.1 Flash | Fireworks | text block | xhigh | 34% | 1 |
 
-All six get the same task instructions and [harness prompt](#reviewer-instructions), which states the 55-step limit and asks for a provisional answer by the third command. A step is one model response; reviewers that use tool calls sometimes run two or more commands in one step (7% of GPT-5.6 Sol's steps, 8% of GLM-5.3's, 15% of GLM-5.3 Flash's). GPT-6 Sol's system prompt asks it to use the bash tool; the others get the original wording, which asks for a Markdown code block, although GPT-5.6 Sol and both GLM models used tool calls anyway. Harbor allows 7,200 seconds per review. Effort labels are provider-specific, so the same label does not mean the same compute. In the table, "used all 55 steps" is the share of each reviewer's 334 reviews that reached the limit, and "truncated responses" counts responses cut off by an output limit.
+All six get the same task instructions and [harness prompt](#reviewer-instructions), which states the 55-step limit and asks for a provisional answer by the third command. A step is one model response; reviewers that use tool calls sometimes run several commands in one step. GPT-6 Sol's system prompt is worded for tool calls, and the others' asks for Markdown code blocks, though GPT-5.6 Sol and both GLM models used tool calls anyway. Harbor allows 7,200 seconds per review, and effort labels are provider-specific, so the same label does not mean the same compute.
 
-Other configured limits barely mattered. The four earlier reviewers were set to a 4,096-token output limit per response, but only DeepSeek V4.1 Flash's requests carried it, and it cut off 1 of its 8,795 responses. The other three wrote responses of up to 14,000–31,000 tokens; Opus 5.5 and GPT-6 Sol, with a 128,000-token limit, reached about 53,000 and 10,000. Some batches capped each review at <span>$6</span>, and no review reached it: the most expensive cost <span>$5.80</span>.
+Other configured limits barely mattered. A 4,096-token output limit reached only DeepSeek V4.1 Flash's requests and cut off 1 of its 8,795 responses; the other reviewers' longest responses ran from 10,000 to 53,000 tokens. Some batches capped each review at <span>$6</span>, and no review reached it: the most expensive cost <span>$5.80</span>.
 
-The step limit does bind, and unevenly. GPT-5.6 Sol almost never reaches it (median 19 steps), while Opus 5.5 and the two GLM models run out in about half their reviews or more. Opus 5.5's results barely depend on it: it passes 50% of failed Single runs when it runs out and 54% otherwise, and picks a success in 76.5% of the Five pools where it runs out and 82.6% of the rest. DeepSeek V4.1 Flash is the exception. In the 86 Single reviews where it used all 55 steps, it passed 87% of failed and 98% of successful runs; in the other 72, 18% and 29%. Only Opus 5.5 ever ends a review with an explicit submission (165 of 334); the others stop issuing commands, which the harness records as a format error. The saved answer is scored in every case, and no review was rerun because its answer was wrong. [Protocol]({{ tb4.repo }}/docs/terminal-bench-4-frontier-reviewers.md).
+The step limit does bind, and unevenly. GPT-5.6 Sol almost never reaches it (median 19 steps), while Opus 5.5 and the two GLM models run out in about half their reviews or more. Opus 5.5's results barely depend on it: it passes 50% of failed Single runs when it runs out and 54% otherwise, and picks a success in 76.5% and 82.6% of the corresponding Five pools. DeepSeek V4.1 Flash is the exception. In the 86 Single reviews where it used all 55 steps, it passed 87% of failed and 98% of successful runs; in the other 72, 18% and 29%. Every review is scored on its saved answer, and no review was rerun because its answer was wrong. [Protocol]({{ tb4.repo }}/docs/terminal-bench-4-frontier-reviewers.md).
 
 A follow-up pilot reran 25 Five reviews each for GLM-5.3 and GLM-5.3 Flash with the limit raised to 110 steps: 20 from pools that had hit the old limit, 5 from pools that had not. GLM-5.3 picked a success in 15 of 25 both times; GLM-5.3 Flash in 19 before and 18 after, and about half the reruns hit the new limit again. In this small sample, doubling the limit brought no net gain.
 
 ### Comparing sources on shared tasks
 
-Are some sources' failures harder to catch, or their successes harder to find? In the main results, each source contributes a different set of tasks, so the source and the tasks are tangled together. Here we fix the tasks. A shared task is one where every source has an eligible mixed pool. The sources still produced different runs, with different mixes of successes and failures.
-
-The three original sources share six tasks. On those, each source contributes 12 Single judgments (one successful and one failed run per task), six Pair selections, and six Five selections; everything else stays the same. Each cell also shows the reviewer's score on all of that source's pools (30 from Fable 5.1, 21 from GLM-5.3, 28 from GPT-5.6 Sol). The six tasks were chosen by availability, not by reviewer scores, and invalid answers still count as errors. Since they are a subset of the full set, the two numbers in a cell are not independent.
+In the main results, each source contributes different tasks, so the source and the tasks are tangled together. Here we fix the tasks: the six where all three original sources have a mixed pool, chosen by availability rather than by reviewer scores. On those, each source contributes 12 Single judgments, six Pair selections, and six Five selections, and each cell also shows the reviewer's score on all of that source's pools.
 
 <figure class="sle-figure" markdown="0">
   <h3 class="sle-figure-title">Terminal-Bench 4.0: Same task pool, different sources</h3>
@@ -782,33 +780,11 @@ The three original sources share six tasks. On those, each source contributes 12
   <figcaption>Every row uses the same six tasks; columns are reviewers (rows on mobile). Each cell gives the shared-task score, its difference from random in percentage points, and the reviewer's score on all available pools. Blue is above random, red below; color shows the difference, not statistical significance. Single and Pair use a 50% baseline. Five uses each source's share of successful candidates on these tasks: 63.3% for Fable 5.1, 56.7% for GLM-5.3, and 63.3% for GPT-5.6 Sol.</figcaption>
 </figure>
 
-Pair is the cleaner comparison: every pair has one success and one failure, so every source has the same 50% baseline. Five keeps each pool's original mix, so its baselines differ by source even on shared tasks. Neither view isolates something intrinsic to a model's runs, because the agents, harnesses, artifacts, candidate order, and kinds of failure still differ. And with six tasks, one changed pick moves a Pair or Five score by 16.7 points. Read these as exploratory rather than as a source ranking.
-
-<details class="sle-instruction" markdown="1">
-<summary>Shared task identities</summary>
-<div class="sle-instruction-body" markdown="1">
-
-{% for task in site.data.second_life_shared.three_source_tasks %}
-- `{{ task }}`
-{% endfor %}
-
-</div>
-</details>
-
-Adding GPT-6 Astra leaves only two tasks shared by all four sources: `batched-eval-parity` and `vba-userform-port`. Astra has Five results only, so it has no row in the Single and Pair panels above. We show the four-source view below for completeness; two tasks cannot support a ranking.
-
-<figure class="sle-figure" markdown="0">
-  <h3 class="sle-figure-title">Terminal-Bench 4.0: Four sources, the same two tasks</h3>
-  <div class="sle-figure-desktop">{% inline_eval_figure tb4-shared-four-heatmap %}</div>
-  <div class="sle-figure-mobile">{% inline_eval_figure tb4-shared-four-heatmap-mobile %}</div>
-  <figcaption>Five selection on the two tasks shared by all four sources, in the same layout and scale. One changed pick moves a score by 50 points.</figcaption>
-</figure>
-
-These panels reuse existing results; no new model calls were made. A [per-case snapshot](/assets/data/second-life-tb4/shared-task-records.json) records candidate IDs, labels, and reviewer outcomes from the same pinned experiment commit. `python scripts/generate_second_life_shared.py` checks it for duplicate observations, consistent candidate order and labels across reviewers, and consistent Single/Pair runs within each Five pool; `python scripts/generate_second_life_tb4_figures.py` rebuilds the figures and tables.
+Pair is the cleaner comparison, since every pair has the same 50% baseline, while Five keeps each pool's original mix. Neither isolates something intrinsic to a model's runs, because the agents, harnesses, and kinds of failure still differ, and with six tasks one changed pick moves a score by 16.7 points. Read these as exploratory. Only two tasks are shared by all four sources, too few to include GPT-6 Astra runs this way.
 
 ### Oracle sampling curves
 
-These curves show how often at least one of k attempts succeeds, for k from 1 to 5. They use all 66 tasks per source. Points below k = 5 show what an oracle could get; no reviewer was run at those k.
+These curves show how often at least one of k attempts succeeds, for k from 1 to 5, over all 66 tasks per source. Below k = 5 they show what an oracle could get; no reviewer was run at those k.
 
 <figure class="sle-figure" markdown="0">
   <h3 class="sle-figure-title">Terminal-Bench 4.0: Oracle success with repeated attempts</h3>
@@ -819,17 +795,17 @@ These curves show how often at least one of k attempts succeeds, for k from 1 to
 
 ### Dataset and scoring
 
-The sources are GPT-6 Astra + Codex (18 pools), Fable 5.1 + Claude Code (30), GLM-5.3 + Claude Code (21), and GPT-5.6 Sol + Codex (28). Every retained pool passed metadata and archive validation. Recorded artifacts may be partial snapshots of the environment. Labels are the benchmark verifier's original rewards; we did not re-grade any run.
+The sources are GPT-6 Astra + Codex (18 pools), Fable 5.1 + Claude Code (30), GLM-5.3 + Claude Code (21), and GPT-5.6 Sol + Codex (28). Every retained pool passed metadata and archive validation, though recorded artifacts may be partial snapshots of the environment. Labels are the benchmark verifier's original rewards; we did not re-grade any run.
 
-Single uses one successful and one failed run from each pool, 79 of each. Pair uses the same two runs, and reviewers are not told that exactly one succeeded. Five keeps the original mix: {{ tb4.candidate_successes }} of {{ tb4.source_runs }} candidates succeeded, so a random pick succeeds {{ tb4.five_baseline }}% of the time. We did not run Single on all five candidates, so there is no score-each-then-pick baseline for Five. The settings differ in both metric and coverage, so comparing them does not isolate the value of seeing more runs.
+In Five, {{ tb4.candidate_successes }} of {{ tb4.source_runs }} candidates succeeded, which sets the {{ tb4.five_baseline }}% random baseline. We did not run Single on all five candidates, so there is no score-each-then-pick baseline for Five. The settings also differ in metric and coverage, so comparing them does not isolate the value of seeing more runs. Invalid outputs count as errors everywhere: in Single there are none for Opus 5.5, GPT-5.6 Sol, and GPT-6 Sol, one each for the GLM models, and nine for DeepSeek V4.1 Flash.
 
-Invalid outputs count as errors in all headline metrics. The confusion matrices list them under each matrix; they are neither pass nor fail, so a row with invalid outputs sums to less than 100%. Single invalid counts are 0 for Opus 5.5, GPT-5.6 Sol, and GPT-6 Sol, 1 for GLM-5.3 Flash, 1 for GLM-5.3, and 9 for DeepSeek V4.1 Flash.
+Reviewers never see source rewards, verifier outputs, or metadata that identifies the source. Some reviews by the four earlier reviewers were reused from earlier batches, only when the runs and labels were identical and never based on correctness; Opus 5.5 and GPT-6 Sol reviewed all 334 cases in one new batch. Automated checks look for label leaks in the inputs we know about, but they cannot rule out indirect hints elsewhere in an archived run.
 
-Reviewers never see source rewards, verifier outputs, or metadata that identifies the source. Some reviews by the four earlier reviewers are reused from earlier batches of this study. A review was reused only when its runs and labels were identical, never based on whether it was correct. Opus 5.5 and GPT-6 Sol reviewed all 334 cases in one new batch. Automated checks look for label leaks in the inputs we know about, but they cannot rule out indirect hints elsewhere in an archived run.
+A [per-case snapshot](/assets/data/second-life-tb4/shared-task-records.json) records candidate IDs, labels, and reviewer outcomes from the pinned experiment commit. `python scripts/generate_second_life_shared.py` validates it, and `python scripts/generate_second_life_tb4_figures.py` rebuilds every figure and table.
 
 ### Reviewer instructions
 
-Every review uses the same harness prompt, apart from one paragraph for GPT-6 Sol. The system prompt comes first, then the task instruction for the setting, then two closing paragraphs that state the step limit.
+Every review uses the same harness prompt, apart from one paragraph for GPT-6 Sol: the system prompt, then the task instruction for the setting, then two closing paragraphs that state the step limit.
 
 <details class="sle-instruction" markdown="1">
 <summary>Harness prompt (all settings)</summary>
@@ -920,9 +896,3 @@ Reused reviews count once, at their original cost. Reviews with missing cost dat
 
 </div>
 </details>
-
-### Earlier studies
-
-An earlier pilot on Terminal-Bench 3.0<d-cite key="terminalbench3"></d-cite> showed reviewers trajectories only, without artifacts. It used 85 mixed pools, 50 distinct tasks, and 340 derived tasks. GPT-5.6 Sol's Five selection rate was 63.5%, against 42.1% for a random pick. Averaged across the three original 74-task evaluations, reconstructed success was 41.9%, compared with 33.7% pass@1 and 55.9% oracle pass@5.
-
-It is tempting to read the TB3-to-TB4 difference as the value of artifacts, but the tasks and some reviewer versions changed too. The initial 18-pool TB4 study did include a matched trajectory-only Single control; the expanded panel did not repeat it. [TB3 report]({{ tb4.repo }}/reports/context-ladder-reviewer-comparison-2026-08-28.md) · [Initial TB4 study]({{ tb4.repo }}/reports/tbench4-run-bundle-results-2026-09-05.md).

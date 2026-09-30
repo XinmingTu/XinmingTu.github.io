@@ -542,7 +542,7 @@ _styles: |
 <li>Every graded agent run can be reused as a verification task: hide the benchmark's verdict and ask another agent whether the run worked.</li>
 <li>On Terminal-Bench 4.0, the six reviewer models we tested are poor judges of a single run. Even the strictest passes about half of the failed runs.</li>
 <li>They are much better at choosing. Shown five attempts at the same task, the best two pick a successful one nearly 80% of the time, against 55% for a random pick.</li>
-<li>GRPO-style RL only needs to compare attempts, so a good selector could double as a reward. We have not tested this yet.</li>
+<li>GRPO-style RL only needs to compare attempts, so a good selector could also serve as a reward.</li>
 </ul>
 </div>
 
@@ -766,9 +766,6 @@ That gap is why a reviewer that selects well could also serve as an RL reward. G
     </div>
   </div>
   <div class="sle-duo-grpo"><span class="sle-duo-tag">GRPO</span><div class="sle-duo-steps"><span>sample a group</span><span class="sle-duo-arr" aria-hidden="true">→</span><span class="sle-duo-hl">compare them</span><span class="sle-duo-arr" aria-hidden="true">→</span><span>reward the better ones</span><span class="sle-duo-arr" aria-hidden="true">→</span><span>repeat</span></div></div>
-</div>
-
-There are two problems, though. One pick per group is not a reward for every attempt: scoring the chosen run 1 and the rest 0 would penalize the other successful attempts, and most pools here have more than one. And a policy trained against a reviewer will learn to exploit its blind spots, such as a docstring that argues its way past all six reviewers.
 </div>
 
 The reviews themselves could also become training data for teaching agents to inspect evidence, catch failures, and pick successful attempts, since the original verifier already labels each one. A correct verdict does not mean the reasoning was sound, though, so training would need quality checks on the review trajectories and train/test splits by task. We have tested neither idea here.

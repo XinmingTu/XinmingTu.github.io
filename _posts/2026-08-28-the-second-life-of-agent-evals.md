@@ -546,6 +546,13 @@ _styles: |
 </ul>
 </div>
 
+<figure class="sle-figure" markdown="0">
+  <h3 class="sle-figure-title">Terminal-Bench 4.0: Selection gains from repeated attempts</h3>
+  <div class="sle-figure-desktop">{% inline_eval_figure tb4-sampling-hero %}</div>
+  <div class="sle-figure-mobile">{% inline_eval_figure tb4-sampling-hero-mobile %}</div>
+  <figcaption>Success on all 66 tasks per source. Gray is a single attempt (pass@1); the colored bars let the two best reviewers, Opus 5.5 and GPT-5.6 Sol, pick one of five attempts; the faint bar is oracle pass@5, a success whenever any of the five succeeded. These are whole-benchmark rates, not the mixed-pool rates above; the <a href="#selection-recovers-part-of-the-sampling-gain">reconstruction</a> is explained later.</figcaption>
+</figure>
+
 ## Turning agent eval runs into verification tasks
 
 A verification task has two parts. The **input** is what the reviewer sees: the original task and the evidence the run left behind, meaning its trajectory of tool calls and observations and the files and code it produced. The **verified reward** is the benchmark verifier's recorded pass/fail outcome, hidden from the reviewer and used as the answer key. The benchmark already ran its verifier, so no new labels are needed, though the answer key is only as good as that verifier.
@@ -689,14 +696,7 @@ The paired change is +1.3 points, with a task-cluster 95% interval of [−13.5, 
 
 ## Selection recovers part of the sampling gain
 
-So far we have only scored mixed pools. Here we score all 66 tasks per source, including pools where every attempt passed or every attempt failed, and ask how much of the gain from five attempts selection keeps. For each source we compare a single attempt (pass@1), the picks of the two best selectors, and an oracle that always finds a success if there is one (oracle pass@5).
-
-<figure class="sle-figure" markdown="0">
-  <h3 class="sle-figure-title">Terminal-Bench 4.0: Selection gains from repeated attempts</h3>
-  <div class="sle-figure-desktop">{% inline_eval_figure tb4-sampling-hero %}</div>
-  <div class="sle-figure-mobile">{% inline_eval_figure tb4-sampling-hero-mobile %}</div>
-  <figcaption>Success rate (%) on all 66 tasks per source. Gray is pass@1 (one attempt); the colored bars are the two best selectors overall, each picking one of five attempts; the faint bar is oracle pass@5 (a success whenever any of the five succeeded). Selection scores are reconstructed as described below, where a table lists all six reviewers.</figcaption>
-</figure>
+So far we have only scored mixed pools. Here we score all 66 tasks per source, including pools where every attempt passed or every attempt failed, and ask how much of the gain from five attempts selection keeps. The figure at the top of the post compares, for each source, a single attempt (pass@1), the picks of the two best selectors, and an oracle that always finds a success if there is one (oracle pass@5).
 
 On GPT-5.6 Sol runs, selection raises reconstructed success from {{ gpt_source.pass1 }}% to {{ opus.reconstructed[3] }}% with Opus 5.5 and {{ gpt.reconstructed[3] }}% with GPT-5.6 Sol. The oracle gets {{ gpt_source.pass5 }}%. Opus 5.5 is the steadier of the two, closing about half the gap to oracle pass@5 on every source except GPT-6 Astra. GPT-5.6 Sol closes more on Fable 5.1 and GPT-5.6 Sol runs (58–60%), but only 25% on GLM-5.3 runs. On GPT-6 Astra runs, both close 30%. These gains are smaller than the mixed-pool gains above because selection can only change the outcome when the attempts disagree.
 

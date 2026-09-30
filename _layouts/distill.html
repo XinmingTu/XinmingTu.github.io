@@ -68,6 +68,28 @@
       </d-title>
 
       <d-byline></d-byline>
+      {%- if page.last_updated %}
+      <script>
+        // Distill's byline only shows the publication date; add the last update beside it.
+        (function () {
+          var byline = document.querySelector("d-byline");
+          var parts = "{{ page.last_updated | date: '%Y-%m-%d' }}".split("-").map(Number);
+          var months = ["Jan.", "Feb.", "March", "April", "May", "June", "July", "Aug.", "Sept.", "Oct.", "Nov.", "Dec."];
+          var add = function () {
+            var grid = byline && byline.querySelector(".byline.grid");
+            if (!grid) return false;
+            if (!grid.querySelector(".byline-updated")) {
+              var div = document.createElement("div");
+              div.className = "byline-updated";
+              div.innerHTML = "<h3>Updated</h3><p>" + months[parts[1] - 1] + " " + parts[2] + ", " + parts[0] + "</p>";
+              grid.appendChild(div);
+            }
+            return true;
+          };
+          if (!add()) new MutationObserver(function (m, obs) { if (add()) obs.disconnect(); }).observe(byline, { childList: true, subtree: true });
+        })();
+      </script>
+      {%- endif %}
 
       {% if page.bilingual %}
         {% include lang_switch.html %}

@@ -2,7 +2,7 @@
 layout: distill
 title: "The Second Life of Agent Evals"
 description: "Turning completed agent runs into new tests of verification and selection."
-last_updated: 2026-09-27
+last_updated: 2026-09-30
 date: 2026-08-28
 tags: ['AI', 'agents', 'benchmarks', 'verification']
 categories: blog
@@ -787,7 +787,7 @@ Code, tasks, and results are in the [GitHub repository](https://github.com/Xinmi
   year   = {2026},
   month  = aug,
   url    = {https://xinmingtu.cn/blog/preview/the-second-life-of-agent-evals/},
-  note   = {Blog post; updated September 27, 2026}
+  note   = {Blog post; updated September 30, 2026}
 }
 ```
 

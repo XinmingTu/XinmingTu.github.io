@@ -141,6 +141,7 @@ _styles: |
   d-article .sle-lede strong {
     color: var(--sle-ink);
   }
+  d-article .sle-lede p { margin: 0 0 .6rem; }
   d-article .sle-lede ul { margin: 0; padding-left: 1.15rem; }
   d-article .sle-lede li { color: var(--sle-body); margin: .3rem 0; }
   d-article .sle-lede-label {
@@ -538,11 +539,11 @@ _styles: |
 
 <div class="sle-lede">
 <div class="sle-lede-label">TL;DR</div>
+<p>Agent benchmarks produce thousands of graded runs and use each one once, for a score. Those runs can have a second life: hide the verdict, and each run becomes a test of whether another agent can check the work. We built these tests from Terminal-Bench 4.0 and gave them to six reviewer models: Opus 5.5, GPT-5.6 Sol, GPT-6 Sol, GLM-5.3 Flash, GLM-5.3, and DeepSeek V4.1 Flash.</p>
 <ul>
-<li>Every graded agent run can be reused as a verification task: hide the benchmark's verdict and ask another agent whether the run worked.</li>
-<li>On Terminal-Bench 4.0, the six reviewer models we tested are poor judges of a single run. Even the strictest passes about half of the failed runs.</li>
-<li>They are much better at choosing. Shown five attempts at the same task, the best two pick a successful one nearly 80% of the time, against 55% for a random pick.</li>
-<li>GRPO-style RL only needs to compare attempts, so a good selector could also serve as a reward.</li>
+<li>Judging one run is unreliable. Even the strictest reviewer, Opus 5.5, passes about half of the failed runs.</li>
+<li>Choosing is much easier. Given five attempts at the same task, Opus 5.5 and GPT-5.6 Sol pick a successful one nearly 80% of the time, against 55% for a random pick. On all 66 tasks, having GPT-5.6 Sol pick one of five attempts lifts Fable 5.1’s success rate from 58% to 70%.</li>
+<li>That gap matters beyond evaluation. GRPO-style RL only needs to compare attempts, so a good selector could also serve as a reward.</li>
 </ul>
 </div>
 
@@ -550,7 +551,7 @@ _styles: |
 
 A verification task has two parts. The **input** is what the reviewer sees: the original task and the evidence the run left behind, meaning its trajectory of tool calls and observations and the files and code it produced. The **verified reward** is the benchmark verifier's recorded pass/fail outcome, hidden from the reviewer and used as the answer key. The benchmark already ran its verifier, so no new labels are needed, though the answer key is only as good as that verifier.
 
-Benchmarks often run each task several times, and the attempts don't always agree. That gives us a second kind of task, **selection**: show an agent several attempts at the same task and ask it to pick one that succeeded.
+Benchmarks often run each task several times, and the attempts don't always agree. That gives us a second kind of task, **selection**: show an agent several attempts at the same task and ask it to pick one that succeeded. This setting was inspired by LLM-as-a-Verifier<d-cite key="kwok2026llmverifier"></d-cite>, which showed that letting a model choose among candidate solutions can bring large gains at test time. Here each candidate is a full agent run, and the verifier is itself a tool-using agent.
 
 We build three settings, which differ in how many attempts the agent sees:
 
@@ -722,8 +723,6 @@ Oracle pass@k is the probability that a random subset of k of the five attempts 
 
 </div>
 </details>
-
-Like LLM-as-a-Verifier<d-cite key="kwok2026llmverifier"></d-cite>, this uses verification for test-time scaling. In our setup, the verifier is itself a tool-using agent, working from runs the original evaluation had already produced.
 
 ## What a review costs
 

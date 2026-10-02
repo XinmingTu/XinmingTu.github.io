@@ -316,7 +316,8 @@ def main():
             ax.grid(axis="x", **GRID)
             ax.set_axisbelow(True)
             ax.tick_params(length=0, pad=4)
-            ax.text(0, 1.13 if mobile else 1.12, SOURCE_NAME[s], transform=ax.transAxes, fontsize=9.5, weight="bold", color=INK, ha="left", va="bottom")
+            ax.text(0, 1.13 if mobile else 1.12, SOURCE_NAME[s], transform=ax.transAxes, fontsize=9.5, weight="bold", color=INK, ha="left", va="bottom",
+                    fontstyle="italic")  # sources in italics, reviewers upright
             ax.text(0, 1.025, f'{SRC[s]["pools"]} pools · random {SRC[s]["uniform"]}%', transform=ax.transAxes, fontsize=8.5, color=MUTED, ha="left", va="bottom")
         axes.flat[0].set_yticks(range(len(REVIEWERS)), labels=[label(NAME[k], mobile) for k in REVIEWERS])
         axes.flat[0].set_ylim(len(REVIEWERS) - 0.5, -0.5)
@@ -339,6 +340,8 @@ def main():
                 ax.annotate(f"{v:.0f}" if mobile else f"{v:.1f}", (x, v), xytext=(0, 3), textcoords="offset points",
                             ha="center", va="bottom", fontsize=7 if mobile else 8.5, color=ink, weight=weight)
         ax.set_xticks(range(4), labels=[SOURCE_NAME[s].replace(" ", "\n", 1) if mobile else SOURCE_NAME[s] for s in SOURCES])
+        for tick in ax.get_xticklabels():
+            tick.set_fontstyle("italic")
         ax.tick_params(axis="x", length=0, pad=6, labelcolor=BODY, labelsize=9 if mobile else 9.5)
         ax.set_ylim(0, 88)
         ax.set_yticks([])  # every bar carries its own label
@@ -430,8 +433,10 @@ def main():
             c = SOURCE_COLOR[s]
             ax.plot(range(1, 6), ys, "-", color=c, lw=2, solid_capstyle="round", zorder=3)
             ax.plot(range(1, 6), ys, "o", ms=5, color=c, mec="#ffffff", mew=1.2, zorder=4)
-            ax.annotate(f"{SOURCE_NAME[s]}  {ys[-1]:.1f}%", (5, ys[-1]), xytext=(8, 0), textcoords="offset points",
-                        ha="left", va="center", fontsize=8.5 if mobile else 9, color=BODY)
+            name = ax.annotate(SOURCE_NAME[s], (5, ys[-1]), xytext=(8, 0), textcoords="offset points", ha="left", va="center",
+                               fontsize=8.5 if mobile else 9, color=BODY, fontstyle="italic")
+            ax.annotate(f"{ys[-1]:.1f}%", xy=(1, 0.5), xycoords=name, xytext=(4, 0), textcoords="offset points", ha="left", va="center",
+                        fontsize=8.5 if mobile else 9, color=BODY)
         ax.set_xticks(range(1, 6))
         ax.set_xlim(0.85, 5.1)
         ax.set_ylim(30, 84)
@@ -474,11 +479,12 @@ def main():
             ax.text(0, y0 + 0.12, title, ha="left", va="center", fontsize=9.5, weight="bold", color=INK)
             heads = [SOURCE_NAME[s] for s in srcs] if mobile else [NAME[k].replace(" V4.1 Flash", "\nV4.1 Flash").replace(" Flash", "\nFlash") for k in REVIEWERS]
             for j, head in enumerate(heads):
-                ax.text(left + (j + 0.5) * cw, y0 + 0.38, head, ha="center", va="center", fontsize=7.5 if mobile else 8, color=BODY, linespacing=1.1)
+                ax.text(left + (j + 0.5) * cw, y0 + 0.38, head, ha="center", va="center", fontsize=7.5 if mobile else 8, color=BODY, linespacing=1.1,
+                        fontstyle="italic" if mobile else "normal")
             for i in range(n_r):
                 key, s = (REVIEWERS[i], None) if mobile else (None, srcs[i])
                 ax.text(left - 0.08, y0 + 0.56 + (i + 0.5) * ch, NAME[key] if mobile else SOURCE_NAME[s], ha="right", va="center",
-                        fontsize=8 if mobile else 8.5, color=BODY)
+                        fontsize=8 if mobile else 8.5, color=BODY, fontstyle="normal" if mobile else "italic")
                 for j in range(n_c):
                     k2, s2 = (key, srcs[j]) if mobile else (REVIEWERS[j], s)
                     wins, n, delta, all_rate = cell(k2, s2, cond, tasks)

@@ -43,28 +43,28 @@ z
     <g id="xtick_1">
      <g id="line2d_1"/>
      <g id="text_1">
-      <text style="font-size: 9px; font-family: 'Roboto'; fill: #434a57" transform="translate(32.825902 232.92351)">GPT-6</text>
-      <text style="font-size: 9px; font-family: 'Roboto'; fill: #434a57" transform="translate(34.487386 242.851635)">Astra</text>
+      <text style="font-style: italic; font-size: 9px; font-family: 'Roboto'; fill: #434a57" transform="translate(32.825902 232.92351)">GPT-6</text>
+      <text style="font-style: italic; font-size: 9px; font-family: 'Roboto'; fill: #434a57" transform="translate(34.487386 242.851635)">Astra</text>
      </g>
     </g>
     <g id="xtick_2">
      <g id="line2d_2"/>
      <g id="text_2">
-      <text style="font-size: 9px; font-family: 'Roboto'; fill: #434a57" transform="translate(99.644936 232.92351)">Fable</text>
-      <text style="font-size: 9px; font-family: 'Roboto'; fill: #434a57" transform="translate(104.343217 242.851635)">5.1</text>
+      <text style="font-style: italic; font-size: 9px; font-family: 'Roboto'; fill: #434a57" transform="translate(99.644936 232.92351)">Fable</text>
+      <text style="font-style: italic; font-size: 9px; font-family: 'Roboto'; fill: #434a57" transform="translate(104.343217 242.851635)">5.1</text>
      </g>
     </g>
     <g id="xtick_3">
      <g id="line2d_3"/>
      <g id="text_3">
-      <text style="font-size: 9px; font-family: 'Roboto'; text-anchor: middle; fill: #434a57" x="175.978658" y="232.92351" transform="rotate(-0 175.978658 232.92351)">GLM-5.3</text>
+      <text style="font-style: italic; font-size: 9px; font-family: 'Roboto'; text-anchor: middle; fill: #434a57" x="175.978658" y="232.92351" transform="rotate(-0 175.978658 232.92351)">GLM-5.3</text>
      </g>
     </g>
     <g id="xtick_4">
      <g id="line2d_4"/>
      <g id="text_4">
-      <text style="font-size: 9px; font-family: 'Roboto'; fill: #434a57" transform="translate(225.306755 232.92351)">GPT-5.6</text>
-      <text style="font-size: 9px; font-family: 'Roboto'; fill: #434a57" transform="translate(235.047848 242.851635)">Sol</text>
+      <text style="font-style: italic; font-size: 9px; font-family: 'Roboto'; fill: #434a57" transform="translate(225.306755 232.92351)">GPT-5.6</text>
+      <text style="font-style: italic; font-size: 9px; font-family: 'Roboto'; fill: #434a57" transform="translate(235.047848 242.851635)">Sol</text>
      </g>
     </g>
    </g>

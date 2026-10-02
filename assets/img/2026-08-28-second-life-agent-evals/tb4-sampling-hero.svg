@@ -43,25 +43,25 @@ z
     <g id="xtick_1">
      <g id="line2d_1"/>
      <g id="text_1">
-      <text style="font-size: 9.5px; font-family: 'Roboto'; text-anchor: middle; fill: #434a57" x="82.013769" y="221.150073" transform="rotate(-0 82.013769 221.150073)">GPT-6 Astra</text>
+      <text style="font-style: italic; font-size: 9.5px; font-family: 'Roboto'; text-anchor: middle; fill: #434a57" x="82.013769" y="221.150073" transform="rotate(-0 82.013769 221.150073)">GPT-6 Astra</text>
      </g>
     </g>
     <g id="xtick_2">
      <g id="line2d_2"/>
      <g id="text_2">
-      <text style="font-size: 9.5px; font-family: 'Roboto'; text-anchor: middle; fill: #434a57" x="211.657923" y="221.150073" transform="rotate(-0 211.657923 221.150073)">Fable 5.1</text>
+      <text style="font-style: italic; font-size: 9.5px; font-family: 'Roboto'; text-anchor: middle; fill: #434a57" x="211.657923" y="221.150073" transform="rotate(-0 211.657923 221.150073)">Fable 5.1</text>
      </g>
     </g>
     <g id="xtick_3">
      <g id="line2d_3"/>
      <g id="text_3">
-      <text style="font-size: 9.5px; font-family: 'Roboto'; text-anchor: middle; fill: #434a57" x="341.302077" y="221.150073" transform="rotate(-0 341.302077 221.150073)">GLM-5.3</text>
+      <text style="font-style: italic; font-size: 9.5px; font-family: 'Roboto'; text-anchor: middle; fill: #434a57" x="341.302077" y="221.150073" transform="rotate(-0 341.302077 221.150073)">GLM-5.3</text>
      </g>
     </g>
     <g id="xtick_4">
      <g id="line2d_4"/>
      <g id="text_4">
-      <text style="font-size: 9.5px; font-family: 'Roboto'; text-anchor: middle; fill: #434a57" x="470.946231" y="221.150073" transform="rotate(-0 470.946231 221.150073)">GPT-5.6 Sol</text>
+      <text style="font-style: italic; font-size: 9.5px; font-family: 'Roboto'; text-anchor: middle; fill: #434a57" x="470.946231" y="221.150073" transform="rotate(-0 470.946231 221.150073)">GPT-5.6 Sol</text>
      </g>
     </g>
    </g>

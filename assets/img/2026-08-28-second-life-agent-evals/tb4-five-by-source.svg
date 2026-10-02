@@ -166,7 +166,7 @@ L 118.820301 173.393358
     <text style="font-size: 8px; font-family: 'Roboto'; text-anchor: start; fill: #434a57" x="127.533731" y="175.580858" transform="rotate(-0 127.533731 175.580858)">50.0%</text>
    </g>
    <g id="text_16">
-    <text style="font-weight: 700; font-size: 9.5px; font-family: 'Roboto'; text-anchor: start; fill: #20242d" x="95.797031" y="10.005" transform="rotate(-0 95.797031 10.005)">GPT-6 Astra</text>
+    <text style="font-style: italic; font-weight: 700; font-size: 9.5px; font-family: 'Roboto'; text-anchor: start; fill: #20242d" x="95.797031" y="10.005" transform="rotate(-0 95.797031 10.005)">GPT-6 Astra</text>
    </g>
    <g id="text_17">
     <text style="font-size: 8.5px; font-family: 'Roboto'; text-anchor: start; fill: #747d8b" x="95.797031" y="25.004177" transform="rotate(-0 95.797031 25.004177)">18 pools · random 52.2%</text>
@@ -399,7 +399,7 @@ L 246.621304 173.393358
     <text style="font-size: 8px; font-family: 'Roboto'; text-anchor: start; fill: #434a57" x="252.621304" y="175.580858" transform="rotate(-0 252.621304 175.580858)">66.7%</text>
    </g>
    <g id="text_27">
-    <text style="font-weight: 700; font-size: 9.5px; font-family: 'Roboto'; text-anchor: start; fill: #20242d" x="208.744312" y="10.005" transform="rotate(-0 208.744312 10.005)">Fable 5.1</text>
+    <text style="font-style: italic; font-weight: 700; font-size: 9.5px; font-family: 'Roboto'; text-anchor: start; fill: #20242d" x="208.744312" y="10.005" transform="rotate(-0 208.744312 10.005)">Fable 5.1</text>
    </g>
    <g id="text_28">
     <text style="font-size: 8.5px; font-family: 'Roboto'; text-anchor: start; fill: #747d8b" x="208.744312" y="25.004177" transform="rotate(-0 208.744312 25.004177)">30 pools · random 60.0%</text>
@@ -554,7 +554,7 @@ L 361.160055 173.393358
     <text style="font-size: 8px; font-family: 'Roboto'; text-anchor: start; fill: #434a57" x="367.160055" y="175.580858" transform="rotate(-0 367.160055 175.580858)">61.9%</text>
    </g>
    <g id="text_38">
-    <text style="font-weight: 700; font-size: 9.5px; font-family: 'Roboto'; text-anchor: start; fill: #20242d" x="321.691593" y="10.005" transform="rotate(-0 321.691593 10.005)">GLM-5.3</text>
+    <text style="font-style: italic; font-weight: 700; font-size: 9.5px; font-family: 'Roboto'; text-anchor: start; fill: #20242d" x="321.691593" y="10.005" transform="rotate(-0 321.691593 10.005)">GLM-5.3</text>
    </g>
    <g id="text_39">
     <text style="font-size: 8.5px; font-family: 'Roboto'; text-anchor: start; fill: #747d8b" x="321.691593" y="25.004177" transform="rotate(-0 321.691593 25.004177)">21 pools · random 54.3%</text>
@@ -709,7 +709,7 @@ L 450.633149 173.393358
     <text style="font-size: 8px; font-family: 'Roboto'; text-anchor: start; fill: #434a57" x="466.375574" y="175.580858" transform="rotate(-0 466.375574 175.580858)">46.4%</text>
    </g>
    <g id="text_49">
-    <text style="font-weight: 700; font-size: 9.5px; font-family: 'Roboto'; text-anchor: start; fill: #20242d" x="434.638873" y="10.005" transform="rotate(-0 434.638873 10.005)">GPT-5.6 Sol</text>
+    <text style="font-style: italic; font-weight: 700; font-size: 9.5px; font-family: 'Roboto'; text-anchor: start; fill: #20242d" x="434.638873" y="10.005" transform="rotate(-0 434.638873 10.005)">GPT-5.6 Sol</text>
    </g>
    <g id="text_50">
     <text style="font-size: 8.5px; font-family: 'Roboto'; text-anchor: start; fill: #747d8b" x="434.638873" y="25.004177" transform="rotate(-0 434.638873 25.004177)">28 pools · random 52.9%</text>

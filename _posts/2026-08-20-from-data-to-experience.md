@@ -3,6 +3,7 @@ layout: distill
 title: "From Data to Experience"
 description: "Agentic learning shifts AI from fixed corpora toward learning loops built around tool-mediated experience."
 date: 2026-08-20
+last_updated: 2026-10-05
 tags: ['AI', 'agents', 'learning']
 categories: blog
 permalink: /blog/preview/from-data-to-experience/
@@ -314,6 +315,33 @@ The actions may be synthetic; the consequences need not be.
 <span>The important question is not who produced the tokens, but where the evidence came from.</span>
 </div>
 
+## Text as an Environment
+
+Push this framing to an extreme. Human text can itself be wrapped as an environment. The state is the prefix so far; the action is the model's guess at the next token; the observation is the token that actually follows; the feedback is whether the guess was right:
+
+$$
+s_t = x_{1:t}, \quad a_t = \hat{x}_{t+1}, \quad o_{t+1} = x_{t+1}, \quad f_{t+1} = \mathbb{1}[\hat{x}_{t+1} = x_{t+1}]
+$$
+
+Every action now has a determined return, and every return can be checked. Pretraining becomes a special case of interaction. This is not only a thought experiment: Reinforcement Pre-Training trains next-token prediction as a reasoning task rewarded by exactly this check <d-cite key="dong2025rpt"></d-cite>.
+
+The extreme case is useful because it shows what the text environment lacks. Its returns were fixed before the model arrived. Whatever the model predicts, the next token stays the same:
+
+$$
+P(o_{t+1} \mid s_t, a_t) = P(o_{t+1} \mid s_t)
+$$
+
+The action changes the feedback, never the observation. In a terminal, a browser, or a laboratory, the action changes what comes back: run a different command and the environment returns a different output.
+
+So the line between pretraining and agentic learning is not whether there is an environment. Anything can be framed as one. The difference is how much the environment answers to the action, and whether its answer already exists in some record. Text sits at one end: its returns were written in advance and selected by human authors. An experiment sits at the other: its returns depend on the action and may never have been recorded before.
+
+Seen this way, language models were never only reading. They were already predicting an environment's returns, but an environment that could not respond. What agents add is not interaction in the abstract, but environments whose returns depend on what the model does. Within a trace, the actions are the model's own tokens; only the observations come from outside it. If next-token prediction compressed the returns of a recorded environment, the natural next step is to compress the returns of responsive ones: the observation side of agent traces, $P(o_{t+1} \mid s_t, a_t)$.
+
+<div class="exp-pullquote">
+Pretraining was already interaction, with an environment that could not answer back.
+<span>Agents make the environment answer.</span>
+</div>
+
 ## Tools Mediate Experience
 
 Agents rarely act on environments directly. A tool converts a model's intention into an action the environment can execute, then converts the consequence into an observation the model can read:
@@ -552,6 +580,33 @@ Interaction 则真正执行 action，并获得这一次实际发生的结果。C
 <div class="exp-pullquote">
 行动可以是 synthetic 的，consequences 却未必是。
 <span>真正重要的问题不是谁产生了 tokens，而是其中的 evidence 来自哪里。</span>
+</div>
+
+## 把文本也当作环境
+
+把这个框架推到极端：人类文本本身也可以被包装成一个 environment。State 是目前为止的前缀；action 是模型对下一个 token 的猜测；observation 是实际出现的那个 token；feedback 是猜得对不对：
+
+$$
+s_t = x_{1:t}, \quad a_t = \hat{x}_{t+1}, \quad o_{t+1} = x_{t+1}, \quad f_{t+1} = \mathbb{1}[\hat{x}_{t+1} = x_{t+1}]
+$$
+
+这样一来，每一次 action 都有确定的 return，每一个 return 都可以检验。Pretraining 成了 interaction 的一个特例。这并不只是思想实验：Reinforcement Pre-Training 正是用这种检验作为 reward，把 next-token prediction 当作推理任务来训练 <d-cite key="dong2025rpt"></d-cite>。
+
+这个极端情形的价值在于，它暴露出文本环境缺少什么。它的 returns 在模型到来之前就已经固定了。无论模型预测什么，下一个 token 都不会改变：
+
+$$
+P(o_{t+1} \mid s_t, a_t) = P(o_{t+1} \mid s_t)
+$$
+
+Action 只改变 feedback，从不改变 observation。而在 terminal、browser 或实验室里，action 会改变返回的内容：换一条命令，环境就返回不同的输出。
+
+因此，pretraining 与 agentic learning 的分界，不在于有没有 environment，因为任何东西都可以被表述成 environment。分界在于 environment 在多大程度上回应 action，以及它的回答是否早已存在于某份记录之中。文本处在一端：它的 returns 由人类作者事先写定、事先筛选。实验处在另一端：它的 returns 取决于 action，而且可能从未被记录过。
+
+从这个角度看，语言模型从来不只是在“阅读”。它们一直在预测一个环境的 returns，只是这个环境不会回应。Agent 带来的不是抽象意义上的 interaction，而是会随模型行动而改变回答的 environment。在一条 trace 里，actions 是模型自己的 tokens，只有 observations 来自模型之外。如果 next-token prediction 压缩的是一个被记录下来的环境的 returns，那么下一步自然是压缩会回应的环境的 returns：agent traces 中 observation 的那一半，$P(o_{t+1} \mid s_t, a_t)$。
+
+<div class="exp-pullquote">
+Pretraining 本来就是 interaction，只是那个环境不会回应。
+<span>Agent 让环境开始回应。</span>
 </div>
 
 ## 工具中介经验

@@ -541,7 +541,7 @@ _styles: |
 
 <div class="sle-lede">
 <div class="sle-lede-label">TL;DR</div>
-<p>Agent benchmarks produce thousands of graded runs and use each one once, for a score. Those runs can have a second life: hide the verdict, and each run becomes a verification task: can another agent tell whether it worked? We build these tasks from Terminal-Bench 4.0 and give them to six reviewer models: Opus 5.5, GPT-5.6 Sol, GPT-6 Sol, GLM-5.3 Flash, GLM-5.3, and DeepSeek V4.1 Flash.</p>
+<p>Agent benchmarks produce thousands of graded runs and use each one once, for a score. Those runs can have a second life: hide the result, and each run becomes a verification task: can another agent tell whether it worked? We build these tasks from Terminal-Bench 4.0 and give them to six reviewer models: Opus 5.5, GPT-5.6 Sol, GPT-6 Sol, GLM-5.3 Flash, GLM-5.3, and DeepSeek V4.1 Flash.</p>
 <ul>
 <li><strong>Judging one run is unreliable.</strong> Even the strictest reviewer, Opus 5.5, passes about half of the failed runs.</li>
 <li><strong>Choosing is much easier.</strong> Given five attempts at the same task, Opus 5.5 and GPT-5.6 Sol pick a successful one nearly 80% of the time, against 55% for a random pick. On all 66 tasks, having GPT-5.6 Sol pick one of five attempts lifts <em>Fable 5.1</em>’s success rate from 58% to 70%.</li>

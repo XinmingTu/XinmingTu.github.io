@@ -19,6 +19,33 @@ authors:
 
 bibliography: 2026-02-10-hierarchical-mas-theory.bib
 
+_styles: |
+  /* Claude-style figure palette; the inline SVGs read these variables. */
+  d-article {
+    --tm-panel: #faf9f5; --tm-card: #ffffff; --tm-ink: #141413; --tm-body: #3d3d3a;
+    --tm-muted: #77766f; --tm-faint: #b9b7ae; --tm-line: #e3e1d8;
+    --tm-clay: #d97757; --tm-clay-text: #a8492a; --tm-clay-soft: #f8e9e1;
+    --tm-olive: #788c5d; --tm-olive-text: #55693d; --tm-olive-soft: #ecefe3;
+    --tm-sky: #6a9bcc; --tm-sky-text: #3b6a9a; --tm-sky-soft: #e6eef6;
+    --tm-hero: #141413; --tm-hero-text: #faf9f5; --tm-hero-muted: #a3a197; --tm-hero-accent: #e8957a;
+  }
+  html[data-theme='dark'] d-article {
+    --tm-panel: #262624; --tm-card: #30302e; --tm-ink: #f0eee6; --tm-body: #cfcdc4;
+    --tm-muted: #a09e95; --tm-faint: #6b6a64; --tm-line: #44433f;
+    --tm-clay: #e08a6c; --tm-clay-text: #eda48a; --tm-clay-soft: #4a3229;
+    --tm-olive: #a3b885; --tm-olive-text: #b6c99a; --tm-olive-soft: #363c2d;
+    --tm-sky: #8db5de; --tm-sky-text: #a6c6e6; --tm-sky-soft: #2b3541;
+    --tm-hero: #f0eee6; --tm-hero-text: #1f1e1d; --tm-hero-muted: #6f6d66; --tm-hero-accent: #b5532f;
+  }
+  d-article figure.tm-fig { margin: 1.75rem 0 2rem; }
+  d-article figure.tm-fig svg.tm-figure { display: block; width: 100%; height: auto; }
+  d-article .tm-fig-mobile { display: none; }
+  @media (max-width: 600px) {
+    d-article .tm-fig-desktop { display: none; }
+    d-article .tm-fig-mobile { display: block; }
+  }
+  d-article figure.tm-fig figcaption { margin-top: 0.75rem; color: var(--tm-muted); }
+
 toc:
     - name: "Introduction"
     - name: "The Baseline: Why Linear Reasoning Collapses"
@@ -73,8 +100,9 @@ Section 6 synthesizes them into a single reliability scaling law.
 Section 7 lists the practical constraints that determine whether the gains survive in real systems.
 Related work is organized as a structural evolution in the appendix.
 
-<figure markdown="0">
-<img src="/assets/img/theoryofmas/three_mechanism_causal_chain.svg" style="width: 100%;">
+<figure class="tm-fig" markdown="0">
+<div class="tm-fig-desktop">{% include theoryofmas/causal-chain.svg %}</div>
+<div class="tm-fig-mobile">{% include theoryofmas/causal-chain-mobile.svg %}</div>
 <figcaption>The three-mechanism causal chain: Topology creates decomposition boundaries, Isolation manufactures verifiable atomic units, and Verification exploits that structure to suppress residual errors. Each mechanism creates the structural preconditions for the next.</figcaption>
 </figure>
 
@@ -311,6 +339,12 @@ $$
 \;\times\;
 \underbrace{\delta_+^m}_{\textbf{Verification (filter)}}.
 $$
+
+<figure class="tm-fig" markdown="0">
+<div class="tm-fig-desktop">{% include theoryofmas/reliability-equation.svg %}</div>
+<div class="tm-fig-mobile">{% include theoryofmas/reliability-equation-mobile.svg %}</div>
+<figcaption>Each mechanism controls one term of the failure exponent. Topology bounds drift by depth, isolation lowers the per-leaf error rate, and verification filters what remains, so the exponent grows with depth rather than with total work.</figcaption>
+</figure>
 
 **Synthesis: The Structural Decoupling of Inference.**
 The unified equation reveals that reliable MAS do not simply "add more compute"---they succeed through strict structural decoupling. Unstructured CoT entangles control flow, state memory, and error checking into a single, fragile context window. Structured scaling dismantles this monolith: Topology decouples control flow from work; Isolation decouples ephemeral reasoning from persistent state; Verification decouples the generator from the critic.

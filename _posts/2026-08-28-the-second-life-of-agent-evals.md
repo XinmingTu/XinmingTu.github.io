@@ -19,6 +19,7 @@ toc:
   - name: "Selection recovers part of the sampling gain"
   - name: "What a review costs"
   - name: "From evaluation to training"
+  - name: "Acknowledgements"
   - name: "Appendix"
 
 authors:
@@ -793,6 +794,10 @@ Code, tasks, and results are in the [GitHub repository](https://github.com/Xinmi
   note   = {Blog post; updated October 2, 2026}
 }
 ```
+
+## Acknowledgements
+
+We thank [Zain Hasan](https://zainhas.github.io/), [Jacky Kwok](https://x.com/jackyk02), [Tong Chen](https://chentong0.github.io/), and [Qiuyang Mang](https://joyemang33.github.io/) for reading the blog and for their feedback.
 
 ## Appendix
 

@@ -6,9 +6,6 @@ last_updated: 2026-10-02
 date: 2026-08-28
 tags: ['AI', 'agents', 'benchmarks', 'verification']
 categories: blog
-permalink: /blog/preview/the-second-life-of-agent-evals/
-preview: true
-sitemap: false
 bibliography: 2026-08-28-the-second-life-of-agent-evals.bib
 
 toc:
@@ -790,7 +787,7 @@ Code, tasks, and results are in the [GitHub repository](https://github.com/Xinmi
   title  = {The Second Life of Agent Evals},
   year   = {2026},
   month  = aug,
-  url    = {https://xinmingtu.cn/blog/preview/the-second-life-of-agent-evals/},
+  url    = {https://xinmingtu.cn/blog/2026/the-second-life-of-agent-evals/},
   note   = {Blog post; updated October 2, 2026}
 }
 ```

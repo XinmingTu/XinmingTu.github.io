@@ -797,7 +797,7 @@ Code, tasks, and results are in the [GitHub repository](https://github.com/Xinmi
 
 ## Acknowledgements
 
-We thank [Zain Hasan](https://zainhas.github.io/), [Jacky Kwok](https://x.com/jackyk02), [Tong Chen](https://chentong0.github.io/), and [Qiuyang Mang](https://joyemang33.github.io/) for reading the blog and for their feedback.
+We thank [Zain Hasan](https://zainhas.github.io/), [Jacky Kwok](https://x.com/jackyk02), [Tong Chen](https://chentong0.github.io/), [Qiuyang Mang](https://joyemang33.github.io/), and [Yiping Wang](https://ypwang61.github.io/) for reading the blog and for their feedback.
 
 ## Appendix
 

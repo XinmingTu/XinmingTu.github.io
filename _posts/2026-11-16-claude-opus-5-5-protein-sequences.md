@@ -11,7 +11,7 @@ sitemap: false
 bibliography: 2026-11-16-claude-opus-5-5-protein-sequences.bib
 
 toc:
-  - name: "Why it is hard to tell"
+  - name: "Why famous proteins don't count"
   - name: "The test"
   - name: "Only Claude Opus 5.5 shows it"
   - name: "The fingerprint of training data"
@@ -49,7 +49,7 @@ _styles: |
   d-article .bp-lede strong { color: var(--bp-ink); }
   d-article figure.bp-figure { margin: 1.6rem 0 2rem; }
   @media (min-width: 1000px) {
-    d-article > figure.bp-wide { grid-column: page; }
+    d-article > figure.bp-wide { grid-column: page; justify-self: center; width: 100%; max-width: 860px; }
   }
   d-article figure.bp-figure img, d-article figure.bp-figure svg { display: block; width: 100%; height: auto; }
   html[data-theme='dark'] d-article figure.bp-figure img { background: #ffffff; border-radius: 10px; padding: 10px; }
@@ -68,36 +68,33 @@ _styles: |
 ---
 
 <div class="bp-lede" markdown="1">
-**Protein sequences are in Claude Opus 5.5's training data, at scale.** On bacterial proteins that no paper describes, it predicts the next amino acid 35% of the time, against 7.5% for the same residues shuffled and 5% for a blind guess. The gap grows with the number of sequences in a protein's family, as training data predicts, and holds in families with no papers at all.
+**Claude Opus 5.5 was trained on protein sequences. No other model we tested shows it.**
 
-Every other model we tested, from OpenAI, Google and seven open-weight labs, stays near the shuffled baseline. Earlier Claude models show a small version of the signal, starting with Opus 4.8.
+On 668 bacterial proteins that no paper describes, we asked models for the next amino acid, then asked again on the same protein shuffled. The gap between the two is what a model learned about these sequences:
+
+- **Claude Opus 5.5: +27.4 points** (34.9% vs 7.5%)
+- OpenAI: GPT-6 Astra +2.9, GPT-5.5 +2.1
+- Google: Gemini 4 Carbon +0.9, Gemini 2.5 Pro +1.1
+- Open-weight: DeepSeek, Qwen, Kimi, GLM, MiniMax, gpt-oss and Nemotron, 0 to +1.9
+
+The gap grows with the number of sequences in a protein's family, including families with no papers at all: the fingerprint of training data. It is new: Opus 4.6 +0.9, Opus 4.8 +7.7, Opus 5 +9.7, Opus 5.5 +27.4.
 </div>
 
-## Why it is hard to tell
+## Why famous proteins don't count
 
-This started with a post by Atharv Jayprakash<d-cite key="jayprakash2026sod1"></d-cite>: GPT-6 Astra, with no tools, ranked SOD1 variants about as well as ESM-2, and he asked whether frontier labs train on protein data or on protein-model outputs. PG-LLM<d-cite key="arora2026pgllm"></d-cite> then showed general-purpose LLMs ranking variants near ESM-2 level, in a way that looks more like reasoning than sequence statistics.
+A post by Atharv Jayprakash<d-cite key="jayprakash2026sod1"></d-cite> and PG-LLM<d-cite key="arora2026pgllm"></d-cite> showed frontier models ranking protein variants about as well as ESM-2, which raised the question of whether they were trained on sequence databases such as UniProt.
 
-So we asked the direct question: were frontier models trained on biological sequence databases such as UniProt? It matters for what they can do in biology, for biosecurity, and for knowing what is in their training data. Three things make it hard to tell from the outside.
-
-- **Famous proteins are everywhere.** Given the first 64 residues of GFP, 9 of 12 frontier models write the next 10 exactly. Papers print GFP; that says nothing about databases.
-- **Guessing well is cheap.** Proteins favour some amino acids, and repeats can be copied from the prompt.
-- **There are no fresh sequences to hold out.** Of 3.8 million UniProt entries added after July 2026, about 10 carry a sequence first seen after that date; the rest sat in other databases for years.
+Famous proteins can't answer it. They are printed in papers and across the web: given the start of GFP, 9 of 12 frontier models write the next 10 residues exactly. So we test on proteins nobody writes about.
 
 ## The test
-
-We give a model the start of a protein and ask for the next amino acids, on proteins chosen so that only sequence data can help, and we ask again on a shuffled copy of each protein.
 
 <figure class="bp-figure bp-wide" markdown="0">
   <div class="bp-fig-desktop">{% include llm-bioseq-probe/method.svg %}</div>
   <div class="bp-fig-mobile">{% include llm-bioseq-probe/method-mobile.svg %}</div>
-  <figcaption>Percentages: how often Claude Opus 5.5 gets the next amino acid right over all 668 proteins. Shuffling keeps a protein's letters and loses their order, so the gap is what the model knows about order. The real row and its answer come from the test set; the shuffled row is schematic.</figcaption>
+  <figcaption>Shuffling keeps a protein's letters and loses their order, so the gap is what the model knows about order. Percentages are over all 668 proteins; the shuffled row is schematic.</figcaption>
 </figure>
 
-- **Proteins nobody studies.** 668 bacterial and archaeal proteins from 167 Pfam "domain of unknown function" families: no solved structure, at most 3 papers, and no other UniProt protein within 90% identity. Reasoning and the literature have little to work with.
-- **A shuffled control.** Every question is asked again on the same protein with its residues shuffled. A model that only knows which amino acids are common scores the same on both.
-- **A fingerprint.** If the signal comes from sequence data in training, it should grow with the number of sequences a family has.
-
-Models ran through their own APIs with thinking off or at its lowest setting, no tools, one sample per question: 6,680 questions per model.
+The proteins come from 167 Pfam "domain of unknown function" families with no solved structure and at most 3 papers, and none has a UniProt relative within 90% identity. Each model answered 6,680 questions through its own API, with thinking off or at its lowest setting.
 
 ## Only Claude Opus 5.5 shows it
 
@@ -106,7 +103,7 @@ Models ran through their own APIs with thinking off or at its lowest setting, no
   <figcaption>Filled points: the chat prompt. Hollow points: raw next-token continuation of the FASTA text, through a completion endpoint or a prefilled reply, for models that allow it.</figcaption>
 </figure>
 
-Opus 5.5 gets 34.9% of next amino acids right against 7.5% shuffled, a gap of 27.4 points (95% CI 24.7 to 30.1), and the gap appears in 95% of families. Within Claude the signal starts in Opus 4.8 (+7.7) and Opus 5 (+9.7) and jumps in Opus 5.5; Opus 4.6 has none. GPT-5.5, GPT-6 Astra and Gemini 4 Carbon stay within 3 points, and so do seven open-weight models given the raw FASTA text through a plain completion endpoint, which is exactly next-token prediction.
+The gap for Opus 5.5 has a 95% CI of 24.7 to 30.1 points and appears in 95% of families. The open-weight models were run as raw next-token continuation of the FASTA text, the way they were trained, and still show nothing.
 
 ## The fingerprint of training data
 

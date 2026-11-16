@@ -85,7 +85,7 @@ The proteins come from 167 Pfam "domain of unknown function" families with no so
 ## Results: only Claude Opus 5.5 predicts them
 
 <figure class="bp-figure" markdown="0">
-  <img src="{{ '/assets/img/llm-bioseq-probe/fig1_protein.png' | relative_url }}" alt="Forest plot of the real-minus-shuffled gap for 17 language models: Claude Opus 5.5 at +27.4 points, earlier Claude Opus models up to 10, every other model between 0 and 3.">
+  <img src="{{ '/assets/img/llm-bioseq-probe/fig1_protein.png' | relative_url }}?v=20261117" alt="Forest plot of the real-minus-shuffled gap for 17 language models: Claude Opus 5.5 at +27.4 points, earlier Claude Opus models up to 10, every other model between 0 and 3.">
   <figcaption>Filled points: the chat prompt. Hollow points: raw next-token continuation of the FASTA text, through a completion endpoint or a prefilled reply, for models that allow it.</figcaption>
 </figure>
 
@@ -96,7 +96,7 @@ The gap for Opus 5.5 has a 95% CI of 24.7 to 30.0 points and appears in 95% of f
 Protein language models are trained only on protein sequences, so they set a reference level for the same test. The fairest comparison is ProtGPT3<d-cite key="garibbo2026protgpt3"></d-cite>, released in 2026: like an LLM, it reads a protein left to right and predicts the next residue, and at 10 billion parameters it is the largest open model of its kind. Given the same input, Claude Opus 5.5 matches it.
 
 <figure class="bp-figure" markdown="0">
-  <img src="{{ '/assets/img/llm-bioseq-probe/fig6_protein_lm.png' | relative_url }}" alt="Dot plot: ProtGPT3-10B +27.7 and Claude Opus 5.5 +27.4 at the top; ESM C 600M +13.0, ProtGPT3-1.3B +11.6, ProtGPT2 +10.2, ESM3-open +8.5 and ESM-2 650M +7.0 well below.">
+  <img src="{{ '/assets/img/llm-bioseq-probe/fig6_protein_lm.png' | relative_url }}?v=20261117" alt="Dot plot: ProtGPT3-10B +27.7 and Claude Opus 5.5 +27.4 at the top; ESM C 600M +13.0, ProtGPT3-1.3B +11.6, ProtGPT2 +10.2, ESM3-open +8.5 and ESM-2 650M +7.0 well below.">
 </figure>
 
 ProtGPT3-10B gets more answers right on real proteins (38.4% vs 34.9%) but also on shuffled ones (10.7% vs 7.5%), because it knows protein composition better; what each has learned about residue order is the same. The ESM models normally see both sides of a residue, so the left side alone is a harder setting for them. Appendix C has the full table.
@@ -104,7 +104,7 @@ ProtGPT3-10B gets more answers right on real proteins (38.4% vs 34.9%) but also 
 ## Evidence that this comes from training data
 
 <figure class="bp-figure" markdown="0">
-  <img src="{{ '/assets/img/llm-bioseq-probe/fig5_family_size.png' | relative_url }}" alt="Line chart: Claude Opus 5.5 and ProtGPT3-10B both rise from about 21 to 24 points in families of 300 to 1,000 proteins to 37 points in families over 10,000; other models stay near zero.">
+  <img src="{{ '/assets/img/llm-bioseq-probe/fig5_family_size.png' | relative_url }}?v=20261117" alt="Line chart: Claude Opus 5.5 and ProtGPT3-10B both rise from about 21 to 24 points in families of 300 to 1,000 proteins to 37 points in families over 10,000; other models stay near zero.">
 </figure>
 
 A model that learned from sequence data should know big families better than small ones, and Opus 5.5 does: 21 points for families of 300 to 1,000 proteins, 37 for families over 10,000 (Spearman 0.27, p = 0.0002). ProtGPT3-10B, which learned only from sequences, follows the same curve. Opus 4.7, 4.8 and 5 show the same slope at a lower level. Two other explanations do not fit:
@@ -115,7 +115,7 @@ A model that learned from sequence data should know big families better than sma
 ## Famous proteins and variant ranking
 
 <figure class="bp-figure" markdown="0">
-  <img src="{{ '/assets/img/llm-bioseq-probe/fig3_known_vs_obscure.png' | relative_url }}" alt="Dumbbell chart: on well-known proteins many models score high; on obscure proteins Claude Opus 5.5 and ProtGPT3-10B stay high while Gemini 4 Carbon drops to near zero.">
+  <img src="{{ '/assets/img/llm-bioseq-probe/fig3_known_vs_obscure.png' | relative_url }}?v=20261117" alt="Dumbbell chart: on well-known proteins many models score high; on obscure proteins Claude Opus 5.5 and ProtGPT3-10B stay high while Gemini 4 Carbon drops to near zero.">
 </figure>
 
 On well-studied vertebrate proteins many models do well: Gemini 4 Carbon gains 47.6 points, and several models recite hundreds of residues letter for letter (Appendix B). These sequences are printed in papers and mirrored across the web. Gemini 4 Carbon recites them, yet is at chance on obscure proteins (+47.6 vs +5.3). Claude Opus 5.5 keeps most of its accuracy (+51.9 vs +33.3), as does the protein language model ProtGPT3-10B (+51.4 vs +38.2).
@@ -148,7 +148,7 @@ All code, test sets, model outputs and figures are in [llm-bioseq-probe](https:/
 ### A. DNA
 
 <figure class="bp-figure" markdown="0">
-  <img src="{{ '/assets/img/llm-bioseq-probe/fig2_dna.png' | relative_url }}" alt="Forest plot by genomic region: Claude Opus 5.5 predicts human and mouse coding sequence; nothing clear elsewhere.">
+  <img src="{{ '/assets/img/llm-bioseq-probe/fig2_dna.png' | relative_url }}?v=20261117" alt="Forest plot by genomic region: Claude Opus 5.5 predicts human and mouse coding sequence; nothing clear elsewhere.">
 </figure>
 
 220-nucleotide windows, 200 shown and 20 to predict, from hg38, mm39 and the bacterial genes behind the test proteins, 500 per region. Non-coding windows contain no repeats, and the control shuffles each window keeping its dinucleotide counts. Opus 5.5 wrote all 20 nucleotides right 25 times in 500 human coding windows; a blind guess does that about once in a trillion. Gemini 4 Carbon blocks most DNA prompts before answering, so it is not shown.
@@ -156,7 +156,7 @@ All code, test sets, model outputs and figures are in [llm-bioseq-probe](https:/
 ### B. Reciting famous proteins
 
 <figure class="bp-figure" markdown="0">
-  <img src="{{ '/assets/img/llm-bioseq-probe/fig4_recall.png' | relative_url }}" alt="Bar chart: how often each model continues a famous protein letter for letter for 50, 100 and 200 residues.">
+  <img src="{{ '/assets/img/llm-bioseq-probe/fig4_recall.png' | relative_url }}?v=20261117" alt="Bar chart: how often each model continues a famous protein letter for letter for 50, 100 and 200 residues.">
 </figure>
 
 At 158 points in well-studied proteins, each model was asked for the next 200 residues. Opus 5.5 goes past 100 residues 24 times (longest 305), Gemini 4 Carbon 23 times (longest 201), Opus 5 14 times (longest 325). GPT-6.1 Sol never reaches 100 and GPT-5.5 never passes 2.

@@ -5,9 +5,6 @@ description: "A next-amino-acid test on proteins nobody has studied, with a shuf
 date: 2026-11-16
 tags: ['AI', 'biology', 'LLM', 'evaluation']
 categories: blog
-permalink: /blog/preview/claude-opus-5-5-protein-sequences/
-preview: true
-sitemap: false
 bibliography: 2026-11-16-claude-opus-5-5-protein-sequences.bib
 
 toc:
@@ -66,7 +63,7 @@ _styles: |
 ---
 
 <div class="bp-lede" markdown="1">
-**Claude Opus 5.5 was trained on protein sequences, at scale.** On bacterial proteins that no paper describes, it predicts the next amino acid far better than on the same proteins shuffled. No other model we tested does, from OpenAI, Google or seven open-weight labs. The signal grows with the number of sequences in a protein's family, even in families with no papers at all, which is what training on sequence data predicts. It appears with Claude Opus 4.7 and jumps with Opus 5.5. Given the same input, Opus 5.5 also scores above protein language models such as ESM C, ESM3 and ProtGPT2.
+**Claude Opus 5.5 was trained on protein sequences, at scale.** On bacterial proteins that no paper describes, it predicts the next amino acid far better than on the same proteins shuffled. No other model we tested does, from OpenAI, Google or seven open-weight labs. The signal grows with the number of sequences in a protein's family, even in families with no papers at all, which is what training on sequence data predicts. It appears with Claude Opus 4.7 and jumps with Opus 5.5. On this test it matches ProtGPT3-10B, the newest and largest open protein language model of its kind, and scores well above smaller ones.
 </div>
 
 ## Motivation
@@ -88,7 +85,7 @@ The proteins come from 167 Pfam "domain of unknown function" families with no so
 ## Results: only Claude Opus 5.5 predicts them
 
 <figure class="bp-figure" markdown="0">
-  <img src="{{ '/assets/img/llm-bioseq-probe/fig1_protein.png' | relative_url }}" alt="Forest plot of the real-minus-shuffled gap for 17 models; Claude Opus 5.5 at +27.4 points, every non-Claude model between 0 and 3.">
+  <img src="{{ '/assets/img/llm-bioseq-probe/fig1_protein.png' | relative_url }}" alt="Forest plot of the real-minus-shuffled gap: Claude Opus 5.5 at +27.4 points and ProtGPT3-10B at +27.7; every other LLM between 0 and 10.">
   <figcaption>Filled points: the chat prompt. Hollow points: raw next-token continuation of the FASTA text, through a completion endpoint or a prefilled reply, for models that allow it.</figcaption>
 </figure>
 
@@ -107,18 +104,16 @@ A model that learned from sequence data should know big families better than sma
 
 ## Comparison with protein language models
 
-Protein language models are trained only on protein sequences, so they give a reference level for the same test. Given the same input as the LLMs, the residues before the cut, they score well below Claude Opus 5.5:
+Protein language models are trained only on protein sequences, so they set a reference level for the same test. The fairest comparison is ProtGPT3<d-cite key="garibbo2026protgpt3"></d-cite>, released in 2026: like an LLM, it reads a protein left to right and predicts the next residue, and at 10 billion parameters it is the largest open model of its kind. Given the same input, Claude Opus 5.5 matches it:
 
-| Model | Input | Real minus shuffled, points (95% CI) |
-|---|---|---|
-| **Claude Opus 5.5** | residues before the cut | **+27.4** (24.7 to 30.0) |
-| ESM C 600M | residues before the cut | +13.0 (10.8 to 15.2) |
-| ProtGPT2 | residues before the cut | +10.2 (8.3 to 12.2) |
-| ESM3-open 1.4B | residues before the cut | +8.5 (6.5 to 10.7) |
-| ESM-2 650M | residues before the cut | +7.0 (5.2 to 8.8) |
-| ESM-2 650M | the whole protein, one residue masked | +34.6 (31.8 to 37.2) |
+| Model | Real minus shuffled, points (95% CI) |
+|---|---|
+| **Claude Opus 5.5** | **+27.4** (24.7 to 30.0) |
+| **ProtGPT3-10B** | **+27.7** (24.2 to 31.1) |
+| ProtGPT3-1.3B | +11.6 (8.9 to 14.4) |
+| ESM C 600M | +13.0 (10.7 to 15.2) |
 
-ESM-2, ESM C and ESM3 are masked models that normally see both sides of a residue, so the left side alone is not their usual setting; with the whole protein, ESM-2 reaches +34.6. ProtGPT2 reads left to right, like an LLM. These are reference levels, not a ranking of the models.
+All models see only the residues before the cut. ProtGPT3-10B gets more answers right on real proteins (38.4% vs 34.9%) but also on shuffled ones (10.7% vs 7.5%), because it knows protein composition better; what each has learned about residue order is the same. ESM C, like other ESM models, normally sees both sides of a residue, so the left side alone is a harder setting for it. Appendix C lists all seven protein language models.
 
 ## Famous proteins and variant ranking
 
@@ -146,7 +141,7 @@ All code, test sets, model outputs and figures are in [llm-bioseq-probe](https:/
   title  = {Claude Opus 5.5 was trained on protein sequences at scale},
   year   = {2026},
   month  = nov,
-  url    = {https://xinmingtu.cn/blog/preview/claude-opus-5-5-protein-sequences/},
+  url    = {https://xinmingtu.cn/blog/2026/claude-opus-5-5-protein-sequences/},
   note   = {Blog post}
 }
 ```
@@ -169,17 +164,30 @@ All code, test sets, model outputs and figures are in [llm-bioseq-probe](https:/
 
 At 158 points in well-studied proteins, each model was asked for the next 200 residues. Opus 5.5 goes past 100 residues 24 times (longest 305), Gemini 4 Carbon 23 times (longest 201), Opus 5 14 times (longest 325). GPT-6.1 Sol never reaches 100 and GPT-5.5 never passes 2.
 
-### C. Robustness
+### C. Protein language models
+
+| Model | Reads | Input | Real | Shuffled | Real minus shuffled, points (95% CI) |
+|---|---|---|---|---|---|
+| ProtGPT3-10B | left to right | residues before the cut | 38.4% | 10.7% | +27.7 (24.2 to 31.1) |
+| ESM C 600M | both sides | residues before the cut | 24.1% | 11.2% | +13.0 (10.7 to 15.2) |
+| ProtGPT3-1.3B | left to right | residues before the cut | 22.3% | 10.7% | +11.6 (8.9 to 14.4) |
+| ProtGPT2 | left to right | residues before the cut | 19.0% | 8.8% | +10.2 (8.3 to 12.2) |
+| ESM3-open 1.4B | both sides | residues before the cut | 19.6% | 11.0% | +8.5 (6.4 to 10.7) |
+| ESM-2 650M | both sides | residues before the cut | 17.3% | 10.3% | +7.0 (5.2 to 8.9) |
+| ESM-2 650M | both sides | residues on both sides of the cut | 45.7% | 11.1% | +34.6 (31.8 to 37.3) |
+
+The last row is fill-in-the-blank rather than continuation: ESM-2 also sees the residues after the cut, which the LLMs never get. Every model first passed a sanity check on well-known proteins. Continuing ubiquitin and hemoglobin β from the left, ProtGPT3-10B gets 100% and 84% of residues right; with the whole protein and one residue masked, ESM-2 gets 80% of ubiquitin, ESM C and ESM3-open 100%. Masks are set on token ids, because the ESM SDK's "_" character is not ESM C's mask token. ProtGPT2 uses multi-residue tokens, so a residue's probability is the sum over the tokens that start with it; ProtGPT3 uses one token per residue.
+
+### D. Robustness
 
 - **Prompt format.** Asking Opus 5.5 to copy the sequence and then continue gives the same gap as the standard prompt (19.3 vs 19.8 points on the same subset of questions).
 - **Refusals.** Non-answers are excluded and counted: 1% for Opus 5.5. Counting them as wrong moves its gap by under 1 point. GPT-4o, DeepSeek, Qwen, Kimi, GLM and gpt-oss often declined to guess a sequence; a best-guess prompt made them answer and did not change the picture.
-- **Protein language models.** Every model passed a sanity check first: with the whole protein and one residue masked at a time, ESM-2 gets 80% of ubiquitin right, ESM C and ESM3-open 100%. Masks are set on token ids; the ESM SDK's "_" character is not ESM C's mask token. ProtGPT2 uses multi-residue tokens, so a residue's probability is the sum over the tokens that start with it.
 - **A first round.** A smaller run of 20 models on 37 families, half well-known and half obscure, gave the same picture and set the design of the main run.
 
-### D. Methods
+### E. Methods
 
 Each protein is cut at 5 random points inside its Pfam domain; the model sees the start in FASTA format (60-character lines) and returns the next 10 residues; only the first is scored. The shuffled copy uses a fixed seed per protein. Intervals are 95% bootstraps over families (10,000 resamples), the main test a one-sided sign-flip permutation test over families. The analysis plan for the main run was written before it. Total API cost was about $450.
 
-### E. Safety behaviour seen along the way
+### F. Safety behaviour seen along the way
 
 Gemini 4 Carbon blocked about 75% of DNA prompts before generating anything. OpenAI rejected 23 GPT-6 requests as possible biological misuse. Claude Sonnet 4.5 refused 97% of requests that prefilled its reply with a protein sequence.

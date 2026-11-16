@@ -11,8 +11,8 @@ toc:
   - name: "Motivation"
   - name: "Method: proteins nobody has studied"
   - name: "Results: only Claude Opus 5.5 predicts them"
-  - name: "Evidence that this comes from training data"
   - name: "Comparison with protein language models"
+  - name: "Evidence that this comes from training data"
   - name: "Famous proteins and variant ranking"
   - name: "What this means"
   - name: "Code and data"
@@ -85,43 +85,40 @@ The proteins come from 167 Pfam "domain of unknown function" families with no so
 ## Results: only Claude Opus 5.5 predicts them
 
 <figure class="bp-figure" markdown="0">
-  <img src="{{ '/assets/img/llm-bioseq-probe/fig1_protein.png' | relative_url }}" alt="Forest plot of the real-minus-shuffled gap: protein language models first (ProtGPT3-10B +27.7, ProtGPT3-1.3B +11.6, ProtGPT2 +10.2), then Claude Opus 5.5 at +27.4; every other LLM between 0 and 10.">
+  <img src="{{ '/assets/img/llm-bioseq-probe/fig1_protein.png' | relative_url }}" alt="Forest plot of the real-minus-shuffled gap for 17 language models: Claude Opus 5.5 at +27.4 points, earlier Claude Opus models up to 10, every other model between 0 and 3.">
   <figcaption>Filled points: the chat prompt. Hollow points: raw next-token continuation of the FASTA text, through a completion endpoint or a prefilled reply, for models that allow it.</figcaption>
 </figure>
 
 The gap for Opus 5.5 has a 95% CI of 24.7 to 30.0 points and appears in 95% of families. Across Claude generations, Opus 4.5 and 4.6 show none, Opus 4.7, 4.8 and 5 show 8 to 10 points, and Opus 5.5 jumps to 27. The open-weight models were run as raw next-token continuation of the FASTA text, the way they were trained, and still show nothing.
 
+## Comparison with protein language models
+
+Protein language models are trained only on protein sequences, so they set a reference level for the same test. The fairest comparison is ProtGPT3<d-cite key="garibbo2026protgpt3"></d-cite>, released in 2026: like an LLM, it reads a protein left to right and predicts the next residue, and at 10 billion parameters it is the largest open model of its kind. Given the same input, Claude Opus 5.5 matches it.
+
+<figure class="bp-figure" markdown="0">
+  <img src="{{ '/assets/img/llm-bioseq-probe/fig6_protein_lm.png' | relative_url }}" alt="Dot plot: ProtGPT3-10B +27.7 and Claude Opus 5.5 +27.4 at the top; ESM C 600M +13.0, ProtGPT3-1.3B +11.6, ProtGPT2 +10.2, ESM3-open +8.5 and ESM-2 650M +7.0 well below.">
+</figure>
+
+ProtGPT3-10B gets more answers right on real proteins (38.4% vs 34.9%) but also on shuffled ones (10.7% vs 7.5%), because it knows protein composition better; what each has learned about residue order is the same. The ESM models normally see both sides of a residue, so the left side alone is a harder setting for them. Appendix C has the full table.
+
 ## Evidence that this comes from training data
 
 <figure class="bp-figure" markdown="0">
-  <img src="{{ '/assets/img/llm-bioseq-probe/fig5_family_size.png' | relative_url }}" alt="Line chart: Claude Opus 5.5's gap rises from 21 points in families of 300 to 1,000 proteins to 37 points in families over 10,000; other models stay near zero.">
+  <img src="{{ '/assets/img/llm-bioseq-probe/fig5_family_size.png' | relative_url }}" alt="Line chart: Claude Opus 5.5 and ProtGPT3-10B both rise from about 21 to 24 points in families of 300 to 1,000 proteins to 37 points in families over 10,000; other models stay near zero.">
 </figure>
 
-A model that learned from sequence data should know big families better than small ones, and Opus 5.5 does: 21 points for families of 300 to 1,000 proteins, 37 for families over 10,000 (Spearman 0.27, p = 0.0002). Opus 4.7, 4.8 and 5 show the same slope at a lower level. Two other explanations do not fit:
+A model that learned from sequence data should know big families better than small ones, and Opus 5.5 does: 21 points for families of 300 to 1,000 proteins, 37 for families over 10,000 (Spearman 0.27, p = 0.0002). ProtGPT3-10B, which learned only from sequences, follows the same curve. Opus 4.7, 4.8 and 5 show the same slope at a lower level. Two other explanations do not fit:
 
 - **Not papers.** In the 128 families with no Europe PMC hit at all, the gap is 26.8 points and still grows with family size (rho 0.28, p = 0.001). Across families it does not track paper counts (rho 0.05).
 - **Not reasoning.** On the 55% of questions where Opus 5.5 wrote 15 tokens or fewer, barely more than the answer, it is right 35.6% of the time (shuffled: 7.3%). GPT-6 Astra thinks for 200+ tokens per question and reaches about 10%.
 
-## Comparison with protein language models
-
-Protein language models are trained only on protein sequences, so they set a reference level for the same test. The fairest comparison is ProtGPT3<d-cite key="garibbo2026protgpt3"></d-cite>, released in 2026: like an LLM, it reads a protein left to right and predicts the next residue, and at 10 billion parameters it is the largest open model of its kind. Given the same input, Claude Opus 5.5 matches it:
-
-| Model | Real minus shuffled, points (95% CI) |
-|---|---|
-| **Claude Opus 5.5** | **+27.4** (24.7 to 30.0) |
-| **ProtGPT3-10B** | **+27.7** (24.2 to 31.1) |
-| ProtGPT3-1.3B | +11.6 (8.9 to 14.4) |
-| ESM C 600M | +13.0 (10.7 to 15.2) |
-
-All models see only the residues before the cut. ProtGPT3-10B gets more answers right on real proteins (38.4% vs 34.9%) but also on shuffled ones (10.7% vs 7.5%), because it knows protein composition better; what each has learned about residue order is the same. ESM C, like other ESM models, normally sees both sides of a residue, so the left side alone is a harder setting for it. Appendix C lists all seven protein language models.
-
 ## Famous proteins and variant ranking
 
 <figure class="bp-figure" markdown="0">
-  <img src="{{ '/assets/img/llm-bioseq-probe/fig3_known_vs_obscure.png' | relative_url }}" alt="Dumbbell chart: on well-known proteins many models score high; on obscure proteins only recent Claude Opus models do.">
+  <img src="{{ '/assets/img/llm-bioseq-probe/fig3_known_vs_obscure.png' | relative_url }}" alt="Dumbbell chart: on well-known proteins many models score high; on obscure proteins Claude Opus 5.5 and ProtGPT3-10B stay high while Gemini 4 Carbon drops to near zero.">
 </figure>
 
-On well-studied vertebrate proteins many models do well: Gemini 4 Carbon gains 47.6 points, and several models recite hundreds of residues letter for letter (Appendix B). These sequences are printed in papers and mirrored across the web. Gemini 4 Carbon recites them, yet is at chance on the obscure bacterial set.
+On well-studied vertebrate proteins many models do well: Gemini 4 Carbon gains 47.6 points, and several models recite hundreds of residues letter for letter (Appendix B). These sequences are printed in papers and mirrored across the web. Gemini 4 Carbon recites them, yet is at chance on obscure proteins (+47.6 vs +5.3). Claude Opus 5.5 keeps most of its accuracy (+51.9 vs +33.3), as does the protein language model ProtGPT3-10B (+51.4 vs +38.2).
 
 This is also why our result does not contradict the SOD1 post or PG-LLM. Ranking variants of a well-studied protein can draw on biology and the literature: which positions are buried, which substitutions break a helix, which mutations are known in ALS. PG-LLM's flat accuracy across alignment depth, and its gains with more thinking, point to that route. Our test closes it off. GPT-6 has the first ability and little of the second; Opus 5.5 has both.
 

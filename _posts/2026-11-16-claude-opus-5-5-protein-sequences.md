@@ -85,7 +85,7 @@ The proteins come from 167 Pfam "domain of unknown function" families with no so
 ## Results: only Claude Opus 5.5 predicts them
 
 <figure class="bp-figure" markdown="0">
-  <img src="{{ '/assets/img/llm-bioseq-probe/fig1_protein.png' | relative_url }}" alt="Forest plot of the real-minus-shuffled gap: Claude Opus 5.5 at +27.4 points and ProtGPT3-10B at +27.7; every other LLM between 0 and 10.">
+  <img src="{{ '/assets/img/llm-bioseq-probe/fig1_protein.png' | relative_url }}" alt="Forest plot of the real-minus-shuffled gap: protein language models first (ProtGPT3-10B +27.7, ProtGPT3-1.3B +11.6, ProtGPT2 +10.2), then Claude Opus 5.5 at +27.4; every other LLM between 0 and 10.">
   <figcaption>Filled points: the chat prompt. Hollow points: raw next-token continuation of the FASTA text, through a completion endpoint or a prefilled reply, for models that allow it.</figcaption>
 </figure>
 

@@ -15,6 +15,7 @@ toc:
   - name: "Method: proteins nobody has studied"
   - name: "Results: only Claude Opus 5.5 predicts them"
   - name: "Evidence that this comes from training data"
+  - name: "Comparison with protein language models"
   - name: "Famous proteins and variant ranking"
   - name: "What this means"
   - name: "Code and data"
@@ -65,7 +66,7 @@ _styles: |
 ---
 
 <div class="bp-lede" markdown="1">
-**Claude Opus 5.5 was trained on protein sequences, at scale.** On bacterial proteins that no paper describes, it predicts the next amino acid far better than on the same proteins shuffled. No other model we tested does, from OpenAI, Google or seven open-weight labs. The signal grows with the number of sequences in a protein's family, even in families with no papers at all, which is what training on sequence data predicts. It appeared in recent Claude models and jumped with Opus 5.5.
+**Claude Opus 5.5 was trained on protein sequences, at scale.** On bacterial proteins that no paper describes, it predicts the next amino acid far better than on the same proteins shuffled. No other model we tested does, from OpenAI, Google or seven open-weight labs. The signal grows with the number of sequences in a protein's family, even in families with no papers at all, which is what training on sequence data predicts. It appears with Claude Opus 4.7 and jumps with Opus 5.5. Given the same input, Opus 5.5 also scores above protein language models such as ESM C, ESM3 and ProtGPT2.
 </div>
 
 ## Motivation
@@ -91,7 +92,7 @@ The proteins come from 167 Pfam "domain of unknown function" families with no so
   <figcaption>Filled points: the chat prompt. Hollow points: raw next-token continuation of the FASTA text, through a completion endpoint or a prefilled reply, for models that allow it.</figcaption>
 </figure>
 
-The gap for Opus 5.5 has a 95% CI of 24.7 to 30.1 points and appears in 95% of families. The open-weight models were run as raw next-token continuation of the FASTA text, the way they were trained, and still show nothing.
+The gap for Opus 5.5 has a 95% CI of 24.7 to 30.0 points and appears in 95% of families. Across Claude generations, Opus 4.5 and 4.6 show none, Opus 4.7, 4.8 and 5 show 8 to 10 points, and Opus 5.5 jumps to 27. The open-weight models were run as raw next-token continuation of the FASTA text, the way they were trained, and still show nothing.
 
 ## Evidence that this comes from training data
 
@@ -99,10 +100,25 @@ The gap for Opus 5.5 has a 95% CI of 24.7 to 30.1 points and appears in 95% of f
   <img src="{{ '/assets/img/llm-bioseq-probe/fig5_family_size.png' | relative_url }}" alt="Line chart: Claude Opus 5.5's gap rises from 21 points in families of 300 to 1,000 proteins to 37 points in families over 10,000; other models stay near zero.">
 </figure>
 
-A model that learned from sequence data should know big families better than small ones, and Opus 5.5 does: 21 points for families of 300 to 1,000 proteins, 37 for families over 10,000 (Spearman 0.27, p = 0.0002). Opus 4.8 and Opus 5 show the same slope at a lower level. Two other explanations do not fit:
+A model that learned from sequence data should know big families better than small ones, and Opus 5.5 does: 21 points for families of 300 to 1,000 proteins, 37 for families over 10,000 (Spearman 0.27, p = 0.0002). Opus 4.7, 4.8 and 5 show the same slope at a lower level. Two other explanations do not fit:
 
 - **Not papers.** In the 128 families with no Europe PMC hit at all, the gap is 26.8 points and still grows with family size (rho 0.28, p = 0.001). Across families it does not track paper counts (rho 0.05).
 - **Not reasoning.** On the 55% of questions where Opus 5.5 wrote 15 tokens or fewer, barely more than the answer, it is right 35.6% of the time (shuffled: 7.3%). GPT-6 Astra thinks for 200+ tokens per question and reaches about 10%.
+
+## Comparison with protein language models
+
+Protein language models are trained only on protein sequences, so they give a reference level for the same test. Given the same input as the LLMs, the residues before the cut, they score well below Claude Opus 5.5:
+
+| Model | Input | Real minus shuffled, points (95% CI) |
+|---|---|---|
+| **Claude Opus 5.5** | residues before the cut | **+27.4** (24.7 to 30.0) |
+| ESM C 600M | residues before the cut | +13.0 (10.8 to 15.2) |
+| ProtGPT2 | residues before the cut | +10.2 (8.3 to 12.2) |
+| ESM3-open 1.4B | residues before the cut | +8.5 (6.5 to 10.7) |
+| ESM-2 650M | residues before the cut | +7.0 (5.2 to 8.8) |
+| ESM-2 650M | the whole protein, one residue masked | +34.6 (31.8 to 37.2) |
+
+ESM-2, ESM C and ESM3 are masked models that normally see both sides of a residue, so the left side alone is not their usual setting; with the whole protein, ESM-2 reaches +34.6. ProtGPT2 reads left to right, like an LLM. These are reference levels, not a ranking of the models.
 
 ## Famous proteins and variant ranking
 
@@ -157,6 +173,7 @@ At 158 points in well-studied proteins, each model was asked for the next 200 re
 
 - **Prompt format.** Asking Opus 5.5 to copy the sequence and then continue gives the same gap as the standard prompt (19.3 vs 19.8 points on the same subset of questions).
 - **Refusals.** Non-answers are excluded and counted: 1% for Opus 5.5. Counting them as wrong moves its gap by under 1 point. GPT-4o, DeepSeek, Qwen, Kimi, GLM and gpt-oss often declined to guess a sequence; a best-guess prompt made them answer and did not change the picture.
+- **Protein language models.** Every model passed a sanity check first: with the whole protein and one residue masked at a time, ESM-2 gets 80% of ubiquitin right, ESM C and ESM3-open 100%. Masks are set on token ids; the ESM SDK's "_" character is not ESM C's mask token. ProtGPT2 uses multi-residue tokens, so a residue's probability is the sum over the tokens that start with it.
 - **A first round.** A smaller run of 20 models on 37 families, half well-known and half obscure, gave the same picture and set the design of the main run.
 
 ### D. Methods

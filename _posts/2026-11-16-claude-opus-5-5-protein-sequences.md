@@ -5,6 +5,7 @@ description: "A next-amino-acid test on little-studied proteins finds that the l
 date: 2026-11-16
 tags: ['AI', 'biology', 'LLM', 'evaluation']
 categories: blog
+og_image: https://xinmingtu.cn/assets/img/llm-bioseq-probe/social_card.png
 bibliography: 2026-11-16-claude-opus-5-5-protein-sequences.bib
 
 toc:

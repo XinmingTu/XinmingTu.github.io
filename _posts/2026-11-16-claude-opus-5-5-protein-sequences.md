@@ -86,6 +86,8 @@ Famous proteins can't answer it. They are printed in papers and across the web: 
 
 The proteins come from 167 Pfam "domain of unknown function" families with no solved structure and at most 3 papers, and none has a UniProt relative within 90% identity. Each model answered 6,680 questions through its own API, with thinking off or at its lowest setting.
 
+The next amino acid is the main measure, but not the only one. Each question asks for the next 10 residues, so we also count how often a model gets all 10 right: Opus 5.5 does so 12 times on these proteins, where its per-residue accuracy predicts 0.6 by chance. And on well-known proteins we asked for the next 200 residues at once, to see how far a model can recite a sequence letter for letter: Opus 5.5 goes past 100 residues 24 times, with a longest run of 305 (Appendix B).
+
 ## Results: only Claude Opus 5.5 predicts them
 
 <figure class="bp-figure" markdown="0">

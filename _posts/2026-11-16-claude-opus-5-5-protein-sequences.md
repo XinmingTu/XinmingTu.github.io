@@ -1,7 +1,7 @@
 ---
 layout: distill
-title: "The latest Claude models were trained on protein sequences at scale"
-description: "A next-amino-acid test on little-studied proteins, with a shuffled control, finds sequence data in the latest Claude models' training and no sign of it in other frontier models."
+title: "Claude was trained on protein sequences at scale"
+description: "A next-amino-acid test on little-studied proteins finds that the latest Claude models were trained on protein sequences at scale. Other frontier models show no sign of it."
 date: 2026-11-16
 tags: ['AI', 'biology', 'LLM', 'evaluation']
 categories: blog
@@ -67,18 +67,18 @@ _styles: |
 ---
 
 <div class="bp-lede" markdown="1">
-**The latest Claude models were trained on protein sequences, at scale.** Give Claude Fable 5.2 or Claude Opus 5.5 the start of a little-studied bacterial protein and it predicts the next amino acid far better than when the same protein is shuffled. No other model we tested can do this: not GPT, not Gemini, not seven open-weight models. The ability first appears in Opus 4.7, grows in Opus 5.5, which matches ProtGPT3-10B, the largest open protein language model of its kind, and is strongest in Fable 5.2, which beats it by a wide margin. It holds even in protein families with no papers at all.
+**The latest Claude models were trained on protein sequences, at scale.** Give Claude Fable 5.2 or Claude Opus 5.5 the start of a little-studied bacterial protein and they predict the next amino acid. Shuffle the protein and they can't. No other model we tested can do this. Like a protein language model, they do better on bigger protein families, and they do it even in families with no papers at all. Opus 5.5 matches the largest open protein language model of its kind; Fable 5.2 beats it.
 </div>
 
 ## Motivation
 
-Atharv Jayprakash<d-cite key="jayprakash2026sod1"></d-cite> showed GPT-6 Astra ranking SOD1 variants as well as ESM-2, and PG-LLM<d-cite key="arora2026pgllm"></d-cite> found the same for frontier models across many proteins. That raises a simple question: were these models trained on protein sequence databases like UniProt?
+Frontier LLMs have started to look good at protein tasks. Atharv Jayprakash<d-cite key="jayprakash2026sod1"></d-cite> showed GPT-6 Astra ranking SOD1 variants as well as ESM-2, and PG-LLM<d-cite key="arora2026pgllm"></d-cite> found the same across many proteins. Did these models learn from protein sequence databases such as UniProt, or from what is written about proteins?
 
-Famous proteins can't tell us. GFP is printed in countless papers and web pages, and 9 of 12 frontier models continue it exactly. So we tested proteins that almost nobody writes about.
+Famous proteins can't tell the two apart: GFP is printed in countless papers, and most frontier models recite it. So we tested proteins that almost nobody writes about.
 
 ## Method: next-amino-acid prediction on little-studied proteins
 
-We give a model the start of a protein and ask for the next amino acids, then ask again on a shuffled copy of the same protein. Shuffling keeps the letters and destroys their order, so the difference in accuracy is what the model knows about the order of residues.
+We give a model the start of a protein and ask for the next amino acids. Then we ask again on a shuffled copy of the same protein. Shuffling keeps the letters and destroys their order, so the difference in accuracy measures what the model knows about the sequence itself.
 
 <figure class="bp-figure bp-wide" markdown="0">
   <div class="bp-fig-desktop">{% include llm-bioseq-probe/method.svg %}</div>
@@ -86,59 +86,58 @@ We give a model the start of a protein and ask for the next amino acids, then as
   <figcaption>Percentages are Claude Opus 5.5's accuracy over all 668 proteins. The real row and its answer come from the test set; the shuffled row is schematic.</figcaption>
 </figure>
 
-The proteins are little-studied: 668 of them, from 167 Pfam families of unknown function. None of these families has a solved structure, each has at most three papers, and no protein in the set has a close relative in UniProt (90% identity or more). We cut each protein at five random points, ask for the next residues and score the first one: 6,680 questions per model, counting the shuffled copies. Thinking is off or at its lowest setting.
-
-We also looked at longer continuations: how often a model gets all 10 requested residues right, and how far it can recite a famous protein when asked for 200 residues (Appendix B).
+The test set is 668 bacterial and archaeal proteins from 167 Pfam families of unknown function. No family has a solved structure or more than three papers, and no protein has a close relative in UniProt. Each protein is cut at five points, and we score the first residue after each cut. Thinking is at its lowest setting. Appendix F has the details.
 
 ## Results: only the latest Claude models predict them
 
 <figure class="bp-figure" markdown="0">
-  <img src="{{ '/assets/img/llm-bioseq-probe/fig1_protein.png' | relative_url }}?v=20261117e" alt="Forest plot of the real-minus-shuffled gap for 20 language models: Claude Fable 5.2 at +45.1 points, Claude Opus 5.5 at +27.4, Claude Fable 5.1 at +14.9, earlier Claude Opus models up to 10, every other model between 0 and 3.">
+  <img src="{{ '/assets/img/llm-bioseq-probe/fig1_protein.png' | relative_url }}?v=20261117g" alt="Forest plot of the real-minus-shuffled gap for 20 language models: Claude Fable 5.2 at +45.1 points, Claude Opus 5.5 at +27.4, Claude Fable 5.1 at +14.9, earlier Claude Opus models up to 10, every other model between 0 and 3.">
   <figcaption>Filled points: the chat prompt. Hollow points: raw next-token continuation of the FASTA text, through a completion endpoint or a prefilled reply, for models that allow it.</figcaption>
 </figure>
 
-Fable 5.2 gets the next amino acid right 54% of the time on real proteins and 9% on shuffled ones, a gap of 45.1 points (95% CI 42.5 to 47.6) that shows up in 98% of families. Opus 5.5's gap is 27.4 points (24.7 to 30.0), in 95% of families. Within the Opus line, Opus 4.5 and 4.6 show nothing, Opus 4.7 to 5 reach 8 to 10 points, and Opus 5.5 jumps to 27. Fable 5.1 is at 14.9 points, so most of Fable 5.2's lead is new in that release. All three GPT models, the newest GPT-6.1 Sol included, stay below 3 points, and the open-weight models stay flat even when they simply continue the raw FASTA text, the way they were trained. The lead is not just on the first residue: at the tenth residue Fable 5.2 is still 38.7 points ahead and Opus 5.5 18.5, and both write runs of correct residues that no other model, and no shuffled protein, gets close to (Appendix B).
+Fable 5.2 gets the next amino acid right 54% of the time on real proteins and 9% on shuffled ones. The gap is there in nearly every family, not just a few easy ones. It appears in Opus 4.7, jumps in Opus 5.5, and jumps again in Fable 5.2. GPT, Gemini and the open-weight models stay at zero, even when the open-weight models simply continue raw FASTA text, the way they were trained. The latest Claude models also write runs of correct residues that other models rarely manage (Appendix B).
 
 ## Comparison with protein language models
 
-Protein language models learn only from sequences, which makes them a natural yardstick. The closest match to an LLM is ProtGPT3<d-cite key="garibbo2026protgpt3"></d-cite>, released this year: it reads a protein left to right and predicts the next residue, and its 10-billion-parameter version is the largest open model of its kind. Given exactly the same input, Opus 5.5 matches it and Fable 5.2 beats it by 17 points.
+Protein language models learn only from sequences, so they are the natural yardstick. The closest to an LLM is ProtGPT3<d-cite key="garibbo2026protgpt3"></d-cite>: it reads a protein left to right and predicts the next residue, and its 10-billion-parameter version is the largest open model of its kind. On the same input, Opus 5.5 matches it and Fable 5.2 beats it.
 
 <figure class="bp-figure" markdown="0">
-  <img src="{{ '/assets/img/llm-bioseq-probe/fig6_protein_lm.png' | relative_url }}?v=20261117e" alt="Dot plot: Claude Fable 5.2 +45.1 at the top, then ProtGPT3-10B +27.7 and Claude Opus 5.5 +27.4; ESM C 600M +13.0, ProtGPT3-1.3B +11.6, ProtGPT2 +10.2, ESM3-open +8.5 and ESM-2 650M +7.0 well below.">
+  <img src="{{ '/assets/img/llm-bioseq-probe/fig6_protein_lm.png' | relative_url }}?v=20261117g" alt="Dot plot: Claude Fable 5.2 +45.1 at the top, then ProtGPT3-10B +27.7 and Claude Opus 5.5 +27.4; ESM C 600M +13.0, ProtGPT3-1.3B +11.6, ProtGPT2 +10.2, ESM3-open +8.5 and ESM-2 650M +7.0 well below.">
 </figure>
 
-ProtGPT3-10B gets more answers right than Opus 5.5 (38.4% vs 34.9%), but it also does better on shuffled proteins (10.7% vs 7.5%) because it knows amino acid composition better, so the gap, which is what each model knows about order, comes out the same. Fable 5.2 gets 54.1% right on real proteins and 9.0% on shuffled ones. ESM models are built to see both sides of a residue, so this test is harder for them. Appendix D has all seven models.
+ESM models are trained to see both sides of a residue, so continuing from the left is harder for them. Appendix D has all seven models.
 
 ## Evidence that this comes from training data
 
+If the models learned from sequences, families with more sequences should be easier. To test this over a wide range, we added 90 smaller families, down to 20 proteins each, for 257 families in all.
+
 <figure class="bp-figure" markdown="0">
-  <img src="{{ '/assets/img/llm-bioseq-probe/fig5_family_size.png' | relative_url }}?v=20261117e" alt="Line chart over seven family-size bins from 20 to over 10,000 proteins: Claude Opus 5.5 rises from 8 to 37 points and ProtGPT3-10B from 3 to 37, almost on top of each other; Claude Fable 5.2 rises from 20 to 44 by families of 300 to 1,000 proteins and then levels off.">
+  <img src="{{ '/assets/img/llm-bioseq-probe/fig5_family_size.png' | relative_url }}?v=20261117g" alt="Line chart over seven family-size bins from 20 to over 10,000 proteins: Claude Opus 5.5 and ProtGPT3-10B rise together, almost on top of each other; Claude Fable 5.2 rises fastest and levels off from about 300 proteins; Fable 5.1 and Opus 5 rise at a lower level; GPT and Gemini stay at zero.">
 </figure>
 
-If the signal comes from training on sequences, bigger families should be easier, because the model has seen more of their relatives. To cover a wide range of sizes we added 90 smaller families, 30 each with 20 to 60, 60 to 150 and 150 to 300 proteins, chosen the same way (Appendix F), for 257 families in all. Bigger families are easier:
+They are. Opus 5.5 and ProtGPT3-10B, which is trained on nothing but sequences, rise together, almost on top of each other. Fable 5.2 rises fastest and levels off at about 300 proteins per family. Earlier Claude models rise at a lower level, and GPT and Gemini stay at zero (all models: Appendix C).
 
-- Opus 5.5 goes from 8 points in families of 20 to 60 proteins to 37 in families over 10,000, and ProtGPT3-10B, trained on nothing but sequences, from 3 to 37. Across the 257 families the Spearman correlation with family size is 0.50 for Opus 5.5 and 0.46 for ProtGPT3-10B.
-- Fable 5.2 climbs fastest, from 20 points to 44 by families of 300 to 1,000 proteins, then levels off near 45. On the main set alone it looks flat because it has already reached its ceiling there.
-- Every Claude model from Opus 4.7 on follows the same pattern (Spearman 0.30 to 0.50, all p < 10<sup>-6</sup>), while Opus 4.5 and 4.6 stay flat at zero, as do the GPT models (Appendix C).
+Two other explanations don't fit:
 
-Two other explanations for the signal don't hold up:
-
-- **Papers.** In the 128 families with no papers at all, the gap is 26.8 points for Opus 5.5 and 45.9 for Fable 5.2, and for Opus 5.5 it still rises with family size (rho 0.28, p = 0.001). Across families it has nothing to do with how many papers exist (rho 0.05).
-- **Reasoning.** Most answers come with no thinking at all. For every reply the API reports how many of its tokens were thinking, and we count a question as thought about when that number is above zero. Fable 5.2 thought on 9% of questions, Opus 5.5 on 36%, and Fable 5.1 never. On the questions with no thinking, Fable 5.2 is right 54.7% of the time on real proteins and 8.8% on shuffled ones, and Opus 5.5 35.3% and 6.9%, no lower than when they think. GPT-6 Astra and GPT-6.1 Sol think for hundreds of tokens per question and stay near 10%.
+- **Papers.** In the 128 families with no papers at all, both models do as well as on the whole set.
+- **Reasoning.** Most answers involve no thinking at all: the API reports thinking tokens on 9% of Fable 5.2's answers and 36% of Opus 5.5's. The answers without thinking are just as accurate. GPT-6 Astra and GPT-6.1 Sol think for hundreds of tokens per question and stay at zero.
 
 ## Famous proteins and variant ranking
 
+Famous proteins are a different story. Many models do well on them, and several recite hundreds of residues letter for letter (Appendix B), because these sequences are all over papers and the web. In a first round with famous and obscure proteins side by side, Gemini 4 Carbon was strong on the famous ones and dropped to almost nothing on the obscure ones. Opus 5.5 and ProtGPT3-10B held up.
+
 <figure class="bp-figure" markdown="0">
-  <img src="{{ '/assets/img/llm-bioseq-probe/fig3_known_vs_obscure.png' | relative_url }}?v=20261117e" alt="Dumbbell chart: on well-known proteins many models score high; on obscure proteins Claude Opus 5.5 and ProtGPT3-10B stay high while Gemini 4 Carbon drops to near zero.">
+  <img src="{{ '/assets/img/llm-bioseq-probe/fig3_known_vs_obscure.png' | relative_url }}?v=20261117g" alt="Dumbbell chart: on well-known proteins many models score high; on obscure proteins Claude Opus 5.5 and ProtGPT3-10B stay high while Gemini 4 Carbon drops to near zero.">
+  <figcaption>This first round predates Fable 5.2 and GPT-6.1 Sol.</figcaption>
 </figure>
 
-Famous proteins are a different story. Many models do well on them, and several recite hundreds of residues letter for letter (Appendix B), because these sequences are everywhere in papers and on the web. Gemini 4 Carbon scores +47.6 on famous vertebrate proteins and falls to +5.3 on obscure ones. Opus 5.5 holds up (+51.9 to +33.3), and so does ProtGPT3-10B (+51.4 to +38.2). This first round predates Fable 5.2 and GPT-6.1 Sol, so they are not in the figure.
-
-This also squares our result with the SOD1 post and PG-LLM. Ranking variants of a well-known protein can lean on biology and the literature: which residues are buried, which substitutions break a helix, which mutations are known in ALS. In PG-LLM, accuracy doesn't change with alignment depth and improves with more thinking, both signs of that route. Our test shuts it out. GPT-6 is good at the first kind of task and weak at the second; the latest Claude models are good at both.
+This also explains the SOD1 and PG-LLM results. Ranking variants of a well-known protein can lean on what is written about it: which residues are buried, which substitutions break a helix, which mutations cause ALS. In PG-LLM, accuracy doesn't depend on alignment depth and improves with more thinking, both signs of that route. Our test shuts it out. GPT-6 is good at the first kind of task and weak at the second; the latest Claude models are good at both.
 
 ## What this means
 
-The latest Claude models learned protein families that are barely studied, and that takes a lot of sequence data, not a few examples. How broad the signal is, and how closely Opus 5.5 tracks a protein language model, suggests protein sequences were a sizeable part of their training, possibly in pretraining, though our test can't say which phase or where the data came from. Fable 5.2 goes further than any protein language model we could run. On DNA the picture is narrower: Opus 5.5 predicts human and mouse coding sequence but not the rest of the genome, and barely the bacterial genes behind the very proteins it knows (Appendix A). It learned proteins, not genomes.
+The latest Claude models know protein families that almost nobody has studied. That takes a lot of sequence data, not a few examples: protein sequences were a sizeable part of their training. Opus 5.5 behaves like a protein language model, and Fable 5.2 goes beyond the best one we could run. GPT and Gemini show none of this. Whatever protein sequence they saw in training, it was not enough to learn these families.
+
+DNA is different. Opus 5.5 predicts human and mouse coding sequence but not the rest of the genome, and barely the bacterial genes behind the proteins it knows (Appendix A). It learned proteins, not genomes.
 
 ## Code and data
 
@@ -149,7 +148,7 @@ All code, test sets, model outputs and figures are in [llm-bioseq-probe](https:/
 ```bibtex
 @misc{tu2026bioseq,
   author = {Tu, Xinming and Chen, Leo Tianlai},
-  title  = {The latest Claude models were trained on protein sequences at scale},
+  title  = {Claude was trained on protein sequences at scale},
   year   = {2026},
   month  = nov,
   url    = {https://xinmingtu.cn/blog/2026/claude-opus-5-5-protein-sequences/},
@@ -162,7 +161,7 @@ All code, test sets, model outputs and figures are in [llm-bioseq-probe](https:/
 ### A. DNA
 
 <figure class="bp-figure" markdown="0">
-  <img src="{{ '/assets/img/llm-bioseq-probe/fig2_dna.png' | relative_url }}?v=20261117e" alt="Forest plot by genomic region: Claude Opus 5.5 predicts human and mouse coding sequence; nothing clear elsewhere.">
+  <img src="{{ '/assets/img/llm-bioseq-probe/fig2_dna.png' | relative_url }}?v=20261117g" alt="Forest plot by genomic region: Claude Opus 5.5 predicts human and mouse coding sequence; nothing clear elsewhere.">
 </figure>
 
 220-nucleotide windows, 200 shown and 20 to predict, from hg38, mm39 and the bacterial genes behind the test proteins, 500 per region. Non-coding windows contain no repeats, and the control shuffles each window keeping its dinucleotide counts. Opus 5.5 wrote all 20 nucleotides right 25 times in 500 human coding windows; a blind guess does that about once in a trillion. Gemini 4 Carbon blocks most DNA prompts before answering, so it is not shown.
@@ -171,31 +170,33 @@ All code, test sets, model outputs and figures are in [llm-bioseq-probe](https:/
 
 **All 10 residues right.** Each question asks for the next 10 residues. On the 668 little-studied proteins, Claude Fable 5.2 gets all 10 right at 88 real cuts and Opus 5.5 at 12, and neither at any shuffled one. If their residues were independent guesses at their own per-residue accuracy, they would get 15.8 and 0.56 by chance.
 
-**Every position.** Scored one position at a time, the gap falls slowly: from 45.1 points at the first residue to 38.7 at the tenth for Fable 5.2, and from 27.4 to 18.5 for Opus 5.5. Fable 5.1 and Opus 4.7, 4.8 and 5 fade faster, and the other 14 models, including those run as raw continuation, stay near zero all the way.
+**Every position.** Scored one position at a time, the gap falls slowly for Fable 5.2 and Opus 5.5. Fable 5.1 and Opus 4.7, 4.8 and 5 fade faster, and the other 14 models, including those run as raw continuation, stay near zero all the way.
 
 <figure class="bp-figure" markdown="0">
-  <img src="{{ '/assets/img/llm-bioseq-probe/fig7_by_position.png' | relative_url }}?v=20261117e" alt="Line chart: real-minus-shuffled gap at positions 1 to 10 of the reply; Claude Opus 5.5 falls from 27.4 to 18.5, Opus 4.7 to 5 from about 9 to between 2 and 5, other models near zero.">
+  <img src="{{ '/assets/img/llm-bioseq-probe/fig7_by_position.png' | relative_url }}?v=20261117g" alt="Line chart: real-minus-shuffled gap at positions 1 to 10 of the reply; Claude Opus 5.5 falls from 27.4 to 18.5, Opus 4.7 to 5 from about 9 to between 2 and 5, other models near zero.">
 </figure>
 
-**Runs in a row.** Fable 5.2 gets the first 2 residues right 34% of the time, the first 5 11% and all 10 2.6%; Opus 5.5 16%, 3% and 0.4%. On shuffled proteins neither gets past 3. Once on track they get surer: after one right residue, Opus 5.5 gets the next right 47% of the time, after four in a row 68%.
+**Runs in a row.** On shuffled proteins neither Fable 5.2 nor Opus 5.5 gets more than 3 residues in a row. Once on track they get surer: after one right residue, Opus 5.5 gets the next right 47% of the time, after four in a row 68%.
 
 <figure class="bp-figure" markdown="0">
-  <img src="{{ '/assets/img/llm-bioseq-probe/fig8_runs.png' | relative_url }}?v=20261117e" alt="Line chart: share of replies whose first k residues are all right; Claude Opus 5.5 starts at 35% and stays above other models out to 10 residues, while its shuffled curve drops to zero by 3.">
+  <img src="{{ '/assets/img/llm-bioseq-probe/fig8_runs.png' | relative_url }}?v=20261117g" alt="Line chart: share of replies whose first k residues are all right; Claude Opus 5.5 starts at 35% and stays above other models out to 10 residues, while its shuffled curve drops to zero by 3.">
 </figure>
 
 **Reciting well-known proteins.** At 158 points in well-studied proteins, each model was asked for the next 200 residues at once.
 
 <figure class="bp-figure" markdown="0">
-  <img src="{{ '/assets/img/llm-bioseq-probe/fig4_recall.png' | relative_url }}?v=20261117e" alt="Bar chart: how often each model continues a famous protein letter for letter for 50, 100 and 200 residues.">
+  <img src="{{ '/assets/img/llm-bioseq-probe/fig4_recall.png' | relative_url }}?v=20261117g" alt="Bar chart: how often each model continues a famous protein letter for letter for 50, 100 and 200 residues.">
 </figure>
 
-Opus 5.5 gets past 100 residues 24 times (longest run 305), Gemini 4 Carbon 23 times (201), Opus 5 14 times (325). GPT-6.1 Sol never reaches 100, and GPT-5.5 never gets past 2. 
+GPT-6.1 Sol never reaches 100 residues, and GPT-5.5 never gets past 2.
 
 ### C. Family size for every model
 
 <figure class="bp-figure" markdown="0">
-  <img src="{{ '/assets/img/llm-bioseq-probe/fig5b_family_size_all.png' | relative_url }}?v=20261117e" alt="Line chart: the gap by family size for 12 language models and ProtGPT3-10B; Claude Fable 5.2, Opus 5.5 and ProtGPT3-10B rise steeply, Fable 5.1 and Opus 4.7 to 5 rise at a lower level, Opus 4.5 and 4.6, GPT and Gemini stay near zero.">
+  <img src="{{ '/assets/img/llm-bioseq-probe/fig5b_family_size_all.png' | relative_url }}?v=20261117g" alt="Line chart: the gap by family size for 12 language models and ProtGPT3-10B; Claude Fable 5.2, Opus 5.5 and ProtGPT3-10B rise steeply, Fable 5.1 and Opus 4.7 to 5 rise at a lower level, Opus 4.5 and 4.6, GPT and Gemini stay near zero.">
 </figure>
+
+Over all 257 families, the Spearman correlation between a family's gap and the log of its size is 0.50 for Opus 5.5, 0.46 for ProtGPT3-10B, 0.38 for Fable 5.2, and 0.30 to 0.48 for Fable 5.1 and Opus 4.7 to 5 (all p < 10<sup>-6</sup>); for Opus 4.5 and 4.6 it is about 0.
 
 ### D. Protein language models
 
@@ -209,14 +210,16 @@ Opus 5.5 gets past 100 residues 24 times (longest run 305), Gemini 4 Carbon 23 t
 | ESM-2 650M | both sides | residues before the cut | 17.3% | 10.3% | +7.0 (5.2 to 8.9) |
 | ESM-2 650M | both sides | residues on both sides of the cut | 45.7% | 11.1% | +34.6 (31.8 to 37.3) |
 
-The last row is fill-in-the-blank rather than continuation: ESM-2 also sees the residues after the cut, which the LLMs never get. Every model first passed a sanity check on well-known proteins. Continuing ubiquitin and hemoglobin β from the left, ProtGPT3-10B gets 100% and 84% of residues right; with the whole protein and one residue masked, ESM-2 gets 80% of ubiquitin, ESM C and ESM3-open 100%. Masks are set on token ids, because the ESM SDK's "_" character is not ESM C's mask token. ProtGPT2 uses multi-residue tokens, so a residue's probability is the sum over the tokens that start with it; ProtGPT3 uses one token per residue.
+ProtGPT3-10B gets more answers right than Opus 5.5 (38.4% vs 34.9%) but also more on shuffled proteins (10.7% vs 7.5%), because it knows amino acid composition better; the gap between the two, which is what each model knows about order, comes out the same. The last row is fill-in-the-blank rather than continuation: ESM-2 also sees the residues after the cut, which the LLMs never get. Every model first passed a sanity check on well-known proteins. Continuing ubiquitin and hemoglobin β from the left, ProtGPT3-10B gets 100% and 84% of residues right; with the whole protein and one residue masked, ESM-2 gets 80% of ubiquitin, ESM C and ESM3-open 100%. Masks are set on token ids, because the ESM SDK's "_" character is not ESM C's mask token. ProtGPT2 uses multi-residue tokens, so a residue's probability is the sum over the tokens that start with it; ProtGPT3 uses one token per residue.
 
 ### E. Robustness
 
-- **Prompt format.** Asking Opus 5.5 to copy the sequence and then continue gives the same gap as the standard prompt (19.3 vs 19.8 points on the same subset of questions).
-- **Refusals.** Non-answers are excluded and counted: 1% for Opus 5.5. Counting them as wrong moves its gap by under 1 point. GPT-4o, DeepSeek, Qwen, Kimi, GLM and gpt-oss often declined to guess a sequence; a best-guess prompt made them answer and did not change the picture.
-- **No instruction.** Sent the sequence alone, with no request to continue it, GPT-5.5 and Opus 5.5 almost always describe it instead (on a sample of 400 questions each), so chat models need the instruction.
-- **Claude Fable 5.** Anthropic's usage-policy filter blocked 44% of Fable 5's questions, so it is left out of the main figures. On the questions it answered its gap is 13.9 points; counting blocked questions as wrong gives 11.6, and keeping only the cuts answered on both the real and the shuffled protein gives 14.6. Fable 5.1 and 5.2 were blocked 2.5% and 0% of the time.
+- **Across families.** The gap is positive in 98% of families for Fable 5.2 and 95% for Opus 5.5.
+- **Papers.** In the 128 families with no papers at all, the gap is 45.9 points for Fable 5.2 and 26.8 for Opus 5.5, against 45.1 and 27.4 over all 167. For Opus 5.5 it still rises with family size there (Spearman 0.28, p = 0.001), and across families it is unrelated to the number of papers (Spearman 0.05).
+- **Prompt format.** Asking Opus 5.5 to copy the sequence first and then continue gives the same gap as the standard prompt (19.3 vs 19.8 points on the same subset of questions).
+- **Refusals.** Non-answers (1% for Opus 5.5) are excluded; counting them as wrong changes its gap by under 1 point. GPT-4o, DeepSeek, Qwen, Kimi, GLM and gpt-oss often declined to guess; a best-guess prompt made them answer, with the same result.
+- **No instruction.** Sent the sequence alone, GPT-5.5 and Opus 5.5 almost always describe it instead of continuing it (on a sample of 400 questions each), so chat models need the instruction.
+- **Claude Fable 5.** Anthropic's usage-policy filter blocked 44% of Fable 5's questions, so it is left out of the main figures. On the questions it answered its gap is 13.9 points; counting blocked questions as wrong gives 11.6, and keeping only the cuts answered on both the real and the shuffled protein gives 14.6, close to Fable 5.1's 14.9. Fable 5.1 and 5.2 were blocked 2.5% and 0% of the time.
 - **Repeat runs.** Asked 400 of the same questions again, Fable 5.2 scores 57.5% on real and 9.5% on shuffled proteins, against 57.5% and 8.5% the first time.
 - **A first round.** A smaller run of 20 models on 37 families, half well-known and half obscure, gave the same picture and set the design of the main run.
 
@@ -242,7 +245,7 @@ CLYLHCLVLGDSYAAALWREQTSLDTPPHDFDDTSVPTVLRILSRLTPA
 
 Each model runs through its own API with temperature 0 where it is accepted, thinking off or at its lowest setting (for Opus 5.5 and the Fable models, low effort, at which the model still decides whether to think), no tools, and one sample per question. The Claude Fable models run through OpenRouter, since Anthropic's API serves them only to workspaces that retain data. Models that declined to guess (GPT-4o, DeepSeek, Qwen, Kimi, GLM, gpt-oss) also got a version that adds "Give your best guess even if you are uncertain. Do not explain or refuse."; those runs are marked separately.
 
-**Thinking.** A reply counts as thought about when the API reports thinking tokens for it: `thinking_tokens` in Anthropic's usage report, `reasoning_tokens` in OpenRouter's. The thinking text itself is not kept; only the visible reply is scored.
+**Thinking.** A reply counts as thought about when the API reports thinking tokens for it: `thinking_tokens` in Anthropic's usage report, `reasoning_tokens` in OpenRouter's. The thinking text itself is not kept; only the visible reply is scored. Fable 5.2 thought on 9% of questions, Opus 5.5 on 36%, Fable 5.1 never. Without thinking, Fable 5.2 is right 54.7% of the time on real proteins and 8.8% on shuffled ones (48.2% and 10.6% with thinking), and Opus 5.5 35.3% and 6.9% (34.1% and 8.6%).
 
 **Scoring.** We take the last line of the reply, keep its letters and read the first one as the predicted next amino acid. A question counts only if that line contains nothing but the 20 standard letters; refusals and other non-answers are excluded and counted (1% for Opus 5.5). Only this first residue is scored. We asked for 10 so that the answer is a sequence rather than a single letter, and used the full 10 only to count exact continuations.
 

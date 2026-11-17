@@ -86,11 +86,8 @@ _styles: |
     --bp-good: #6cc398; --bp-bad: #e58a82; --bp-chip: #eef0f4; --bp-chip-text: #1d2433;
   }
   d-article p, d-article li { color: var(--bp-body); }
-  /* Serif body, sans headings, tighter leading. */
-  d-article p, d-article li, d-article .bp-lede {
-    font-family: "Source Serif 4", Charter, "Bitstream Charter", Georgia, serif;
-    font-size: 17.5px; line-height: 1.5;
-  }
+  /* Serif body comes from the site; the lede uses it too. */
+  d-article .bp-lede { font-family: "Source Serif 4", Charter, Georgia, serif; }
   html body d-article h2 { color: var(--bp-ink); font-size: 26px; font-weight: 600; letter-spacing: -0.01em; line-height: 1.25; margin-top: 2.2rem; margin-bottom: 0.6em; }
   html body d-article h3 { font-size: 19px; font-weight: 600; line-height: 1.3; }
   @media (min-width: 768px) { html body d-title h1 { font-size: 34px; font-weight: 600; } }
@@ -101,7 +98,6 @@ _styles: |
   }
   d-article .bp-lede p { margin: 0 0 0.6rem; }
   d-article .bp-lede strong { color: var(--bp-ink); }
-  d-article p strong, d-article li strong { font-weight: 700; }
   d-article figure.bp-figure { margin: 1.6rem 0 2rem; }
   @media (min-width: 1000px) {
     d-article > figure.bp-wide { grid-column: page; justify-self: center; width: 100%; max-width: 860px; }
@@ -120,8 +116,6 @@ _styles: |
     d-article .bp-fig-mobile { display: block; }
   }
 ---
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&display=swap">
-
 
 <div class="bp-lede" markdown="1">
 **The latest Claude models were trained on protein sequences, at scale.** Give Claude Fable 5.2 or Claude Opus 5.5 the start of a little-studied bacterial protein and they predict the next amino acid. Shuffle the protein and they can't. No other model we tested can do this. Like a protein language model, they do better on bigger protein families, and they do it even in families with no papers at all. Fable 5.2 beats every open protein language model we ran, and Opus 5.5 is level with ProtGPT3-10B, the largest of them.

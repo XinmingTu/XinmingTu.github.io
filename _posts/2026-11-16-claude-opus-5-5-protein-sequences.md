@@ -9,7 +9,7 @@ bibliography: 2026-11-16-claude-opus-5-5-protein-sequences.bib
 
 toc:
   - name: "Motivation"
-  - name: "Method: little-studied proteins"
+  - name: "Method: next-amino-acid prediction on little-studied proteins"
   - name: "Results: only Claude Opus 5.5 predicts them"
   - name: "Comparison with protein language models"
   - name: "Evidence that this comes from training data"
@@ -76,15 +76,17 @@ Atharv Jayprakash<d-cite key="jayprakash2026sod1"></d-cite> showed GPT-6 Astra r
 
 Famous proteins can't tell us. GFP is printed in countless papers and web pages, and 9 of 12 frontier models continue it exactly. So we tested proteins that almost nobody writes about.
 
-## Method: little-studied proteins
+## Method: next-amino-acid prediction on little-studied proteins
+
+We give a model the start of a protein and ask for the next amino acids, then ask again on a shuffled copy of the same protein. Shuffling keeps the letters and destroys their order, so the difference in accuracy is what the model knows about the order of residues.
 
 <figure class="bp-figure bp-wide" markdown="0">
   <div class="bp-fig-desktop">{% include llm-bioseq-probe/method.svg %}</div>
   <div class="bp-fig-mobile">{% include llm-bioseq-probe/method-mobile.svg %}</div>
-  <figcaption>Shuffling keeps a protein's letters and loses their order, so the gap is what the model knows about order. Percentages are over all 668 proteins; the shuffled row is schematic.</figcaption>
+  <figcaption>Percentages are Claude Opus 5.5's accuracy over all 668 proteins. The real row and its answer come from the test set; the shuffled row is schematic.</figcaption>
 </figure>
 
-The 668 proteins come from 167 Pfam families of unknown function. None of these families has a solved structure, each has at most three papers, and no protein in the set has a close relative in UniProt (90% identity or more). We cut each protein at five random points, ask for the next residues and score the first one: 6,680 questions per model, counting the shuffled copies. Thinking is off or at its lowest setting.
+The proteins are little-studied: 668 of them, from 167 Pfam families of unknown function. None of these families has a solved structure, each has at most three papers, and no protein in the set has a close relative in UniProt (90% identity or more). We cut each protein at five random points, ask for the next residues and score the first one: 6,680 questions per model, counting the shuffled copies. Thinking is off or at its lowest setting.
 
 We also looked at longer continuations: how often a model gets all 10 requested residues right, and how far it can recite a famous protein when asked for 200 residues (Appendix B).
 

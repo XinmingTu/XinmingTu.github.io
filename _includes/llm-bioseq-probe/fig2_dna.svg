@@ -1,0 +1,598 @@
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" id="fig2_dna" width="100%" viewBox="0 0 358.653344 267.964332" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-11-17T05:40:06.021771</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.11.2, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">#fig2_dna *{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="fig2_dna-figure_1">
+  <g id="fig2_dna-patch_1">
+   <path d="M -0 267.964332 
+L 358.653344 267.964332 
+L 358.653344 0 
+L -0 0 
+L -0 267.964332 
+z
+" style="fill: none"/>
+  </g>
+  <g id="fig2_dna-axes_1">
+   <g id="fig2_dna-patch_2">
+    <path d="M 83.069969 220.45317 
+L 339.749969 220.45317 
+L 339.749969 20.86917 
+L 83.069969 20.86917 
+z
+" style="fill: var(--fig-bg, #ffffff)"/>
+   </g>
+   <g id="fig2_dna-matplotlib.axis_1">
+    <g id="fig2_dna-xtick_1">
+     <g id="fig2_dna-line2d_1">
+      <path d="M 91.921003 220.45317 
+L 91.921003 20.86917 
+" clip-path="url(#fig2_dna-pb407a49a90)" style="fill: none; stroke: var(--fig-grid, #eceef2); stroke-width: 0.5; stroke-linecap: square"/>
+     </g>
+     <g id="fig2_dna-line2d_2">
+      <defs>
+       <path id="fig2_dna-m7891c0500f" d="M 0 0 
+L 0 2.5 
+" style="stroke: var(--fig-muted, #6b7385); stroke-width: 0.6"/>
+      </defs>
+      <g>
+       <use xlink:href="#fig2_dna-m7891c0500f" x="91.921003" y="220.45317" style="fill: var(--fig-muted, #6b7385); stroke: var(--fig-muted, #6b7385); stroke-width: 0.6"/>
+      </g>
+     </g>
+     <g id="fig2_dna-text_1">
+      <text style="font-size: 6.5px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: middle; fill: var(--fig-muted, #6b7385)" x="91.921003" y="231.185348" transform="rotate(-0 91.921003 231.185348)">−10</text>
+     </g>
+    </g>
+    <g id="fig2_dna-xtick_2">
+     <g id="fig2_dna-line2d_3">
+      <path d="M 136.176176 220.45317 
+L 136.176176 20.86917 
+" clip-path="url(#fig2_dna-pb407a49a90)" style="fill: none; stroke: var(--fig-grid, #eceef2); stroke-width: 0.5; stroke-linecap: square"/>
+     </g>
+     <g id="fig2_dna-line2d_4">
+      <g>
+       <use xlink:href="#fig2_dna-m7891c0500f" x="136.176176" y="220.45317" style="fill: var(--fig-muted, #6b7385); stroke: var(--fig-muted, #6b7385); stroke-width: 0.6"/>
+      </g>
+     </g>
+     <g id="fig2_dna-text_2">
+      <text style="font-size: 6.5px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: middle; fill: var(--fig-muted, #6b7385)" x="136.176176" y="231.185348" transform="rotate(-0 136.176176 231.185348)">0</text>
+     </g>
+    </g>
+    <g id="fig2_dna-xtick_3">
+     <g id="fig2_dna-line2d_5">
+      <path d="M 180.431348 220.45317 
+L 180.431348 20.86917 
+" clip-path="url(#fig2_dna-pb407a49a90)" style="fill: none; stroke: var(--fig-grid, #eceef2); stroke-width: 0.5; stroke-linecap: square"/>
+     </g>
+     <g id="fig2_dna-line2d_6">
+      <g>
+       <use xlink:href="#fig2_dna-m7891c0500f" x="180.431348" y="220.45317" style="fill: var(--fig-muted, #6b7385); stroke: var(--fig-muted, #6b7385); stroke-width: 0.6"/>
+      </g>
+     </g>
+     <g id="fig2_dna-text_3">
+      <text style="font-size: 6.5px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: middle; fill: var(--fig-muted, #6b7385)" x="180.431348" y="231.185348" transform="rotate(-0 180.431348 231.185348)">10</text>
+     </g>
+    </g>
+    <g id="fig2_dna-xtick_4">
+     <g id="fig2_dna-line2d_7">
+      <path d="M 224.68652 220.45317 
+L 224.68652 20.86917 
+" clip-path="url(#fig2_dna-pb407a49a90)" style="fill: none; stroke: var(--fig-grid, #eceef2); stroke-width: 0.5; stroke-linecap: square"/>
+     </g>
+     <g id="fig2_dna-line2d_8">
+      <g>
+       <use xlink:href="#fig2_dna-m7891c0500f" x="224.68652" y="220.45317" style="fill: var(--fig-muted, #6b7385); stroke: var(--fig-muted, #6b7385); stroke-width: 0.6"/>
+      </g>
+     </g>
+     <g id="fig2_dna-text_4">
+      <text style="font-size: 6.5px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: middle; fill: var(--fig-muted, #6b7385)" x="224.68652" y="231.185348" transform="rotate(-0 224.68652 231.185348)">20</text>
+     </g>
+    </g>
+    <g id="fig2_dna-xtick_5">
+     <g id="fig2_dna-line2d_9">
+      <path d="M 268.941693 220.45317 
+L 268.941693 20.86917 
+" clip-path="url(#fig2_dna-pb407a49a90)" style="fill: none; stroke: var(--fig-grid, #eceef2); stroke-width: 0.5; stroke-linecap: square"/>
+     </g>
+     <g id="fig2_dna-line2d_10">
+      <g>
+       <use xlink:href="#fig2_dna-m7891c0500f" x="268.941693" y="220.45317" style="fill: var(--fig-muted, #6b7385); stroke: var(--fig-muted, #6b7385); stroke-width: 0.6"/>
+      </g>
+     </g>
+     <g id="fig2_dna-text_5">
+      <text style="font-size: 6.5px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: middle; fill: var(--fig-muted, #6b7385)" x="268.941693" y="231.185348" transform="rotate(-0 268.941693 231.185348)">30</text>
+     </g>
+    </g>
+    <g id="fig2_dna-xtick_6">
+     <g id="fig2_dna-line2d_11">
+      <path d="M 313.196865 220.45317 
+L 313.196865 20.86917 
+" clip-path="url(#fig2_dna-pb407a49a90)" style="fill: none; stroke: var(--fig-grid, #eceef2); stroke-width: 0.5; stroke-linecap: square"/>
+     </g>
+     <g id="fig2_dna-line2d_12">
+      <g>
+       <use xlink:href="#fig2_dna-m7891c0500f" x="313.196865" y="220.45317" style="fill: var(--fig-muted, #6b7385); stroke: var(--fig-muted, #6b7385); stroke-width: 0.6"/>
+      </g>
+     </g>
+     <g id="fig2_dna-text_6">
+      <text style="font-size: 6.5px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: middle; fill: var(--fig-muted, #6b7385)" x="313.196865" y="231.185348" transform="rotate(-0 313.196865 231.185348)">40</text>
+     </g>
+    </g>
+    <g id="fig2_dna-text_7">
+     <text style="font-size: 7px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: middle; fill: var(--fig-ink, #1d2433)" x="211.409969" y="241.649459" transform="rotate(-0 211.409969 241.649459)">Next nucleotide: real minus dinucleotide-shuffled accuracy (percentage points)</text>
+    </g>
+   </g>
+   <g id="fig2_dna-matplotlib.axis_2">
+    <g id="fig2_dna-ytick_1">
+     <g id="fig2_dna-line2d_13"/>
+     <g id="fig2_dna-text_8">
+      <text style="font-size: 7px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: end; fill: var(--fig-ink, #1d2433)" x="79.569969" y="36.954232" transform="rotate(-0 79.569969 36.954232)">Human coding (CDS)</text>
+     </g>
+    </g>
+    <g id="fig2_dna-ytick_2">
+     <g id="fig2_dna-line2d_14"/>
+     <g id="fig2_dna-text_9">
+      <text style="font-size: 7px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: end; fill: var(--fig-ink, #1d2433)" x="79.569969" y="57.249534" transform="rotate(-0 79.569969 57.249534)">Mouse coding (CDS)</text>
+     </g>
+    </g>
+    <g id="fig2_dna-ytick_3">
+     <g id="fig2_dna-line2d_15"/>
+     <g id="fig2_dna-text_10">
+      <text style="font-size: 7px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: end; fill: var(--fig-ink, #1d2433)" x="79.569969" y="77.544836" transform="rotate(-0 79.569969 77.544836)">Bacterial coding (CDS)</text>
+     </g>
+    </g>
+    <g id="fig2_dna-ytick_4">
+     <g id="fig2_dna-line2d_16"/>
+     <g id="fig2_dna-text_11">
+      <text style="font-size: 7px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: end; fill: var(--fig-ink, #1d2433)" x="79.569969" y="107.987789" transform="rotate(-0 79.569969 107.987789)">Human promoter</text>
+     </g>
+    </g>
+    <g id="fig2_dna-ytick_5">
+     <g id="fig2_dna-line2d_17"/>
+     <g id="fig2_dna-text_12">
+      <text style="font-size: 7px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: end; fill: var(--fig-ink, #1d2433)" x="79.569969" y="128.283091" transform="rotate(-0 79.569969 128.283091)">Mouse promoter</text>
+     </g>
+    </g>
+    <g id="fig2_dna-ytick_6">
+     <g id="fig2_dna-line2d_18"/>
+     <g id="fig2_dna-text_13">
+      <text style="font-size: 7px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: end; fill: var(--fig-ink, #1d2433)" x="79.569969" y="148.578393" transform="rotate(-0 79.569969 148.578393)">Human intron</text>
+     </g>
+    </g>
+    <g id="fig2_dna-ytick_7">
+     <g id="fig2_dna-line2d_19"/>
+     <g id="fig2_dna-text_14">
+      <text style="font-size: 7px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: end; fill: var(--fig-ink, #1d2433)" x="79.569969" y="168.873695" transform="rotate(-0 79.569969 168.873695)">Mouse intron</text>
+     </g>
+    </g>
+    <g id="fig2_dna-ytick_8">
+     <g id="fig2_dna-line2d_20"/>
+     <g id="fig2_dna-text_15">
+      <text style="font-size: 7px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: end; fill: var(--fig-ink, #1d2433)" x="79.569969" y="189.168997" transform="rotate(-0 79.569969 189.168997)">Human intergenic</text>
+     </g>
+    </g>
+    <g id="fig2_dna-ytick_9">
+     <g id="fig2_dna-line2d_21"/>
+     <g id="fig2_dna-text_16">
+      <text style="font-size: 7px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: end; fill: var(--fig-ink, #1d2433)" x="79.569969" y="209.464299" transform="rotate(-0 79.569969 209.464299)">Mouse intergenic</text>
+     </g>
+    </g>
+   </g>
+   <g id="fig2_dna-line2d_22">
+    <path d="M 244.375194 29.94117 
+L 297.587827 29.94117 
+" clip-path="url(#fig2_dna-pb407a49a90)" style="fill: none; stroke: #d97757; stroke-width: 1.3; stroke-linecap: round"/>
+   </g>
+   <g id="fig2_dna-line2d_23">
+    <defs>
+     <path id="fig2_dna-mb46ff64ed5" d="M 0 1.8 
+C 0.477366 1.8 0.935244 1.610341 1.272792 1.272792 
+C 1.610341 0.935244 1.8 0.477366 1.8 0 
+C 1.8 -0.477366 1.610341 -0.935244 1.272792 -1.272792 
+C 0.935244 -1.610341 0.477366 -1.8 0 -1.8 
+C -0.477366 -1.8 -0.935244 -1.610341 -1.272792 -1.272792 
+C -1.610341 -0.935244 -1.8 -0.477366 -1.8 0 
+C -1.8 0.477366 -1.610341 0.935244 -1.272792 1.272792 
+C -0.935244 1.610341 -0.477366 1.8 0 1.8 
+z
+" style="stroke: var(--fig-bg, #ffffff); stroke-width: 0.4"/>
+    </defs>
+    <g clip-path="url(#fig2_dna-pb407a49a90)">
+     <use xlink:href="#fig2_dna-mb46ff64ed5" x="270.98151" y="29.94117" style="fill: #d97757; stroke: var(--fig-bg, #ffffff); stroke-width: 0.4"/>
+    </g>
+   </g>
+   <g id="fig2_dna-line2d_24">
+    <path d="M 171.256495 34.406136 
+L 222.527732 34.406136 
+" clip-path="url(#fig2_dna-pb407a49a90)" style="fill: none; stroke: var(--fig-c-o5, #df8a68); stroke-opacity: 0.75; stroke-linecap: round"/>
+   </g>
+   <g id="fig2_dna-line2d_25">
+    <defs>
+     <path id="fig2_dna-m84dd004c4b" d="M 0 1.8 
+C 0.477366 1.8 0.935244 1.610341 1.272792 1.272792 
+C 1.610341 0.935244 1.8 0.477366 1.8 0 
+C 1.8 -0.477366 1.610341 -0.935244 1.272792 -1.272792 
+C 0.935244 -1.610341 0.477366 -1.8 0 -1.8 
+C -0.477366 -1.8 -0.935244 -1.610341 -1.272792 -1.272792 
+C -1.610341 -0.935244 -1.8 -0.477366 -1.8 0 
+C -1.8 0.477366 -1.610341 0.935244 -1.272792 1.272792 
+C -0.935244 1.610341 -0.477366 1.8 0 1.8 
+z
+" style="stroke: var(--fig-c-o5, #df8a68); stroke-width: 0.9"/>
+    </defs>
+    <g clip-path="url(#fig2_dna-pb407a49a90)">
+     <use xlink:href="#fig2_dna-m84dd004c4b" x="197.341861" y="34.406136" style="fill: var(--fig-bg, #ffffff); stroke: var(--fig-c-o5, #df8a68); stroke-width: 0.9"/>
+    </g>
+   </g>
+   <g id="fig2_dna-line2d_26">
+    <path d="M 114.026462 38.871103 
+L 161.844176 38.871103 
+" clip-path="url(#fig2_dna-pb407a49a90)" style="fill: none; stroke: var(--fig-gpt-55, #7c7c87); stroke-width: 1.3; stroke-linecap: round"/>
+   </g>
+   <g id="fig2_dna-line2d_27">
+    <defs>
+     <path id="fig2_dna-mf210999195" d="M 0 1.8 
+C 0.477366 1.8 0.935244 1.610341 1.272792 1.272792 
+C 1.610341 0.935244 1.8 0.477366 1.8 0 
+C 1.8 -0.477366 1.610341 -0.935244 1.272792 -1.272792 
+C 0.935244 -1.610341 0.477366 -1.8 0 -1.8 
+C -0.477366 -1.8 -0.935244 -1.610341 -1.272792 -1.272792 
+C -1.610341 -0.935244 -1.8 -0.477366 -1.8 0 
+C -1.8 0.477366 -1.610341 0.935244 -1.272792 1.272792 
+C -0.935244 1.610341 -0.477366 1.8 0 1.8 
+z
+" style="stroke: var(--fig-bg, #ffffff); stroke-width: 0.4"/>
+    </defs>
+    <g clip-path="url(#fig2_dna-pb407a49a90)">
+     <use xlink:href="#fig2_dna-mf210999195" x="137.946383" y="38.871103" style="fill: var(--fig-gpt-55, #7c7c87); stroke: var(--fig-bg, #ffffff); stroke-width: 0.4"/>
+    </g>
+   </g>
+   <g id="fig2_dna-line2d_28">
+    <path d="M 237.280177 50.236472 
+L 286.9453 50.236472 
+" clip-path="url(#fig2_dna-pb407a49a90)" style="fill: none; stroke: #d97757; stroke-width: 1.3; stroke-linecap: round"/>
+   </g>
+   <g id="fig2_dna-line2d_29">
+    <g clip-path="url(#fig2_dna-pb407a49a90)">
+     <use xlink:href="#fig2_dna-mb46ff64ed5" x="262.112738" y="50.236472" style="fill: #d97757; stroke: var(--fig-bg, #ffffff); stroke-width: 0.4"/>
+    </g>
+   </g>
+   <g id="fig2_dna-line2d_30">
+    <path d="M 182.05044 54.701438 
+L 233.321676 54.701438 
+" clip-path="url(#fig2_dna-pb407a49a90)" style="fill: none; stroke: var(--fig-c-o5, #df8a68); stroke-opacity: 0.75; stroke-linecap: round"/>
+   </g>
+   <g id="fig2_dna-line2d_31">
+    <g clip-path="url(#fig2_dna-pb407a49a90)">
+     <use xlink:href="#fig2_dna-m84dd004c4b" x="208.135806" y="54.701438" style="fill: var(--fig-bg, #ffffff); stroke: var(--fig-c-o5, #df8a68); stroke-width: 0.9"/>
+    </g>
+   </g>
+   <g id="fig2_dna-line2d_32">
+    <path d="M 118.474107 59.166405 
+L 169.810107 59.166405 
+" clip-path="url(#fig2_dna-pb407a49a90)" style="fill: none; stroke: var(--fig-gpt-55, #7c7c87); stroke-width: 1.3; stroke-linecap: round"/>
+   </g>
+   <g id="fig2_dna-line2d_33">
+    <g clip-path="url(#fig2_dna-pb407a49a90)">
+     <use xlink:href="#fig2_dna-mf210999195" x="144.142107" y="59.166405" style="fill: var(--fig-gpt-55, #7c7c87); stroke: var(--fig-bg, #ffffff); stroke-width: 0.4"/>
+    </g>
+   </g>
+   <g id="fig2_dna-line2d_34">
+    <path d="M 137.061279 70.531774 
+L 189.282383 70.531774 
+" clip-path="url(#fig2_dna-pb407a49a90)" style="fill: none; stroke: #d97757; stroke-width: 1.3; stroke-linecap: round"/>
+   </g>
+   <g id="fig2_dna-line2d_35">
+    <g clip-path="url(#fig2_dna-pb407a49a90)">
+     <use xlink:href="#fig2_dna-mb46ff64ed5" x="162.729279" y="70.531774" style="fill: #d97757; stroke: var(--fig-bg, #ffffff); stroke-width: 0.4"/>
+    </g>
+   </g>
+   <g id="fig2_dna-line2d_36">
+    <path d="M 128.906332 74.99674 
+L 180.703967 74.99674 
+" clip-path="url(#fig2_dna-pb407a49a90)" style="fill: none; stroke: var(--fig-c-o5, #df8a68); stroke-opacity: 0.75; stroke-linecap: round"/>
+   </g>
+   <g id="fig2_dna-line2d_37">
+    <g clip-path="url(#fig2_dna-pb407a49a90)">
+     <use xlink:href="#fig2_dna-m84dd004c4b" x="155.259515" y="74.99674" style="fill: var(--fig-bg, #ffffff); stroke: var(--fig-c-o5, #df8a68); stroke-width: 0.9"/>
+    </g>
+   </g>
+   <g id="fig2_dna-line2d_38">
+    <path d="M 108.737969 79.461707 
+L 159.188865 79.461707 
+" clip-path="url(#fig2_dna-pb407a49a90)" style="fill: none; stroke: var(--fig-gpt-55, #7c7c87); stroke-width: 1.3; stroke-linecap: round"/>
+   </g>
+   <g id="fig2_dna-line2d_39">
+    <g clip-path="url(#fig2_dna-pb407a49a90)">
+     <use xlink:href="#fig2_dna-mf210999195" x="133.520865" y="79.461707" style="fill: var(--fig-gpt-55, #7c7c87); stroke: var(--fig-bg, #ffffff); stroke-width: 0.4"/>
+    </g>
+   </g>
+   <g id="fig2_dna-line2d_40">
+    <path d="M 125.554934 100.974727 
+L 175.120727 100.974727 
+" clip-path="url(#fig2_dna-pb407a49a90)" style="fill: none; stroke: #d97757; stroke-width: 1.3; stroke-linecap: round"/>
+   </g>
+   <g id="fig2_dna-line2d_41">
+    <g clip-path="url(#fig2_dna-pb407a49a90)">
+     <use xlink:href="#fig2_dna-mb46ff64ed5" x="150.337831" y="100.974727" style="fill: #d97757; stroke: var(--fig-bg, #ffffff); stroke-width: 0.4"/>
+    </g>
+   </g>
+   <g id="fig2_dna-line2d_42">
+    <path d="M 110.679368 105.439693 
+L 161.672983 105.439693 
+" clip-path="url(#fig2_dna-pb407a49a90)" style="fill: none; stroke: var(--fig-c-o5, #df8a68); stroke-opacity: 0.75; stroke-linecap: round"/>
+   </g>
+   <g id="fig2_dna-line2d_43">
+    <g clip-path="url(#fig2_dna-pb407a49a90)">
+     <use xlink:href="#fig2_dna-m84dd004c4b" x="136.176176" y="105.439693" style="fill: var(--fig-bg, #ffffff); stroke: var(--fig-c-o5, #df8a68); stroke-width: 0.9"/>
+    </g>
+   </g>
+   <g id="fig2_dna-line2d_44">
+    <path d="M 121.129417 109.90466 
+L 169.810107 109.90466 
+" clip-path="url(#fig2_dna-pb407a49a90)" style="fill: none; stroke: var(--fig-gpt-55, #7c7c87); stroke-width: 1.3; stroke-linecap: round"/>
+   </g>
+   <g id="fig2_dna-line2d_45">
+    <g clip-path="url(#fig2_dna-pb407a49a90)">
+     <use xlink:href="#fig2_dna-mf210999195" x="145.02721" y="109.90466" style="fill: var(--fig-gpt-55, #7c7c87); stroke: var(--fig-bg, #ffffff); stroke-width: 0.4"/>
+    </g>
+   </g>
+   <g id="fig2_dna-line2d_46">
+    <path d="M 113.163486 121.270029 
+L 161.844176 121.270029 
+" clip-path="url(#fig2_dna-pb407a49a90)" style="fill: none; stroke: #d97757; stroke-width: 1.3; stroke-linecap: round"/>
+   </g>
+   <g id="fig2_dna-line2d_47">
+    <g clip-path="url(#fig2_dna-pb407a49a90)">
+     <use xlink:href="#fig2_dna-mb46ff64ed5" x="137.946383" y="121.270029" style="fill: #d97757; stroke: var(--fig-bg, #ffffff); stroke-width: 0.4"/>
+    </g>
+   </g>
+   <g id="fig2_dna-line2d_48">
+    <path d="M 115.40334 125.734995 
+L 164.174346 125.734995 
+" clip-path="url(#fig2_dna-pb407a49a90)" style="fill: none; stroke: var(--fig-c-o5, #df8a68); stroke-opacity: 0.75; stroke-linecap: round"/>
+   </g>
+   <g id="fig2_dna-line2d_49">
+    <g clip-path="url(#fig2_dna-pb407a49a90)">
+     <use xlink:href="#fig2_dna-m84dd004c4b" x="139.788843" y="125.734995" style="fill: var(--fig-bg, #ffffff); stroke: var(--fig-c-o5, #df8a68); stroke-width: 0.9"/>
+    </g>
+   </g>
+   <g id="fig2_dna-line2d_50">
+    <path d="M 95.461417 130.199962 
+L 145.912314 130.199962 
+" clip-path="url(#fig2_dna-pb407a49a90)" style="fill: none; stroke: var(--fig-gpt-55, #7c7c87); stroke-width: 1.3; stroke-linecap: round"/>
+   </g>
+   <g id="fig2_dna-line2d_51">
+    <g clip-path="url(#fig2_dna-pb407a49a90)">
+     <use xlink:href="#fig2_dna-mf210999195" x="121.129417" y="130.199962" style="fill: var(--fig-gpt-55, #7c7c87); stroke: var(--fig-bg, #ffffff); stroke-width: 0.4"/>
+    </g>
+   </g>
+   <g id="fig2_dna-line2d_52">
+    <path d="M 121.129417 141.565331 
+L 171.580314 141.565331 
+" clip-path="url(#fig2_dna-pb407a49a90)" style="fill: none; stroke: #d97757; stroke-width: 1.3; stroke-linecap: round"/>
+   </g>
+   <g id="fig2_dna-line2d_53">
+    <g clip-path="url(#fig2_dna-pb407a49a90)">
+     <use xlink:href="#fig2_dna-mb46ff64ed5" x="145.912314" y="141.565331" style="fill: #d97757; stroke: var(--fig-bg, #ffffff); stroke-width: 0.4"/>
+    </g>
+   </g>
+   <g id="fig2_dna-line2d_54">
+    <path d="M 119.050956 146.030297 
+L 171.327942 146.030297 
+" clip-path="url(#fig2_dna-pb407a49a90)" style="fill: none; stroke: var(--fig-c-o5, #df8a68); stroke-opacity: 0.75; stroke-linecap: round"/>
+   </g>
+   <g id="fig2_dna-line2d_55">
+    <g clip-path="url(#fig2_dna-pb407a49a90)">
+     <use xlink:href="#fig2_dna-m84dd004c4b" x="145.189449" y="146.030297" style="fill: var(--fig-bg, #ffffff); stroke: var(--fig-c-o5, #df8a68); stroke-width: 0.9"/>
+    </g>
+   </g>
+   <g id="fig2_dna-line2d_56">
+    <path d="M 119.35921 150.495264 
+L 168.0399 150.495264 
+" clip-path="url(#fig2_dna-pb407a49a90)" style="fill: none; stroke: var(--fig-gpt-55, #7c7c87); stroke-width: 1.3; stroke-linecap: round"/>
+   </g>
+   <g id="fig2_dna-line2d_57">
+    <g clip-path="url(#fig2_dna-pb407a49a90)">
+     <use xlink:href="#fig2_dna-mf210999195" x="144.142107" y="150.495264" style="fill: var(--fig-gpt-55, #7c7c87); stroke: var(--fig-bg, #ffffff); stroke-width: 0.4"/>
+    </g>
+   </g>
+   <g id="fig2_dna-line2d_58">
+    <path d="M 110.508176 161.860633 
+L 162.729279 161.860633 
+" clip-path="url(#fig2_dna-pb407a49a90)" style="fill: none; stroke: #d97757; stroke-width: 1.3; stroke-linecap: round"/>
+   </g>
+   <g id="fig2_dna-line2d_59">
+    <g clip-path="url(#fig2_dna-pb407a49a90)">
+     <use xlink:href="#fig2_dna-mb46ff64ed5" x="137.061279" y="161.860633" style="fill: #d97757; stroke: var(--fig-bg, #ffffff); stroke-width: 0.4"/>
+    </g>
+   </g>
+   <g id="fig2_dna-line2d_60">
+    <path d="M 107.450709 166.325599 
+L 157.720276 166.325599 
+" clip-path="url(#fig2_dna-pb407a49a90)" style="fill: none; stroke: var(--fig-c-o5, #df8a68); stroke-opacity: 0.75; stroke-linecap: round"/>
+   </g>
+   <g id="fig2_dna-line2d_61">
+    <g clip-path="url(#fig2_dna-pb407a49a90)">
+     <use xlink:href="#fig2_dna-m84dd004c4b" x="132.585492" y="166.325599" style="fill: var(--fig-bg, #ffffff); stroke: var(--fig-c-o5, #df8a68); stroke-width: 0.9"/>
+    </g>
+   </g>
+   <g id="fig2_dna-line2d_62">
+    <path d="M 99.886934 170.790566 
+L 147.68252 170.790566 
+" clip-path="url(#fig2_dna-pb407a49a90)" style="fill: none; stroke: var(--fig-gpt-55, #7c7c87); stroke-width: 1.3; stroke-linecap: round"/>
+   </g>
+   <g id="fig2_dna-line2d_63">
+    <g clip-path="url(#fig2_dna-pb407a49a90)">
+     <use xlink:href="#fig2_dna-mf210999195" x="123.784727" y="170.790566" style="fill: var(--fig-gpt-55, #7c7c87); stroke: var(--fig-bg, #ffffff); stroke-width: 0.4"/>
+    </g>
+   </g>
+   <g id="fig2_dna-line2d_64">
+    <path d="M 114.933693 182.155935 
+L 164.499486 182.155935 
+" clip-path="url(#fig2_dna-pb407a49a90)" style="fill: none; stroke: #d97757; stroke-width: 1.3; stroke-linecap: round"/>
+   </g>
+   <g id="fig2_dna-line2d_65">
+    <g clip-path="url(#fig2_dna-pb407a49a90)">
+     <use xlink:href="#fig2_dna-mb46ff64ed5" x="139.716589" y="182.155935" style="fill: #d97757; stroke: var(--fig-bg, #ffffff); stroke-width: 0.4"/>
+    </g>
+   </g>
+   <g id="fig2_dna-line2d_66">
+    <path d="M 117.286773 186.620901 
+L 168.558009 186.620901 
+" clip-path="url(#fig2_dna-pb407a49a90)" style="fill: none; stroke: var(--fig-c-o5, #df8a68); stroke-opacity: 0.75; stroke-linecap: round"/>
+   </g>
+   <g id="fig2_dna-line2d_67">
+    <g clip-path="url(#fig2_dna-pb407a49a90)">
+     <use xlink:href="#fig2_dna-m84dd004c4b" x="142.472643" y="186.620901" style="fill: var(--fig-bg, #ffffff); stroke: var(--fig-c-o5, #df8a68); stroke-width: 0.9"/>
+    </g>
+   </g>
+   <g id="fig2_dna-line2d_68">
+    <path d="M 147.68252 191.085868 
+L 195.478107 191.085868 
+" clip-path="url(#fig2_dna-pb407a49a90)" style="fill: none; stroke: var(--fig-gpt-55, #7c7c87); stroke-width: 1.3; stroke-linecap: round"/>
+   </g>
+   <g id="fig2_dna-line2d_69">
+    <g clip-path="url(#fig2_dna-pb407a49a90)">
+     <use xlink:href="#fig2_dna-mf210999195" x="171.580314" y="191.085868" style="fill: var(--fig-gpt-55, #7c7c87); stroke: var(--fig-bg, #ffffff); stroke-width: 0.4"/>
+    </g>
+   </g>
+   <g id="fig2_dna-line2d_70">
+    <path d="M 132.635762 202.451237 
+L 183.971762 202.451237 
+" clip-path="url(#fig2_dna-pb407a49a90)" style="fill: none; stroke: #d97757; stroke-width: 1.3; stroke-linecap: round"/>
+   </g>
+   <g id="fig2_dna-line2d_71">
+    <g clip-path="url(#fig2_dna-pb407a49a90)">
+     <use xlink:href="#fig2_dna-mb46ff64ed5" x="158.303762" y="202.451237" style="fill: #d97757; stroke: var(--fig-bg, #ffffff); stroke-width: 0.4"/>
+    </g>
+   </g>
+   <g id="fig2_dna-line2d_72">
+    <path d="M 115.695915 206.916203 
+L 165.560898 206.916203 
+" clip-path="url(#fig2_dna-pb407a49a90)" style="fill: none; stroke: var(--fig-c-o5, #df8a68); stroke-opacity: 0.75; stroke-linecap: round"/>
+   </g>
+   <g id="fig2_dna-line2d_73">
+    <g clip-path="url(#fig2_dna-pb407a49a90)">
+     <use xlink:href="#fig2_dna-m84dd004c4b" x="140.628406" y="206.916203" style="fill: var(--fig-bg, #ffffff); stroke: var(--fig-c-o5, #df8a68); stroke-width: 0.9"/>
+    </g>
+   </g>
+   <g id="fig2_dna-line2d_74">
+    <path d="M 118.474107 211.38117 
+L 168.925003 211.38117 
+" clip-path="url(#fig2_dna-pb407a49a90)" style="fill: none; stroke: var(--fig-gpt-55, #7c7c87); stroke-width: 1.3; stroke-linecap: round"/>
+   </g>
+   <g id="fig2_dna-line2d_75">
+    <g clip-path="url(#fig2_dna-pb407a49a90)">
+     <use xlink:href="#fig2_dna-mf210999195" x="143.257003" y="211.38117" style="fill: var(--fig-gpt-55, #7c7c87); stroke: var(--fig-bg, #ffffff); stroke-width: 0.4"/>
+    </g>
+   </g>
+   <g id="fig2_dna-line2d_76">
+    <path d="M 136.176176 220.45317 
+L 136.176176 20.86917 
+" clip-path="url(#fig2_dna-pb407a49a90)" style="fill: none; stroke: var(--fig-muted, #6b7385); stroke-width: 0.6; stroke-linecap: square"/>
+   </g>
+   <g id="fig2_dna-patch_3">
+    <path d="M 83.069969 220.45317 
+L 339.749969 220.45317 
+" style="fill: none; stroke: var(--fig-muted, #6b7385); stroke-width: 0.6; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="fig2_dna-text_17">
+    <text style="font-size: 6px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: start; fill: var(--fig-accent-text, #b4532f)" x="302.013344" y="31.493904" transform="rotate(-0 302.013344 31.493904)">25 exact 20-nt runs</text>
+   </g>
+   <g id="fig2_dna-text_18">
+    <text style="font-size: 6px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: start; fill: var(--fig-accent-text, #b4532f)" x="291.370817" y="51.789206" transform="rotate(-0 291.370817 51.789206)">5 exact 20-nt runs</text>
+   </g>
+   <g id="fig2_dna-legend_1">
+    <g id="fig2_dna-line2d_77">
+     <defs>
+      <path id="fig2_dna-m8a56ba9363" d="M 0 2 
+C 0.530406 2 1.03916 1.789267 1.414214 1.414214 
+C 1.789267 1.03916 2 0.530406 2 0 
+C 2 -0.530406 1.789267 -1.03916 1.414214 -1.414214 
+C 1.03916 -1.789267 0.530406 -2 0 -2 
+C -0.530406 -2 -1.03916 -1.789267 -1.414214 -1.414214 
+C -1.789267 -1.03916 -2 -0.530406 -2 0 
+C -2 0.530406 -1.789267 1.03916 -1.414214 1.414214 
+C -1.03916 1.789267 -0.530406 2 0 2 
+z
+" style="stroke: #d97757; stroke-width: 0.9"/>
+     </defs>
+     <g>
+      <use xlink:href="#fig2_dna-m8a56ba9363" x="276.671531" y="192.260055" style="fill: #d97757; stroke: #d97757; stroke-width: 0.9"/>
+     </g>
+    </g>
+    <g id="fig2_dna-text_19">
+     <text style="font-size: 6.5px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: start; fill: var(--fig-ink, #1d2433)" x="285.121531" y="194.535055" transform="rotate(-0 285.121531 194.535055)">Claude Opus 5.5</text>
+    </g>
+    <g id="fig2_dna-line2d_78">
+     <defs>
+      <path id="fig2_dna-m2fef024449" d="M 0 2 
+C 0.530406 2 1.03916 1.789267 1.414214 1.414214 
+C 1.789267 1.03916 2 0.530406 2 0 
+C 2 -0.530406 1.789267 -1.03916 1.414214 -1.414214 
+C 1.03916 -1.789267 0.530406 -2 0 -2 
+C -0.530406 -2 -1.03916 -1.789267 -1.414214 -1.414214 
+C -1.789267 -1.03916 -2 -0.530406 -2 0 
+C -2 0.530406 -1.789267 1.03916 -1.414214 1.414214 
+C -1.03916 1.789267 -0.530406 2 0 2 
+z
+" style="stroke: var(--fig-c-o5, #df8a68); stroke-width: 0.9"/>
+     </defs>
+     <g>
+      <use xlink:href="#fig2_dna-m2fef024449" x="276.671531" y="201.610152" style="fill: var(--fig-bg, #ffffff); stroke: var(--fig-c-o5, #df8a68); stroke-width: 0.9"/>
+     </g>
+    </g>
+    <g id="fig2_dna-text_20">
+     <text style="font-size: 6.5px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: start; fill: var(--fig-ink, #1d2433)" x="285.121531" y="203.885152" transform="rotate(-0 285.121531 203.885152)">Claude Opus 5</text>
+    </g>
+    <g id="fig2_dna-line2d_79">
+     <defs>
+      <path id="fig2_dna-m0e73fadf17" d="M 0 2 
+C 0.530406 2 1.03916 1.789267 1.414214 1.414214 
+C 1.789267 1.03916 2 0.530406 2 0 
+C 2 -0.530406 1.789267 -1.03916 1.414214 -1.414214 
+C 1.03916 -1.789267 0.530406 -2 0 -2 
+C -0.530406 -2 -1.03916 -1.789267 -1.414214 -1.414214 
+C -1.789267 -1.03916 -2 -0.530406 -2 0 
+C -2 0.530406 -1.789267 1.03916 -1.414214 1.414214 
+C -1.03916 1.789267 -0.530406 2 0 2 
+z
+" style="stroke: var(--fig-gpt-55, #7c7c87); stroke-width: 0.9"/>
+     </defs>
+     <g>
+      <use xlink:href="#fig2_dna-m0e73fadf17" x="276.671531" y="210.96025" style="fill: var(--fig-gpt-55, #7c7c87); stroke: var(--fig-gpt-55, #7c7c87); stroke-width: 0.9"/>
+     </g>
+    </g>
+    <g id="fig2_dna-text_21">
+     <text style="font-size: 6.5px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: start; fill: var(--fig-ink, #1d2433)" x="285.121531" y="213.23525" transform="rotate(-0 285.121531 213.23525)">GPT-5.5</text>
+    </g>
+   </g>
+  </g>
+  <g id="fig2_dna-text_22">
+   <text style="font-weight: 700; font-size: 8.5px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: start; fill: var(--fig-ink, #1d2433)" x="41.669969" y="9.068232" transform="rotate(-0 41.669969 9.068232)">On DNA, Claude Opus 5.5 predicts human and mouse coding sequence only</text>
+  </g>
+  <g id="fig2_dna-text_23">
+   <text style="font-size: 6.2px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; fill: var(--fig-muted, #6b7385)" transform="translate(2.88 254.90504)">500 repeat-free windows per region (hg38, mm39, and the genes of the proteins in Fig. 1); 200 nt shown, next nucleotide scored;</text>
+   <text style="font-size: 6.2px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; fill: var(--fig-muted, #6b7385)" transform="translate(78.342719 262.760089)">95% bootstrap CI over windows. An exact 20-nt continuation has a chance probability of about 1e-12.</text>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="fig2_dna-pb407a49a90">
+   <rect x="83.069969" y="20.86917" width="256.68" height="199.584"/>
+  </clipPath>
+ </defs>
+</svg>

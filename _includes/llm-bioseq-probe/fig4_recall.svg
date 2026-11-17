@@ -1,0 +1,442 @@
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" id="fig4_recall" width="100%" viewBox="0 0 467.323844 221.289164" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-11-17T05:40:06.950859</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.11.2, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">#fig4_recall *{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="fig4_recall-figure_1">
+  <g id="fig4_recall-patch_1">
+   <path d="M 0 221.289164 
+L 467.323844 221.289164 
+L 467.323844 0 
+L 0 0 
+L 0 221.289164 
+z
+" style="fill: none"/>
+  </g>
+  <g id="fig4_recall-axes_1">
+   <g id="fig4_recall-patch_2">
+    <path d="M 183.278661 181.633051 
+L 439.958661 181.633051 
+L 439.958661 20.857051 
+L 183.278661 20.857051 
+z
+" style="fill: var(--fig-bg, #ffffff)"/>
+   </g>
+   <g id="fig4_recall-matplotlib.axis_1">
+    <g id="fig4_recall-xtick_1">
+     <g id="fig4_recall-line2d_1">
+      <path d="M 183.278661 181.633051 
+L 183.278661 20.857051 
+" clip-path="url(#fig4_recall-p123fef40b8)" style="fill: none; stroke: var(--fig-grid, #eceef2); stroke-width: 0.5; stroke-linecap: square"/>
+     </g>
+     <g id="fig4_recall-line2d_2">
+      <defs>
+       <path id="fig4_recall-me95fab5fbd" d="M 0 0 
+L 0 2.5 
+" style="stroke: var(--fig-muted, #6b7385); stroke-width: 0.6"/>
+      </defs>
+      <g>
+       <use xlink:href="#fig4_recall-me95fab5fbd" x="183.278661" y="181.633051" style="fill: var(--fig-muted, #6b7385); stroke: var(--fig-muted, #6b7385); stroke-width: 0.6"/>
+      </g>
+     </g>
+     <g id="fig4_recall-text_1">
+      <text style="font-size: 6.5px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: middle; fill: var(--fig-muted, #6b7385)" x="183.278661" y="192.365229" transform="rotate(-0 183.278661 192.365229)">0</text>
+     </g>
+    </g>
+    <g id="fig4_recall-xtick_2">
+     <g id="fig4_recall-line2d_3">
+      <path d="M 240.129159 181.633051 
+L 240.129159 20.857051 
+" clip-path="url(#fig4_recall-p123fef40b8)" style="fill: none; stroke: var(--fig-grid, #eceef2); stroke-width: 0.5; stroke-linecap: square"/>
+     </g>
+     <g id="fig4_recall-line2d_4">
+      <g>
+       <use xlink:href="#fig4_recall-me95fab5fbd" x="240.129159" y="181.633051" style="fill: var(--fig-muted, #6b7385); stroke: var(--fig-muted, #6b7385); stroke-width: 0.6"/>
+      </g>
+     </g>
+     <g id="fig4_recall-text_2">
+      <text style="font-size: 6.5px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: middle; fill: var(--fig-muted, #6b7385)" x="240.129159" y="192.365229" transform="rotate(-0 240.129159 192.365229)">10</text>
+     </g>
+    </g>
+    <g id="fig4_recall-xtick_3">
+     <g id="fig4_recall-line2d_5">
+      <path d="M 296.979658 181.633051 
+L 296.979658 20.857051 
+" clip-path="url(#fig4_recall-p123fef40b8)" style="fill: none; stroke: var(--fig-grid, #eceef2); stroke-width: 0.5; stroke-linecap: square"/>
+     </g>
+     <g id="fig4_recall-line2d_6">
+      <g>
+       <use xlink:href="#fig4_recall-me95fab5fbd" x="296.979658" y="181.633051" style="fill: var(--fig-muted, #6b7385); stroke: var(--fig-muted, #6b7385); stroke-width: 0.6"/>
+      </g>
+     </g>
+     <g id="fig4_recall-text_3">
+      <text style="font-size: 6.5px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: middle; fill: var(--fig-muted, #6b7385)" x="296.979658" y="192.365229" transform="rotate(-0 296.979658 192.365229)">20</text>
+     </g>
+    </g>
+    <g id="fig4_recall-xtick_4">
+     <g id="fig4_recall-line2d_7">
+      <path d="M 353.830156 181.633051 
+L 353.830156 20.857051 
+" clip-path="url(#fig4_recall-p123fef40b8)" style="fill: none; stroke: var(--fig-grid, #eceef2); stroke-width: 0.5; stroke-linecap: square"/>
+     </g>
+     <g id="fig4_recall-line2d_8">
+      <g>
+       <use xlink:href="#fig4_recall-me95fab5fbd" x="353.830156" y="181.633051" style="fill: var(--fig-muted, #6b7385); stroke: var(--fig-muted, #6b7385); stroke-width: 0.6"/>
+      </g>
+     </g>
+     <g id="fig4_recall-text_4">
+      <text style="font-size: 6.5px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: middle; fill: var(--fig-muted, #6b7385)" x="353.830156" y="192.365229" transform="rotate(-0 353.830156 192.365229)">30</text>
+     </g>
+    </g>
+    <g id="fig4_recall-xtick_5">
+     <g id="fig4_recall-line2d_9">
+      <path d="M 410.680654 181.633051 
+L 410.680654 20.857051 
+" clip-path="url(#fig4_recall-p123fef40b8)" style="fill: none; stroke: var(--fig-grid, #eceef2); stroke-width: 0.5; stroke-linecap: square"/>
+     </g>
+     <g id="fig4_recall-line2d_10">
+      <g>
+       <use xlink:href="#fig4_recall-me95fab5fbd" x="410.680654" y="181.633051" style="fill: var(--fig-muted, #6b7385); stroke: var(--fig-muted, #6b7385); stroke-width: 0.6"/>
+      </g>
+     </g>
+     <g id="fig4_recall-text_5">
+      <text style="font-size: 6.5px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: middle; fill: var(--fig-muted, #6b7385)" x="410.680654" y="192.365229" transform="rotate(-0 410.680654 192.365229)">40</text>
+     </g>
+    </g>
+    <g id="fig4_recall-text_6">
+     <text style="font-size: 7px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: middle; fill: var(--fig-ink, #1d2433)" x="311.618661" y="202.82934" transform="rotate(-0 311.618661 202.82934)">Cut points continued letter for letter (of 158)</text>
+    </g>
+   </g>
+   <g id="fig4_recall-matplotlib.axis_2">
+    <g id="fig4_recall-ytick_1">
+     <g id="fig4_recall-line2d_11"/>
+     <g id="fig4_recall-text_7">
+      <text style="font-size: 7px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: end; fill: var(--fig-ink, #1d2433)" x="179.778661" y="170.927005" transform="rotate(-0 179.778661 170.927005)">GPT-6.1 Sol</text>
+     </g>
+    </g>
+    <g id="fig4_recall-ytick_2">
+     <g id="fig4_recall-line2d_12"/>
+     <g id="fig4_recall-text_8">
+      <text style="font-size: 7px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: end; fill: var(--fig-ink, #1d2433)" x="179.778661" y="151.745902" transform="rotate(-0 179.778661 151.745902)">GPT-5.5</text>
+     </g>
+    </g>
+    <g id="fig4_recall-ytick_3">
+     <g id="fig4_recall-line2d_13"/>
+     <g id="fig4_recall-text_9">
+      <text style="font-size: 7px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: end; fill: var(--fig-ink, #1d2433)" x="179.778661" y="132.5648" transform="rotate(-0 179.778661 132.5648)">Gemini 3.5 Flash</text>
+     </g>
+    </g>
+    <g id="fig4_recall-ytick_4">
+     <g id="fig4_recall-line2d_14"/>
+     <g id="fig4_recall-text_10">
+      <text style="font-size: 7px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: end; fill: var(--fig-ink, #1d2433)" x="179.778661" y="113.383698" transform="rotate(-0 179.778661 113.383698)">Gemini 3.8 Flash</text>
+     </g>
+    </g>
+    <g id="fig4_recall-ytick_5">
+     <g id="fig4_recall-line2d_15"/>
+     <g id="fig4_recall-text_11">
+      <text style="font-size: 7px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: end; fill: var(--fig-ink, #1d2433)" x="179.778661" y="94.202595" transform="rotate(-0 179.778661 94.202595)">Claude Opus 4.8</text>
+     </g>
+    </g>
+    <g id="fig4_recall-ytick_6">
+     <g id="fig4_recall-line2d_16"/>
+     <g id="fig4_recall-text_12">
+      <text style="font-size: 7px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: end; fill: var(--fig-ink, #1d2433)" x="179.778661" y="75.021493" transform="rotate(-0 179.778661 75.021493)">Claude Opus 5</text>
+     </g>
+    </g>
+    <g id="fig4_recall-ytick_7">
+     <g id="fig4_recall-line2d_17"/>
+     <g id="fig4_recall-text_13">
+      <text style="font-size: 7px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: end; fill: var(--fig-ink, #1d2433)" x="179.778661" y="55.840391" transform="rotate(-0 179.778661 55.840391)">Gemini 4 Carbon</text>
+     </g>
+    </g>
+    <g id="fig4_recall-ytick_8">
+     <g id="fig4_recall-line2d_18"/>
+     <g id="fig4_recall-text_14">
+      <text style="font-size: 7px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: end; fill: var(--fig-ink, #1d2433)" x="179.778661" y="36.659288" transform="rotate(-0 179.778661 36.659288)">Claude Opus 5.5</text>
+     </g>
+    </g>
+   </g>
+   <g id="fig4_recall-patch_3">
+    <path d="M 183.278661 174.325051 
+L 194.648761 174.325051 
+L 194.648761 162.432767 
+L 183.278661 162.432767 
+z
+" clip-path="url(#fig4_recall-p123fef40b8)" style="fill: var(--fig-bar-50, #e6e9ef); stroke: var(--fig-bg, #ffffff); stroke-width: 0.4; stroke-linejoin: miter"/>
+   </g>
+   <g id="fig4_recall-patch_4">
+    <path d="M 183.278661 155.143948 
+L 183.278661 155.143948 
+L 183.278661 143.251665 
+L 183.278661 143.251665 
+z
+" clip-path="url(#fig4_recall-p123fef40b8)" style="fill: var(--fig-bar-50, #e6e9ef); stroke: var(--fig-bg, #ffffff); stroke-width: 0.4; stroke-linejoin: miter"/>
+   </g>
+   <g id="fig4_recall-patch_5">
+    <path d="M 183.278661 135.962846 
+L 223.07401 135.962846 
+L 223.07401 124.070563 
+L 183.278661 124.070563 
+z
+" clip-path="url(#fig4_recall-p123fef40b8)" style="fill: var(--fig-bar-50, #e6e9ef); stroke: var(--fig-bg, #ffffff); stroke-width: 0.4; stroke-linejoin: miter"/>
+   </g>
+   <g id="fig4_recall-patch_6">
+    <path d="M 183.278661 116.781744 
+L 285.609558 116.781744 
+L 285.609558 104.88946 
+L 183.278661 104.88946 
+z
+" clip-path="url(#fig4_recall-p123fef40b8)" style="fill: var(--fig-bar-50, #e6e9ef); stroke: var(--fig-bg, #ffffff); stroke-width: 0.4; stroke-linejoin: miter"/>
+   </g>
+   <g id="fig4_recall-patch_7">
+    <path d="M 183.278661 97.600641 
+L 279.924508 97.600641 
+L 279.924508 85.708358 
+L 183.278661 85.708358 
+z
+" clip-path="url(#fig4_recall-p123fef40b8)" style="fill: var(--fig-bar-50, #e6e9ef); stroke: var(--fig-bg, #ffffff); stroke-width: 0.4; stroke-linejoin: miter"/>
+   </g>
+   <g id="fig4_recall-patch_8">
+    <path d="M 183.278661 78.419539 
+L 314.034807 78.419539 
+L 314.034807 66.527256 
+L 183.278661 66.527256 
+z
+" clip-path="url(#fig4_recall-p123fef40b8)" style="fill: var(--fig-bar-50, #e6e9ef); stroke: var(--fig-bg, #ffffff); stroke-width: 0.4; stroke-linejoin: miter"/>
+   </g>
+   <g id="fig4_recall-patch_9">
+    <path d="M 183.278661 59.238437 
+L 422.050754 59.238437 
+L 422.050754 47.346153 
+L 183.278661 47.346153 
+z
+" clip-path="url(#fig4_recall-p123fef40b8)" style="fill: var(--fig-bar-50, #e6e9ef); stroke: var(--fig-bg, #ffffff); stroke-width: 0.4; stroke-linejoin: miter"/>
+   </g>
+   <g id="fig4_recall-patch_10">
+    <path d="M 183.278661 40.057334 
+L 427.735804 40.057334 
+L 427.735804 28.165051 
+L 183.278661 28.165051 
+z
+" clip-path="url(#fig4_recall-p123fef40b8)" style="fill: var(--fig-bar-50, #e6e9ef); stroke: var(--fig-bg, #ffffff); stroke-width: 0.4; stroke-linejoin: miter"/>
+   </g>
+   <g id="fig4_recall-patch_11">
+    <path d="M 183.278661 174.325051 
+L 183.278661 174.325051 
+L 183.278661 162.432767 
+L 183.278661 162.432767 
+z
+" clip-path="url(#fig4_recall-p123fef40b8)" style="fill: var(--fig-bar-100, #c5cbd6); stroke: var(--fig-bg, #ffffff); stroke-width: 0.4; stroke-linejoin: miter"/>
+   </g>
+   <g id="fig4_recall-patch_12">
+    <path d="M 183.278661 155.143948 
+L 183.278661 155.143948 
+L 183.278661 143.251665 
+L 183.278661 143.251665 
+z
+" clip-path="url(#fig4_recall-p123fef40b8)" style="fill: var(--fig-bar-100, #c5cbd6); stroke: var(--fig-bg, #ffffff); stroke-width: 0.4; stroke-linejoin: miter"/>
+   </g>
+   <g id="fig4_recall-patch_13">
+    <path d="M 183.278661 135.962846 
+L 183.278661 135.962846 
+L 183.278661 124.070563 
+L 183.278661 124.070563 
+z
+" clip-path="url(#fig4_recall-p123fef40b8)" style="fill: var(--fig-bar-100, #c5cbd6); stroke: var(--fig-bg, #ffffff); stroke-width: 0.4; stroke-linejoin: miter"/>
+   </g>
+   <g id="fig4_recall-patch_14">
+    <path d="M 183.278661 116.781744 
+L 200.333811 116.781744 
+L 200.333811 104.88946 
+L 183.278661 104.88946 
+z
+" clip-path="url(#fig4_recall-p123fef40b8)" style="fill: var(--fig-bar-100, #c5cbd6); stroke: var(--fig-bg, #ffffff); stroke-width: 0.4; stroke-linejoin: miter"/>
+   </g>
+   <g id="fig4_recall-patch_15">
+    <path d="M 183.278661 97.600641 
+L 245.814209 97.600641 
+L 245.814209 85.708358 
+L 183.278661 85.708358 
+z
+" clip-path="url(#fig4_recall-p123fef40b8)" style="fill: var(--fig-bar-100, #c5cbd6); stroke: var(--fig-bg, #ffffff); stroke-width: 0.4; stroke-linejoin: miter"/>
+   </g>
+   <g id="fig4_recall-patch_16">
+    <path d="M 183.278661 78.419539 
+L 262.869359 78.419539 
+L 262.869359 66.527256 
+L 183.278661 66.527256 
+z
+" clip-path="url(#fig4_recall-p123fef40b8)" style="fill: var(--fig-bar-100, #c5cbd6); stroke: var(--fig-bg, #ffffff); stroke-width: 0.4; stroke-linejoin: miter"/>
+   </g>
+   <g id="fig4_recall-patch_17">
+    <path d="M 183.278661 59.238437 
+L 314.034807 59.238437 
+L 314.034807 47.346153 
+L 183.278661 47.346153 
+z
+" clip-path="url(#fig4_recall-p123fef40b8)" style="fill: var(--fig-bar-100, #c5cbd6); stroke: var(--fig-bg, #ffffff); stroke-width: 0.4; stroke-linejoin: miter"/>
+   </g>
+   <g id="fig4_recall-patch_18">
+    <path d="M 183.278661 40.057334 
+L 319.719857 40.057334 
+L 319.719857 28.165051 
+L 183.278661 28.165051 
+z
+" clip-path="url(#fig4_recall-p123fef40b8)" style="fill: var(--fig-bar-100, #c5cbd6); stroke: var(--fig-bg, #ffffff); stroke-width: 0.4; stroke-linejoin: miter"/>
+   </g>
+   <g id="fig4_recall-patch_19">
+    <path d="M 183.278661 174.325051 
+L 183.278661 174.325051 
+L 183.278661 162.432767 
+L 183.278661 162.432767 
+z
+" clip-path="url(#fig4_recall-p123fef40b8)" style="fill: var(--fig-gpt-61, #2c2c33); stroke: var(--fig-bg, #ffffff); stroke-width: 0.4; stroke-linejoin: miter"/>
+   </g>
+   <g id="fig4_recall-patch_20">
+    <path d="M 183.278661 155.143948 
+L 183.278661 155.143948 
+L 183.278661 143.251665 
+L 183.278661 143.251665 
+z
+" clip-path="url(#fig4_recall-p123fef40b8)" style="fill: var(--fig-gpt-55, #7c7c87); stroke: var(--fig-bg, #ffffff); stroke-width: 0.4; stroke-linejoin: miter"/>
+   </g>
+   <g id="fig4_recall-patch_21">
+    <path d="M 183.278661 135.962846 
+L 183.278661 135.962846 
+L 183.278661 124.070563 
+L 183.278661 124.070563 
+z
+" clip-path="url(#fig4_recall-p123fef40b8)" style="fill: #4285f4; stroke: var(--fig-bg, #ffffff); stroke-width: 0.4; stroke-linejoin: miter"/>
+   </g>
+   <g id="fig4_recall-patch_22">
+    <path d="M 183.278661 116.781744 
+L 188.963711 116.781744 
+L 188.963711 104.88946 
+L 183.278661 104.88946 
+z
+" clip-path="url(#fig4_recall-p123fef40b8)" style="fill: #4285f4; stroke: var(--fig-bg, #ffffff); stroke-width: 0.4; stroke-linejoin: miter"/>
+   </g>
+   <g id="fig4_recall-patch_23">
+    <path d="M 183.278661 97.600641 
+L 234.44411 97.600641 
+L 234.44411 85.708358 
+L 183.278661 85.708358 
+z
+" clip-path="url(#fig4_recall-p123fef40b8)" style="fill: var(--fig-c-o48, #e59c7d); stroke: var(--fig-bg, #ffffff); stroke-width: 0.4; stroke-linejoin: miter"/>
+   </g>
+   <g id="fig4_recall-patch_24">
+    <path d="M 183.278661 78.419539 
+L 240.129159 78.419539 
+L 240.129159 66.527256 
+L 183.278661 66.527256 
+z
+" clip-path="url(#fig4_recall-p123fef40b8)" style="fill: var(--fig-c-o5, #df8a68); stroke: var(--fig-bg, #ffffff); stroke-width: 0.4; stroke-linejoin: miter"/>
+   </g>
+   <g id="fig4_recall-patch_25">
+    <path d="M 183.278661 59.238437 
+L 274.239458 59.238437 
+L 274.239458 47.346153 
+L 183.278661 47.346153 
+z
+" clip-path="url(#fig4_recall-p123fef40b8)" style="fill: #4285f4; stroke: var(--fig-bg, #ffffff); stroke-width: 0.4; stroke-linejoin: miter"/>
+   </g>
+   <g id="fig4_recall-patch_26">
+    <path d="M 183.278661 40.057334 
+L 257.184309 40.057334 
+L 257.184309 28.165051 
+L 183.278661 28.165051 
+z
+" clip-path="url(#fig4_recall-p123fef40b8)" style="fill: #d97757; stroke: var(--fig-bg, #ffffff); stroke-width: 0.4; stroke-linejoin: miter"/>
+   </g>
+   <g id="fig4_recall-patch_27">
+    <path d="M 183.278661 181.633051 
+L 439.958661 181.633051 
+" style="fill: none; stroke: var(--fig-muted, #6b7385); stroke-width: 0.6; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="fig4_recall-text_15">
+    <text style="font-size: 6px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: start; fill: var(--fig-muted, #6b7385)" x="199.196801" y="169.931643" transform="rotate(-0 199.196801 169.931643)">longest 84</text>
+   </g>
+   <g id="fig4_recall-text_16">
+    <text style="font-size: 6px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: start; fill: var(--fig-muted, #6b7385)" x="187.826701" y="150.750541" transform="rotate(-0 187.826701 150.750541)">longest 2</text>
+   </g>
+   <g id="fig4_recall-text_17">
+    <text style="font-size: 6px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: start; fill: var(--fig-muted, #6b7385)" x="227.62205" y="131.569439" transform="rotate(-0 227.62205 131.569439)">longest 97</text>
+   </g>
+   <g id="fig4_recall-text_18">
+    <text style="font-size: 6px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: start; fill: var(--fig-muted, #6b7385)" x="290.157598" y="112.388336" transform="rotate(-0 290.157598 112.388336)">longest 204</text>
+   </g>
+   <g id="fig4_recall-text_19">
+    <text style="font-size: 6px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: start; fill: var(--fig-muted, #6b7385)" x="284.472548" y="93.207234" transform="rotate(-0 284.472548 93.207234)">longest 264</text>
+   </g>
+   <g id="fig4_recall-text_20">
+    <text style="font-size: 6px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: start; fill: var(--fig-muted, #6b7385)" x="318.582847" y="74.026132" transform="rotate(-0 318.582847 74.026132)">longest 325</text>
+   </g>
+   <g id="fig4_recall-text_21">
+    <text style="font-size: 6px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: start; fill: var(--fig-muted, #6b7385)" x="426.598794" y="54.845029" transform="rotate(-0 426.598794 54.845029)">longest 201</text>
+   </g>
+   <g id="fig4_recall-text_22">
+    <text style="font-size: 6px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: start; fill: var(--fig-muted, #6b7385)" x="432.283844" y="35.663927" transform="rotate(-0 432.283844 35.663927)">longest 305</text>
+   </g>
+   <g id="fig4_recall-legend_1">
+    <g id="fig4_recall-patch_28">
+     <path d="M 347.378349 155.714936 
+L 360.378349 155.714936 
+L 360.378349 151.164936 
+L 347.378349 151.164936 
+z
+" style="fill: var(--fig-gpt-61, #2c2c33); stroke: var(--fig-bg, #ffffff); stroke-width: 0.4; stroke-linejoin: miter"/>
+    </g>
+    <g id="fig4_recall-text_23">
+     <text style="font-size: 6.5px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: start; fill: var(--fig-ink, #1d2433)" x="362.978349" y="155.714936" transform="rotate(-0 362.978349 155.714936)">exact run ≥ 200 residues</text>
+    </g>
+    <g id="fig4_recall-patch_29">
+     <path d="M 347.378349 165.065033 
+L 360.378349 165.065033 
+L 360.378349 160.515033 
+L 347.378349 160.515033 
+z
+" style="fill: var(--fig-bar-100, #c5cbd6); stroke: var(--fig-bg, #ffffff); stroke-width: 0.4; stroke-linejoin: miter"/>
+    </g>
+    <g id="fig4_recall-text_24">
+     <text style="font-size: 6.5px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: start; fill: var(--fig-ink, #1d2433)" x="362.978349" y="165.065033" transform="rotate(-0 362.978349 165.065033)">exact run ≥ 100 residues</text>
+    </g>
+    <g id="fig4_recall-patch_30">
+     <path d="M 347.378349 174.415131 
+L 360.378349 174.415131 
+L 360.378349 169.865131 
+L 347.378349 169.865131 
+z
+" style="fill: var(--fig-bar-50, #e6e9ef); stroke: var(--fig-bg, #ffffff); stroke-width: 0.4; stroke-linejoin: miter"/>
+    </g>
+    <g id="fig4_recall-text_25">
+     <text style="font-size: 6.5px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: start; fill: var(--fig-ink, #1d2433)" x="362.978349" y="174.415131" transform="rotate(-0 362.978349 174.415131)">exact run ≥ 50 residues</text>
+    </g>
+   </g>
+  </g>
+  <g id="fig4_recall-text_26">
+   <text style="font-weight: 700; font-size: 8.5px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: start; fill: var(--fig-ink, #1d2433)" x="141.878661" y="9.068232" transform="rotate(-0 141.878661 9.068232)">Several models recite hundreds of residues of famous proteins</text>
+  </g>
+  <g id="fig4_recall-text_27">
+   <text style="font-size: 6.2px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: end; fill: var(--fig-muted, #6b7385)" x="464.443844" y="216.084921" transform="rotate(-0 464.443844 216.084921)">Cut points that any model continued 10/10 in the pilot; asked for the next 200 residues. Bars overlap: each darker bar is a subset; the ≥200 segment in each lab's colour.</text>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="fig4_recall-p123fef40b8">
+   <rect x="183.278661" y="20.857051" width="256.68" height="160.776"/>
+  </clipPath>
+ </defs>
+</svg>

@@ -123,7 +123,7 @@ _styles: |
 
 
 <div class="bp-lede" markdown="1">
-**The latest Claude models were trained on protein sequences, at scale.** Give Claude Fable 5.2 or Claude Opus 5.5 the start of a little-studied bacterial protein and they predict the next amino acid. Shuffle the protein and they can't. No other model we tested can do this. Like a protein language model, they do better on bigger protein families, and they do it even in families with no papers at all. Opus 5.5 matches the largest open protein language model of its kind; Fable 5.2 beats it.
+**The latest Claude models were trained on protein sequences, at scale.** Give Claude Fable 5.2 or Claude Opus 5.5 the start of a little-studied bacterial protein and they predict the next amino acid. Shuffle the protein and they can't. No other model we tested can do this. Like a protein language model, they do better on bigger protein families, and they do it even in families with no papers at all. Fable 5.2 beats every open protein language model we ran, and Opus 5.5 is level with ProtGPT3-10B, the largest of them.
 </div>
 
 ## Motivation
@@ -142,7 +142,7 @@ We give a model the start of a protein and ask for the next amino acids. Then we
   <figcaption>Percentages are Claude Opus 5.5's accuracy over all 668 proteins. The real row and its answer come from the test set; the shuffled row is schematic.</figcaption>
 </figure>
 
-The test set is 668 bacterial and archaeal proteins from 167 Pfam families of unknown function. No family has a solved structure or more than three papers, and no protein has a close relative in UniProt. Each protein is cut at five points, and we score the first residue after each cut. Thinking is at its lowest setting. Appendix E has the details.
+The test set is 668 bacterial and archaeal proteins from 167 Pfam families of unknown function. No family has a solved structure or more than three papers, and no protein has a close relative in UniProt. Each protein is cut at five points. At each cut the model writes the next 10 amino acids, and we score the first. Thinking is at its lowest setting. Appendix E has the details.
 
 ## Results: only the latest Claude models predict them
 
@@ -151,17 +151,17 @@ The test set is 668 bacterial and archaeal proteins from 167 Pfam families of un
   <figcaption>Filled points: the chat prompt. Hollow points: raw next-token continuation of the FASTA text, through a completion endpoint or a prefilled reply, for models that allow it.</figcaption>
 </figure>
 
-Fable 5.2 gets the next amino acid right 54% of the time on real proteins and 9% on shuffled ones. The gap is there in nearly every family, not just a few easy ones. It appears in Opus 4.7, jumps in Opus 5.5, and jumps again in Fable 5.2. GPT, Gemini and the open-weight models stay near zero, even when the open-weight models simply continue raw FASTA text, the way they were trained. The latest Claude models also write runs of correct residues that other models rarely manage (Appendix B).
+Fable 5.2 gets the next amino acid right 54% of the time on real proteins and 9% on shuffled ones. The gap is there in nearly every family, not just a few easy ones. It appears in Opus 4.7, jumps in Opus 5.5, and jumps again in Fable 5.2. GPT, Gemini and the seven open-weight models (DeepSeek V4.1 Flash, Qwen 3.8, Kimi K3.1 Pro, GLM-5.3, MiniMax M3, gpt-oss-120b and Nemotron 3 Ultra) stay near zero, even when they simply continue raw FASTA text, the way they were trained. The latest Claude models also write runs of correct residues that other models rarely manage (Appendix B).
 
 ## Comparison with protein language models
 
-Protein language models learn only from sequences, so they are the natural yardstick. The closest to an LLM is ProtGPT3<d-cite key="garibbo2026protgpt3"></d-cite>: it reads a protein left to right and predicts the next residue, and its 10-billion-parameter version is the largest open model of its kind. On the same input, Opus 5.5 matches it and Fable 5.2 beats it.
+Protein language models learn only from sequences, so they are the natural yardstick. The closest to an LLM are the ones that read a protein left to right and predict the next residue: ProtGPT3<d-cite key="garibbo2026protgpt3"></d-cite>, whose 10-billion-parameter version is the largest open one, and ProGen3<d-cite key="bhatnagar2025progen3"></d-cite>, whose largest public version has 3 billion. On the same input, Fable 5.2 beats both by a wide margin. Opus 5.5 is level with ProtGPT3-10B and below ProGen3-3B.
 
 <figure class="bp-figure" markdown="0">
-  <div class="bp-svg" role="img" aria-label="Dot plot: Claude Fable 5.2 +45.1 at the top, then ProtGPT3-10B +27.7 and Claude Opus 5.5 +27.4; ESM C 600M +13.0, ProtGPT3-1.3B +11.6, ProtGPT2 +10.2, ESM3-open +8.5 and ESM-2 650M +7.0 well below.">{% include llm-bioseq-probe/fig6_protein_lm.svg %}</div>
+  <div class="bp-svg" role="img" aria-label="Dot plot: Claude Fable 5.2 +45.1 at the top, then ProGen3-3B +32.5, ProtGPT3-10B +27.7 and Claude Opus 5.5 +27.4; ESM C 600M +13.0, ProtGPT3-1.3B +11.6, ProtGPT2 +10.2, ESM3-open +8.5 and ESM-2 650M +7.0 well below.">{% include llm-bioseq-probe/fig6_protein_lm.svg %}</div>
 </figure>
 
-ESM models are trained to see both sides of a residue, so continuing from the left is harder for them. Appendix C has all seven models.
+ESM models are trained to see both sides of a residue, so continuing from the left is harder for them. Appendix C has all eight models.
 
 ## Evidence that this comes from training data
 
@@ -225,12 +225,6 @@ All code, test sets, model outputs and figures are in [llm-bioseq-probe](https:/
 
 **All 10 residues right.** Each question asks for the next 10 residues. On the 668 little-studied proteins, Claude Fable 5.2 gets all 10 right at 88 real cuts and Opus 5.5 at 12, and neither at any shuffled one. If their residues were independent guesses at their own per-residue accuracy, they would get 15.8 and 0.56 by chance.
 
-**Every position.** Scored one position at a time, the gap falls slowly for Fable 5.2 and Opus 5.5. Fable 5.1 and Opus 4.7, 4.8 and 5 fade faster, and the other 14 models, including those run as raw continuation, stay near zero all the way.
-
-<figure class="bp-figure" markdown="0">
-  <div class="bp-svg" role="img" aria-label="Line chart: real-minus-shuffled gap at positions 1 to 10 of the reply; Claude Opus 5.5 falls from 27.4 to 18.5, Opus 4.7 to 5 from about 9 to between 2 and 5, other models near zero.">{% include llm-bioseq-probe/fig7_by_position.svg %}</div>
-</figure>
-
 **Runs in a row.** On shuffled proteins neither Fable 5.2 nor Opus 5.5 gets more than 3 residues in a row. Once on track they get surer: after one right residue, Opus 5.5 gets the next right 47% of the time, after four in a row 68%.
 
 <figure class="bp-figure" markdown="0">
@@ -249,6 +243,7 @@ GPT-6.1 Sol never reaches 100 residues, and GPT-5.5 never gets past 2.
 
 | Model | Reads | Input | Real | Shuffled | Real minus shuffled, points (95% CI) |
 |---|---|---|---|---|---|
+| ProGen3-3B | left to right | residues before the cut | 43.7% | 11.1% | +32.5 (29.3 to 35.7) |
 | ProtGPT3-10B | left to right | residues before the cut | 38.4% | 10.7% | +27.7 (24.2 to 31.1) |
 | ESM C 600M | both sides | residues before the cut | 24.1% | 11.2% | +13.0 (10.7 to 15.2) |
 | ProtGPT3-1.3B | left to right | residues before the cut | 22.3% | 10.7% | +11.6 (8.9 to 14.4) |
@@ -257,7 +252,7 @@ GPT-6.1 Sol never reaches 100 residues, and GPT-5.5 never gets past 2.
 | ESM-2 650M | both sides | residues before the cut | 17.3% | 10.3% | +7.0 (5.2 to 8.9) |
 | ESM-2 650M | both sides | residues on both sides of the cut | 45.7% | 11.1% | +34.6 (31.8 to 37.3) |
 
-ProtGPT3-10B gets more answers right than Opus 5.5 (38.4% vs 34.9%) but also more on shuffled proteins (10.7% vs 7.5%), because it knows amino acid composition better; the gap between the two, which is what each model knows about order, comes out the same. The last row is fill-in-the-blank rather than continuation: ESM-2 also sees the residues after the cut, which the LLMs never get. Every model first passed a sanity check on well-known proteins. Continuing ubiquitin and hemoglobin β from the left, ProtGPT3-10B gets 100% and 84% of residues right; with the whole protein and one residue masked, ESM-2 gets 80% of ubiquitin, ESM C and ESM3-open 100%. Masks are set on token ids, because the ESM SDK's "_" character is not ESM C's mask token. ProtGPT2 uses multi-residue tokens, so a residue's probability is the sum over the tokens that start with it; ProtGPT3 uses one token per residue.
+ProtGPT3-10B gets more answers right than Opus 5.5 (38.4% vs 34.9%) but also more on shuffled proteins (10.7% vs 7.5%), because it knows amino acid composition better; the gap between the two, which is what each model knows about order, comes out the same. The last row is fill-in-the-blank rather than continuation: ESM-2 also sees the residues after the cut, which the LLMs never get. Every model first passed a sanity check on well-known proteins. Continuing ubiquitin and hemoglobin β from the left, ProGen3-3B gets 98% and 87% of residues right and ProtGPT3-10B 100% and 84%; with the whole protein and one residue masked, ESM-2 gets 80% of ubiquitin, ESM C and ESM3-open 100%. Masks are set on token ids, because the ESM SDK's "_" character is not ESM C's mask token. ProtGPT2 uses multi-residue tokens, so a residue's probability is the sum over the tokens that start with it; ProGen3 and ProtGPT3 use one token per residue.
 
 ### D. Robustness
 
@@ -303,7 +298,7 @@ Each model runs through its own API with temperature 0 where it is accepted, thi
 
 **Raw continuation.** For models that allow it, the same prefix is sent without any instruction, as the text ">sequence" followed by the FASTA lines, through a plain completion endpoint (open-weight models on Fireworks) or as the start of the model's own reply (Gemini 2.5 Pro). The first letter the model writes is scored as above.
 
-**Protein language models.** They get the same prefix and no prompt. ProtGPT3 and ProtGPT2 read it left to right and give a probability for the next token; the ESM models see the prefix, a mask in place of the next residue, and the end of the sequence. In every case the prediction is the most likely of the 20 standard amino acids.
+**Protein language models.** They get the same prefix and no prompt. ProGen3, ProtGPT3 and ProtGPT2 read it left to right and give a probability for the next token; the ESM models see the prefix, a mask in place of the next residue, and the end of the sequence. In every case the prediction is the most likely of the 20 standard amino acids.
 
 Total API cost was about $730, plus a few dollars of GPU time for the protein language models.
 

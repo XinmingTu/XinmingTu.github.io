@@ -197,21 +197,6 @@ Opus 5.5 gets past 100 residues 24 times (longest run 305), Gemini 4 Carbon 23 t
   <img src="{{ '/assets/img/llm-bioseq-probe/fig5b_family_size_all.png' | relative_url }}?v=20261117e" alt="Line chart: the gap by family size for 12 language models and ProtGPT3-10B; Claude Fable 5.2, Opus 5.5 and ProtGPT3-10B rise steeply, Fable 5.1 and Opus 4.7 to 5 rise at a lower level, Opus 4.5 and 4.6, GPT and Gemini stay near zero.">
 </figure>
 
-| Model | 20–60 | 60–150 | 150–300 | 300–1k | 1k–3k | 3k–10k | >10k | Spearman |
-|---|---|---|---|---|---|---|---|---|
-| Claude Fable 5.2 | +19.5 | +24.0 | +35.5 | +44.1 | +46.0 | +46.4 | +41.5 | 0.38 |
-| Claude Opus 5.5 | +7.9 | +7.4 | +14.4 | +21.2 | +26.0 | +31.7 | +36.7 | 0.50 |
-| ProtGPT3-10B | +3.2 | +6.5 | +10.7 | +23.9 | +25.3 | +30.6 | +37.1 | 0.46 |
-| Claude Fable 5.1 | +2.5 | −0.2 | +3.2 | +9.6 | +14.6 | +17.5 | +23.5 | 0.48 |
-| Claude Opus 5 | −1.6 | −0.2 | +1.2 | +5.6 | +6.4 | +12.8 | +22.8 | 0.36 |
-| Claude Opus 4.8 | +0.5 | +1.4 | +3.7 | +4.4 | +3.6 | +10.6 | +21.1 | 0.30 |
-| Claude Opus 4.7 | +2.8 | −0.8 | +2.8 | +3.3 | +7.5 | +12.3 | +19.7 | 0.36 |
-| Claude Opus 4.6 | −0.5 | +1.5 | +1.3 | +2.7 | −0.1 | +0.9 | −1.5 | −0.03 |
-| Claude Opus 4.5 | +0.2 | +0.5 | −0.5 | +2.6 | +2.7 | +1.9 | −2.6 | 0.05 |
-| GPT-5.5 | −2.2 | +0.8 | +0.7 | +2.7 | +0.4 | +2.6 | +3.8 | 0.14 |
-
-Real minus shuffled, in points, by the number of proteins in the family; Spearman correlation of a family's gap with the log of its size, over all 257 families. GPT-6.1 Sol, GPT-6 Astra and Gemini 4 Carbon are still running on the small-family set and will be added.
-
 ### D. Protein language models
 
 | Model | Reads | Input | Real | Shuffled | Real minus shuffled, points (95% CI) |

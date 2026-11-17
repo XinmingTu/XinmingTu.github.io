@@ -23,7 +23,7 @@ authors:
     url: "https://xinmingtu.cn"
     affiliations:
       name: University of Washington, Phylo
-  - name: Tianlai Chen
+  - name: Leo Tianlai Chen
     url: "https://www.leozang.com/"
     affiliations:
       name: Harvard Medical School
@@ -138,7 +138,7 @@ All code, test sets, model outputs and figures are in [llm-bioseq-probe](https:/
 
 ```bibtex
 @misc{tu2026bioseq,
-  author = {Tu, Xinming and Chen, Tianlai},
+  author = {Tu, Xinming and Chen, Leo Tianlai},
   title  = {Claude Opus 5.5 was trained on protein sequences at scale},
   year   = {2026},
   month  = nov,

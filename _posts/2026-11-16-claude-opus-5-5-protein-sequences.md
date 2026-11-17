@@ -23,6 +23,10 @@ authors:
     url: "https://xinmingtu.cn"
     affiliations:
       name: University of Washington, Phylo
+  - name: Tianlai Chen
+    url: "https://www.leozang.com/"
+    affiliations:
+      name: Harvard Medical School
 
 _styles: |
   d-article {
@@ -134,7 +138,7 @@ All code, test sets, model outputs and figures are in [llm-bioseq-probe](https:/
 
 ```bibtex
 @misc{tu2026bioseq,
-  author = {Tu, Xinming},
+  author = {Tu, Xinming and Chen, Tianlai},
   title  = {Claude Opus 5.5 was trained on protein sequences at scale},
   year   = {2026},
   month  = nov,
@@ -183,7 +187,35 @@ The last row is fill-in-the-blank rather than continuation: ESM-2 also sees the 
 
 ### E. Methods
 
-Each protein is cut at 5 random points inside its Pfam domain; the model sees the start in FASTA format (60-character lines) and returns the next 10 residues; only the first is scored. The shuffled copy uses a fixed seed per protein. Intervals are 95% bootstraps over families (10,000 resamples), the main test a one-sided sign-flip permutation test over families. The analysis plan for the main run was written before it. Total API cost was about $450.
+**Choosing the proteins.** We started from every Pfam family whose name says "domain of unknown function" (DUF) or "protein of unknown function", and kept those with no structure in the PDB, at most 3 Europe PMC hits for the family's accession, and at least 300 member proteins. We binned them by size (300 to 1,000 proteins, 1,000 to 3,000, 3,000 to 10,000, over 10,000) and drew 50 families per bin at random; only 17 families qualify above 10,000, so the set has 167. From each family we took 4 proteins from UniProt that are unreviewed (TrEMBL), come from Bacteria or Archaea, are 120 to 800 residues long, use only the 20 standard amino acids, are not low-complexity (Shannon entropy above 3.9 bits per residue), and are alone in their UniRef90 cluster, so no other UniProt protein is 90% or more identical to them. That gives 668 proteins.
+
+**Cutting.** Each protein is cut at 5 positions drawn at random inside its Pfam domain (the longest domain span, at least 40 residues), at least 10 residues from either end of the domain and with at least 30 residues before the cut: 3,340 cuts. Everything before the cut is the prefix; the residue right after it is the answer.
+
+**Asking.** The model gets this message, with the prefix in 60-character lines (an example from one of the test proteins):
+
+```
+Below is the beginning of a protein sequence in one-letter amino acid codes.
+Predict how it continues. Reply with exactly the next 10 amino acids as
+one-letter codes on one line, and nothing else.
+
+>sequence
+MRSGGQPLHPQPAHRFHYRTAARPRAAWILGCVLHLADAEEGARFWWQYAAGAGDDAAAY
+CLYLHCLVLGDSYAAALWREQTSLDTPPHDFDDTSVPTVLRILSRLTPA
+```
+
+Each model runs through its own API with temperature 0 where it is accepted, thinking off or at its lowest setting, no tools, and one sample per question. Models that declined to guess (GPT-4o, DeepSeek, Qwen, Kimi, GLM, gpt-oss) also got a version that adds "Give your best guess even if you are uncertain. Do not explain or refuse."; those runs are marked separately.
+
+**Scoring.** We take the last line of the reply, keep its letters and read the first one as the predicted next amino acid. A question counts only if that line contains nothing but the 20 standard letters; refusals and other non-answers are excluded and counted (1% for Opus 5.5). Only this first residue is scored. We asked for 10 so that the answer is a sequence rather than a single letter, and used the full 10 only to count exact continuations.
+
+**The shuffled control.** Each protein's residues are shuffled once, with a random seed fixed by its accession, and the same 5 cut positions are asked on the shuffled sequence. The shuffle keeps the composition of the whole protein and destroys the order, so a model that knows only which amino acids are common scores the same on both.
+
+**Statistics.** For each family we compute the share of correct first residues on real and on shuffled cuts, and take the difference, in percentage points. The result for a model is the mean of that gap over the 167 families. Intervals are 95% bootstraps over families (10,000 resamples), the main test is a one-sided sign-flip permutation test over families, and the family-size trend is the Spearman correlation between a family's gap and the logarithm of its size.
+
+**Raw continuation.** For models that allow it, the same prefix is sent without any instruction, as the text ">sequence" followed by the FASTA lines, through a plain completion endpoint (open-weight models on Fireworks) or as the start of the model's own reply (Gemini 2.5 Pro). The first letter the model writes is scored as above.
+
+**Protein language models.** They get the same prefix and no prompt. ProtGPT3 and ProtGPT2 read it left to right and give a probability for the next token; the ESM models see the prefix, a mask in place of the next residue, and the end of the sequence. In every case the prediction is the most likely of the 20 standard amino acids.
+
+Total API cost was about $480, plus a few dollars of GPU time for the protein language models.
 
 ### F. Safety behaviour seen along the way
 

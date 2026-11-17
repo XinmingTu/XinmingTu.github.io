@@ -95,7 +95,7 @@ We also looked at longer continuations: how often a model gets all 10 requested 
   <figcaption>Filled points: the chat prompt. Hollow points: raw next-token continuation of the FASTA text, through a completion endpoint or a prefilled reply, for models that allow it.</figcaption>
 </figure>
 
-Opus 5.5's gap is 27.4 points (95% CI 24.7 to 30.0), and it shows up in 95% of families. Within Claude, Opus 4.5 and 4.6 show nothing, Opus 4.7 to 5 reach 8 to 10 points, and Opus 5.5 jumps to 27. The open-weight models stay flat even when they simply continue the raw FASTA text, the way they were trained.
+Opus 5.5's gap is 27.4 points (95% CI 24.7 to 30.0), and it shows up in 95% of families. Within Claude, Opus 4.5 and 4.6 show nothing, Opus 4.7 to 5 reach 8 to 10 points, and Opus 5.5 jumps to 27. The open-weight models stay flat even when they simply continue the raw FASTA text, the way they were trained. The lead is not just on the first residue: Opus 5.5 is still 18.5 points ahead at the tenth, and it writes runs of correct residues that no other model, and no shuffled protein, gets close to (Appendix B).
 
 ## Comparison with protein language models
 
@@ -162,6 +162,18 @@ All code, test sets, model outputs and figures are in [llm-bioseq-probe](https:/
 ### B. Longer continuations
 
 **All 10 residues right.** Each question asks for the next 10 residues. On the 668 little-studied proteins, Claude Opus 5.5 gets all 10 right at 12 real cuts and at none of the shuffled ones. If its residues were independent guesses at its own per-residue accuracy, it would get 0.56 by chance. That is 21 times chance, but still only a handful of cuts: Opus 5.5 mostly knows the families, not each protein's exact letters.
+
+**Every position.** Scored one position at a time, Opus 5.5's gap falls slowly, from 27.4 points at the first residue to 18.5 at the tenth. Opus 4.7, 4.8 and 5 fade faster, and the other 13 models, including those run as raw continuation, stay near zero all the way.
+
+<figure class="bp-figure" markdown="0">
+  <img src="{{ '/assets/img/llm-bioseq-probe/fig7_by_position.png' | relative_url }}?v=20261117c" alt="Line chart: real-minus-shuffled gap at positions 1 to 10 of the reply; Claude Opus 5.5 falls from 27.4 to 18.5, Opus 4.7 to 5 from about 9 to between 2 and 5, other models near zero.">
+</figure>
+
+**Runs in a row.** Opus 5.5 gets the first 2 residues right 16% of the time, the first 5 3% and all 10 0.4%. On shuffled proteins it manages one run of 3 and nothing longer. Once it is on track it gets surer: after one right residue the next is right 47% of the time, after four in a row 68%.
+
+<figure class="bp-figure" markdown="0">
+  <img src="{{ '/assets/img/llm-bioseq-probe/fig8_runs.png' | relative_url }}?v=20261117c" alt="Line chart: share of replies whose first k residues are all right; Claude Opus 5.5 starts at 35% and stays above other models out to 10 residues, while its shuffled curve drops to zero by 3.">
+</figure>
 
 **Reciting well-known proteins.** At 158 points in well-studied proteins, each model was asked for the next 200 residues at once.
 

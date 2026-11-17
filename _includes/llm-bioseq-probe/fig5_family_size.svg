@@ -1,9 +1,9 @@
-<svg xmlns:xlink="http://www.w3.org/1999/xlink" id="fig5_family_size" width="100%" viewBox="0 0 432.344981 264.731381" xmlns="http://www.w3.org/2000/svg" version="1.1">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" id="fig5_family_size" width="100%" viewBox="0 0 468.864918 264.731381" xmlns="http://www.w3.org/2000/svg" version="1.1">
  <metadata>
   <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
    <cc:Work>
     <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
-    <dc:date>2026-11-17T05:40:09.039999</dc:date>
+    <dc:date>2026-11-17T06:25:27.321660</dc:date>
     <dc:format>image/svg+xml</dc:format>
     <dc:creator>
      <cc:Agent>
@@ -19,8 +19,8 @@
  <g id="fig5_family_size-figure_1">
   <g id="fig5_family_size-patch_1">
    <path d="M 0 264.731381 
-L 432.344981 264.731381 
-L 432.344981 0 
+L 468.864918 264.731381 
+L 468.864918 0 
 L 0 0 
 L 0 264.731381 
 z
@@ -28,17 +28,17 @@ z
   </g>
   <g id="fig5_family_size-axes_1">
    <g id="fig5_family_size-patch_2">
-    <path d="M 81.13584 209.36517 
-L 371.29584 209.36517 
-L 371.29584 20.86917 
-L 81.13584 20.86917 
+    <path d="M 117.655778 209.36517 
+L 407.815778 209.36517 
+L 407.815778 20.86917 
+L 117.655778 20.86917 
 z
 " style="fill: var(--fig-bg, #ffffff)"/>
    </g>
    <g id="fig5_family_size-line2d_1">
-    <path d="M 183.977359 209.36517 
-L 183.977359 20.86917 
-" clip-path="url(#fig5_family_size-p3d84b3d07d)" style="fill: none; stroke-dasharray: 0.8,1.32; stroke-dashoffset: 0; stroke: var(--fig-light, #d3d7df); stroke-width: 0.8"/>
+    <path d="M 220.497297 209.36517 
+L 220.497297 20.86917 
+" clip-path="url(#fig5_family_size-pf44428b94f)" style="fill: none; stroke-dasharray: 0.8,1.32; stroke-dashoffset: 0; stroke: var(--fig-light, #d3d7df); stroke-width: 0.8"/>
    </g>
    <g id="fig5_family_size-matplotlib.axis_1">
     <g id="fig5_family_size-xtick_1">
@@ -49,247 +49,247 @@ L 0 2.5
 " style="stroke: var(--fig-muted, #6b7385); stroke-width: 0.6"/>
       </defs>
       <g>
-       <use xlink:href="#fig5_family_size-m2231c6fc26" x="92.154574" y="209.36517" style="fill: var(--fig-muted, #6b7385); stroke: var(--fig-muted, #6b7385); stroke-width: 0.6"/>
+       <use xlink:href="#fig5_family_size-m2231c6fc26" x="128.674512" y="209.36517" style="fill: var(--fig-muted, #6b7385); stroke: var(--fig-muted, #6b7385); stroke-width: 0.6"/>
       </g>
      </g>
      <g id="fig5_family_size-text_1">
-      <text style="font-size: 6.5px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: middle; fill: var(--fig-muted, #6b7385)" x="92.154574" y="220.097348" transform="rotate(-0 92.154574 220.097348)">20–60</text>
+      <text style="font-size: 6.5px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: middle; fill: var(--fig-muted, #6b7385)" x="128.674512" y="220.097348" transform="rotate(-0 128.674512 220.097348)">20–60</text>
      </g>
     </g>
     <g id="fig5_family_size-xtick_2">
      <g id="fig5_family_size-line2d_3">
       <g>
-       <use xlink:href="#fig5_family_size-m2231c6fc26" x="128.883688" y="209.36517" style="fill: var(--fig-muted, #6b7385); stroke: var(--fig-muted, #6b7385); stroke-width: 0.6"/>
+       <use xlink:href="#fig5_family_size-m2231c6fc26" x="165.403626" y="209.36517" style="fill: var(--fig-muted, #6b7385); stroke: var(--fig-muted, #6b7385); stroke-width: 0.6"/>
       </g>
      </g>
      <g id="fig5_family_size-text_2">
-      <text style="font-size: 6.5px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: middle; fill: var(--fig-muted, #6b7385)" x="128.883688" y="220.097348" transform="rotate(-0 128.883688 220.097348)">60–150</text>
+      <text style="font-size: 6.5px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: middle; fill: var(--fig-muted, #6b7385)" x="165.403626" y="220.097348" transform="rotate(-0 165.403626 220.097348)">60–150</text>
      </g>
     </g>
     <g id="fig5_family_size-xtick_3">
      <g id="fig5_family_size-line2d_4">
       <g>
-       <use xlink:href="#fig5_family_size-m2231c6fc26" x="165.612802" y="209.36517" style="fill: var(--fig-muted, #6b7385); stroke: var(--fig-muted, #6b7385); stroke-width: 0.6"/>
+       <use xlink:href="#fig5_family_size-m2231c6fc26" x="202.13274" y="209.36517" style="fill: var(--fig-muted, #6b7385); stroke: var(--fig-muted, #6b7385); stroke-width: 0.6"/>
       </g>
      </g>
      <g id="fig5_family_size-text_3">
-      <text style="font-size: 6.5px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: middle; fill: var(--fig-muted, #6b7385)" x="165.612802" y="220.097348" transform="rotate(-0 165.612802 220.097348)">150–300</text>
+      <text style="font-size: 6.5px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: middle; fill: var(--fig-muted, #6b7385)" x="202.13274" y="220.097348" transform="rotate(-0 202.13274 220.097348)">150–300</text>
      </g>
     </g>
     <g id="fig5_family_size-xtick_4">
      <g id="fig5_family_size-line2d_5">
       <g>
-       <use xlink:href="#fig5_family_size-m2231c6fc26" x="202.341916" y="209.36517" style="fill: var(--fig-muted, #6b7385); stroke: var(--fig-muted, #6b7385); stroke-width: 0.6"/>
+       <use xlink:href="#fig5_family_size-m2231c6fc26" x="238.861854" y="209.36517" style="fill: var(--fig-muted, #6b7385); stroke: var(--fig-muted, #6b7385); stroke-width: 0.6"/>
       </g>
      </g>
      <g id="fig5_family_size-text_4">
-      <text style="font-size: 6.5px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: middle; fill: var(--fig-muted, #6b7385)" x="202.341916" y="220.097348" transform="rotate(-0 202.341916 220.097348)">300–1k</text>
+      <text style="font-size: 6.5px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: middle; fill: var(--fig-muted, #6b7385)" x="238.861854" y="220.097348" transform="rotate(-0 238.861854 220.097348)">300–1k</text>
      </g>
     </g>
     <g id="fig5_family_size-xtick_5">
      <g id="fig5_family_size-line2d_6">
       <g>
-       <use xlink:href="#fig5_family_size-m2231c6fc26" x="239.07103" y="209.36517" style="fill: var(--fig-muted, #6b7385); stroke: var(--fig-muted, #6b7385); stroke-width: 0.6"/>
+       <use xlink:href="#fig5_family_size-m2231c6fc26" x="275.590968" y="209.36517" style="fill: var(--fig-muted, #6b7385); stroke: var(--fig-muted, #6b7385); stroke-width: 0.6"/>
       </g>
      </g>
      <g id="fig5_family_size-text_5">
-      <text style="font-size: 6.5px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: middle; fill: var(--fig-muted, #6b7385)" x="239.07103" y="220.097348" transform="rotate(-0 239.07103 220.097348)">1k–3k</text>
+      <text style="font-size: 6.5px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: middle; fill: var(--fig-muted, #6b7385)" x="275.590968" y="220.097348" transform="rotate(-0 275.590968 220.097348)">1k–3k</text>
      </g>
     </g>
     <g id="fig5_family_size-xtick_6">
      <g id="fig5_family_size-line2d_7">
       <g>
-       <use xlink:href="#fig5_family_size-m2231c6fc26" x="275.800144" y="209.36517" style="fill: var(--fig-muted, #6b7385); stroke: var(--fig-muted, #6b7385); stroke-width: 0.6"/>
+       <use xlink:href="#fig5_family_size-m2231c6fc26" x="312.320081" y="209.36517" style="fill: var(--fig-muted, #6b7385); stroke: var(--fig-muted, #6b7385); stroke-width: 0.6"/>
       </g>
      </g>
      <g id="fig5_family_size-text_6">
-      <text style="font-size: 6.5px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: middle; fill: var(--fig-muted, #6b7385)" x="275.800144" y="220.097348" transform="rotate(-0 275.800144 220.097348)">3k–10k</text>
+      <text style="font-size: 6.5px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: middle; fill: var(--fig-muted, #6b7385)" x="312.320081" y="220.097348" transform="rotate(-0 312.320081 220.097348)">3k–10k</text>
      </g>
     </g>
     <g id="fig5_family_size-xtick_7">
      <g id="fig5_family_size-line2d_8">
       <g>
-       <use xlink:href="#fig5_family_size-m2231c6fc26" x="312.529258" y="209.36517" style="fill: var(--fig-muted, #6b7385); stroke: var(--fig-muted, #6b7385); stroke-width: 0.6"/>
+       <use xlink:href="#fig5_family_size-m2231c6fc26" x="349.049195" y="209.36517" style="fill: var(--fig-muted, #6b7385); stroke: var(--fig-muted, #6b7385); stroke-width: 0.6"/>
       </g>
      </g>
      <g id="fig5_family_size-text_7">
-      <text style="font-size: 6.5px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: middle; fill: var(--fig-muted, #6b7385)" x="312.529258" y="220.097348" transform="rotate(-0 312.529258 220.097348)">&gt;10k</text>
+      <text style="font-size: 6.5px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: middle; fill: var(--fig-muted, #6b7385)" x="349.049195" y="220.097348" transform="rotate(-0 349.049195 220.097348)">&gt;10k</text>
      </g>
     </g>
     <g id="fig5_family_size-text_8">
-     <text style="font-size: 7px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: middle; fill: var(--fig-ink, #1d2433)" x="226.21584" y="230.561459" transform="rotate(-0 226.21584 230.561459)">Proteins in the family (Pfam)</text>
+     <text style="font-size: 7px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: middle; fill: var(--fig-ink, #1d2433)" x="262.735778" y="230.561459" transform="rotate(-0 262.735778 230.561459)">Proteins in the family (Pfam)</text>
     </g>
    </g>
    <g id="fig5_family_size-matplotlib.axis_2">
     <g id="fig5_family_size-ytick_1">
      <g id="fig5_family_size-line2d_9">
-      <path d="M 81.13584 182.026055 
-L 371.29584 182.026055 
-" clip-path="url(#fig5_family_size-p3d84b3d07d)" style="fill: none; stroke: var(--fig-grid, #eceef2); stroke-width: 0.5; stroke-linecap: square"/>
+      <path d="M 117.655778 182.026055 
+L 407.815778 182.026055 
+" clip-path="url(#fig5_family_size-pf44428b94f)" style="fill: none; stroke: var(--fig-grid, #eceef2); stroke-width: 0.5; stroke-linecap: square"/>
      </g>
      <g id="fig5_family_size-line2d_10"/>
      <g id="fig5_family_size-text_9">
-      <text style="font-size: 7px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: end; fill: var(--fig-ink, #1d2433)" x="77.63584" y="184.574151" transform="rotate(-0 77.63584 184.574151)">0</text>
+      <text style="font-size: 7px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: end; fill: var(--fig-ink, #1d2433)" x="114.155778" y="184.574151" transform="rotate(-0 114.155778 184.574151)">0</text>
      </g>
     </g>
     <g id="fig5_family_size-ytick_2">
      <g id="fig5_family_size-line2d_11">
-      <path d="M 81.13584 153.24804 
-L 371.29584 153.24804 
-" clip-path="url(#fig5_family_size-p3d84b3d07d)" style="fill: none; stroke: var(--fig-grid, #eceef2); stroke-width: 0.5; stroke-linecap: square"/>
+      <path d="M 117.655778 153.24804 
+L 407.815778 153.24804 
+" clip-path="url(#fig5_family_size-pf44428b94f)" style="fill: none; stroke: var(--fig-grid, #eceef2); stroke-width: 0.5; stroke-linecap: square"/>
      </g>
      <g id="fig5_family_size-line2d_12"/>
      <g id="fig5_family_size-text_10">
-      <text style="font-size: 7px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: end; fill: var(--fig-ink, #1d2433)" x="77.63584" y="155.796136" transform="rotate(-0 77.63584 155.796136)">10</text>
+      <text style="font-size: 7px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: end; fill: var(--fig-ink, #1d2433)" x="114.155778" y="155.796136" transform="rotate(-0 114.155778 155.796136)">10</text>
      </g>
     </g>
     <g id="fig5_family_size-ytick_3">
      <g id="fig5_family_size-line2d_13">
-      <path d="M 81.13584 124.470025 
-L 371.29584 124.470025 
-" clip-path="url(#fig5_family_size-p3d84b3d07d)" style="fill: none; stroke: var(--fig-grid, #eceef2); stroke-width: 0.5; stroke-linecap: square"/>
+      <path d="M 117.655778 124.470025 
+L 407.815778 124.470025 
+" clip-path="url(#fig5_family_size-pf44428b94f)" style="fill: none; stroke: var(--fig-grid, #eceef2); stroke-width: 0.5; stroke-linecap: square"/>
      </g>
      <g id="fig5_family_size-line2d_14"/>
      <g id="fig5_family_size-text_11">
-      <text style="font-size: 7px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: end; fill: var(--fig-ink, #1d2433)" x="77.63584" y="127.018121" transform="rotate(-0 77.63584 127.018121)">20</text>
+      <text style="font-size: 7px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: end; fill: var(--fig-ink, #1d2433)" x="114.155778" y="127.018121" transform="rotate(-0 114.155778 127.018121)">20</text>
      </g>
     </g>
     <g id="fig5_family_size-ytick_4">
      <g id="fig5_family_size-line2d_15">
-      <path d="M 81.13584 95.69201 
-L 371.29584 95.69201 
-" clip-path="url(#fig5_family_size-p3d84b3d07d)" style="fill: none; stroke: var(--fig-grid, #eceef2); stroke-width: 0.5; stroke-linecap: square"/>
+      <path d="M 117.655778 95.69201 
+L 407.815778 95.69201 
+" clip-path="url(#fig5_family_size-pf44428b94f)" style="fill: none; stroke: var(--fig-grid, #eceef2); stroke-width: 0.5; stroke-linecap: square"/>
      </g>
      <g id="fig5_family_size-line2d_16"/>
      <g id="fig5_family_size-text_12">
-      <text style="font-size: 7px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: end; fill: var(--fig-ink, #1d2433)" x="77.63584" y="98.240105" transform="rotate(-0 77.63584 98.240105)">30</text>
+      <text style="font-size: 7px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: end; fill: var(--fig-ink, #1d2433)" x="114.155778" y="98.240105" transform="rotate(-0 114.155778 98.240105)">30</text>
      </g>
     </g>
     <g id="fig5_family_size-ytick_5">
      <g id="fig5_family_size-line2d_17">
-      <path d="M 81.13584 66.913994 
-L 371.29584 66.913994 
-" clip-path="url(#fig5_family_size-p3d84b3d07d)" style="fill: none; stroke: var(--fig-grid, #eceef2); stroke-width: 0.5; stroke-linecap: square"/>
+      <path d="M 117.655778 66.913994 
+L 407.815778 66.913994 
+" clip-path="url(#fig5_family_size-pf44428b94f)" style="fill: none; stroke: var(--fig-grid, #eceef2); stroke-width: 0.5; stroke-linecap: square"/>
      </g>
      <g id="fig5_family_size-line2d_18"/>
      <g id="fig5_family_size-text_13">
-      <text style="font-size: 7px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: end; fill: var(--fig-ink, #1d2433)" x="77.63584" y="69.46209" transform="rotate(-0 77.63584 69.46209)">40</text>
+      <text style="font-size: 7px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: end; fill: var(--fig-ink, #1d2433)" x="114.155778" y="69.46209" transform="rotate(-0 114.155778 69.46209)">40</text>
      </g>
     </g>
     <g id="fig5_family_size-ytick_6">
      <g id="fig5_family_size-line2d_19">
-      <path d="M 81.13584 38.135979 
-L 371.29584 38.135979 
-" clip-path="url(#fig5_family_size-p3d84b3d07d)" style="fill: none; stroke: var(--fig-grid, #eceef2); stroke-width: 0.5; stroke-linecap: square"/>
+      <path d="M 117.655778 38.135979 
+L 407.815778 38.135979 
+" clip-path="url(#fig5_family_size-pf44428b94f)" style="fill: none; stroke: var(--fig-grid, #eceef2); stroke-width: 0.5; stroke-linecap: square"/>
      </g>
      <g id="fig5_family_size-line2d_20"/>
      <g id="fig5_family_size-text_14">
-      <text style="font-size: 7px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: end; fill: var(--fig-ink, #1d2433)" x="77.63584" y="40.684075" transform="rotate(-0 77.63584 40.684075)">50</text>
+      <text style="font-size: 7px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: end; fill: var(--fig-ink, #1d2433)" x="114.155778" y="40.684075" transform="rotate(-0 114.155778 40.684075)">50</text>
      </g>
     </g>
     <g id="fig5_family_size-text_15">
-     <text style="font-size: 7px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: middle; fill: var(--fig-ink, #1d2433)" x="64.377383" y="115.11717" transform="rotate(-90 64.377383 115.11717)">Real minus shuffled (points)</text>
+     <text style="font-size: 7px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: middle; fill: var(--fig-ink, #1d2433)" x="100.897321" y="115.11717" transform="rotate(-90 100.897321 115.11717)">Real minus shuffled (points)</text>
     </g>
    </g>
    <g id="fig5_family_size-line2d_21">
-    <path d="M 92.154574 180.082277 
-L 128.883688 182.455201 
-L 165.612802 178.618133 
-L 202.341916 178.563017 
-L 239.07103 179.951009 
-L 275.800144 179.390595 
-L 312.529258 188.797353 
-" clip-path="url(#fig5_family_size-p3d84b3d07d)" style="fill: none; stroke: var(--fig-grey, #a3aab8); stroke-opacity: 0.6; stroke-width: 0.8; stroke-linecap: square"/>
+    <path d="M 128.674512 180.082277 
+L 165.403626 182.455201 
+L 202.13274 178.618133 
+L 238.861854 178.563017 
+L 275.590968 179.951009 
+L 312.320081 179.390595 
+L 349.049195 188.797353 
+" clip-path="url(#fig5_family_size-pf44428b94f)" style="fill: none; stroke: var(--fig-grey, #a3aab8); stroke-opacity: 0.6; stroke-width: 0.8; stroke-linecap: square"/>
    </g>
    <g id="fig5_family_size-line2d_22">
-    <path d="M 92.154574 177.110925 
-L 128.883688 182.718859 
-L 165.612802 171.398385 
-L 202.341916 170.977357 
-L 239.07103 176.936891 
-L 275.800144 170.437435 
-L 312.529258 182.872468 
-" clip-path="url(#fig5_family_size-p3d84b3d07d)" style="fill: none; stroke: var(--fig-grey, #a3aab8); stroke-opacity: 0.6; stroke-width: 0.8; stroke-linecap: square"/>
+    <path d="M 128.674512 177.110925 
+L 165.403626 182.718859 
+L 202.13274 171.398385 
+L 238.861854 170.977357 
+L 275.590968 176.936891 
+L 312.320081 170.437435 
+L 349.049195 182.872468 
+" clip-path="url(#fig5_family_size-pf44428b94f)" style="fill: none; stroke: var(--fig-grey, #a3aab8); stroke-opacity: 0.6; stroke-width: 0.8; stroke-linecap: square"/>
    </g>
    <g id="fig5_family_size-line2d_23">
-    <path d="M 92.154574 188.437999 
-L 128.883688 179.627887 
-L 165.612802 180.082277 
-L 202.341916 174.225699 
-L 239.07103 180.874935 
-L 275.800144 174.58921 
-L 312.529258 171.022697 
-" clip-path="url(#fig5_family_size-p3d84b3d07d)" style="fill: none; stroke: var(--fig-grey, #a3aab8); stroke-opacity: 0.6; stroke-width: 0.8; stroke-linecap: square"/>
+    <path d="M 128.674512 188.437999 
+L 165.403626 179.627887 
+L 202.13274 180.082277 
+L 238.861854 174.225699 
+L 275.590968 180.874935 
+L 312.320081 174.58921 
+L 349.049195 171.022697 
+" clip-path="url(#fig5_family_size-pf44428b94f)" style="fill: none; stroke: var(--fig-grey, #a3aab8); stroke-opacity: 0.6; stroke-width: 0.8; stroke-linecap: square"/>
    </g>
    <g id="fig5_family_size-line2d_24">
-    <path d="M 92.154574 191.111045 
-L 128.883688 175.765575 
-L 165.612802 174.209364 
-L 202.341916 176.571399 
-L 239.07103 184.040516 
-L 275.800144 175.776314 
-L 312.529258 184.431648 
-" clip-path="url(#fig5_family_size-p3d84b3d07d)" style="fill: none; stroke: var(--fig-grey, #a3aab8); stroke-opacity: 0.6; stroke-width: 0.8; stroke-linecap: square"/>
+    <path d="M 128.674512 191.111045 
+L 165.403626 175.765575 
+L 202.13274 174.209364 
+L 238.861854 176.571399 
+L 275.590968 184.040516 
+L 312.320081 175.776314 
+L 349.049195 184.431648 
+" clip-path="url(#fig5_family_size-pf44428b94f)" style="fill: none; stroke: var(--fig-grey, #a3aab8); stroke-opacity: 0.6; stroke-width: 0.8; stroke-linecap: square"/>
    </g>
    <g id="fig5_family_size-FillBetweenPolyCollection_1">
     <defs>
-     <path id="fig5_family_size-mc1da822243" d="M 92.154574 -119.359429 
-L 92.154574 -91.439706 
-L 128.883688 -92.221634 
-L 165.612802 -107.645641 
-L 202.341916 -130.668372 
-L 239.07103 -144.939719 
-L 275.800144 -159.799735 
-L 312.529258 -164.697796 
-L 312.529258 -214.345812 
-L 312.529258 -214.345812 
-L 275.800144 -188.305874 
-L 239.07103 -170.276363 
-L 202.341916 -157.074911 
-L 165.612802 -140.590157 
-L 128.883688 -116.43114 
-L 92.154574 -119.359429 
+     <path id="fig5_family_size-m00a590e091" d="M 128.674512 -119.359429 
+L 128.674512 -91.439706 
+L 165.403626 -92.221634 
+L 202.13274 -107.645641 
+L 238.861854 -130.668372 
+L 275.590968 -144.939719 
+L 312.320081 -159.799735 
+L 349.049195 -164.697796 
+L 349.049195 -214.345812 
+L 349.049195 -214.345812 
+L 312.320081 -188.305874 
+L 275.590968 -170.276363 
+L 238.861854 -157.074911 
+L 202.13274 -140.590157 
+L 165.403626 -116.43114 
+L 128.674512 -119.359429 
 z
 "/>
     </defs>
-    <g clip-path="url(#fig5_family_size-p3d84b3d07d)">
-     <use xlink:href="#fig5_family_size-mc1da822243" x="0" y="264.731381" style="fill: #d97757; fill-opacity: 0.12"/>
+    <g clip-path="url(#fig5_family_size-pf44428b94f)">
+     <use xlink:href="#fig5_family_size-m00a590e091" x="0" y="264.731381" style="fill: #d97757; fill-opacity: 0.12"/>
     </g>
    </g>
    <g id="fig5_family_size-FillBetweenPolyCollection_2">
     <defs>
-     <path id="fig5_family_size-m38421e969a" d="M 92.154574 -157.540156 
-L 92.154574 -120.596379 
-L 128.883688 -129.229783 
-L 165.612802 -167.120837 
-L 202.341916 -195.227365 
-L 239.07103 -201.846309 
-L 275.800144 -203.57299 
-L 312.529258 -176.657081 
-L 312.529258 -227.441814 
-L 312.529258 -227.441814 
-L 275.800144 -228.034303 
-L 239.07103 -227.746522 
-L 202.341916 -223.42982 
-L 165.612802 -202.134089 
-L 128.883688 -174.794974 
-L 92.154574 -157.540156 
+     <path id="fig5_family_size-mfa8b90d3c5" d="M 128.674512 -157.540156 
+L 128.674512 -120.596379 
+L 165.403626 -129.229783 
+L 202.13274 -167.120837 
+L 238.861854 -195.227365 
+L 275.590968 -201.846309 
+L 312.320081 -203.57299 
+L 349.049195 -176.657081 
+L 349.049195 -227.441814 
+L 349.049195 -227.441814 
+L 312.320081 -228.034303 
+L 275.590968 -227.746522 
+L 238.861854 -223.42982 
+L 202.13274 -202.134089 
+L 165.403626 -174.794974 
+L 128.674512 -157.540156 
 z
 "/>
     </defs>
-    <g clip-path="url(#fig5_family_size-p3d84b3d07d)">
-     <use xlink:href="#fig5_family_size-m38421e969a" x="0" y="264.731381" style="fill: var(--fig-c-f52, #9c3a1c); fill-opacity: 0.12"/>
+    <g clip-path="url(#fig5_family_size-pf44428b94f)">
+     <use xlink:href="#fig5_family_size-mfa8b90d3c5" x="0" y="264.731381" style="fill: var(--fig-c-f52, #9c3a1c); fill-opacity: 0.12"/>
     </g>
    </g>
    <g id="fig5_family_size-line2d_25">
-    <path d="M 92.154574 181.546422 
-L 128.883688 180.637642 
-L 165.612802 183.464956 
-L 202.341916 174.543771 
-L 239.07103 174.255991 
-L 275.800144 176.558233 
-L 312.529258 189.643765 
-" clip-path="url(#fig5_family_size-p3d84b3d07d)" style="fill: none; stroke: var(--fig-c-o45, #f3d3c4); stroke-opacity: 0.75; stroke-width: 0.9; stroke-linecap: square"/>
+    <path d="M 128.674512 181.546422 
+L 165.403626 180.637642 
+L 202.13274 183.464956 
+L 238.861854 174.543771 
+L 275.590968 174.255991 
+L 312.320081 176.558233 
+L 349.049195 189.643765 
+" clip-path="url(#fig5_family_size-pf44428b94f)" style="fill: none; stroke: var(--fig-c-o45, #f3d3c4); stroke-opacity: 0.75; stroke-width: 0.9; stroke-linecap: square"/>
     <defs>
      <path id="fig5_family_size-m332005b4e5" d="M 0 1.1 
 C 0.291723 1.1 0.571538 0.984097 0.777817 0.777817 
@@ -303,25 +303,25 @@ C -0.571538 0.984097 -0.291723 1.1 0 1.1
 z
 " style="stroke: var(--fig-c-o45, #f3d3c4); stroke-opacity: 0.75"/>
     </defs>
-    <g clip-path="url(#fig5_family_size-p3d84b3d07d)">
-     <use xlink:href="#fig5_family_size-m332005b4e5" x="92.154574" y="181.546422" style="fill: var(--fig-c-o45, #f3d3c4); fill-opacity: 0.75; stroke: var(--fig-c-o45, #f3d3c4); stroke-opacity: 0.75"/>
-     <use xlink:href="#fig5_family_size-m332005b4e5" x="128.883688" y="180.637642" style="fill: var(--fig-c-o45, #f3d3c4); fill-opacity: 0.75; stroke: var(--fig-c-o45, #f3d3c4); stroke-opacity: 0.75"/>
-     <use xlink:href="#fig5_family_size-m332005b4e5" x="165.612802" y="183.464956" style="fill: var(--fig-c-o45, #f3d3c4); fill-opacity: 0.75; stroke: var(--fig-c-o45, #f3d3c4); stroke-opacity: 0.75"/>
-     <use xlink:href="#fig5_family_size-m332005b4e5" x="202.341916" y="174.543771" style="fill: var(--fig-c-o45, #f3d3c4); fill-opacity: 0.75; stroke: var(--fig-c-o45, #f3d3c4); stroke-opacity: 0.75"/>
-     <use xlink:href="#fig5_family_size-m332005b4e5" x="239.07103" y="174.255991" style="fill: var(--fig-c-o45, #f3d3c4); fill-opacity: 0.75; stroke: var(--fig-c-o45, #f3d3c4); stroke-opacity: 0.75"/>
-     <use xlink:href="#fig5_family_size-m332005b4e5" x="275.800144" y="176.558233" style="fill: var(--fig-c-o45, #f3d3c4); fill-opacity: 0.75; stroke: var(--fig-c-o45, #f3d3c4); stroke-opacity: 0.75"/>
-     <use xlink:href="#fig5_family_size-m332005b4e5" x="312.529258" y="189.643765" style="fill: var(--fig-c-o45, #f3d3c4); fill-opacity: 0.75; stroke: var(--fig-c-o45, #f3d3c4); stroke-opacity: 0.75"/>
+    <g clip-path="url(#fig5_family_size-pf44428b94f)">
+     <use xlink:href="#fig5_family_size-m332005b4e5" x="128.674512" y="181.546422" style="fill: var(--fig-c-o45, #f3d3c4); fill-opacity: 0.75; stroke: var(--fig-c-o45, #f3d3c4); stroke-opacity: 0.75"/>
+     <use xlink:href="#fig5_family_size-m332005b4e5" x="165.403626" y="180.637642" style="fill: var(--fig-c-o45, #f3d3c4); fill-opacity: 0.75; stroke: var(--fig-c-o45, #f3d3c4); stroke-opacity: 0.75"/>
+     <use xlink:href="#fig5_family_size-m332005b4e5" x="202.13274" y="183.464956" style="fill: var(--fig-c-o45, #f3d3c4); fill-opacity: 0.75; stroke: var(--fig-c-o45, #f3d3c4); stroke-opacity: 0.75"/>
+     <use xlink:href="#fig5_family_size-m332005b4e5" x="238.861854" y="174.543771" style="fill: var(--fig-c-o45, #f3d3c4); fill-opacity: 0.75; stroke: var(--fig-c-o45, #f3d3c4); stroke-opacity: 0.75"/>
+     <use xlink:href="#fig5_family_size-m332005b4e5" x="275.590968" y="174.255991" style="fill: var(--fig-c-o45, #f3d3c4); fill-opacity: 0.75; stroke: var(--fig-c-o45, #f3d3c4); stroke-opacity: 0.75"/>
+     <use xlink:href="#fig5_family_size-m332005b4e5" x="312.320081" y="176.558233" style="fill: var(--fig-c-o45, #f3d3c4); fill-opacity: 0.75; stroke: var(--fig-c-o45, #f3d3c4); stroke-opacity: 0.75"/>
+     <use xlink:href="#fig5_family_size-m332005b4e5" x="349.049195" y="189.643765" style="fill: var(--fig-c-o45, #f3d3c4); fill-opacity: 0.75; stroke: var(--fig-c-o45, #f3d3c4); stroke-opacity: 0.75"/>
     </g>
    </g>
    <g id="fig5_family_size-line2d_26">
-    <path d="M 92.154574 183.464956 
-L 128.883688 177.709353 
-L 165.612802 178.188987 
-L 202.341916 174.255991 
-L 239.07103 182.298689 
-L 275.800144 179.45118 
-L 312.529258 186.258116 
-" clip-path="url(#fig5_family_size-p3d84b3d07d)" style="fill: none; stroke: var(--fig-c-o46, #efc1ab); stroke-opacity: 0.75; stroke-width: 0.9; stroke-linecap: square"/>
+    <path d="M 128.674512 183.464956 
+L 165.403626 177.709353 
+L 202.13274 178.188987 
+L 238.861854 174.255991 
+L 275.590968 182.298689 
+L 312.320081 179.45118 
+L 349.049195 186.258116 
+" clip-path="url(#fig5_family_size-pf44428b94f)" style="fill: none; stroke: var(--fig-c-o46, #efc1ab); stroke-opacity: 0.75; stroke-width: 0.9; stroke-linecap: square"/>
     <defs>
      <path id="fig5_family_size-m448c78afc4" d="M 0 1.1 
 C 0.291723 1.1 0.571538 0.984097 0.777817 0.777817 
@@ -335,25 +335,25 @@ C -0.571538 0.984097 -0.291723 1.1 0 1.1
 z
 " style="stroke: var(--fig-c-o46, #efc1ab); stroke-opacity: 0.75"/>
     </defs>
-    <g clip-path="url(#fig5_family_size-p3d84b3d07d)">
-     <use xlink:href="#fig5_family_size-m448c78afc4" x="92.154574" y="183.464956" style="fill: var(--fig-c-o46, #efc1ab); fill-opacity: 0.75; stroke: var(--fig-c-o46, #efc1ab); stroke-opacity: 0.75"/>
-     <use xlink:href="#fig5_family_size-m448c78afc4" x="128.883688" y="177.709353" style="fill: var(--fig-c-o46, #efc1ab); fill-opacity: 0.75; stroke: var(--fig-c-o46, #efc1ab); stroke-opacity: 0.75"/>
-     <use xlink:href="#fig5_family_size-m448c78afc4" x="165.612802" y="178.188987" style="fill: var(--fig-c-o46, #efc1ab); fill-opacity: 0.75; stroke: var(--fig-c-o46, #efc1ab); stroke-opacity: 0.75"/>
-     <use xlink:href="#fig5_family_size-m448c78afc4" x="202.341916" y="174.255991" style="fill: var(--fig-c-o46, #efc1ab); fill-opacity: 0.75; stroke: var(--fig-c-o46, #efc1ab); stroke-opacity: 0.75"/>
-     <use xlink:href="#fig5_family_size-m448c78afc4" x="239.07103" y="182.298689" style="fill: var(--fig-c-o46, #efc1ab); fill-opacity: 0.75; stroke: var(--fig-c-o46, #efc1ab); stroke-opacity: 0.75"/>
-     <use xlink:href="#fig5_family_size-m448c78afc4" x="275.800144" y="179.45118" style="fill: var(--fig-c-o46, #efc1ab); fill-opacity: 0.75; stroke: var(--fig-c-o46, #efc1ab); stroke-opacity: 0.75"/>
-     <use xlink:href="#fig5_family_size-m448c78afc4" x="312.529258" y="186.258116" style="fill: var(--fig-c-o46, #efc1ab); fill-opacity: 0.75; stroke: var(--fig-c-o46, #efc1ab); stroke-opacity: 0.75"/>
+    <g clip-path="url(#fig5_family_size-pf44428b94f)">
+     <use xlink:href="#fig5_family_size-m448c78afc4" x="128.674512" y="183.464956" style="fill: var(--fig-c-o46, #efc1ab); fill-opacity: 0.75; stroke: var(--fig-c-o46, #efc1ab); stroke-opacity: 0.75"/>
+     <use xlink:href="#fig5_family_size-m448c78afc4" x="165.403626" y="177.709353" style="fill: var(--fig-c-o46, #efc1ab); fill-opacity: 0.75; stroke: var(--fig-c-o46, #efc1ab); stroke-opacity: 0.75"/>
+     <use xlink:href="#fig5_family_size-m448c78afc4" x="202.13274" y="178.188987" style="fill: var(--fig-c-o46, #efc1ab); fill-opacity: 0.75; stroke: var(--fig-c-o46, #efc1ab); stroke-opacity: 0.75"/>
+     <use xlink:href="#fig5_family_size-m448c78afc4" x="238.861854" y="174.255991" style="fill: var(--fig-c-o46, #efc1ab); fill-opacity: 0.75; stroke: var(--fig-c-o46, #efc1ab); stroke-opacity: 0.75"/>
+     <use xlink:href="#fig5_family_size-m448c78afc4" x="275.590968" y="182.298689" style="fill: var(--fig-c-o46, #efc1ab); fill-opacity: 0.75; stroke: var(--fig-c-o46, #efc1ab); stroke-opacity: 0.75"/>
+     <use xlink:href="#fig5_family_size-m448c78afc4" x="312.320081" y="179.45118" style="fill: var(--fig-c-o46, #efc1ab); fill-opacity: 0.75; stroke: var(--fig-c-o46, #efc1ab); stroke-opacity: 0.75"/>
+     <use xlink:href="#fig5_family_size-m448c78afc4" x="349.049195" y="186.258116" style="fill: var(--fig-c-o46, #efc1ab); fill-opacity: 0.75; stroke: var(--fig-c-o46, #efc1ab); stroke-opacity: 0.75"/>
     </g>
    </g>
    <g id="fig5_family_size-line2d_27">
-    <path d="M 92.154574 173.872284 
-L 128.883688 184.424223 
-L 165.612802 173.872284 
-L 202.341916 172.52931 
-L 239.07103 160.442544 
-L 275.800144 146.629097 
-L 312.529258 125.316437 
-" clip-path="url(#fig5_family_size-p3d84b3d07d)" style="fill: none; stroke: var(--fig-c-o47, #eaad92); stroke-opacity: 0.75; stroke-width: 0.9; stroke-linecap: square"/>
+    <path d="M 128.674512 173.872284 
+L 165.403626 184.424223 
+L 202.13274 173.872284 
+L 238.861854 172.52931 
+L 275.590968 160.442544 
+L 312.320081 146.629097 
+L 349.049195 125.316437 
+" clip-path="url(#fig5_family_size-pf44428b94f)" style="fill: none; stroke: var(--fig-c-o47, #eaad92); stroke-opacity: 0.75; stroke-width: 0.9; stroke-linecap: square"/>
     <defs>
      <path id="fig5_family_size-m6231c80a5b" d="M 0 1.1 
 C 0.291723 1.1 0.571538 0.984097 0.777817 0.777817 
@@ -367,25 +367,25 @@ C -0.571538 0.984097 -0.291723 1.1 0 1.1
 z
 " style="stroke: var(--fig-c-o47, #eaad92); stroke-opacity: 0.75"/>
     </defs>
-    <g clip-path="url(#fig5_family_size-p3d84b3d07d)">
-     <use xlink:href="#fig5_family_size-m6231c80a5b" x="92.154574" y="173.872284" style="fill: var(--fig-c-o47, #eaad92); fill-opacity: 0.75; stroke: var(--fig-c-o47, #eaad92); stroke-opacity: 0.75"/>
-     <use xlink:href="#fig5_family_size-m6231c80a5b" x="128.883688" y="184.424223" style="fill: var(--fig-c-o47, #eaad92); fill-opacity: 0.75; stroke: var(--fig-c-o47, #eaad92); stroke-opacity: 0.75"/>
-     <use xlink:href="#fig5_family_size-m6231c80a5b" x="165.612802" y="173.872284" style="fill: var(--fig-c-o47, #eaad92); fill-opacity: 0.75; stroke: var(--fig-c-o47, #eaad92); stroke-opacity: 0.75"/>
-     <use xlink:href="#fig5_family_size-m6231c80a5b" x="202.341916" y="172.52931" style="fill: var(--fig-c-o47, #eaad92); fill-opacity: 0.75; stroke: var(--fig-c-o47, #eaad92); stroke-opacity: 0.75"/>
-     <use xlink:href="#fig5_family_size-m6231c80a5b" x="239.07103" y="160.442544" style="fill: var(--fig-c-o47, #eaad92); fill-opacity: 0.75; stroke: var(--fig-c-o47, #eaad92); stroke-opacity: 0.75"/>
-     <use xlink:href="#fig5_family_size-m6231c80a5b" x="275.800144" y="146.629097" style="fill: var(--fig-c-o47, #eaad92); fill-opacity: 0.75; stroke: var(--fig-c-o47, #eaad92); stroke-opacity: 0.75"/>
-     <use xlink:href="#fig5_family_size-m6231c80a5b" x="312.529258" y="125.316437" style="fill: var(--fig-c-o47, #eaad92); fill-opacity: 0.75; stroke: var(--fig-c-o47, #eaad92); stroke-opacity: 0.75"/>
+    <g clip-path="url(#fig5_family_size-pf44428b94f)">
+     <use xlink:href="#fig5_family_size-m6231c80a5b" x="128.674512" y="173.872284" style="fill: var(--fig-c-o47, #eaad92); fill-opacity: 0.75; stroke: var(--fig-c-o47, #eaad92); stroke-opacity: 0.75"/>
+     <use xlink:href="#fig5_family_size-m6231c80a5b" x="165.403626" y="184.424223" style="fill: var(--fig-c-o47, #eaad92); fill-opacity: 0.75; stroke: var(--fig-c-o47, #eaad92); stroke-opacity: 0.75"/>
+     <use xlink:href="#fig5_family_size-m6231c80a5b" x="202.13274" y="173.872284" style="fill: var(--fig-c-o47, #eaad92); fill-opacity: 0.75; stroke: var(--fig-c-o47, #eaad92); stroke-opacity: 0.75"/>
+     <use xlink:href="#fig5_family_size-m6231c80a5b" x="238.861854" y="172.52931" style="fill: var(--fig-c-o47, #eaad92); fill-opacity: 0.75; stroke: var(--fig-c-o47, #eaad92); stroke-opacity: 0.75"/>
+     <use xlink:href="#fig5_family_size-m6231c80a5b" x="275.590968" y="160.442544" style="fill: var(--fig-c-o47, #eaad92); fill-opacity: 0.75; stroke: var(--fig-c-o47, #eaad92); stroke-opacity: 0.75"/>
+     <use xlink:href="#fig5_family_size-m6231c80a5b" x="312.320081" y="146.629097" style="fill: var(--fig-c-o47, #eaad92); fill-opacity: 0.75; stroke: var(--fig-c-o47, #eaad92); stroke-opacity: 0.75"/>
+     <use xlink:href="#fig5_family_size-m6231c80a5b" x="349.049195" y="125.316437" style="fill: var(--fig-c-o47, #eaad92); fill-opacity: 0.75; stroke: var(--fig-c-o47, #eaad92); stroke-opacity: 0.75"/>
     </g>
    </g>
    <g id="fig5_family_size-line2d_28">
-    <path d="M 92.154574 180.587155 
-L 128.883688 177.894475 
-L 165.612802 171.474116 
-L 202.341916 169.484899 
-L 239.07103 171.571726 
-L 275.800144 151.657676 
-L 312.529258 121.21802 
-" clip-path="url(#fig5_family_size-p3d84b3d07d)" style="fill: none; stroke: var(--fig-c-o48, #e59c7d); stroke-opacity: 0.75; stroke-width: 0.9; stroke-linecap: square"/>
+    <path d="M 128.674512 180.587155 
+L 165.403626 177.894475 
+L 202.13274 171.474116 
+L 238.861854 169.484899 
+L 275.590968 171.571726 
+L 312.320081 151.657676 
+L 349.049195 121.21802 
+" clip-path="url(#fig5_family_size-pf44428b94f)" style="fill: none; stroke: var(--fig-c-o48, #e59c7d); stroke-opacity: 0.75; stroke-width: 0.9; stroke-linecap: square"/>
     <defs>
      <path id="fig5_family_size-m13bf8e5206" d="M 0 1.1 
 C 0.291723 1.1 0.571538 0.984097 0.777817 0.777817 
@@ -399,25 +399,25 @@ C -0.571538 0.984097 -0.291723 1.1 0 1.1
 z
 " style="stroke: var(--fig-c-o48, #e59c7d); stroke-opacity: 0.75"/>
     </defs>
-    <g clip-path="url(#fig5_family_size-p3d84b3d07d)">
-     <use xlink:href="#fig5_family_size-m13bf8e5206" x="92.154574" y="180.587155" style="fill: var(--fig-c-o48, #e59c7d); fill-opacity: 0.75; stroke: var(--fig-c-o48, #e59c7d); stroke-opacity: 0.75"/>
-     <use xlink:href="#fig5_family_size-m13bf8e5206" x="128.883688" y="177.894475" style="fill: var(--fig-c-o48, #e59c7d); fill-opacity: 0.75; stroke: var(--fig-c-o48, #e59c7d); stroke-opacity: 0.75"/>
-     <use xlink:href="#fig5_family_size-m13bf8e5206" x="165.612802" y="171.474116" style="fill: var(--fig-c-o48, #e59c7d); fill-opacity: 0.75; stroke: var(--fig-c-o48, #e59c7d); stroke-opacity: 0.75"/>
-     <use xlink:href="#fig5_family_size-m13bf8e5206" x="202.341916" y="169.484899" style="fill: var(--fig-c-o48, #e59c7d); fill-opacity: 0.75; stroke: var(--fig-c-o48, #e59c7d); stroke-opacity: 0.75"/>
-     <use xlink:href="#fig5_family_size-m13bf8e5206" x="239.07103" y="171.571726" style="fill: var(--fig-c-o48, #e59c7d); fill-opacity: 0.75; stroke: var(--fig-c-o48, #e59c7d); stroke-opacity: 0.75"/>
-     <use xlink:href="#fig5_family_size-m13bf8e5206" x="275.800144" y="151.657676" style="fill: var(--fig-c-o48, #e59c7d); fill-opacity: 0.75; stroke: var(--fig-c-o48, #e59c7d); stroke-opacity: 0.75"/>
-     <use xlink:href="#fig5_family_size-m13bf8e5206" x="312.529258" y="121.21802" style="fill: var(--fig-c-o48, #e59c7d); fill-opacity: 0.75; stroke: var(--fig-c-o48, #e59c7d); stroke-opacity: 0.75"/>
+    <g clip-path="url(#fig5_family_size-pf44428b94f)">
+     <use xlink:href="#fig5_family_size-m13bf8e5206" x="128.674512" y="180.587155" style="fill: var(--fig-c-o48, #e59c7d); fill-opacity: 0.75; stroke: var(--fig-c-o48, #e59c7d); stroke-opacity: 0.75"/>
+     <use xlink:href="#fig5_family_size-m13bf8e5206" x="165.403626" y="177.894475" style="fill: var(--fig-c-o48, #e59c7d); fill-opacity: 0.75; stroke: var(--fig-c-o48, #e59c7d); stroke-opacity: 0.75"/>
+     <use xlink:href="#fig5_family_size-m13bf8e5206" x="202.13274" y="171.474116" style="fill: var(--fig-c-o48, #e59c7d); fill-opacity: 0.75; stroke: var(--fig-c-o48, #e59c7d); stroke-opacity: 0.75"/>
+     <use xlink:href="#fig5_family_size-m13bf8e5206" x="238.861854" y="169.484899" style="fill: var(--fig-c-o48, #e59c7d); fill-opacity: 0.75; stroke: var(--fig-c-o48, #e59c7d); stroke-opacity: 0.75"/>
+     <use xlink:href="#fig5_family_size-m13bf8e5206" x="275.590968" y="171.571726" style="fill: var(--fig-c-o48, #e59c7d); fill-opacity: 0.75; stroke: var(--fig-c-o48, #e59c7d); stroke-opacity: 0.75"/>
+     <use xlink:href="#fig5_family_size-m13bf8e5206" x="312.320081" y="151.657676" style="fill: var(--fig-c-o48, #e59c7d); fill-opacity: 0.75; stroke: var(--fig-c-o48, #e59c7d); stroke-opacity: 0.75"/>
+     <use xlink:href="#fig5_family_size-m13bf8e5206" x="349.049195" y="121.21802" style="fill: var(--fig-c-o48, #e59c7d); fill-opacity: 0.75; stroke: var(--fig-c-o48, #e59c7d); stroke-opacity: 0.75"/>
     </g>
    </g>
    <g id="fig5_family_size-line2d_29">
-    <path d="M 92.154574 186.678416 
-L 128.883688 182.717986 
-L 165.612802 178.648715 
-L 202.341916 165.980266 
-L 239.07103 163.73053 
-L 275.800144 145.309651 
-L 312.529258 116.440429 
-" clip-path="url(#fig5_family_size-p3d84b3d07d)" style="fill: none; stroke: var(--fig-c-o5, #df8a68); stroke-opacity: 0.75; stroke-width: 0.9; stroke-linecap: square"/>
+    <path d="M 128.674512 186.678416 
+L 165.403626 182.717986 
+L 202.13274 178.648715 
+L 238.861854 165.980266 
+L 275.590968 163.73053 
+L 312.320081 145.309651 
+L 349.049195 116.440429 
+" clip-path="url(#fig5_family_size-pf44428b94f)" style="fill: none; stroke: var(--fig-c-o5, #df8a68); stroke-opacity: 0.75; stroke-width: 0.9; stroke-linecap: square"/>
     <defs>
      <path id="fig5_family_size-mb184a9f778" d="M 0 1.1 
 C 0.291723 1.1 0.571538 0.984097 0.777817 0.777817 
@@ -431,25 +431,25 @@ C -0.571538 0.984097 -0.291723 1.1 0 1.1
 z
 " style="stroke: var(--fig-c-o5, #df8a68); stroke-opacity: 0.75"/>
     </defs>
-    <g clip-path="url(#fig5_family_size-p3d84b3d07d)">
-     <use xlink:href="#fig5_family_size-mb184a9f778" x="92.154574" y="186.678416" style="fill: var(--fig-c-o5, #df8a68); fill-opacity: 0.75; stroke: var(--fig-c-o5, #df8a68); stroke-opacity: 0.75"/>
-     <use xlink:href="#fig5_family_size-mb184a9f778" x="128.883688" y="182.717986" style="fill: var(--fig-c-o5, #df8a68); fill-opacity: 0.75; stroke: var(--fig-c-o5, #df8a68); stroke-opacity: 0.75"/>
-     <use xlink:href="#fig5_family_size-mb184a9f778" x="165.612802" y="178.648715" style="fill: var(--fig-c-o5, #df8a68); fill-opacity: 0.75; stroke: var(--fig-c-o5, #df8a68); stroke-opacity: 0.75"/>
-     <use xlink:href="#fig5_family_size-mb184a9f778" x="202.341916" y="165.980266" style="fill: var(--fig-c-o5, #df8a68); fill-opacity: 0.75; stroke: var(--fig-c-o5, #df8a68); stroke-opacity: 0.75"/>
-     <use xlink:href="#fig5_family_size-mb184a9f778" x="239.07103" y="163.73053" style="fill: var(--fig-c-o5, #df8a68); fill-opacity: 0.75; stroke: var(--fig-c-o5, #df8a68); stroke-opacity: 0.75"/>
-     <use xlink:href="#fig5_family_size-mb184a9f778" x="275.800144" y="145.309651" style="fill: var(--fig-c-o5, #df8a68); fill-opacity: 0.75; stroke: var(--fig-c-o5, #df8a68); stroke-opacity: 0.75"/>
-     <use xlink:href="#fig5_family_size-mb184a9f778" x="312.529258" y="116.440429" style="fill: var(--fig-c-o5, #df8a68); fill-opacity: 0.75; stroke: var(--fig-c-o5, #df8a68); stroke-opacity: 0.75"/>
+    <g clip-path="url(#fig5_family_size-pf44428b94f)">
+     <use xlink:href="#fig5_family_size-mb184a9f778" x="128.674512" y="186.678416" style="fill: var(--fig-c-o5, #df8a68); fill-opacity: 0.75; stroke: var(--fig-c-o5, #df8a68); stroke-opacity: 0.75"/>
+     <use xlink:href="#fig5_family_size-mb184a9f778" x="165.403626" y="182.717986" style="fill: var(--fig-c-o5, #df8a68); fill-opacity: 0.75; stroke: var(--fig-c-o5, #df8a68); stroke-opacity: 0.75"/>
+     <use xlink:href="#fig5_family_size-mb184a9f778" x="202.13274" y="178.648715" style="fill: var(--fig-c-o5, #df8a68); fill-opacity: 0.75; stroke: var(--fig-c-o5, #df8a68); stroke-opacity: 0.75"/>
+     <use xlink:href="#fig5_family_size-mb184a9f778" x="238.861854" y="165.980266" style="fill: var(--fig-c-o5, #df8a68); fill-opacity: 0.75; stroke: var(--fig-c-o5, #df8a68); stroke-opacity: 0.75"/>
+     <use xlink:href="#fig5_family_size-mb184a9f778" x="275.590968" y="163.73053" style="fill: var(--fig-c-o5, #df8a68); fill-opacity: 0.75; stroke: var(--fig-c-o5, #df8a68); stroke-opacity: 0.75"/>
+     <use xlink:href="#fig5_family_size-mb184a9f778" x="312.320081" y="145.309651" style="fill: var(--fig-c-o5, #df8a68); fill-opacity: 0.75; stroke: var(--fig-c-o5, #df8a68); stroke-opacity: 0.75"/>
+     <use xlink:href="#fig5_family_size-mb184a9f778" x="349.049195" y="116.440429" style="fill: var(--fig-c-o5, #df8a68); fill-opacity: 0.75; stroke: var(--fig-c-o5, #df8a68); stroke-opacity: 0.75"/>
     </g>
    </g>
    <g id="fig5_family_size-line2d_30">
-    <path d="M 92.154574 174.744394 
-L 128.883688 182.738989 
-L 165.612802 172.929846 
-L 202.341916 154.305338 
-L 239.07103 139.924849 
-L 275.800144 131.708232 
-L 312.529258 114.479915 
-" clip-path="url(#fig5_family_size-p3d84b3d07d)" style="fill: none; stroke: var(--fig-c-f51, #c0694c); stroke-opacity: 0.75; stroke-width: 0.9; stroke-linecap: square"/>
+    <path d="M 128.674512 174.744394 
+L 165.403626 182.738989 
+L 202.13274 172.929846 
+L 238.861854 154.305338 
+L 275.590968 139.924849 
+L 312.320081 131.708232 
+L 349.049195 114.479915 
+" clip-path="url(#fig5_family_size-pf44428b94f)" style="fill: none; stroke: var(--fig-c-f51, #c0694c); stroke-opacity: 0.75; stroke-width: 0.9; stroke-linecap: square"/>
     <defs>
      <path id="fig5_family_size-ma8e5a1691a" d="M 0 1.1 
 C 0.291723 1.1 0.571538 0.984097 0.777817 0.777817 
@@ -463,35 +463,35 @@ C -0.571538 0.984097 -0.291723 1.1 0 1.1
 z
 " style="stroke: var(--fig-c-f51, #c0694c); stroke-opacity: 0.75"/>
     </defs>
-    <g clip-path="url(#fig5_family_size-p3d84b3d07d)">
-     <use xlink:href="#fig5_family_size-ma8e5a1691a" x="92.154574" y="174.744394" style="fill: var(--fig-c-f51, #c0694c); fill-opacity: 0.75; stroke: var(--fig-c-f51, #c0694c); stroke-opacity: 0.75"/>
-     <use xlink:href="#fig5_family_size-ma8e5a1691a" x="128.883688" y="182.738989" style="fill: var(--fig-c-f51, #c0694c); fill-opacity: 0.75; stroke: var(--fig-c-f51, #c0694c); stroke-opacity: 0.75"/>
-     <use xlink:href="#fig5_family_size-ma8e5a1691a" x="165.612802" y="172.929846" style="fill: var(--fig-c-f51, #c0694c); fill-opacity: 0.75; stroke: var(--fig-c-f51, #c0694c); stroke-opacity: 0.75"/>
-     <use xlink:href="#fig5_family_size-ma8e5a1691a" x="202.341916" y="154.305338" style="fill: var(--fig-c-f51, #c0694c); fill-opacity: 0.75; stroke: var(--fig-c-f51, #c0694c); stroke-opacity: 0.75"/>
-     <use xlink:href="#fig5_family_size-ma8e5a1691a" x="239.07103" y="139.924849" style="fill: var(--fig-c-f51, #c0694c); fill-opacity: 0.75; stroke: var(--fig-c-f51, #c0694c); stroke-opacity: 0.75"/>
-     <use xlink:href="#fig5_family_size-ma8e5a1691a" x="275.800144" y="131.708232" style="fill: var(--fig-c-f51, #c0694c); fill-opacity: 0.75; stroke: var(--fig-c-f51, #c0694c); stroke-opacity: 0.75"/>
-     <use xlink:href="#fig5_family_size-ma8e5a1691a" x="312.529258" y="114.479915" style="fill: var(--fig-c-f51, #c0694c); fill-opacity: 0.75; stroke: var(--fig-c-f51, #c0694c); stroke-opacity: 0.75"/>
+    <g clip-path="url(#fig5_family_size-pf44428b94f)">
+     <use xlink:href="#fig5_family_size-ma8e5a1691a" x="128.674512" y="174.744394" style="fill: var(--fig-c-f51, #c0694c); fill-opacity: 0.75; stroke: var(--fig-c-f51, #c0694c); stroke-opacity: 0.75"/>
+     <use xlink:href="#fig5_family_size-ma8e5a1691a" x="165.403626" y="182.738989" style="fill: var(--fig-c-f51, #c0694c); fill-opacity: 0.75; stroke: var(--fig-c-f51, #c0694c); stroke-opacity: 0.75"/>
+     <use xlink:href="#fig5_family_size-ma8e5a1691a" x="202.13274" y="172.929846" style="fill: var(--fig-c-f51, #c0694c); fill-opacity: 0.75; stroke: var(--fig-c-f51, #c0694c); stroke-opacity: 0.75"/>
+     <use xlink:href="#fig5_family_size-ma8e5a1691a" x="238.861854" y="154.305338" style="fill: var(--fig-c-f51, #c0694c); fill-opacity: 0.75; stroke: var(--fig-c-f51, #c0694c); stroke-opacity: 0.75"/>
+     <use xlink:href="#fig5_family_size-ma8e5a1691a" x="275.590968" y="139.924849" style="fill: var(--fig-c-f51, #c0694c); fill-opacity: 0.75; stroke: var(--fig-c-f51, #c0694c); stroke-opacity: 0.75"/>
+     <use xlink:href="#fig5_family_size-ma8e5a1691a" x="312.320081" y="131.708232" style="fill: var(--fig-c-f51, #c0694c); fill-opacity: 0.75; stroke: var(--fig-c-f51, #c0694c); stroke-opacity: 0.75"/>
+     <use xlink:href="#fig5_family_size-ma8e5a1691a" x="349.049195" y="114.479915" style="fill: var(--fig-c-f51, #c0694c); fill-opacity: 0.75; stroke: var(--fig-c-f51, #c0694c); stroke-opacity: 0.75"/>
     </g>
    </g>
    <g id="fig5_family_size-line2d_31">
-    <path d="M 81.13584 182.026055 
-L 371.29584 182.026055 
-" clip-path="url(#fig5_family_size-p3d84b3d07d)" style="fill: none; stroke: var(--fig-muted, #6b7385); stroke-width: 0.6; stroke-linecap: square"/>
+    <path d="M 117.655778 182.026055 
+L 407.815778 182.026055 
+" clip-path="url(#fig5_family_size-pf44428b94f)" style="fill: none; stroke: var(--fig-muted, #6b7385); stroke-width: 0.6; stroke-linecap: square"/>
    </g>
    <g id="fig5_family_size-patch_3">
-    <path d="M 81.13584 209.36517 
-L 371.29584 209.36517 
+    <path d="M 117.655778 209.36517 
+L 407.815778 209.36517 
 " style="fill: none; stroke: var(--fig-muted, #6b7385); stroke-width: 0.6; stroke-linejoin: miter; stroke-linecap: square"/>
    </g>
    <g id="fig5_family_size-line2d_32">
-    <path d="M 92.154574 159.331814 
-L 128.883688 160.74547 
-L 165.612802 140.651348 
-L 202.341916 121.012802 
-L 239.07103 107.32102 
-L 275.800144 90.754308 
-L 312.529258 76.288876 
-" clip-path="url(#fig5_family_size-p3d84b3d07d)" style="fill: none; stroke: #d97757; stroke-width: 2; stroke-linecap: square"/>
+    <path d="M 128.674512 159.331814 
+L 165.403626 160.74547 
+L 202.13274 140.651348 
+L 238.861854 121.012802 
+L 275.590968 107.32102 
+L 312.320081 90.754308 
+L 349.049195 76.288876 
+" clip-path="url(#fig5_family_size-pf44428b94f)" style="fill: none; stroke: #d97757; stroke-width: 2; stroke-linecap: square"/>
     <defs>
      <path id="fig5_family_size-ma50de160bc" d="M 0 2.25 
 C 0.596707 2.25 1.169055 2.012926 1.59099 1.59099 
@@ -505,25 +505,25 @@ C -1.169055 2.012926 -0.596707 2.25 0 2.25
 z
 " style="stroke: #d97757"/>
     </defs>
-    <g clip-path="url(#fig5_family_size-p3d84b3d07d)">
-     <use xlink:href="#fig5_family_size-ma50de160bc" x="92.154574" y="159.331814" style="fill: #d97757; stroke: #d97757"/>
-     <use xlink:href="#fig5_family_size-ma50de160bc" x="128.883688" y="160.74547" style="fill: #d97757; stroke: #d97757"/>
-     <use xlink:href="#fig5_family_size-ma50de160bc" x="165.612802" y="140.651348" style="fill: #d97757; stroke: #d97757"/>
-     <use xlink:href="#fig5_family_size-ma50de160bc" x="202.341916" y="121.012802" style="fill: #d97757; stroke: #d97757"/>
-     <use xlink:href="#fig5_family_size-ma50de160bc" x="239.07103" y="107.32102" style="fill: #d97757; stroke: #d97757"/>
-     <use xlink:href="#fig5_family_size-ma50de160bc" x="275.800144" y="90.754308" style="fill: #d97757; stroke: #d97757"/>
-     <use xlink:href="#fig5_family_size-ma50de160bc" x="312.529258" y="76.288876" style="fill: #d97757; stroke: #d97757"/>
+    <g clip-path="url(#fig5_family_size-pf44428b94f)">
+     <use xlink:href="#fig5_family_size-ma50de160bc" x="128.674512" y="159.331814" style="fill: #d97757; stroke: #d97757"/>
+     <use xlink:href="#fig5_family_size-ma50de160bc" x="165.403626" y="160.74547" style="fill: #d97757; stroke: #d97757"/>
+     <use xlink:href="#fig5_family_size-ma50de160bc" x="202.13274" y="140.651348" style="fill: #d97757; stroke: #d97757"/>
+     <use xlink:href="#fig5_family_size-ma50de160bc" x="238.861854" y="121.012802" style="fill: #d97757; stroke: #d97757"/>
+     <use xlink:href="#fig5_family_size-ma50de160bc" x="275.590968" y="107.32102" style="fill: #d97757; stroke: #d97757"/>
+     <use xlink:href="#fig5_family_size-ma50de160bc" x="312.320081" y="90.754308" style="fill: #d97757; stroke: #d97757"/>
+     <use xlink:href="#fig5_family_size-ma50de160bc" x="349.049195" y="76.288876" style="fill: #d97757; stroke: #d97757"/>
     </g>
    </g>
    <g id="fig5_family_size-line2d_33">
-    <path d="M 92.154574 125.908926 
-L 128.883688 112.958819 
-L 165.612802 79.864101 
-L 202.341916 55.115008 
-L 239.07103 49.647185 
-L 275.800144 48.52804 
-L 312.529258 62.681933 
-" clip-path="url(#fig5_family_size-p3d84b3d07d)" style="fill: none; stroke: var(--fig-c-f52, #9c3a1c); stroke-width: 2; stroke-linecap: square"/>
+    <path d="M 128.674512 125.908926 
+L 165.403626 112.958819 
+L 202.13274 79.864101 
+L 238.861854 55.115008 
+L 275.590968 49.647185 
+L 312.320081 48.52804 
+L 349.049195 62.681933 
+" clip-path="url(#fig5_family_size-pf44428b94f)" style="fill: none; stroke: var(--fig-c-f52, #9c3a1c); stroke-width: 2; stroke-linecap: square"/>
     <defs>
      <path id="fig5_family_size-m2e9532b5b7" d="M 0 2.25 
 C 0.596707 2.25 1.169055 2.012926 1.59099 1.59099 
@@ -537,141 +537,152 @@ C -1.169055 2.012926 -0.596707 2.25 0 2.25
 z
 " style="stroke: var(--fig-c-f52, #9c3a1c)"/>
     </defs>
-    <g clip-path="url(#fig5_family_size-p3d84b3d07d)">
-     <use xlink:href="#fig5_family_size-m2e9532b5b7" x="92.154574" y="125.908926" style="fill: var(--fig-c-f52, #9c3a1c); stroke: var(--fig-c-f52, #9c3a1c)"/>
-     <use xlink:href="#fig5_family_size-m2e9532b5b7" x="128.883688" y="112.958819" style="fill: var(--fig-c-f52, #9c3a1c); stroke: var(--fig-c-f52, #9c3a1c)"/>
-     <use xlink:href="#fig5_family_size-m2e9532b5b7" x="165.612802" y="79.864101" style="fill: var(--fig-c-f52, #9c3a1c); stroke: var(--fig-c-f52, #9c3a1c)"/>
-     <use xlink:href="#fig5_family_size-m2e9532b5b7" x="202.341916" y="55.115008" style="fill: var(--fig-c-f52, #9c3a1c); stroke: var(--fig-c-f52, #9c3a1c)"/>
-     <use xlink:href="#fig5_family_size-m2e9532b5b7" x="239.07103" y="49.647185" style="fill: var(--fig-c-f52, #9c3a1c); stroke: var(--fig-c-f52, #9c3a1c)"/>
-     <use xlink:href="#fig5_family_size-m2e9532b5b7" x="275.800144" y="48.52804" style="fill: var(--fig-c-f52, #9c3a1c); stroke: var(--fig-c-f52, #9c3a1c)"/>
-     <use xlink:href="#fig5_family_size-m2e9532b5b7" x="312.529258" y="62.681933" style="fill: var(--fig-c-f52, #9c3a1c); stroke: var(--fig-c-f52, #9c3a1c)"/>
+    <g clip-path="url(#fig5_family_size-pf44428b94f)">
+     <use xlink:href="#fig5_family_size-m2e9532b5b7" x="128.674512" y="125.908926" style="fill: var(--fig-c-f52, #9c3a1c); stroke: var(--fig-c-f52, #9c3a1c)"/>
+     <use xlink:href="#fig5_family_size-m2e9532b5b7" x="165.403626" y="112.958819" style="fill: var(--fig-c-f52, #9c3a1c); stroke: var(--fig-c-f52, #9c3a1c)"/>
+     <use xlink:href="#fig5_family_size-m2e9532b5b7" x="202.13274" y="79.864101" style="fill: var(--fig-c-f52, #9c3a1c); stroke: var(--fig-c-f52, #9c3a1c)"/>
+     <use xlink:href="#fig5_family_size-m2e9532b5b7" x="238.861854" y="55.115008" style="fill: var(--fig-c-f52, #9c3a1c); stroke: var(--fig-c-f52, #9c3a1c)"/>
+     <use xlink:href="#fig5_family_size-m2e9532b5b7" x="275.590968" y="49.647185" style="fill: var(--fig-c-f52, #9c3a1c); stroke: var(--fig-c-f52, #9c3a1c)"/>
+     <use xlink:href="#fig5_family_size-m2e9532b5b7" x="312.320081" y="48.52804" style="fill: var(--fig-c-f52, #9c3a1c); stroke: var(--fig-c-f52, #9c3a1c)"/>
+     <use xlink:href="#fig5_family_size-m2e9532b5b7" x="349.049195" y="62.681933" style="fill: var(--fig-c-f52, #9c3a1c); stroke: var(--fig-c-f52, #9c3a1c)"/>
     </g>
    </g>
    <g id="fig5_family_size-text_16">
     <g id="fig5_family_size-patch_4">
-     <path d="M 317.618625 198.482592 
-L 363.484875 198.482592 
-L 363.484875 192.011733 
-L 317.618625 192.011733 
+     <path d="M 354.138562 198.482592 
+L 400.004813 198.482592 
+L 400.004813 192.011733 
+L 354.138562 192.011733 
 z
 " style="fill: var(--fig-bg, #ffffff)"/>
     </g>
-    <text style="font-size: 6px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: start; fill: var(--fig-muted, #6b7385)" x="318.038625" y="196.799897" transform="rotate(-0 318.038625 196.799897)">Claude Opus 4.5</text>
+    <text style="font-size: 6px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: start; fill: var(--fig-muted, #6b7385)" x="354.558562" y="196.799897" transform="rotate(-0 354.558562 196.799897)">Claude Opus 4.5</text>
    </g>
    <g id="fig5_family_size-text_17">
     <g id="fig5_family_size-patch_5">
-     <path d="M 317.618625 189.129737 
-L 363.484875 189.129737 
-L 363.484875 182.658878 
-L 317.618625 182.658878 
+     <path d="M 354.138562 189.129737 
+L 400.004813 189.129737 
+L 400.004813 182.658878 
+L 354.138562 182.658878 
 z
 " style="fill: var(--fig-bg, #ffffff)"/>
     </g>
-    <text style="font-size: 6px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: start; fill: var(--fig-muted, #6b7385)" x="318.038625" y="187.447042" transform="rotate(-0 318.038625 187.447042)">Claude Opus 4.6</text>
+    <text style="font-size: 6px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: start; fill: var(--fig-muted, #6b7385)" x="354.558562" y="187.447042" transform="rotate(-0 354.558562 187.447042)">Claude Opus 4.6</text>
    </g>
    <g id="fig5_family_size-text_18">
     <g id="fig5_family_size-patch_6">
-     <path d="M 317.618625 179.776882 
-L 363.031125 179.776882 
-L 363.031125 173.306023 
-L 317.618625 173.306023 
+     <path d="M 354.138562 179.776882 
+L 399.551063 179.776882 
+L 399.551063 173.306023 
+L 354.138562 173.306023 
 z
 " style="fill: var(--fig-bg, #ffffff)"/>
     </g>
-    <text style="font-size: 6px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: start; fill: var(--fig-muted, #6b7385)" x="318.038625" y="178.094187" transform="rotate(-0 318.038625 178.094187)">GPT and Gemini</text>
+    <text style="font-size: 6px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: start; fill: var(--fig-muted, #6b7385)" x="354.558562" y="178.094187" transform="rotate(-0 354.558562 178.094187)">GPT and Gemini</text>
    </g>
    <g id="fig5_family_size-text_19">
     <g id="fig5_family_size-patch_7">
-     <path d="M 317.618625 136.628412 
-L 363.484875 136.628412 
-L 363.484875 130.157553 
-L 317.618625 130.157553 
+     <path d="M 354.138562 136.628412 
+L 400.004813 136.628412 
+L 400.004813 130.157553 
+L 354.138562 130.157553 
 z
 " style="fill: var(--fig-bg, #ffffff)"/>
     </g>
-    <text style="font-size: 6px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: start; fill: var(--fig-muted, #6b7385)" x="318.038625" y="134.945717" transform="rotate(-0 318.038625 134.945717)">Claude Opus 4.7</text>
+    <text style="font-size: 6px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: start; fill: var(--fig-muted, #6b7385)" x="354.558562" y="134.945717" transform="rotate(-0 354.558562 134.945717)">Claude Opus 4.7</text>
    </g>
    <g id="fig5_family_size-text_20">
     <g id="fig5_family_size-patch_8">
-     <path d="M 317.618625 127.275557 
-L 363.484875 127.275557 
-L 363.484875 120.804698 
-L 317.618625 120.804698 
+     <path d="M 354.138562 127.275557 
+L 400.004813 127.275557 
+L 400.004813 120.804698 
+L 354.138562 120.804698 
 z
 " style="fill: var(--fig-bg, #ffffff)"/>
     </g>
-    <text style="font-size: 6px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: start; fill: var(--fig-muted, #6b7385)" x="318.038625" y="125.592862" transform="rotate(-0 318.038625 125.592862)">Claude Opus 4.8</text>
+    <text style="font-size: 6px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: start; fill: var(--fig-muted, #6b7385)" x="354.558562" y="125.592862" transform="rotate(-0 354.558562 125.592862)">Claude Opus 4.8</text>
    </g>
    <g id="fig5_family_size-text_21">
     <g id="fig5_family_size-patch_9">
-     <path d="M 317.618625 117.922703 
-L 358.481437 117.922703 
-L 358.481437 111.451843 
-L 317.618625 111.451843 
+     <path d="M 354.138562 117.922703 
+L 395.001375 117.922703 
+L 395.001375 111.451843 
+L 354.138562 111.451843 
 z
 " style="fill: var(--fig-bg, #ffffff)"/>
     </g>
-    <text style="font-size: 6px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: start; fill: var(--fig-muted, #6b7385)" x="318.038625" y="116.240007" transform="rotate(-0 318.038625 116.240007)">Claude Opus 5</text>
+    <text style="font-size: 6px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: start; fill: var(--fig-muted, #6b7385)" x="354.558562" y="116.240007" transform="rotate(-0 354.558562 116.240007)">Claude Opus 5</text>
    </g>
    <g id="fig5_family_size-text_22">
     <g id="fig5_family_size-patch_10">
-     <path d="M 317.618625 108.569848 
-L 364.152375 108.569848 
-L 364.152375 102.098988 
-L 317.618625 102.098988 
+     <path d="M 354.138562 108.569848 
+L 400.672312 108.569848 
+L 400.672312 102.098988 
+L 354.138562 102.098988 
 z
 " style="fill: var(--fig-bg, #ffffff)"/>
     </g>
-    <text style="font-size: 6px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: start; fill: var(--fig-muted, #6b7385)" x="318.038625" y="106.887152" transform="rotate(-0 318.038625 106.887152)">Claude Fable 5.1</text>
+    <text style="font-size: 6px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: start; fill: var(--fig-muted, #6b7385)" x="354.558562" y="106.887152" transform="rotate(-0 354.558562 106.887152)">Claude Fable 5.1</text>
    </g>
    <g id="fig5_family_size-text_23">
     <g id="fig5_family_size-patch_11">
-     <path d="M 317.663625 84.696784 
-L 377.174953 84.696784 
-L 377.174953 76.90821 
-L 317.663625 76.90821 
+     <path d="M 354.183562 89.297315 
+L 413.694891 89.297315 
+L 413.694891 81.508741 
+L 354.183562 81.508741 
 z
 " style="fill: var(--fig-bg, #ffffff)"/>
     </g>
-    <text style="font-weight: 700; font-size: 7.5px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: start; fill: var(--fig-ink, #1d2433)" x="318.038625" y="82.743415" transform="rotate(-0 318.038625 82.743415)">Claude Opus 5.5</text>
+    <text style="font-weight: 700; font-size: 7.5px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: start; fill: var(--fig-ink, #1d2433)" x="354.558562" y="87.343946" transform="rotate(-0 354.558562 87.343946)">Claude Opus 5.5</text>
    </g>
    <g id="fig5_family_size-text_24">
     <g id="fig5_family_size-patch_12">
-     <path d="M 317.663625 75.343929 
-L 369.256594 75.343929 
-L 369.256594 67.555355 
-L 317.663625 67.555355 
+     <path d="M 354.183562 79.94446 
+L 405.776531 79.94446 
+L 405.776531 72.155886 
+L 354.183562 72.155886 
 z
 " style="fill: var(--fig-bg, #ffffff)"/>
     </g>
-    <text style="font-weight: 700; font-size: 7.5px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: start; fill: #9b59b6" x="318.038625" y="73.39056" transform="rotate(-0 318.038625 73.39056)">ProtGPT3-10B</text>
+    <text style="font-weight: 700; font-size: 7.5px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: start; fill: #9b59b6" x="354.558562" y="77.991091" transform="rotate(-0 354.558562 77.991091)">ProtGPT3-10B</text>
    </g>
    <g id="fig5_family_size-text_25">
     <g id="fig5_family_size-patch_13">
-     <path d="M 317.663625 65.991074 
-L 377.595656 65.991074 
-L 377.595656 58.2025 
-L 317.663625 58.2025 
+     <path d="M 354.183562 70.591605 
+L 398.276531 70.591605 
+L 398.276531 62.803031 
+L 354.183562 62.803031 
 z
 " style="fill: var(--fig-bg, #ffffff)"/>
     </g>
-    <text style="font-weight: 700; font-size: 7.5px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: start; fill: var(--fig-ink, #1d2433)" x="318.038625" y="64.037705" transform="rotate(-0 318.038625 64.037705)">Claude Fable 5.2</text>
+    <text style="font-weight: 700; font-size: 7.5px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: start; fill: #9b59b6" x="354.558562" y="68.638236" transform="rotate(-0 354.558562 68.638236)">ProGen3-3B</text>
    </g>
    <g id="fig5_family_size-text_26">
-    <text style="font-size: 5.8px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: end; fill: var(--fig-muted, #6b7385)" x="181.03903" y="30.847332" transform="rotate(-0 181.03903 30.847332)">small-family set</text>
+    <g id="fig5_family_size-patch_14">
+     <path d="M 354.183562 61.23875 
+L 414.115594 61.23875 
+L 414.115594 53.450176 
+L 354.183562 53.450176 
+z
+" style="fill: var(--fig-bg, #ffffff)"/>
+    </g>
+    <text style="font-weight: 700; font-size: 7.5px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: start; fill: var(--fig-ink, #1d2433)" x="354.558562" y="59.285381" transform="rotate(-0 354.558562 59.285381)">Claude Fable 5.2</text>
    </g>
    <g id="fig5_family_size-text_27">
-    <text style="font-size: 5.8px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: start; fill: var(--fig-muted, #6b7385)" x="186.915688" y="30.847332" transform="rotate(-0 186.915688 30.847332)">main set</text>
+    <text style="font-size: 5.8px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: end; fill: var(--fig-muted, #6b7385)" x="217.558968" y="30.847332" transform="rotate(-0 217.558968 30.847332)">small-family set</text>
+   </g>
+   <g id="fig5_family_size-text_28">
+    <text style="font-size: 5.8px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: start; fill: var(--fig-muted, #6b7385)" x="223.435626" y="30.847332" transform="rotate(-0 223.435626 30.847332)">main set</text>
    </g>
    <g id="fig5_family_size-line2d_34">
-    <path d="M 92.154574 172.913017 
-L 128.883688 163.320345 
-L 165.612802 151.329506 
-L 202.341916 113.246599 
-L 239.07103 109.217677 
-L 275.800144 93.965329 
-L 312.529258 75.378116 
-" clip-path="url(#fig5_family_size-p3d84b3d07d)" style="fill: none; stroke: #9b59b6; stroke-width: 2; stroke-linecap: square"/>
+    <path d="M 128.674512 172.913017 
+L 165.403626 163.320345 
+L 202.13274 151.329506 
+L 238.861854 113.246599 
+L 275.590968 109.217677 
+L 312.320081 93.965329 
+L 349.049195 75.378116 
+" clip-path="url(#fig5_family_size-pf44428b94f)" style="fill: none; stroke: #9b59b6; stroke-width: 2; stroke-linecap: square"/>
     <defs>
      <path id="fig5_family_size-m0c8b289cf7" d="M -0 3.181981 
 L 3.181981 0 
@@ -680,29 +691,56 @@ L -3.181981 -0
 z
 " style="stroke: #9b59b6; stroke-linejoin: miter"/>
     </defs>
-    <g clip-path="url(#fig5_family_size-p3d84b3d07d)">
-     <use xlink:href="#fig5_family_size-m0c8b289cf7" x="92.154574" y="172.913017" style="fill: #9b59b6; stroke: #9b59b6; stroke-linejoin: miter"/>
-     <use xlink:href="#fig5_family_size-m0c8b289cf7" x="128.883688" y="163.320345" style="fill: #9b59b6; stroke: #9b59b6; stroke-linejoin: miter"/>
-     <use xlink:href="#fig5_family_size-m0c8b289cf7" x="165.612802" y="151.329506" style="fill: #9b59b6; stroke: #9b59b6; stroke-linejoin: miter"/>
-     <use xlink:href="#fig5_family_size-m0c8b289cf7" x="202.341916" y="113.246599" style="fill: #9b59b6; stroke: #9b59b6; stroke-linejoin: miter"/>
-     <use xlink:href="#fig5_family_size-m0c8b289cf7" x="239.07103" y="109.217677" style="fill: #9b59b6; stroke: #9b59b6; stroke-linejoin: miter"/>
-     <use xlink:href="#fig5_family_size-m0c8b289cf7" x="275.800144" y="93.965329" style="fill: #9b59b6; stroke: #9b59b6; stroke-linejoin: miter"/>
-     <use xlink:href="#fig5_family_size-m0c8b289cf7" x="312.529258" y="75.378116" style="fill: #9b59b6; stroke: #9b59b6; stroke-linejoin: miter"/>
+    <g clip-path="url(#fig5_family_size-pf44428b94f)">
+     <use xlink:href="#fig5_family_size-m0c8b289cf7" x="128.674512" y="172.913017" style="fill: #9b59b6; stroke: #9b59b6; stroke-linejoin: miter"/>
+     <use xlink:href="#fig5_family_size-m0c8b289cf7" x="165.403626" y="163.320345" style="fill: #9b59b6; stroke: #9b59b6; stroke-linejoin: miter"/>
+     <use xlink:href="#fig5_family_size-m0c8b289cf7" x="202.13274" y="151.329506" style="fill: #9b59b6; stroke: #9b59b6; stroke-linejoin: miter"/>
+     <use xlink:href="#fig5_family_size-m0c8b289cf7" x="238.861854" y="113.246599" style="fill: #9b59b6; stroke: #9b59b6; stroke-linejoin: miter"/>
+     <use xlink:href="#fig5_family_size-m0c8b289cf7" x="275.590968" y="109.217677" style="fill: #9b59b6; stroke: #9b59b6; stroke-linejoin: miter"/>
+     <use xlink:href="#fig5_family_size-m0c8b289cf7" x="312.320081" y="93.965329" style="fill: #9b59b6; stroke: #9b59b6; stroke-linejoin: miter"/>
+     <use xlink:href="#fig5_family_size-m0c8b289cf7" x="349.049195" y="75.378116" style="fill: #9b59b6; stroke: #9b59b6; stroke-linejoin: miter"/>
+    </g>
+   </g>
+   <g id="fig5_family_size-line2d_35">
+    <path d="M 128.674512 159.96291 
+L 165.403626 163.320345 
+L 202.13274 127.82746 
+L 238.861854 102.023173 
+L 275.590968 87.346385 
+L 312.320081 81.590782 
+L 349.049195 71.146055 
+" clip-path="url(#fig5_family_size-pf44428b94f)" style="fill: none; stroke: #c39bd3; stroke-width: 2; stroke-linecap: square"/>
+    <defs>
+     <path id="fig5_family_size-m08b6335e9f" d="M -0 3.181981 
+L 3.181981 0 
+L 0 -3.181981 
+L -3.181981 -0 
+z
+" style="stroke: #c39bd3; stroke-linejoin: miter"/>
+    </defs>
+    <g clip-path="url(#fig5_family_size-pf44428b94f)">
+     <use xlink:href="#fig5_family_size-m08b6335e9f" x="128.674512" y="159.96291" style="fill: #c39bd3; stroke: #c39bd3; stroke-linejoin: miter"/>
+     <use xlink:href="#fig5_family_size-m08b6335e9f" x="165.403626" y="163.320345" style="fill: #c39bd3; stroke: #c39bd3; stroke-linejoin: miter"/>
+     <use xlink:href="#fig5_family_size-m08b6335e9f" x="202.13274" y="127.82746" style="fill: #c39bd3; stroke: #c39bd3; stroke-linejoin: miter"/>
+     <use xlink:href="#fig5_family_size-m08b6335e9f" x="238.861854" y="102.023173" style="fill: #c39bd3; stroke: #c39bd3; stroke-linejoin: miter"/>
+     <use xlink:href="#fig5_family_size-m08b6335e9f" x="275.590968" y="87.346385" style="fill: #c39bd3; stroke: #c39bd3; stroke-linejoin: miter"/>
+     <use xlink:href="#fig5_family_size-m08b6335e9f" x="312.320081" y="81.590782" style="fill: #c39bd3; stroke: #c39bd3; stroke-linejoin: miter"/>
+     <use xlink:href="#fig5_family_size-m08b6335e9f" x="349.049195" y="71.146055" style="fill: #c39bd3; stroke: #c39bd3; stroke-linejoin: miter"/>
     </g>
    </g>
   </g>
-  <g id="fig5_family_size-text_28">
-   <text style="font-weight: 700; font-size: 8.5px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: start; fill: var(--fig-ink, #1d2433)" x="34.33584" y="9.068232" transform="rotate(-0 34.33584 9.068232)">The bigger the protein family, the better the latest Claude models, as for a protein language model</text>
-  </g>
   <g id="fig5_family_size-text_29">
-   <text style="font-size: 6.2px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; fill: var(--fig-muted, #6b7385)" transform="translate(51.837719 243.81704)">Next amino acid on 257 DUF families: 90 from 20 to 300 proteins, 30 per bin, and the 167 of Fig. 1; mean over families,</text>
-   <text style="font-size: 6.2px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; fill: var(--fig-muted, #6b7385)" transform="translate(2.88 251.672089)">bands: 95% bootstrap CI for Fable 5.2 and Opus 5.5. Purple diamonds: ProtGPT3-10B, a protein language model, on the same residues.</text>
-   <text style="font-size: 6.2px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; fill: var(--fig-muted, #6b7385)" transform="translate(109.40375 259.527138)">Thin lines: earlier Claude models; grey: GPT-6.1 Sol, GPT-6 Astra, GPT-5.5 and Gemini 4 Carbon.</text>
+   <text style="font-weight: 700; font-size: 8.5px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: start; fill: var(--fig-ink, #1d2433)" x="70.855778" y="9.068232" transform="rotate(-0 70.855778 9.068232)">The bigger the protein family, the better the latest Claude models, as for a protein language model</text>
+  </g>
+  <g id="fig5_family_size-text_30">
+   <text style="font-size: 6.2px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; fill: var(--fig-muted, #6b7385)" transform="translate(88.357656 243.81704)">Next amino acid on 257 DUF families: 90 from 20 to 300 proteins, 30 per bin, and the 167 of Fig. 1; mean over families,</text>
+   <text style="font-size: 6.2px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; fill: var(--fig-muted, #6b7385)" transform="translate(2.88 251.672089)">bands: 95% bootstrap CI for Fable 5.2 and Opus 5.5. Purple diamonds: protein language models (ProtGPT3-10B, ProGen3-3B) on the same residues.</text>
+   <text style="font-size: 6.2px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; fill: var(--fig-muted, #6b7385)" transform="translate(145.923688 259.527138)">Thin lines: earlier Claude models; grey: GPT-6.1 Sol, GPT-6 Astra, GPT-5.5 and Gemini 4 Carbon.</text>
   </g>
  </g>
  <defs>
-  <clipPath id="fig5_family_size-p3d84b3d07d">
-   <rect x="81.13584" y="20.86917" width="290.16" height="188.496"/>
+  <clipPath id="fig5_family_size-pf44428b94f">
+   <rect x="117.655778" y="20.86917" width="290.16" height="188.496"/>
   </clipPath>
  </defs>
 </svg>

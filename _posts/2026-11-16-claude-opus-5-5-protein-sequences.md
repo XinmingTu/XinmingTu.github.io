@@ -169,10 +169,10 @@ ESM models are trained to see both sides of a residue, so continuing from the le
 If the models learned from sequences, families with more sequences should be easier. To test this over a wide range, we added 90 smaller families, down to 20 proteins each, for 257 families in all.
 
 <figure class="bp-figure" markdown="0">
-  <div class="bp-svg" role="img" aria-label="Line chart over seven family-size bins from 20 to over 10,000 proteins: Claude Opus 5.5 and ProtGPT3-10B rise together, almost on top of each other; Claude Fable 5.2 rises fastest and levels off from about 300 proteins; Fable 5.1 and Opus 4.7 to 5 rise at a lower level; Opus 4.5 and 4.6, GPT and Gemini stay near zero.">{% include llm-bioseq-probe/fig5_family_size.svg %}</div>
+  <div class="bp-svg" role="img" aria-label="Line chart over seven family-size bins from 20 to over 10,000 proteins: Claude Opus 5.5, ProtGPT3-10B and ProGen3-3B rise together; Claude Fable 5.2 rises fastest and levels off from about 300 proteins; Fable 5.1 and Opus 4.7 to 5 rise at a lower level; Opus 4.5 and 4.6, GPT and Gemini stay near zero.">{% include llm-bioseq-probe/fig5_family_size.svg %}</div>
 </figure>
 
-They are. Opus 5.5 and ProtGPT3-10B, which is trained on nothing but sequences, rise together, almost on top of each other. Fable 5.2 rises fastest and levels off at about 300 proteins per family. Earlier Claude models rise at a lower level, and GPT and Gemini stay near zero.
+They are. Opus 5.5 rises with the two protein language models, ProtGPT3-10B and ProGen3-3B, which are trained on nothing but sequences. Fable 5.2 rises fastest and levels off at about 300 proteins per family. Earlier Claude models rise at a lower level, and GPT and Gemini stay near zero.
 
 Two other explanations don't fit:
 
@@ -258,7 +258,7 @@ ProtGPT3-10B gets more answers right than Opus 5.5 (38.4% vs 34.9%) but also mor
 ### D. Robustness
 
 - **Across families.** The gap is positive in 98% of families for Fable 5.2 and 95% for Opus 5.5.
-- **Family size.** Over all 257 families, the Spearman correlation between a family's gap and the log of its size is 0.50 for Opus 5.5, 0.46 for ProtGPT3-10B, 0.38 for Fable 5.2, and 0.30 to 0.48 for Fable 5.1 and Opus 4.7 to 5 (all p < 10<sup>-6</sup>); for Opus 4.5 and 4.6 it is about 0.
+- **Family size.** Over all 257 families, the Spearman correlation between a family's gap and the log of its size is 0.50 for Opus 5.5, 0.48 for ProGen3-3B, 0.46 for ProtGPT3-10B, 0.38 for Fable 5.2, and 0.30 to 0.48 for Fable 5.1 and Opus 4.7 to 5 (all p < 10<sup>-6</sup>); for Opus 4.5 and 4.6 it is about 0.
 - **Papers.** In the 128 families with no papers at all, the gap is 45.9 points for Fable 5.2 and 26.8 for Opus 5.5, against 45.1 and 27.4 over all 167. For Opus 5.5 it still rises with family size there (Spearman 0.28, p = 0.001), and across families it is unrelated to the number of papers (Spearman 0.05).
 - **Prompt format.** Asking Opus 5.5 to copy the sequence first and then continue gives the same gap as the standard prompt (19.3 vs 19.8 points on the same subset of questions).
 - **Refusals.** Non-answers (1% for Opus 5.5) are excluded; counting them as wrong changes its gap by under 1 point. GPT-4o, DeepSeek, Qwen, Kimi, GLM and gpt-oss often declined to guess; a best-guess prompt made them answer, with the same result.

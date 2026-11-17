@@ -151,7 +151,7 @@ The test set is 668 bacterial and archaeal proteins from 167 Pfam families of un
   <figcaption>Filled points: the chat prompt. Hollow points: raw next-token continuation of the FASTA text, through a completion endpoint or a prefilled reply, for models that allow it.</figcaption>
 </figure>
 
-Fable 5.2 gets the next amino acid right 54% of the time on real proteins and 9% on shuffled ones. The gap is there in nearly every family, not just a few easy ones. It appears in Opus 4.7, jumps in Opus 5.5, and jumps again in Fable 5.2. GPT, Gemini and the open-weight models stay at zero, even when the open-weight models simply continue raw FASTA text, the way they were trained. The latest Claude models also write runs of correct residues that other models rarely manage (Appendix B).
+Fable 5.2 gets the next amino acid right 54% of the time on real proteins and 9% on shuffled ones. The gap is there in nearly every family, not just a few easy ones. It appears in Opus 4.7, jumps in Opus 5.5, and jumps again in Fable 5.2. GPT, Gemini and the open-weight models stay near zero, even when the open-weight models simply continue raw FASTA text, the way they were trained. The latest Claude models also write runs of correct residues that other models rarely manage (Appendix B).
 
 ## Comparison with protein language models
 
@@ -168,15 +168,15 @@ ESM models are trained to see both sides of a residue, so continuing from the le
 If the models learned from sequences, families with more sequences should be easier. To test this over a wide range, we added 90 smaller families, down to 20 proteins each, for 257 families in all.
 
 <figure class="bp-figure" markdown="0">
-  <div class="bp-svg" role="img" aria-label="Line chart over seven family-size bins from 20 to over 10,000 proteins: Claude Opus 5.5 and ProtGPT3-10B rise together, almost on top of each other; Claude Fable 5.2 rises fastest and levels off from about 300 proteins; Fable 5.1 and Opus 4.7 to 5 rise at a lower level; Opus 4.5 and 4.6, GPT and Gemini stay at zero.">{% include llm-bioseq-probe/fig5_family_size.svg %}</div>
+  <div class="bp-svg" role="img" aria-label="Line chart over seven family-size bins from 20 to over 10,000 proteins: Claude Opus 5.5 and ProtGPT3-10B rise together, almost on top of each other; Claude Fable 5.2 rises fastest and levels off from about 300 proteins; Fable 5.1 and Opus 4.7 to 5 rise at a lower level; Opus 4.5 and 4.6, GPT and Gemini stay near zero.">{% include llm-bioseq-probe/fig5_family_size.svg %}</div>
 </figure>
 
-They are. Opus 5.5 and ProtGPT3-10B, which is trained on nothing but sequences, rise together, almost on top of each other. Fable 5.2 rises fastest and levels off at about 300 proteins per family. Earlier Claude models rise at a lower level, and GPT and Gemini stay at zero.
+They are. Opus 5.5 and ProtGPT3-10B, which is trained on nothing but sequences, rise together, almost on top of each other. Fable 5.2 rises fastest and levels off at about 300 proteins per family. Earlier Claude models rise at a lower level, and GPT and Gemini stay near zero.
 
 Two other explanations don't fit:
 
 - **Papers.** In the 128 families with no papers at all, both models do as well as on the whole set.
-- **Reasoning.** Most answers involve no thinking at all: the API reports thinking tokens on 9% of Fable 5.2's answers and 36% of Opus 5.5's. The answers without thinking are just as accurate. GPT-6 Astra and GPT-6.1 Sol think for hundreds of tokens per question and stay at zero.
+- **Reasoning.** Most answers involve no thinking at all: the API reports thinking tokens on 9% of Fable 5.2's answers and 36% of Opus 5.5's. The answers without thinking are just as accurate. GPT-6 Astra and GPT-6.1 Sol think for hundreds of tokens per question and stay near zero.
 
 ## Famous proteins and variant ranking
 
@@ -269,7 +269,7 @@ ProtGPT3-10B gets more answers right than Opus 5.5 (38.4% vs 34.9%) but also mor
 - **No instruction.** Sent the sequence alone, GPT-5.5 and Opus 5.5 almost always describe it instead of continuing it (on a sample of 400 questions each), so chat models need the instruction.
 - **Claude Fable 5.** Anthropic's usage-policy filter blocked 44% of Fable 5's questions, so it is left out of the main figures. On the questions it answered its gap is 13.9 points; counting blocked questions as wrong gives 11.6, and keeping only the cuts answered on both the real and the shuffled protein gives 14.6, close to Fable 5.1's 14.9. Fable 5.1 and 5.2 were blocked 2.5% and 0% of the time.
 - **Repeat runs.** Asked 400 of the same questions again, Fable 5.2 scores 57.5% on real and 9.5% on shuffled proteins, against 57.5% and 8.5% the first time.
-- **A first round.** A smaller run of 20 models on 37 families, half well-known and half obscure, gave the same picture and set the design of the main run.
+- **A first round.** A smaller run of 23 models on 37 families, half well-known and half obscure, gave the same picture and set the design of the main run.
 
 ### E. Methods
 
@@ -305,7 +305,7 @@ Each model runs through its own API with temperature 0 where it is accepted, thi
 
 **Protein language models.** They get the same prefix and no prompt. ProtGPT3 and ProtGPT2 read it left to right and give a probability for the next token; the ESM models see the prefix, a mask in place of the next residue, and the end of the sequence. In every case the prediction is the most likely of the 20 standard amino acids.
 
-Total API cost was about $700, plus a few dollars of GPU time for the protein language models.
+Total API cost was about $730, plus a few dollars of GPU time for the protein language models.
 
 ### F. Safety behaviour seen along the way
 

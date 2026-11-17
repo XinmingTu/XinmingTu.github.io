@@ -130,7 +130,7 @@ This is also why our result does not contradict the SOD1 post or PG-LLM. Ranking
 
 ## What this means
 
-Claude Opus 5.5 learned the statistics of little-studied protein families, which takes many sequences, not a handful. On DNA the signal stops at well-known coding sequence: it predicts human and mouse coding DNA but not the rest of the genome, and barely the bacterial genes behind the very proteins it predicts well (Appendix A). Its training data held protein sequences, not genomes. What it learned are family statistics: it cannot recite these obscure proteins. The test shows what the model learned, not where the data came from or when it was added.
+Claude Opus 5.5 learned the statistics of little-studied protein families, which takes many sequences, not a handful. On DNA the signal stops at well-known coding sequence: it predicts human and mouse coding DNA but not the rest of the genome, and barely the bacterial genes behind the very proteins it predicts well (Appendix A). Its training data held protein sequences, not genomes. What it learned are family statistics: it cannot recite these obscure proteins. The breadth of the signal, across 95% of families and growing with family size like a protein language model's, suggests that protein sequences were a sizeable part of training, possibly pretraining, but the test cannot tell which phase. The test shows what the model learned, not where the data came from or when it was added.
 
 ## Code and data
 

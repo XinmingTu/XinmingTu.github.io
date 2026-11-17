@@ -224,7 +224,7 @@ All code, test sets, model outputs and figures are in [llm-bioseq-probe](https:/
 
 ### B. Longer continuations
 
-**All 10 residues right.** Each question asks for the next 10 residues. On the 668 little-studied proteins, Claude Fable 5.2 gets all 10 right at 88 real cuts and Opus 5.5 at 12, and neither at any shuffled one. If their residues were independent guesses at their own per-residue accuracy, they would get 15.8 and 0.56 by chance.
+**All 10 residues right.** Each question asks for the next 10 residues. On the 668 little-studied proteins, Claude Fable 5.2 gets all 10 right at 88 real cuts and Opus 5.5 at 12, and neither at any shuffled one. If their residues were independent guesses at their own per-residue accuracy, they would get 15.8 and 0.57 by chance.
 
 **Runs in a row.** On shuffled proteins neither Fable 5.2 nor Opus 5.5 gets more than 3 residues in a row. Once on track they get surer: after one right residue, Opus 5.5 gets the next right 47% of the time, after four in a row 68%.
 
@@ -257,11 +257,11 @@ ProtGPT3-10B gets more answers right than Opus 5.5 (38.4% vs 34.9%) but also mor
 
 ### D. Robustness
 
-- **Across families.** The gap is positive in 98% of families for Fable 5.2 and 95% for Opus 5.5.
+- **Across families.** The gap is positive in 98% of families for Fable 5.2 and 94% for Opus 5.5.
 - **Family size.** Over all 257 families, the Spearman correlation between a family's gap and the log of its size is 0.50 for Opus 5.5, 0.48 for ProGen3-3B, 0.46 for ProtGPT3-10B, 0.38 for Fable 5.2, and 0.30 to 0.48 for Fable 5.1 and Opus 4.7 to 5 (all p < 10<sup>-6</sup>); for Opus 4.5 and 4.6 it is about 0.
 - **Papers.** In the 128 families with no papers at all, the gap is 45.9 points for Fable 5.2 and 26.8 for Opus 5.5, against 45.1 and 27.4 over all 167. For Opus 5.5 it still rises with family size there (Spearman 0.28, p = 0.001), and across families it is unrelated to the number of papers (Spearman 0.05).
-- **Prompt format.** Asking Opus 5.5 to copy the sequence first and then continue gives the same gap as the standard prompt (19.3 vs 19.8 points on the same subset of questions).
-- **Refusals.** Non-answers (1% for Opus 5.5) are excluded; counting them as wrong changes its gap by under 1 point. GPT-4o, DeepSeek, Qwen, Kimi, GLM and gpt-oss often declined to guess; a best-guess prompt made them answer, with the same result.
+- **Prompt format.** Asking Opus 5.5 to copy the sequence first and then continue gives the same gap as the standard prompt on the same 400 questions (12.0 vs 12.0 points; this subset comes from 10 families).
+- **Refusals.** Non-answers (0.1% for Opus 5.5) are excluded; counting them as wrong changes its gap by under 1 point. GPT-4o, DeepSeek, Qwen, Kimi, GLM and gpt-oss often declined to guess; a best-guess prompt made them answer, with the same result.
 - **No instruction.** Sent the sequence alone, GPT-5.5 and Opus 5.5 almost always describe it instead of continuing it (on a sample of 400 questions each), so chat models need the instruction.
 - **Claude Fable 5.** Anthropic's usage-policy filter blocked 44% of Fable 5's questions, so it is left out of the main figures. On the questions it answered its gap is 13.9 points; counting blocked questions as wrong gives 11.6, and keeping only the cuts answered on both the real and the shuffled protein gives 14.6, close to Fable 5.1's 14.9. Fable 5.1 and 5.2 were blocked 2.5% and 0% of the time.
 - **Repeat runs.** Asked 400 of the same questions again, Fable 5.2 scores 57.5% on real and 9.5% on shuffled proteins, against 57.5% and 8.5% the first time.
@@ -291,7 +291,7 @@ Each model runs through its own API with temperature 0 where it is accepted, thi
 
 **Thinking.** A reply counts as thought about when the API reports thinking tokens for it: `thinking_tokens` in Anthropic's usage report, `reasoning_tokens` in OpenRouter's. The thinking text itself is not kept; only the visible reply is scored. Fable 5.2 thought on 9% of questions, Opus 5.5 on 36%, Fable 5.1 never. Without thinking, Fable 5.2 is right 54.7% of the time on real proteins and 8.8% on shuffled ones (48.2% and 10.6% with thinking), and Opus 5.5 35.3% and 6.9% (34.1% and 8.6%).
 
-**Scoring.** We take the last line of the reply, keep its letters and read the first one as the predicted next amino acid. A question counts only if that line contains nothing but the 20 standard letters; refusals and other non-answers are excluded and counted (1% for Opus 5.5). Only this first residue is scored. We asked for 10 so that the answer is a sequence rather than a single letter, and used the full 10 only to count exact continuations.
+**Scoring.** We read the last sequence the reply states: a run of capital amino-acid letters on its own line or after a label such as "Answer:", skipping words, lists and anything inside thinking tags. If it starts by restating the end of the prefix, the restatement is dropped. Its first letter is the predicted next amino acid. A reply cut off at the length limit counts only if it opens with a sequence. Replies that state no sequence are excluded and counted (0.1% for Opus 5.5). Only the first residue is scored; the full 10 are used for exact continuations and runs. The same reader is used for every model and for real and shuffled proteins.
 
 **The shuffled control.** Each protein's residues are shuffled once, with a random seed fixed by its accession, and the same 5 cut positions are asked on the shuffled sequence. The shuffle keeps the composition of the whole protein and destroys the order, so a model that knows only which amino acids are common scores the same on both.
 

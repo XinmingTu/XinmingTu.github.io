@@ -3,7 +3,7 @@
   <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
    <cc:Work>
     <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
-    <dc:date>2026-11-17T05:40:00.746748</dc:date>
+    <dc:date>2026-11-17T07:59:09.239648</dc:date>
     <dc:format>image/svg+xml</dc:format>
     <dc:creator>
      <cc:Agent>
@@ -36,18 +36,18 @@ z
 " style="fill: var(--fig-bg, #ffffff)"/>
    </g>
    <g id="fig1_protein-patch_3">
-    <path d="M 74.4725 41.16021 
-L 331.1525 41.16021 
-L 331.1525 30.51573 
-L 74.4725 30.51573 
-z
-" clip-path="url(#fig1_protein-pa907cff642)" style="fill: #d97757; opacity: 0.09"/>
-   </g>
-   <g id="fig1_protein-patch_4">
     <path d="M 74.4725 52.24821 
 L 331.1525 52.24821 
 L 331.1525 41.60373 
 L 74.4725 41.60373 
+z
+" clip-path="url(#fig1_protein-pa907cff642)" style="fill: #d97757; opacity: 0.09"/>
+   </g>
+   <g id="fig1_protein-patch_4">
+    <path d="M 74.4725 41.16021 
+L 331.1525 41.16021 
+L 331.1525 30.51573 
+L 74.4725 30.51573 
 z
 " clip-path="url(#fig1_protein-pa907cff642)" style="fill: #d97757; opacity: 0.09"/>
    </g>
@@ -279,13 +279,13 @@ L 88.473227 20.86917
 " clip-path="url(#fig1_protein-pa907cff642)" style="fill: none; stroke: var(--fig-muted, #6b7385); stroke-width: 0.6; stroke-linecap: square"/>
    </g>
    <g id="fig1_protein-line2d_34">
-    <path d="M 147.160777 58.01397 
-L 168.799202 58.01397 
+    <path d="M 147.353602 58.01397 
+L 168.962032 58.01397 
 " clip-path="url(#fig1_protein-pa907cff642)" style="fill: none; stroke: var(--fig-c-f51, #c0694c); stroke-width: 1.4; stroke-linecap: round"/>
    </g>
    <g id="fig1_protein-line2d_35">
-    <path d="M 122.618194 69.10197 
-L 145.008855 69.10197 
+    <path d="M 121.820469 69.10197 
+L 144.40332 69.10197 
 " clip-path="url(#fig1_protein-pa907cff642)" style="fill: none; stroke: var(--fig-c-o5, #df8a68); stroke-width: 1.4; stroke-linecap: round"/>
    </g>
    <g id="fig1_protein-line2d_36">
@@ -299,8 +299,8 @@ L 140.032792 91.27797
 " clip-path="url(#fig1_protein-pa907cff642)" style="fill: none; stroke: var(--fig-c-o47, #eaad92); stroke-width: 1.4; stroke-linecap: round"/>
    </g>
    <g id="fig1_protein-line2d_38">
-    <path d="M 86.517038 102.36597 
-L 98.827794 102.36597 
+    <path d="M 86.656766 102.36597 
+L 98.952814 102.36597 
 " clip-path="url(#fig1_protein-pa907cff642)" style="fill: none; stroke: var(--fig-c-o46, #efc1ab); stroke-width: 1.4; stroke-linecap: round"/>
    </g>
    <g id="fig1_protein-line2d_39">
@@ -319,8 +319,8 @@ L 108.242296 148.93557
 " clip-path="url(#fig1_protein-pa907cff642)" style="fill: none; stroke: var(--fig-gpt-6, #4b4b55); stroke-width: 1.4; stroke-linecap: round"/>
    </g>
    <g id="fig1_protein-line2d_42">
-    <path d="M 92.443887 160.02357 
-L 104.108035 160.02357 
+    <path d="M 92.466133 160.02357 
+L 104.122927 160.02357 
 " clip-path="url(#fig1_protein-pa907cff642)" style="fill: none; stroke: var(--fig-gpt-55, #7c7c87); stroke-width: 1.4; stroke-linecap: round"/>
    </g>
    <g id="fig1_protein-line2d_43">
@@ -349,18 +349,18 @@ L 101.561483 242.07477
 " clip-path="url(#fig1_protein-pa907cff642)" style="fill: none; stroke: var(--fig-grey, #a3aab8); stroke-width: 1.4; stroke-linecap: round"/>
    </g>
    <g id="fig1_protein-line2d_48">
-    <path d="M 87.686426 253.16277 
-L 100.436807 253.16277 
+    <path d="M 87.694517 253.16277 
+L 100.41559 253.16277 
 " clip-path="url(#fig1_protein-pa907cff642)" style="fill: none; stroke: var(--fig-grey, #a3aab8); stroke-width: 1.4; stroke-linecap: round"/>
    </g>
    <g id="fig1_protein-line2d_49">
-    <path d="M 83.050058 264.25077 
-L 104.074132 264.25077 
+    <path d="M 82.979898 264.25077 
+L 103.881509 264.25077 
 " clip-path="url(#fig1_protein-pa907cff642)" style="fill: none; stroke: var(--fig-grey, #a3aab8); stroke-width: 1.4; stroke-linecap: round"/>
    </g>
    <g id="fig1_protein-line2d_50">
-    <path d="M 84.716569 275.33877 
-L 95.94494 275.33877 
+    <path d="M 84.726784 275.33877 
+L 95.947469 275.33877 
 " clip-path="url(#fig1_protein-pa907cff642)" style="fill: none; stroke: var(--fig-grey, #a3aab8); stroke-width: 1.4; stroke-linecap: round"/>
    </g>
    <g id="fig1_protein-line2d_51">
@@ -377,7 +377,7 @@ L 331.1525 295.29717
     <text style="font-weight: 700; font-size: 7.5px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: start; fill: var(--fig-ink, #1d2433)" x="314.498186" y="37.778888" transform="rotate(-0 314.498186 37.778888)">+45.1</text>
    </g>
    <g id="fig1_protein-text_29">
-    <text style="font-weight: 700; font-size: 7.5px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: start; fill: var(--fig-ink, #1d2433)" x="232.214883" y="48.866888" transform="rotate(-0 232.214883 48.866888)">+27.4</text>
+    <text style="font-weight: 700; font-size: 7.5px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: start; fill: var(--fig-ink, #1d2433)" x="232.478775" y="48.866888" transform="rotate(-0 232.478775 48.866888)">+27.4</text>
    </g>
    <g id="fig1_protein-line2d_52">
     <defs>
@@ -394,11 +394,11 @@ z
 " style="stroke: var(--fig-c-f51, #c0694c)"/>
     </defs>
     <g clip-path="url(#fig1_protein-pa907cff642)">
-     <use xlink:href="#fig1_protein-m2df01ee78f" x="157.956164" y="58.01397" style="fill: var(--fig-c-f51, #c0694c); stroke: var(--fig-c-f51, #c0694c)"/>
+     <use xlink:href="#fig1_protein-m2df01ee78f" x="158.153222" y="58.01397" style="fill: var(--fig-c-f51, #c0694c); stroke: var(--fig-c-f51, #c0694c)"/>
     </g>
    </g>
    <g id="fig1_protein-text_30">
-    <text style="font-size: 6.3px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: start; fill: var(--fig-muted, #6b7385)" x="172.532729" y="59.644341" transform="rotate(-0 172.532729 59.644341)">+14.9</text>
+    <text style="font-size: 6.3px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: start; fill: var(--fig-muted, #6b7385)" x="172.695559" y="59.644341" transform="rotate(-0 172.695559 59.644341)">+14.9</text>
    </g>
    <g id="fig1_protein-line2d_53">
     <defs>
@@ -415,11 +415,11 @@ z
 " style="stroke: var(--fig-c-o5, #df8a68)"/>
     </defs>
     <g clip-path="url(#fig1_protein-pa907cff642)">
-     <use xlink:href="#fig1_protein-mb94a74ec79" x="133.801393" y="69.10197" style="fill: var(--fig-c-o5, #df8a68); stroke: var(--fig-c-o5, #df8a68)"/>
+     <use xlink:href="#fig1_protein-mb94a74ec79" x="133.154037" y="69.10197" style="fill: var(--fig-c-o5, #df8a68); stroke: var(--fig-c-o5, #df8a68)"/>
     </g>
    </g>
    <g id="fig1_protein-text_31">
-    <text style="font-size: 6.3px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: start; fill: var(--fig-muted, #6b7385)" x="148.742382" y="70.732341" transform="rotate(-0 148.742382 70.732341)">+9.7</text>
+    <text style="font-size: 6.3px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: start; fill: var(--fig-muted, #6b7385)" x="148.136847" y="70.732341" transform="rotate(-0 148.136847 70.732341)">+9.6</text>
    </g>
    <g id="fig1_protein-line2d_54">
     <defs>
@@ -478,11 +478,11 @@ z
 " style="stroke: var(--fig-c-o46, #efc1ab)"/>
     </defs>
     <g clip-path="url(#fig1_protein-pa907cff642)">
-     <use xlink:href="#fig1_protein-m048b1a97b6" x="92.665062" y="102.36597" style="fill: var(--fig-c-o46, #efc1ab); stroke: var(--fig-c-o46, #efc1ab)"/>
+     <use xlink:href="#fig1_protein-m048b1a97b6" x="92.80479" y="102.36597" style="fill: var(--fig-c-o46, #efc1ab); stroke: var(--fig-c-o46, #efc1ab)"/>
     </g>
    </g>
    <g id="fig1_protein-text_34">
-    <text style="font-size: 6.3px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: start; fill: var(--fig-muted, #6b7385)" x="102.561321" y="103.996341" transform="rotate(-0 102.561321 103.996341)">+0.9</text>
+    <text style="font-size: 6.3px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: start; fill: var(--fig-muted, #6b7385)" x="102.686341" y="103.996341" transform="rotate(-0 102.686341 103.996341)">+0.9</text>
    </g>
    <g id="fig1_protein-line2d_57">
     <defs>
@@ -562,11 +562,11 @@ z
 " style="stroke: var(--fig-gpt-55, #7c7c87)"/>
     </defs>
     <g clip-path="url(#fig1_protein-pa907cff642)">
-     <use xlink:href="#fig1_protein-m84a526c964" x="98.24682" y="160.02357" style="fill: var(--fig-gpt-55, #7c7c87); stroke: var(--fig-gpt-55, #7c7c87)"/>
+     <use xlink:href="#fig1_protein-m84a526c964" x="98.268883" y="160.02357" style="fill: var(--fig-gpt-55, #7c7c87); stroke: var(--fig-gpt-55, #7c7c87)"/>
     </g>
    </g>
    <g id="fig1_protein-text_38">
-    <text style="font-size: 6.3px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: start; fill: var(--fig-muted, #6b7385)" x="107.841562" y="161.653941" transform="rotate(-0 107.841562 161.653941)">+2.1</text>
+    <text style="font-size: 6.3px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: start; fill: var(--fig-muted, #6b7385)" x="107.856454" y="161.653941" transform="rotate(-0 107.856454 161.653941)">+2.1</text>
    </g>
    <g id="fig1_protein-line2d_61">
     <defs>
@@ -649,27 +649,27 @@ z
    </g>
    <g id="fig1_protein-line2d_66">
     <g clip-path="url(#fig1_protein-pa907cff642)">
-     <use xlink:href="#fig1_protein-mbd20dafc75" x="94.239107" y="253.16277" style="fill: var(--fig-bg, #ffffff); stroke: var(--fig-grey, #a3aab8)"/>
+     <use xlink:href="#fig1_protein-mbd20dafc75" x="94.216912" y="253.16277" style="fill: var(--fig-bg, #ffffff); stroke: var(--fig-grey, #a3aab8)"/>
     </g>
    </g>
    <g id="fig1_protein-text_44">
-    <text style="font-size: 6.3px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: start; fill: var(--fig-muted, #6b7385)" x="104.170335" y="254.793141" transform="rotate(-0 104.170335 254.793141)">+1.2</text>
+    <text style="font-size: 6.3px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: start; fill: var(--fig-muted, #6b7385)" x="104.149117" y="254.793141" transform="rotate(-0 104.149117 254.793141)">+1.2</text>
    </g>
    <g id="fig1_protein-line2d_67">
     <g clip-path="url(#fig1_protein-pa907cff642)">
-     <use xlink:href="#fig1_protein-mbd20dafc75" x="93.398327" y="264.25077" style="fill: var(--fig-bg, #ffffff); stroke: var(--fig-grey, #a3aab8)"/>
+     <use xlink:href="#fig1_protein-mbd20dafc75" x="93.269794" y="264.25077" style="fill: var(--fig-bg, #ffffff); stroke: var(--fig-grey, #a3aab8)"/>
     </g>
    </g>
    <g id="fig1_protein-text_45">
-    <text style="font-size: 6.3px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: start; fill: var(--fig-muted, #6b7385)" x="107.807659" y="265.881141" transform="rotate(-0 107.807659 265.881141)">+1.1</text>
+    <text style="font-size: 6.3px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: start; fill: var(--fig-muted, #6b7385)" x="107.615037" y="265.881141" transform="rotate(-0 107.615037 265.881141)">+1.0</text>
    </g>
    <g id="fig1_protein-line2d_68">
     <g clip-path="url(#fig1_protein-pa907cff642)">
-     <use xlink:href="#fig1_protein-mbd20dafc75" x="90.361103" y="275.33877" style="fill: var(--fig-bg, #ffffff); stroke: var(--fig-grey, #a3aab8)"/>
+     <use xlink:href="#fig1_protein-mbd20dafc75" x="90.371377" y="275.33877" style="fill: var(--fig-bg, #ffffff); stroke: var(--fig-grey, #a3aab8)"/>
     </g>
    </g>
    <g id="fig1_protein-text_46">
-    <text style="font-size: 6.3px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: start; fill: var(--fig-muted, #6b7385)" x="99.678467" y="276.969141" transform="rotate(-0 99.678467 276.969141)">+0.4</text>
+    <text style="font-size: 6.3px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: start; fill: var(--fig-muted, #6b7385)" x="99.680996" y="276.969141" transform="rotate(-0 99.680996 276.969141)">+0.4</text>
    </g>
    <g id="fig1_protein-line2d_69">
     <g clip-path="url(#fig1_protein-pa907cff642)">
@@ -697,8 +697,8 @@ L 310.764659 35.83797
 " clip-path="url(#fig1_protein-pa907cff642)" style="fill: none; stroke: var(--fig-c-f52, #9c3a1c); stroke-width: 2.2; stroke-linecap: round"/>
    </g>
    <g id="fig1_protein-line2d_71">
-    <path d="M 203.839979 46.92597 
-L 228.481356 46.92597 
+    <path d="M 204.152968 46.92597 
+L 228.745247 46.92597 
 " clip-path="url(#fig1_protein-pa907cff642)" style="fill: none; stroke: #d97757; stroke-width: 2.2; stroke-linecap: round"/>
    </g>
    <g id="fig1_protein-line2d_72">
@@ -734,7 +734,7 @@ z
 " style="stroke: #d97757"/>
     </defs>
     <g clip-path="url(#fig1_protein-pa907cff642)">
-     <use xlink:href="#fig1_protein-m2bdc44456f" x="216.140568" y="46.92597" style="fill: #d97757; stroke: #d97757"/>
+     <use xlink:href="#fig1_protein-m2bdc44456f" x="216.375659" y="46.92597" style="fill: #d97757; stroke: #d97757"/>
     </g>
    </g>
    <g id="fig1_protein-legend_1">

@@ -189,7 +189,7 @@ The latest Claude models know protein families that almost nobody has studied. T
 
 DNA is different. Opus 5.5 predicts human and mouse coding sequence but not the rest of the genome, and barely the bacterial genes behind the proteins it knows (Appendix A). It learned proteins, not genomes.
 
-What we can't test from outside is what else this knowledge supports. Fable 5.2 predicts little-studied proteins better than any open protein language model we ran, and protein language models carry more than next-residue statistics: ESM-2's internal representations hold enough structure that a small folding module on top predicts 3D structures (ESMFold<d-cite key="lin2023esmfold"></d-cite>), and their probabilities rank the effects of mutations<d-cite key="meier2021esm1v"></d-cite>. Does Claude carry the same? Testing that needs the model's internal representations, or at least the probability it gives each residue, and the API returns neither.
+We are curious what else this knowledge supports. Fable 5.2 predicts little-studied proteins better than any open protein language model we ran, and protein language models carry more than next-residue statistics: ESM-2's internal representations hold enough structure that a small folding module on top predicts 3D structures (ESMFold<d-cite key="lin2023esmfold"></d-cite>), and their probabilities rank the effects of mutations<d-cite key="meier2021esm1v"></d-cite>. Could Claude fold a protein, or rank its variants, the same way?
 
 ## Code and data
 

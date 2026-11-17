@@ -124,7 +124,7 @@ If the signal comes from training on sequences, bigger families should be easier
 Two other explanations for the signal don't hold up:
 
 - **Papers.** In the 128 families with no papers at all, the gap is 26.8 points for Opus 5.5 and 45.9 for Fable 5.2, and for Opus 5.5 it still rises with family size (rho 0.28, p = 0.001). Across families it has nothing to do with how many papers exist (rho 0.05).
-- **Reasoning.** Fable 5.2 writes about 30 tokens per answer, and more than half the time Opus 5.5 answers in 15 tokens or fewer, essentially just the answer, and is still right 35.6% of the time (7.3% on shuffled proteins). GPT-6 Astra and GPT-6.1 Sol think for hundreds of tokens per question and stay near 10%.
+- **Reasoning.** Most answers come with no thinking at all. For every reply the API reports how many of its tokens were thinking, and we count a question as thought about when that number is above zero. Fable 5.2 thought on 9% of questions, Opus 5.5 on 36%, and Fable 5.1 never. On the questions with no thinking, Fable 5.2 is right 54.7% of the time on real proteins and 8.8% on shuffled ones, and Opus 5.5 35.3% and 6.9%, no lower than when they think. GPT-6 Astra and GPT-6.1 Sol think for hundreds of tokens per question and stay near 10%.
 
 ## Famous proteins and variant ranking
 
@@ -255,7 +255,9 @@ MRSGGQPLHPQPAHRFHYRTAARPRAAWILGCVLHLADAEEGARFWWQYAAGAGDDAAAY
 CLYLHCLVLGDSYAAALWREQTSLDTPPHDFDDTSVPTVLRILSRLTPA
 ```
 
-Each model runs through its own API with temperature 0 where it is accepted, thinking off or at its lowest setting, no tools, and one sample per question. The Claude Fable models run through OpenRouter, since Anthropic's API serves them only to workspaces that retain data. Models that declined to guess (GPT-4o, DeepSeek, Qwen, Kimi, GLM, gpt-oss) also got a version that adds "Give your best guess even if you are uncertain. Do not explain or refuse."; those runs are marked separately.
+Each model runs through its own API with temperature 0 where it is accepted, thinking off or at its lowest setting (for Opus 5.5 and the Fable models, low effort, at which the model still decides whether to think), no tools, and one sample per question. The Claude Fable models run through OpenRouter, since Anthropic's API serves them only to workspaces that retain data. Models that declined to guess (GPT-4o, DeepSeek, Qwen, Kimi, GLM, gpt-oss) also got a version that adds "Give your best guess even if you are uncertain. Do not explain or refuse."; those runs are marked separately.
+
+**Thinking.** A reply counts as thought about when the API reports thinking tokens for it: `thinking_tokens` in Anthropic's usage report, `reasoning_tokens` in OpenRouter's. The thinking text itself is not kept; only the visible reply is scored.
 
 **Scoring.** We take the last line of the reply, keep its letters and read the first one as the predicted next amino acid. A question counts only if that line contains nothing but the 20 standard letters; refusals and other non-answers are excluded and counted (1% for Opus 5.5). Only this first residue is scored. We asked for 10 so that the answer is a sequence rather than a single letter, and used the full 10 only to count exact continuations.
 

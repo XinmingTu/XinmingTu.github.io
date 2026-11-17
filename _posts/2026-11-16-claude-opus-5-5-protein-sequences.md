@@ -86,7 +86,7 @@ Famous proteins can't answer it. They are printed in papers and across the web: 
 
 The proteins come from 167 Pfam "domain of unknown function" families with no solved structure and at most 3 papers, and none has a UniProt relative within 90% identity. Each model answered 6,680 questions through its own API, with thinking off or at its lowest setting.
 
-The next amino acid is the main measure, but not the only one. Each question asks for the next 10 residues, so we also count how often a model gets all 10 right: Opus 5.5 does so 12 times on these proteins, where its per-residue accuracy predicts 0.6 by chance. And on well-known proteins we asked for the next 200 residues at once, to see how far a model can recite a sequence letter for letter: Opus 5.5 goes past 100 residues 24 times, with a longest run of 305 (Appendix B).
+The next amino acid is the main measure, but not the only one: we also looked at longer continuations, how often a model gets all 10 requested residues right, and how far it can recite a well-known protein letter for letter when asked for 200 residues (Appendix B).
 
 ## Results: only Claude Opus 5.5 predicts them
 
@@ -159,13 +159,17 @@ All code, test sets, model outputs and figures are in [llm-bioseq-probe](https:/
 
 220-nucleotide windows, 200 shown and 20 to predict, from hg38, mm39 and the bacterial genes behind the test proteins, 500 per region. Non-coding windows contain no repeats, and the control shuffles each window keeping its dinucleotide counts. Opus 5.5 wrote all 20 nucleotides right 25 times in 500 human coding windows; a blind guess does that about once in a trillion. Gemini 4 Carbon blocks most DNA prompts before answering, so it is not shown.
 
-### B. Reciting famous proteins
+### B. Longer continuations
+
+**All 10 residues right.** Each question asks for the next 10 residues. On the 668 little-studied proteins, Claude Opus 5.5 gets all 10 right at 12 real cuts and at none of the shuffled ones. If its residues were independent guesses at its own per-residue accuracy, it would get 0.56 by chance. That is 21 times chance, but on a few cuts: what it learned is mostly the families' statistics, not each protein's letters.
+
+**Reciting well-known proteins.** At 158 points in well-studied proteins, each model was asked for the next 200 residues at once.
 
 <figure class="bp-figure" markdown="0">
   <img src="{{ '/assets/img/llm-bioseq-probe/fig4_recall.png' | relative_url }}?v=20261117b" alt="Bar chart: how often each model continues a famous protein letter for letter for 50, 100 and 200 residues.">
 </figure>
 
-At 158 points in well-studied proteins, each model was asked for the next 200 residues. Opus 5.5 goes past 100 residues 24 times (longest 305), Gemini 4 Carbon 23 times (longest 201), Opus 5 14 times (longest 325). GPT-6.1 Sol never reaches 100 and GPT-5.5 never passes 2.
+Opus 5.5 goes past 100 residues 24 times (longest 305), Gemini 4 Carbon 23 times (longest 201), Opus 5 14 times (longest 325). GPT-6.1 Sol never reaches 100 and GPT-5.5 never passes 2. On the little-studied proteins, Opus 5.5 rarely continues past 10.
 
 ### C. Protein language models
 

@@ -3,7 +3,7 @@
   <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
    <cc:Work>
     <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
-    <dc:date>2026-11-17T07:59:17.935997</dc:date>
+    <dc:date>2026-11-17T18:27:46.955121</dc:date>
     <dc:format>image/svg+xml</dc:format>
     <dc:creator>
      <cc:Agent>
@@ -36,16 +36,16 @@ z
 " style="fill: var(--fig-bg, #ffffff)"/>
    </g>
    <g id="fig3_known_vs_obscure-patch_3">
-    <path d="M 79.141719 53.051992 
-L 335.821719 53.051992 
-L 335.821719 43.775918 
-L 79.141719 43.775918 
+    <path d="M 79.141719 51.571249 
+L 335.821719 51.571249 
+L 335.821719 42.99658 
+L 79.141719 42.99658 
 z
 " clip-path="url(#fig3_known_vs_obscure-p74c11ec07b)" style="fill: #d97757; opacity: 0.09"/>
    </g>
    <g id="fig3_known_vs_obscure-patch_4">
-    <path d="M 79.141719 42.745244 
-L 335.821719 42.745244 
+    <path d="M 79.141719 42.043839 
+L 335.821719 42.043839 
 L 335.821719 33.46917 
 L 79.141719 33.46917 
 z
@@ -191,274 +191,296 @@ L 323.245821 20.86917
     <g id="fig3_known_vs_obscure-ytick_2">
      <g id="fig3_known_vs_obscure-line2d_18"/>
      <g id="fig3_known_vs_obscure-text_11">
-      <text style="font-size: 7px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: end; fill: var(--fig-ink, #1d2433)" x="75.641719" y="277.710517" transform="rotate(-0 75.641719 277.710517)">gpt-oss-120b *</text>
+      <text style="font-size: 7px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: end; fill: var(--fig-ink, #1d2433)" x="75.641719" y="278.489855" transform="rotate(-0 75.641719 278.489855)">gpt-oss-120b *</text>
      </g>
     </g>
     <g id="fig3_known_vs_obscure-ytick_3">
      <g id="fig3_known_vs_obscure-line2d_19"/>
      <g id="fig3_known_vs_obscure-text_12">
-      <text style="font-size: 7px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: end; fill: var(--fig-ink, #1d2433)" x="75.641719" y="267.403769" transform="rotate(-0 75.641719 267.403769)">Nemotron 3 Ultra</text>
+      <text style="font-size: 7px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: end; fill: var(--fig-ink, #1d2433)" x="75.641719" y="268.962445" transform="rotate(-0 75.641719 268.962445)">Nemotron 3 Ultra</text>
      </g>
     </g>
     <g id="fig3_known_vs_obscure-ytick_4">
      <g id="fig3_known_vs_obscure-line2d_20"/>
      <g id="fig3_known_vs_obscure-text_13">
-      <text style="font-size: 7px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: end; fill: var(--fig-ink, #1d2433)" x="75.641719" y="257.09702" transform="rotate(-0 75.641719 257.09702)">GPT-4.1</text>
+      <text style="font-size: 7px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: end; fill: var(--fig-ink, #1d2433)" x="75.641719" y="259.435035" transform="rotate(-0 75.641719 259.435035)">GPT-4.1</text>
      </g>
     </g>
     <g id="fig3_known_vs_obscure-ytick_5">
      <g id="fig3_known_vs_obscure-line2d_21"/>
      <g id="fig3_known_vs_obscure-text_14">
-      <text style="font-size: 7px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: end; fill: var(--fig-ink, #1d2433)" x="75.641719" y="246.790272" transform="rotate(-0 75.641719 246.790272)">GPT-4o *</text>
+      <text style="font-size: 7px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: end; fill: var(--fig-ink, #1d2433)" x="75.641719" y="249.907625" transform="rotate(-0 75.641719 249.907625)">GPT-4o *</text>
      </g>
     </g>
     <g id="fig3_known_vs_obscure-ytick_6">
      <g id="fig3_known_vs_obscure-line2d_22"/>
      <g id="fig3_known_vs_obscure-text_15">
-      <text style="font-size: 7px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: end; fill: var(--fig-ink, #1d2433)" x="75.641719" y="236.483523" transform="rotate(-0 75.641719 236.483523)">Qwen 3.8 *</text>
+      <text style="font-size: 7px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: end; fill: var(--fig-ink, #1d2433)" x="75.641719" y="240.380215" transform="rotate(-0 75.641719 240.380215)">Qwen 3.8 *</text>
      </g>
     </g>
     <g id="fig3_known_vs_obscure-ytick_7">
      <g id="fig3_known_vs_obscure-line2d_23"/>
      <g id="fig3_known_vs_obscure-text_16">
-      <text style="font-size: 7px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: end; fill: var(--fig-ink, #1d2433)" x="75.641719" y="226.176775" transform="rotate(-0 75.641719 226.176775)">MiniMax M3</text>
+      <text style="font-size: 7px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: end; fill: var(--fig-ink, #1d2433)" x="75.641719" y="230.852804" transform="rotate(-0 75.641719 230.852804)">MiniMax M3</text>
      </g>
     </g>
     <g id="fig3_known_vs_obscure-ytick_8">
      <g id="fig3_known_vs_obscure-line2d_24"/>
      <g id="fig3_known_vs_obscure-text_17">
-      <text style="font-size: 7px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: end; fill: var(--fig-ink, #1d2433)" x="75.641719" y="215.870026" transform="rotate(-0 75.641719 215.870026)">Claude Sonnet 4.5</text>
+      <text style="font-size: 7px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: end; fill: var(--fig-ink, #1d2433)" x="75.641719" y="221.325394" transform="rotate(-0 75.641719 221.325394)">GPT-6.2 Sol</text>
      </g>
     </g>
     <g id="fig3_known_vs_obscure-ytick_9">
      <g id="fig3_known_vs_obscure-line2d_25"/>
      <g id="fig3_known_vs_obscure-text_18">
-      <text style="font-size: 7px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: end; fill: var(--fig-ink, #1d2433)" x="75.641719" y="205.563278" transform="rotate(-0 75.641719 205.563278)">GLM-5.3 *</text>
+      <text style="font-size: 7px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: end; fill: var(--fig-ink, #1d2433)" x="75.641719" y="211.797984" transform="rotate(-0 75.641719 211.797984)">GPT-6.2 Astra</text>
      </g>
     </g>
     <g id="fig3_known_vs_obscure-ytick_10">
      <g id="fig3_known_vs_obscure-line2d_26"/>
      <g id="fig3_known_vs_obscure-text_19">
-      <text style="font-size: 7px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: end; fill: var(--fig-ink, #1d2433)" x="75.641719" y="195.256529" transform="rotate(-0 75.641719 195.256529)">GPT-6.1 Sol</text>
+      <text style="font-size: 7px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: end; fill: var(--fig-ink, #1d2433)" x="75.641719" y="202.270574" transform="rotate(-0 75.641719 202.270574)">Claude Sonnet 4.5</text>
      </g>
     </g>
     <g id="fig3_known_vs_obscure-ytick_11">
      <g id="fig3_known_vs_obscure-line2d_27"/>
      <g id="fig3_known_vs_obscure-text_20">
-      <text style="font-size: 7px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: end; fill: var(--fig-ink, #1d2433)" x="75.641719" y="184.949781" transform="rotate(-0 75.641719 184.949781)">Claude Opus 4.6</text>
+      <text style="font-size: 7px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: end; fill: var(--fig-ink, #1d2433)" x="75.641719" y="192.743164" transform="rotate(-0 75.641719 192.743164)">GLM-5.3 *</text>
      </g>
     </g>
     <g id="fig3_known_vs_obscure-ytick_12">
      <g id="fig3_known_vs_obscure-line2d_28"/>
      <g id="fig3_known_vs_obscure-text_21">
-      <text style="font-size: 7px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: end; fill: var(--fig-ink, #1d2433)" x="75.641719" y="174.643032" transform="rotate(-0 75.641719 174.643032)">GPT-6 Astra</text>
+      <text style="font-size: 7px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: end; fill: var(--fig-ink, #1d2433)" x="75.641719" y="183.215753" transform="rotate(-0 75.641719 183.215753)">GPT-6.1 Sol</text>
      </g>
     </g>
     <g id="fig3_known_vs_obscure-ytick_13">
      <g id="fig3_known_vs_obscure-line2d_29"/>
      <g id="fig3_known_vs_obscure-text_22">
-      <text style="font-size: 7px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: end; fill: var(--fig-ink, #1d2433)" x="75.641719" y="164.336284" transform="rotate(-0 75.641719 164.336284)">Gemini 2.5 Pro</text>
+      <text style="font-size: 7px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: end; fill: var(--fig-ink, #1d2433)" x="75.641719" y="173.688343" transform="rotate(-0 75.641719 173.688343)">Claude Opus 4.6</text>
      </g>
     </g>
     <g id="fig3_known_vs_obscure-ytick_14">
      <g id="fig3_known_vs_obscure-line2d_30"/>
      <g id="fig3_known_vs_obscure-text_23">
-      <text style="font-size: 7px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: end; fill: var(--fig-ink, #1d2433)" x="75.641719" y="154.029536" transform="rotate(-0 75.641719 154.029536)">Kimi K3.1 Pro *</text>
+      <text style="font-size: 7px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: end; fill: var(--fig-ink, #1d2433)" x="75.641719" y="164.160933" transform="rotate(-0 75.641719 164.160933)">GPT-6 Astra</text>
      </g>
     </g>
     <g id="fig3_known_vs_obscure-ytick_15">
      <g id="fig3_known_vs_obscure-line2d_31"/>
      <g id="fig3_known_vs_obscure-text_24">
-      <text style="font-size: 7px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: end; fill: var(--fig-ink, #1d2433)" x="75.641719" y="143.722787" transform="rotate(-0 75.641719 143.722787)">DeepSeek V4.1 Flash *</text>
+      <text style="font-size: 7px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: end; fill: var(--fig-ink, #1d2433)" x="75.641719" y="154.633523" transform="rotate(-0 75.641719 154.633523)">Gemini 2.5 Pro</text>
      </g>
     </g>
     <g id="fig3_known_vs_obscure-ytick_16">
      <g id="fig3_known_vs_obscure-line2d_32"/>
      <g id="fig3_known_vs_obscure-text_25">
-      <text style="font-size: 7px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: end; fill: #9b59b6" x="75.641719" y="133.416039" transform="rotate(-0 75.641719 133.416039)">ProtGPT2</text>
+      <text style="font-size: 7px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: end; fill: var(--fig-ink, #1d2433)" x="75.641719" y="145.106113" transform="rotate(-0 75.641719 145.106113)">Kimi K3.1 Pro *</text>
      </g>
     </g>
     <g id="fig3_known_vs_obscure-ytick_17">
      <g id="fig3_known_vs_obscure-line2d_33"/>
      <g id="fig3_known_vs_obscure-text_26">
-      <text style="font-size: 7px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: end; fill: var(--fig-ink, #1d2433)" x="75.641719" y="123.10929" transform="rotate(-0 75.641719 123.10929)">Gemini 3.5 Flash</text>
+      <text style="font-size: 7px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: end; fill: var(--fig-ink, #1d2433)" x="75.641719" y="135.578702" transform="rotate(-0 75.641719 135.578702)">DeepSeek V4.1 Flash *</text>
      </g>
     </g>
     <g id="fig3_known_vs_obscure-ytick_18">
      <g id="fig3_known_vs_obscure-line2d_34"/>
      <g id="fig3_known_vs_obscure-text_27">
-      <text style="font-size: 7px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: end; fill: var(--fig-ink, #1d2433)" x="75.641719" y="112.802542" transform="rotate(-0 75.641719 112.802542)">Gemini 3.8 Flash</text>
+      <text style="font-size: 7px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: end; fill: #9b59b6" x="75.641719" y="126.051292" transform="rotate(-0 75.641719 126.051292)">ProtGPT2</text>
      </g>
     </g>
     <g id="fig3_known_vs_obscure-ytick_19">
      <g id="fig3_known_vs_obscure-line2d_35"/>
      <g id="fig3_known_vs_obscure-text_28">
-      <text style="font-size: 7px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: end; fill: var(--fig-ink, #1d2433)" x="75.641719" y="102.495793" transform="rotate(-0 75.641719 102.495793)">Claude Opus 4.8</text>
+      <text style="font-size: 7px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: end; fill: var(--fig-ink, #1d2433)" x="75.641719" y="116.523882" transform="rotate(-0 75.641719 116.523882)">Gemini 3.5 Flash</text>
      </g>
     </g>
     <g id="fig3_known_vs_obscure-ytick_20">
      <g id="fig3_known_vs_obscure-line2d_36"/>
      <g id="fig3_known_vs_obscure-text_29">
-      <text style="font-size: 7px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: end; fill: var(--fig-ink, #1d2433)" x="75.641719" y="92.189045" transform="rotate(-0 75.641719 92.189045)">Claude Opus 5</text>
+      <text style="font-size: 7px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: end; fill: var(--fig-ink, #1d2433)" x="75.641719" y="106.996472" transform="rotate(-0 75.641719 106.996472)">Gemini 3.8 Flash</text>
      </g>
     </g>
     <g id="fig3_known_vs_obscure-ytick_21">
      <g id="fig3_known_vs_obscure-line2d_37"/>
      <g id="fig3_known_vs_obscure-text_30">
-      <text style="font-size: 7px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: end; fill: var(--fig-ink, #1d2433)" x="75.641719" y="81.882296" transform="rotate(-0 75.641719 81.882296)">Gemini 4 Carbon</text>
+      <text style="font-size: 7px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: end; fill: var(--fig-ink, #1d2433)" x="75.641719" y="97.469061" transform="rotate(-0 75.641719 97.469061)">Claude Opus 4.8</text>
      </g>
     </g>
     <g id="fig3_known_vs_obscure-ytick_22">
      <g id="fig3_known_vs_obscure-line2d_38"/>
      <g id="fig3_known_vs_obscure-text_31">
-      <text style="font-size: 7px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: end; fill: #9b59b6" x="75.641719" y="71.575548" transform="rotate(-0 75.641719 71.575548)">ProtGPT3-10B</text>
+      <text style="font-size: 7px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: end; fill: var(--fig-ink, #1d2433)" x="75.641719" y="87.941651" transform="rotate(-0 75.641719 87.941651)">Claude Opus 5</text>
      </g>
     </g>
     <g id="fig3_known_vs_obscure-ytick_23">
      <g id="fig3_known_vs_obscure-line2d_39"/>
      <g id="fig3_known_vs_obscure-text_32">
-      <text style="font-size: 7px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: end; fill: var(--fig-ink, #1d2433)" x="75.641719" y="61.268799" transform="rotate(-0 75.641719 61.268799)">Claude Fable 5.1</text>
+      <text style="font-size: 7px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: end; fill: var(--fig-ink, #1d2433)" x="75.641719" y="78.414241" transform="rotate(-0 75.641719 78.414241)">Gemini 4 Carbon</text>
      </g>
     </g>
     <g id="fig3_known_vs_obscure-ytick_24">
      <g id="fig3_known_vs_obscure-line2d_40"/>
      <g id="fig3_known_vs_obscure-text_33">
-      <text style="font-weight: 700; font-size: 7px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: end; fill: var(--fig-ink, #1d2433)" x="75.641719" y="50.962051" transform="rotate(-0 75.641719 50.962051)">Claude Opus 5.5</text>
+      <text style="font-size: 7px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: end; fill: #9b59b6" x="75.641719" y="68.886831" transform="rotate(-0 75.641719 68.886831)">ProtGPT3-10B</text>
      </g>
     </g>
     <g id="fig3_known_vs_obscure-ytick_25">
      <g id="fig3_known_vs_obscure-line2d_41"/>
      <g id="fig3_known_vs_obscure-text_34">
-      <text style="font-weight: 700; font-size: 7px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: end; fill: var(--fig-ink, #1d2433)" x="75.641719" y="40.655302" transform="rotate(-0 75.641719 40.655302)">Claude Fable 5.2</text>
+      <text style="font-size: 7px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: end; fill: var(--fig-ink, #1d2433)" x="75.641719" y="59.359421" transform="rotate(-0 75.641719 59.359421)">Claude Fable 5.1</text>
+     </g>
+    </g>
+    <g id="fig3_known_vs_obscure-ytick_26">
+     <g id="fig3_known_vs_obscure-line2d_42"/>
+     <g id="fig3_known_vs_obscure-text_35">
+      <text style="font-weight: 700; font-size: 7px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: end; fill: var(--fig-ink, #1d2433)" x="75.641719" y="49.83201" transform="rotate(-0 75.641719 49.83201)">Claude Opus 5.5</text>
+     </g>
+    </g>
+    <g id="fig3_known_vs_obscure-ytick_27">
+     <g id="fig3_known_vs_obscure-line2d_43"/>
+     <g id="fig3_known_vs_obscure-text_36">
+      <text style="font-weight: 700; font-size: 7px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: end; fill: var(--fig-ink, #1d2433)" x="75.641719" y="40.3046" transform="rotate(-0 75.641719 40.3046)">Claude Fable 5.2</text>
      </g>
     </g>
    </g>
-   <g id="fig3_known_vs_obscure-line2d_42">
+   <g id="fig3_known_vs_obscure-line2d_44">
     <path d="M 96.494507 285.46917 
 L 94.890713 285.46917 
 " clip-path="url(#fig3_known_vs_obscure-p74c11ec07b)" style="fill: none; stroke: var(--fig-light, #d3d7df); stroke-width: 1.2; stroke-linecap: square"/>
    </g>
-   <g id="fig3_known_vs_obscure-line2d_43">
-    <path d="M 109.689274 275.162421 
-L 97.606263 275.162421 
-" clip-path="url(#fig3_known_vs_obscure-p74c11ec07b)" style="fill: none; stroke: var(--fig-light, #d3d7df); stroke-width: 1.2; stroke-linecap: square"/>
-   </g>
-   <g id="fig3_known_vs_obscure-line2d_44">
-    <path d="M 109.767085 264.855673 
-L 99.463307 264.855673 
-" clip-path="url(#fig3_known_vs_obscure-p74c11ec07b)" style="fill: none; stroke: var(--fig-light, #d3d7df); stroke-width: 1.2; stroke-linecap: square"/>
-   </g>
    <g id="fig3_known_vs_obscure-line2d_45">
-    <path d="M 104.052884 254.548925 
-L 102.796438 254.548925 
+    <path d="M 109.689274 275.94176 
+L 97.606263 275.94176 
 " clip-path="url(#fig3_known_vs_obscure-p74c11ec07b)" style="fill: none; stroke: var(--fig-light, #d3d7df); stroke-width: 1.2; stroke-linecap: square"/>
    </g>
    <g id="fig3_known_vs_obscure-line2d_46">
-    <path d="M 98.589257 244.242176 
-L 110.901786 244.242176 
+    <path d="M 109.767085 266.41435 
+L 99.463307 266.41435 
 " clip-path="url(#fig3_known_vs_obscure-p74c11ec07b)" style="fill: none; stroke: var(--fig-light, #d3d7df); stroke-width: 1.2; stroke-linecap: square"/>
    </g>
    <g id="fig3_known_vs_obscure-line2d_47">
-    <path d="M 120.082624 233.935428 
-L 114.100966 233.935428 
+    <path d="M 104.052884 256.886939 
+L 102.796438 256.886939 
 " clip-path="url(#fig3_known_vs_obscure-p74c11ec07b)" style="fill: none; stroke: var(--fig-light, #d3d7df); stroke-width: 1.2; stroke-linecap: square"/>
    </g>
    <g id="fig3_known_vs_obscure-line2d_48">
-    <path d="M 112.065986 223.628679 
-L 115.219369 223.628679 
+    <path d="M 98.589257 247.359529 
+L 110.901786 247.359529 
 " clip-path="url(#fig3_known_vs_obscure-p74c11ec07b)" style="fill: none; stroke: var(--fig-light, #d3d7df); stroke-width: 1.2; stroke-linecap: square"/>
    </g>
    <g id="fig3_known_vs_obscure-line2d_49">
-    <path d="M 96.674717 213.321931 
-L 126.181714 213.321931 
+    <path d="M 120.082624 237.832119 
+L 114.100966 237.832119 
 " clip-path="url(#fig3_known_vs_obscure-p74c11ec07b)" style="fill: none; stroke: var(--fig-light, #d3d7df); stroke-width: 1.2; stroke-linecap: square"/>
    </g>
    <g id="fig3_known_vs_obscure-line2d_50">
-    <path d="M 93.964764 203.015182 
-L 129.079201 203.015182 
+    <path d="M 112.065986 228.304709 
+L 115.219369 228.304709 
 " clip-path="url(#fig3_known_vs_obscure-p74c11ec07b)" style="fill: none; stroke: var(--fig-light, #d3d7df); stroke-width: 1.2; stroke-linecap: square"/>
    </g>
    <g id="fig3_known_vs_obscure-line2d_51">
-    <path d="M 108.436742 192.708434 
-L 129.254403 192.708434 
+    <path d="M 108.063201 218.777298 
+L 118.706655 218.777298 
 " clip-path="url(#fig3_known_vs_obscure-p74c11ec07b)" style="fill: none; stroke: var(--fig-light, #d3d7df); stroke-width: 1.2; stroke-linecap: square"/>
    </g>
    <g id="fig3_known_vs_obscure-line2d_52">
-    <path d="M 110.941805 182.401685 
-L 138.39572 182.401685 
+    <path d="M 107.254707 209.249888 
+L 121.682493 209.249888 
 " clip-path="url(#fig3_known_vs_obscure-p74c11ec07b)" style="fill: none; stroke: var(--fig-light, #d3d7df); stroke-width: 1.2; stroke-linecap: square"/>
    </g>
    <g id="fig3_known_vs_obscure-line2d_53">
-    <path d="M 113.382081 172.094937 
-L 139.903211 172.094937 
+    <path d="M 96.674717 199.722478 
+L 126.181714 199.722478 
 " clip-path="url(#fig3_known_vs_obscure-p74c11ec07b)" style="fill: none; stroke: var(--fig-light, #d3d7df); stroke-width: 1.2; stroke-linecap: square"/>
    </g>
    <g id="fig3_known_vs_obscure-line2d_54">
-    <path d="M 104.052884 161.788188 
-L 144.118221 161.788188 
+    <path d="M 93.964764 190.195068 
+L 129.079201 190.195068 
 " clip-path="url(#fig3_known_vs_obscure-p74c11ec07b)" style="fill: none; stroke: var(--fig-light, #d3d7df); stroke-width: 1.2; stroke-linecap: square"/>
    </g>
    <g id="fig3_known_vs_obscure-line2d_55">
-    <path d="M 112.154291 151.48144 
-L 147.593511 151.48144 
+    <path d="M 108.436742 180.667658 
+L 129.254403 180.667658 
 " clip-path="url(#fig3_known_vs_obscure-p74c11ec07b)" style="fill: none; stroke: var(--fig-light, #d3d7df); stroke-width: 1.2; stroke-linecap: square"/>
    </g>
    <g id="fig3_known_vs_obscure-line2d_56">
-    <path d="M 90.808991 141.174691 
-L 151.842904 141.174691 
+    <path d="M 110.941805 171.140247 
+L 138.39572 171.140247 
 " clip-path="url(#fig3_known_vs_obscure-p74c11ec07b)" style="fill: none; stroke: var(--fig-light, #d3d7df); stroke-width: 1.2; stroke-linecap: square"/>
    </g>
    <g id="fig3_known_vs_obscure-line2d_57">
-    <path d="M 137.244957 130.867943 
-L 167.207849 130.867943 
+    <path d="M 113.382081 161.612837 
+L 139.903211 161.612837 
 " clip-path="url(#fig3_known_vs_obscure-p74c11ec07b)" style="fill: none; stroke: var(--fig-light, #d3d7df); stroke-width: 1.2; stroke-linecap: square"/>
    </g>
    <g id="fig3_known_vs_obscure-line2d_58">
-    <path d="M 112.626243 120.561194 
-L 206.666492 120.561194 
+    <path d="M 104.052884 152.085427 
+L 144.118221 152.085427 
 " clip-path="url(#fig3_known_vs_obscure-p74c11ec07b)" style="fill: none; stroke: var(--fig-light, #d3d7df); stroke-width: 1.2; stroke-linecap: square"/>
    </g>
    <g id="fig3_known_vs_obscure-line2d_59">
-    <path d="M 119.709522 110.254446 
-L 222.902426 110.254446 
+    <path d="M 112.154291 142.558017 
+L 147.593511 142.558017 
 " clip-path="url(#fig3_known_vs_obscure-p74c11ec07b)" style="fill: none; stroke: var(--fig-light, #d3d7df); stroke-width: 1.2; stroke-linecap: square"/>
    </g>
    <g id="fig3_known_vs_obscure-line2d_60">
-    <path d="M 138.367916 99.947698 
-L 240.205306 99.947698 
+    <path d="M 90.808991 133.030607 
+L 151.842904 133.030607 
 " clip-path="url(#fig3_known_vs_obscure-p74c11ec07b)" style="fill: none; stroke: var(--fig-light, #d3d7df); stroke-width: 1.2; stroke-linecap: square"/>
    </g>
    <g id="fig3_known_vs_obscure-line2d_61">
-    <path d="M 153.052517 89.640949 
-L 242.398467 89.640949 
+    <path d="M 137.244957 123.503196 
+L 167.207849 123.503196 
 " clip-path="url(#fig3_known_vs_obscure-p74c11ec07b)" style="fill: none; stroke: var(--fig-light, #d3d7df); stroke-width: 1.2; stroke-linecap: square"/>
    </g>
    <g id="fig3_known_vs_obscure-line2d_62">
-    <path d="M 116.578194 79.334201 
-L 251.572295 79.334201 
+    <path d="M 112.626243 113.975786 
+L 206.666492 113.975786 
 " clip-path="url(#fig3_known_vs_obscure-p74c11ec07b)" style="fill: none; stroke: var(--fig-light, #d3d7df); stroke-width: 1.2; stroke-linecap: square"/>
    </g>
    <g id="fig3_known_vs_obscure-line2d_63">
-    <path d="M 221.790804 69.027452 
-L 263.758424 69.027452 
+    <path d="M 119.709522 104.448376 
+L 222.902426 104.448376 
 " clip-path="url(#fig3_known_vs_obscure-p74c11ec07b)" style="fill: none; stroke: var(--fig-light, #d3d7df); stroke-width: 1.2; stroke-linecap: square"/>
    </g>
    <g id="fig3_known_vs_obscure-line2d_64">
-    <path d="M 164.204118 58.720704 
-L 264.900329 58.720704 
+    <path d="M 138.367916 94.920966 
+L 240.205306 94.920966 
 " clip-path="url(#fig3_known_vs_obscure-p74c11ec07b)" style="fill: none; stroke: var(--fig-light, #d3d7df); stroke-width: 1.2; stroke-linecap: square"/>
    </g>
    <g id="fig3_known_vs_obscure-line2d_65">
-    <path d="M 206.134166 48.413955 
-L 266.087349 48.413955 
+    <path d="M 153.052517 85.393556 
+L 242.398467 85.393556 
 " clip-path="url(#fig3_known_vs_obscure-p74c11ec07b)" style="fill: none; stroke: var(--fig-light, #d3d7df); stroke-width: 1.2; stroke-linecap: square"/>
    </g>
    <g id="fig3_known_vs_obscure-line2d_66">
-    <path d="M 270.013251 38.107207 
-L 324.154446 38.107207 
+    <path d="M 116.578194 75.866145 
+L 251.572295 75.866145 
 " clip-path="url(#fig3_known_vs_obscure-p74c11ec07b)" style="fill: none; stroke: var(--fig-light, #d3d7df); stroke-width: 1.2; stroke-linecap: square"/>
    </g>
    <g id="fig3_known_vs_obscure-line2d_67">
+    <path d="M 221.790804 66.338735 
+L 263.758424 66.338735 
+" clip-path="url(#fig3_known_vs_obscure-p74c11ec07b)" style="fill: none; stroke: var(--fig-light, #d3d7df); stroke-width: 1.2; stroke-linecap: square"/>
+   </g>
+   <g id="fig3_known_vs_obscure-line2d_68">
+    <path d="M 164.204118 56.811325 
+L 264.900329 56.811325 
+" clip-path="url(#fig3_known_vs_obscure-p74c11ec07b)" style="fill: none; stroke: var(--fig-light, #d3d7df); stroke-width: 1.2; stroke-linecap: square"/>
+   </g>
+   <g id="fig3_known_vs_obscure-line2d_69">
+    <path d="M 206.134166 47.283915 
+L 266.087349 47.283915 
+" clip-path="url(#fig3_known_vs_obscure-p74c11ec07b)" style="fill: none; stroke: var(--fig-light, #d3d7df); stroke-width: 1.2; stroke-linecap: square"/>
+   </g>
+   <g id="fig3_known_vs_obscure-line2d_70">
+    <path d="M 270.013251 37.756505 
+L 324.154446 37.756505 
+" clip-path="url(#fig3_known_vs_obscure-p74c11ec07b)" style="fill: none; stroke: var(--fig-light, #d3d7df); stroke-width: 1.2; stroke-linecap: square"/>
+   </g>
+   <g id="fig3_known_vs_obscure-line2d_71">
     <defs>
      <path id="fig3_known_vs_obscure-m4c1f1c4b32" d="M 0 2.1 
 C 0.556927 2.1 1.091118 1.878731 1.484924 1.484924 
@@ -476,7 +498,7 @@ z
      <use xlink:href="#fig3_known_vs_obscure-m4c1f1c4b32" x="94.890713" y="285.46917" style="fill: var(--fig-bg, #ffffff); stroke: var(--fig-gpt-55, #7c7c87); stroke-width: 1.1"/>
     </g>
    </g>
-   <g id="fig3_known_vs_obscure-line2d_68">
+   <g id="fig3_known_vs_obscure-line2d_72">
     <defs>
      <path id="fig3_known_vs_obscure-m03254b381a" d="M 0 2.1 
 C 0.556927 2.1 1.091118 1.878731 1.484924 1.484924 
@@ -491,15 +513,15 @@ z
 " style="stroke: var(--fig-grey, #a3aab8); stroke-width: 1.1"/>
     </defs>
     <g clip-path="url(#fig3_known_vs_obscure-p74c11ec07b)">
-     <use xlink:href="#fig3_known_vs_obscure-m03254b381a" x="97.606263" y="275.162421" style="fill: var(--fig-bg, #ffffff); stroke: var(--fig-grey, #a3aab8); stroke-width: 1.1"/>
+     <use xlink:href="#fig3_known_vs_obscure-m03254b381a" x="97.606263" y="275.94176" style="fill: var(--fig-bg, #ffffff); stroke: var(--fig-grey, #a3aab8); stroke-width: 1.1"/>
     </g>
    </g>
-   <g id="fig3_known_vs_obscure-line2d_69">
+   <g id="fig3_known_vs_obscure-line2d_73">
     <g clip-path="url(#fig3_known_vs_obscure-p74c11ec07b)">
-     <use xlink:href="#fig3_known_vs_obscure-m03254b381a" x="99.463307" y="264.855673" style="fill: var(--fig-bg, #ffffff); stroke: var(--fig-grey, #a3aab8); stroke-width: 1.1"/>
+     <use xlink:href="#fig3_known_vs_obscure-m03254b381a" x="99.463307" y="266.41435" style="fill: var(--fig-bg, #ffffff); stroke: var(--fig-grey, #a3aab8); stroke-width: 1.1"/>
     </g>
    </g>
-   <g id="fig3_known_vs_obscure-line2d_70">
+   <g id="fig3_known_vs_obscure-line2d_74">
     <defs>
      <path id="fig3_known_vs_obscure-mdc8950cf49" d="M 0 2.1 
 C 0.556927 2.1 1.091118 1.878731 1.484924 1.484924 
@@ -511,28 +533,64 @@ C -1.878731 -1.091118 -2.1 -0.556927 -2.1 0
 C -2.1 0.556927 -1.878731 1.091118 -1.484924 1.484924 
 C -1.091118 1.878731 -0.556927 2.1 0 2.1 
 z
-" style="stroke: var(--fig-gpt-6, #4b4b55); stroke-width: 1.1"/>
+" style="stroke: var(--fig-gpt-61, #4b4b55); stroke-width: 1.1"/>
     </defs>
     <g clip-path="url(#fig3_known_vs_obscure-p74c11ec07b)">
-     <use xlink:href="#fig3_known_vs_obscure-mdc8950cf49" x="102.796438" y="254.548925" style="fill: var(--fig-bg, #ffffff); stroke: var(--fig-gpt-6, #4b4b55); stroke-width: 1.1"/>
+     <use xlink:href="#fig3_known_vs_obscure-mdc8950cf49" x="102.796438" y="256.886939" style="fill: var(--fig-bg, #ffffff); stroke: var(--fig-gpt-61, #4b4b55); stroke-width: 1.1"/>
     </g>
    </g>
-   <g id="fig3_known_vs_obscure-line2d_71">
+   <g id="fig3_known_vs_obscure-line2d_75">
     <g clip-path="url(#fig3_known_vs_obscure-p74c11ec07b)">
-     <use xlink:href="#fig3_known_vs_obscure-mdc8950cf49" x="110.901786" y="244.242176" style="fill: var(--fig-bg, #ffffff); stroke: var(--fig-gpt-6, #4b4b55); stroke-width: 1.1"/>
+     <use xlink:href="#fig3_known_vs_obscure-mdc8950cf49" x="110.901786" y="247.359529" style="fill: var(--fig-bg, #ffffff); stroke: var(--fig-gpt-61, #4b4b55); stroke-width: 1.1"/>
     </g>
    </g>
-   <g id="fig3_known_vs_obscure-line2d_72">
+   <g id="fig3_known_vs_obscure-line2d_76">
     <g clip-path="url(#fig3_known_vs_obscure-p74c11ec07b)">
-     <use xlink:href="#fig3_known_vs_obscure-m03254b381a" x="114.100966" y="233.935428" style="fill: var(--fig-bg, #ffffff); stroke: var(--fig-grey, #a3aab8); stroke-width: 1.1"/>
+     <use xlink:href="#fig3_known_vs_obscure-m03254b381a" x="114.100966" y="237.832119" style="fill: var(--fig-bg, #ffffff); stroke: var(--fig-grey, #a3aab8); stroke-width: 1.1"/>
     </g>
    </g>
-   <g id="fig3_known_vs_obscure-line2d_73">
+   <g id="fig3_known_vs_obscure-line2d_77">
     <g clip-path="url(#fig3_known_vs_obscure-p74c11ec07b)">
-     <use xlink:href="#fig3_known_vs_obscure-m03254b381a" x="115.219369" y="223.628679" style="fill: var(--fig-bg, #ffffff); stroke: var(--fig-grey, #a3aab8); stroke-width: 1.1"/>
+     <use xlink:href="#fig3_known_vs_obscure-m03254b381a" x="115.219369" y="228.304709" style="fill: var(--fig-bg, #ffffff); stroke: var(--fig-grey, #a3aab8); stroke-width: 1.1"/>
     </g>
    </g>
-   <g id="fig3_known_vs_obscure-line2d_74">
+   <g id="fig3_known_vs_obscure-line2d_78">
+    <defs>
+     <path id="fig3_known_vs_obscure-md0df4b8c4b" d="M 0 2.1 
+C 0.556927 2.1 1.091118 1.878731 1.484924 1.484924 
+C 1.878731 1.091118 2.1 0.556927 2.1 0 
+C 2.1 -0.556927 1.878731 -1.091118 1.484924 -1.484924 
+C 1.091118 -1.878731 0.556927 -2.1 0 -2.1 
+C -0.556927 -2.1 -1.091118 -1.878731 -1.484924 -1.484924 
+C -1.878731 -1.091118 -2.1 -0.556927 -2.1 0 
+C -2.1 0.556927 -1.878731 1.091118 -1.484924 1.484924 
+C -1.091118 1.878731 -0.556927 2.1 0 2.1 
+z
+" style="stroke: var(--fig-gpt-62s, #18181c); stroke-width: 1.1"/>
+    </defs>
+    <g clip-path="url(#fig3_known_vs_obscure-p74c11ec07b)">
+     <use xlink:href="#fig3_known_vs_obscure-md0df4b8c4b" x="118.706655" y="218.777298" style="fill: var(--fig-bg, #ffffff); stroke: var(--fig-gpt-62s, #18181c); stroke-width: 1.1"/>
+    </g>
+   </g>
+   <g id="fig3_known_vs_obscure-line2d_79">
+    <defs>
+     <path id="fig3_known_vs_obscure-ma1063a44f8" d="M 0 2.1 
+C 0.556927 2.1 1.091118 1.878731 1.484924 1.484924 
+C 1.878731 1.091118 2.1 0.556927 2.1 0 
+C 2.1 -0.556927 1.878731 -1.091118 1.484924 -1.484924 
+C 1.091118 -1.878731 0.556927 -2.1 0 -2.1 
+C -0.556927 -2.1 -1.091118 -1.878731 -1.484924 -1.484924 
+C -1.878731 -1.091118 -2.1 -0.556927 -2.1 0 
+C -2.1 0.556927 -1.878731 1.091118 -1.484924 1.484924 
+C -1.091118 1.878731 -0.556927 2.1 0 2.1 
+z
+" style="stroke: var(--fig-gpt-62a, #33333b); stroke-width: 1.1"/>
+    </defs>
+    <g clip-path="url(#fig3_known_vs_obscure-p74c11ec07b)">
+     <use xlink:href="#fig3_known_vs_obscure-ma1063a44f8" x="121.682493" y="209.249888" style="fill: var(--fig-bg, #ffffff); stroke: var(--fig-gpt-62a, #33333b); stroke-width: 1.1"/>
+    </g>
+   </g>
+   <g id="fig3_known_vs_obscure-line2d_80">
     <defs>
      <path id="fig3_known_vs_obscure-ma1086c60b9" d="M 0 2.1 
 C 0.556927 2.1 1.091118 1.878731 1.484924 1.484924 
@@ -547,33 +605,20 @@ z
 " style="stroke: var(--fig-c-s45, #f6dfd4); stroke-width: 1.1"/>
     </defs>
     <g clip-path="url(#fig3_known_vs_obscure-p74c11ec07b)">
-     <use xlink:href="#fig3_known_vs_obscure-ma1086c60b9" x="126.181714" y="213.321931" style="fill: var(--fig-bg, #ffffff); stroke: var(--fig-c-s45, #f6dfd4); stroke-width: 1.1"/>
+     <use xlink:href="#fig3_known_vs_obscure-ma1086c60b9" x="126.181714" y="199.722478" style="fill: var(--fig-bg, #ffffff); stroke: var(--fig-c-s45, #f6dfd4); stroke-width: 1.1"/>
     </g>
    </g>
-   <g id="fig3_known_vs_obscure-line2d_75">
+   <g id="fig3_known_vs_obscure-line2d_81">
     <g clip-path="url(#fig3_known_vs_obscure-p74c11ec07b)">
-     <use xlink:href="#fig3_known_vs_obscure-m03254b381a" x="129.079201" y="203.015182" style="fill: var(--fig-bg, #ffffff); stroke: var(--fig-grey, #a3aab8); stroke-width: 1.1"/>
+     <use xlink:href="#fig3_known_vs_obscure-m03254b381a" x="129.079201" y="190.195068" style="fill: var(--fig-bg, #ffffff); stroke: var(--fig-grey, #a3aab8); stroke-width: 1.1"/>
     </g>
    </g>
-   <g id="fig3_known_vs_obscure-line2d_76">
-    <defs>
-     <path id="fig3_known_vs_obscure-m8fbceebca0" d="M 0 2.1 
-C 0.556927 2.1 1.091118 1.878731 1.484924 1.484924 
-C 1.878731 1.091118 2.1 0.556927 2.1 0 
-C 2.1 -0.556927 1.878731 -1.091118 1.484924 -1.484924 
-C 1.091118 -1.878731 0.556927 -2.1 0 -2.1 
-C -0.556927 -2.1 -1.091118 -1.878731 -1.484924 -1.484924 
-C -1.878731 -1.091118 -2.1 -0.556927 -2.1 0 
-C -2.1 0.556927 -1.878731 1.091118 -1.484924 1.484924 
-C -1.091118 1.878731 -0.556927 2.1 0 2.1 
-z
-" style="stroke: var(--fig-gpt-61, #2c2c33); stroke-width: 1.1"/>
-    </defs>
+   <g id="fig3_known_vs_obscure-line2d_82">
     <g clip-path="url(#fig3_known_vs_obscure-p74c11ec07b)">
-     <use xlink:href="#fig3_known_vs_obscure-m8fbceebca0" x="129.254403" y="192.708434" style="fill: var(--fig-bg, #ffffff); stroke: var(--fig-gpt-61, #2c2c33); stroke-width: 1.1"/>
+     <use xlink:href="#fig3_known_vs_obscure-mdc8950cf49" x="129.254403" y="180.667658" style="fill: var(--fig-bg, #ffffff); stroke: var(--fig-gpt-61, #4b4b55); stroke-width: 1.1"/>
     </g>
    </g>
-   <g id="fig3_known_vs_obscure-line2d_77">
+   <g id="fig3_known_vs_obscure-line2d_83">
     <defs>
      <path id="fig3_known_vs_obscure-ma6983e51d2" d="M 0 2.1 
 C 0.556927 2.1 1.091118 1.878731 1.484924 1.484924 
@@ -588,15 +633,28 @@ z
 " style="stroke: var(--fig-c-o46, #efc1ab); stroke-width: 1.1"/>
     </defs>
     <g clip-path="url(#fig3_known_vs_obscure-p74c11ec07b)">
-     <use xlink:href="#fig3_known_vs_obscure-ma6983e51d2" x="138.39572" y="182.401685" style="fill: var(--fig-bg, #ffffff); stroke: var(--fig-c-o46, #efc1ab); stroke-width: 1.1"/>
+     <use xlink:href="#fig3_known_vs_obscure-ma6983e51d2" x="138.39572" y="171.140247" style="fill: var(--fig-bg, #ffffff); stroke: var(--fig-c-o46, #efc1ab); stroke-width: 1.1"/>
     </g>
    </g>
-   <g id="fig3_known_vs_obscure-line2d_78">
+   <g id="fig3_known_vs_obscure-line2d_84">
+    <defs>
+     <path id="fig3_known_vs_obscure-m5705a187cc" d="M 0 2.1 
+C 0.556927 2.1 1.091118 1.878731 1.484924 1.484924 
+C 1.878731 1.091118 2.1 0.556927 2.1 0 
+C 2.1 -0.556927 1.878731 -1.091118 1.484924 -1.484924 
+C 1.091118 -1.878731 0.556927 -2.1 0 -2.1 
+C -0.556927 -2.1 -1.091118 -1.878731 -1.484924 -1.484924 
+C -1.878731 -1.091118 -2.1 -0.556927 -2.1 0 
+C -2.1 0.556927 -1.878731 1.091118 -1.484924 1.484924 
+C -1.091118 1.878731 -0.556927 2.1 0 2.1 
+z
+" style="stroke: var(--fig-gpt-6, #63636e); stroke-width: 1.1"/>
+    </defs>
     <g clip-path="url(#fig3_known_vs_obscure-p74c11ec07b)">
-     <use xlink:href="#fig3_known_vs_obscure-mdc8950cf49" x="139.903211" y="172.094937" style="fill: var(--fig-bg, #ffffff); stroke: var(--fig-gpt-6, #4b4b55); stroke-width: 1.1"/>
+     <use xlink:href="#fig3_known_vs_obscure-m5705a187cc" x="139.903211" y="161.612837" style="fill: var(--fig-bg, #ffffff); stroke: var(--fig-gpt-6, #63636e); stroke-width: 1.1"/>
     </g>
    </g>
-   <g id="fig3_known_vs_obscure-line2d_79">
+   <g id="fig3_known_vs_obscure-line2d_85">
     <defs>
      <path id="fig3_known_vs_obscure-m0398975098" d="M 0 2.1 
 C 0.556927 2.1 1.091118 1.878731 1.484924 1.484924 
@@ -611,20 +669,20 @@ z
 " style="stroke: #4285f4; stroke-width: 1.1"/>
     </defs>
     <g clip-path="url(#fig3_known_vs_obscure-p74c11ec07b)">
-     <use xlink:href="#fig3_known_vs_obscure-m0398975098" x="144.118221" y="161.788188" style="fill: var(--fig-bg, #ffffff); stroke: #4285f4; stroke-width: 1.1"/>
+     <use xlink:href="#fig3_known_vs_obscure-m0398975098" x="144.118221" y="152.085427" style="fill: var(--fig-bg, #ffffff); stroke: #4285f4; stroke-width: 1.1"/>
     </g>
    </g>
-   <g id="fig3_known_vs_obscure-line2d_80">
+   <g id="fig3_known_vs_obscure-line2d_86">
     <g clip-path="url(#fig3_known_vs_obscure-p74c11ec07b)">
-     <use xlink:href="#fig3_known_vs_obscure-m03254b381a" x="147.593511" y="151.48144" style="fill: var(--fig-bg, #ffffff); stroke: var(--fig-grey, #a3aab8); stroke-width: 1.1"/>
+     <use xlink:href="#fig3_known_vs_obscure-m03254b381a" x="147.593511" y="142.558017" style="fill: var(--fig-bg, #ffffff); stroke: var(--fig-grey, #a3aab8); stroke-width: 1.1"/>
     </g>
    </g>
-   <g id="fig3_known_vs_obscure-line2d_81">
+   <g id="fig3_known_vs_obscure-line2d_87">
     <g clip-path="url(#fig3_known_vs_obscure-p74c11ec07b)">
-     <use xlink:href="#fig3_known_vs_obscure-m03254b381a" x="151.842904" y="141.174691" style="fill: var(--fig-bg, #ffffff); stroke: var(--fig-grey, #a3aab8); stroke-width: 1.1"/>
+     <use xlink:href="#fig3_known_vs_obscure-m03254b381a" x="151.842904" y="133.030607" style="fill: var(--fig-bg, #ffffff); stroke: var(--fig-grey, #a3aab8); stroke-width: 1.1"/>
     </g>
    </g>
-   <g id="fig3_known_vs_obscure-line2d_82">
+   <g id="fig3_known_vs_obscure-line2d_88">
     <defs>
      <path id="fig3_known_vs_obscure-mc5244ff43c" d="M -0 2.757716 
 L 2.757716 0 
@@ -634,20 +692,20 @@ z
 " style="stroke: #9b59b6; stroke-width: 1.1; stroke-linejoin: miter"/>
     </defs>
     <g clip-path="url(#fig3_known_vs_obscure-p74c11ec07b)">
-     <use xlink:href="#fig3_known_vs_obscure-mc5244ff43c" x="167.207849" y="130.867943" style="fill: var(--fig-bg, #ffffff); stroke: #9b59b6; stroke-width: 1.1; stroke-linejoin: miter"/>
+     <use xlink:href="#fig3_known_vs_obscure-mc5244ff43c" x="167.207849" y="123.503196" style="fill: var(--fig-bg, #ffffff); stroke: #9b59b6; stroke-width: 1.1; stroke-linejoin: miter"/>
     </g>
    </g>
-   <g id="fig3_known_vs_obscure-line2d_83">
+   <g id="fig3_known_vs_obscure-line2d_89">
     <g clip-path="url(#fig3_known_vs_obscure-p74c11ec07b)">
-     <use xlink:href="#fig3_known_vs_obscure-m0398975098" x="206.666492" y="120.561194" style="fill: var(--fig-bg, #ffffff); stroke: #4285f4; stroke-width: 1.1"/>
+     <use xlink:href="#fig3_known_vs_obscure-m0398975098" x="206.666492" y="113.975786" style="fill: var(--fig-bg, #ffffff); stroke: #4285f4; stroke-width: 1.1"/>
     </g>
    </g>
-   <g id="fig3_known_vs_obscure-line2d_84">
+   <g id="fig3_known_vs_obscure-line2d_90">
     <g clip-path="url(#fig3_known_vs_obscure-p74c11ec07b)">
-     <use xlink:href="#fig3_known_vs_obscure-m0398975098" x="222.902426" y="110.254446" style="fill: var(--fig-bg, #ffffff); stroke: #4285f4; stroke-width: 1.1"/>
+     <use xlink:href="#fig3_known_vs_obscure-m0398975098" x="222.902426" y="104.448376" style="fill: var(--fig-bg, #ffffff); stroke: #4285f4; stroke-width: 1.1"/>
     </g>
    </g>
-   <g id="fig3_known_vs_obscure-line2d_85">
+   <g id="fig3_known_vs_obscure-line2d_91">
     <defs>
      <path id="fig3_known_vs_obscure-m21bb6b2977" d="M 0 2.1 
 C 0.556927 2.1 1.091118 1.878731 1.484924 1.484924 
@@ -662,10 +720,10 @@ z
 " style="stroke: var(--fig-c-o48, #e59c7d); stroke-width: 1.1"/>
     </defs>
     <g clip-path="url(#fig3_known_vs_obscure-p74c11ec07b)">
-     <use xlink:href="#fig3_known_vs_obscure-m21bb6b2977" x="240.205306" y="99.947698" style="fill: var(--fig-bg, #ffffff); stroke: var(--fig-c-o48, #e59c7d); stroke-width: 1.1"/>
+     <use xlink:href="#fig3_known_vs_obscure-m21bb6b2977" x="240.205306" y="94.920966" style="fill: var(--fig-bg, #ffffff); stroke: var(--fig-c-o48, #e59c7d); stroke-width: 1.1"/>
     </g>
    </g>
-   <g id="fig3_known_vs_obscure-line2d_86">
+   <g id="fig3_known_vs_obscure-line2d_92">
     <defs>
      <path id="fig3_known_vs_obscure-mf2c338646f" d="M 0 2.1 
 C 0.556927 2.1 1.091118 1.878731 1.484924 1.484924 
@@ -680,20 +738,20 @@ z
 " style="stroke: var(--fig-c-o5, #df8a68); stroke-width: 1.1"/>
     </defs>
     <g clip-path="url(#fig3_known_vs_obscure-p74c11ec07b)">
-     <use xlink:href="#fig3_known_vs_obscure-mf2c338646f" x="242.398467" y="89.640949" style="fill: var(--fig-bg, #ffffff); stroke: var(--fig-c-o5, #df8a68); stroke-width: 1.1"/>
+     <use xlink:href="#fig3_known_vs_obscure-mf2c338646f" x="242.398467" y="85.393556" style="fill: var(--fig-bg, #ffffff); stroke: var(--fig-c-o5, #df8a68); stroke-width: 1.1"/>
     </g>
    </g>
-   <g id="fig3_known_vs_obscure-line2d_87">
+   <g id="fig3_known_vs_obscure-line2d_93">
     <g clip-path="url(#fig3_known_vs_obscure-p74c11ec07b)">
-     <use xlink:href="#fig3_known_vs_obscure-m0398975098" x="251.572295" y="79.334201" style="fill: var(--fig-bg, #ffffff); stroke: #4285f4; stroke-width: 1.1"/>
+     <use xlink:href="#fig3_known_vs_obscure-m0398975098" x="251.572295" y="75.866145" style="fill: var(--fig-bg, #ffffff); stroke: #4285f4; stroke-width: 1.1"/>
     </g>
    </g>
-   <g id="fig3_known_vs_obscure-line2d_88">
+   <g id="fig3_known_vs_obscure-line2d_94">
     <g clip-path="url(#fig3_known_vs_obscure-p74c11ec07b)">
-     <use xlink:href="#fig3_known_vs_obscure-mc5244ff43c" x="263.758424" y="69.027452" style="fill: var(--fig-bg, #ffffff); stroke: #9b59b6; stroke-width: 1.1; stroke-linejoin: miter"/>
+     <use xlink:href="#fig3_known_vs_obscure-mc5244ff43c" x="263.758424" y="66.338735" style="fill: var(--fig-bg, #ffffff); stroke: #9b59b6; stroke-width: 1.1; stroke-linejoin: miter"/>
     </g>
    </g>
-   <g id="fig3_known_vs_obscure-line2d_89">
+   <g id="fig3_known_vs_obscure-line2d_95">
     <defs>
      <path id="fig3_known_vs_obscure-m017ec19d96" d="M 0 2.1 
 C 0.556927 2.1 1.091118 1.878731 1.484924 1.484924 
@@ -708,10 +766,10 @@ z
 " style="stroke: var(--fig-c-f51, #c0694c); stroke-width: 1.1"/>
     </defs>
     <g clip-path="url(#fig3_known_vs_obscure-p74c11ec07b)">
-     <use xlink:href="#fig3_known_vs_obscure-m017ec19d96" x="264.900329" y="58.720704" style="fill: var(--fig-bg, #ffffff); stroke: var(--fig-c-f51, #c0694c); stroke-width: 1.1"/>
+     <use xlink:href="#fig3_known_vs_obscure-m017ec19d96" x="264.900329" y="56.811325" style="fill: var(--fig-bg, #ffffff); stroke: var(--fig-c-f51, #c0694c); stroke-width: 1.1"/>
     </g>
    </g>
-   <g id="fig3_known_vs_obscure-line2d_90">
+   <g id="fig3_known_vs_obscure-line2d_96">
     <defs>
      <path id="fig3_known_vs_obscure-me10e24c5f1" d="M 0 2.1 
 C 0.556927 2.1 1.091118 1.878731 1.484924 1.484924 
@@ -726,10 +784,10 @@ z
 " style="stroke: #d97757; stroke-width: 1.1"/>
     </defs>
     <g clip-path="url(#fig3_known_vs_obscure-p74c11ec07b)">
-     <use xlink:href="#fig3_known_vs_obscure-me10e24c5f1" x="266.087349" y="48.413955" style="fill: var(--fig-bg, #ffffff); stroke: #d97757; stroke-width: 1.1"/>
+     <use xlink:href="#fig3_known_vs_obscure-me10e24c5f1" x="266.087349" y="47.283915" style="fill: var(--fig-bg, #ffffff); stroke: #d97757; stroke-width: 1.1"/>
     </g>
    </g>
-   <g id="fig3_known_vs_obscure-line2d_91">
+   <g id="fig3_known_vs_obscure-line2d_97">
     <defs>
      <path id="fig3_known_vs_obscure-m5ce0cded90" d="M 0 2.1 
 C 0.556927 2.1 1.091118 1.878731 1.484924 1.484924 
@@ -744,10 +802,10 @@ z
 " style="stroke: var(--fig-c-f52, #9c3a1c); stroke-width: 1.1"/>
     </defs>
     <g clip-path="url(#fig3_known_vs_obscure-p74c11ec07b)">
-     <use xlink:href="#fig3_known_vs_obscure-m5ce0cded90" x="324.154446" y="38.107207" style="fill: var(--fig-bg, #ffffff); stroke: var(--fig-c-f52, #9c3a1c); stroke-width: 1.1"/>
+     <use xlink:href="#fig3_known_vs_obscure-m5ce0cded90" x="324.154446" y="37.756505" style="fill: var(--fig-bg, #ffffff); stroke: var(--fig-c-f52, #9c3a1c); stroke-width: 1.1"/>
     </g>
    </g>
-   <g id="fig3_known_vs_obscure-line2d_92">
+   <g id="fig3_known_vs_obscure-line2d_98">
     <path d="M 99.669025 298.06917 
 L 99.669025 20.86917 
 " clip-path="url(#fig3_known_vs_obscure-p74c11ec07b)" style="fill: none; stroke: var(--fig-muted, #6b7385); stroke-width: 0.6; stroke-linecap: square"/>
@@ -757,7 +815,7 @@ L 99.669025 20.86917
 L 335.821719 298.06917 
 " style="fill: none; stroke: var(--fig-muted, #6b7385); stroke-width: 0.6; stroke-linejoin: miter; stroke-linecap: square"/>
    </g>
-   <g id="fig3_known_vs_obscure-line2d_93">
+   <g id="fig3_known_vs_obscure-line2d_99">
     <defs>
      <path id="fig3_known_vs_obscure-m3f244fc379" d="M 0 2.1 
 C 0.556927 2.1 1.091118 1.878731 1.484924 1.484924 
@@ -775,7 +833,7 @@ z
      <use xlink:href="#fig3_known_vs_obscure-m3f244fc379" x="96.494507" y="285.46917" style="fill: var(--fig-gpt-55, #7c7c87); stroke: var(--fig-gpt-55, #7c7c87)"/>
     </g>
    </g>
-   <g id="fig3_known_vs_obscure-line2d_94">
+   <g id="fig3_known_vs_obscure-line2d_100">
     <defs>
      <path id="fig3_known_vs_obscure-me861ccc845" d="M 0 2.1 
 C 0.556927 2.1 1.091118 1.878731 1.484924 1.484924 
@@ -790,15 +848,15 @@ z
 " style="stroke: var(--fig-grey, #a3aab8)"/>
     </defs>
     <g clip-path="url(#fig3_known_vs_obscure-p74c11ec07b)">
-     <use xlink:href="#fig3_known_vs_obscure-me861ccc845" x="109.689274" y="275.162421" style="fill: var(--fig-grey, #a3aab8); stroke: var(--fig-grey, #a3aab8)"/>
+     <use xlink:href="#fig3_known_vs_obscure-me861ccc845" x="109.689274" y="275.94176" style="fill: var(--fig-grey, #a3aab8); stroke: var(--fig-grey, #a3aab8)"/>
     </g>
    </g>
-   <g id="fig3_known_vs_obscure-line2d_95">
+   <g id="fig3_known_vs_obscure-line2d_101">
     <g clip-path="url(#fig3_known_vs_obscure-p74c11ec07b)">
-     <use xlink:href="#fig3_known_vs_obscure-me861ccc845" x="109.767085" y="264.855673" style="fill: var(--fig-grey, #a3aab8); stroke: var(--fig-grey, #a3aab8)"/>
+     <use xlink:href="#fig3_known_vs_obscure-me861ccc845" x="109.767085" y="266.41435" style="fill: var(--fig-grey, #a3aab8); stroke: var(--fig-grey, #a3aab8)"/>
     </g>
    </g>
-   <g id="fig3_known_vs_obscure-line2d_96">
+   <g id="fig3_known_vs_obscure-line2d_102">
     <defs>
      <path id="fig3_known_vs_obscure-me4dcfcc5c1" d="M 0 2.1 
 C 0.556927 2.1 1.091118 1.878731 1.484924 1.484924 
@@ -810,28 +868,64 @@ C -1.878731 -1.091118 -2.1 -0.556927 -2.1 0
 C -2.1 0.556927 -1.878731 1.091118 -1.484924 1.484924 
 C -1.091118 1.878731 -0.556927 2.1 0 2.1 
 z
-" style="stroke: var(--fig-gpt-6, #4b4b55)"/>
+" style="stroke: var(--fig-gpt-61, #4b4b55)"/>
     </defs>
     <g clip-path="url(#fig3_known_vs_obscure-p74c11ec07b)">
-     <use xlink:href="#fig3_known_vs_obscure-me4dcfcc5c1" x="104.052884" y="254.548925" style="fill: var(--fig-gpt-6, #4b4b55); stroke: var(--fig-gpt-6, #4b4b55)"/>
+     <use xlink:href="#fig3_known_vs_obscure-me4dcfcc5c1" x="104.052884" y="256.886939" style="fill: var(--fig-gpt-61, #4b4b55); stroke: var(--fig-gpt-61, #4b4b55)"/>
     </g>
    </g>
-   <g id="fig3_known_vs_obscure-line2d_97">
+   <g id="fig3_known_vs_obscure-line2d_103">
     <g clip-path="url(#fig3_known_vs_obscure-p74c11ec07b)">
-     <use xlink:href="#fig3_known_vs_obscure-me4dcfcc5c1" x="98.589257" y="244.242176" style="fill: var(--fig-gpt-6, #4b4b55); stroke: var(--fig-gpt-6, #4b4b55)"/>
+     <use xlink:href="#fig3_known_vs_obscure-me4dcfcc5c1" x="98.589257" y="247.359529" style="fill: var(--fig-gpt-61, #4b4b55); stroke: var(--fig-gpt-61, #4b4b55)"/>
     </g>
    </g>
-   <g id="fig3_known_vs_obscure-line2d_98">
+   <g id="fig3_known_vs_obscure-line2d_104">
     <g clip-path="url(#fig3_known_vs_obscure-p74c11ec07b)">
-     <use xlink:href="#fig3_known_vs_obscure-me861ccc845" x="120.082624" y="233.935428" style="fill: var(--fig-grey, #a3aab8); stroke: var(--fig-grey, #a3aab8)"/>
+     <use xlink:href="#fig3_known_vs_obscure-me861ccc845" x="120.082624" y="237.832119" style="fill: var(--fig-grey, #a3aab8); stroke: var(--fig-grey, #a3aab8)"/>
     </g>
    </g>
-   <g id="fig3_known_vs_obscure-line2d_99">
+   <g id="fig3_known_vs_obscure-line2d_105">
     <g clip-path="url(#fig3_known_vs_obscure-p74c11ec07b)">
-     <use xlink:href="#fig3_known_vs_obscure-me861ccc845" x="112.065986" y="223.628679" style="fill: var(--fig-grey, #a3aab8); stroke: var(--fig-grey, #a3aab8)"/>
+     <use xlink:href="#fig3_known_vs_obscure-me861ccc845" x="112.065986" y="228.304709" style="fill: var(--fig-grey, #a3aab8); stroke: var(--fig-grey, #a3aab8)"/>
     </g>
    </g>
-   <g id="fig3_known_vs_obscure-line2d_100">
+   <g id="fig3_known_vs_obscure-line2d_106">
+    <defs>
+     <path id="fig3_known_vs_obscure-mf1301723d0" d="M 0 2.1 
+C 0.556927 2.1 1.091118 1.878731 1.484924 1.484924 
+C 1.878731 1.091118 2.1 0.556927 2.1 0 
+C 2.1 -0.556927 1.878731 -1.091118 1.484924 -1.484924 
+C 1.091118 -1.878731 0.556927 -2.1 0 -2.1 
+C -0.556927 -2.1 -1.091118 -1.878731 -1.484924 -1.484924 
+C -1.878731 -1.091118 -2.1 -0.556927 -2.1 0 
+C -2.1 0.556927 -1.878731 1.091118 -1.484924 1.484924 
+C -1.091118 1.878731 -0.556927 2.1 0 2.1 
+z
+" style="stroke: var(--fig-gpt-62s, #18181c)"/>
+    </defs>
+    <g clip-path="url(#fig3_known_vs_obscure-p74c11ec07b)">
+     <use xlink:href="#fig3_known_vs_obscure-mf1301723d0" x="108.063201" y="218.777298" style="fill: var(--fig-gpt-62s, #18181c); stroke: var(--fig-gpt-62s, #18181c)"/>
+    </g>
+   </g>
+   <g id="fig3_known_vs_obscure-line2d_107">
+    <defs>
+     <path id="fig3_known_vs_obscure-meb1c60ee93" d="M 0 2.1 
+C 0.556927 2.1 1.091118 1.878731 1.484924 1.484924 
+C 1.878731 1.091118 2.1 0.556927 2.1 0 
+C 2.1 -0.556927 1.878731 -1.091118 1.484924 -1.484924 
+C 1.091118 -1.878731 0.556927 -2.1 0 -2.1 
+C -0.556927 -2.1 -1.091118 -1.878731 -1.484924 -1.484924 
+C -1.878731 -1.091118 -2.1 -0.556927 -2.1 0 
+C -2.1 0.556927 -1.878731 1.091118 -1.484924 1.484924 
+C -1.091118 1.878731 -0.556927 2.1 0 2.1 
+z
+" style="stroke: var(--fig-gpt-62a, #33333b)"/>
+    </defs>
+    <g clip-path="url(#fig3_known_vs_obscure-p74c11ec07b)">
+     <use xlink:href="#fig3_known_vs_obscure-meb1c60ee93" x="107.254707" y="209.249888" style="fill: var(--fig-gpt-62a, #33333b); stroke: var(--fig-gpt-62a, #33333b)"/>
+    </g>
+   </g>
+   <g id="fig3_known_vs_obscure-line2d_108">
     <defs>
      <path id="fig3_known_vs_obscure-m8d82649af2" d="M 0 2.1 
 C 0.556927 2.1 1.091118 1.878731 1.484924 1.484924 
@@ -846,33 +940,20 @@ z
 " style="stroke: var(--fig-c-s45, #f6dfd4)"/>
     </defs>
     <g clip-path="url(#fig3_known_vs_obscure-p74c11ec07b)">
-     <use xlink:href="#fig3_known_vs_obscure-m8d82649af2" x="96.674717" y="213.321931" style="fill: var(--fig-c-s45, #f6dfd4); stroke: var(--fig-c-s45, #f6dfd4)"/>
+     <use xlink:href="#fig3_known_vs_obscure-m8d82649af2" x="96.674717" y="199.722478" style="fill: var(--fig-c-s45, #f6dfd4); stroke: var(--fig-c-s45, #f6dfd4)"/>
     </g>
    </g>
-   <g id="fig3_known_vs_obscure-line2d_101">
+   <g id="fig3_known_vs_obscure-line2d_109">
     <g clip-path="url(#fig3_known_vs_obscure-p74c11ec07b)">
-     <use xlink:href="#fig3_known_vs_obscure-me861ccc845" x="93.964764" y="203.015182" style="fill: var(--fig-grey, #a3aab8); stroke: var(--fig-grey, #a3aab8)"/>
+     <use xlink:href="#fig3_known_vs_obscure-me861ccc845" x="93.964764" y="190.195068" style="fill: var(--fig-grey, #a3aab8); stroke: var(--fig-grey, #a3aab8)"/>
     </g>
    </g>
-   <g id="fig3_known_vs_obscure-line2d_102">
-    <defs>
-     <path id="fig3_known_vs_obscure-m1deb4adaca" d="M 0 2.1 
-C 0.556927 2.1 1.091118 1.878731 1.484924 1.484924 
-C 1.878731 1.091118 2.1 0.556927 2.1 0 
-C 2.1 -0.556927 1.878731 -1.091118 1.484924 -1.484924 
-C 1.091118 -1.878731 0.556927 -2.1 0 -2.1 
-C -0.556927 -2.1 -1.091118 -1.878731 -1.484924 -1.484924 
-C -1.878731 -1.091118 -2.1 -0.556927 -2.1 0 
-C -2.1 0.556927 -1.878731 1.091118 -1.484924 1.484924 
-C -1.091118 1.878731 -0.556927 2.1 0 2.1 
-z
-" style="stroke: var(--fig-gpt-61, #2c2c33)"/>
-    </defs>
+   <g id="fig3_known_vs_obscure-line2d_110">
     <g clip-path="url(#fig3_known_vs_obscure-p74c11ec07b)">
-     <use xlink:href="#fig3_known_vs_obscure-m1deb4adaca" x="108.436742" y="192.708434" style="fill: var(--fig-gpt-61, #2c2c33); stroke: var(--fig-gpt-61, #2c2c33)"/>
+     <use xlink:href="#fig3_known_vs_obscure-me4dcfcc5c1" x="108.436742" y="180.667658" style="fill: var(--fig-gpt-61, #4b4b55); stroke: var(--fig-gpt-61, #4b4b55)"/>
     </g>
    </g>
-   <g id="fig3_known_vs_obscure-line2d_103">
+   <g id="fig3_known_vs_obscure-line2d_111">
     <defs>
      <path id="fig3_known_vs_obscure-m190bdd3c62" d="M 0 2.1 
 C 0.556927 2.1 1.091118 1.878731 1.484924 1.484924 
@@ -887,15 +968,28 @@ z
 " style="stroke: var(--fig-c-o46, #efc1ab)"/>
     </defs>
     <g clip-path="url(#fig3_known_vs_obscure-p74c11ec07b)">
-     <use xlink:href="#fig3_known_vs_obscure-m190bdd3c62" x="110.941805" y="182.401685" style="fill: var(--fig-c-o46, #efc1ab); stroke: var(--fig-c-o46, #efc1ab)"/>
+     <use xlink:href="#fig3_known_vs_obscure-m190bdd3c62" x="110.941805" y="171.140247" style="fill: var(--fig-c-o46, #efc1ab); stroke: var(--fig-c-o46, #efc1ab)"/>
     </g>
    </g>
-   <g id="fig3_known_vs_obscure-line2d_104">
+   <g id="fig3_known_vs_obscure-line2d_112">
+    <defs>
+     <path id="fig3_known_vs_obscure-m1924117cf9" d="M 0 2.1 
+C 0.556927 2.1 1.091118 1.878731 1.484924 1.484924 
+C 1.878731 1.091118 2.1 0.556927 2.1 0 
+C 2.1 -0.556927 1.878731 -1.091118 1.484924 -1.484924 
+C 1.091118 -1.878731 0.556927 -2.1 0 -2.1 
+C -0.556927 -2.1 -1.091118 -1.878731 -1.484924 -1.484924 
+C -1.878731 -1.091118 -2.1 -0.556927 -2.1 0 
+C -2.1 0.556927 -1.878731 1.091118 -1.484924 1.484924 
+C -1.091118 1.878731 -0.556927 2.1 0 2.1 
+z
+" style="stroke: var(--fig-gpt-6, #63636e)"/>
+    </defs>
     <g clip-path="url(#fig3_known_vs_obscure-p74c11ec07b)">
-     <use xlink:href="#fig3_known_vs_obscure-me4dcfcc5c1" x="113.382081" y="172.094937" style="fill: var(--fig-gpt-6, #4b4b55); stroke: var(--fig-gpt-6, #4b4b55)"/>
+     <use xlink:href="#fig3_known_vs_obscure-m1924117cf9" x="113.382081" y="161.612837" style="fill: var(--fig-gpt-6, #63636e); stroke: var(--fig-gpt-6, #63636e)"/>
     </g>
    </g>
-   <g id="fig3_known_vs_obscure-line2d_105">
+   <g id="fig3_known_vs_obscure-line2d_113">
     <defs>
      <path id="fig3_known_vs_obscure-mc33ab3230a" d="M 0 2.1 
 C 0.556927 2.1 1.091118 1.878731 1.484924 1.484924 
@@ -910,20 +1004,20 @@ z
 " style="stroke: #4285f4"/>
     </defs>
     <g clip-path="url(#fig3_known_vs_obscure-p74c11ec07b)">
-     <use xlink:href="#fig3_known_vs_obscure-mc33ab3230a" x="104.052884" y="161.788188" style="fill: #4285f4; stroke: #4285f4"/>
+     <use xlink:href="#fig3_known_vs_obscure-mc33ab3230a" x="104.052884" y="152.085427" style="fill: #4285f4; stroke: #4285f4"/>
     </g>
    </g>
-   <g id="fig3_known_vs_obscure-line2d_106">
+   <g id="fig3_known_vs_obscure-line2d_114">
     <g clip-path="url(#fig3_known_vs_obscure-p74c11ec07b)">
-     <use xlink:href="#fig3_known_vs_obscure-me861ccc845" x="112.154291" y="151.48144" style="fill: var(--fig-grey, #a3aab8); stroke: var(--fig-grey, #a3aab8)"/>
+     <use xlink:href="#fig3_known_vs_obscure-me861ccc845" x="112.154291" y="142.558017" style="fill: var(--fig-grey, #a3aab8); stroke: var(--fig-grey, #a3aab8)"/>
     </g>
    </g>
-   <g id="fig3_known_vs_obscure-line2d_107">
+   <g id="fig3_known_vs_obscure-line2d_115">
     <g clip-path="url(#fig3_known_vs_obscure-p74c11ec07b)">
-     <use xlink:href="#fig3_known_vs_obscure-me861ccc845" x="90.808991" y="141.174691" style="fill: var(--fig-grey, #a3aab8); stroke: var(--fig-grey, #a3aab8)"/>
+     <use xlink:href="#fig3_known_vs_obscure-me861ccc845" x="90.808991" y="133.030607" style="fill: var(--fig-grey, #a3aab8); stroke: var(--fig-grey, #a3aab8)"/>
     </g>
    </g>
-   <g id="fig3_known_vs_obscure-line2d_108">
+   <g id="fig3_known_vs_obscure-line2d_116">
     <defs>
      <path id="fig3_known_vs_obscure-ma539d4024c" d="M -0 2.757716 
 L 2.757716 0 
@@ -933,20 +1027,20 @@ z
 " style="stroke: #9b59b6; stroke-linejoin: miter"/>
     </defs>
     <g clip-path="url(#fig3_known_vs_obscure-p74c11ec07b)">
-     <use xlink:href="#fig3_known_vs_obscure-ma539d4024c" x="137.244957" y="130.867943" style="fill: #9b59b6; stroke: #9b59b6; stroke-linejoin: miter"/>
+     <use xlink:href="#fig3_known_vs_obscure-ma539d4024c" x="137.244957" y="123.503196" style="fill: #9b59b6; stroke: #9b59b6; stroke-linejoin: miter"/>
     </g>
    </g>
-   <g id="fig3_known_vs_obscure-line2d_109">
+   <g id="fig3_known_vs_obscure-line2d_117">
     <g clip-path="url(#fig3_known_vs_obscure-p74c11ec07b)">
-     <use xlink:href="#fig3_known_vs_obscure-mc33ab3230a" x="112.626243" y="120.561194" style="fill: #4285f4; stroke: #4285f4"/>
+     <use xlink:href="#fig3_known_vs_obscure-mc33ab3230a" x="112.626243" y="113.975786" style="fill: #4285f4; stroke: #4285f4"/>
     </g>
    </g>
-   <g id="fig3_known_vs_obscure-line2d_110">
+   <g id="fig3_known_vs_obscure-line2d_118">
     <g clip-path="url(#fig3_known_vs_obscure-p74c11ec07b)">
-     <use xlink:href="#fig3_known_vs_obscure-mc33ab3230a" x="119.709522" y="110.254446" style="fill: #4285f4; stroke: #4285f4"/>
+     <use xlink:href="#fig3_known_vs_obscure-mc33ab3230a" x="119.709522" y="104.448376" style="fill: #4285f4; stroke: #4285f4"/>
     </g>
    </g>
-   <g id="fig3_known_vs_obscure-line2d_111">
+   <g id="fig3_known_vs_obscure-line2d_119">
     <defs>
      <path id="fig3_known_vs_obscure-m7caee57a55" d="M 0 2.1 
 C 0.556927 2.1 1.091118 1.878731 1.484924 1.484924 
@@ -961,10 +1055,10 @@ z
 " style="stroke: var(--fig-c-o48, #e59c7d)"/>
     </defs>
     <g clip-path="url(#fig3_known_vs_obscure-p74c11ec07b)">
-     <use xlink:href="#fig3_known_vs_obscure-m7caee57a55" x="138.367916" y="99.947698" style="fill: var(--fig-c-o48, #e59c7d); stroke: var(--fig-c-o48, #e59c7d)"/>
+     <use xlink:href="#fig3_known_vs_obscure-m7caee57a55" x="138.367916" y="94.920966" style="fill: var(--fig-c-o48, #e59c7d); stroke: var(--fig-c-o48, #e59c7d)"/>
     </g>
    </g>
-   <g id="fig3_known_vs_obscure-line2d_112">
+   <g id="fig3_known_vs_obscure-line2d_120">
     <defs>
      <path id="fig3_known_vs_obscure-mbaccbaeb7d" d="M 0 2.1 
 C 0.556927 2.1 1.091118 1.878731 1.484924 1.484924 
@@ -979,20 +1073,20 @@ z
 " style="stroke: var(--fig-c-o5, #df8a68)"/>
     </defs>
     <g clip-path="url(#fig3_known_vs_obscure-p74c11ec07b)">
-     <use xlink:href="#fig3_known_vs_obscure-mbaccbaeb7d" x="153.052517" y="89.640949" style="fill: var(--fig-c-o5, #df8a68); stroke: var(--fig-c-o5, #df8a68)"/>
+     <use xlink:href="#fig3_known_vs_obscure-mbaccbaeb7d" x="153.052517" y="85.393556" style="fill: var(--fig-c-o5, #df8a68); stroke: var(--fig-c-o5, #df8a68)"/>
     </g>
    </g>
-   <g id="fig3_known_vs_obscure-line2d_113">
+   <g id="fig3_known_vs_obscure-line2d_121">
     <g clip-path="url(#fig3_known_vs_obscure-p74c11ec07b)">
-     <use xlink:href="#fig3_known_vs_obscure-mc33ab3230a" x="116.578194" y="79.334201" style="fill: #4285f4; stroke: #4285f4"/>
+     <use xlink:href="#fig3_known_vs_obscure-mc33ab3230a" x="116.578194" y="75.866145" style="fill: #4285f4; stroke: #4285f4"/>
     </g>
    </g>
-   <g id="fig3_known_vs_obscure-line2d_114">
+   <g id="fig3_known_vs_obscure-line2d_122">
     <g clip-path="url(#fig3_known_vs_obscure-p74c11ec07b)">
-     <use xlink:href="#fig3_known_vs_obscure-ma539d4024c" x="221.790804" y="69.027452" style="fill: #9b59b6; stroke: #9b59b6; stroke-linejoin: miter"/>
+     <use xlink:href="#fig3_known_vs_obscure-ma539d4024c" x="221.790804" y="66.338735" style="fill: #9b59b6; stroke: #9b59b6; stroke-linejoin: miter"/>
     </g>
    </g>
-   <g id="fig3_known_vs_obscure-line2d_115">
+   <g id="fig3_known_vs_obscure-line2d_123">
     <defs>
      <path id="fig3_known_vs_obscure-mc043197c0d" d="M 0 2.1 
 C 0.556927 2.1 1.091118 1.878731 1.484924 1.484924 
@@ -1007,10 +1101,10 @@ z
 " style="stroke: var(--fig-c-f51, #c0694c)"/>
     </defs>
     <g clip-path="url(#fig3_known_vs_obscure-p74c11ec07b)">
-     <use xlink:href="#fig3_known_vs_obscure-mc043197c0d" x="164.204118" y="58.720704" style="fill: var(--fig-c-f51, #c0694c); stroke: var(--fig-c-f51, #c0694c)"/>
+     <use xlink:href="#fig3_known_vs_obscure-mc043197c0d" x="164.204118" y="56.811325" style="fill: var(--fig-c-f51, #c0694c); stroke: var(--fig-c-f51, #c0694c)"/>
     </g>
    </g>
-   <g id="fig3_known_vs_obscure-line2d_116">
+   <g id="fig3_known_vs_obscure-line2d_124">
     <defs>
      <path id="fig3_known_vs_obscure-ma444aed6d6" d="M 0 2.1 
 C 0.556927 2.1 1.091118 1.878731 1.484924 1.484924 
@@ -1025,10 +1119,10 @@ z
 " style="stroke: #d97757"/>
     </defs>
     <g clip-path="url(#fig3_known_vs_obscure-p74c11ec07b)">
-     <use xlink:href="#fig3_known_vs_obscure-ma444aed6d6" x="206.134166" y="48.413955" style="fill: #d97757; stroke: #d97757"/>
+     <use xlink:href="#fig3_known_vs_obscure-ma444aed6d6" x="206.134166" y="47.283915" style="fill: #d97757; stroke: #d97757"/>
     </g>
    </g>
-   <g id="fig3_known_vs_obscure-line2d_117">
+   <g id="fig3_known_vs_obscure-line2d_125">
     <defs>
      <path id="fig3_known_vs_obscure-m1979bc4aee" d="M 0 2.1 
 C 0.556927 2.1 1.091118 1.878731 1.484924 1.484924 
@@ -1043,11 +1137,11 @@ z
 " style="stroke: var(--fig-c-f52, #9c3a1c)"/>
     </defs>
     <g clip-path="url(#fig3_known_vs_obscure-p74c11ec07b)">
-     <use xlink:href="#fig3_known_vs_obscure-m1979bc4aee" x="270.013251" y="38.107207" style="fill: var(--fig-c-f52, #9c3a1c); stroke: var(--fig-c-f52, #9c3a1c)"/>
+     <use xlink:href="#fig3_known_vs_obscure-m1979bc4aee" x="270.013251" y="37.756505" style="fill: var(--fig-c-f52, #9c3a1c); stroke: var(--fig-c-f52, #9c3a1c)"/>
     </g>
    </g>
    <g id="fig3_known_vs_obscure-legend_1">
-    <g id="fig3_known_vs_obscure-line2d_118">
+    <g id="fig3_known_vs_obscure-line2d_126">
      <defs>
       <path id="fig3_known_vs_obscure-m5eec9d30d5" d="M 0 2.1 
 C 0.556927 2.1 1.091118 1.878731 1.484924 1.484924 
@@ -1065,10 +1159,10 @@ z
       <use xlink:href="#fig3_known_vs_obscure-m5eec9d30d5" x="169.799531" y="279.226152" style="fill: var(--fig-bg, #ffffff); stroke: var(--fig-muted, #6b7385); stroke-width: 1.1"/>
      </g>
     </g>
-    <g id="fig3_known_vs_obscure-text_35">
+    <g id="fig3_known_vs_obscure-text_37">
      <text style="font-size: 6.5px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: start; fill: var(--fig-ink, #1d2433)" x="178.249531" y="281.501152" transform="rotate(-0 178.249531 281.501152)">well-known: vertebrate proteins, well-studied families</text>
     </g>
-    <g id="fig3_known_vs_obscure-line2d_119">
+    <g id="fig3_known_vs_obscure-line2d_127">
      <defs>
       <path id="fig3_known_vs_obscure-m6b6f4918f8" d="M 0 2.1 
 C 0.556927 2.1 1.091118 1.878731 1.484924 1.484924 
@@ -1086,15 +1180,15 @@ z
       <use xlink:href="#fig3_known_vs_obscure-m6b6f4918f8" x="169.799531" y="288.57625" style="fill: var(--fig-muted, #6b7385); stroke: var(--fig-muted, #6b7385)"/>
      </g>
     </g>
-    <g id="fig3_known_vs_obscure-text_36">
+    <g id="fig3_known_vs_obscure-text_38">
      <text style="font-size: 6.5px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: start; fill: var(--fig-ink, #1d2433)" x="178.249531" y="290.85125" transform="rotate(-0 178.249531 290.85125)">obscure: non-vertebrate DUF proteins</text>
     </g>
    </g>
   </g>
-  <g id="fig3_known_vs_obscure-text_37">
+  <g id="fig3_known_vs_obscure-text_39">
    <text style="font-weight: 700; font-size: 8.5px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: start; fill: var(--fig-ink, #1d2433)" x="37.741719" y="9.068232" transform="rotate(-0 37.741719 9.068232)">On obscure proteins, the latest Claude models hold up like a protein language model</text>
   </g>
-  <g id="fig3_known_vs_obscure-text_38">
+  <g id="fig3_known_vs_obscure-text_40">
    <text style="font-size: 6.2px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; fill: var(--fig-muted, #6b7385)" transform="translate(11.919188 332.52104)">Pilot set, 37 Pfam families (16 well-known, 17 obscure); means over families. * best-guess prompt (the model declined</text>
    <text style="font-size: 6.2px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; fill: var(--fig-muted, #6b7385)" transform="translate(66.66325 340.376089)">the plain one). Purple diamonds: protein language models given the same residues before the cut.</text>
   </g>

@@ -3,7 +3,7 @@
   <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
    <cc:Work>
     <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
-    <dc:date>2026-11-17T07:59:24.457291</dc:date>
+    <dc:date>2026-11-17T18:27:54.423748</dc:date>
     <dc:format>image/svg+xml</dc:format>
     <dc:creator>
      <cc:Agent>
@@ -192,6 +192,26 @@ L 407.815778 38.135979
     </g>
    </g>
    <g id="fig5_family_size-line2d_21">
+    <path d="M 128.674512 176.983595 
+L 165.403626 184.139157 
+L 202.13274 178.401607 
+L 238.861854 171.720331 
+L 275.590968 176.924835 
+L 312.320081 172.949385 
+L 349.049195 185.83647 
+" clip-path="url(#fig5_family_size-pf44428b94f)" style="fill: none; stroke: var(--fig-grey, #a3aab8); stroke-opacity: 0.6; stroke-width: 0.8; stroke-linecap: square"/>
+   </g>
+   <g id="fig5_family_size-line2d_22">
+    <path d="M 128.674512 182.561857 
+L 165.403626 171.862534 
+L 202.13274 185.175234 
+L 238.861854 171.94146 
+L 275.590968 181.421907 
+L 312.320081 178.200803 
+L 349.049195 194.344059 
+" clip-path="url(#fig5_family_size-pf44428b94f)" style="fill: none; stroke: var(--fig-grey, #a3aab8); stroke-opacity: 0.6; stroke-width: 0.8; stroke-linecap: square"/>
+   </g>
+   <g id="fig5_family_size-line2d_23">
     <path d="M 128.674512 180.082277 
 L 165.403626 182.455201 
 L 202.13274 178.618133 
@@ -201,7 +221,7 @@ L 312.320081 179.390595
 L 349.049195 188.797353 
 " clip-path="url(#fig5_family_size-pf44428b94f)" style="fill: none; stroke: var(--fig-grey, #a3aab8); stroke-opacity: 0.6; stroke-width: 0.8; stroke-linecap: square"/>
    </g>
-   <g id="fig5_family_size-line2d_22">
+   <g id="fig5_family_size-line2d_24">
     <path d="M 128.674512 177.110925 
 L 165.403626 182.718859 
 L 202.13274 171.398385 
@@ -211,7 +231,7 @@ L 312.320081 170.437435
 L 349.049195 182.872468 
 " clip-path="url(#fig5_family_size-pf44428b94f)" style="fill: none; stroke: var(--fig-grey, #a3aab8); stroke-opacity: 0.6; stroke-width: 0.8; stroke-linecap: square"/>
    </g>
-   <g id="fig5_family_size-line2d_23">
+   <g id="fig5_family_size-line2d_25">
     <path d="M 128.674512 188.437999 
 L 165.403626 179.627887 
 L 202.13274 180.082277 
@@ -221,7 +241,7 @@ L 312.320081 174.543771
 L 349.049195 171.022697 
 " clip-path="url(#fig5_family_size-pf44428b94f)" style="fill: none; stroke: var(--fig-grey, #a3aab8); stroke-opacity: 0.6; stroke-width: 0.8; stroke-linecap: square"/>
    </g>
-   <g id="fig5_family_size-line2d_24">
+   <g id="fig5_family_size-line2d_26">
     <path d="M 128.674512 191.111045 
 L 165.403626 175.765575 
 L 202.13274 174.209364 
@@ -233,55 +253,55 @@ L 349.049195 184.431648
    </g>
    <g id="fig5_family_size-FillBetweenPolyCollection_1">
     <defs>
-     <path id="fig5_family_size-m43a93d2d91" d="M 128.674512 -120.596379 
-L 128.674512 -92.777631 
-L 165.403626 -91.79312 
-L 202.13274 -106.586029 
-L 238.861854 -131.309879 
-L 275.590968 -145.411106 
-L 312.320081 -159.542626 
+     <path id="fig5_family_size-mf5eed01080" d="M 128.674512 -120.596379 
+L 128.674512 -93.257264 
+L 165.403626 -91.818364 
+L 202.13274 -106.207371 
+L 238.861854 -131.340171 
+L 275.590968 -145.138472 
+L 312.320081 -159.254846 
 L 349.049195 -165.653722 
-L 349.049195 -215.592043 
-L 349.049195 -215.592043 
-L 312.320081 -187.593618 
-L 275.590968 -169.909149 
-L 238.861854 -157.785653 
-L 202.13274 -140.261356 
+L 349.049195 -214.745631 
+L 349.049195 -214.745631 
+L 312.320081 -187.442155 
+L 275.590968 -170.190492 
+L 238.861854 -157.815945 
+L 202.13274 -139.781722 
 L 165.403626 -115.320409 
 L 128.674512 -120.596379 
 z
 "/>
     </defs>
     <g clip-path="url(#fig5_family_size-pf44428b94f)">
-     <use xlink:href="#fig5_family_size-m43a93d2d91" x="0" y="264.731381" style="fill: #d97757; fill-opacity: 0.12"/>
+     <use xlink:href="#fig5_family_size-mf5eed01080" x="0" y="264.731381" style="fill: #d97757; fill-opacity: 0.12"/>
     </g>
    </g>
    <g id="fig5_family_size-FillBetweenPolyCollection_2">
     <defs>
-     <path id="fig5_family_size-mfa8b90d3c5" d="M 128.674512 -157.540156 
+     <path id="fig5_family_size-m7c131917cd" d="M 128.674512 -158.007799 
 L 128.674512 -120.596379 
 L 165.403626 -129.229783 
-L 202.13274 -167.120837 
-L 238.861854 -195.227365 
-L 275.590968 -201.846309 
+L 202.13274 -167.58848 
+L 238.861854 -195.802925 
+L 275.590968 -202.134089 
 L 312.320081 -203.57299 
-L 349.049195 -176.657081 
+L 349.049195 -177.503493 
 L 349.049195 -227.441814 
 L 349.049195 -227.441814 
 L 312.320081 -228.034303 
-L 275.590968 -227.746522 
-L 238.861854 -223.42982 
-L 202.13274 -202.134089 
+L 275.590968 -228.034303 
+L 238.861854 -223.7176 
+L 202.13274 -201.654455 
 L 165.403626 -174.794974 
-L 128.674512 -157.540156 
+L 128.674512 -158.007799 
 z
 "/>
     </defs>
     <g clip-path="url(#fig5_family_size-pf44428b94f)">
-     <use xlink:href="#fig5_family_size-mfa8b90d3c5" x="0" y="264.731381" style="fill: var(--fig-c-f52, #9c3a1c); fill-opacity: 0.12"/>
+     <use xlink:href="#fig5_family_size-m7c131917cd" x="0" y="264.731381" style="fill: var(--fig-c-f52, #9c3a1c); fill-opacity: 0.12"/>
     </g>
    </g>
-   <g id="fig5_family_size-line2d_25">
+   <g id="fig5_family_size-line2d_27">
     <path d="M 128.674512 181.546422 
 L 165.403626 180.587155 
 L 202.13274 183.464956 
@@ -313,7 +333,7 @@ z
      <use xlink:href="#fig5_family_size-m332005b4e5" x="349.049195" y="189.643765" style="fill: var(--fig-c-o45, #f3d3c4); fill-opacity: 0.75; stroke: var(--fig-c-o45, #f3d3c4); stroke-opacity: 0.75"/>
     </g>
    </g>
-   <g id="fig5_family_size-line2d_26">
+   <g id="fig5_family_size-line2d_28">
     <path d="M 128.674512 183.464956 
 L 165.403626 177.709353 
 L 202.13274 178.188987 
@@ -345,7 +365,7 @@ z
      <use xlink:href="#fig5_family_size-m448c78afc4" x="349.049195" y="186.258116" style="fill: var(--fig-c-o46, #efc1ab); fill-opacity: 0.75; stroke: var(--fig-c-o46, #efc1ab); stroke-opacity: 0.75"/>
     </g>
    </g>
-   <g id="fig5_family_size-line2d_27">
+   <g id="fig5_family_size-line2d_29">
     <path d="M 128.674512 173.872284 
 L 165.403626 184.424223 
 L 202.13274 173.872284 
@@ -377,7 +397,7 @@ z
      <use xlink:href="#fig5_family_size-m6231c80a5b" x="349.049195" y="125.316437" style="fill: var(--fig-c-o47, #eaad92); fill-opacity: 0.75; stroke: var(--fig-c-o47, #eaad92); stroke-opacity: 0.75"/>
     </g>
    </g>
-   <g id="fig5_family_size-line2d_28">
+   <g id="fig5_family_size-line2d_30">
     <path d="M 128.674512 180.587155 
 L 165.403626 177.810329 
 L 202.13274 171.474116 
@@ -409,7 +429,7 @@ z
      <use xlink:href="#fig5_family_size-m13bf8e5206" x="349.049195" y="121.21802" style="fill: var(--fig-c-o48, #e59c7d); fill-opacity: 0.75; stroke: var(--fig-c-o48, #e59c7d); stroke-opacity: 0.75"/>
     </g>
    </g>
-   <g id="fig5_family_size-line2d_29">
+   <g id="fig5_family_size-line2d_31">
     <path d="M 128.674512 183.89799 
 L 165.403626 182.290862 
 L 202.13274 178.394008 
@@ -441,7 +461,7 @@ z
      <use xlink:href="#fig5_family_size-mb184a9f778" x="349.049195" y="115.405357" style="fill: var(--fig-c-o5, #df8a68); fill-opacity: 0.75; stroke: var(--fig-c-o5, #df8a68); stroke-opacity: 0.75"/>
     </g>
    </g>
-   <g id="fig5_family_size-line2d_30">
+   <g id="fig5_family_size-line2d_32">
     <path d="M 128.674512 174.710736 
 L 165.403626 183.26911 
 L 202.13274 172.983139 
@@ -473,7 +493,7 @@ z
      <use xlink:href="#fig5_family_size-ma8e5a1691a" x="349.049195" y="114.078983" style="fill: var(--fig-c-f51, #c0694c); fill-opacity: 0.75; stroke: var(--fig-c-f51, #c0694c); stroke-opacity: 0.75"/>
     </g>
    </g>
-   <g id="fig5_family_size-line2d_31">
+   <g id="fig5_family_size-line2d_33">
     <path d="M 117.655778 182.026055 
 L 407.815778 182.026055 
 " clip-path="url(#fig5_family_size-pf44428b94f)" style="fill: none; stroke: var(--fig-muted, #6b7385); stroke-width: 0.6; stroke-linecap: square"/>
@@ -483,7 +503,7 @@ L 407.815778 182.026055
 L 407.815778 209.36517 
 " style="fill: none; stroke: var(--fig-muted, #6b7385); stroke-width: 0.6; stroke-linejoin: miter; stroke-linecap: square"/>
    </g>
-   <g id="fig5_family_size-line2d_32">
+   <g id="fig5_family_size-line2d_34">
     <path d="M 128.674512 158.044376 
 L 165.403626 161.427055 
 L 202.13274 141.358176 
@@ -515,7 +535,7 @@ z
      <use xlink:href="#fig5_family_size-ma50de160bc" x="349.049195" y="75.378116" style="fill: #d97757; stroke: #d97757"/>
     </g>
    </g>
-   <g id="fig5_family_size-line2d_33">
+   <g id="fig5_family_size-line2d_35">
     <path d="M 128.674512 125.908926 
 L 165.403626 112.958819 
 L 202.13274 79.864101 
@@ -549,36 +569,36 @@ z
    </g>
    <g id="fig5_family_size-text_16">
     <g id="fig5_family_size-patch_4">
-     <path d="M 354.138562 198.482592 
-L 400.004813 198.482592 
-L 400.004813 192.011733 
-L 354.138562 192.011733 
+     <path d="M 354.138562 199.405839 
+L 400.004813 199.405839 
+L 400.004813 192.93498 
+L 354.138562 192.93498 
 z
 " style="fill: var(--fig-bg, #ffffff)"/>
     </g>
-    <text style="font-size: 6px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: start; fill: var(--fig-muted, #6b7385)" x="354.558562" y="196.799897" transform="rotate(-0 354.558562 196.799897)">Claude Opus 4.5</text>
+    <text style="font-size: 6px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: start; fill: var(--fig-muted, #6b7385)" x="354.558562" y="197.723144" transform="rotate(-0 354.558562 197.723144)">Claude Opus 4.5</text>
    </g>
    <g id="fig5_family_size-text_17">
     <g id="fig5_family_size-patch_5">
-     <path d="M 354.138562 189.129737 
-L 400.004813 189.129737 
-L 400.004813 182.658878 
-L 354.138562 182.658878 
+     <path d="M 354.138562 190.052984 
+L 400.004813 190.052984 
+L 400.004813 183.582125 
+L 354.138562 183.582125 
 z
 " style="fill: var(--fig-bg, #ffffff)"/>
     </g>
-    <text style="font-size: 6px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: start; fill: var(--fig-muted, #6b7385)" x="354.558562" y="187.447042" transform="rotate(-0 354.558562 187.447042)">Claude Opus 4.6</text>
+    <text style="font-size: 6px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: start; fill: var(--fig-muted, #6b7385)" x="354.558562" y="188.370289" transform="rotate(-0 354.558562 188.370289)">Claude Opus 4.6</text>
    </g>
    <g id="fig5_family_size-text_18">
     <g id="fig5_family_size-patch_6">
-     <path d="M 354.138562 179.776882 
-L 399.551063 179.776882 
-L 399.551063 173.306023 
-L 354.138562 173.306023 
+     <path d="M 354.138562 180.700129 
+L 399.551063 180.700129 
+L 399.551063 174.22927 
+L 354.138562 174.22927 
 z
 " style="fill: var(--fig-bg, #ffffff)"/>
     </g>
-    <text style="font-size: 6px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: start; fill: var(--fig-muted, #6b7385)" x="354.558562" y="178.094187" transform="rotate(-0 354.558562 178.094187)">GPT and Gemini</text>
+    <text style="font-size: 6px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: start; fill: var(--fig-muted, #6b7385)" x="354.558562" y="179.017434" transform="rotate(-0 354.558562 179.017434)">GPT and Gemini</text>
    </g>
    <g id="fig5_family_size-text_19">
     <g id="fig5_family_size-patch_7">
@@ -674,7 +694,7 @@ z
    <g id="fig5_family_size-text_28">
     <text style="font-size: 5.8px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: start; fill: var(--fig-muted, #6b7385)" x="223.435626" y="30.847332" transform="rotate(-0 223.435626 30.847332)">main set</text>
    </g>
-   <g id="fig5_family_size-line2d_34">
+   <g id="fig5_family_size-line2d_36">
     <path d="M 128.674512 172.913017 
 L 165.403626 163.320345 
 L 202.13274 151.329506 
@@ -701,7 +721,7 @@ z
      <use xlink:href="#fig5_family_size-m0c8b289cf7" x="349.049195" y="75.378116" style="fill: #9b59b6; stroke: #9b59b6; stroke-linejoin: miter"/>
     </g>
    </g>
-   <g id="fig5_family_size-line2d_35">
+   <g id="fig5_family_size-line2d_37">
     <path d="M 128.674512 159.96291 
 L 165.403626 163.320345 
 L 202.13274 127.82746 
@@ -735,7 +755,7 @@ z
   <g id="fig5_family_size-text_30">
    <text style="font-size: 6.2px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; fill: var(--fig-muted, #6b7385)" transform="translate(88.357656 243.81704)">Next amino acid on 257 DUF families: 90 from 20 to 300 proteins, 30 per bin, and the 167 of Fig. 1; mean over families,</text>
    <text style="font-size: 6.2px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; fill: var(--fig-muted, #6b7385)" transform="translate(2.88 251.672089)">bands: 95% bootstrap CI for Fable 5.2 and Opus 5.5. Purple diamonds: protein language models (ProtGPT3-10B, ProGen3-3B) on the same residues.</text>
-   <text style="font-size: 6.2px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; fill: var(--fig-muted, #6b7385)" transform="translate(145.923688 259.527138)">Thin lines: earlier Claude models; grey: GPT-6.1 Sol, GPT-6 Astra, GPT-5.5 and Gemini 4 Carbon.</text>
+   <text style="font-size: 6.2px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; fill: var(--fig-muted, #6b7385)" transform="translate(80.793656 259.527138)">Thin lines: earlier Claude models; grey: GPT-6.2 Sol and Astra, GPT-6.1 Sol, GPT-6 Astra, GPT-5.5 and Gemini 4 Carbon.</text>
   </g>
  </g>
  <defs>

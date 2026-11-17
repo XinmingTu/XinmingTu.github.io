@@ -3,7 +3,7 @@
   <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
    <cc:Work>
     <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
-    <dc:date>2026-11-17T07:59:16.995214</dc:date>
+    <dc:date>2026-11-17T18:27:45.905382</dc:date>
     <dc:format>image/svg+xml</dc:format>
     <dc:creator>
      <cc:Agent>
@@ -529,9 +529,9 @@ L 213.229003 199.196815
 L 239.156276 199.196815 
 L 265.083548 199.196815 
 L 291.010821 199.196815 
-" clip-path="url(#fig8_runs-p9a7de1caaf)" style="fill: none; stroke: var(--fig-gpt-6, #4b4b55); stroke-linecap: square"/>
+" clip-path="url(#fig8_runs-p9a7de1caaf)" style="fill: none; stroke: var(--fig-gpt-6, #63636e); stroke-linecap: square"/>
     <defs>
-     <path id="fig8_runs-m6e7e6cbf4b" d="M 0 1.1 
+     <path id="fig8_runs-maf3683e149" d="M 0 1.1 
 C 0.291723 1.1 0.571538 0.984097 0.777817 0.777817 
 C 0.984097 0.571538 1.1 0.291723 1.1 0 
 C 1.1 -0.291723 0.984097 -0.571538 0.777817 -0.777817 
@@ -541,19 +541,19 @@ C -0.984097 -0.571538 -1.1 -0.291723 -1.1 0
 C -1.1 0.291723 -0.984097 0.571538 -0.777817 0.777817 
 C -0.571538 0.984097 -0.291723 1.1 0 1.1 
 z
-" style="stroke: var(--fig-gpt-6, #4b4b55)"/>
+" style="stroke: var(--fig-gpt-6, #63636e)"/>
     </defs>
     <g clip-path="url(#fig8_runs-p9a7de1caaf)">
-     <use xlink:href="#fig8_runs-m6e7e6cbf4b" x="57.665366" y="167.21939" style="fill: var(--fig-gpt-6, #4b4b55); stroke: var(--fig-gpt-6, #4b4b55)"/>
-     <use xlink:href="#fig8_runs-m6e7e6cbf4b" x="83.592639" y="195.222742" style="fill: var(--fig-gpt-6, #4b4b55); stroke: var(--fig-gpt-6, #4b4b55)"/>
-     <use xlink:href="#fig8_runs-m6e7e6cbf4b" x="109.519912" y="198.272612" style="fill: var(--fig-gpt-6, #4b4b55); stroke: var(--fig-gpt-6, #4b4b55)"/>
-     <use xlink:href="#fig8_runs-m6e7e6cbf4b" x="135.447185" y="198.827134" style="fill: var(--fig-gpt-6, #4b4b55); stroke: var(--fig-gpt-6, #4b4b55)"/>
-     <use xlink:href="#fig8_runs-m6e7e6cbf4b" x="161.374457" y="199.011975" style="fill: var(--fig-gpt-6, #4b4b55); stroke: var(--fig-gpt-6, #4b4b55)"/>
-     <use xlink:href="#fig8_runs-m6e7e6cbf4b" x="187.30173" y="199.011975" style="fill: var(--fig-gpt-6, #4b4b55); stroke: var(--fig-gpt-6, #4b4b55)"/>
-     <use xlink:href="#fig8_runs-m6e7e6cbf4b" x="213.229003" y="199.196815" style="fill: var(--fig-gpt-6, #4b4b55); stroke: var(--fig-gpt-6, #4b4b55)"/>
-     <use xlink:href="#fig8_runs-m6e7e6cbf4b" x="239.156276" y="199.196815" style="fill: var(--fig-gpt-6, #4b4b55); stroke: var(--fig-gpt-6, #4b4b55)"/>
-     <use xlink:href="#fig8_runs-m6e7e6cbf4b" x="265.083548" y="199.196815" style="fill: var(--fig-gpt-6, #4b4b55); stroke: var(--fig-gpt-6, #4b4b55)"/>
-     <use xlink:href="#fig8_runs-m6e7e6cbf4b" x="291.010821" y="199.196815" style="fill: var(--fig-gpt-6, #4b4b55); stroke: var(--fig-gpt-6, #4b4b55)"/>
+     <use xlink:href="#fig8_runs-maf3683e149" x="57.665366" y="167.21939" style="fill: var(--fig-gpt-6, #63636e); stroke: var(--fig-gpt-6, #63636e)"/>
+     <use xlink:href="#fig8_runs-maf3683e149" x="83.592639" y="195.222742" style="fill: var(--fig-gpt-6, #63636e); stroke: var(--fig-gpt-6, #63636e)"/>
+     <use xlink:href="#fig8_runs-maf3683e149" x="109.519912" y="198.272612" style="fill: var(--fig-gpt-6, #63636e); stroke: var(--fig-gpt-6, #63636e)"/>
+     <use xlink:href="#fig8_runs-maf3683e149" x="135.447185" y="198.827134" style="fill: var(--fig-gpt-6, #63636e); stroke: var(--fig-gpt-6, #63636e)"/>
+     <use xlink:href="#fig8_runs-maf3683e149" x="161.374457" y="199.011975" style="fill: var(--fig-gpt-6, #63636e); stroke: var(--fig-gpt-6, #63636e)"/>
+     <use xlink:href="#fig8_runs-maf3683e149" x="187.30173" y="199.011975" style="fill: var(--fig-gpt-6, #63636e); stroke: var(--fig-gpt-6, #63636e)"/>
+     <use xlink:href="#fig8_runs-maf3683e149" x="213.229003" y="199.196815" style="fill: var(--fig-gpt-6, #63636e); stroke: var(--fig-gpt-6, #63636e)"/>
+     <use xlink:href="#fig8_runs-maf3683e149" x="239.156276" y="199.196815" style="fill: var(--fig-gpt-6, #63636e); stroke: var(--fig-gpt-6, #63636e)"/>
+     <use xlink:href="#fig8_runs-maf3683e149" x="265.083548" y="199.196815" style="fill: var(--fig-gpt-6, #63636e); stroke: var(--fig-gpt-6, #63636e)"/>
+     <use xlink:href="#fig8_runs-maf3683e149" x="291.010821" y="199.196815" style="fill: var(--fig-gpt-6, #63636e); stroke: var(--fig-gpt-6, #63636e)"/>
     </g>
    </g>
    <g id="fig8_runs-line2d_34">
@@ -567,9 +567,9 @@ L 213.229003 199.196815
 L 239.156276 199.196815 
 L 265.083548 199.196815 
 L 291.010821 199.196815 
-" clip-path="url(#fig8_runs-p9a7de1caaf)" style="fill: none; stroke: var(--fig-gpt-61, #2c2c33); stroke-linecap: square"/>
+" clip-path="url(#fig8_runs-p9a7de1caaf)" style="fill: none; stroke: var(--fig-gpt-61, #4b4b55); stroke-linecap: square"/>
     <defs>
-     <path id="fig8_runs-m6e88e941fc" d="M 0 1.1 
+     <path id="fig8_runs-m6e7e6cbf4b" d="M 0 1.1 
 C 0.291723 1.1 0.571538 0.984097 0.777817 0.777817 
 C 0.984097 0.571538 1.1 0.291723 1.1 0 
 C 1.1 -0.291723 0.984097 -0.571538 0.777817 -0.777817 
@@ -579,22 +579,98 @@ C -0.984097 -0.571538 -1.1 -0.291723 -1.1 0
 C -1.1 0.291723 -0.984097 0.571538 -0.777817 0.777817 
 C -0.571538 0.984097 -0.291723 1.1 0 1.1 
 z
-" style="stroke: var(--fig-gpt-61, #2c2c33)"/>
+" style="stroke: var(--fig-gpt-61, #4b4b55)"/>
     </defs>
     <g clip-path="url(#fig8_runs-p9a7de1caaf)">
-     <use xlink:href="#fig8_runs-m6e88e941fc" x="57.665366" y="172.411029" style="fill: var(--fig-gpt-61, #2c2c33); stroke: var(--fig-gpt-61, #2c2c33)"/>
-     <use xlink:href="#fig8_runs-m6e88e941fc" x="83.592639" y="195.871683" style="fill: var(--fig-gpt-61, #2c2c33); stroke: var(--fig-gpt-61, #2c2c33)"/>
-     <use xlink:href="#fig8_runs-m6e88e941fc" x="109.519912" y="198.734992" style="fill: var(--fig-gpt-61, #2c2c33); stroke: var(--fig-gpt-61, #2c2c33)"/>
-     <use xlink:href="#fig8_runs-m6e88e941fc" x="135.447185" y="198.919721" style="fill: var(--fig-gpt-61, #2c2c33); stroke: var(--fig-gpt-61, #2c2c33)"/>
-     <use xlink:href="#fig8_runs-m6e88e941fc" x="161.374457" y="199.012086" style="fill: var(--fig-gpt-61, #2c2c33); stroke: var(--fig-gpt-61, #2c2c33)"/>
-     <use xlink:href="#fig8_runs-m6e88e941fc" x="187.30173" y="199.012086" style="fill: var(--fig-gpt-61, #2c2c33); stroke: var(--fig-gpt-61, #2c2c33)"/>
-     <use xlink:href="#fig8_runs-m6e88e941fc" x="213.229003" y="199.196815" style="fill: var(--fig-gpt-61, #2c2c33); stroke: var(--fig-gpt-61, #2c2c33)"/>
-     <use xlink:href="#fig8_runs-m6e88e941fc" x="239.156276" y="199.196815" style="fill: var(--fig-gpt-61, #2c2c33); stroke: var(--fig-gpt-61, #2c2c33)"/>
-     <use xlink:href="#fig8_runs-m6e88e941fc" x="265.083548" y="199.196815" style="fill: var(--fig-gpt-61, #2c2c33); stroke: var(--fig-gpt-61, #2c2c33)"/>
-     <use xlink:href="#fig8_runs-m6e88e941fc" x="291.010821" y="199.196815" style="fill: var(--fig-gpt-61, #2c2c33); stroke: var(--fig-gpt-61, #2c2c33)"/>
+     <use xlink:href="#fig8_runs-m6e7e6cbf4b" x="57.665366" y="172.411029" style="fill: var(--fig-gpt-61, #4b4b55); stroke: var(--fig-gpt-61, #4b4b55)"/>
+     <use xlink:href="#fig8_runs-m6e7e6cbf4b" x="83.592639" y="195.871683" style="fill: var(--fig-gpt-61, #4b4b55); stroke: var(--fig-gpt-61, #4b4b55)"/>
+     <use xlink:href="#fig8_runs-m6e7e6cbf4b" x="109.519912" y="198.734992" style="fill: var(--fig-gpt-61, #4b4b55); stroke: var(--fig-gpt-61, #4b4b55)"/>
+     <use xlink:href="#fig8_runs-m6e7e6cbf4b" x="135.447185" y="198.919721" style="fill: var(--fig-gpt-61, #4b4b55); stroke: var(--fig-gpt-61, #4b4b55)"/>
+     <use xlink:href="#fig8_runs-m6e7e6cbf4b" x="161.374457" y="199.012086" style="fill: var(--fig-gpt-61, #4b4b55); stroke: var(--fig-gpt-61, #4b4b55)"/>
+     <use xlink:href="#fig8_runs-m6e7e6cbf4b" x="187.30173" y="199.012086" style="fill: var(--fig-gpt-61, #4b4b55); stroke: var(--fig-gpt-61, #4b4b55)"/>
+     <use xlink:href="#fig8_runs-m6e7e6cbf4b" x="213.229003" y="199.196815" style="fill: var(--fig-gpt-61, #4b4b55); stroke: var(--fig-gpt-61, #4b4b55)"/>
+     <use xlink:href="#fig8_runs-m6e7e6cbf4b" x="239.156276" y="199.196815" style="fill: var(--fig-gpt-61, #4b4b55); stroke: var(--fig-gpt-61, #4b4b55)"/>
+     <use xlink:href="#fig8_runs-m6e7e6cbf4b" x="265.083548" y="199.196815" style="fill: var(--fig-gpt-61, #4b4b55); stroke: var(--fig-gpt-61, #4b4b55)"/>
+     <use xlink:href="#fig8_runs-m6e7e6cbf4b" x="291.010821" y="199.196815" style="fill: var(--fig-gpt-61, #4b4b55); stroke: var(--fig-gpt-61, #4b4b55)"/>
     </g>
    </g>
    <g id="fig8_runs-line2d_35">
+    <path d="M 57.665366 168.44858 
+L 83.592639 195.913023 
+L 109.519912 198.699271 
+L 135.447185 198.898289 
+L 161.374457 198.997798 
+L 187.30173 198.997798 
+L 213.229003 199.196815 
+L 239.156276 199.196815 
+L 265.083548 199.196815 
+L 291.010821 199.196815 
+" clip-path="url(#fig8_runs-p9a7de1caaf)" style="fill: none; stroke: var(--fig-gpt-62a, #33333b); stroke-linecap: square"/>
+    <defs>
+     <path id="fig8_runs-m7593e452b0" d="M 0 1.1 
+C 0.291723 1.1 0.571538 0.984097 0.777817 0.777817 
+C 0.984097 0.571538 1.1 0.291723 1.1 0 
+C 1.1 -0.291723 0.984097 -0.571538 0.777817 -0.777817 
+C 0.571538 -0.984097 0.291723 -1.1 0 -1.1 
+C -0.291723 -1.1 -0.571538 -0.984097 -0.777817 -0.777817 
+C -0.984097 -0.571538 -1.1 -0.291723 -1.1 0 
+C -1.1 0.291723 -0.984097 0.571538 -0.777817 0.777817 
+C -0.571538 0.984097 -0.291723 1.1 0 1.1 
+z
+" style="stroke: var(--fig-gpt-62a, #33333b)"/>
+    </defs>
+    <g clip-path="url(#fig8_runs-p9a7de1caaf)">
+     <use xlink:href="#fig8_runs-m7593e452b0" x="57.665366" y="168.44858" style="fill: var(--fig-gpt-62a, #33333b); stroke: var(--fig-gpt-62a, #33333b)"/>
+     <use xlink:href="#fig8_runs-m7593e452b0" x="83.592639" y="195.913023" style="fill: var(--fig-gpt-62a, #33333b); stroke: var(--fig-gpt-62a, #33333b)"/>
+     <use xlink:href="#fig8_runs-m7593e452b0" x="109.519912" y="198.699271" style="fill: var(--fig-gpt-62a, #33333b); stroke: var(--fig-gpt-62a, #33333b)"/>
+     <use xlink:href="#fig8_runs-m7593e452b0" x="135.447185" y="198.898289" style="fill: var(--fig-gpt-62a, #33333b); stroke: var(--fig-gpt-62a, #33333b)"/>
+     <use xlink:href="#fig8_runs-m7593e452b0" x="161.374457" y="198.997798" style="fill: var(--fig-gpt-62a, #33333b); stroke: var(--fig-gpt-62a, #33333b)"/>
+     <use xlink:href="#fig8_runs-m7593e452b0" x="187.30173" y="198.997798" style="fill: var(--fig-gpt-62a, #33333b); stroke: var(--fig-gpt-62a, #33333b)"/>
+     <use xlink:href="#fig8_runs-m7593e452b0" x="213.229003" y="199.196815" style="fill: var(--fig-gpt-62a, #33333b); stroke: var(--fig-gpt-62a, #33333b)"/>
+     <use xlink:href="#fig8_runs-m7593e452b0" x="239.156276" y="199.196815" style="fill: var(--fig-gpt-62a, #33333b); stroke: var(--fig-gpt-62a, #33333b)"/>
+     <use xlink:href="#fig8_runs-m7593e452b0" x="265.083548" y="199.196815" style="fill: var(--fig-gpt-62a, #33333b); stroke: var(--fig-gpt-62a, #33333b)"/>
+     <use xlink:href="#fig8_runs-m7593e452b0" x="291.010821" y="199.196815" style="fill: var(--fig-gpt-62a, #33333b); stroke: var(--fig-gpt-62a, #33333b)"/>
+    </g>
+   </g>
+   <g id="fig8_runs-line2d_36">
+    <path d="M 57.665366 166.220158 
+L 83.592639 194.999786 
+L 109.519912 198.497311 
+L 135.447185 198.897028 
+L 161.374457 198.996957 
+L 187.30173 198.996957 
+L 213.229003 199.196815 
+L 239.156276 199.196815 
+L 265.083548 199.196815 
+L 291.010821 199.196815 
+" clip-path="url(#fig8_runs-p9a7de1caaf)" style="fill: none; stroke: var(--fig-gpt-62s, #18181c); stroke-linecap: square"/>
+    <defs>
+     <path id="fig8_runs-m95669db4e0" d="M 0 1.1 
+C 0.291723 1.1 0.571538 0.984097 0.777817 0.777817 
+C 0.984097 0.571538 1.1 0.291723 1.1 0 
+C 1.1 -0.291723 0.984097 -0.571538 0.777817 -0.777817 
+C 0.571538 -0.984097 0.291723 -1.1 0 -1.1 
+C -0.291723 -1.1 -0.571538 -0.984097 -0.777817 -0.777817 
+C -0.984097 -0.571538 -1.1 -0.291723 -1.1 0 
+C -1.1 0.291723 -0.984097 0.571538 -0.777817 0.777817 
+C -0.571538 0.984097 -0.291723 1.1 0 1.1 
+z
+" style="stroke: var(--fig-gpt-62s, #18181c)"/>
+    </defs>
+    <g clip-path="url(#fig8_runs-p9a7de1caaf)">
+     <use xlink:href="#fig8_runs-m95669db4e0" x="57.665366" y="166.220158" style="fill: var(--fig-gpt-62s, #18181c); stroke: var(--fig-gpt-62s, #18181c)"/>
+     <use xlink:href="#fig8_runs-m95669db4e0" x="83.592639" y="194.999786" style="fill: var(--fig-gpt-62s, #18181c); stroke: var(--fig-gpt-62s, #18181c)"/>
+     <use xlink:href="#fig8_runs-m95669db4e0" x="109.519912" y="198.497311" style="fill: var(--fig-gpt-62s, #18181c); stroke: var(--fig-gpt-62s, #18181c)"/>
+     <use xlink:href="#fig8_runs-m95669db4e0" x="135.447185" y="198.897028" style="fill: var(--fig-gpt-62s, #18181c); stroke: var(--fig-gpt-62s, #18181c)"/>
+     <use xlink:href="#fig8_runs-m95669db4e0" x="161.374457" y="198.996957" style="fill: var(--fig-gpt-62s, #18181c); stroke: var(--fig-gpt-62s, #18181c)"/>
+     <use xlink:href="#fig8_runs-m95669db4e0" x="187.30173" y="198.996957" style="fill: var(--fig-gpt-62s, #18181c); stroke: var(--fig-gpt-62s, #18181c)"/>
+     <use xlink:href="#fig8_runs-m95669db4e0" x="213.229003" y="199.196815" style="fill: var(--fig-gpt-62s, #18181c); stroke: var(--fig-gpt-62s, #18181c)"/>
+     <use xlink:href="#fig8_runs-m95669db4e0" x="239.156276" y="199.196815" style="fill: var(--fig-gpt-62s, #18181c); stroke: var(--fig-gpt-62s, #18181c)"/>
+     <use xlink:href="#fig8_runs-m95669db4e0" x="265.083548" y="199.196815" style="fill: var(--fig-gpt-62s, #18181c); stroke: var(--fig-gpt-62s, #18181c)"/>
+     <use xlink:href="#fig8_runs-m95669db4e0" x="291.010821" y="199.196815" style="fill: var(--fig-gpt-62s, #18181c); stroke: var(--fig-gpt-62s, #18181c)"/>
+    </g>
+   </g>
+   <g id="fig8_runs-line2d_37">
     <path d="M 57.665366 171.302458 
 L 83.592639 196.895301 
 L 109.519912 198.460331 
@@ -632,7 +708,7 @@ z
      <use xlink:href="#fig8_runs-m45978bb346" x="291.010821" y="199.196815" style="fill: var(--fig-c-o45, #f3d3c4); stroke: var(--fig-c-o45, #f3d3c4)"/>
     </g>
    </g>
-   <g id="fig8_runs-line2d_36">
+   <g id="fig8_runs-line2d_38">
     <path d="M 57.665366 174.616639 
 L 83.592639 197.263543 
 L 109.519912 198.552391 
@@ -670,7 +746,7 @@ z
      <use xlink:href="#fig8_runs-m99bc726ad4" x="291.010821" y="199.196815" style="fill: var(--fig-c-o46, #efc1ab); stroke: var(--fig-c-o46, #efc1ab)"/>
     </g>
    </g>
-   <g id="fig8_runs-line2d_37">
+   <g id="fig8_runs-line2d_39">
     <path d="M 57.665366 149.668221 
 L 83.592639 188.609848 
 L 109.519912 195.882634 
@@ -708,7 +784,7 @@ z
      <use xlink:href="#fig8_runs-m08ecbe00c7" x="291.010821" y="199.196815" style="fill: var(--fig-c-o47, #eaad92); stroke: var(--fig-c-o47, #eaad92)"/>
     </g>
    </g>
-   <g id="fig8_runs-line2d_38">
+   <g id="fig8_runs-line2d_40">
     <path d="M 57.665366 151.593787 
 L 83.592639 189.694661 
 L 109.519912 195.967928 
@@ -746,7 +822,7 @@ z
      <use xlink:href="#fig8_runs-mc2d58126a4" x="291.010821" y="199.196815" style="fill: var(--fig-c-o48, #e59c7d); stroke: var(--fig-c-o48, #e59c7d)"/>
     </g>
    </g>
-   <g id="fig8_runs-line2d_39">
+   <g id="fig8_runs-line2d_41">
     <path d="M 57.665366 145.351507 
 L 83.592639 185.556004 
 L 109.519912 194.991753 
@@ -784,7 +860,7 @@ z
      <use xlink:href="#fig8_runs-m891cabafb0" x="291.010821" y="199.196815" style="fill: var(--fig-c-o5, #df8a68); stroke: var(--fig-c-o5, #df8a68)"/>
     </g>
    </g>
-   <g id="fig8_runs-line2d_40">
+   <g id="fig8_runs-line2d_42">
     <path d="M 57.665366 133.215069 
 L 83.592639 183.535418 
 L 109.519912 195.211963 
@@ -827,7 +903,7 @@ z
 L 302.678094 203.809051 
 " style="fill: none; stroke: var(--fig-muted, #6b7385); stroke-width: 0.6; stroke-linejoin: miter; stroke-linecap: square"/>
    </g>
-   <g id="fig8_runs-line2d_41">
+   <g id="fig8_runs-line2d_43">
     <path d="M 57.665366 92.006202 
 L 83.592639 149.100859 
 L 109.519912 174.148837 
@@ -865,7 +941,7 @@ z
      <use xlink:href="#fig8_runs-m754bc29ff3" x="291.010821" y="198.091758" style="fill: #d97757; stroke: #d97757"/>
     </g>
    </g>
-   <g id="fig8_runs-line2d_42">
+   <g id="fig8_runs-line2d_44">
     <path d="M 57.665366 32.935399 
 L 83.592639 95.076294 
 L 109.519912 132.913194 
@@ -903,7 +979,7 @@ z
      <use xlink:href="#fig8_runs-m8e2fc5466d" x="291.010821" y="191.095484" style="fill: var(--fig-c-f52, #9c3a1c); stroke: var(--fig-c-f52, #9c3a1c)"/>
     </g>
    </g>
-   <g id="fig8_runs-line2d_43">
+   <g id="fig8_runs-line2d_45">
     <path d="M 57.665366 176.253122 
 L 83.592639 197.906809 
 L 109.519912 199.104672 
@@ -942,7 +1018,7 @@ z
     </g>
    </g>
    <g id="fig8_runs-legend_1">
-    <g id="fig8_runs-line2d_44">
+    <g id="fig8_runs-line2d_46">
      <path d="M 138.626969 28.014004 
 L 144.226969 28.014004 
 L 149.826969 28.014004 
@@ -954,7 +1030,7 @@ L 149.826969 28.014004
     <g id="fig8_runs-text_19">
      <text style="font-size: 5.6px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: start; fill: var(--fig-ink, #1d2433)" x="151.506969" y="29.974004" transform="rotate(-0 151.506969 29.974004)">Claude Fable 5.2</text>
     </g>
-    <g id="fig8_runs-line2d_45">
+    <g id="fig8_runs-line2d_47">
      <path d="M 138.626969 34.949473 
 L 144.226969 34.949473 
 L 149.826969 34.949473 
@@ -966,7 +1042,7 @@ L 149.826969 34.949473
     <g id="fig8_runs-text_20">
      <text style="font-size: 5.6px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: start; fill: var(--fig-ink, #1d2433)" x="151.506969" y="36.909473" transform="rotate(-0 151.506969 36.909473)">Claude Opus 5.5</text>
     </g>
-    <g id="fig8_runs-line2d_46">
+    <g id="fig8_runs-line2d_48">
      <path d="M 138.626969 41.884941 
 L 144.226969 41.884941 
 L 149.826969 41.884941 
@@ -978,7 +1054,7 @@ L 149.826969 41.884941
     <g id="fig8_runs-text_21">
      <text style="font-size: 5.6px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: start; fill: var(--fig-ink, #1d2433)" x="151.506969" y="43.844941" transform="rotate(-0 151.506969 43.844941)">Claude Fable 5.1</text>
     </g>
-    <g id="fig8_runs-line2d_47">
+    <g id="fig8_runs-line2d_49">
      <path d="M 138.626969 48.82041 
 L 144.226969 48.82041 
 L 149.826969 48.82041 
@@ -990,7 +1066,7 @@ L 149.826969 48.82041
     <g id="fig8_runs-text_22">
      <text style="font-size: 5.6px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: start; fill: var(--fig-ink, #1d2433)" x="151.506969" y="50.78041" transform="rotate(-0 151.506969 50.78041)">Claude Opus 5</text>
     </g>
-    <g id="fig8_runs-line2d_48">
+    <g id="fig8_runs-line2d_50">
      <path d="M 138.626969 55.755879 
 L 144.226969 55.755879 
 L 149.826969 55.755879 
@@ -1002,7 +1078,7 @@ L 149.826969 55.755879
     <g id="fig8_runs-text_23">
      <text style="font-size: 5.6px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: start; fill: var(--fig-ink, #1d2433)" x="151.506969" y="57.715879" transform="rotate(-0 151.506969 57.715879)">Claude Opus 4.8</text>
     </g>
-    <g id="fig8_runs-line2d_49">
+    <g id="fig8_runs-line2d_51">
      <path d="M 138.626969 62.691348 
 L 144.226969 62.691348 
 L 149.826969 62.691348 
@@ -1014,7 +1090,7 @@ L 149.826969 62.691348
     <g id="fig8_runs-text_24">
      <text style="font-size: 5.6px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: start; fill: var(--fig-ink, #1d2433)" x="151.506969" y="64.651348" transform="rotate(-0 151.506969 64.651348)">Claude Opus 4.7</text>
     </g>
-    <g id="fig8_runs-line2d_50">
+    <g id="fig8_runs-line2d_52">
      <path d="M 138.626969 69.626816 
 L 144.226969 69.626816 
 L 149.826969 69.626816 
@@ -1026,7 +1102,7 @@ L 149.826969 69.626816
     <g id="fig8_runs-text_25">
      <text style="font-size: 5.6px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: start; fill: var(--fig-ink, #1d2433)" x="151.506969" y="71.586816" transform="rotate(-0 151.506969 71.586816)">Claude Opus 4.6</text>
     </g>
-    <g id="fig8_runs-line2d_51">
+    <g id="fig8_runs-line2d_53">
      <path d="M 138.626969 76.562285 
 L 144.226969 76.562285 
 L 149.826969 76.562285 
@@ -1038,96 +1114,120 @@ L 149.826969 76.562285
     <g id="fig8_runs-text_26">
      <text style="font-size: 5.6px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: start; fill: var(--fig-ink, #1d2433)" x="151.506969" y="78.522285" transform="rotate(-0 151.506969 78.522285)">Claude Opus 4.5</text>
     </g>
-    <g id="fig8_runs-line2d_52">
-     <path d="M 198.634469 28.014004 
-L 204.234469 28.014004 
-L 209.834469 28.014004 
-" style="fill: none; stroke: var(--fig-gpt-61, #2c2c33); stroke-linecap: square"/>
+    <g id="fig8_runs-line2d_54">
+     <path d="M 138.626969 83.497754 
+L 144.226969 83.497754 
+L 149.826969 83.497754 
+" style="fill: none; stroke: var(--fig-gpt-62s, #18181c); stroke-linecap: square"/>
      <g>
-      <use xlink:href="#fig8_runs-m6e88e941fc" x="204.234469" y="28.014004" style="fill: var(--fig-gpt-61, #2c2c33); stroke: var(--fig-gpt-61, #2c2c33)"/>
+      <use xlink:href="#fig8_runs-m95669db4e0" x="144.226969" y="83.497754" style="fill: var(--fig-gpt-62s, #18181c); stroke: var(--fig-gpt-62s, #18181c)"/>
      </g>
     </g>
     <g id="fig8_runs-text_27">
-     <text style="font-size: 5.6px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: start; fill: var(--fig-ink, #1d2433)" x="211.514469" y="29.974004" transform="rotate(-0 211.514469 29.974004)">GPT-6.1 Sol</text>
+     <text style="font-size: 5.6px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: start; fill: var(--fig-ink, #1d2433)" x="151.506969" y="85.457754" transform="rotate(-0 151.506969 85.457754)">GPT-6.2 Sol</text>
     </g>
-    <g id="fig8_runs-line2d_53">
-     <path d="M 198.634469 34.949473 
-L 204.234469 34.949473 
-L 209.834469 34.949473 
-" style="fill: none; stroke: var(--fig-gpt-6, #4b4b55); stroke-linecap: square"/>
+    <g id="fig8_runs-line2d_55">
+     <path d="M 198.634469 28.014004 
+L 204.234469 28.014004 
+L 209.834469 28.014004 
+" style="fill: none; stroke: var(--fig-gpt-62a, #33333b); stroke-linecap: square"/>
      <g>
-      <use xlink:href="#fig8_runs-m6e7e6cbf4b" x="204.234469" y="34.949473" style="fill: var(--fig-gpt-6, #4b4b55); stroke: var(--fig-gpt-6, #4b4b55)"/>
+      <use xlink:href="#fig8_runs-m7593e452b0" x="204.234469" y="28.014004" style="fill: var(--fig-gpt-62a, #33333b); stroke: var(--fig-gpt-62a, #33333b)"/>
      </g>
     </g>
     <g id="fig8_runs-text_28">
-     <text style="font-size: 5.6px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: start; fill: var(--fig-ink, #1d2433)" x="211.514469" y="36.909473" transform="rotate(-0 211.514469 36.909473)">GPT-6 Astra</text>
+     <text style="font-size: 5.6px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: start; fill: var(--fig-ink, #1d2433)" x="211.514469" y="29.974004" transform="rotate(-0 211.514469 29.974004)">GPT-6.2 Astra</text>
     </g>
-    <g id="fig8_runs-line2d_54">
-     <path d="M 198.634469 41.884941 
-L 204.234469 41.884941 
-L 209.834469 41.884941 
-" style="fill: none; stroke: var(--fig-gpt-55, #7c7c87); stroke-linecap: square"/>
+    <g id="fig8_runs-line2d_56">
+     <path d="M 198.634469 34.949473 
+L 204.234469 34.949473 
+L 209.834469 34.949473 
+" style="fill: none; stroke: var(--fig-gpt-61, #4b4b55); stroke-linecap: square"/>
      <g>
-      <use xlink:href="#fig8_runs-m3c1e19494d" x="204.234469" y="41.884941" style="fill: var(--fig-gpt-55, #7c7c87); stroke: var(--fig-gpt-55, #7c7c87)"/>
+      <use xlink:href="#fig8_runs-m6e7e6cbf4b" x="204.234469" y="34.949473" style="fill: var(--fig-gpt-61, #4b4b55); stroke: var(--fig-gpt-61, #4b4b55)"/>
      </g>
     </g>
     <g id="fig8_runs-text_29">
-     <text style="font-size: 5.6px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: start; fill: var(--fig-ink, #1d2433)" x="211.514469" y="43.844941" transform="rotate(-0 211.514469 43.844941)">GPT-5.5</text>
+     <text style="font-size: 5.6px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: start; fill: var(--fig-ink, #1d2433)" x="211.514469" y="36.909473" transform="rotate(-0 211.514469 36.909473)">GPT-6.1 Sol</text>
     </g>
-    <g id="fig8_runs-line2d_55">
-     <path d="M 198.634469 48.82041 
-L 204.234469 48.82041 
-L 209.834469 48.82041 
-" style="fill: none; stroke: #4285f4; stroke-linecap: square"/>
+    <g id="fig8_runs-line2d_57">
+     <path d="M 198.634469 41.884941 
+L 204.234469 41.884941 
+L 209.834469 41.884941 
+" style="fill: none; stroke: var(--fig-gpt-6, #63636e); stroke-linecap: square"/>
      <g>
-      <use xlink:href="#fig8_runs-m9eb0b71b32" x="204.234469" y="48.82041" style="fill: #4285f4; stroke: #4285f4"/>
+      <use xlink:href="#fig8_runs-maf3683e149" x="204.234469" y="41.884941" style="fill: var(--fig-gpt-6, #63636e); stroke: var(--fig-gpt-6, #63636e)"/>
      </g>
     </g>
     <g id="fig8_runs-text_30">
-     <text style="font-size: 5.6px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: start; fill: var(--fig-ink, #1d2433)" x="211.514469" y="50.78041" transform="rotate(-0 211.514469 50.78041)">Gemini 4 Carbon</text>
+     <text style="font-size: 5.6px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: start; fill: var(--fig-ink, #1d2433)" x="211.514469" y="43.844941" transform="rotate(-0 211.514469 43.844941)">GPT-6 Astra</text>
     </g>
-    <g id="fig8_runs-line2d_56">
-     <path d="M 198.634469 55.755879 
-L 204.234469 55.755879 
-L 209.834469 55.755879 
-" style="fill: none; stroke: #4285f4; stroke-width: 0.8; stroke-linecap: square"/>
+    <g id="fig8_runs-line2d_58">
+     <path d="M 198.634469 48.82041 
+L 204.234469 48.82041 
+L 209.834469 48.82041 
+" style="fill: none; stroke: var(--fig-gpt-55, #7c7c87); stroke-linecap: square"/>
      <g>
-      <use xlink:href="#fig8_runs-m04732a4844" x="204.234469" y="55.755879" style="fill: var(--fig-bg, #ffffff); stroke: #4285f4"/>
+      <use xlink:href="#fig8_runs-m3c1e19494d" x="204.234469" y="48.82041" style="fill: var(--fig-gpt-55, #7c7c87); stroke: var(--fig-gpt-55, #7c7c87)"/>
      </g>
     </g>
     <g id="fig8_runs-text_31">
-     <text style="font-size: 5.6px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: start; fill: var(--fig-ink, #1d2433)" x="211.514469" y="57.715879" transform="rotate(-0 211.514469 57.715879)">Gemini 2.5 Pro</text>
+     <text style="font-size: 5.6px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: start; fill: var(--fig-ink, #1d2433)" x="211.514469" y="50.78041" transform="rotate(-0 211.514469 50.78041)">GPT-5.5</text>
     </g>
-    <g id="fig8_runs-line2d_57">
-     <path d="M 198.634469 62.691348 
-L 204.234469 62.691348 
-L 209.834469 62.691348 
-" style="fill: none; stroke: var(--fig-grey, #a3aab8); stroke-width: 0.8; stroke-linecap: square"/>
+    <g id="fig8_runs-line2d_59">
+     <path d="M 198.634469 55.755879 
+L 204.234469 55.755879 
+L 209.834469 55.755879 
+" style="fill: none; stroke: #4285f4; stroke-linecap: square"/>
      <g>
-      <use xlink:href="#fig8_runs-m38015c3035" x="204.234469" y="62.691348" style="fill: var(--fig-bg, #ffffff); stroke: var(--fig-grey, #a3aab8)"/>
+      <use xlink:href="#fig8_runs-m9eb0b71b32" x="204.234469" y="55.755879" style="fill: #4285f4; stroke: #4285f4"/>
      </g>
     </g>
     <g id="fig8_runs-text_32">
-     <text style="font-size: 5.6px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: start; fill: var(--fig-ink, #1d2433)" x="211.514469" y="64.651348" transform="rotate(-0 211.514469 64.651348)">7 open-weight models</text>
+     <text style="font-size: 5.6px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: start; fill: var(--fig-ink, #1d2433)" x="211.514469" y="57.715879" transform="rotate(-0 211.514469 57.715879)">Gemini 4 Carbon</text>
     </g>
-    <g id="fig8_runs-line2d_58">
-     <path d="M 198.634469 69.626816 
-L 204.234469 69.626816 
-L 209.834469 69.626816 
-" style="fill: none; stroke-dasharray: 4.44,1.92; stroke-dashoffset: 0; stroke: #d97757; stroke-width: 1.2"/>
+    <g id="fig8_runs-line2d_60">
+     <path d="M 198.634469 62.691348 
+L 204.234469 62.691348 
+L 209.834469 62.691348 
+" style="fill: none; stroke: #4285f4; stroke-width: 0.8; stroke-linecap: square"/>
      <g>
-      <use xlink:href="#fig8_runs-md7118a4696" x="204.234469" y="69.626816" style="fill: var(--fig-bg, #ffffff); stroke: #d97757"/>
+      <use xlink:href="#fig8_runs-m04732a4844" x="204.234469" y="62.691348" style="fill: var(--fig-bg, #ffffff); stroke: #4285f4"/>
      </g>
     </g>
     <g id="fig8_runs-text_33">
-     <text style="font-size: 5.6px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: start; fill: var(--fig-ink, #1d2433)" x="211.514469" y="71.586816" transform="rotate(-0 211.514469 71.586816)">Claude Opus 5.5, shuffled proteins</text>
+     <text style="font-size: 5.6px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: start; fill: var(--fig-ink, #1d2433)" x="211.514469" y="64.651348" transform="rotate(-0 211.514469 64.651348)">Gemini 2.5 Pro</text>
+    </g>
+    <g id="fig8_runs-line2d_61">
+     <path d="M 198.634469 69.626816 
+L 204.234469 69.626816 
+L 209.834469 69.626816 
+" style="fill: none; stroke: var(--fig-grey, #a3aab8); stroke-width: 0.8; stroke-linecap: square"/>
+     <g>
+      <use xlink:href="#fig8_runs-m38015c3035" x="204.234469" y="69.626816" style="fill: var(--fig-bg, #ffffff); stroke: var(--fig-grey, #a3aab8)"/>
+     </g>
+    </g>
+    <g id="fig8_runs-text_34">
+     <text style="font-size: 5.6px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: start; fill: var(--fig-ink, #1d2433)" x="211.514469" y="71.586816" transform="rotate(-0 211.514469 71.586816)">7 open-weight models</text>
+    </g>
+    <g id="fig8_runs-line2d_62">
+     <path d="M 198.634469 76.562285 
+L 204.234469 76.562285 
+L 209.834469 76.562285 
+" style="fill: none; stroke-dasharray: 4.44,1.92; stroke-dashoffset: 0; stroke: #d97757; stroke-width: 1.2"/>
+     <g>
+      <use xlink:href="#fig8_runs-md7118a4696" x="204.234469" y="76.562285" style="fill: var(--fig-bg, #ffffff); stroke: #d97757"/>
+     </g>
+    </g>
+    <g id="fig8_runs-text_35">
+     <text style="font-size: 5.6px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: start; fill: var(--fig-ink, #1d2433)" x="211.514469" y="78.522285" transform="rotate(-0 211.514469 78.522285)">Claude Opus 5.5, shuffled proteins</text>
     </g>
    </g>
   </g>
-  <g id="fig8_runs-text_34">
+  <g id="fig8_runs-text_36">
    <text style="font-weight: 700; font-size: 8.5px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: start; fill: var(--fig-ink, #1d2433)" x="4.598094" y="9.068232" transform="rotate(-0 4.598094 9.068232)">The latest Claude models write runs of correct residues; on shuffled proteins they cannot</text>
   </g>
-  <g id="fig8_runs-text_35">
+  <g id="fig8_runs-text_37">
    <text style="font-size: 6.2px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; fill: var(--fig-muted, #6b7385)" transform="translate(2.88 238.260921)">668 little-studied proteins. Share of replies whose first k residues are all right. On real proteins, Fable 5.2 gets</text>
    <text style="font-size: 6.2px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; fill: var(--fig-muted, #6b7385)" transform="translate(19.611281 246.11597)">11% to 5 in a row and 2.6% to all 10, Opus 5.5 3.0% and 0.4%; on shuffled proteins neither gets past 3.</text>
    <text style="font-size: 6.2px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; fill: var(--fig-muted, #6b7385)" transform="translate(59.857031 253.971019)">Hollow points: raw continuation of the FASTA text (Gemini 2.5 Pro, open-weight models).</text>

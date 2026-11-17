@@ -142,7 +142,7 @@ The test set is 668 bacterial and archaeal proteins from 167 Pfam families of un
 ## Results: only the latest Claude models predict them
 
 <figure class="bp-figure" markdown="0">
-  <div class="bp-svg" role="img" aria-label="Forest plot of the real-minus-shuffled gap for 20 language models: Claude Fable 5.2 at +45.1 points, Claude Opus 5.5 at +27.4, Claude Fable 5.1 at +14.9, earlier Claude Opus models up to 10, every other model between 0 and 3.">{% include llm-bioseq-probe/fig1_protein.svg %}</div>
+  <div class="bp-svg" role="img" aria-label="Forest plot of the real-minus-shuffled gap for 22 language models: Claude Fable 5.2 at +45.1 points, Claude Opus 5.5 at +27.4, Claude Fable 5.1 at +14.9, earlier Claude Opus models up to 10, every other model between 0 and 3.">{% include llm-bioseq-probe/fig1_protein.svg %}</div>
   <figcaption>Filled points: the chat prompt. Hollow points: raw next-token continuation of the FASTA text, through a completion endpoint or a prefilled reply, for models that allow it.</figcaption>
 </figure>
 
@@ -171,7 +171,7 @@ They are. Opus 5.5 rises with the two protein language models, ProtGPT3-10B and 
 Two other explanations don't fit:
 
 - **Papers.** In the 128 families with no papers at all, both models do as well as on the whole set.
-- **Reasoning.** Most answers involve no thinking at all: the API reports thinking tokens on 9% of Fable 5.2's answers and 36% of Opus 5.5's. The answers without thinking are just as accurate. GPT-6 Astra and GPT-6.1 Sol think for hundreds of tokens per question and stay near zero.
+- **Reasoning.** Most answers involve no thinking at all: the API reports thinking tokens on 9% of Fable 5.2's answers and 36% of Opus 5.5's. The answers without thinking are just as accurate. GPT-6 Astra and GPT-6.1 Sol think for hundreds of tokens per question, GPT-6.2 Sol and Astra answer about as briefly as Claude, and all four stay near zero.
 
 ## Famous proteins and variant ranking
 
@@ -261,7 +261,7 @@ ProtGPT3-10B gets more answers right than Opus 5.5 (38.4% vs 34.9%) but also mor
 - **No instruction.** Sent the sequence alone, GPT-5.5 and Opus 5.5 almost always describe it instead of continuing it (on a sample of 400 questions each), so chat models need the instruction.
 - **Claude Fable 5.** Anthropic's usage-policy filter blocked 44% of Fable 5's questions, so it is left out of the main figures. On the questions it answered its gap is 13.9 points; counting blocked questions as wrong gives 11.6, and keeping only the cuts answered on both the real and the shuffled protein gives 14.6, close to Fable 5.1's 14.9. Fable 5.1 and 5.2 were blocked 2.5% and 0% of the time.
 - **Repeat runs.** Asked 400 of the same questions again, Fable 5.2 scores 57.5% on real and 9.5% on shuffled proteins, against 57.5% and 8.5% the first time.
-- **A first round.** A smaller run of 23 models on 37 families, half well-known and half obscure, gave the same picture and set the design of the main run.
+- **A first round.** A smaller run of 25 models on 37 families, half well-known and half obscure, gave the same picture and set the design of the main run.
 
 ### E. Methods
 
@@ -301,4 +301,4 @@ Total API cost was about $730, plus a few dollars of GPU time for the protein la
 
 ### F. Safety behaviour seen along the way
 
-Gemini 4 Carbon blocked about 75% of DNA prompts outright. OpenAI rejected 23 GPT-6 requests in the first round and 17 GPT-6.1 Sol requests in the main run as possible biological misuse. Claude Sonnet 4.5 refused 97% of requests that started its reply with a protein sequence, and Anthropic's filter blocked 44% of Claude Fable 5's questions as cyber content.
+Gemini 4 Carbon blocked about 75% of DNA prompts outright. OpenAI rejected 23 GPT-6 requests in the first round and 17 GPT-6.1 Sol requests in the main run as possible biological misuse, and 6.6% of GPT-6.2 Astra's main-set questions (GPT-6.2 Sol: 0.6%). Claude Sonnet 4.5 refused 97% of requests that started its reply with a protein sequence, and Anthropic's filter blocked 44% of Claude Fable 5's questions as cyber content.

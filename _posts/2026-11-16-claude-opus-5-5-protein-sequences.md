@@ -86,12 +86,12 @@ We give a model the start of a protein and ask for the next amino acids. Then we
   <figcaption>Percentages are Claude Opus 5.5's accuracy over all 668 proteins. The real row and its answer come from the test set; the shuffled row is schematic.</figcaption>
 </figure>
 
-The test set is 668 bacterial and archaeal proteins from 167 Pfam families of unknown function. No family has a solved structure or more than three papers, and no protein has a close relative in UniProt. Each protein is cut at five points, and we score the first residue after each cut. Thinking is at its lowest setting. Appendix F has the details.
+The test set is 668 bacterial and archaeal proteins from 167 Pfam families of unknown function. No family has a solved structure or more than three papers, and no protein has a close relative in UniProt. Each protein is cut at five points, and we score the first residue after each cut. Thinking is at its lowest setting. Appendix E has the details.
 
 ## Results: only the latest Claude models predict them
 
 <figure class="bp-figure" markdown="0">
-  <img src="{{ '/assets/img/llm-bioseq-probe/fig1_protein.png' | relative_url }}?v=20261117g" alt="Forest plot of the real-minus-shuffled gap for 20 language models: Claude Fable 5.2 at +45.1 points, Claude Opus 5.5 at +27.4, Claude Fable 5.1 at +14.9, earlier Claude Opus models up to 10, every other model between 0 and 3.">
+  <img src="{{ '/assets/img/llm-bioseq-probe/fig1_protein.png' | relative_url }}?v=20261117h" alt="Forest plot of the real-minus-shuffled gap for 20 language models: Claude Fable 5.2 at +45.1 points, Claude Opus 5.5 at +27.4, Claude Fable 5.1 at +14.9, earlier Claude Opus models up to 10, every other model between 0 and 3.">
   <figcaption>Filled points: the chat prompt. Hollow points: raw next-token continuation of the FASTA text, through a completion endpoint or a prefilled reply, for models that allow it.</figcaption>
 </figure>
 
@@ -102,20 +102,20 @@ Fable 5.2 gets the next amino acid right 54% of the time on real proteins and 9%
 Protein language models learn only from sequences, so they are the natural yardstick. The closest to an LLM is ProtGPT3<d-cite key="garibbo2026protgpt3"></d-cite>: it reads a protein left to right and predicts the next residue, and its 10-billion-parameter version is the largest open model of its kind. On the same input, Opus 5.5 matches it and Fable 5.2 beats it.
 
 <figure class="bp-figure" markdown="0">
-  <img src="{{ '/assets/img/llm-bioseq-probe/fig6_protein_lm.png' | relative_url }}?v=20261117g" alt="Dot plot: Claude Fable 5.2 +45.1 at the top, then ProtGPT3-10B +27.7 and Claude Opus 5.5 +27.4; ESM C 600M +13.0, ProtGPT3-1.3B +11.6, ProtGPT2 +10.2, ESM3-open +8.5 and ESM-2 650M +7.0 well below.">
+  <img src="{{ '/assets/img/llm-bioseq-probe/fig6_protein_lm.png' | relative_url }}?v=20261117h" alt="Dot plot: Claude Fable 5.2 +45.1 at the top, then ProtGPT3-10B +27.7 and Claude Opus 5.5 +27.4; ESM C 600M +13.0, ProtGPT3-1.3B +11.6, ProtGPT2 +10.2, ESM3-open +8.5 and ESM-2 650M +7.0 well below.">
 </figure>
 
-ESM models are trained to see both sides of a residue, so continuing from the left is harder for them. Appendix D has all seven models.
+ESM models are trained to see both sides of a residue, so continuing from the left is harder for them. Appendix C has all seven models.
 
 ## Evidence that this comes from training data
 
 If the models learned from sequences, families with more sequences should be easier. To test this over a wide range, we added 90 smaller families, down to 20 proteins each, for 257 families in all.
 
 <figure class="bp-figure" markdown="0">
-  <img src="{{ '/assets/img/llm-bioseq-probe/fig5_family_size.png' | relative_url }}?v=20261117g" alt="Line chart over seven family-size bins from 20 to over 10,000 proteins: Claude Opus 5.5 and ProtGPT3-10B rise together, almost on top of each other; Claude Fable 5.2 rises fastest and levels off from about 300 proteins; Fable 5.1 and Opus 5 rise at a lower level; GPT and Gemini stay at zero.">
+  <img src="{{ '/assets/img/llm-bioseq-probe/fig5_family_size.png' | relative_url }}?v=20261117h" alt="Line chart over seven family-size bins from 20 to over 10,000 proteins: Claude Opus 5.5 and ProtGPT3-10B rise together, almost on top of each other; Claude Fable 5.2 rises fastest and levels off from about 300 proteins; Fable 5.1 and Opus 4.7 to 5 rise at a lower level; Opus 4.5 and 4.6, GPT and Gemini stay at zero.">
 </figure>
 
-They are. Opus 5.5 and ProtGPT3-10B, which is trained on nothing but sequences, rise together, almost on top of each other. Fable 5.2 rises fastest and levels off at about 300 proteins per family. Earlier Claude models rise at a lower level, and GPT and Gemini stay at zero (all models: Appendix C).
+They are. Opus 5.5 and ProtGPT3-10B, which is trained on nothing but sequences, rise together, almost on top of each other. Fable 5.2 rises fastest and levels off at about 300 proteins per family. Earlier Claude models rise at a lower level, and GPT and Gemini stay at zero.
 
 Two other explanations don't fit:
 
@@ -127,7 +127,7 @@ Two other explanations don't fit:
 Famous proteins are a different story. Many models do well on them, and several recite hundreds of residues letter for letter (Appendix B), because these sequences are all over papers and the web. In a first round with famous and obscure proteins side by side, Gemini 4 Carbon was strong on the famous ones and dropped to almost nothing on the obscure ones. Opus 5.5 and ProtGPT3-10B held up.
 
 <figure class="bp-figure" markdown="0">
-  <img src="{{ '/assets/img/llm-bioseq-probe/fig3_known_vs_obscure.png' | relative_url }}?v=20261117g" alt="Dumbbell chart: on well-known proteins many models score high; on obscure proteins Claude Opus 5.5 and ProtGPT3-10B stay high while Gemini 4 Carbon drops to near zero.">
+  <img src="{{ '/assets/img/llm-bioseq-probe/fig3_known_vs_obscure.png' | relative_url }}?v=20261117h" alt="Dumbbell chart: on well-known proteins many models score high; on obscure proteins Claude Opus 5.5 and ProtGPT3-10B stay high while Gemini 4 Carbon drops to near zero.">
   <figcaption>This first round predates Fable 5.2 and GPT-6.1 Sol.</figcaption>
 </figure>
 
@@ -161,7 +161,7 @@ All code, test sets, model outputs and figures are in [llm-bioseq-probe](https:/
 ### A. DNA
 
 <figure class="bp-figure" markdown="0">
-  <img src="{{ '/assets/img/llm-bioseq-probe/fig2_dna.png' | relative_url }}?v=20261117g" alt="Forest plot by genomic region: Claude Opus 5.5 predicts human and mouse coding sequence; nothing clear elsewhere.">
+  <img src="{{ '/assets/img/llm-bioseq-probe/fig2_dna.png' | relative_url }}?v=20261117h" alt="Forest plot by genomic region: Claude Opus 5.5 predicts human and mouse coding sequence; nothing clear elsewhere.">
 </figure>
 
 220-nucleotide windows, 200 shown and 20 to predict, from hg38, mm39 and the bacterial genes behind the test proteins, 500 per region. Non-coding windows contain no repeats, and the control shuffles each window keeping its dinucleotide counts. Opus 5.5 wrote all 20 nucleotides right 25 times in 500 human coding windows; a blind guess does that about once in a trillion. Gemini 4 Carbon blocks most DNA prompts before answering, so it is not shown.
@@ -173,32 +173,24 @@ All code, test sets, model outputs and figures are in [llm-bioseq-probe](https:/
 **Every position.** Scored one position at a time, the gap falls slowly for Fable 5.2 and Opus 5.5. Fable 5.1 and Opus 4.7, 4.8 and 5 fade faster, and the other 14 models, including those run as raw continuation, stay near zero all the way.
 
 <figure class="bp-figure" markdown="0">
-  <img src="{{ '/assets/img/llm-bioseq-probe/fig7_by_position.png' | relative_url }}?v=20261117g" alt="Line chart: real-minus-shuffled gap at positions 1 to 10 of the reply; Claude Opus 5.5 falls from 27.4 to 18.5, Opus 4.7 to 5 from about 9 to between 2 and 5, other models near zero.">
+  <img src="{{ '/assets/img/llm-bioseq-probe/fig7_by_position.png' | relative_url }}?v=20261117h" alt="Line chart: real-minus-shuffled gap at positions 1 to 10 of the reply; Claude Opus 5.5 falls from 27.4 to 18.5, Opus 4.7 to 5 from about 9 to between 2 and 5, other models near zero.">
 </figure>
 
 **Runs in a row.** On shuffled proteins neither Fable 5.2 nor Opus 5.5 gets more than 3 residues in a row. Once on track they get surer: after one right residue, Opus 5.5 gets the next right 47% of the time, after four in a row 68%.
 
 <figure class="bp-figure" markdown="0">
-  <img src="{{ '/assets/img/llm-bioseq-probe/fig8_runs.png' | relative_url }}?v=20261117g" alt="Line chart: share of replies whose first k residues are all right; Claude Opus 5.5 starts at 35% and stays above other models out to 10 residues, while its shuffled curve drops to zero by 3.">
+  <img src="{{ '/assets/img/llm-bioseq-probe/fig8_runs.png' | relative_url }}?v=20261117h" alt="Line chart: share of replies whose first k residues are all right; Claude Opus 5.5 starts at 35% and stays above other models out to 10 residues, while its shuffled curve drops to zero by 3.">
 </figure>
 
 **Reciting well-known proteins.** At 158 points in well-studied proteins, each model was asked for the next 200 residues at once.
 
 <figure class="bp-figure" markdown="0">
-  <img src="{{ '/assets/img/llm-bioseq-probe/fig4_recall.png' | relative_url }}?v=20261117g" alt="Bar chart: how often each model continues a famous protein letter for letter for 50, 100 and 200 residues.">
+  <img src="{{ '/assets/img/llm-bioseq-probe/fig4_recall.png' | relative_url }}?v=20261117h" alt="Bar chart: how often each model continues a famous protein letter for letter for 50, 100 and 200 residues.">
 </figure>
 
 GPT-6.1 Sol never reaches 100 residues, and GPT-5.5 never gets past 2.
 
-### C. Family size for every model
-
-<figure class="bp-figure" markdown="0">
-  <img src="{{ '/assets/img/llm-bioseq-probe/fig5b_family_size_all.png' | relative_url }}?v=20261117g" alt="Line chart: the gap by family size for 12 language models and ProtGPT3-10B; Claude Fable 5.2, Opus 5.5 and ProtGPT3-10B rise steeply, Fable 5.1 and Opus 4.7 to 5 rise at a lower level, Opus 4.5 and 4.6, GPT and Gemini stay near zero.">
-</figure>
-
-Over all 257 families, the Spearman correlation between a family's gap and the log of its size is 0.50 for Opus 5.5, 0.46 for ProtGPT3-10B, 0.38 for Fable 5.2, and 0.30 to 0.48 for Fable 5.1 and Opus 4.7 to 5 (all p < 10<sup>-6</sup>); for Opus 4.5 and 4.6 it is about 0.
-
-### D. Protein language models
+### C. Protein language models
 
 | Model | Reads | Input | Real | Shuffled | Real minus shuffled, points (95% CI) |
 |---|---|---|---|---|---|
@@ -212,9 +204,10 @@ Over all 257 families, the Spearman correlation between a family's gap and the l
 
 ProtGPT3-10B gets more answers right than Opus 5.5 (38.4% vs 34.9%) but also more on shuffled proteins (10.7% vs 7.5%), because it knows amino acid composition better; the gap between the two, which is what each model knows about order, comes out the same. The last row is fill-in-the-blank rather than continuation: ESM-2 also sees the residues after the cut, which the LLMs never get. Every model first passed a sanity check on well-known proteins. Continuing ubiquitin and hemoglobin β from the left, ProtGPT3-10B gets 100% and 84% of residues right; with the whole protein and one residue masked, ESM-2 gets 80% of ubiquitin, ESM C and ESM3-open 100%. Masks are set on token ids, because the ESM SDK's "_" character is not ESM C's mask token. ProtGPT2 uses multi-residue tokens, so a residue's probability is the sum over the tokens that start with it; ProtGPT3 uses one token per residue.
 
-### E. Robustness
+### D. Robustness
 
 - **Across families.** The gap is positive in 98% of families for Fable 5.2 and 95% for Opus 5.5.
+- **Family size.** Over all 257 families, the Spearman correlation between a family's gap and the log of its size is 0.50 for Opus 5.5, 0.46 for ProtGPT3-10B, 0.38 for Fable 5.2, and 0.30 to 0.48 for Fable 5.1 and Opus 4.7 to 5 (all p < 10<sup>-6</sup>); for Opus 4.5 and 4.6 it is about 0.
 - **Papers.** In the 128 families with no papers at all, the gap is 45.9 points for Fable 5.2 and 26.8 for Opus 5.5, against 45.1 and 27.4 over all 167. For Opus 5.5 it still rises with family size there (Spearman 0.28, p = 0.001), and across families it is unrelated to the number of papers (Spearman 0.05).
 - **Prompt format.** Asking Opus 5.5 to copy the sequence first and then continue gives the same gap as the standard prompt (19.3 vs 19.8 points on the same subset of questions).
 - **Refusals.** Non-answers (1% for Opus 5.5) are excluded; counting them as wrong changes its gap by under 1 point. GPT-4o, DeepSeek, Qwen, Kimi, GLM and gpt-oss often declined to guess; a best-guess prompt made them answer, with the same result.
@@ -223,7 +216,7 @@ ProtGPT3-10B gets more answers right than Opus 5.5 (38.4% vs 34.9%) but also mor
 - **Repeat runs.** Asked 400 of the same questions again, Fable 5.2 scores 57.5% on real and 9.5% on shuffled proteins, against 57.5% and 8.5% the first time.
 - **A first round.** A smaller run of 20 models on 37 families, half well-known and half obscure, gave the same picture and set the design of the main run.
 
-### F. Methods
+### E. Methods
 
 **Choosing the proteins.** We started from every Pfam family whose name says "domain of unknown function" (DUF) or "protein of unknown function", and kept those with no structure in the PDB, at most 3 Europe PMC hits for the family's accession, and at least 300 member proteins. We binned them by size (300 to 1,000 proteins, 1,000 to 3,000, 3,000 to 10,000, over 10,000) and drew 50 families per bin at random; only 17 families qualify above 10,000, so the set has 167. From each family we took 4 proteins from UniProt that are unreviewed (TrEMBL), come from Bacteria or Archaea, are 120 to 800 residues long, use only the 20 standard amino acids, are not low-complexity (Shannon entropy above 3.9 bits per residue), and are alone in their UniRef90 cluster, so no other UniProt protein is 90% or more identical to them. That gives 668 proteins.
 
@@ -259,6 +252,6 @@ Each model runs through its own API with temperature 0 where it is accepted, thi
 
 Total API cost was about $700, plus a few dollars of GPU time for the protein language models.
 
-### G. Safety behaviour seen along the way
+### F. Safety behaviour seen along the way
 
 Gemini 4 Carbon blocked about 75% of DNA prompts outright. OpenAI rejected 23 GPT-6 requests in the first round and 17 GPT-6.1 Sol requests in the main run as possible biological misuse. Claude Sonnet 4.5 refused 97% of requests that started its reply with a protein sequence, and Anthropic's filter blocked 44% of Claude Fable 5's questions as cyber content.

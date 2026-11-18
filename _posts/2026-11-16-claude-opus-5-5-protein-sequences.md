@@ -166,7 +166,7 @@ If the models learned from sequences, families with more sequences should be eas
   <div class="bp-svg" role="img" aria-label="Line chart over seven family-size bins from 20 to over 10,000 proteins: Claude Opus 5.5, ProtGPT3-10B and ProGen3-3B rise together; Claude Fable 5.2 rises fastest and levels off from about 300 proteins; Fable 5.1 and Opus 4.7 to 5 rise at a lower level; Opus 4.5 and 4.6, GPT and Gemini stay near zero.">{% include llm-bioseq-probe/fig5_family_size.svg %}</div>
 </figure>
 
-They are. Opus 5.5 rises with the two protein language models, ProtGPT3-10B and ProGen3-3B, which are trained on nothing but sequences. Fable 5.2 rises fastest and levels off at about 300 proteins per family. Earlier Claude models rise at a lower level, and GPT and Gemini stay near zero.
+They are. Opus 5.5 rises with the two protein language models, ProtGPT3-10B and ProGen3-3B, which are trained on nothing but sequences. Fable 5.2 rises fastest and levels off at about 300 proteins per family. Earlier Claude models rise at a lower level, and GPT and Gemini stay near zero. The knowledge also carries over to proteins published after the training cutoff, with no close relative before it (Appendix G).
 
 Two other explanations don't fit:
 
@@ -302,3 +302,13 @@ Total API cost was about $730, plus a few dollars of GPU time for the protein la
 ### F. Safety behaviour seen along the way
 
 Gemini 4 Carbon blocked about 75% of DNA prompts outright. OpenAI rejected 23 GPT-6 requests in the first round and 17 GPT-6.1 Sol requests in the main run as possible biological misuse, and 6.6% of GPT-6.2 Astra's main-set questions (GPT-6.2 Sol: 0.6%). Claude Sonnet 4.5 refused 97% of requests that started its reply with a protein sequence, and Anthropic's filter blocked 44% of Claude Fable 5's questions as cyber content.
+
+### G. Proteins published after the training cutoff
+
+<figure class="bp-figure" markdown="0">
+  <div class="bp-svg" role="img" aria-label="Dumbbell chart: on 56 proteins first public in August 2026, Claude Fable 5.2 scores +22.1, Claude Opus 5.5 +13.4, ProGen3-3B +12.0, ProtGPT3-10B +6.7 and GPT-6.2 Sol -0.4; on the same families in the main set they score +40.2, +27.1, +27.7, +18.7 and +2.2.">{% include llm-bioseq-probe/fig9_after_cutoff.svg %}</div>
+</figure>
+
+Leo Tianlai Chen built a set of 56 proteins from 31 of the families that were first made public in August 2026, after the assumed 1 July training cutoff, and have no earlier relative at 50% identity or more. The models cannot have seen them or anything close. Both Claude models still predict them, Fable 5.2 ahead of both protein language models, while GPT-6.2 Sol stays at zero. Every model scores about half of what it scores on the same families in the main set, as expected for proteins this distant. What the latest Claude models learned carries over to new members of a family.
+
+The proteins were dated at their source, and none matches an earlier UniRef50 cluster at 50% identity or more. Cuts follow the main set's rules. With 56 proteins only gaps of about 14 points or more are reliably detected, and the 1 July cutoff is an assumption.

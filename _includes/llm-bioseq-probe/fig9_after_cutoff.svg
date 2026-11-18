@@ -1,0 +1,502 @@
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" id="fig9_after_cutoff" width="100%" viewBox="0 0 403.454156 245.788332" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-11-18T07:02:09.819383</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.11.2, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">#fig9_after_cutoff *{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="fig9_after_cutoff-figure_1">
+  <g id="fig9_after_cutoff-patch_1">
+   <path d="M 0 245.788332 
+L 403.454156 245.788332 
+L 403.454156 -0 
+L 0 -0 
+L 0 245.788332 
+z
+" style="fill: none"/>
+  </g>
+  <g id="fig9_after_cutoff-axes_1">
+   <g id="fig9_after_cutoff-patch_2">
+    <path d="M 129.349469 198.27717 
+L 386.029469 198.27717 
+L 386.029469 20.86917 
+L 129.349469 20.86917 
+z
+" style="fill: var(--fig-bg, #ffffff)"/>
+   </g>
+   <g id="fig9_after_cutoff-patch_3">
+    <path d="M 129.349469 51.406613 
+L 386.029469 51.406613 
+L 386.029469 25.231662 
+L 129.349469 25.231662 
+z
+" clip-path="url(#fig9_after_cutoff-p46f613bced)" style="fill: #d97757; opacity: 0.09"/>
+   </g>
+   <g id="fig9_after_cutoff-patch_4">
+    <path d="M 129.349469 80.489891 
+L 386.029469 80.489891 
+L 386.029469 54.31494 
+L 129.349469 54.31494 
+z
+" clip-path="url(#fig9_after_cutoff-p46f613bced)" style="fill: #d97757; opacity: 0.09"/>
+   </g>
+   <g id="fig9_after_cutoff-matplotlib.axis_1">
+    <g id="fig9_after_cutoff-xtick_1">
+     <g id="fig9_after_cutoff-line2d_1">
+      <path d="M 141.572326 198.27717 
+L 141.572326 20.86917 
+" clip-path="url(#fig9_after_cutoff-p46f613bced)" style="fill: none; stroke: var(--fig-grid, #eceef2); stroke-width: 0.5; stroke-linecap: square"/>
+     </g>
+     <g id="fig9_after_cutoff-line2d_2">
+      <defs>
+       <path id="fig9_after_cutoff-m8e9b2de2dc" d="M 0 0 
+L 0 2.5 
+" style="stroke: var(--fig-muted, #6b7385); stroke-width: 0.6"/>
+      </defs>
+      <g>
+       <use xlink:href="#fig9_after_cutoff-m8e9b2de2dc" x="141.572326" y="198.27717" style="fill: var(--fig-muted, #6b7385); stroke: var(--fig-muted, #6b7385); stroke-width: 0.6"/>
+      </g>
+     </g>
+     <g id="fig9_after_cutoff-text_1">
+      <text style="font-size: 6.5px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: middle; fill: var(--fig-muted, #6b7385)" x="141.572326" y="209.009348" transform="rotate(-0 141.572326 209.009348)">−10</text>
+     </g>
+    </g>
+    <g id="fig9_after_cutoff-xtick_2">
+     <g id="fig9_after_cutoff-line2d_3">
+      <path d="M 182.315183 198.27717 
+L 182.315183 20.86917 
+" clip-path="url(#fig9_after_cutoff-p46f613bced)" style="fill: none; stroke: var(--fig-grid, #eceef2); stroke-width: 0.5; stroke-linecap: square"/>
+     </g>
+     <g id="fig9_after_cutoff-line2d_4">
+      <g>
+       <use xlink:href="#fig9_after_cutoff-m8e9b2de2dc" x="182.315183" y="198.27717" style="fill: var(--fig-muted, #6b7385); stroke: var(--fig-muted, #6b7385); stroke-width: 0.6"/>
+      </g>
+     </g>
+     <g id="fig9_after_cutoff-text_2">
+      <text style="font-size: 6.5px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: middle; fill: var(--fig-muted, #6b7385)" x="182.315183" y="209.009348" transform="rotate(-0 182.315183 209.009348)">0</text>
+     </g>
+    </g>
+    <g id="fig9_after_cutoff-xtick_3">
+     <g id="fig9_after_cutoff-line2d_5">
+      <path d="M 223.05804 198.27717 
+L 223.05804 20.86917 
+" clip-path="url(#fig9_after_cutoff-p46f613bced)" style="fill: none; stroke: var(--fig-grid, #eceef2); stroke-width: 0.5; stroke-linecap: square"/>
+     </g>
+     <g id="fig9_after_cutoff-line2d_6">
+      <g>
+       <use xlink:href="#fig9_after_cutoff-m8e9b2de2dc" x="223.05804" y="198.27717" style="fill: var(--fig-muted, #6b7385); stroke: var(--fig-muted, #6b7385); stroke-width: 0.6"/>
+      </g>
+     </g>
+     <g id="fig9_after_cutoff-text_3">
+      <text style="font-size: 6.5px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: middle; fill: var(--fig-muted, #6b7385)" x="223.05804" y="209.009348" transform="rotate(-0 223.05804 209.009348)">10</text>
+     </g>
+    </g>
+    <g id="fig9_after_cutoff-xtick_4">
+     <g id="fig9_after_cutoff-line2d_7">
+      <path d="M 263.800897 198.27717 
+L 263.800897 20.86917 
+" clip-path="url(#fig9_after_cutoff-p46f613bced)" style="fill: none; stroke: var(--fig-grid, #eceef2); stroke-width: 0.5; stroke-linecap: square"/>
+     </g>
+     <g id="fig9_after_cutoff-line2d_8">
+      <g>
+       <use xlink:href="#fig9_after_cutoff-m8e9b2de2dc" x="263.800897" y="198.27717" style="fill: var(--fig-muted, #6b7385); stroke: var(--fig-muted, #6b7385); stroke-width: 0.6"/>
+      </g>
+     </g>
+     <g id="fig9_after_cutoff-text_4">
+      <text style="font-size: 6.5px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: middle; fill: var(--fig-muted, #6b7385)" x="263.800897" y="209.009348" transform="rotate(-0 263.800897 209.009348)">20</text>
+     </g>
+    </g>
+    <g id="fig9_after_cutoff-xtick_5">
+     <g id="fig9_after_cutoff-line2d_9">
+      <path d="M 304.543754 198.27717 
+L 304.543754 20.86917 
+" clip-path="url(#fig9_after_cutoff-p46f613bced)" style="fill: none; stroke: var(--fig-grid, #eceef2); stroke-width: 0.5; stroke-linecap: square"/>
+     </g>
+     <g id="fig9_after_cutoff-line2d_10">
+      <g>
+       <use xlink:href="#fig9_after_cutoff-m8e9b2de2dc" x="304.543754" y="198.27717" style="fill: var(--fig-muted, #6b7385); stroke: var(--fig-muted, #6b7385); stroke-width: 0.6"/>
+      </g>
+     </g>
+     <g id="fig9_after_cutoff-text_5">
+      <text style="font-size: 6.5px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: middle; fill: var(--fig-muted, #6b7385)" x="304.543754" y="209.009348" transform="rotate(-0 304.543754 209.009348)">30</text>
+     </g>
+    </g>
+    <g id="fig9_after_cutoff-xtick_6">
+     <g id="fig9_after_cutoff-line2d_11">
+      <path d="M 345.286612 198.27717 
+L 345.286612 20.86917 
+" clip-path="url(#fig9_after_cutoff-p46f613bced)" style="fill: none; stroke: var(--fig-grid, #eceef2); stroke-width: 0.5; stroke-linecap: square"/>
+     </g>
+     <g id="fig9_after_cutoff-line2d_12">
+      <g>
+       <use xlink:href="#fig9_after_cutoff-m8e9b2de2dc" x="345.286612" y="198.27717" style="fill: var(--fig-muted, #6b7385); stroke: var(--fig-muted, #6b7385); stroke-width: 0.6"/>
+      </g>
+     </g>
+     <g id="fig9_after_cutoff-text_6">
+      <text style="font-size: 6.5px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: middle; fill: var(--fig-muted, #6b7385)" x="345.286612" y="209.009348" transform="rotate(-0 345.286612 209.009348)">40</text>
+     </g>
+    </g>
+    <g id="fig9_after_cutoff-xtick_7">
+     <g id="fig9_after_cutoff-line2d_13">
+      <path d="M 386.029469 198.27717 
+L 386.029469 20.86917 
+" clip-path="url(#fig9_after_cutoff-p46f613bced)" style="fill: none; stroke: var(--fig-grid, #eceef2); stroke-width: 0.5; stroke-linecap: square"/>
+     </g>
+     <g id="fig9_after_cutoff-line2d_14">
+      <g>
+       <use xlink:href="#fig9_after_cutoff-m8e9b2de2dc" x="386.029469" y="198.27717" style="fill: var(--fig-muted, #6b7385); stroke: var(--fig-muted, #6b7385); stroke-width: 0.6"/>
+      </g>
+     </g>
+     <g id="fig9_after_cutoff-text_7">
+      <text style="font-size: 6.5px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: middle; fill: var(--fig-muted, #6b7385)" x="386.029469" y="209.009348" transform="rotate(-0 386.029469 209.009348)">50</text>
+     </g>
+    </g>
+    <g id="fig9_after_cutoff-text_8">
+     <text style="font-size: 7px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: middle; fill: var(--fig-ink, #1d2433)" x="257.689469" y="219.473459" transform="rotate(-0 257.689469 219.473459)">Next amino acid: real minus shuffled accuracy (percentage points)</text>
+    </g>
+   </g>
+   <g id="fig9_after_cutoff-matplotlib.axis_2">
+    <g id="fig9_after_cutoff-ytick_1">
+     <g id="fig9_after_cutoff-line2d_15"/>
+     <g id="fig9_after_cutoff-text_9">
+      <text style="font-weight: 700; font-size: 7px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: end; fill: var(--fig-ink, #1d2433)" x="125.849469" y="40.867233" transform="rotate(-0 125.849469 40.867233)">Claude Fable 5.2</text>
+     </g>
+    </g>
+    <g id="fig9_after_cutoff-ytick_2">
+     <g id="fig9_after_cutoff-line2d_16"/>
+     <g id="fig9_after_cutoff-text_10">
+      <text style="font-weight: 700; font-size: 7px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: end; fill: var(--fig-ink, #1d2433)" x="125.849469" y="69.950512" transform="rotate(-0 125.849469 69.950512)">Claude Opus 5.5</text>
+     </g>
+    </g>
+    <g id="fig9_after_cutoff-ytick_3">
+     <g id="fig9_after_cutoff-line2d_17"/>
+     <g id="fig9_after_cutoff-text_11">
+      <text style="font-size: 7px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: end; fill: #9b59b6" x="125.849469" y="99.03379" transform="rotate(-0 125.849469 99.03379)">ProGen3-3B</text>
+     </g>
+    </g>
+    <g id="fig9_after_cutoff-ytick_4">
+     <g id="fig9_after_cutoff-line2d_18"/>
+     <g id="fig9_after_cutoff-text_12">
+      <text style="font-size: 7px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: end; fill: #9b59b6" x="125.849469" y="128.117069" transform="rotate(-0 125.849469 128.117069)">ProtGPT3-10B</text>
+     </g>
+    </g>
+    <g id="fig9_after_cutoff-ytick_5">
+     <g id="fig9_after_cutoff-line2d_19"/>
+     <g id="fig9_after_cutoff-text_13">
+      <text style="font-size: 7px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: end; fill: var(--fig-ink, #1d2433)" x="125.849469" y="157.200348" transform="rotate(-0 125.849469 157.200348)">GPT-6.2 Sol</text>
+     </g>
+    </g>
+   </g>
+   <g id="fig9_after_cutoff-line2d_20">
+    <path d="M 272.356897 38.319137 
+L 345.938497 38.319137 
+" clip-path="url(#fig9_after_cutoff-p46f613bced)" style="fill: none; stroke: var(--fig-light, #d3d7df); stroke-width: 1.2; stroke-linecap: square"/>
+   </g>
+   <g id="fig9_after_cutoff-line2d_21">
+    <path d="M 237.073583 67.402416 
+L 292.728326 67.402416 
+" clip-path="url(#fig9_after_cutoff-p46f613bced)" style="fill: none; stroke: var(--fig-light, #d3d7df); stroke-width: 1.2; stroke-linecap: square"/>
+   </g>
+   <g id="fig9_after_cutoff-line2d_22">
+    <path d="M 231.369583 96.485695 
+L 295.335869 96.485695 
+" clip-path="url(#fig9_after_cutoff-p46f613bced)" style="fill: none; stroke: var(--fig-light, #d3d7df); stroke-width: 1.2; stroke-linecap: square"/>
+   </g>
+   <g id="fig9_after_cutoff-line2d_23">
+    <path d="M 209.490669 125.568973 
+L 258.545069 125.568973 
+" clip-path="url(#fig9_after_cutoff-p46f613bced)" style="fill: none; stroke: var(--fig-light, #d3d7df); stroke-width: 1.2; stroke-linecap: square"/>
+   </g>
+   <g id="fig9_after_cutoff-line2d_24">
+    <path d="M 180.84844 154.652252 
+L 191.482326 154.652252 
+" clip-path="url(#fig9_after_cutoff-p46f613bced)" style="fill: none; stroke: var(--fig-light, #d3d7df); stroke-width: 1.2; stroke-linecap: square"/>
+   </g>
+   <g id="fig9_after_cutoff-line2d_25">
+    <path d="M 232.021469 38.319137 
+L 313.303469 38.319137 
+" clip-path="url(#fig9_after_cutoff-p46f613bced)" style="fill: none; stroke: var(--fig-c-f52, #9c3a1c); stroke-width: 1.6; stroke-linecap: round"/>
+   </g>
+   <g id="fig9_after_cutoff-line2d_26">
+    <path d="M 207.738726 67.402416 
+L 268.608554 67.402416 
+" clip-path="url(#fig9_after_cutoff-p46f613bced)" style="fill: none; stroke: #d97757; stroke-width: 1.6; stroke-linecap: round"/>
+   </g>
+   <g id="fig9_after_cutoff-line2d_27">
+    <path d="M 202.034726 96.485695 
+L 264.249069 96.485695 
+" clip-path="url(#fig9_after_cutoff-p46f613bced)" style="fill: none; stroke: #9b59b6; stroke-width: 1.6; stroke-linecap: round"/>
+   </g>
+   <g id="fig9_after_cutoff-line2d_28">
+    <path d="M 178.363126 125.568973 
+L 241.88124 125.568973 
+" clip-path="url(#fig9_after_cutoff-p46f613bced)" style="fill: none; stroke: #9b59b6; stroke-width: 1.6; stroke-linecap: round"/>
+   </g>
+   <g id="fig9_after_cutoff-line2d_29">
+    <path d="M 160.110326 154.652252 
+L 202.197697 154.652252 
+" clip-path="url(#fig9_after_cutoff-p46f613bced)" style="fill: none; stroke: var(--fig-gpt-62s, #18181c); stroke-width: 1.6; stroke-linecap: round"/>
+   </g>
+   <g id="fig9_after_cutoff-line2d_30">
+    <path d="M 182.315183 198.27717 
+L 182.315183 20.86917 
+" clip-path="url(#fig9_after_cutoff-p46f613bced)" style="fill: none; stroke: var(--fig-muted, #6b7385); stroke-width: 0.6; stroke-linecap: square"/>
+   </g>
+   <g id="fig9_after_cutoff-patch_5">
+    <path d="M 129.349469 198.27717 
+L 386.029469 198.27717 
+" style="fill: none; stroke: var(--fig-muted, #6b7385); stroke-width: 0.6; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="fig9_after_cutoff-line2d_31">
+    <defs>
+     <path id="fig9_after_cutoff-m6362f67648" d="M 0 2.3 
+C 0.609967 2.3 1.195034 2.057657 1.626346 1.626346 
+C 2.057657 1.195034 2.3 0.609967 2.3 0 
+C 2.3 -0.609967 2.057657 -1.195034 1.626346 -1.626346 
+C 1.195034 -2.057657 0.609967 -2.3 0 -2.3 
+C -0.609967 -2.3 -1.195034 -2.057657 -1.626346 -1.626346 
+C -2.057657 -1.195034 -2.3 -0.609967 -2.3 0 
+C -2.3 0.609967 -2.057657 1.195034 -1.626346 1.626346 
+C -1.195034 2.057657 -0.609967 2.3 0 2.3 
+z
+" style="stroke: var(--fig-c-f52, #9c3a1c); stroke-width: 1.1"/>
+    </defs>
+    <g clip-path="url(#fig9_after_cutoff-p46f613bced)">
+     <use xlink:href="#fig9_after_cutoff-m6362f67648" x="345.938497" y="38.319137" style="fill: var(--fig-bg, #ffffff); stroke: var(--fig-c-f52, #9c3a1c); stroke-width: 1.1"/>
+    </g>
+   </g>
+   <g id="fig9_after_cutoff-text_14">
+    <text style="font-weight: 700; font-size: 6.6px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: end; fill: var(--fig-ink, #1d2433)" x="227.132326" y="40.027145" transform="rotate(-0 227.132326 40.027145)">+22.1</text>
+   </g>
+   <g id="fig9_after_cutoff-line2d_32">
+    <defs>
+     <path id="fig9_after_cutoff-m0e99ca9b87" d="M 0 2.3 
+C 0.609967 2.3 1.195034 2.057657 1.626346 1.626346 
+C 2.057657 1.195034 2.3 0.609967 2.3 0 
+C 2.3 -0.609967 2.057657 -1.195034 1.626346 -1.626346 
+C 1.195034 -2.057657 0.609967 -2.3 0 -2.3 
+C -0.609967 -2.3 -1.195034 -2.057657 -1.626346 -1.626346 
+C -2.057657 -1.195034 -2.3 -0.609967 -2.3 0 
+C -2.3 0.609967 -2.057657 1.195034 -1.626346 1.626346 
+C -1.195034 2.057657 -0.609967 2.3 0 2.3 
+z
+" style="stroke: #d97757; stroke-width: 1.1"/>
+    </defs>
+    <g clip-path="url(#fig9_after_cutoff-p46f613bced)">
+     <use xlink:href="#fig9_after_cutoff-m0e99ca9b87" x="292.728326" y="67.402416" style="fill: var(--fig-bg, #ffffff); stroke: #d97757; stroke-width: 1.1"/>
+    </g>
+   </g>
+   <g id="fig9_after_cutoff-text_15">
+    <text style="font-weight: 700; font-size: 6.6px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: end; fill: var(--fig-ink, #1d2433)" x="202.849583" y="69.110424" transform="rotate(-0 202.849583 69.110424)">+13.4</text>
+   </g>
+   <g id="fig9_after_cutoff-line2d_33">
+    <defs>
+     <path id="fig9_after_cutoff-m788520f3b8" d="M -0 3.252691 
+L 3.252691 0 
+L 0 -3.252691 
+L -3.252691 -0 
+z
+" style="stroke: #9b59b6; stroke-width: 1.1; stroke-linejoin: miter"/>
+    </defs>
+    <g clip-path="url(#fig9_after_cutoff-p46f613bced)">
+     <use xlink:href="#fig9_after_cutoff-m788520f3b8" x="295.335869" y="96.485695" style="fill: var(--fig-bg, #ffffff); stroke: #9b59b6; stroke-width: 1.1; stroke-linejoin: miter"/>
+    </g>
+   </g>
+   <g id="fig9_after_cutoff-text_16">
+    <g id="fig9_after_cutoff-patch_6">
+     <path d="M 180.116552 99.912667 
+L 197.475583 99.912667 
+L 197.475583 93.058722 
+L 180.116552 93.058722 
+z
+" style="fill: var(--fig-bg, #ffffff)"/>
+    </g>
+    <text style="font-size: 6.6px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: end; fill: var(--fig-muted, #6b7385)" x="197.145583" y="98.193702" transform="rotate(-0 197.145583 98.193702)">+12.0</text>
+   </g>
+   <g id="fig9_after_cutoff-line2d_34">
+    <g clip-path="url(#fig9_after_cutoff-p46f613bced)">
+     <use xlink:href="#fig9_after_cutoff-m788520f3b8" x="258.545069" y="125.568973" style="fill: var(--fig-bg, #ffffff); stroke: #9b59b6; stroke-width: 1.1; stroke-linejoin: miter"/>
+    </g>
+   </g>
+   <g id="fig9_after_cutoff-text_17">
+    <g id="fig9_after_cutoff-patch_7">
+     <path d="M 160.115171 128.995946 
+L 173.803983 128.995946 
+L 173.803983 122.142001 
+L 160.115171 122.142001 
+z
+" style="fill: var(--fig-bg, #ffffff)"/>
+    </g>
+    <text style="font-size: 6.6px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: end; fill: var(--fig-muted, #6b7385)" x="173.473983" y="127.276981" transform="rotate(-0 173.473983 127.276981)">+6.7</text>
+   </g>
+   <g id="fig9_after_cutoff-line2d_35">
+    <defs>
+     <path id="fig9_after_cutoff-m35326455fe" d="M 0 2.3 
+C 0.609967 2.3 1.195034 2.057657 1.626346 1.626346 
+C 2.057657 1.195034 2.3 0.609967 2.3 0 
+C 2.3 -0.609967 2.057657 -1.195034 1.626346 -1.626346 
+C 1.195034 -2.057657 0.609967 -2.3 0 -2.3 
+C -0.609967 -2.3 -1.195034 -2.057657 -1.626346 -1.626346 
+C -2.057657 -1.195034 -2.3 -0.609967 -2.3 0 
+C -2.3 0.609967 -2.057657 1.195034 -1.626346 1.626346 
+C -1.195034 2.057657 -0.609967 2.3 0 2.3 
+z
+" style="stroke: var(--fig-gpt-62s, #18181c); stroke-width: 1.1"/>
+    </defs>
+    <g clip-path="url(#fig9_after_cutoff-p46f613bced)">
+     <use xlink:href="#fig9_after_cutoff-m35326455fe" x="191.482326" y="154.652252" style="fill: var(--fig-bg, #ffffff); stroke: var(--fig-gpt-62s, #18181c); stroke-width: 1.1"/>
+    </g>
+   </g>
+   <g id="fig9_after_cutoff-text_18">
+    <g id="fig9_after_cutoff-patch_8">
+     <path d="M 143.519589 158.079225 
+L 155.551183 158.079225 
+L 155.551183 151.225279 
+L 143.519589 151.225279 
+z
+" style="fill: var(--fig-bg, #ffffff)"/>
+    </g>
+    <text style="font-size: 6.6px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: end; fill: var(--fig-muted, #6b7385)" x="155.221183" y="156.36026" transform="rotate(-0 155.221183 156.36026)">-0.4</text>
+   </g>
+   <g id="fig9_after_cutoff-line2d_36">
+    <defs>
+     <path id="fig9_after_cutoff-m0d9dc41f11" d="M 0 2.4 
+C 0.636487 2.4 1.246992 2.147121 1.697056 1.697056 
+C 2.147121 1.246992 2.4 0.636487 2.4 0 
+C 2.4 -0.636487 2.147121 -1.246992 1.697056 -1.697056 
+C 1.246992 -2.147121 0.636487 -2.4 0 -2.4 
+C -0.636487 -2.4 -1.246992 -2.147121 -1.697056 -1.697056 
+C -2.147121 -1.246992 -2.4 -0.636487 -2.4 0 
+C -2.4 0.636487 -2.147121 1.246992 -1.697056 1.697056 
+C -1.246992 2.147121 -0.636487 2.4 0 2.4 
+z
+" style="stroke: var(--fig-c-f52, #9c3a1c)"/>
+    </defs>
+    <g clip-path="url(#fig9_after_cutoff-p46f613bced)">
+     <use xlink:href="#fig9_after_cutoff-m0d9dc41f11" x="272.356897" y="38.319137" style="fill: var(--fig-c-f52, #9c3a1c); stroke: var(--fig-c-f52, #9c3a1c)"/>
+    </g>
+   </g>
+   <g id="fig9_after_cutoff-line2d_37">
+    <defs>
+     <path id="fig9_after_cutoff-m5840d31efe" d="M 0 2.4 
+C 0.636487 2.4 1.246992 2.147121 1.697056 1.697056 
+C 2.147121 1.246992 2.4 0.636487 2.4 0 
+C 2.4 -0.636487 2.147121 -1.246992 1.697056 -1.697056 
+C 1.246992 -2.147121 0.636487 -2.4 0 -2.4 
+C -0.636487 -2.4 -1.246992 -2.147121 -1.697056 -1.697056 
+C -2.147121 -1.246992 -2.4 -0.636487 -2.4 0 
+C -2.4 0.636487 -2.147121 1.246992 -1.697056 1.697056 
+C -1.246992 2.147121 -0.636487 2.4 0 2.4 
+z
+" style="stroke: #d97757"/>
+    </defs>
+    <g clip-path="url(#fig9_after_cutoff-p46f613bced)">
+     <use xlink:href="#fig9_after_cutoff-m5840d31efe" x="237.073583" y="67.402416" style="fill: #d97757; stroke: #d97757"/>
+    </g>
+   </g>
+   <g id="fig9_after_cutoff-line2d_38">
+    <defs>
+     <path id="fig9_after_cutoff-m9801e5300b" d="M -0 3.394113 
+L 3.394113 0 
+L 0 -3.394113 
+L -3.394113 -0 
+z
+" style="stroke: #9b59b6; stroke-linejoin: miter"/>
+    </defs>
+    <g clip-path="url(#fig9_after_cutoff-p46f613bced)">
+     <use xlink:href="#fig9_after_cutoff-m9801e5300b" x="231.369583" y="96.485695" style="fill: #9b59b6; stroke: #9b59b6; stroke-linejoin: miter"/>
+    </g>
+   </g>
+   <g id="fig9_after_cutoff-line2d_39">
+    <g clip-path="url(#fig9_after_cutoff-p46f613bced)">
+     <use xlink:href="#fig9_after_cutoff-m9801e5300b" x="209.490669" y="125.568973" style="fill: #9b59b6; stroke: #9b59b6; stroke-linejoin: miter"/>
+    </g>
+   </g>
+   <g id="fig9_after_cutoff-line2d_40">
+    <defs>
+     <path id="fig9_after_cutoff-m2a7500c524" d="M 0 2.4 
+C 0.636487 2.4 1.246992 2.147121 1.697056 1.697056 
+C 2.147121 1.246992 2.4 0.636487 2.4 0 
+C 2.4 -0.636487 2.147121 -1.246992 1.697056 -1.697056 
+C 1.246992 -2.147121 0.636487 -2.4 0 -2.4 
+C -0.636487 -2.4 -1.246992 -2.147121 -1.697056 -1.697056 
+C -2.147121 -1.246992 -2.4 -0.636487 -2.4 0 
+C -2.4 0.636487 -2.147121 1.246992 -1.697056 1.697056 
+C -1.246992 2.147121 -0.636487 2.4 0 2.4 
+z
+" style="stroke: var(--fig-gpt-62s, #18181c)"/>
+    </defs>
+    <g clip-path="url(#fig9_after_cutoff-p46f613bced)">
+     <use xlink:href="#fig9_after_cutoff-m2a7500c524" x="180.84844" y="154.652252" style="fill: var(--fig-gpt-62s, #18181c); stroke: var(--fig-gpt-62s, #18181c)"/>
+    </g>
+   </g>
+   <g id="fig9_after_cutoff-legend_1">
+    <g id="fig9_after_cutoff-line2d_41">
+     <defs>
+      <path id="fig9_after_cutoff-m6784667e0d" d="M 0 2.3 
+C 0.609967 2.3 1.195034 2.057657 1.626346 1.626346 
+C 2.057657 1.195034 2.3 0.609967 2.3 0 
+C 2.3 -0.609967 2.057657 -1.195034 1.626346 -1.626346 
+C 1.195034 -2.057657 0.609967 -2.3 0 -2.3 
+C -0.609967 -2.3 -1.195034 -2.057657 -1.626346 -1.626346 
+C -2.057657 -1.195034 -2.3 -0.609967 -2.3 0 
+C -2.3 0.609967 -2.057657 1.195034 -1.626346 1.626346 
+C -1.195034 2.057657 -0.609967 2.3 0 2.3 
+z
+" style="stroke: var(--fig-muted, #6b7385)"/>
+     </defs>
+     <g>
+      <use xlink:href="#fig9_after_cutoff-m6784667e0d" x="199.903844" y="180.883615" style="fill: var(--fig-muted, #6b7385); stroke: var(--fig-muted, #6b7385)"/>
+     </g>
+    </g>
+    <g id="fig9_after_cutoff-text_19">
+     <text style="font-size: 6px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: start; fill: var(--fig-ink, #1d2433)" x="207.703844" y="182.983615" transform="rotate(-0 207.703844 182.983615)">56 proteins first public in August 2026, no earlier relative at 50%+</text>
+    </g>
+    <g id="fig9_after_cutoff-line2d_42">
+     <defs>
+      <path id="fig9_after_cutoff-m45dbbe646a" d="M 0 2.3 
+C 0.609967 2.3 1.195034 2.057657 1.626346 1.626346 
+C 2.057657 1.195034 2.3 0.609967 2.3 0 
+C 2.3 -0.609967 2.057657 -1.195034 1.626346 -1.626346 
+C 1.195034 -2.057657 0.609967 -2.3 0 -2.3 
+C -0.609967 -2.3 -1.195034 -2.057657 -1.626346 -1.626346 
+C -2.057657 -1.195034 -2.3 -0.609967 -2.3 0 
+C -2.3 0.609967 -2.057657 1.195034 -1.626346 1.626346 
+C -1.195034 2.057657 -0.609967 2.3 0 2.3 
+z
+" style="stroke: var(--fig-muted, #6b7385); stroke-width: 1.1"/>
+     </defs>
+     <g>
+      <use xlink:href="#fig9_after_cutoff-m45dbbe646a" x="199.903844" y="189.514475" style="fill: var(--fig-bg, #ffffff); stroke: var(--fig-muted, #6b7385); stroke-width: 1.1"/>
+     </g>
+    </g>
+    <g id="fig9_after_cutoff-text_20">
+     <text style="font-size: 6px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: start; fill: var(--fig-ink, #1d2433)" x="207.703844" y="191.614475" transform="rotate(-0 207.703844 191.614475)">the same 31 families in the main set</text>
+    </g>
+   </g>
+  </g>
+  <g id="fig9_after_cutoff-text_21">
+   <text style="font-weight: 700; font-size: 8.5px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; text-anchor: start; fill: var(--fig-ink, #1d2433)" x="87.949469" y="9.068232" transform="rotate(-0 87.949469 9.068232)">The latest Claude models predict proteins published after their training cutoff</text>
+  </g>
+  <g id="fig9_after_cutoff-text_22">
+   <text style="font-size: 6.2px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; fill: var(--fig-muted, #6b7385)" transform="translate(59.1605 232.72904)">D set (Leo Tianlai Chen): RefSeq proteins first public 2 to 27 August 2026, after the assumed 1 July cutoff; closest earlier</text>
+   <text style="font-size: 6.2px; font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; fill: var(--fig-muted, #6b7385)" transform="translate(2.88 240.584089)">relative 34% to 49% identical. Mean over 31 families; bars: 95% bootstrap CI. Both protein language models drop as much from the main set.</text>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="fig9_after_cutoff-p46f613bced">
+   <rect x="129.349469" y="20.86917" width="256.68" height="177.408"/>
+  </clipPath>
+ </defs>
+</svg>

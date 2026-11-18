@@ -73,13 +73,13 @@ _styles: |
   }
   /* Keep the affiliation on one line in the byline. */
   d-byline .affiliation { white-space: nowrap; }
-  d-article {
+  d-article, .bp-peek {
     --bp-panel: #f6f7f9; --bp-ink: #1d2433; --bp-body: #3c4454; --bp-muted: #6b7385;
     --bp-faint: #b4bac6; --bp-line: #d9dde4; --bp-bead: #ffffff;
     --bp-accent: #d97757; --bp-accent-text: #b4532f; --bp-accent-soft: #fbeee8;
     --bp-good: #2f8a5f; --bp-bad: #c2453d; --bp-chip: #1d2433; --bp-chip-text: #ffffff;
   }
-  html[data-theme='dark'] d-article {
+  html[data-theme='dark'] d-article, html[data-theme='dark'] .bp-peek {
     --bp-panel: #20242c; --bp-ink: #eef0f4; --bp-body: #cdd2db; --bp-muted: #9aa2b2;
     --bp-faint: #6c7484; --bp-line: #3a404c; --bp-bead: #2a2f39;
     --bp-accent: #e08a6c; --bp-accent-text: #eda48a; --bp-accent-soft: #4a3229;
@@ -104,9 +104,20 @@ _styles: |
   }
   d-article figure.bp-figure img, d-article figure.bp-figure svg { display: block; width: 100%; height: auto; }
   /* Data figures are inline SVG; their colours follow the page theme. */
-  d-article { --fig-ink: #1d2433; --fig-muted: #6b7385; --fig-grid: #eceef2; --fig-grey: #a3aab8; --fig-light: #d3d7df; --fig-bg: #ffffff; --fig-accent-text: #b4532f; --fig-gpt-62s: #18181c; --fig-gpt-62a: #33333b; --fig-gpt-61: #4b4b55; --fig-gpt-6: #63636e; --fig-gpt-55: #7c7c87; --fig-c-s45: #f6dfd4; --fig-c-o45: #f3d3c4; --fig-c-o46: #efc1ab; --fig-c-o47: #eaad92; --fig-c-o48: #e59c7d; --fig-c-o5: #df8a68; --fig-c-f51: #c0694c; --fig-c-f52: #9c3a1c; --fig-bar-50: #e6e9ef; --fig-bar-100: #c5cbd6; --fig-bar-200: #8b93a3; }
-  html[data-theme='dark'] d-article { --fig-ink: #e6e8ee; --fig-muted: #a0a8b8; --fig-grid: #30353f; --fig-grey: #7d8596; --fig-light: #4a505c; --fig-bg: var(--global-bg-color, #1c1c1d); --fig-accent-text: #eda48a; --fig-gpt-62s: #f2f2f6; --fig-gpt-62a: #d4d4dc; --fig-gpt-61: #c2c2cc; --fig-gpt-6: #a9a9b4; --fig-gpt-55: #8e8e9a; --fig-c-s45: #5e3e31; --fig-c-o45: #6a4535; --fig-c-o46: #7d4f3b; --fig-c-o47: #925a41; --fig-c-o48: #a86548; --fig-c-o5: #bf6f4e; --fig-c-f51: #e8906c; --fig-c-f52: #ffb08a; --fig-bar-50: #353a45; --fig-bar-100: #555c6a; --fig-bar-200: #8b93a3; }
+  d-article, .bp-peek { --fig-ink: #1d2433; --fig-muted: #6b7385; --fig-grid: #eceef2; --fig-grey: #a3aab8; --fig-light: #d3d7df; --fig-bg: #ffffff; --fig-accent-text: #b4532f; --fig-gpt-62s: #18181c; --fig-gpt-62a: #33333b; --fig-gpt-61: #4b4b55; --fig-gpt-6: #63636e; --fig-gpt-55: #7c7c87; --fig-c-s45: #f6dfd4; --fig-c-o45: #f3d3c4; --fig-c-o46: #efc1ab; --fig-c-o47: #eaad92; --fig-c-o48: #e59c7d; --fig-c-o5: #df8a68; --fig-c-f51: #c0694c; --fig-c-f52: #9c3a1c; --fig-bar-50: #e6e9ef; --fig-bar-100: #c5cbd6; --fig-bar-200: #8b93a3; }
+  html[data-theme='dark'] d-article, html[data-theme='dark'] .bp-peek { --fig-ink: #e6e8ee; --fig-muted: #a0a8b8; --fig-grid: #30353f; --fig-grey: #7d8596; --fig-light: #4a505c; --fig-bg: var(--global-bg-color, #1c1c1d); --fig-accent-text: #eda48a; --fig-gpt-62s: #f2f2f6; --fig-gpt-62a: #d4d4dc; --fig-gpt-61: #c2c2cc; --fig-gpt-6: #a9a9b4; --fig-gpt-55: #8e8e9a; --fig-c-s45: #5e3e31; --fig-c-o45: #6a4535; --fig-c-o46: #7d4f3b; --fig-c-o47: #925a41; --fig-c-o48: #a86548; --fig-c-o5: #bf6f4e; --fig-c-f51: #e8906c; --fig-c-f52: #ffb08a; --fig-bar-50: #353a45; --fig-bar-100: #555c6a; --fig-bar-200: #8b93a3; }
   d-article .bp-svg svg { display: block; width: 100%; height: auto; }
+  /* A reference to an appendix shows its first figure or table in place: on hover, or on click (which does not jump). */
+  d-article a.bp-xref { text-decoration: none; border-bottom: 1px dotted currentColor; }
+  .bp-peek {
+    position: fixed; z-index: 1000; width: min(640px, 92vw); max-height: 72vh; overflow: auto;
+    padding: 14px 16px; background: var(--global-bg-color); border: 1px solid var(--bp-line);
+    border-radius: 10px; box-shadow: 0 12px 32px rgba(0, 0, 0, 0.18);
+    opacity: 0; pointer-events: none; transition: opacity 0.12s;
+  }
+  .bp-peek.on { opacity: 1; pointer-events: auto; }
+  .bp-peek figure, .bp-peek table { margin: 0; }
+  .bp-peek svg { display: block; width: 100%; height: auto; }
   d-article figure.bp-figure figcaption {
     color: var(--bp-muted); font-size: 0.83rem; line-height: 1.45; margin-top: 0.65rem;
   }
@@ -137,7 +148,7 @@ We give a model the start of a protein and ask for the next amino acids. Then we
   <figcaption>Percentages are Claude Opus 5.5's accuracy over all 668 proteins. The real row and its answer come from the test set; the shuffled row is schematic.</figcaption>
 </figure>
 
-The test set is 668 bacterial and archaeal proteins from 167 Pfam families of unknown function. No family has a solved structure or more than three papers, and no protein has a close relative in UniProt. Each protein is cut at five points. At each cut the model writes the next 10 amino acids, and we score the first. Thinking is at its lowest setting. Appendix E has the details.
+The test set is 668 bacterial and archaeal proteins from 167 Pfam families of unknown function. No family has a solved structure or more than three papers, and no protein has a close relative in UniProt. Each protein is cut at five points. At each cut the model writes the next 10 amino acids, and we score the first. Thinking is at its lowest setting. <a class="bp-xref" href="#appendix-e">Appendix E</a> has the details.
 
 ## Results: only the latest Claude models predict them
 
@@ -146,7 +157,7 @@ The test set is 668 bacterial and archaeal proteins from 167 Pfam families of un
   <figcaption>Filled points: the chat prompt. Hollow points: raw next-token continuation of the FASTA text, through a completion endpoint or a prefilled reply, for models that allow it.</figcaption>
 </figure>
 
-Fable 5.2 gets the next amino acid right 54% of the time on real proteins and 9% on shuffled ones. The gap is there in nearly every family, not just a few easy ones. It appears in Opus 4.7, jumps in Opus 5.5, and jumps again in Fable 5.2. GPT, Gemini and the seven open-weight models (DeepSeek V4.1 Flash, Qwen 3.8, Kimi K3.1 Pro, GLM-5.3, MiniMax M3, gpt-oss-120b and Nemotron 3 Ultra) stay near zero, even when they simply continue raw FASTA text, the way they were trained. The latest Claude models also write runs of correct residues that other models rarely manage (Appendix B).
+Fable 5.2 gets the next amino acid right 54% of the time on real proteins and 9% on shuffled ones. The gap is there in nearly every family, not just a few easy ones. It appears in Opus 4.7, jumps in Opus 5.5, and jumps again in Fable 5.2. GPT, Gemini and the seven open-weight models (DeepSeek V4.1 Flash, Qwen 3.8, Kimi K3.1 Pro, GLM-5.3, MiniMax M3, gpt-oss-120b and Nemotron 3 Ultra) stay near zero, even when they simply continue raw FASTA text, the way they were trained. The latest Claude models also write runs of correct residues that other models rarely manage (<a class="bp-xref" href="#appendix-b">Appendix B</a>).
 
 ## Comparison with protein language models
 
@@ -156,7 +167,7 @@ Protein language models learn only from sequences, so they are the natural yards
   <div class="bp-svg" role="img" aria-label="Dot plot: Claude Fable 5.2 +45.1 at the top, then ProGen3-3B +32.5, ProtGPT3-10B +27.7 and Claude Opus 5.5 +27.4; ESM C 600M +13.0, ProtGPT3-1.3B +11.6, ProtGPT2 +10.2, ESM3-open +8.5 and ESM-2 650M +7.0 well below.">{% include llm-bioseq-probe/fig6_protein_lm.svg %}</div>
 </figure>
 
-ESM models are trained to see both sides of a residue, so continuing from the left is harder for them. Appendix C has all eight models.
+ESM models are trained to see both sides of a residue, so continuing from the left is harder for them. <a class="bp-xref" href="#appendix-c">Appendix C</a> has all eight models.
 
 ## Evidence that this comes from training data
 
@@ -166,7 +177,7 @@ If the models learned from sequences, families with more sequences should be eas
   <div class="bp-svg" role="img" aria-label="Line chart over seven family-size bins from 20 to over 10,000 proteins: Claude Opus 5.5, ProtGPT3-10B and ProGen3-3B rise together; Claude Fable 5.2 rises fastest and levels off from about 300 proteins; Fable 5.1 and Opus 4.7 to 5 rise at a lower level; Opus 4.5 and 4.6, GPT and Gemini stay near zero.">{% include llm-bioseq-probe/fig5_family_size.svg %}</div>
 </figure>
 
-They are. Opus 5.5 rises with the two protein language models, ProtGPT3-10B and ProGen3-3B, which are trained on nothing but sequences. Fable 5.2 rises fastest and levels off at about 300 proteins per family. Earlier Claude models rise at a lower level, and GPT and Gemini stay near zero. The knowledge also carries over to proteins published after the training cutoff, with no close relative before it (Appendix G).
+They are. Opus 5.5 rises with the two protein language models, ProtGPT3-10B and ProGen3-3B, which are trained on nothing but sequences. Fable 5.2 rises fastest and levels off at about 300 proteins per family. Earlier Claude models rise at a lower level, and GPT and Gemini stay near zero. The knowledge also carries over to proteins published after the training cutoff, with no close relative before it (<a class="bp-xref" href="#appendix-g">Appendix G</a>).
 
 Two other explanations don't fit:
 
@@ -175,7 +186,7 @@ Two other explanations don't fit:
 
 ## Famous proteins and variant ranking
 
-Famous proteins are a different story. Many models do well on them, and several recite hundreds of residues letter for letter (Appendix B), because these sequences are all over papers and the web. In a first round with famous and obscure proteins side by side, Gemini 4 Carbon was strong on the famous ones and dropped to almost nothing on the obscure ones. The latest Claude models and ProtGPT3-10B held up, and Fable 5.2 was the strongest on both.
+Famous proteins are a different story. Many models do well on them, and several recite hundreds of residues letter for letter (<a class="bp-xref" href="#appendix-b">Appendix B</a>), because these sequences are all over papers and the web. In a first round with famous and obscure proteins side by side, Gemini 4 Carbon was strong on the famous ones and dropped to almost nothing on the obscure ones. The latest Claude models and ProtGPT3-10B held up, and Fable 5.2 was the strongest on both.
 
 <figure class="bp-figure" markdown="0">
   <div class="bp-svg" role="img" aria-label="Dumbbell chart: on well-known proteins many models score high; on obscure proteins Claude Fable 5.2, Claude Opus 5.5 and ProtGPT3-10B stay high while Gemini 4 Carbon drops to near zero.">{% include llm-bioseq-probe/fig3_known_vs_obscure.svg %}</div>
@@ -187,7 +198,7 @@ This also explains the SOD1 and PG-LLM results. Ranking variants of a well-known
 
 The latest Claude models know protein families that almost nobody has studied. That takes a lot of sequence data, not a few examples: protein sequences were a sizeable part of their training. Opus 5.5 behaves like a protein language model, and Fable 5.2 goes beyond the best one we could run. GPT and Gemini show none of this. Whatever protein sequence they saw in training, it was not enough to learn these families.
 
-DNA is different. Opus 5.5 predicts human and mouse coding sequence but not the rest of the genome, and barely the bacterial genes behind the proteins it knows (Appendix A). It learned proteins, not genomes.
+DNA is different. Opus 5.5 predicts human and mouse coding sequence but not the rest of the genome, and barely the bacterial genes behind the proteins it knows (<a class="bp-xref" href="#appendix-a">Appendix A</a>). It learned proteins, not genomes.
 
 We are curious what else this knowledge supports. Fable 5.2 predicts little-studied proteins better than any open protein language model we ran, and protein language models carry more than next-residue statistics: ESM-2's internal representations hold enough structure that a small folding module on top predicts 3D structures (ESMFold<d-cite key="lin2023esmfold"></d-cite>), and their probabilities rank the effects of mutations<d-cite key="meier2021esm1v"></d-cite>. Could Claude fold a protein, or rank its variants, the same way?
 
@@ -210,7 +221,7 @@ All code, test sets, model outputs and figures are in [llm-bioseq-probe](https:/
 
 ## Appendix
 
-### A. DNA
+### A. DNA {#appendix-a}
 
 <figure class="bp-figure" markdown="0">
   <div class="bp-svg" role="img" aria-label="Forest plot by genomic region: Claude Opus 5.5 predicts human and mouse coding sequence; nothing clear elsewhere.">{% include llm-bioseq-probe/fig2_dna.svg %}</div>
@@ -218,7 +229,7 @@ All code, test sets, model outputs and figures are in [llm-bioseq-probe](https:/
 
 220-nucleotide windows, 200 shown and 20 to predict, from hg38, mm39 and the bacterial genes behind the test proteins, 500 per region. Non-coding windows contain no repeats, and the control shuffles each window keeping its dinucleotide counts. Opus 5.5 wrote all 20 nucleotides right 25 times in 500 human coding windows; a blind guess does that about once in a trillion. Gemini 4 Carbon blocks most DNA prompts before answering, so it is not shown.
 
-### B. Longer continuations
+### B. Longer continuations {#appendix-b}
 
 **All 10 residues right.** Each question asks for the next 10 residues. On the 668 little-studied proteins, Claude Fable 5.2 gets all 10 right at 88 real cuts and Opus 5.5 at 12, and neither at any shuffled one. If their residues were independent guesses at their own per-residue accuracy, they would get 15.8 and 0.57 by chance.
 
@@ -236,7 +247,7 @@ All code, test sets, model outputs and figures are in [llm-bioseq-probe](https:/
 
 GPT-6.1 Sol never reaches 100 residues, and GPT-5.5 never gets past 2.
 
-### C. Protein language models
+### C. Protein language models {#appendix-c}
 
 | Model | Reads | Input | Real | Shuffled | Real minus shuffled, points (95% CI) |
 |---|---|---|---|---|---|
@@ -251,7 +262,7 @@ GPT-6.1 Sol never reaches 100 residues, and GPT-5.5 never gets past 2.
 
 ProtGPT3-10B gets more answers right than Opus 5.5 (38.4% vs 34.9%) but also more on shuffled proteins (10.7% vs 7.5%), because it knows amino acid composition better; the gap between the two, which is what each model knows about order, comes out the same. The last row is fill-in-the-blank rather than continuation: ESM-2 also sees the residues after the cut, which the LLMs never get. Every model first passed a sanity check on well-known proteins. Continuing ubiquitin and hemoglobin β from the left, ProGen3-3B gets 98% and 87% of residues right and ProtGPT3-10B 100% and 84%; with the whole protein and one residue masked, ESM-2 gets 80% of ubiquitin, ESM C and ESM3-open 100%. Masks are set on token ids, because the ESM SDK's "_" character is not ESM C's mask token. ProtGPT2 uses multi-residue tokens, so a residue's probability is the sum over the tokens that start with it; ProGen3 and ProtGPT3 use one token per residue.
 
-### D. Robustness
+### D. Robustness {#appendix-d}
 
 - **Across families.** The gap is positive in 98% of families for Fable 5.2 and 94% for Opus 5.5.
 - **Family size.** Over all 257 families, the Spearman correlation between a family's gap and the log of its size is 0.50 for Opus 5.5, 0.48 for ProGen3-3B, 0.46 for ProtGPT3-10B, 0.38 for Fable 5.2, and 0.30 to 0.48 for Fable 5.1 and Opus 4.7 to 5 (all p < 10<sup>-6</sup>); for Opus 4.5 and 4.6 it is about 0.
@@ -263,7 +274,7 @@ ProtGPT3-10B gets more answers right than Opus 5.5 (38.4% vs 34.9%) but also mor
 - **Repeat runs.** Asked 400 of the same questions again, Fable 5.2 scores 57.5% on real and 9.5% on shuffled proteins, against 57.5% and 8.5% the first time.
 - **A first round.** A smaller run of 25 models on 37 families, half well-known and half obscure, gave the same picture and set the design of the main run.
 
-### E. Methods
+### E. Methods {#appendix-e}
 
 **Choosing the proteins.** We started from every Pfam family whose name says "domain of unknown function" (DUF) or "protein of unknown function", and kept those with no structure in the PDB, at most 3 Europe PMC hits for the family's accession, and at least 300 member proteins. We binned them by size (300 to 1,000 proteins, 1,000 to 3,000, 3,000 to 10,000, over 10,000) and drew 50 families per bin at random; only 17 families qualify above 10,000, so the set has 167. From each family we took 4 proteins from UniProt that are unreviewed (TrEMBL), come from Bacteria or Archaea, are 120 to 800 residues long, use only the 20 standard amino acids, are not low-complexity (Shannon entropy above 3.9 bits per residue), and are alone in their UniRef90 cluster, so no other UniProt protein is 90% or more identical to them. That gives 668 proteins.
 
@@ -299,11 +310,11 @@ Each model runs through its own API with temperature 0 where it is accepted, thi
 
 Total API cost was about $730, plus a few dollars of GPU time for the protein language models.
 
-### F. Safety behaviour seen along the way
+### F. Safety behaviour seen along the way {#appendix-f}
 
 Gemini 4 Carbon blocked about 75% of DNA prompts outright. OpenAI rejected 23 GPT-6 requests in the first round and 17 GPT-6.1 Sol requests in the main run as possible biological misuse, and 6.6% of GPT-6.2 Astra's main-set questions (GPT-6.2 Sol: 0.6%). Claude Sonnet 4.5 refused 97% of requests that started its reply with a protein sequence, and Anthropic's filter blocked 44% of Claude Fable 5's questions as cyber content.
 
-### G. Proteins published after the training cutoff
+### G. Proteins published after the training cutoff {#appendix-g}
 
 <figure class="bp-figure" markdown="0">
   <div class="bp-svg" role="img" aria-label="Dumbbell chart: on 56 proteins first public in August 2026, Claude Fable 5.2 scores +22.1, Claude Opus 5.5 +13.4, ProGen3-3B +12.0, ProtGPT3-10B +6.7 and GPT-6.2 Sol -0.4; on the same families in the main set they score +40.2, +27.1, +27.7, +18.7 and +2.2.">{% include llm-bioseq-probe/fig9_after_cutoff.svg %}</div>
@@ -312,3 +323,52 @@ Gemini 4 Carbon blocked about 75% of DNA prompts outright. OpenAI rejected 23 GP
 Leo Tianlai Chen built a set of 56 proteins from 31 of the families that were first made public in August 2026, after the assumed 1 July training cutoff, and have no earlier relative at 50% identity or more. The models cannot have seen them or anything close. Both Claude models still predict them, Fable 5.2 ahead of both protein language models, while GPT-6.2 Sol stays at zero. Every model scores about half of what it scores on the same families in the main set, as expected for proteins this distant. What the latest Claude models learned carries over to new members of a family.
 
 The proteins were dated at their source, and none matches an earlier UniRef50 cluster at 50% identity or more. Cuts follow the main set's rules. With 56 proteins only gaps of about 14 points or more are reliably detected, and the 1 July cutoff is an assumption.
+
+<script>
+(() => {
+  const init = () => {
+    const peek = document.createElement("div");
+    peek.className = "bp-peek";
+    document.body.appendChild(peek);
+    let hide, pinned = null;
+    const exhibit = (id) => {
+      const h = document.getElementById(id);
+      for (let e = h && h.nextElementSibling; e && !/^H[23]$/.test(e.tagName); e = e.nextElementSibling) {
+        const x = e.matches("figure, table") ? e : e.querySelector("figure, table");
+        if (x) return x;
+      }
+      return null;
+    };
+    const show = (a, x) => {
+      clearTimeout(hide);
+      peek.replaceChildren(x.cloneNode(true));
+      peek.classList.add("on");
+      const r = a.getBoundingClientRect(), w = peek.offsetWidth, h = peek.offsetHeight;
+      peek.style.left = Math.max(8, Math.min(r.left + r.width / 2 - w / 2, innerWidth - w - 8)) + "px";
+      peek.style.top = (r.bottom + 10 + h < innerHeight ? r.bottom + 10 : Math.max(8, r.top - h - 10)) + "px";
+    };
+    const close = () => { peek.classList.remove("on"); pinned = null; };
+    const hover = matchMedia("(hover: hover)").matches;
+    document.querySelectorAll("a.bp-xref").forEach((a) => {
+      const x = exhibit(a.getAttribute("href").slice(1));
+      if (!x) return;  // an appendix with no figure or table: the link jumps as usual
+      a.addEventListener("click", (ev) => {
+        ev.preventDefault();
+        if (pinned === a) return close();
+        pinned = a;
+        show(a, x);
+      });
+      if (hover) {
+        a.addEventListener("mouseenter", () => { if (!pinned) show(a, x); });
+        a.addEventListener("mouseleave", () => { if (!pinned) hide = setTimeout(close, 150); });
+      }
+    });
+    peek.addEventListener("mouseenter", () => clearTimeout(hide));
+    peek.addEventListener("mouseleave", () => { if (!pinned) close(); });
+    document.addEventListener("click", (ev) => { if (pinned && !peek.contains(ev.target) && !ev.target.closest("a.bp-xref")) close(); });
+    document.addEventListener("keydown", (ev) => { if (ev.key === "Escape") close(); });
+    addEventListener("scroll", () => { if (!pinned) close(); }, { passive: true });
+  };
+  document.readyState === "loading" ? document.addEventListener("DOMContentLoaded", init) : init();
+})();
+</script>

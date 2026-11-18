@@ -167,7 +167,7 @@ Protein language models learn only from sequences, so they are the natural yards
   <div class="bp-svg" role="img" aria-label="Dot plot: Claude Fable 5.2 +45.1 at the top, then ProGen3-3B +32.5, ProtGPT3-10B +27.7 and Claude Opus 5.5 +27.4; ESM C 600M +13.0, ProtGPT3-1.3B +11.6, ProtGPT2 +10.2, ESM3-open +8.5 and ESM-2 650M +7.0 well below.">{% include llm-bioseq-probe/fig6_protein_lm.svg %}</div>
 </figure>
 
-ESM models are trained to see both sides of a residue, so continuing from the left is harder for them. <a class="bp-xref" href="#appendix-c">Appendix C</a> has all eight models.
+ESM models are trained to see both sides of a residue, so continuing from the left is harder for them. <a class="bp-xref" href="#appendix-c">Appendix C</a> has all nine models.
 
 ## Evidence that this comes from training data
 
@@ -258,9 +258,10 @@ GPT-6.1 Sol never reaches 100 residues, and GPT-5.5 never gets past 2.
 | ProtGPT2 | left to right | residues before the cut | 19.0% | 8.8% | +10.2 (8.3 to 12.2) |
 | ESM3-open 1.4B | both sides | residues before the cut | 19.6% | 11.0% | +8.5 (6.4 to 10.7) |
 | ESM-2 650M | both sides | residues before the cut | 17.3% | 10.3% | +7.0 (5.2 to 8.9) |
+| Prot-xLSTM 102M | left to right | residues before the cut | 12.9% | 10.3% | +2.5 (1.0 to 4.2) |
 | ESM-2 650M | both sides | residues on both sides of the cut | 45.7% | 11.1% | +34.6 (31.8 to 37.3) |
 
-ProtGPT3-10B gets more answers right than Opus 5.5 (38.4% vs 34.9%) but also more on shuffled proteins (10.7% vs 7.5%), because it knows amino acid composition better; the gap between the two, which is what each model knows about order, comes out the same. The last row is fill-in-the-blank rather than continuation: ESM-2 also sees the residues after the cut, which the LLMs never get. Every model first passed a sanity check on well-known proteins. Continuing ubiquitin and hemoglobin β from the left, ProGen3-3B gets 98% and 87% of residues right and ProtGPT3-10B 100% and 84%; with the whole protein and one residue masked, ESM-2 gets 80% of ubiquitin, ESM C and ESM3-open 100%. Masks are set on token ids, because the ESM SDK's "_" character is not ESM C's mask token. ProtGPT2 uses multi-residue tokens, so a residue's probability is the sum over the tokens that start with it; ProGen3 and ProtGPT3 use one token per residue.
+ProtGPT3-10B gets more answers right than Opus 5.5 (38.4% vs 34.9%) but also more on shuffled proteins (10.7% vs 7.5%), because it knows amino acid composition better; the gap between the two, which is what each model knows about order, comes out the same. Prot-xLSTM is trained to read a protein after a set of its homologs; on the protein alone, as here, it is near zero, though one homolog in context lifts it from 14% to 81% on hemoglobin β. The last row is fill-in-the-blank rather than continuation: ESM-2 also sees the residues after the cut, which the LLMs never get. Every model first passed a sanity check on well-known proteins. Continuing ubiquitin and hemoglobin β from the left, ProGen3-3B gets 98% and 87% of residues right and ProtGPT3-10B 100% and 84%; with the whole protein and one residue masked, ESM-2 gets 80% of ubiquitin, ESM C and ESM3-open 100%. Masks are set on token ids, because the ESM SDK's "_" character is not ESM C's mask token. ProtGPT2 uses multi-residue tokens, so a residue's probability is the sum over the tokens that start with it; ProGen3 and ProtGPT3 use one token per residue.
 
 ### D. Robustness {#appendix-d}
 
@@ -306,7 +307,7 @@ Each model runs through its own API with temperature 0 where it is accepted, thi
 
 **Raw continuation.** For models that allow it, the same prefix is sent without any instruction, as the text ">sequence" followed by the FASTA lines, through a plain completion endpoint (open-weight models on Fireworks) or as the start of the model's own reply (Gemini 2.5 Pro). The first letter the model writes is scored as above.
 
-**Protein language models.** They get the same prefix and no prompt. ProGen3, ProtGPT3 and ProtGPT2 read it left to right and give a probability for the next token; the ESM models see the prefix, a mask in place of the next residue, and the end of the sequence. In every case the prediction is the most likely of the 20 standard amino acids.
+**Protein language models.** They get the same prefix and no prompt. ProGen3, ProtGPT3, ProtGPT2 and Prot-xLSTM read it left to right and give a probability for the next token; the ESM models see the prefix, a mask in place of the next residue, and the end of the sequence. In every case the prediction is the most likely of the 20 standard amino acids.
 
 Total API cost was about $730, plus a few dollars of GPU time for the protein language models.
 

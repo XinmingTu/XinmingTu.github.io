@@ -97,6 +97,12 @@ _styles: |
     margin: 0.3rem 0 2rem; padding: 0.1rem 0 0.1rem 1rem;
   }
   d-article .bp-lede p { margin: 0 0 0.6rem; }
+  d-article .bp-update {
+    background: var(--bp-panel); border: 1px solid var(--bp-line); border-radius: 8px;
+    padding: 0.8rem 1.1rem 0.2rem; margin: -0.8rem 0 2rem; font-size: 0.95rem;
+  }
+  d-article .bp-update p, d-article .bp-update li { font-size: 0.95rem; line-height: 1.5; margin-bottom: 0.45rem; }
+  d-article .bp-update ul { margin: 0.2rem 0 0.6rem; padding-left: 1.1rem; }
   d-article .bp-lede strong { color: var(--bp-ink); }
   d-article figure.bp-figure { margin: 1.6rem 0 2rem; }
   @media (min-width: 1000px) {
@@ -130,6 +136,14 @@ _styles: |
 
 <div class="bp-lede" markdown="1">
 **The latest Claude models were trained on protein sequences, at scale.** Give Claude Fable 5.2 or Claude Opus 5.5 the start of a little-studied bacterial protein and they predict the next amino acid. Shuffle the protein and they can't. No other model we tested can do this. Like a protein language model, they do better on bigger protein families, and they do it even in families with no papers at all. Fable 5.2 beats every open protein language model we ran, and Opus 5.5 is level with ProtGPT3-10B, the largest of them.
+</div>
+
+<div class="bp-update" markdown="1">
+**Update, 18 November 2026.** Since the first version:
+
+- **Proteins published after the training cutoff.** With Leo Tianlai Chen, 56 proteins first made public in August 2026, with no earlier relative at 50% identity or more. The latest Claude models still predict them (<a class="bp-xref" href="#appendix-g">Appendix G</a>).
+- **More protein language models.** ProGen3-3B is the strongest open one we ran, and Fable 5.2 still beats it; Prot-xLSTM is in <a class="bp-xref" href="#appendix-c">Appendix C</a>.
+- **More GPT models.** GPT-6.2 Sol and Astra show no sign of it either.
 </div>
 
 ## Motivation

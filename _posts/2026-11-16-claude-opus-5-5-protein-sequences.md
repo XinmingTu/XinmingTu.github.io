@@ -139,11 +139,12 @@ _styles: |
 </div>
 
 <div class="bp-update" markdown="1">
-**Update, 18 November 2026.** Since the first version:
+**Update, 20 November 2026.** Since the first version:
 
 - **Proteins published after the training cutoff.** With Leo Tianlai Chen, 56 proteins first made public in August 2026, with no earlier relative at 50% identity or more. The latest Claude models still predict them (<a class="bp-xref" href="#appendix-g">Appendix G</a>).
 - **More protein language models.** ProGen3-3B is the strongest open one we ran, and Fable 5.2 still beats it; Prot-xLSTM is in <a class="bp-xref" href="#appendix-c">Appendix C</a>.
 - **More GPT models.** GPT-6.2 Sol and Astra show no sign of it either.
+- **Contact maps.** Asked for a protein's contact map, Fable 5.2 draws real structure, though less accurately than ESM-2 (<a class="bp-xref" href="#appendix-h">Appendix H</a>).
 </div>
 
 ## Motivation
@@ -338,6 +339,14 @@ Gemini 4 Carbon blocked about 75% of DNA prompts outright. OpenAI rejected 23 GP
 Leo Tianlai Chen built a set of 56 proteins from 31 of the families that were first made public in August 2026, after the assumed 1 July training cutoff, and have no earlier relative at 50% identity or more. The models cannot have seen them or anything close. Both Claude models still predict them, Fable 5.2 ahead of both protein language models, while GPT-6.2 Sol stays at zero. Every model scores about half of what it scores on the same families in the main set, as expected for proteins this distant. What the latest Claude models learned carries over to new members of a family.
 
 The proteins were dated at their source, and none matches an earlier UniRef50 cluster at 50% identity or more. Cuts follow the main set's rules. With 56 proteins only gaps of about 14 points or more are reliably detected, and the 1 July cutoff is an assumption.
+
+### H. Contact maps {#appendix-h}
+
+<figure class="bp-figure" markdown="0">
+  <div class="bp-svg" role="img" aria-label="Two scatter plots, one per prompt format: each point is a protein released after August 2026, Claude Fable 5.2's long-range contact precision against ESM-2 650M's at the same number of predictions; most points lie below the diagonal, so ESM-2 is more accurate.">{% include llm-bioseq-probe/fig10_contact_maps.svg %}</div>
+</figure>
+
+Given only a sequence and asked for its contact map (residues whose C-beta atoms are within 8 Å; the prompt is Leo Tianlai Chen's), Fable 5.2 draws real structure. On 46 proteins whose structures were released after August 2026, its long-range contacts are right about a quarter of the time, against 3% by chance. ESM-2 650M, given the same number of contacts, is right about two-thirds of the time. Most of these sequences, and often a predicted structure, were public before the cutoff, and only two were not: too few to tell recall from inference. Fable's maps also change a lot from one run to the next. Opus 5.5 does worse, and GPT-6.2 Sol mostly declines.
 
 <script>
 (() => {
